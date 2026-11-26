@@ -8,8 +8,10 @@ import { formatDate, formatDateTime } from "@/components/ui/money";
 import { StatusMark } from "@/components/ui/status";
 import type { EvidenceStatus } from "@/lib/domain/schemas";
 import { cn } from "@/lib/util/cn";
-import type { BallotView, CalendarView, FundingView } from "@/lib/vote/view-data";
+import type { AffiliationView, BallotView, CalendarView, FundingView, InterestView } from "@/lib/vote/view-data";
+import { AffiliationsSection } from "./affiliations";
 import { BallotPrep } from "./ballot-prep";
+import { MayInterest } from "./may-interest";
 import { askDeltas, bookmarkAlerts, expirationAlerts, exportWorkspace, fingerprintFor, parseImport, type ChangeRef, type Priority } from "./schema";
 import { AskDeltaNote, useFundingBaseline } from "./since-visit";
 import { VoteCalendar } from "./vote-calendar";
@@ -75,6 +77,8 @@ export interface WorkspaceVote {
   calendar: CalendarView;
   funding: FundingView;
   ballot: BallotView;
+  affiliation: AffiliationView;
+  interest: InterestView;
 }
 
 export function WorkspaceView({ initiatives, changes, datasetVersion, vote }: { initiatives: Ini[]; changes: Record<string, ChangeRef[]>; datasetVersion: string; vote: WorkspaceVote }) {
@@ -328,7 +332,11 @@ export function WorkspaceView({ initiatives, changes, datasetVersion, vote }: { 
         )}
       </Section>
 
-      <BallotPrep view={vote.ballot} datasetVersion={datasetVersion} deltas={deltas} />
+      <MayInterest view={vote.interest} targets={vote.affiliation.targets} shared={vote.affiliation.shared} />
+
+      <AffiliationsSection view={vote.affiliation} initiatives={initiatives} />
+
+      <BallotPrep view={vote.ballot} datasetVersion={datasetVersion} deltas={deltas} affiliation={vote.affiliation} />
 
       <Assessments initiatives={initiatives} changes={changes} datasetVersion={datasetVersion} expiredById={expiredById} label={label} />
 

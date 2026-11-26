@@ -10,6 +10,10 @@ import { OVERLAP_METHOD_VERSION, OVERLAP_THRESHOLDS } from "@/lib/intelligence/o
 import { CONTACT_RETENTION_DAYS } from "@/lib/corrections";
 import { METHODOLOGY_VERSION, METRICS, type MetricUnit } from "@/lib/metrics/registry";
 import { PRIVACY_LOCAL_KEYS } from "@/lib/privacy";
+import { MODE_BY_ID } from "@/lib/skills/modes";
+import { AFFILIATED_WITH, GENERIC_WORDS, MAY_BE_AFFILIATED, POSSIBLY_OWN } from "@/lib/vote/affiliation";
+import { DIRECTORY_UNAVAILABLE_NOTE } from "@/lib/vote/badge-directory";
+import { FOCUS_MODE_TABLE } from "@/lib/vote/interest";
 
 export const metadata: Metadata = { title: "Methodology" };
 
@@ -56,6 +60,8 @@ export default function MethodologyPage() {
                 ["questions", "Questions and blind spots"],
                 ["identity", "Organization identity"],
                 ["neutrality", "Neutrality rules"],
+                ["affiliation", "Affiliation flags"],
+                ["interest", "May interest you"],
                 ["privacy", "Privacy"],
               ].map(([id, l]) => (
                 <li key={id}>
@@ -229,6 +235,53 @@ export default function MethodologyPage() {
         </ul>
       </Block>
 
+      <Block id="affiliation" title="Affiliation flags" note="Flags make possible conflicts visible. No initiative is ever hidden or reordered because of them.">
+        <ul className="max-w-[860px] list-disc space-y-1 pl-5 text-sm text-ink-2">
+          <li>
+            &ldquo;{AFFILIATED_WITH} &hellip;&rdquo; lists the other initiatives that share an affiliation group with an initiative in TheDAO&apos;s official vote manifest. It is shown only when the manifest is confirmed to align with the cohort; otherwise the flag is off and the page says why.
+          </li>
+          <li>
+            My affiliations in My Workspace compares the organizations you list with each initiative&apos;s manifest groups, official recipient team and the published organization aliases (see Organization identity). A match shows an amber &ldquo;{MAY_BE_AFFILIATED}&rdquo; tag with the matched text, and Ballot Prep shows &ldquo;{POSSIBLY_OWN}&rdquo; next to the tier choice. You can mark or unmark any initiative by hand; the matching runs in your browser.
+          </li>
+          <li>
+            Matching folds case and accents and splits text into words. An entry is also tried as the text inside and outside its parentheses, so &ldquo;Security Alliance (SEAL)&rdquo; is tried as &ldquo;Security Alliance&rdquo; and &ldquo;SEAL&rdquo; too. A term matches when the full texts are equal without punctuation, or when its remaining words appear as a consecutive run in the official text (or the reverse).
+          </li>
+          <li>
+            Generic words never match on their own, so &ldquo;Ethereum Foundation&rdquo; matches nothing unless an official text is exactly that: <span className="text-xs">{GENERIC_WORDS.join(", ")}</span>.
+          </li>
+          <li>{DIRECTORY_UNAVAILABLE_NOTE}</li>
+        </ul>
+      </Block>
+
+      <Block id="interest" title="May interest you" note="An explained starting set built in your browser. No ranking, score, match percentage or advice.">
+        <ul className="mb-4 max-w-[860px] list-disc space-y-1 pl-5 text-sm text-ink-2">
+          <li>Inputs are local: focus chips (the official categories and the AI Lab research modes) and keywords you type.</li>
+          <li>A category chip matches initiatives with that official category. A research mode matches initiatives in its mapped categories, or else whose official title, summary or listed standards contain one of its keywords (whole words, any case). A typed keyword matches the same fields.</li>
+          <li>Results are grouped by the focus they match, in the order of the chips; inside each group the order is alphabetical. Every item states why it matched, with the matched text, and links to evidence: the official initiative page and, when one exists, an independent source for a supported statement. Items without an evidence link are left out.</li>
+        </ul>
+        <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="Research mode mapping table">
+          <table className="w-full min-w-[640px] max-w-[1100px] border-y border-rule text-sm" data-mode-table>
+            <caption className="mb-2 text-left text-xs text-ink-3">Research mode to category and keyword mapping. One table in the code (lib/vote/interest.ts) feeds this page and the workspace view.</caption>
+            <thead>
+              <tr className="border-b border-rule text-left text-xs text-ink-3">
+                <th className="py-1.5 pr-4 font-medium">Research mode</th>
+                <th className="py-1.5 pr-4 font-medium">Official categories</th>
+                <th className="py-1.5 font-medium">Keywords</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-rule">
+              {FOCUS_MODE_TABLE.map((m) => (
+                <tr key={m.mode} className="align-top">
+                  <td className="py-1.5 pr-4 font-medium">{MODE_BY_ID.get(m.mode)?.label ?? m.mode}</td>
+                  <td className="py-1.5 pr-4 text-ink-2">{m.categories.length ? m.categories.join(", ") : "None (keywords only)"}</td>
+                  <td className="py-1.5 text-ink-2">{m.keywords.join(", ")}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </Block>
+
       <Block id="privacy" title="Privacy" note="This list is checked against the code by an automated test. Nothing personal leaves your browser unless you submit a correction.">
         <div className="grid max-w-[1100px] gap-8 text-sm text-ink-2 lg:grid-cols-3 [&>*]:min-w-0">
           <div>
@@ -236,7 +289,7 @@ export default function MethodologyPage() {
             <p className="mb-2">Kept in this browser&apos;s local storage, never sent to the server. Clearing this site&apos;s data in the browser, or the Clear button in My Workspace, removes it.</p>
             <ul className="list-disc space-y-1 pl-5">
               <li>
-                <code className="num text-xs">{PRIVACY_LOCAL_KEYS.workspace}</code>: My Workspace. Saved initiatives with your priority and review state, saved searches, bookmarked statements with the status you saw, saved comparisons, notes, open questions, research priorities, draft assessments, the last page you visited and when you last reviewed the change log. Your Ballot Prep draft (S, A and B tiers) and the TheDAO asks you last saw, used for &ldquo;since your last visit&rdquo;, are kept in the same entry. Focus and affiliation settings are kept in the same entry.
+                <code className="num text-xs">{PRIVACY_LOCAL_KEYS.workspace}</code>: My Workspace. Saved initiatives with your priority and review state, saved searches, bookmarked statements with the status you saw, saved comparisons, notes, open questions, research priorities, draft assessments, the last page you visited and when you last reviewed the change log. Your Ballot Prep draft (S, A and B tiers) and the TheDAO asks you last saw, used for &ldquo;since your last visit&rdquo;, are kept in the same entry. Your affiliations with the initiatives you marked or unmarked by hand, and your May interest you focus chips and keywords, are kept in the same entry.
               </li>
               <li>
                 <code className="num text-xs">{PRIVACY_LOCAL_KEYS.labTemplates}</code>: AI Lab templates you save.

@@ -74,6 +74,26 @@ export type FundingVisits = z.infer<typeof FundingVisits>;
 export const BallotDraft = z.object({ tiers: z.record(Id, z.enum(["S", "A", "B"])), updatedAt: When });
 export type BallotDraft = z.infer<typeof BallotDraft>;
 
+/**
+ * "My affiliations": organizations the holder works with, advises or founded (free text), and
+ * manual overrides per initiative id ("mine" marks it, "not_mine" dismisses an automatic match).
+ * `suggested` is true while the entries came from the public-profile lookup and were not edited.
+ */
+export const Affiliations = z.object({
+  entries: z.array(Text(160)).max(50).default([]),
+  overrides: z.record(Id, z.enum(["mine", "not_mine"])).default({}),
+  suggested: z.boolean().default(false),
+});
+export type Affiliations = z.infer<typeof Affiliations>;
+
+/** "May interest you" inputs: focus chip ids ("cat:<slug>" or "mode:<id>") and free-text keywords. */
+export const Interest = z.object({
+  focus: z.array(Text(80)).max(40).default([]),
+  keywords: z.array(Text(80)).max(30).default([]),
+  suggested: z.boolean().default(false),
+});
+export type Interest = z.infer<typeof Interest>;
+
 export const WorkspaceSchema = z
   .object({
     version: z.literal(1),
@@ -90,6 +110,8 @@ export const WorkspaceSchema = z
     lastReviewAt: When.nullable().default(null),
     funding: FundingVisits.default({ seen: null, baseline: null }),
     ballotDraft: BallotDraft.nullable().default(null),
+    affiliations: Affiliations.default({ entries: [], overrides: {}, suggested: false }),
+    interest: Interest.default({ focus: [], keywords: [], suggested: false }),
   })
   .passthrough();
 export type Workspace = z.infer<typeof WorkspaceSchema>;
@@ -198,6 +220,25 @@ export function askDeltas(baseline: FundingSnapshot | null, asks: Record<string,
     if (typeof before === "number" && typeof after === "number" && before !== after) out.push({ id, beforeCents: before, afterCents: after, deltaCents: after - before });
   }
   return out;
+}
+
+/** Adds an affiliation entry (trimmed, case-insensitive duplicates ignored). Editing clears `suggested`. */
+export function addAffiliationEntry(a: Affiliations, text: string): Affiliations {
+  const t = text.trim().replace(/\s+/g, " ").slice(0, 160);
+  if (!t || a.entries.some((e) => e.toLowerCase() === t.toLowerCase()) || a.entries.length >= 50) return a;
+  return { ...a, entries: [...a.entries, t], suggested: false };
+}
+
+export function removeAffiliationEntry(a: Affiliations, text: string): Affiliations {
+  return { ...a, entries: a.entries.filter((e) => e !== text), suggested: false };
+}
+
+/** Sets or clears (null) the manual override for one initiative. */
+export function setAffiliationOverride(a: Affiliations, id: string, value: "mine" | "not_mine" | null): Affiliations {
+  const overrides = { ...a.overrides };
+  if (value) overrides[id] = value;
+  else delete overrides[id];
+  return { ...a, overrides };
 }
 
 export const newId = (prefix: string) => `${prefix}_${Date.now().toString(36)}${Math.random().toString(36).slice(2, 7)}`;

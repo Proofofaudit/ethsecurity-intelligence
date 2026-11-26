@@ -24,6 +24,7 @@ export const LINT_TARGETS = [
   "lib/disclosure.ts",
   "lib/corrections",
   "lib/metrics/registry.ts",
+  "lib/vote",
   "mcp",
   "scripts/build-skills.ts",
   "skills",

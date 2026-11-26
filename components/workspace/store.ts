@@ -6,7 +6,7 @@
  */
 import { useSyncExternalStore } from "react";
 import type { EvidenceStatus } from "@/lib/domain/schemas";
-import { EMPTY_WORKSPACE, newId, recordFundingView, WorkspaceSchema, type Fingerprint, type Priority, type Workspace } from "./schema";
+import { addAffiliationEntry, EMPTY_WORKSPACE, newId, recordFundingView, removeAffiliationEntry, setAffiliationOverride, WorkspaceSchema, type Fingerprint, type Priority, type Workspace } from "./schema";
 import type { Tier } from "@/lib/vote/ballot-rules";
 
 export { WorkspaceSchema, type SavedSearch, type Workspace } from "./schema";
@@ -213,4 +213,40 @@ export function setBallotTier(id: string, tier: Tier | null) {
 
 export function clearBallotDraft() {
   updateWorkspace((w) => ({ ...w, ballotDraft: null }));
+}
+
+export function addAffiliation(text: string) {
+  updateWorkspace((w) => ({ ...w, affiliations: addAffiliationEntry(w.affiliations, text) }));
+}
+
+export function removeAffiliation(text: string) {
+  updateWorkspace((w) => ({ ...w, affiliations: removeAffiliationEntry(w.affiliations, text) }));
+}
+
+export function setAffiliationMark(id: string, value: "mine" | "not_mine" | null) {
+  updateWorkspace((w) => ({ ...w, affiliations: setAffiliationOverride(w.affiliations, id, value) }));
+}
+
+/** Pre-fill from the public-profile lookup; the holder can edit everything afterwards. */
+export function applyPublicSuggestion(organizations: string[], expertise: string[]) {
+  updateWorkspace((w) => {
+    let a = w.affiliations;
+    for (const o of organizations) a = addAffiliationEntry(a, o);
+    const keywords = [...w.interest.keywords];
+    for (const e of expertise) if (e.trim() && !keywords.some((k) => k.toLowerCase() === e.trim().toLowerCase())) keywords.push(e.trim().slice(0, 80));
+    return { ...w, affiliations: { ...a, suggested: true }, interest: { ...w.interest, keywords: keywords.slice(0, 30), suggested: true } };
+  });
+}
+
+export function toggleFocus(id: string) {
+  updateWorkspace((w) => ({ ...w, interest: { ...w.interest, focus: w.interest.focus.includes(id) ? w.interest.focus.filter((f) => f !== id) : [...w.interest.focus, id].slice(0, 40) } }));
+}
+
+export function addInterestKeyword(text: string) {
+  const t = text.trim().replace(/\s+/g, " ").slice(0, 80);
+  updateWorkspace((w) => (!t || w.interest.keywords.some((k) => k.toLowerCase() === t.toLowerCase()) ? w : { ...w, interest: { ...w.interest, keywords: [...w.interest.keywords, t].slice(0, 30), suggested: false } }));
+}
+
+export function removeInterestKeyword(text: string) {
+  updateWorkspace((w) => ({ ...w, interest: { ...w.interest, keywords: w.interest.keywords.filter((k) => k !== text), suggested: false } }));
 }

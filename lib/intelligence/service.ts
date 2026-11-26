@@ -11,6 +11,7 @@ import { backerTotals, cohortMetrics, initiativeMetrics, type MetricValue } from
 import { METHODOLOGY_VERSION, METRIC_BY_ID } from "@/lib/metrics/registry";
 import { NEUTRAL_SORT_LABEL } from "@/lib/neutralLanguage";
 import { formatUsd, sumCents } from "@/lib/util/money";
+import { sharedAffiliations, type SharedGroup } from "@/lib/vote/affiliation";
 import { voteFeatureState } from "@/lib/vote/manifest";
 import { sentences } from "@/lib/util/text";
 import { hypotheses, pairSignals, type PairSignals } from "./overlap";
@@ -104,6 +105,16 @@ export interface InitiativeSummary {
   eligibilityNote: string | null;
   durationMonths: number | null;
   url: string;
+  /** Manifest affiliation groups shared with other initiatives (empty when groups are unavailable). */
+  affiliatedWith: SharedGroup[];
+}
+
+const sharedCache = new WeakMap<Dataset, Record<string, SharedGroup[]>>();
+/** Cached sharedAffiliations with display names as labels. */
+export function sharedGroupsOf(d: Dataset, id: string): SharedGroup[] {
+  let m = sharedCache.get(d);
+  if (!m) sharedCache.set(d, (m = sharedAffiliations(d, (i) => displayName(d, i))));
+  return m[id] ?? [];
 }
 
 export function summarize(d: Dataset, ini: Initiative): InitiativeSummary {
@@ -151,6 +162,7 @@ export function summarize(d: Dataset, ini: Initiative): InitiativeSummary {
     eligibilityNote: ini.eligibilityNote,
     durationMonths: ini.durationMonths,
     url: ini.url,
+    affiliatedWith: sharedGroupsOf(d, ini.id),
   };
 }
 

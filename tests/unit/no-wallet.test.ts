@@ -63,8 +63,8 @@ describe("no wallet libraries", () => {
     });
   }
 
-  it("Ballot Prep, the Vote Calendar and the visit comparison make no network requests", async () => {
-    for (const f of ["components/workspace/ballot-prep.tsx", "components/workspace/vote-calendar.tsx", "components/workspace/since-visit.tsx", "lib/vote/ballot-rules.ts", "lib/vote/calendar.ts"]) {
+  it("Ballot Prep, the Vote Calendar, the visit comparison, affiliations and May interest you make no network requests", async () => {
+    for (const f of ["components/workspace/ballot-prep.tsx", "components/workspace/vote-calendar.tsx", "components/workspace/since-visit.tsx", "lib/vote/ballot-rules.ts", "lib/vote/calendar.ts", "components/workspace/affiliations.tsx", "components/workspace/may-interest.tsx", "lib/vote/affiliation.ts", "lib/vote/interest.ts", "lib/vote/badge-directory.ts"]) {
       const src = await read(f);
       expect(/\bfetch\s*\(|XMLHttpRequest|sendBeacon|WebSocket|EventSource|Notification|serviceWorker|mailto:/.test(src), f).toBe(false);
     }

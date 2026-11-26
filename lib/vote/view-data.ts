@@ -4,8 +4,10 @@
  * micro-USD strings, asks as integer cents.
  */
 import type { Dataset } from "@/lib/domain/schemas";
-import { displayName } from "@/lib/intelligence/service";
+import { displayName, PRESENT_SUPPORTED } from "@/lib/intelligence/service";
+import { affiliationSuggestions, affiliationTargets, GROUPS_OFF_NOTE, sharedAffiliations, type AffiliationTarget, type SharedGroup } from "./affiliation";
 import { resolveSchedule, type VoteSchedule } from "./calendar";
+import { focusChips, type FocusChip, type InterestInitiative } from "./interest";
 import { voteFeatureState } from "./manifest";
 
 export interface FundingView {
@@ -40,6 +42,50 @@ export interface BallotView {
   poolMicro: string | null;
   independentTiers: number;
   items: BallotItem[];
+}
+
+export interface AffiliationView {
+  /** Why the manifest-group flags are off; null when they run. */
+  groupsOffReason: string | null;
+  targets: AffiliationTarget[];
+  suggestions: string[];
+  shared: Record<string, SharedGroup[]>;
+}
+
+export interface InterestView {
+  chips: FocusChip[];
+  initiatives: InterestInitiative[];
+}
+
+export function affiliationView(d: Dataset): AffiliationView {
+  const targets = affiliationTargets(d);
+  return {
+    groupsOffReason: d.vote.groupsAvailable ? null : `${GROUPS_OFF_NOTE} (${d.vote.statusReason})`,
+    targets,
+    suggestions: affiliationSuggestions(targets),
+    shared: sharedAffiliations(d, (i) => displayName(d, i)),
+  };
+}
+
+export function interestView(d: Dataset): InterestView {
+  const categories = new Map<string, string>();
+  for (const i of d.initiatives) for (const c of i.categories) categories.set(c.slug, c.label);
+  const evidence = new Map(d.evidence.map((e) => [e.id, e]));
+  const initiatives = d.initiatives
+    .map((i): InterestInitiative => {
+      let ev: InterestInitiative["evidence"] = null;
+      for (const c of d.claims) {
+        if (c.initiativeId !== i.id || !PRESENT_SUPPORTED.includes(c.status)) continue;
+        const e = c.supportingEvidenceIds.map((id) => evidence.get(id)).find((x) => x && x.ok && /^https:\/\//.test(x.url));
+        if (e) {
+          ev = { url: e.url, title: e.title };
+          break;
+        }
+      }
+      return { id: i.id, slug: i.slug, label: displayName(d, i), title: i.title, summary: i.summary, categories: i.categories, standards: i.standards, officialUrl: i.url, evidence: ev };
+    })
+    .sort((a, b) => a.label.localeCompare(b.label));
+  return { chips: focusChips([...categories].map(([slug, label]) => ({ slug, label }))), initiatives };
 }
 
 export function fundingView(d: Dataset): FundingView {

@@ -4,7 +4,7 @@ import type { ChangeRef } from "@/components/workspace/schema";
 import { PageHead } from "@/components/ui/layout";
 import { loadIntelligence } from "@/lib/intelligence/load";
 import { displayName } from "@/lib/intelligence/service";
-import { ballotView, calendarView, fundingView } from "@/lib/vote/view-data";
+import { affiliationView, ballotView, calendarView, fundingView, interestView } from "@/lib/vote/view-data";
 
 export const metadata: Metadata = { title: "My Workspace" };
 export const revalidate = 600;
@@ -20,9 +20,9 @@ export default async function WorkspacePage() {
       <PageHead
         eyebrow="My Workspace"
         title="Your private research workspace"
-        lede={<p>Vote calendar, Ballot Prep, saved initiatives, bookmarked evidence, comparisons, notes, open questions and assessments. Everything on this page is stored in this browser only. There is no account, and nothing here is sent to the server.</p>}
+        lede={<p>Vote calendar, a starting set that may interest you, your affiliations, Ballot Prep, saved initiatives, bookmarked evidence, comparisons, notes, open questions and assessments. Everything on this page is stored in this browser only. There is no account, and nothing here is sent to the server.</p>}
       />
-      <WorkspaceView initiatives={initiatives} changes={changes} datasetVersion={d.meta.datasetVersion} vote={{ calendar: calendarView(d), funding: fundingView(d), ballot: ballotView(d) }} />
+      <WorkspaceView initiatives={initiatives} changes={changes} datasetVersion={d.meta.datasetVersion} vote={{ calendar: calendarView(d), funding: fundingView(d), ballot: ballotView(d), affiliation: affiliationView(d), interest: interestView(d) }} />
     </>
   );
 }

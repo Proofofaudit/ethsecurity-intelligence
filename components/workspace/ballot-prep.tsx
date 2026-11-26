@@ -11,7 +11,9 @@ import { formatUsd } from "@/lib/util/money";
 import { cn } from "@/lib/util/cn";
 import { checkBallot, fixFor, formatMicroUsd, shareText, TIERS, type BallotChecks, type BallotProject, type Draft, type Tier } from "@/lib/vote/ballot-rules";
 import { VOTE_APP_URL, VOTING_POST_URL } from "@/lib/vote/calendar";
-import type { BallotView } from "@/lib/vote/view-data";
+import { isFlagged, POSSIBLY_OWN, S_TIER_REMINDER } from "@/lib/vote/affiliation";
+import type { AffiliationView, BallotView } from "@/lib/vote/view-data";
+import { AffiliationTag, SharedGroupLine, useAffiliationFlags } from "./affiliations";
 import type { AskDelta } from "./schema";
 import { AskDeltaNote } from "./since-visit";
 import { clearBallotDraft, setBallotTier, useWorkspace } from "./store";
@@ -70,8 +72,10 @@ function draftText(view: BallotView, checks: BallotChecks | null, label: (id: st
   return lines.join("\n");
 }
 
-export function BallotPrep({ view, datasetVersion, deltas }: { view: BallotView; datasetVersion: string; deltas: Map<string, AskDelta> }) {
+export function BallotPrep({ view, datasetVersion, deltas, affiliation }: { view: BallotView; datasetVersion: string; deltas: Map<string, AskDelta>; affiliation: AffiliationView }) {
   const w = useWorkspace();
+  const flags = useAffiliationFlags(affiliation.targets);
+  const anyFlagged = view.items.some((i) => isFlagged(flags.get(i.id) ?? null));
   const [message, setMessage] = useState<{ tone: "ok" | "error"; text: string } | null>(null);
   const draft: Draft = useMemo(() => w.ballotDraft?.tiers ?? {}, [w.ballotDraft]);
   const byId = useMemo(() => new Map(view.items.map((i) => [i.id, i])), [view.items]);
@@ -240,6 +244,11 @@ export function BallotPrep({ view, datasetVersion, deltas }: { view: BallotView;
           <p className="eyebrow mb-1">
             {view.items.length} initiatives · {NEUTRAL_SORT_LABEL}
           </p>
+          {anyFlagged && (
+            <p className="mb-2 border-l-2 border-st-partial pl-3 text-xs text-ink-2" data-s-tier-reminder>
+              {S_TIER_REMINDER}
+            </p>
+          )}
           <ul className="divide-y divide-rule border-y border-rule">
             {view.items.map((i) => {
               const choice: Choice = draft[i.id] ?? "Off";
@@ -253,8 +262,12 @@ export function BallotPrep({ view, datasetVersion, deltas }: { view: BallotView;
                       {i.sub ?? "No designated recipient"} · Goal <span className="num">{i.goalMicro ? formatMicroUsd(BigInt(i.goalMicro)) : "Unavailable"}</span> · TheDAO ask <span className="num">{formatUsd(i.askCents)}</span> · {i.groups.length ? `Affiliation: ${i.groups.join(", ")}` : "Unaffiliated"}
                     </span>
                     <AskDeltaNote delta={deltas.get(i.id)} className="block text-xs text-ink-2" />
+                    <SharedGroupLine groups={affiliation.shared[i.id]} />
                   </div>
-                  <Segmented<Choice> className="justify-self-start sm:justify-self-end" label={`Tier for ${i.label}`} value={choice} options={CHOICES} onChange={(v) => setBallotTier(i.id, v === "Off" ? null : v)} />
+                  <div className="flex flex-wrap items-center gap-2 justify-self-start sm:justify-self-end sm:justify-end">
+                    <AffiliationTag flag={flags.get(i.id)} label={POSSIBLY_OWN} className="[&>span:last-child]:sr-only" />
+                    <Segmented<Choice> label={`Tier for ${i.label}`} value={choice} options={CHOICES} onChange={(v) => setBallotTier(i.id, v === "Off" ? null : v)} />
+                  </div>
                 </li>
               );
             })}

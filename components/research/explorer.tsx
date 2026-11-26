@@ -8,6 +8,7 @@ import { Button, ButtonLink, Tag } from "@/components/ui/button";
 import { FundingBar } from "@/components/ui/charts";
 import { DataTable } from "@/components/ui/data-table";
 import { Money, Pct } from "@/components/ui/money";
+import { SharedGroupLine } from "@/components/workspace/affiliations";
 import { SaveButton } from "@/components/workspace/save-button";
 import { removeSearch, saveSearch, useWorkspace } from "@/components/workspace/store";
 import type { InitiativeSummary } from "@/lib/intelligence/service";
@@ -321,6 +322,7 @@ function TitleCell({ r }: { r: Row }) {
         {r.title}
       </Link>
       <div className="mt-0.5 text-xs text-ink-3">{r.organization ?? r.recipientTeam ?? "Request for proposals, no designated recipient"}</div>
+      <SharedGroupLine groups={r.affiliatedWith} className="mt-0.5" />
       <div className="mt-1.5 flex flex-wrap gap-1">
         {r.categories.map((c) => (
           <Tag key={c.slug}>{c.label}</Tag>

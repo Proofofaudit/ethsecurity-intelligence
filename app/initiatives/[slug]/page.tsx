@@ -15,15 +15,17 @@ import { DateTime, Money, NotAvailable, Pct, formatDate } from "@/components/ui/
 import { Section, Sections } from "@/components/ui/sections";
 import { StatusLegend, StatusMark } from "@/components/ui/status";
 import { ReviewedButton } from "@/components/workspace/review-button";
+import { DossierAffiliationTag, SharedGroupLine } from "@/components/workspace/affiliations";
 import { SaveButton } from "@/components/workspace/save-button";
 import { CATEGORY_LABEL, CORRECTION_NOTICE } from "@/lib/corrections";
 import { BANNER_HREF, COI_SHORT, isCoiOrganization } from "@/lib/disclosure";
 import type { Claim, Evidence } from "@/lib/domain/schemas";
 import { loadIntelligence } from "@/lib/intelligence/load";
-import { BLIND_SPOT_LABEL, dependencies, dossier, PRESENT_SUPPORTED, plainExplanation } from "@/lib/intelligence/service";
+import { BLIND_SPOT_LABEL, dependencies, dossier, PRESENT_SUPPORTED, plainExplanation, sharedGroupsOf } from "@/lib/intelligence/service";
 import { CORE_RESEARCH_TASKS } from "@/lib/intelligence/status";
 import { THEDAO_ASK_CAP_CENTS } from "@/lib/metrics/ask";
 import { formatPct, formatUsd } from "@/lib/util/money";
+import { affiliationTargets, GROUPS_OFF_NOTE } from "@/lib/vote/affiliation";
 
 export const revalidate = 600;
 export const dynamicParams = true;
@@ -176,6 +178,8 @@ export default async function InitiativePage({ params }: Params) {
               {ini.durationMonths && <span> · {ini.durationMonths} months</span>}
               {ini.approvedAt && <span> · Approved {formatDate(ini.approvedAt)}</span>}
             </p>
+            {d.vote.groupsAvailable ? <SharedGroupLine groups={sharedGroupsOf(d, ini.id)} className="mt-1" /> : <p className="mt-1 text-xs text-ink-3">{GROUPS_OFF_NOTE}</p>}
+            <DossierAffiliationTag id={ini.id} targets={affiliationTargets(d).filter((t) => t.initiativeId === ini.id)} />
             <div className="mt-5 max-w-[720px] border-l-2 border-ink pl-4">
               <p className="text-[18px] leading-[27px] text-ink max-sm:text-[16px] max-sm:leading-6">{plainExplanation(ini)}</p>
               <p className="mt-1 text-2xs text-ink-3">Opening sentence of the official summary, quoted verbatim.</p>
