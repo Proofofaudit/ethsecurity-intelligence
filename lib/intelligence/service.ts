@@ -337,7 +337,7 @@ export interface CompareRow {
 }
 
 export function compare(d: Dataset, ids: string[]) {
-  const inis = ids.map((id) => findInitiative(d, id)).filter((x): x is Initiative => !!x).slice(0, 4);
+  const inis = ids.map((id) => findInitiative(d, id)).filter((x): x is Initiative => !!x).slice(0, 5);
   const sums = inis.map((i) => summarize(d, i));
   const mets = inis.map((i) => initiativeMetrics(d, i));
   const rows: CompareRow[] = [];

@@ -80,7 +80,10 @@ export const InitiativeSection = z.object({ key: z.string(), heading: z.string()
 
 export const Funding = z.object({
   goalCents: z.number().int(),
-  /** Official "raised": pledged + received + donated as returned by the initiative endpoint. */
+  /**
+   * Official "raised" (summary.total) as returned by the initiative endpoint. It equals
+   * pledged + donated; received pledges are already inside donated.
+   */
   officialRaisedCents: z.number().int(),
   pledgedCents: z.number().int(),
   receivedCents: z.number().int(),

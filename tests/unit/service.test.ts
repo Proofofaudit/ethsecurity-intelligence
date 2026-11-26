@@ -111,9 +111,9 @@ describe("compare", () => {
     expect(same.rows.every((r) => !r.differs)).toBe(true);
   });
 
-  it("ignores unknown ids and caps at four initiatives", () => {
+  it("ignores unknown ids and caps at five initiatives", () => {
     expect(compare(d, ["missing"]).initiatives).toHaveLength(0);
-    expect(compare(d, d.initiatives.slice(0, 6).map((i) => i.id)).initiatives).toHaveLength(4);
+    expect(compare(d, d.initiatives.slice(0, 7).map((i) => i.id)).initiatives).toHaveLength(5);
   });
 });
 
@@ -134,7 +134,7 @@ describe("simulatePortfolio", () => {
   it("applies pledge conversion, adoption exclusion and budget in the user's order", () => {
     const all = d.initiatives.map((i) => i.id);
     const full = simulatePortfolio(d, { initiativeIds: all });
-    expect(full.totals.gapCents).toBe(379_502_766);
+    expect(full.totals.gapCents).toBe(379_480_081);
     const half = simulatePortfolio(d, { initiativeIds: all, pledgeConversion: 0.5 });
     expect(half.totals.securedCents).toBeLessThan(full.totals.securedCents);
     const noAdoption = simulatePortfolio(d, { initiativeIds: all, excludeAdoptionMilestones: true });

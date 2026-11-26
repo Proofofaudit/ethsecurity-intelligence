@@ -166,6 +166,59 @@ export function toPublic(c: Correction): PublicCorrection {
   return rest;
 }
 
+/** States that appear in the public changelog. Open submissions are never published. */
+export const CHANGELOG_STATES: CorrectionState[] = ["accepted", "partially_accepted", "rejected", "resolved"];
+
+export interface ChangelogEntry {
+  id: string;
+  targetType: Correction["targetType"];
+  targetId: string;
+  initiativeId: string | null;
+  category: Correction["category"];
+  categoryLabel: string;
+  state: CorrectionState;
+  stateLabel: string;
+  resolution: string | null;
+  appliedChange: Correction["appliedChange"];
+  /** Submitter text is published only for corrections a moderator accepted. */
+  proposedCorrection: string | null;
+  evidenceUrl: string | null;
+  attribution: string | null;
+  submittedAt: string;
+  updatedAt: string;
+  /** State history without internal moderator notes. */
+  history: { at: string; state: CorrectionState; stateLabel: string }[];
+}
+
+/**
+ * Public changelog view. Built on toPublic() (no contact ciphertext, no submitter key), then
+ * drops internal moderator notes. Rejected submissions show only the category and the public
+ * reasoning, so unverified text is never republished.
+ */
+export function toChangelogEntry(c: Correction): ChangelogEntry | null {
+  if (!CHANGELOG_STATES.includes(c.state)) return null;
+  const p = toPublic(c);
+  const accepted = p.history.some((h) => h.state === "accepted" || h.state === "partially_accepted");
+  return {
+    id: p.id,
+    targetType: p.targetType,
+    targetId: p.targetId,
+    initiativeId: p.initiativeId,
+    category: p.category,
+    categoryLabel: CATEGORY_LABEL[p.category],
+    state: p.state,
+    stateLabel: STATE_LABEL[p.state],
+    resolution: p.resolution,
+    appliedChange: accepted ? p.appliedChange : null,
+    proposedCorrection: accepted ? p.proposedCorrection : null,
+    evidenceUrl: accepted ? p.evidenceUrl : null,
+    attribution: accepted ? p.attribution : null,
+    submittedAt: p.submittedAt,
+    updatedAt: p.updatedAt,
+    history: p.history.map((h) => ({ at: h.at, state: h.state, stateLabel: STATE_LABEL[h.state] })),
+  };
+}
+
 const APPLIED: CorrectionState[] = ["accepted", "partially_accepted", "resolved"];
 
 /** Overlay accepted corrections onto claims. Returns a new dataset; never mutates input. */

@@ -28,11 +28,11 @@ describe("cohort metrics (official baseline)", () => {
   it("matches the official goal, raised and remaining figures in integer cents", () => {
     const m = cohortMetrics(d);
     expect(val(m, "cohort.goal")).toBe(559_380_000);
-    expect(val(m, "cohort.raised")).toBe(179_877_234);
-    expect(val(m, "cohort.remaining")).toBe(379_502_766);
+    expect(val(m, "cohort.raised")).toBe(179_899_919);
+    expect(val(m, "cohort.remaining")).toBe(379_480_081);
     expect(val(m, "cohort.pledged_outstanding")).toBe(164_437_300);
     expect(val(m, "cohort.received_pledges")).toBe(8_920_000);
-    expect(val(m, "cohort.donated")).toBe(15_439_934);
+    expect(val(m, "cohort.donated")).toBe(15_462_619);
     for (const x of Object.values(m)) if (x.value !== null && x.id !== "cohort.top5_backer_share" && !x.id.endsWith("coverage") && !x.id.endsWith("verified")) expect(Number.isSafeInteger(x.value), x.id).toBe(true);
   });
 

@@ -12,6 +12,8 @@
  *  5. Repository and donation claims agree with the recorded GitHub/onchain observations.
  *  6. Every non-trivial alias merge is backed by a shared official domain or curated sources.
  *  7. Cohort metrics recomputed from raw responses equal the published metrics.
+ *  8. The ingestion status (snapshot id, sync time, requests, failures, validation) equals the
+ *     snapshot manifest it was published from, and the funding identity holds in raw data.
  */
 import type { DetailResponse } from "@/lib/official/schemas";
 import type { Dataset } from "@/lib/domain/schemas";
@@ -60,6 +62,12 @@ export async function auditDataset(d: Dataset, manifest: SnapshotManifest): Prom
     tick("pledged", ini.funding.pledgedCents === toCents(r.summary.pledged), `${ini.slug} pledged`);
     tick("received", ini.funding.receivedCents === toCents(r.summary.received), `${ini.slug} received`);
     tick("donated", ini.funding.donatedCents === toCents(r.summary.donated), `${ini.slug} donated`);
+    // The API and UI state: raised = outstanding pledges + confirmed donations, received pledges inside donated.
+    tick(
+      "funding_identity",
+      toCents(r.summary.pledged) + toCents(r.summary.donated) === toCents(r.summary.total) && toCents(r.summary.received) <= toCents(r.summary.donated),
+      `${ini.slug}: raw pledged + donated ≠ total, or received > donated`,
+    );
     const ms = d.milestones.filter((m) => m.initiativeId === ini.id).sort((a, b) => a.index - b.index);
     tick("milestone_count", ms.length === r.initiative.milestones.length, `${ini.slug} milestone count`);
     for (const m of ms) {
@@ -135,6 +143,15 @@ export async function auditDataset(d: Dataset, manifest: SnapshotManifest): Prom
 
   // Evidence references.
   for (const c of d.claims) for (const id of c.evidenceIds) tick("evidence_exists", evidence.has(id), `${c.id} → ${id}`);
+
+  // 8. Ingestion status (served by /api/v1/status) must be the snapshot's own validation record.
+  tick("status_snapshot", d.meta.snapshotId === manifest.snapshotId && d.meta.ingestion.startedAt === manifest.createdAt, "meta snapshot id or sync time differs from the snapshot used");
+  tick("status_validation", JSON.stringify(d.meta.ingestion.validation) === JSON.stringify(manifest.validation), "meta validation differs from the snapshot validation");
+  tick(
+    "status_requests",
+    d.meta.ingestion.requests === manifest.requests && JSON.stringify(d.meta.ingestion.failedRequests) === JSON.stringify(manifest.failedRequests),
+    "meta request counts differ from the snapshot",
+  );
 
   return { checked: Object.values(byCheck).reduce((s, x) => s + x.checked, 0), failures, byCheck };
 }

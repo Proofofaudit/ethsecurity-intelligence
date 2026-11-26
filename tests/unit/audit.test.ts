@@ -72,6 +72,18 @@ describe("truth audit", () => {
     expect(r.failures.some((f) => f.startsWith(`[verified_has_support] ${c.id}`))).toBe(true);
   });
 
+  it("fails when the ingestion status differs from the snapshot it was published from", async () => {
+    const t = clone(d);
+    const v = t.meta.ingestion.validation.find((x) => x.check === "list_detail_consistency")!;
+    v.ok = !v.ok;
+    t.meta.ingestion.failedRequests = [...t.meta.ingestion.failedRequests, { url: "https://initiatives.thedao.fund/api/x", error: "invented" }];
+    const r = await auditDataset(t, manifest);
+    expect(r.byCheck.status_validation?.failed).toBe(1);
+    expect(r.byCheck.status_requests?.failed).toBe(1);
+    expect(r.byCheck.status_snapshot?.failed).toBe(0);
+    expect(r.byCheck.funding_identity?.failed).toBe(0);
+  });
+
   it("fails when a claim references missing evidence", async () => {
     const t = clone(d);
     t.claims[0]!.evidenceIds = [...t.claims[0]!.evidenceIds, "ev_missing"];

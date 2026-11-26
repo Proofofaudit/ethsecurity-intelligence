@@ -14,9 +14,11 @@ const CORRECTIONS_PATH = path.join(process.env.ESI_LOCAL_STATE_DIR ?? path.join(
 let cache: { mtimeMs: number; dataset: Dataset } | null = null;
 
 export async function loadPublishedDataset(file = DATASET_PATH): Promise<Dataset> {
-  const stat = await fs.stat(file);
+  // data/published is included explicitly via outputFileTracingIncludes in next.config.ts; the
+  // ignore comments stop Turbopack from tracing the whole project because `file` is a parameter.
+  const stat = await fs.stat(/*turbopackIgnore: true*/ file);
   if (cache && cache.mtimeMs === stat.mtimeMs && file === DATASET_PATH) return cache.dataset;
-  const parsed = DatasetSchema.safeParse(JSON.parse(await fs.readFile(file, "utf8")));
+  const parsed = DatasetSchema.safeParse(JSON.parse(await fs.readFile(/*turbopackIgnore: true*/ file, "utf8")));
   if (!parsed.success) throw new Error(`Published dataset failed validation: ${parsed.error.issues[0]?.message}`);
   if (file === DATASET_PATH) cache = { mtimeMs: stat.mtimeMs, dataset: parsed.data };
   return parsed.data;

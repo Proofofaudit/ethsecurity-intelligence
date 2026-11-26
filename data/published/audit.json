@@ -1,7 +1,7 @@
 {
-  "datasetVersion": "20261126T091949Z-ca025c14+d7d90b2f",
-  "at": "2026-11-26T10:02:36.327Z",
-  "checked": 1748,
+  "datasetVersion": "20261126T101107Z-1cb9ae37+cfdb82eb",
+  "at": "2026-11-26T10:21:33.865Z",
+  "checked": 1806,
   "failures": [],
   "byCheck": {
     "official_record_present": {
@@ -25,6 +25,10 @@
       "failed": 0
     },
     "donated": {
+      "checked": 55,
+      "failed": 0
+    },
+    "funding_identity": {
       "checked": 55,
       "failed": 0
     },
@@ -90,6 +94,18 @@
     },
     "evidence_exists": {
       "checked": 702,
+      "failed": 0
+    },
+    "status_snapshot": {
+      "checked": 1,
+      "failed": 0
+    },
+    "status_validation": {
+      "checked": 1,
+      "failed": 0
+    },
+    "status_requests": {
+      "checked": 1,
       "failed": 0
     }
   }
