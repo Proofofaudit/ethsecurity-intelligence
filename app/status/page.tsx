@@ -8,6 +8,7 @@ import { loadIntelligence } from "@/lib/intelligence/load";
 import { displayName } from "@/lib/intelligence/service";
 import { ingestionStatus } from "@/lib/intelligence/status";
 import { cn } from "@/lib/util/cn";
+import { FALLBACK_LABEL, FALLBACK_S_TALLY, resolveSchedule } from "@/lib/vote/calendar";
 
 export const metadata: Metadata = { title: "Data freshness" };
 export const dynamic = "force-dynamic";
@@ -183,6 +184,16 @@ export default async function StatusPage() {
             {d.vote.scheduleAvailable && d.vote.schedule
               ? d.vote.schedule.firstTallyAt.map((t, i) => `${["S", "A", "B"][i] ?? i}-tier ${UTC.format(t * 1000)}`).join(" · ")
               : "Unavailable"}
+          </dd>
+          <dt className="text-ink-3">Vote Calendar countdown</dt>
+          <dd data-calendar-fallback={resolveSchedule(d.vote).fallback ? "" : undefined}>
+            {resolveSchedule(d.vote).fallback ? (
+              <Ok ok={false}>
+                {FALLBACK_LABEL}: S-tier time {UTC.format(Date.parse(FALLBACK_S_TALLY))} is the documented fallback
+              </Ok>
+            ) : (
+              <span>From the manifest (schedule.firstTallyAt[0])</span>
+            )}
           </dd>
           <dt className="text-ink-3">Disabled features</dt>
           <dd>{vm.disabled.length ? vm.disabled.join(", ") : "None"}</dd>

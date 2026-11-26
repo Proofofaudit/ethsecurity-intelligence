@@ -59,6 +59,21 @@ export type Assessment = z.infer<typeof Assessment>;
 
 export const LastVisited = z.object({ path: Text(500), title: Text(300), at: When });
 
+/** TheDAO ask per initiative id (integer cents, null when unavailable) as last seen in this browser. */
+export const FundingSnapshot = z.object({ datasetVersion: Text(120), at: When, asks: z.record(Id, z.number().int().nullable()) });
+export type FundingSnapshot = z.infer<typeof FundingSnapshot>;
+
+/**
+ * `seen`: the asks shown on the latest page view. `baseline`: what was seen at the end of the
+ * previous visit; "since your last visit" deltas compare the current asks with it.
+ */
+export const FundingVisits = z.object({ seen: FundingSnapshot.nullable().default(null), baseline: FundingSnapshot.nullable().default(null) });
+export type FundingVisits = z.infer<typeof FundingVisits>;
+
+/** Private Ballot Prep draft: initiative id → tier. Initiatives not listed are Off. Never submitted. */
+export const BallotDraft = z.object({ tiers: z.record(Id, z.enum(["S", "A", "B"])), updatedAt: When });
+export type BallotDraft = z.infer<typeof BallotDraft>;
+
 export const WorkspaceSchema = z
   .object({
     version: z.literal(1),
@@ -73,6 +88,8 @@ export const WorkspaceSchema = z
     lastVisited: LastVisited.nullable().default(null),
     /** When the reviewer last marked the change log as reviewed. */
     lastReviewAt: When.nullable().default(null),
+    funding: FundingVisits.default({ seen: null, baseline: null }),
+    ballotDraft: BallotDraft.nullable().default(null),
   })
   .passthrough();
 export type Workspace = z.infer<typeof WorkspaceSchema>;
@@ -146,6 +163,41 @@ export function bookmarkAlerts(w: Workspace, currentStatus: Record<string, Evide
   return w.bookmarks
     .filter((b) => b.claimId in currentStatus && currentStatus[b.claimId] !== b.status)
     .map((b) => ({ bookmarkId: b.id, claimId: b.claimId, before: b.status, after: currentStatus[b.claimId] ?? null }));
+}
+
+/** A new visit starts when the previous page view is older than this. */
+export const VISIT_GAP_MS = 30 * 60 * 1000;
+
+/**
+ * Records a page view of the current asks. On the first view ever, nothing is compared. When the
+ * last view is older than VISIT_GAP_MS a new visit starts and the last seen snapshot becomes the
+ * baseline; views within the same visit keep the baseline.
+ */
+export function recordFundingView(f: FundingVisits, current: { datasetVersion: string; asks: Record<string, number | null> }, now = new Date()): FundingVisits {
+  const seen: FundingSnapshot = { datasetVersion: current.datasetVersion, at: now.toISOString(), asks: current.asks };
+  if (!f.seen) return { seen, baseline: null };
+  const gap = now.getTime() - Date.parse(f.seen.at);
+  const newVisit = !Number.isFinite(gap) || gap > VISIT_GAP_MS;
+  return { seen, baseline: newVisit ? f.seen : f.baseline };
+}
+
+export interface AskDelta {
+  id: string;
+  beforeCents: number;
+  afterCents: number;
+  /** after − before; negative means the ask went down. */
+  deltaCents: number;
+}
+
+/** Initiatives whose ask differs from the baseline. Unavailable values and new initiatives are not compared. */
+export function askDeltas(baseline: FundingSnapshot | null, asks: Record<string, number | null>): AskDelta[] {
+  if (!baseline) return [];
+  const out: AskDelta[] = [];
+  for (const [id, after] of Object.entries(asks)) {
+    const before = baseline.asks[id];
+    if (typeof before === "number" && typeof after === "number" && before !== after) out.push({ id, beforeCents: before, afterCents: after, deltaCents: after - before });
+  }
+  return out;
 }
 
 export const newId = (prefix: string) => `${prefix}_${Date.now().toString(36)}${Math.random().toString(36).slice(2, 7)}`;

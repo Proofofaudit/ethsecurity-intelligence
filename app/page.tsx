@@ -12,6 +12,9 @@ import { cohortMetrics } from "@/lib/metrics/compute";
 import { METRICS } from "@/lib/metrics/registry";
 import { THEDAO_ASK_CAP_CENTS } from "@/lib/metrics/ask";
 import { formatPct, formatUsd } from "@/lib/util/money";
+import { SinceLastVisit } from "@/components/workspace/since-visit";
+import { VoteCalendar } from "@/components/workspace/vote-calendar";
+import { calendarView, fundingView } from "@/lib/vote/view-data";
 
 export const revalidate = 600;
 
@@ -65,6 +68,8 @@ export default async function OverviewPage() {
         }
       />
 
+      <VoteCalendar view={calendarView(d)} />
+
       <section aria-label="Cohort figures">
         <dl className="grid grid-cols-2 gap-px border-y border-ink bg-rule sm:grid-cols-3 xl:grid-cols-6 [&>div]:bg-paper [&>div]:px-4 [&>div]:py-4">
           <Stat label="Qualified initiatives" value={<Num value={val("cohort.initiatives")} />} sub={`${grants} grants · ${rfps} RFPs`} />
@@ -111,6 +116,8 @@ export default async function OverviewPage() {
           {ask !== null && remaining !== null && !capBinds ? "; the two are equal while no initiative needs more than the cap." : "."} Received means confirmed onchain donations to initiative Safes. It already includes <Money cents={receivedPledges} /> of pledges marked received, so those are counted once. Pledged means outstanding commitments that have not arrived yet.
         </Note>
       </section>
+
+      <SinceLastVisit view={fundingView(d)} />
 
       <div className="grid gap-12 lg:grid-cols-2 [&>*]:min-w-0">
         <Block

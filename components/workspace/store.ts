@@ -6,7 +6,8 @@
  */
 import { useSyncExternalStore } from "react";
 import type { EvidenceStatus } from "@/lib/domain/schemas";
-import { EMPTY_WORKSPACE, newId, WorkspaceSchema, type Fingerprint, type Priority, type Workspace } from "./schema";
+import { EMPTY_WORKSPACE, newId, recordFundingView, WorkspaceSchema, type Fingerprint, type Priority, type Workspace } from "./schema";
+import type { Tier } from "@/lib/vote/ballot-rules";
 
 export { WorkspaceSchema, type SavedSearch, type Workspace } from "./schema";
 
@@ -193,4 +194,23 @@ export function setLastVisited(path: string, title: string) {
 
 export function markChangesReviewed() {
   updateWorkspace((w) => ({ ...w, lastReviewAt: now() }));
+}
+
+/** Stores the asks shown on this page view (see recordFundingView). Local only; nothing is sent. */
+export function recordFundingVisit(datasetVersion: string, asks: Record<string, number | null>) {
+  updateWorkspace((w) => ({ ...w, funding: recordFundingView(w.funding, { datasetVersion, asks }) }));
+}
+
+/** Places an initiative in a Ballot Prep tier, or takes it Off the draft (tier null). */
+export function setBallotTier(id: string, tier: Tier | null) {
+  updateWorkspace((w) => {
+    const tiers = { ...(w.ballotDraft?.tiers ?? {}) };
+    if (tier) tiers[id] = tier;
+    else delete tiers[id];
+    return { ...w, ballotDraft: { tiers, updatedAt: now() } };
+  });
+}
+
+export function clearBallotDraft() {
+  updateWorkspace((w) => ({ ...w, ballotDraft: null }));
 }

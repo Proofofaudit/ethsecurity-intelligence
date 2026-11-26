@@ -236,7 +236,7 @@ export default function MethodologyPage() {
             <p className="mb-2">Kept in this browser&apos;s local storage, never sent to the server. Clearing this site&apos;s data in the browser, or the Clear button in My Workspace, removes it.</p>
             <ul className="list-disc space-y-1 pl-5">
               <li>
-                <code className="num text-xs">{PRIVACY_LOCAL_KEYS.workspace}</code>: My Workspace. Saved initiatives with your priority and review state, saved searches, bookmarked statements with the status you saw, saved comparisons, notes, open questions, research priorities, draft assessments, the last page you visited and when you last reviewed the change log. Focus and affiliation settings are kept in the same entry.
+                <code className="num text-xs">{PRIVACY_LOCAL_KEYS.workspace}</code>: My Workspace. Saved initiatives with your priority and review state, saved searches, bookmarked statements with the status you saw, saved comparisons, notes, open questions, research priorities, draft assessments, the last page you visited and when you last reviewed the change log. Your Ballot Prep draft (S, A and B tiers) and the TheDAO asks you last saw, used for &ldquo;since your last visit&rdquo;, are kept in the same entry. Focus and affiliation settings are kept in the same entry.
               </li>
               <li>
                 <code className="num text-xs">{PRIVACY_LOCAL_KEYS.labTemplates}</code>: AI Lab templates you save.

@@ -19,13 +19,13 @@ export function SourceLabel({ kind, className }: { kind: SourceKind; className?:
  * Text inside this component is a quotation, not our voice; it is the only place where the
  * neutral-language lint allows a banned phrase (for example an official tier definition).
  */
-export function OfficialQuote({ children, source, sourceName = "TheDAO Security Fund", className }: { children: ReactNode; source: string; sourceName?: string; className?: string }) {
+export function OfficialQuote({ children, source, sourceName = "TheDAO Security Fund", paraphrase, className }: { children: ReactNode; source: string; sourceName?: string; paraphrase?: boolean; className?: string }) {
   return (
     <figure {...{ [OFFICIAL_QUOTE_ATTR]: "" }} className={cn("border-l-2 border-rule-2 pl-3", className)}>
       <figcaption className="mb-1 flex flex-wrap items-baseline gap-x-2 text-2xs text-ink-3">
         <SourceLabel kind="official" />
         <span>
-          Quoted from{" "}
+          {paraphrase ? "Paraphrased from" : "Quoted from"}{" "}
           <a href={source} className="underline decoration-rule-2 underline-offset-2 hover:text-accent" rel="noreferrer">
             {sourceName}
           </a>

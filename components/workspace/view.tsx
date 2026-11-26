@@ -8,7 +8,11 @@ import { formatDate, formatDateTime } from "@/components/ui/money";
 import { StatusMark } from "@/components/ui/status";
 import type { EvidenceStatus } from "@/lib/domain/schemas";
 import { cn } from "@/lib/util/cn";
-import { bookmarkAlerts, expirationAlerts, exportWorkspace, fingerprintFor, parseImport, type ChangeRef, type Priority } from "./schema";
+import type { BallotView, CalendarView, FundingView } from "@/lib/vote/view-data";
+import { BallotPrep } from "./ballot-prep";
+import { askDeltas, bookmarkAlerts, expirationAlerts, exportWorkspace, fingerprintFor, parseImport, type ChangeRef, type Priority } from "./schema";
+import { AskDeltaNote, useFundingBaseline } from "./since-visit";
+import { VoteCalendar } from "./vote-calendar";
 import {
   acknowledgeBookmark,
   addNote,
@@ -67,8 +71,16 @@ function Empty({ children }: { children: ReactNode }) {
 const noop = () => () => {};
 const linkBtn = "text-xs text-ink-3 hover:text-accent";
 
-export function WorkspaceView({ initiatives, changes, datasetVersion }: { initiatives: Ini[]; changes: Record<string, ChangeRef[]>; datasetVersion: string }) {
+export interface WorkspaceVote {
+  calendar: CalendarView;
+  funding: FundingView;
+  ballot: BallotView;
+}
+
+export function WorkspaceView({ initiatives, changes, datasetVersion, vote }: { initiatives: Ini[]; changes: Record<string, ChangeRef[]>; datasetVersion: string; vote: WorkspaceVote }) {
   const w = useWorkspace();
+  const baseline = useFundingBaseline(vote.funding);
+  const deltas = useMemo(() => new Map(askDeltas(baseline ?? null, vote.funding.asks).map((d) => [d.id, d])), [baseline, vote.funding.asks]);
   const hydrated = useSyncExternalStore(
     noop,
     () => true,
@@ -162,6 +174,8 @@ export function WorkspaceView({ initiatives, changes, datasetVersion }: { initia
           {message.text}
         </p>
       )}
+
+      <VoteCalendar view={vote.calendar} />
 
       <div className="grid gap-x-10 gap-y-4 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
         <div>
@@ -288,6 +302,7 @@ export function WorkspaceView({ initiatives, changes, datasetVersion }: { initia
                         </>
                       )}
                     </span>
+                    <AskDeltaNote delta={deltas.get(s.id)} className="block text-xs text-ink-2" />
                   </div>
                   <label className="flex items-center gap-2 text-xs">
                     <span className="text-ink-3">Priority</span>
@@ -312,6 +327,8 @@ export function WorkspaceView({ initiatives, changes, datasetVersion }: { initia
           </ul>
         )}
       </Section>
+
+      <BallotPrep view={vote.ballot} datasetVersion={datasetVersion} deltas={deltas} />
 
       <Assessments initiatives={initiatives} changes={changes} datasetVersion={datasetVersion} expiredById={expiredById} label={label} />
 
