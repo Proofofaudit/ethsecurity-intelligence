@@ -9,6 +9,7 @@ import { EVIDENCE_STATUS_LABEL } from "@/lib/domain/schemas";
 import { ONE_TS_DOMAINS, SECURITY_PROBLEMS, STAGE_LABEL, STAGE_ONE_TS } from "@/lib/domain/taxonomy";
 import { backerTotals, cohortMetrics, initiativeMetrics, type MetricValue } from "@/lib/metrics/compute";
 import { METHODOLOGY_VERSION, METRIC_BY_ID } from "@/lib/metrics/registry";
+import { NEUTRAL_SORT_LABEL } from "@/lib/neutralLanguage";
 import { formatUsd, sumCents } from "@/lib/util/money";
 import { sentences } from "@/lib/util/text";
 import { hypotheses, pairSignals, type PairSignals } from "./overlap";
@@ -285,7 +286,7 @@ export function filterInitiatives(d: Dataset, f: Filter = {}) {
     offset,
     limit,
     sort: sort ?? "relevance",
-    sortNote: sort === "title" ? "Alphabetical by title (neutral default; no ranking)." : sort ? `Sorted by ${sort} (${f.order ?? "asc"}), chosen by the user.` : "Ordered by lexical relevance to the search query (BM25).",
+    sortNote: sort === "title" ? `${NEUTRAL_SORT_LABEL}: by official title, the default order. No ranking.` : sort ? `Sorted by ${sort} (${f.order ?? "asc"}), chosen by the user.` : "Ordered by lexical relevance to the search query (BM25).",
     items: rows.slice(offset, offset + limit).map((r) => ({ ...r, matchedTerms: relevance?.get(r.id)?.matched ?? [] })),
   };
 }

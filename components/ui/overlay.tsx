@@ -2,6 +2,7 @@
 
 import { Dialog as D, Tabs as T, Tooltip as TT } from "radix-ui";
 import type { ReactNode } from "react";
+import { BANNER_HREF, BANNER_TEXT } from "@/lib/disclosure";
 import { cn } from "@/lib/util/cn";
 
 export const TooltipProvider = TT.Provider;
@@ -81,6 +82,13 @@ export function Sheet({
       <D.Portal>
         <D.Overlay className={overlay} />
         <D.Content className="fixed inset-y-0 right-0 z-50 flex w-[min(560px,100vw)] flex-col border-l border-rule-2 bg-paper shadow-[-8px_0_30px_rgba(0,0,0,0.10)] focus:outline-none data-[state=open]:animate-[sheet-in_160ms_ease-out]">
+          {/* The sheet covers the page banner on narrow screens, so it repeats the disclosure. */}
+          <p className="border-b border-rule bg-paper-2 px-5 py-1.5 text-2xs break-words text-ink-2" data-coi-banner-inline="">
+            <span className="text-ink">{BANNER_TEXT}</span>{" "}
+            <a href={BANNER_HREF} className="link whitespace-nowrap">
+              Read the disclosure
+            </a>
+          </p>
           <div className="flex items-start justify-between gap-4 border-b border-rule px-5 py-3.5">
             <div className="min-w-0">
               {eyebrow && <div className="eyebrow mb-1">{eyebrow}</div>}

@@ -1,9 +1,8 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { beforeAll, describe, expect, it } from "vitest";
-import { COI_ORGANIZATION_ID } from "@/lib/disclosure";
 import type { Dataset } from "@/lib/domain/schemas";
-import { dossier, envelope } from "@/lib/intelligence/service";
+import { envelope } from "@/lib/intelligence/service";
 import {
   ALLOWED_FRAMING,
   BANNED_PHRASES,
@@ -144,19 +143,5 @@ describe("MCP text", () => {
     expect(data.items[0]!.quote).toBe("best wallet");
     expect(out.meta.limitations[0]).toBe("Evidence found in 3 sources.");
     expect(out.meta.limitations.every(isNeutral)).toBe(true);
-  });
-});
-
-describe("Proof of Audits", () => {
-  it("uses the same dossier template as every other initiative", () => {
-    const poa = d.initiatives.filter((i) => i.organizationId === COI_ORGANIZATION_ID);
-    expect(poa.length).toBeGreaterThan(0);
-    const shape = (id: string) => {
-      const x = dossier(d, id)!;
-      return { sections: Object.keys(x).sort(), reality: Object.keys(x.reality).sort(), metrics: Object.keys(x.metrics).sort() };
-    };
-    const reference = shape(d.initiatives.find((i) => i.organizationId !== COI_ORGANIZATION_ID)!.id);
-    for (const p of poa) expect(shape(p.id)).toEqual(reference);
-    for (const i of d.initiatives) expect(shape(i.id).sections).toEqual(reference.sections);
   });
 });

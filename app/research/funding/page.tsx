@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { NEUTRAL_SORT_LABEL } from "@/lib/neutralLanguage";
 import { Block, Note, PageHead, Stat } from "@/components/ui/layout";
 import { Money, Pct } from "@/components/ui/money";
 import { StatusMark } from "@/components/ui/status";
@@ -50,9 +51,9 @@ export default async function FundingPage({ searchParams }: { searchParams: SP }
         title="Backers"
         note={
           <>
-            {sort === "name" ? "Alphabetical (neutral default)." : "Sorted by total pledged, as you chose."}{" "}
+            Order: {sort === "name" ? `${NEUTRAL_SORT_LABEL}.` : "total pledged, as you chose."}{" "}
             <Link href={sort === "name" ? "/research/funding?sort=amount" : "/research/funding"} className="link">
-              {sort === "name" ? "Sort by total pledged" : "Sort alphabetically"}
+              {sort === "name" ? "Sort by total pledged" : NEUTRAL_SORT_LABEL}
             </Link>
           </>
         }

@@ -53,6 +53,9 @@ export type SourceKind = keyof typeof SOURCE_LABELS;
 /** Wording for missing information. Never phrase absence as a negative finding. */
 export const NOT_FOUND = "Not found";
 
+/** Label of the default list order everywhere a list can be sorted (UI, API sort notes). */
+export const NEUTRAL_SORT_LABEL = "Alphabetical (neutral)";
+
 /**
  * Phrase separators: whitespace, ASCII and Unicode hyphens, underscore, or nothing. So
  * "must fund", "must-fund", "must‑fund" (non-breaking hyphen) and "mustfund" all match.

@@ -17,7 +17,7 @@
       "What is the strongest evidence-based case that each stated capability does not exist yet?",
       "Which figures and integrations lack independent support?",
       "Which milestones could be marked done without delivering the stated value?",
-      "Where could this dataset be incomplete or wrong, including for the Proof of Audits initiative?"
+      "Where could this dataset be incomplete or wrong, for any initiative?"
     ],
     "categories": [],
     "stages": [],
@@ -661,7 +661,7 @@
         "What is the strongest evidence-based case that each stated capability does not exist yet?",
         "Which figures and integrations lack independent support?",
         "Which milestones could be marked done without delivering the stated value?",
-        "Where could this dataset be incomplete or wrong, including for the Proof of Audits initiative?"
+        "Where could this dataset be incomplete or wrong, for any initiative?"
       ],
       "categories": [],
       "stages": [],

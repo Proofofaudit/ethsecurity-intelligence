@@ -235,7 +235,7 @@ export function WorkspaceView({ initiatives, changes, datasetVersion }: { initia
         id="saved"
         title="Saved initiatives"
         count={w.initiatives.length}
-        note="Sorted by your priority, then alphabetically. Changes are counted from the date you saved each initiative."
+        note="Order: your own priority, then Alphabetical (neutral) within each priority. Changes are counted from the date you saved each initiative."
         action={
           w.initiatives.length >= 2 ? (
             <Link

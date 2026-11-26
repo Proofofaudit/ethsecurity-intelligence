@@ -47,6 +47,7 @@ beforeAll(async () => {
     explanation: "Because",
     attribution: null,
     contactCiphertext: `cipher:${PRIVATE_CONTACT}`,
+    contactExpiresAt: new Date(Date.now() + 86_400_000).toISOString(),
     submitterKey: "hmac-key-private",
     state: "accepted",
     submittedAt: now,
@@ -188,6 +189,7 @@ describe("MCP tool execution", () => {
       expect(body).not.toContain("hmac-key-private");
       expect(body).not.toContain(PRIVATE_NOTE);
       expect(body).not.toContain("contactCiphertext");
+      expect(body).not.toContain("contactExpiresAt");
       expect(body).not.toContain("submitterKey");
     }
     const list = data(results[0]!);

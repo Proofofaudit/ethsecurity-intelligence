@@ -5,6 +5,7 @@
  */
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import { purgeExpiredContact } from "@/lib/corrections";
 import { Dataset as DatasetSchema, type Correction, type CorrectionState, type Dataset } from "@/lib/domain/schemas";
 import type { IntelligenceStore, StoreHealth } from "./types";
 
@@ -24,7 +25,7 @@ export async function loadPublishedDataset(file = DATASET_PATH): Promise<Dataset
   return parsed.data;
 }
 
-async function readCorrections(): Promise<Correction[]> {
+async function readRaw(): Promise<Correction[]> {
   try {
     return JSON.parse(await fs.readFile(CORRECTIONS_PATH, "utf8")) as Correction[];
   } catch (err) {
@@ -36,7 +37,7 @@ async function readCorrections(): Promise<Correction[]> {
 let writeChain: Promise<unknown> = Promise.resolve();
 async function writeCorrections(fn: (all: Correction[]) => Correction[] | null): Promise<boolean> {
   const run = writeChain.then(async () => {
-    const all = await readCorrections();
+    const all = await readRaw();
     const next = fn(all);
     if (!next) return false;
     await fs.mkdir(path.dirname(CORRECTIONS_PATH), { recursive: true });
@@ -57,8 +58,25 @@ export class FileStore implements IntelligenceStore {
     return loadPublishedDataset();
   }
 
+  /** Rewrites the file without expired contact ciphertexts. Runs before every read and write. */
+  async purgeExpiredContacts(now: Date = new Date()) {
+    let removed = 0;
+    await writeCorrections((all) => {
+      const next = all.map((c) => purgeExpiredContact(c, now));
+      removed = next.filter((c, i) => c !== all[i]).length;
+      return removed ? next : null;
+    });
+    return removed;
+  }
+
+  private async readCorrections(): Promise<Correction[]> {
+    // A degraded store is read-only, so it filters in memory instead of rewriting the file.
+    if (!this.degradedReason) await this.purgeExpiredContacts();
+    return (await readRaw()).map((c) => purgeExpiredContact(c));
+  }
+
   async listCorrections(filter: { states?: CorrectionState[]; targetId?: string; initiativeId?: string } = {}) {
-    return (await readCorrections())
+    return (await this.readCorrections())
       .filter((c) => !filter.states || filter.states.includes(c.state))
       .filter((c) => !filter.targetId || c.targetId === filter.targetId)
       .filter((c) => !filter.initiativeId || c.initiativeId === filter.initiativeId)
@@ -66,12 +84,12 @@ export class FileStore implements IntelligenceStore {
   }
 
   async getCorrection(id: string) {
-    return (await readCorrections()).find((c) => c.id === id) ?? null;
+    return (await this.readCorrections()).find((c) => c.id === id) ?? null;
   }
 
   async createCorrection(c: Correction) {
     if (this.degradedReason) throw new Error("Corrections are temporarily unavailable (database offline)");
-    await writeCorrections((all) => [...all, c]);
+    await writeCorrections((all) => [...all.map((x) => purgeExpiredContact(x)), purgeExpiredContact(c)]);
   }
 
   async updateCorrection(id: string, expectedState: CorrectionState, next: Correction) {
@@ -79,14 +97,14 @@ export class FileStore implements IntelligenceStore {
     return writeCorrections((all) => {
       const i = all.findIndex((c) => c.id === id);
       if (i < 0 || all[i]?.state !== expectedState) return null;
-      const copy = [...all];
-      copy[i] = next;
+      const copy = all.map((x) => purgeExpiredContact(x));
+      copy[i] = purgeExpiredContact(next);
       return copy;
     });
   }
 
   async countSubmissionsSince(key: string, since: string) {
-    return (await readCorrections()).filter((c) => c.submitterKey === key && c.submittedAt >= since).length;
+    return (await this.readCorrections()).filter((c) => c.submitterKey === key && c.submittedAt >= since).length;
   }
 
   async health(): Promise<StoreHealth> {

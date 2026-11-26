@@ -4,8 +4,8 @@
  * Public submissions never modify research records. A moderator moves a correction through
  * the state machine; only "accepted" and "partially_accepted" corrections with an explicit
  * `appliedChange` are overlaid onto claims at read time (dashboard, API, MCP and exports all
- * read through the same overlay). Private contact details are encrypted with AES-256-GCM and
- * are never returned by any public interface.
+ * read through the same overlay). Private contact details are optional, encrypted with
+ * AES-256-GCM, never returned by any public interface, and deleted after CONTACT_RETENTION_DAYS.
  */
 import { createCipheriv, createDecipheriv, createHmac, randomBytes } from "node:crypto";
 import { z } from "zod";
@@ -107,6 +107,24 @@ export function decryptContact(cipher: string, keyB64 = process.env.CONTACT_ENCR
   return Buffer.concat([d.update(Buffer.from(data, "base64")), d.final()]).toString("utf8");
 }
 
+/** Private contact details are kept for at most this many days, then deleted. */
+export const CONTACT_RETENTION_DAYS = 30;
+const RETENTION_MS = CONTACT_RETENTION_DAYS * 24 * 60 * 60 * 1000;
+
+/** Deletion time for a contact stored at `submittedAt`. */
+export const contactExpiry = (submittedAt: string): string => new Date(Date.parse(submittedAt) + RETENTION_MS).toISOString();
+
+/**
+ * Removes an expired contact ciphertext. Records without `contactExpiresAt` (saved before the
+ * field existed) expire 30 days after submission. Returns the same object when nothing expired.
+ */
+export function purgeExpiredContact(c: Correction, now: Date = new Date()): Correction {
+  if (!c.contactCiphertext) return c;
+  const expiresAt = c.contactExpiresAt ?? contactExpiry(c.submittedAt);
+  if (Date.parse(expiresAt) > now.getTime()) return c;
+  return { ...c, contactCiphertext: null, contactExpiresAt: null };
+}
+
 export interface SpamCheck {
   ok: boolean;
   reason: string | null;
@@ -122,6 +140,7 @@ export function spamCheck(s: Submission, recentCount: number): SpamCheck {
 }
 
 export function newCorrection(s: Submission, key: string, initiativeId: string | null, now = new Date().toISOString()): Correction {
+  const contactCiphertext = s.contact?.trim() ? encryptContact(s.contact.trim()) : null;
   return {
     id: stableId("cor", key, s.targetId, now, randomBytes(4).toString("hex")),
     targetType: s.targetType,
@@ -132,7 +151,8 @@ export function newCorrection(s: Submission, key: string, initiativeId: string |
     evidenceUrl: s.evidenceUrl,
     explanation: s.explanation,
     attribution: s.attribution?.trim() || null,
-    contactCiphertext: s.contact?.trim() ? encryptContact(s.contact.trim()) : null,
+    contactCiphertext,
+    contactExpiresAt: contactCiphertext ? contactExpiry(now) : null,
     state: "submitted",
     resolution: null,
     appliedChange: null,
@@ -160,8 +180,9 @@ export function moderate(c: Correction, m: Moderation, now = new Date().toISOStr
 }
 
 export function toPublic(c: Correction): PublicCorrection {
-  const { contactCiphertext: _c, submitterKey: _k, ...rest } = c;
+  const { contactCiphertext: _c, contactExpiresAt: _e, submitterKey: _k, ...rest } = c;
   void _c;
+  void _e;
   void _k;
   return rest;
 }

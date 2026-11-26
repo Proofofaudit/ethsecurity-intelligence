@@ -2,16 +2,22 @@ import Link from "next/link";
 import { ArrowUpRight } from "@/components/ui/icons";
 import { formatDateTime } from "@/components/ui/money";
 
-import { COI_SHORT, REPO_URL } from "@/lib/disclosure";
+import { BANNER_HREF, BANNER_TEXT, COI_SHORT, REPO_URL } from "@/lib/disclosure";
 
 export { COI_SHORT, REPO_URL };
 
-export function CoiStrip({ href }: { href: string }) {
+/**
+ * Persistent disclosure banner at the top of every page. It sits above the dimmed backdrop of
+ * dialogs and the command palette (z-40) so it stays readable while they are open, and it wraps
+ * instead of truncating on narrow screens. The text is inline, so it reads the same even if
+ * the About page cannot be loaded.
+ */
+export function CoiStrip({ href = BANNER_HREF }: { href?: string }) {
   return (
-    <div className="border-b border-rule bg-paper-2">
-      <p className="mx-auto max-w-[1320px] px-5 py-1.5 text-2xs text-ink-2 md:px-8">
-        {COI_SHORT}{" "}
-        <Link href={href} className="link">
+    <div className="relative z-[45] border-b border-rule bg-paper-2" role="region" aria-label="Conflict-of-interest disclosure" data-coi-banner="">
+      <p className="mx-auto max-w-[1320px] px-5 py-1.5 text-2xs break-words text-ink-2 md:px-8">
+        <span className="text-ink">{BANNER_TEXT}</span>{" "}
+        <Link href={href} className="link whitespace-nowrap">
           Read the disclosure
         </Link>
       </p>

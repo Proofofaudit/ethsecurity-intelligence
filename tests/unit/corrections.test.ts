@@ -1,6 +1,7 @@
 import { randomBytes } from "node:crypto";
 import { afterEach, beforeAll, describe, expect, it, vi } from "vitest";
 import {
+  CONTACT_RETENTION_DAYS,
   SubmissionSchema,
   TRANSITIONS,
   applyCorrections,
@@ -8,6 +9,7 @@ import {
   encryptContact,
   moderate,
   newCorrection,
+  purgeExpiredContact,
   spamCheck,
   submitterKey,
   toPublic,
@@ -132,9 +134,51 @@ describe("private contact details", () => {
     expect(c.contactCiphertext).toMatch(/^v1\./);
     const p = toPublic(c) as Record<string, unknown>;
     expect(p).not.toHaveProperty("contactCiphertext");
+    expect(p).not.toHaveProperty("contactExpiresAt");
     expect(p).not.toHaveProperty("submitterKey");
     expect(JSON.stringify(p)).not.toContain("a@b.c");
     expect(p.attribution).toBe("Jane");
+  });
+
+  it("keeps a private contact optional", () => {
+    const c = newCorrection(submission({ contact: "  " }), "k", null);
+    expect(c.contactCiphertext).toBeNull();
+    expect(c.contactExpiresAt).toBeNull();
+    expect(SubmissionSchema.safeParse({ ...valid }).success).toBe(true);
+  });
+
+  it("schedules deletion of a private contact 30 days after submission", () => {
+    vi.stubEnv("CONTACT_ENCRYPTION_KEY", KEY);
+    expect(CONTACT_RETENTION_DAYS).toBe(30);
+    const c = newCorrection(submission({ contact: "a@b.c" }), "k", null, "2026-11-20T10:00:00.000Z");
+    expect(c.contactExpiresAt).toBe("2026-12-20T10:00:00.000Z");
+  });
+
+  it("purges the contact at 30 days with a fake clock and keeps the rest of the correction", () => {
+    vi.stubEnv("CONTACT_ENCRYPTION_KEY", KEY);
+    vi.useFakeTimers({ toFake: ["Date"] });
+    try {
+      vi.setSystemTime(new Date("2026-11-20T10:00:00.000Z"));
+      const c = newCorrection(submission({ contact: "a@b.c" }), "k", null);
+      expect(purgeExpiredContact(c)).toBe(c);
+      vi.setSystemTime(new Date("2026-12-20T09:59:59.999Z"));
+      expect(purgeExpiredContact(c).contactCiphertext).toMatch(/^v1\./);
+      vi.setSystemTime(new Date("2026-12-20T10:00:00.000Z"));
+      const purged = purgeExpiredContact(c);
+      expect(purged.contactCiphertext).toBeNull();
+      expect(purged.contactExpiresAt).toBeNull();
+      expect({ ...purged, contactCiphertext: c.contactCiphertext, contactExpiresAt: c.contactExpiresAt }).toEqual(c);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it("purges records saved before contactExpiresAt existed 30 days after submission", () => {
+    vi.stubEnv("CONTACT_ENCRYPTION_KEY", KEY);
+    const { contactExpiresAt: _e, ...legacy } = newCorrection(submission({ contact: "a@b.c" }), "k", null, "2026-10-01T00:00:00.000Z");
+    void _e;
+    expect(purgeExpiredContact(legacy, new Date("2026-10-30T23:59:59.000Z")).contactCiphertext).not.toBeNull();
+    expect(purgeExpiredContact(legacy, new Date("2026-10-31T00:00:00.000Z")).contactCiphertext).toBeNull();
   });
 
   it("derives submitter keys with an HMAC instead of storing the address", () => {

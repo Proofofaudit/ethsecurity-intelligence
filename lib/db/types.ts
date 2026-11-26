@@ -22,5 +22,10 @@ export interface IntelligenceStore {
   /** Optimistic update: fails if the stored state differs from expectedState. */
   updateCorrection(id: string, expectedState: CorrectionState, next: Correction): Promise<boolean>;
   countSubmissionsSince(submitterKey: string, sinceIso: string): Promise<number>;
+  /**
+   * Deletes private contact ciphertexts older than CONTACT_RETENTION_DAYS and returns how many
+   * were removed. Every other store method runs it first, so an expired contact is never read.
+   */
+  purgeExpiredContacts(now?: Date): Promise<number>;
   health(): Promise<StoreHealth>;
 }

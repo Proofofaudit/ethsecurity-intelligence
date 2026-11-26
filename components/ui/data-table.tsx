@@ -1,6 +1,7 @@
 "use client";
 
 import { flexRender, getCoreRowModel, useReactTable, type ColumnDef, type SortingState } from "@tanstack/react-table";
+import { NEUTRAL_SORT_LABEL } from "@/lib/neutralLanguage";
 import { cn } from "@/lib/util/cn";
 
 export interface ColumnMeta {
@@ -92,5 +93,23 @@ export function DataTable<T>({
         </tbody>
       </table>
     </div>
+  );
+}
+
+/**
+ * States the current order next to a sortable table. With no column sort the order is the
+ * neutral default; otherwise a button returns to it.
+ */
+export function SortStatus({ sorting, onReset, className }: { sorting: SortingState; onReset: () => void; className?: string }) {
+  const active = sorting.length > 0;
+  return (
+    <p className={cn("text-xs text-ink-3", className)} aria-live="polite">
+      Order: {active ? "a column you chose. " : <span className="text-ink-2">{NEUTRAL_SORT_LABEL}</span>}
+      {active && (
+        <button type="button" onClick={onReset} className="link">
+          {NEUTRAL_SORT_LABEL}
+        </button>
+      )}
+    </p>
   );
 }

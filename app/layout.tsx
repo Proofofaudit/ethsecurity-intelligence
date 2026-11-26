@@ -69,7 +69,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         </a>
         <TooltipProvider>
           <CommandPaletteProvider initiatives={palette.initiatives} organizations={palette.organizations}>
-            <CoiStrip href="/about" />
+            <CoiStrip />
             <Header cohortLine={cohortLine} />
             <main id="main" tabIndex={-1} className="mx-auto max-w-[1320px] px-5 pt-8 focus:outline-none md:px-8">
               {children}

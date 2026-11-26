@@ -7,6 +7,7 @@ import { Block, Note, PageHead } from "@/components/ui/layout";
 import { DateTime, formatDate, Money } from "@/components/ui/money";
 import { StatusMark } from "@/components/ui/status";
 import { entityExists } from "@/lib/api/entity";
+import { BANNER_HREF, COI_SHORT, isCoiOrganization } from "@/lib/disclosure";
 import { EntityType, type Dataset } from "@/lib/domain/schemas";
 import { loadIntelligence } from "@/lib/intelligence/load";
 import { displayName, entityLabel, entityProfile, findInitiative } from "@/lib/intelligence/service";
@@ -122,10 +123,10 @@ export default async function EntityPage({ params }: Params) {
             const received = p.pledges.filter((x) => x.status === "received").reduce((s, x) => s + x.amountCents, 0);
             return (
               <>
-                {o.id === "org_proof-of-audits" && (
+                {isCoiOrganization(o.id) && (
                   <aside className="border-l-2 border-ink bg-paper-2 px-4 py-3 text-sm" aria-label="Conflict of interest">
-                    This site and Proof of Audits have the same owner. The profile is produced by the same rules as every other organization.{" "}
-                    <Link href="/about" className="link">
+                    {COI_SHORT} The profile is produced by the same rules as every other organization.{" "}
+                    <Link href={BANNER_HREF} className="link">
                       Read the disclosure
                     </Link>
                     .

@@ -4,6 +4,7 @@
  * `npm run db:load` after validation; the application only reads it.
  */
 import { MongoClient, type Db, type Document } from "mongodb";
+import { CONTACT_RETENTION_DAYS, purgeExpiredContact } from "@/lib/corrections";
 import { Dataset as DatasetSchema, type Correction, type CorrectionState, type Dataset } from "@/lib/domain/schemas";
 import { redactSecrets } from "./redact";
 import type { IntelligenceStore, StoreHealth } from "./types";
@@ -79,9 +80,13 @@ const strip = <T>(doc: Document): T => {
   return rest as T;
 };
 
+/** The database purge runs at most this often; results are also filtered in memory on every read. */
+const PURGE_INTERVAL_MS = 60_000;
+
 export class MongoStore implements IntelligenceStore {
   readonly backend = "mongodb" as const;
   private cache: { at: number; version: string; dataset: Dataset } | null = null;
+  private lastPurgeAt = 0;
   constructor(
     private readonly uri: string,
     private readonly dbName: string,
@@ -116,31 +121,51 @@ export class MongoStore implements IntelligenceStore {
     return d;
   }
 
+  async purgeExpiredContacts(now: Date = new Date()) {
+    const cutoff = new Date(now.getTime() - CONTACT_RETENTION_DAYS * 24 * 60 * 60 * 1000).toISOString();
+    const r = await (await this.db()).collection(AUX_COLLECTIONS.corrections).updateMany(
+      { contactCiphertext: { $type: "string" }, $or: [{ contactExpiresAt: { $lte: now.toISOString() } }, { contactExpiresAt: null, submittedAt: { $lte: cutoff } }] },
+      { $set: { contactCiphertext: null, contactExpiresAt: null } },
+    );
+    this.lastPurgeAt = now.getTime();
+    return r.modifiedCount;
+  }
+
+  private async autoPurge() {
+    if (Date.now() - this.lastPurgeAt >= PURGE_INTERVAL_MS) await this.purgeExpiredContacts();
+  }
+
   async listCorrections(filter: { states?: CorrectionState[]; targetId?: string; initiativeId?: string } = {}) {
+    await this.autoPurge();
     const q: Document = {};
     if (filter.states) q.state = { $in: filter.states };
     if (filter.targetId) q.targetId = filter.targetId;
     if (filter.initiativeId) q.initiativeId = filter.initiativeId;
     const db = await this.db();
-    return (await db.collection(AUX_COLLECTIONS.corrections).find(q).sort({ submittedAt: -1 }).limit(1000).toArray()).map((d) => strip<Correction>(d));
+    return (await db.collection(AUX_COLLECTIONS.corrections).find(q).sort({ submittedAt: -1 }).limit(1000).toArray()).map((d) => purgeExpiredContact(strip<Correction>(d)));
   }
 
   async getCorrection(id: string) {
+    await this.autoPurge();
     const doc = await (await this.db()).collection(AUX_COLLECTIONS.corrections).findOne({ _id: id as never });
-    return doc ? strip<Correction>(doc) : null;
+    return doc ? purgeExpiredContact(strip<Correction>(doc)) : null;
   }
 
   async createCorrection(c: Correction) {
+    await this.autoPurge();
     await (await this.db()).collection(AUX_COLLECTIONS.corrections).insertOne({ _id: c.id as never, ...c });
   }
 
   async updateCorrection(id: string, expectedState: CorrectionState, next: Correction) {
-    const r = await (await this.db()).collection(AUX_COLLECTIONS.corrections).replaceOne({ _id: id as never, state: expectedState }, { ...next });
+    await this.autoPurge();
+    // `next` was built from an earlier read; never write back a contact that has since expired.
+    const r = await (await this.db()).collection(AUX_COLLECTIONS.corrections).replaceOne({ _id: id as never, state: expectedState }, { ...purgeExpiredContact(next) });
     // matchedCount, not modifiedCount: an identical replacement is still a successful update.
     return r.matchedCount === 1;
   }
 
   async countSubmissionsSince(key: string, since: string) {
+    await this.autoPurge();
     return (await this.db()).collection(AUX_COLLECTIONS.corrections).countDocuments({ submitterKey: key, submittedAt: { $gte: since } });
   }
 

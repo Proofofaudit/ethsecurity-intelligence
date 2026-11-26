@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Tag } from "@/components/ui/button";
 import { Note, PageHead } from "@/components/ui/layout";
-import { COI_SHORT } from "@/components/shell/footer";
+import { BANNER_HREF, COI_SHORT, isCoiOrganization } from "@/lib/disclosure";
 import { STAGE_LABEL } from "@/lib/domain/taxonomy";
 import type { LifecycleStage } from "@/lib/domain/schemas";
 import { loadIntelligence } from "@/lib/intelligence/load";
@@ -15,9 +15,6 @@ export const dynamic = "force-dynamic";
 
 type SP = Promise<Record<string, string | string[] | undefined>>;
 const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v) ?? "";
-
-/** The comparison set named in the research brief, resolved by short title so it follows the data. */
-const PRESET_TITLES = ["seal audit transparency", "trustblock", "proof of audits", "colibri", "zknox", "walletbeat"];
 
 /** Replaces stage ids with their labels in the "Shared lifecycle stages" reason only. */
 function stageReason(r: string): string {
@@ -38,7 +35,7 @@ export default async function CollaborationPage({ searchParams }: { searchParams
   const kind = one(sp.kind);
   const all = collaboration(d);
   const items = all.filter((c) => (!focus.length || focus.includes(c.a.id) || focus.includes(c.b.id)) && (!kind || c.kind === kind));
-  const presetSlugs = d.initiatives.filter((i) => PRESET_TITLES.includes(i.shortTitle.toLowerCase())).map((i) => i.slug);
+  const choices = d.initiatives.map((i) => ({ slug: i.slug, label: displayName(d, i) })).sort((a, b) => a.label.localeCompare(b.label));
   const pairs = focus.length >= 2 ? pairDetails(d, focus) : [];
   const byId = new Map(d.initiatives.map((i) => [i.id, i]));
   const name = (id: string) => {
@@ -46,7 +43,7 @@ export default async function CollaborationPage({ searchParams }: { searchParams
     return i ? displayName(d, i) : id;
   };
   const org = (id: string) => d.organizations.find((o) => o.id === id)?.name ?? id;
-  const includesPoa = (focus.length ? focus : d.initiatives.map((i) => i.id)).some((id) => byId.get(id)?.organizationId === "org_proof-of-audits");
+  const includesPoa = (focus.length ? focus : d.initiatives.map((i) => i.id)).some((id) => isCoiOrganization(byId.get(id)?.organizationId));
 
   const groups = new Map<string, CollaborationItem[]>();
   for (const c of items) {
@@ -87,9 +84,23 @@ export default async function CollaborationPage({ searchParams }: { searchParams
         </nav>
         <span className="hidden h-4 w-px bg-rule-2 md:block" aria-hidden="true" />
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
-          <Link href={`/research/collaboration?focus=${presetSlugs.join(",")}`} className="link">
-            Audit transparency and clear-signing set ({presetSlugs.length} initiatives)
-          </Link>
+          <form action="/research/collaboration" className="flex flex-wrap items-center gap-2">
+            {kind && <input type="hidden" name="kind" value={kind} />}
+            <label className="flex items-center gap-1.5 text-xs text-ink-3">
+              Focus on
+              <select name="focus" defaultValue={focus.length === 1 ? (byId.get(focus[0]!)?.slug ?? "") : ""} className="h-7 max-w-[260px] rounded-xs border border-rule-2 bg-paper px-1.5 text-xs text-ink focus:border-ink focus:outline-none">
+                <option value="">All initiatives</option>
+                {choices.map((c) => (
+                  <option key={c.slug} value={c.slug}>
+                    {c.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <button type="submit" className="h-7 rounded-xs border border-rule-2 px-2 text-xs hover:border-ink-3">
+              Apply
+            </button>
+          </form>
           {focus.length > 0 && (
             <Link href={qs({ focus: "" })} className="text-ink-3 hover:text-accent">
               Clear focus
@@ -108,7 +119,7 @@ export default async function CollaborationPage({ searchParams }: { searchParams
       {includesPoa && (
         <aside className="border-l-2 border-ink bg-paper-2 px-4 py-2.5 text-xs text-ink-2" aria-label="Conflict of interest">
           {COI_SHORT} Its pairs are produced by the same rules and thresholds as every other pair.{" "}
-          <Link href="/about" className="link">
+          <Link href={BANNER_HREF} className="link">
             Read the disclosure
           </Link>
           .

@@ -306,6 +306,7 @@ describe("corrections workflow", () => {
     const stored = JSON.parse(await fs.readFile(path.join(stateDir, "corrections.json"), "utf8")) as Correction[];
     const rec = stored.find((c) => c.id === id)!;
     expect(rec.contactCiphertext).toMatch(/^v1\./);
+    expect(Date.parse(rec.contactExpiresAt!) - Date.parse(rec.submittedAt)).toBe(30 * 24 * 60 * 60 * 1000);
     expect(JSON.stringify(stored)).not.toContain(CONTACT);
     expect(JSON.stringify(stored)).not.toContain("203.0.113.10");
 
@@ -434,6 +435,7 @@ describe("corrections workflow", () => {
       expect(all).not.toContain(c.submitterKey);
     }
     expect(all).not.toContain("contactCiphertext");
+    expect(all).not.toContain("contactExpiresAt");
     expect(all).not.toContain("submitterKey");
   });
 });

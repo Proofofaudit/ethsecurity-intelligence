@@ -3,6 +3,7 @@ import { CorrectionState, type Correction } from "@/lib/domain/schemas";
 import { ModerationSchema, STATE_LABEL, TRANSITIONS, moderate, toPublic } from "@/lib/corrections";
 import { ApiError, handle, IdParam, load, notFound, ok, PAGE_NUMBERS, PageFields, pageOf, paginate, parseJsonBody, parseQuery } from "@/lib/api/http";
 import { requireModerator } from "@/lib/api/auth";
+import { logServerError } from "@/lib/util/log";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -50,7 +51,7 @@ export const PATCH = handle(async (req: Request) => {
   try {
     updated = await store.updateCorrection(current.id, current.state, next);
   } catch (err) {
-    console.error("[api] moderation update failed:", err instanceof Error ? err.message : String(err));
+    logServerError("api", "moderation update failed", err);
     throw new ApiError(503, "unavailable", "Moderation is temporarily unavailable");
   }
   if (!updated) throw new ApiError(409, "conflict", "The correction changed since it was read. Reload and try again.");

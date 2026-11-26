@@ -1,5 +1,6 @@
 import { WebStandardStreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/webStandardStreamableHttp.js";
 import { createServer } from "@/mcp/server";
+import { logServerError } from "@/lib/util/log";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -28,7 +29,7 @@ async function handle(req: Request): Promise<Response> {
     // JSON responses are complete at this point, so the per-request server can be released.
     await server.close();
   } catch (err) {
-    console.error("[mcp] request failed:", err instanceof Error ? err.message : String(err));
+    logServerError("mcp", "request failed", err);
     res = Response.json({ jsonrpc: "2.0", error: { code: -32603, message: "The research dataset is temporarily unavailable." }, id: null }, { status: 503 });
   }
   const headers = new Headers(res.headers);

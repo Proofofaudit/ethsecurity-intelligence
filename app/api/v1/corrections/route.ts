@@ -2,6 +2,7 @@ import { z } from "zod";
 import { CHANGELOG_STATES, CORRECTION_NOTICE, SubmissionSchema, newCorrection, spamCheck, submitterKey, toChangelogEntry } from "@/lib/corrections";
 import { findInitiative } from "@/lib/intelligence/service";
 import { ApiError, badRequest, clientIp, handle, IdParam, json, load, notFound, ok, PAGE_NUMBERS, PageFields, pageOf, paginate, parseJsonBody, parseQuery } from "@/lib/api/http";
+import { logServerError } from "@/lib/util/log";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -64,7 +65,7 @@ export const POST = handle(async (req: Request) => {
   try {
     await store.createCorrection(correction);
   } catch (err) {
-    console.error("[api] correction not stored:", err instanceof Error ? err.message : String(err));
+    logServerError("api", "correction not stored", err);
     throw new ApiError(503, "unavailable", "Corrections are temporarily unavailable. Please try again later.");
   }
   return ok(

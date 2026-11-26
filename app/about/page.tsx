@@ -3,19 +3,18 @@ import Link from "next/link";
 import { ExternalLink } from "@/components/ui/button";
 import { Block, PageHead } from "@/components/ui/layout";
 import { Money } from "@/components/ui/money";
-import { COI_SHORT, REPO_URL } from "@/components/shell/footer";
+import { BANNER_TEXT, COI_SHORT, isCoiOrganization, REPO_URL } from "@/lib/disclosure";
 import { loadIntelligence } from "@/lib/intelligence/load";
 import { fundingRelationships } from "@/lib/intelligence/service";
 
 export const metadata: Metadata = { title: "About and conflict-of-interest disclosure" };
 export const revalidate = 300;
 
-const POA_ORG = "org_proof-of-audits";
 const BOARD_REPO = "https://github.com/BlossomLabs/thedao-initiatives";
 
 export default async function AboutPage() {
   const { dataset: d } = await loadIntelligence();
-  const poa = d.initiatives.filter((i) => i.organizationId === POA_ORG);
+  const poa = d.initiatives.filter((i) => isCoiOrganization(i.organizationId));
   const fr = fundingRelationships(d);
   const poaSelf = fr.selfPledges.filter((p) => poa.some((i) => i.id === p.initiativeId));
   const board = new URL(d.meta.officialSourceUrl).origin;
@@ -28,7 +27,7 @@ export default async function AboutPage() {
         lede={<p>ETHSecurity Intelligence is independent research on the {d.initiatives.length} initiatives on TheDAO Security Fund ballot. It helps badge holders and reviewers inspect claims, evidence, funding and milestones. It does not tell anyone how to vote.</p>}
       />
 
-      <section aria-labelledby="coi-h" className="border-2 border-ink px-5 py-4">
+      <section id="coi" aria-labelledby="coi-h" className="scroll-mt-20 border-2 border-ink px-5 py-4">
         <p className="eyebrow">Conflict-of-interest disclosure</p>
         <h2 id="coi-h" className="mt-1 text-[20px] leading-7 font-semibold">{COI_SHORT.replace(/^Disclosure: t/, "T")}</h2>
         <div className="mt-3 max-w-[860px] space-y-2 text-sm text-ink-2">
@@ -63,9 +62,10 @@ export default async function AboutPage() {
           <p>Safeguards that apply to every initiative, including Proof of Audits:</p>
           <ul className="list-disc space-y-1 pl-5">
             <li>One pipeline, one set of rules, thresholds and wording for all {d.initiatives.length} initiatives.</li>
-            <li>No ranking, score, rating or voting advice. Lists default to alphabetical order.</li>
+            <li>No ranking, score, rating or voting advice. Lists default to the order labeled &ldquo;Alphabetical (neutral)&rdquo;.</li>
             <li>Official figures are copied from the official API, and a truth audit blocks publication if any published figure or quote differs from the raw record.</li>
-            <li>A short notice sits at the top of every page, and the Proof of Audits dossier, its organization profile and the collaboration view repeat the disclosure.</li>
+            <li>A banner at the top of every page reads: &ldquo;{BANNER_TEXT}&rdquo; The Proof of Audits dossier, its organization profile and the collaboration view repeat the disclosure.</li>
+            <li>An automated test fails the build if any ranking, sorting, filtering, scoring or display code singles out Proof of Audits, and a second test checks that its dossier has the same sections, evidence rules and correction link as every other initiative.</li>
             <li>
               The code, data pipeline and published dataset are public in the <ExternalLink href={REPO_URL}>GitHub repository</ExternalLink>, so anyone can reproduce the results.
             </li>

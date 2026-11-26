@@ -7,7 +7,9 @@ import { EVIDENCE_STATUS_LABEL, type EvidenceStatus } from "@/lib/domain/schemas
 import { ONE_TS_DOMAINS, SECURITY_PROBLEMS, STAGE_ONE_TS } from "@/lib/domain/taxonomy";
 import { BLIND_SPOT_LABEL } from "@/lib/intelligence/service";
 import { OVERLAP_METHOD_VERSION, OVERLAP_THRESHOLDS } from "@/lib/intelligence/overlap";
+import { CONTACT_RETENTION_DAYS } from "@/lib/corrections";
 import { METHODOLOGY_VERSION, METRICS, type MetricUnit } from "@/lib/metrics/registry";
+import { PRIVACY_LOCAL_KEYS } from "@/lib/privacy";
 
 export const metadata: Metadata = { title: "Methodology" };
 
@@ -54,6 +56,7 @@ export default function MethodologyPage() {
                 ["questions", "Questions and blind spots"],
                 ["identity", "Organization identity"],
                 ["neutrality", "Neutrality rules"],
+                ["privacy", "Privacy"],
               ].map(([id, l]) => (
                 <li key={id}>
                   <a href={`#${id}`} className="hover:text-accent">
@@ -224,6 +227,50 @@ export default function MethodologyPage() {
           <li>Hypothetical scenarios are labeled as exploration and never presented as predictions. No voting simulation is offered.</li>
           <li>Private workspace data stays in the reviewer&apos;s browser and is never part of public figures.</li>
         </ul>
+      </Block>
+
+      <Block id="privacy" title="Privacy" note="This list is checked against the code by an automated test. Nothing personal leaves your browser unless you submit a correction.">
+        <div className="grid max-w-[1100px] gap-8 text-sm text-ink-2 lg:grid-cols-3 [&>*]:min-w-0">
+          <div>
+            <h3 className="eyebrow mb-2">Stored only in your browser</h3>
+            <p className="mb-2">Kept in this browser&apos;s local storage, never sent to the server. Clearing this site&apos;s data in the browser, or the Clear button in My Workspace, removes it.</p>
+            <ul className="list-disc space-y-1 pl-5">
+              <li>
+                <code className="num text-xs">{PRIVACY_LOCAL_KEYS.workspace}</code>: My Workspace. Saved initiatives with your priority and review state, saved searches, bookmarked statements with the status you saw, saved comparisons, notes, open questions, research priorities, draft assessments, the last page you visited and when you last reviewed the change log. Focus and affiliation settings are kept in the same entry.
+              </li>
+              <li>
+                <code className="num text-xs">{PRIVACY_LOCAL_KEYS.labTemplates}</code>: AI Lab templates you save.
+              </li>
+              <li>
+                <code className="num text-xs">{PRIVACY_LOCAL_KEYS.theme}</code>: your light, dark or system theme choice.
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="eyebrow mb-2">Stored on the server</h3>
+            <ul className="list-disc space-y-1 pl-5">
+              <li>The published research dataset, which is public.</li>
+              <li>
+                Corrections you choose to submit: the target, category, proposed correction, evidence link, explanation, optional public attribution, moderation state and the public resolution.
+              </li>
+              <li>
+                An optional private contact on a correction, encrypted with AES-256-GCM, never shown and never returned by the API or the MCP server. It is deleted {CONTACT_RETENTION_DAYS} days after submission at the latest.
+              </li>
+              <li>A keyed hash (HMAC-SHA-256) of the submitting network address, kept with each correction to limit submissions to five per hour. The address itself is not stored.</li>
+              <li>Server error logs with a fixed event name and error type only. Request addresses, query strings and request bodies are not logged.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="eyebrow mb-2">Never stored</h3>
+            <ul className="list-disc space-y-1 pl-5">
+              <li>Votes, ballots, wallet addresses or signatures. The site never connects a wallet.</li>
+              <li>Search text typed into Research or the command palette. It is used to answer the request and discarded.</li>
+              <li>AI Lab prompts and generated briefs. They are built in your browser, and no AI output is cached on the server for any user.</li>
+              <li>Workspace contents, names you type and what-if scenarios.</li>
+              <li>Analytics, tracking cookies or third-party requests. Fonts are served from this site, and the browser contacts no other origin. Only the server contacts TheDAO Security Fund&apos;s public API and the documented research sources, such as GitHub.</li>
+            </ul>
+          </div>
+        </div>
       </Block>
     </div>
   );

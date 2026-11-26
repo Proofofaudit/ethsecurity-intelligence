@@ -47,6 +47,7 @@ import {
 } from "@/lib/intelligence/service";
 import { MCP_MAX_ITEMS, MCP_SERVER_NAME, TOOLS } from "@/lib/mcp/catalog";
 import { METRIC_BY_ID, METRICS } from "@/lib/metrics/registry";
+import { logServerError } from "@/lib/util/log";
 
 export const MCP_SERVER_VERSION = "1.0.0";
 /** Upper bound on one serialized tool result. Larger results ask the client to narrow the request. */
@@ -203,7 +204,7 @@ export async function createServer(opts: ServerOptions = {}): Promise<McpServer>
         try {
           ctx = await load();
         } catch (err) {
-          console.error("[mcp] dataset unavailable:", err instanceof Error ? err.message : String(err));
+          logServerError("mcp", "dataset unavailable", err);
           return errorResult("unavailable", "The research dataset is temporarily unavailable.");
         }
         try {
@@ -214,7 +215,7 @@ export async function createServer(opts: ServerOptions = {}): Promise<McpServer>
         } catch (err) {
           if (err instanceof ApiError) return errorResult(err.code, err.message);
           if (err instanceof z.ZodError) return errorResult("bad_request", err.issues.map((i) => `${i.path.join(".") || "input"}: ${i.message}`).join("; "));
-          console.error(`[mcp] ${name} failed:`, err instanceof Error ? err.message : String(err));
+          logServerError("mcp", `tool ${name} failed`, err);
           return errorResult("internal_error", "Unexpected server error.");
         }
       }) as never,

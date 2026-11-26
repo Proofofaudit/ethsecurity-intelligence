@@ -4,7 +4,7 @@ import type { ColumnDef, SortingState } from "@tanstack/react-table";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { DataTable } from "@/components/ui/data-table";
+import { DataTable, SortStatus } from "@/components/ui/data-table";
 import { Check, inputClass, selectClass, Segmented } from "@/components/ui/form";
 import { Money, Pct } from "@/components/ui/money";
 
@@ -218,7 +218,10 @@ export function MilestoneTable({ rows, initiatives, initialInitiative }: { rows:
       {filtered.length === 0 ? (
         <p className="py-6 text-sm text-ink-3">No milestone matches these filters.</p>
       ) : (
-        <DataTable data={filtered} columns={columns} sorting={sorting} onSortingChange={setSorting} getRowId={(r) => r.id} caption="Milestones across all cohort initiatives" />
+        <>
+          <SortStatus sorting={sorting} onReset={() => setSorting([])} />
+          <DataTable data={filtered} columns={columns} sorting={sorting} onSortingChange={setSorting} getRowId={(r) => r.id} caption="Milestones across all cohort initiatives" />
+        </>
       )}
     </div>
   );

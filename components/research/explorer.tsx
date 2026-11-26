@@ -11,6 +11,7 @@ import { Money, Pct } from "@/components/ui/money";
 import { SaveButton } from "@/components/workspace/save-button";
 import { removeSearch, saveSearch, useWorkspace } from "@/components/workspace/store";
 import type { InitiativeSummary } from "@/lib/intelligence/service";
+import { NEUTRAL_SORT_LABEL } from "@/lib/neutralLanguage";
 import { cn } from "@/lib/util/cn";
 import { activeFilterCount, toQuery, type ResearchParams } from "./params";
 
@@ -29,6 +30,16 @@ export interface Facets {
 }
 
 const MAX_COMPARE = 5;
+
+/** Sort options. The first is the neutral default; the others are chosen explicitly by the reviewer. */
+const SORT_OPTIONS: { value: Exclude<ResearchParams["sort"], ""> | "relevance"; label: string }[] = [
+  { value: "title", label: NEUTRAL_SORT_LABEL },
+  { value: "relevance", label: "Search relevance (BM25)" },
+  { value: "goal", label: "Requested amount" },
+  { value: "pct", label: "Funding progress" },
+  { value: "remaining", label: "Still needed" },
+  { value: "milestones", label: "Number of milestones" },
+];
 
 export function ResearchExplorer({ params, invalid, items, total, sortNote, facets }: { params: ResearchParams; invalid: string | null; items: Row[]; total: number; sortNote: string; facets: Facets }) {
   const router = useRouter();
@@ -65,6 +76,12 @@ export function ResearchExplorer({ params, invalid, items, total, sortNote, face
   const onSort = (s: SortingState) => {
     const x = s[0];
     push(x ? { sort: x.id as ResearchParams["sort"], order: x.desc ? "desc" : "asc" } : { sort: "", order: "" });
+  };
+
+  const sortValue = params.sort || (params.q ? "relevance" : "title");
+  const onSortSelect = (v: string) => {
+    if (v === "relevance" || (v === "title" && !params.q)) push({ sort: "", order: "" });
+    else push({ sort: v as ResearchParams["sort"], order: params.sort === v ? params.order : "asc" });
   };
 
   const columns = useMemo<ColumnDef<Row, unknown>[]>(
@@ -203,7 +220,21 @@ export function ResearchExplorer({ params, invalid, items, total, sortNote, face
             <span className="ml-2 text-xs text-ink-3">{sortNote}</span>
             {pending && <span className="ml-2 text-xs text-ink-3">Updating…</span>}
           </p>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
+            <label className="flex items-center gap-1.5 text-xs text-ink-3">
+              Sort
+              <select
+                value={sortValue}
+                onChange={(e) => onSortSelect(e.target.value)}
+                className="h-7 rounded-xs border border-rule-2 bg-paper px-1.5 text-xs text-ink focus:border-ink focus:outline-none"
+              >
+                {SORT_OPTIONS.filter((o) => o.value !== "relevance" || params.q).map((o) => (
+                  <option key={o.value} value={o.value}>
+                    {o.label}
+                  </option>
+                ))}
+              </select>
+            </label>
             <SaveSearch query={currentQuery} disabled={!currentQuery} />
             <div role="group" aria-label="View" className="flex rounded-sm border border-rule-2 p-0.5">
               {(["table", "cards"] as const).map((v) => (

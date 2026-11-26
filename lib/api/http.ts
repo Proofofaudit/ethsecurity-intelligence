@@ -8,6 +8,7 @@ import type { Dataset } from "@/lib/domain/schemas";
 import type { IntelligenceStore, StoreHealth } from "@/lib/db/types";
 import { envelope } from "@/lib/intelligence/service";
 import { loadIntelligence } from "@/lib/intelligence/load";
+import { logServerError } from "@/lib/util/log";
 
 export type ErrorCode =
   | "bad_request"
@@ -60,7 +61,7 @@ export function handle<A extends unknown[]>(fn: (...args: A) => Promise<Response
     } catch (err) {
       if (err instanceof ApiError) return errorResponse(err.status, err.code, err.message);
       if (err instanceof z.ZodError) return errorResponse(400, "bad_request", zodMessage(err));
-      console.error("[api] unexpected error:", err instanceof Error ? err.message : String(err));
+      logServerError("api", "unexpected error", err);
       return errorResponse(500, "internal_error", "Unexpected server error");
     }
   };
@@ -78,7 +79,7 @@ export async function load(): Promise<Loaded> {
   try {
     loaded = await loadIntelligence();
   } catch (err) {
-    console.error("[api] dataset unavailable:", err instanceof Error ? err.message : String(err));
+    logServerError("api", "dataset unavailable", err);
     throw new ApiError(503, "unavailable", "The research dataset is temporarily unavailable");
   }
   return loaded;

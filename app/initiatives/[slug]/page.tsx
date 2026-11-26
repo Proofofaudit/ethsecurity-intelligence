@@ -7,7 +7,6 @@ import { ClaimList, CorrectionButton, EVIDENCE_KIND_LABEL, InspectorProvider } f
 import { ProposalHistory } from "@/components/dossier/history";
 import { MilestoneXRay } from "@/components/dossier/milestones";
 import { RealityVsPromises } from "@/components/dossier/reality";
-import { COI_SHORT } from "@/components/shell/footer";
 import { ExternalLink, Tag } from "@/components/ui/button";
 import { FundingBar, FundingLegend } from "@/components/ui/charts";
 import { Note } from "@/components/ui/layout";
@@ -18,9 +17,10 @@ import { StatusLegend, StatusMark } from "@/components/ui/status";
 import { ReviewedButton } from "@/components/workspace/review-button";
 import { SaveButton } from "@/components/workspace/save-button";
 import { CATEGORY_LABEL, CORRECTION_NOTICE } from "@/lib/corrections";
+import { BANNER_HREF, COI_SHORT, isCoiOrganization } from "@/lib/disclosure";
 import type { Claim, Evidence } from "@/lib/domain/schemas";
 import { loadIntelligence } from "@/lib/intelligence/load";
-import { BLIND_SPOT_LABEL, dependencies, dossier, PRESENT_SUPPORTED, plainExplanation, type Dossier } from "@/lib/intelligence/service";
+import { BLIND_SPOT_LABEL, dependencies, dossier, PRESENT_SUPPORTED, plainExplanation } from "@/lib/intelligence/service";
 import { CORE_RESEARCH_TASKS } from "@/lib/intelligence/status";
 import { formatPct } from "@/lib/util/money";
 
@@ -65,7 +65,6 @@ function Facts({ rows }: { rows: [string, ReactNode][] }) {
   );
 }
 
-const isPoa = (x: Dossier) => x.initiative.organizationId === "org_proof-of-audits";
 
 export default async function InitiativePage({ params }: Params) {
   const { slug } = await params;
@@ -140,12 +139,12 @@ export default async function InitiativePage({ params }: Params) {
           <span>{ini.shortTitle}</span>
         </nav>
 
-        {isPoa(x) && (
+        {isCoiOrganization(ini.organizationId) && (
           <aside className="mb-6 border-l-2 border-ink bg-paper-2 px-4 py-3 text-sm" aria-label="Conflict of interest">
             <p className="font-semibold">Conflict of interest</p>
             <p className="mt-1 text-ink-2">
               {COI_SHORT} This dossier is produced by the same pipeline and rules as every other initiative, with no ranking or score.{" "}
-              <Link href="/about" className="link">
+              <Link href={BANNER_HREF} className="link">
                 Read the disclosure
               </Link>
               .

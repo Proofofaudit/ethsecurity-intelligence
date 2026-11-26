@@ -532,6 +532,8 @@ export const Correction = z.object({
   attribution: z.string().nullable(),
   /** AES-GCM ciphertext of the optional private contact; never returned publicly. */
   contactCiphertext: z.string().nullable(),
+  /** When the contact ciphertext is deleted (submission + 30 days). Absent on records saved before this field existed. */
+  contactExpiresAt: z.string().nullable().optional(),
   state: CorrectionState,
   resolution: z.string().nullable(),
   /** If accepted, the claim status/assertion applied. */
@@ -545,7 +547,7 @@ export const Correction = z.object({
 });
 export type Correction = z.infer<typeof Correction>;
 
-export const PublicCorrection = Correction.omit({ contactCiphertext: true, submitterKey: true });
+export const PublicCorrection = Correction.omit({ contactCiphertext: true, contactExpiresAt: true, submitterKey: true });
 export type PublicCorrection = z.infer<typeof PublicCorrection>;
 
 export const DatasetMeta = z.object({

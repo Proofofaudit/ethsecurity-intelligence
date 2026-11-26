@@ -171,6 +171,36 @@ describe("MongoStore against MongoDB 8 (mongodb-memory-server)", () => {
     expect(await store.countSubmissionsSince("nobody", "2026-01-01T00:00:00.000Z")).toBe(0);
   });
 
+  it("deletes private contacts after 30 days (fake clock) and never returns expired ones", async () => {
+    const store = new MongoStore(uri, DB);
+    const coll = db.collection(AUX_COLLECTIONS.corrections);
+    await coll.deleteMany({});
+    const submittedAt = "2026-11-20T10:00:00.000Z";
+    const fresh = correction("cor_fresh", { submittedAt, contactCiphertext: "v1.a.b.c", contactExpiresAt: "2026-12-20T10:00:00.000Z" });
+    const legacy = correction("cor_legacy", { submittedAt: "2026-10-01T00:00:00.000Z", contactCiphertext: "v1.d.e.f" });
+    const none = correction("cor_none", { submittedAt });
+    for (const c of [fresh, legacy, none]) await coll.insertOne({ _id: c.id as never, ...c });
+
+    // Day 29: only the legacy record (no expiry field, submitted 50 days earlier) is purged.
+    expect(await store.purgeExpiredContacts(new Date("2026-12-19T10:00:00.000Z"))).toBe(1);
+    expect((await coll.findOne({ _id: "cor_legacy" as never }))?.contactCiphertext).toBeNull();
+    expect((await coll.findOne({ _id: "cor_fresh" as never }))?.contactCiphertext).toBe("v1.a.b.c");
+    // Day 30: the fresh record is purged in the database; the rest of the correction stays.
+    expect(await store.purgeExpiredContacts(new Date("2026-12-20T10:00:00.000Z"))).toBe(1);
+    const after = await coll.findOne({ _id: "cor_fresh" as never });
+    expect(after).toMatchObject({ contactCiphertext: null, contactExpiresAt: null, proposedCorrection: fresh.proposedCorrection, state: "submitted" });
+    expect(await store.purgeExpiredContacts(new Date("2027-01-01T00:00:00.000Z"))).toBe(0);
+    expect(await coll.countDocuments()).toBe(3);
+
+    // Reads filter in memory too, and an update built from a stale read cannot restore it.
+    await coll.updateOne({ _id: "cor_fresh" as never }, { $set: { contactCiphertext: "v1.a.b.c", contactExpiresAt: "2026-01-01T00:00:00.000Z" } });
+    expect((await store.getCorrection("cor_fresh"))?.contactCiphertext).toBeNull();
+    expect((await store.listCorrections()).every((c) => c.contactCiphertext === null)).toBe(true);
+    const stale = { ...fresh, contactExpiresAt: "2026-01-01T00:00:00.000Z" };
+    expect(await store.updateCorrection("cor_fresh", "submitted", { ...stale, state: "under_review" })).toBe(true);
+    expect((await coll.findOne({ _id: "cor_fresh" as never }))?.contactCiphertext).toBeNull();
+  });
+
   it("refuses to serve when no dataset has been loaded", async () => {
     const store = new MongoStore(uri, "esi_empty_db");
     await expect(store.getDataset()).rejects.toThrow(/No dataset loaded/);

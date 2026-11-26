@@ -126,7 +126,7 @@ export default async function MilestonesPage({ searchParams }: { searchParams: S
         <h2 id="table-h" className="border-t border-ink pt-3 text-md font-semibold">
           Cross-initiative milestone table
         </h2>
-        <Note className="mt-1 mb-3">Alphabetical by initiative, then milestone order (neutral default). Column headers sort. Open a milestone name for its criteria and questions.</Note>
+        <Note className="mt-1 mb-3">Default order: Alphabetical (neutral), by initiative, then milestone order. Column headers sort. Open a milestone name for its criteria and questions.</Note>
         <MilestoneTable rows={rows} initialInitiative={focus?.slug ?? ""} initiatives={[...new Map(rows.map((r) => [r.slug, r.initiative])).entries()].map(([slug, label]) => ({ slug, label }))} />
       </section>
     </div>
