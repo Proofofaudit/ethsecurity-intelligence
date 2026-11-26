@@ -34,14 +34,28 @@ export function useAffiliationFlags(targets: readonly AffiliationTarget[]): Map<
 
 const amber = "border-st-partial bg-st-partial-wash text-st-partial";
 
-/** Amber tag with the matched text. Renders nothing when the initiative is not flagged. */
-export function AffiliationTag({ flag, label, className }: { flag: AffiliationFlag | undefined; label?: string; className?: string }) {
+const flagDetail = (flag: AffiliationFlag) => (flag?.kind === "matched" ? matchText(flag.matches) : "Marked by you in My affiliations.");
+
+/**
+ * Amber tag with the matched text. Renders nothing when the initiative is not flagged.
+ * `detail={false}` renders the tag alone, for rows that show AffiliationDetail elsewhere.
+ */
+export function AffiliationTag({ flag, label, className, detail = true }: { flag: AffiliationFlag | undefined; label?: string; className?: string; detail?: boolean }) {
   if (!flag || !isFlagged(flag)) return null;
-  const detail = flag.kind === "matched" ? matchText(flag.matches) : "Marked by you in My affiliations.";
   return (
     <span className={cn("inline-flex flex-wrap items-baseline gap-x-1.5 text-xs", className)} data-affiliation-flag={flag.kind}>
       <Tag className={amber}>{label ?? (flag.kind === "marked" ? MARKED_AFFILIATED : MAY_BE_AFFILIATED)}</Tag>
-      <span className="text-ink-2">{detail}</span>
+      {detail && <span className="text-ink-2">{flagDetail(flag)}</span>}
+    </span>
+  );
+}
+
+/** The matched text of a flag as its own visible line ("“SEAL” matched manifest affiliation group “SEAL”"). */
+export function AffiliationDetail({ flag, className }: { flag: AffiliationFlag | undefined; className?: string }) {
+  if (!flag || !isFlagged(flag)) return null;
+  return (
+    <span className={cn("block text-xs text-ink-2", className)} data-affiliation-detail>
+      {flagDetail(flag)}
     </span>
   );
 }

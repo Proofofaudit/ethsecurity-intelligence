@@ -11,9 +11,9 @@ import { CONTACT_RETENTION_DAYS } from "@/lib/corrections";
 import { METHODOLOGY_VERSION, METRICS, type MetricUnit } from "@/lib/metrics/registry";
 import { PRIVACY_LOCAL_KEYS } from "@/lib/privacy";
 import { MODE_BY_ID } from "@/lib/skills/modes";
-import { AFFILIATED_WITH, GENERIC_WORDS, MAY_BE_AFFILIATED, POSSIBLY_OWN } from "@/lib/vote/affiliation";
+import { AFFILIATED_WITH, GENERIC_WORDS, MAY_BE_AFFILIATED, OPTIONAL_WORDS, POSSIBLY_OWN } from "@/lib/vote/affiliation";
 import { DIRECTORY_UNAVAILABLE_NOTE } from "@/lib/vote/badge-directory";
-import { FOCUS_MODE_TABLE } from "@/lib/vote/interest";
+import { FOCUS_MODE_TABLE, KEYWORD_ENDINGS } from "@/lib/vote/interest";
 
 export const metadata: Metadata = { title: "Methodology" };
 
@@ -244,10 +244,13 @@ export default function MethodologyPage() {
             My affiliations in My Workspace compares the organizations you list with each initiative&apos;s manifest groups, official recipient team and the published organization aliases (see Organization identity). A match shows an amber &ldquo;{MAY_BE_AFFILIATED}&rdquo; tag with the matched text, and Ballot Prep shows &ldquo;{POSSIBLY_OWN}&rdquo; next to the tier choice. You can mark or unmark any initiative by hand; the matching runs in your browser.
           </li>
           <li>
-            Matching folds case and accents and splits text into words. An entry is also tried as the text inside and outside its parentheses, so &ldquo;Security Alliance (SEAL)&rdquo; is tried as &ldquo;Security Alliance&rdquo; and &ldquo;SEAL&rdquo; too. A term matches when the full texts are equal without punctuation, or when its remaining words appear as a consecutive run in the official text (or the reverse).
+            Matching folds case and accents and splits text into words. An entry is also tried as the text inside and outside its parentheses, so &ldquo;Security Alliance (SEAL)&rdquo; is tried as &ldquo;Security Alliance&rdquo; and &ldquo;SEAL&rdquo; too. A term matches when the full texts are equal without punctuation, or when its distinctive (non-generic) words appear as a consecutive run in the official text and each of its other words is either in the official text or optional. The reverse (the official text inside your entry) counts only when the official text has two or more distinctive words. So &ldquo;SEAL&rdquo; matches &ldquo;SEAL Security Frameworks&rdquo; and &ldquo;Blossom Labs Ltd&rdquo; matches &ldquo;Blossom Labs&rdquo;, while &ldquo;Runtime Verification&rdquo; does not match &ldquo;Runtime Capital&rdquo;, &ldquo;Alliance DAO&rdquo; does not match &ldquo;Security Alliance (SEAL)&rdquo; and &ldquo;Walnut Capital&rdquo; does not match &ldquo;Walnut&rdquo;.
           </li>
           <li>
             Generic words never match on their own, so &ldquo;Ethereum Foundation&rdquo; matches nothing unless an official text is exactly that: <span className="text-xs">{GENERIC_WORDS.join(", ")}</span>.
+          </li>
+          <li>
+            Optional words may be added or left out without changing the organization meant: <span className="text-xs">{OPTIONAL_WORDS.join(", ")}</span>. Any other generic word, such as &ldquo;Capital&rdquo; or &ldquo;DAO&rdquo;, is part of the name when present.
           </li>
           <li>{DIRECTORY_UNAVAILABLE_NOTE}</li>
         </ul>
@@ -256,7 +259,7 @@ export default function MethodologyPage() {
       <Block id="interest" title="May interest you" note="An explained starting set built in your browser. No ranking, score, match percentage or advice.">
         <ul className="mb-4 max-w-[860px] list-disc space-y-1 pl-5 text-sm text-ink-2">
           <li>Inputs are local: focus chips (the official categories and the AI Lab research modes) and keywords you type.</li>
-          <li>A category chip matches initiatives with that official category. A research mode matches initiatives in its mapped categories, or else whose official title, summary or listed standards contain one of its keywords (whole words, any case). A typed keyword matches the same fields.</li>
+          <li>A category chip matches initiatives with that official category. A research mode matches initiatives in its mapped categories, or else whose official title, summary or listed standards contain one of its keywords (whole words, any case; the last word of a keyword may end in {KEYWORD_ENDINGS.join(", ")}, and a final consonant plus &ldquo;y&rdquo; may become &ldquo;ies&rdquo; or &ldquo;ied&rdquo;, so &ldquo;attack&rdquo; finds &ldquo;attacks&rdquo; and &ldquo;bounty&rdquo; finds &ldquo;bounties&rdquo;). A typed keyword matches the same fields. When the official text uses another form, the reason quotes it.</li>
           <li>Results are grouped by the focus they match, in the order of the chips; inside each group the order is alphabetical. Every item states why it matched, with the matched text, and links to evidence: the official initiative page and, when one exists, an independent source for a supported statement. Items without an evidence link are left out.</li>
         </ul>
         <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="Research mode mapping table">

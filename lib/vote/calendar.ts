@@ -1,7 +1,8 @@
 /**
  * Vote Calendar (pure, browser-safe). Tally times come from the official vote manifest
  * (schedule.firstTallyAt, unix seconds, in S, A, B order). Only when the manifest schedule is
- * unavailable does the S-tier time fall back to FALLBACK_S_TALLY, and the result says so.
+ * unavailable do the times fall back to FALLBACK_TALLIES (3, 7 and 9 Dec 2026, 21:00 UTC) and the
+ * settled state to FALLBACK_SETTLED_BY, and the result says so.
  *
  * Dates that are not in the manifest (when results are final, community funding) are quoted
  * from TheDAO's 17 Nov 2026 voting post and labelled as such where shown.
@@ -10,32 +11,72 @@ import type { VoteSection } from "@/lib/domain/schemas";
 
 /** Documented fallback: S-tier first tally, Thu 3 Dec 2026, 21:00 UTC (TheDAO voting post). */
 export const FALLBACK_S_TALLY = "2026-12-03T21:00:00Z";
+/**
+ * Documented fallbacks for the A-tier (Mon 7 Dec) and B-tier (Wed 9 Dec) first tallies, at the
+ * same 21:00 UTC as the S-tier, used only when the manifest schedule is unavailable.
+ */
+export const FALLBACK_TALLIES = [FALLBACK_S_TALLY, "2026-12-07T21:00:00Z", "2026-12-09T21:00:00Z"] as const;
+/** The voting post: "A tier always settles within 48 hours of its first tally." */
+export const FALLBACK_SETTLE_HOURS = 48;
+/**
+ * Fallback for "every tier has settled": the B-tier fallback tally plus 48 hours, 11 Dec 2026
+ * 21:00 UTC (the post: B-tier "Results are final by Friday, December 11"). Used only without
+ * the manifest; the manifest closesAt replaces it.
+ */
+export const FALLBACK_SETTLED_BY = "2026-12-11T21:00:00Z";
 export const VOTE_APP_URL = "https://initiatives.thedao.fund/vote";
 export const VOTING_POST_URL = "https://paragraph.com/@thedao.fund/voting-is-live-which-security-initiatives-will-make-s-tier";
 export const LOCKOUT_TEXT = "No ballot by the S-tier tally can lock you out of the round.";
 export const REVISE_TEXT = "Ballots can be revised until their tier settles.";
 export const SETTLED_HEADING = "Results and community funding until 31 Jan 2027";
-export const FALLBACK_LABEL = "Fallback time, manifest unavailable";
+export const FALLBACK_LABEL = "Fallback times, manifest unavailable";
 /** From the voting post: results final by these dates, and community funding afterwards. */
 export const POST_DATES = { results: "Results by 5, 9 and 11 Dec", community: "Community funding until 31 Jan 2027" } as const;
 
 export const IST = "Asia/Kolkata";
 
 export interface VoteSchedule {
-  /** S, A, B first tally times in ms; A and B are null without the manifest schedule. */
+  /** S, A, B first tally times in ms. A and B are null only if a manifest schedule lacks them. */
   tallies: [number, number | null, number | null];
-  /** When every tier has settled at the latest (manifest closesAt), ms; null without it. */
+  /** When every tier has settled at the latest (manifest closesAt, or the fallback), ms. */
   settledBy: number | null;
-  /** True when the S-tier time is the hard-coded fallback. */
+  /** True when the times are the hard-coded fallbacks (manifest schedule unavailable). */
   fallback: boolean;
+  /**
+   * Longest time from a tier's first tally to its settlement, in whole hours rounded up: the sum of
+   * the halving tally windows (initialWindow, initialWindow/2, ... for maxWindows windows). Without
+   * the manifest schedule, the voting post's 48 hours.
+   */
+  settleWithinHours: number | null;
+}
+
+/** Sum of maxWindows halving windows starting at initialWindow seconds, in seconds. */
+export function maxSettleSeconds(initialWindow: number, maxWindows: number): number {
+  let total = 0;
+  for (let i = 0, w = initialWindow; i < maxWindows; i++, w /= 2) total += w;
+  return total;
 }
 
 export function resolveSchedule(v: Pick<VoteSection, "scheduleAvailable" | "schedule" | "closesAt">): VoteSchedule {
-  const t = v.scheduleAvailable ? v.schedule?.firstTallyAt : undefined;
-  if (t && t.length >= 3 && t[0] !== undefined) {
-    return { tallies: [t[0] * 1000, (t[1] as number) * 1000, (t[2] as number) * 1000], settledBy: v.closesAt !== null ? v.closesAt * 1000 : null, fallback: false };
+  const sch = v.scheduleAvailable ? v.schedule : null;
+  const t = sch?.firstTallyAt;
+  if (sch && t && t.length >= 3 && t[0] !== undefined) {
+    return {
+      tallies: [t[0] * 1000, (t[1] as number) * 1000, (t[2] as number) * 1000],
+      settledBy: v.closesAt !== null ? v.closesAt * 1000 : null,
+      fallback: false,
+      settleWithinHours: Math.ceil(maxSettleSeconds(sch.initialWindow, sch.maxWindows) / 3600),
+    };
   }
-  return { tallies: [Date.parse(FALLBACK_S_TALLY), null, null], settledBy: null, fallback: true };
+  const [s, a, b] = FALLBACK_TALLIES.map((x) => Date.parse(x)) as [number, number, number];
+  return { tallies: [s, a, b], settledBy: Date.parse(FALLBACK_SETTLED_BY), fallback: true, settleWithinHours: FALLBACK_SETTLE_HOURS };
+}
+
+/** Heading of the strip for a state; null state means server render (before the clock is known). */
+export function calendarHeading(s: VoteSchedule, state: CalendarState | null): string {
+  if (state?.phase === "settled") return SETTLED_HEADING;
+  if (state && state.next === null) return s.tallies.every((t) => t !== null) ? "All tier tallies have started" : "Later tally times unavailable";
+  return `${TIER_NAMES[state?.next ?? 0]} first tally`;
 }
 
 export type Phase = "before_s" | "tallying" | "settled";

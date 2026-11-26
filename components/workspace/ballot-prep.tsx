@@ -13,7 +13,7 @@ import { checkBallot, fixFor, formatMicroUsd, shareText, TIERS, type BallotCheck
 import { VOTE_APP_URL, VOTING_POST_URL } from "@/lib/vote/calendar";
 import { isFlagged, POSSIBLY_OWN, S_TIER_REMINDER } from "@/lib/vote/affiliation";
 import type { AffiliationView, BallotView } from "@/lib/vote/view-data";
-import { AffiliationTag, SharedGroupLine, useAffiliationFlags } from "./affiliations";
+import { AffiliationDetail, AffiliationTag, SharedGroupLine, useAffiliationFlags } from "./affiliations";
 import type { AskDelta } from "./schema";
 import { AskDeltaNote } from "./since-visit";
 import { clearBallotDraft, setBallotTier, useWorkspace } from "./store";
@@ -263,9 +263,10 @@ export function BallotPrep({ view, datasetVersion, deltas, affiliation }: { view
                     </span>
                     <AskDeltaNote delta={deltas.get(i.id)} className="block text-xs text-ink-2" />
                     <SharedGroupLine groups={affiliation.shared[i.id]} />
+                    <AffiliationDetail flag={flags.get(i.id)} />
                   </div>
                   <div className="flex flex-wrap items-center gap-2 justify-self-start sm:justify-self-end sm:justify-end">
-                    <AffiliationTag flag={flags.get(i.id)} label={POSSIBLY_OWN} className="[&>span:last-child]:sr-only" />
+                    <AffiliationTag flag={flags.get(i.id)} label={POSSIBLY_OWN} detail={false} />
                     <Segmented<Choice> label={`Tier for ${i.label}`} value={choice} options={CHOICES} onChange={(v) => setBallotTier(i.id, v === "Off" ? null : v)} />
                   </div>
                 </li>

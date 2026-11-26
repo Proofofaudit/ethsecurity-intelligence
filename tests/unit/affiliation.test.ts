@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import type { Dataset } from "@/lib/domain/schemas";
 import { isNeutral } from "@/lib/neutralLanguage";
+import { strictKey } from "@/lib/domain/identity";
 import {
   AFFILIATED_WITH,
   affiliationFlag,
@@ -16,6 +17,7 @@ import {
   matchAffiliations,
   matchText,
   MAY_BE_AFFILIATED,
+  OPTIONAL_WORDS,
   peersOf,
   POSSIBLY_OWN,
   S_TIER_REMINDER,
@@ -63,6 +65,35 @@ describe("affiliation matching", () => {
     expect(Object.keys(matchAffiliations(["Blossom Labs Ltd"], targets)).sort()).toEqual(expect.arrayContaining(blossom));
     expect(termMatches("Nethermind Research", "Nethermind")).toBe(true);
     expect(termMatches("Nether", "Nethermind")).toBe(false);
+  });
+
+  it("unrelated firms that share one word with an official text match nothing in the cohort", () => {
+    // Each of these matched before the rule required the whole entry name (review v1).
+    for (const entry of ["Runtime Verification", "Alliance DAO", "Succinct Proof Labs", "Daily Planet", "Remix Records", "Walnut Capital"]) {
+      expect(matchAffiliations([entry], targets), entry).toEqual({});
+    }
+    expect(termMatches("Runtime Verification", "Runtime Capital")).toBe(false);
+    expect(termMatches("Alliance DAO", "Security Alliance (SEAL)")).toBe(false);
+    expect(termMatches("Walnut Capital", "Walnut")).toBe(false);
+    expect(termMatches("Succinct Proof Labs", "Proof of Audits")).toBe(false);
+    expect(termMatches("Proof of Audits", "Succinct Proof Labs")).toBe(false);
+    // The official text inside a longer entry still counts when it has two distinctive words.
+    expect(termMatches("Daily Planet Media", "Daily Planet")).toBe(true);
+  });
+
+  it("every official name matches its own initiatives, and only initiatives that carry the same name or a SEAL group", () => {
+    for (const s of affiliationSuggestions(targets)) {
+      const own = new Set(targets.filter((t) => strictKey(t.text) === strictKey(s)).map((t) => t.initiativeId));
+      const m = matchAffiliations([s], targets);
+      for (const id of own) expect(m[id], s).toBeTruthy();
+      // The only cross-matches come from "(SEAL)" in the name, which is tried as "SEAL".
+      for (const id of Object.keys(m)) if (!own.has(id)) expect(sealGroup, s).toContain(id);
+    }
+  });
+
+  it("optional words are a subset of the generic words", () => {
+    for (const w of OPTIONAL_WORDS) expect(GENERIC_WORDS).toContain(w);
+    for (const w of ["capital", "dao", "security", "foundation", "protocol", "ventures"]) expect(OPTIONAL_WORDS).not.toContain(w);
   });
 
   it("splits parentheses and matches case-insensitively", () => {

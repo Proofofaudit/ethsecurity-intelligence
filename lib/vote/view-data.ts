@@ -9,6 +9,7 @@ import { affiliationSuggestions, affiliationTargets, GROUPS_OFF_NOTE, sharedAffi
 import { resolveSchedule, type VoteSchedule } from "./calendar";
 import { focusChips, type FocusChip, type InterestInitiative } from "./interest";
 import { voteFeatureState } from "./manifest";
+import type { LiveVoteState } from "./live";
 
 export interface FundingView {
   datasetVersion: string;
@@ -23,6 +24,8 @@ export interface FundingView {
 export interface CalendarView {
   schedule: VoteSchedule;
   manifestFetchedAt: string | null;
+  /** True when the schedule comes from the server's cached live manifest read, not the snapshot. */
+  liveSchedule: boolean;
 }
 
 export interface BallotItem {
@@ -102,8 +105,10 @@ export function fundingView(d: Dataset): FundingView {
   return { datasetVersion: d.meta.datasetVersion, asOf: d.meta.officialGeneratedAt, staleNote: notes.length ? notes.join(" ") : null, asks, names };
 }
 
-export function calendarView(d: Dataset): CalendarView {
-  return { schedule: resolveSchedule(d.vote), manifestFetchedAt: d.vote.fetchedAt };
+/** `live`: the server's live manifest state from withLiveVote, when the page applied it. */
+export function calendarView(d: Dataset, live?: LiveVoteState): CalendarView {
+  const isLive = live?.source === "live";
+  return { schedule: resolveSchedule(d.vote), manifestFetchedAt: isLive ? live.fetchedAt : d.vote.fetchedAt, liveSchedule: isLive };
 }
 
 export function ballotView(d: Dataset): BallotView {

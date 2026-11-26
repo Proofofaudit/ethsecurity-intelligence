@@ -70,25 +70,27 @@ One versioned wording standard, [NEUTRAL_LANGUAGE.md](NEUTRAL_LANGUAGE.md) (vers
 - `npm run ingest` fetches `https://initiatives.thedao.fund/api/vote/manifest` and stores it with the official snapshot. The manifest is used for affiliation groups, the pool and the schedule only after an alignment check confirms that `slugs[i]` and `projects[i]` belong together for every index.
 - **TheDAO ask** = `min(200000, max(0, goalUsd - raisedUsd))` per initiative, in integer cents. It is the headline funding figure. The **remaining funding gap** `max(0, goalUsd - raisedUsd)` is a separate, secondary metric. Unavailable inputs make the ask "Unavailable", never 0.
 - The truth audit recomputes both from the raw ballot object and checks every manifest-derived field.
+- **Server-side cache.** Between publishes, the server re-reads the manifest at most once every 12 minutes, shared by all visitors and API callers (TheDAO's API is never called per user). The live pool and schedule replace the published ones only when the read passes the schema, the alignment check against the published cohort and goals, and the schedule check; a failed or broken read never replaces a valid value. The data-freshness page shows which source is in use, the read time and any failed read.
+- **Partial:** affiliation groups, registered goals and TheDAO asks are not refreshed by this cache. They change only when `npm run ingest` and `npm run publish` produce a dataset that passes the truth audit and it is deployed. The scheduled refresh workflow (`refresh.yml`, every 6 hours) only uploads the published dataset as an artifact; it does not deploy it or load it into MongoDB. "Since your last visit" therefore compares asks between published datasets, and the asks' date is shown next to them.
 
 ### Item 4: Vote Calendar
 
-A strip on the Overview and in My Workspace with the S, A and B first tally times from the manifest (`schedule.firstTallyAt`), a countdown, and the time in local time, UTC and India Standard Time. When the manifest schedule is unavailable it shows the documented fallback (S-tier, 3 Dec 2026 21:00 UTC) and says so. Dates not in the manifest are quoted from TheDAO's voting post.
+A strip on the Overview and in My Workspace with the S, A and B first tally times from the manifest (`schedule.firstTallyAt`), a countdown, and the time in local time, UTC and India Standard Time. It lists the A-tier (7 Dec) and B-tier (9 Dec) tallies, results by 5, 9 and 11 Dec, and community funding until 31 Jan 2027. When `schedule.firstTallyAt` is missing, the tally times fall back to 3, 7 and 9 Dec 2026 at 21:00 UTC from TheDAO's voting post, each marked as a fallback, and the data-freshness page flags the fallback. After all tiers have settled (manifest `closesAt`, or 11 Dec 2026 21:00 UTC in fallback mode) the strip switches to "Results and community funding until 31 Jan 2027" and keeps the tally history. Dates not in the manifest are quoted from the post.
 
 ### Item 5: Ballot Prep
 
-A private draft in My Workspace: put any initiative in S, A or B, and see an unofficial pre-check of the three ballot rules (see [METHODOLOGY.md](METHODOLOGY.md#ballot-prep-rules)), with a one-line fix for each failing rule. Copy draft, Export JSON, Clear my draft and a link to the official ballot. Nothing is sent anywhere; the site never connects a wallet.
+A private draft in My Workspace: put any initiative in S, A or B, and see an unofficial pre-check of the three ballot rules (see [METHODOLOGY.md](METHODOLOGY.md#ballot-prep-rules)), with a one-line fix for each failing rule. If the manifest is missing or not confirmed, the rule checks are disabled and the section says so; placing initiatives and exporting the draft still work, and the export records `checks: null`. Copy draft, Export JSON, Clear my draft and a link to the official ballot. Nothing is sent anywhere; the site never connects a wallet.
 
 ### Item 6: Affiliation flags
 
 - Official: "Affiliated with:" lists initiatives that share an affiliation group in the manifest, shown in the research table, cards, dossiers and Ballot Prep.
-- Personal: "My affiliations" matches the organizations a holder types against manifest groups, recipient teams and published aliases, in the browser. Matches show "You may be affiliated" and, in Ballot Prep, "Possibly your own or affiliated". Manual marks win.
+- Personal: "My affiliations" matches the organizations a holder types against manifest groups, recipient teams and published aliases, in the browser. Matches show "You may be affiliated" with the matched text and, in Ballot Prep, "Possibly your own or affiliated" next to the tier chip with the matched text on its own line. Generic words (Labs, Foundation, Security, Protocol and others) never match on their own, and an entry must match as a whole name, so an unrelated firm that shares one word with an official name ("Runtime Verification" and "Runtime Capital") is not flagged. Manual marks win.
 - No initiative is ever hidden or reordered by a flag.
 - The optional "Find my public profile" lookup is shipped disabled with an explanation. No verifiable public source lists badge holders with handles, organizations and expertise (checked 26 Nov 2026 on thedao.fund, the initiatives API and the BlossomLabs/thedao-initiatives repository). No entries were compiled or invented.
 
 ### Item 7: May interest you
 
-A view in My Workspace built from local inputs only: focus chips (the 10 official categories and the 8 AI Lab research modes) and typed keywords. Results are grouped by focus, alphabetical inside each group, and each item shows its reason and at least one evidence link. No score, rank or match percentage. The mode mapping table is in [METHODOLOGY.md](METHODOLOGY.md#may-interest-you).
+A view in My Workspace built from local inputs only: focus chips (the 10 official categories and the 8 AI Lab research modes) and typed keywords (whole words; common endings such as "attacks" for "attack" also match). Results are grouped by focus, alphabetical inside each group, and each item shows its reason and at least one evidence link. No score, rank or match percentage. The mode mapping table is in [METHODOLOGY.md](METHODOLOGY.md#may-interest-you).
 
 ## Non-goals
 

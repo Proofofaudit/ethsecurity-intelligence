@@ -92,6 +92,16 @@ Source: `https://initiatives.thedao.fund/api/vote/manifest`. Stored in the `curr
 | `initiativeGroups` | record | Initiative id to group names. Empty unless `status` is `aligned`. |
 | `alignment` | object | `ok` and `checks[]` (`check`, `ok`, `detail`), see [METHODOLOGY.md](METHODOLOGY.md#official-vote-manifest). |
 
+At request time the server may replace `poolMicroUsd`, `poolCents`, `opensAt`, `closesAt`, `schedule` and `scheduleAvailable` with a validated live manifest read, cached for 12 minutes (`lib/vote/live.ts`). The stored section is never changed by this. `GET /api/v1/vote-manifest` reports the source in `live`:
+
+| Field | Type | Meaning |
+| --- | --- | --- |
+| `live.source` | `live`, `snapshot` | Where the returned pool and schedule come from. |
+| `live.fetchedAt` | string or null | When the server read the live values shown; null for the snapshot. |
+| `live.checkedAt` | string or null | The server's last read attempt. |
+| `live.error` | string or null | Why the last read was not used (failed or did not validate). |
+| `live.note` | string | Plain-language summary. |
+
 ## Initiative
 
 | Field | Type | Meaning |

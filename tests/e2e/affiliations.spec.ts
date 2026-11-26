@@ -43,12 +43,18 @@ test.describe("My affiliations", () => {
     const prep = page.locator("[data-ballot-prep]");
     await expect(prep.locator("[data-ballot-item]")).toHaveCount(dataset.initiatives.length);
     await expect(prep.locator(`[data-ballot-item="${sealSlug}"]`)).toContainText("Possibly your own or affiliated");
+    // The matched text is visible in the row, not only to screen readers.
+    await expect(prep.locator(`[data-ballot-item="${sealSlug}"] [data-affiliation-detail]`)).toBeVisible();
+    await expect(prep.locator(`[data-ballot-item="${sealSlug}"] [data-affiliation-detail]`)).toContainText("matched manifest affiliation group “SEAL”");
     await expect(prep.locator("[data-s-tier-reminder]")).toContainText("TheDAO's ballot rules limit affiliated initiatives in S-tier");
     await expect(prep.locator(`[data-ballot-item="${sealSlug}"] [data-affiliated-with]`)).toContainText("Affiliated with:");
 
-    // A generic entry matches nothing.
-    await sec.locator("[data-affiliation-input]").fill("Ethereum Foundation");
-    await sec.getByRole("button", { name: "Add", exact: true }).click();
+    // A generic entry matches nothing, and neither does an unrelated firm that shares one word.
+    for (const entry of ["Ethereum Foundation", "Alliance DAO"]) {
+      await sec.locator("[data-affiliation-input]").fill(entry);
+      await sec.getByRole("button", { name: "Add", exact: true }).click();
+      await expect(sec.locator(`[data-affiliation-entry="${entry}"]`)).toBeVisible();
+    }
     await expect(sec.locator("[data-affiliation-item]")).toHaveCount(sealSlugs.length);
 
     // Manual overrides.
@@ -64,7 +70,7 @@ test.describe("My affiliations", () => {
     await expect(after.locator(`[data-affiliation-item="${sealSlug}"]`)).toHaveAttribute("data-state", "dismissed");
     await expect(after.locator(`[data-affiliation-item="${other.slug}"]`)).toHaveAttribute("data-state", "marked");
     const stored = await page.evaluate(() => JSON.parse(localStorage.getItem("esi.workspace") ?? "{}") as { affiliations?: { entries: string[]; overrides: Record<string, string> } });
-    expect(stored.affiliations?.entries).toEqual(["Security Alliance (SEAL)", "Ethereum Foundation"]);
+    expect(stored.affiliations?.entries).toEqual(["Security Alliance (SEAL)", "Ethereum Foundation", "Alliance DAO"]);
     expect(Object.values(stored.affiliations?.overrides ?? {}).sort()).toEqual(["mine", "not_mine"]);
 
     // Dossier shows the personal tag and the official shared-group line.

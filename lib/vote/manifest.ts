@@ -90,7 +90,8 @@ export function checkAlignment(m: VoteManifest, cohort: Map<string, string>, bal
   return { ok: checks.every((c) => c.ok), checks };
 }
 
-function scheduleOk(m: VoteManifest): boolean {
+/** Three ordered tally times inside the round's open and close times. */
+export function scheduleOk(m: VoteManifest): boolean {
   const t = m.schedule.firstTallyAt;
   return t.length === 3 && t.every((x, i) => i === 0 || x >= (t[i - 1] as number)) && (t[0] as number) >= m.schedule.opensAt && m.closesAt >= (t[2] as number);
 }

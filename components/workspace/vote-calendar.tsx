@@ -3,8 +3,9 @@
 import { useSyncExternalStore } from "react";
 import { ExternalLink } from "@/components/ui/button";
 import { formatDateTime } from "@/components/ui/money";
-import { calendarState, FALLBACK_LABEL, formatCountdown, formatInZone, IST, LOCKOUT_TEXT, POST_DATES, REVISE_TEXT, SETTLED_HEADING, TIER_NAMES, VOTE_APP_URL, VOTING_POST_URL } from "@/lib/vote/calendar";
+import { calendarHeading, calendarState, FALLBACK_LABEL, formatCountdown, formatInZone, IST, LOCKOUT_TEXT, POST_DATES, REVISE_TEXT, TIER_NAMES, VOTE_APP_URL, VOTING_POST_URL } from "@/lib/vote/calendar";
 import type { CalendarView } from "@/lib/vote/view-data";
+import { LIVE_TTL_MINUTES } from "@/lib/vote/constants";
 import { cn } from "@/lib/util/cn";
 
 let tick = 0;
@@ -30,10 +31,7 @@ export function VoteCalendar({ view, className }: { view: CalendarView; classNam
   const target = state?.next ?? 0;
   const targetMs = schedule.tallies[target] ?? schedule.tallies[0];
 
-  let heading: string;
-  if (settled) heading = SETTLED_HEADING;
-  else if (state && state.next === null) heading = "All tier tallies have started";
-  else heading = `${TIER_NAMES[target]} first tally`;
+  const heading = calendarHeading(schedule, state);
 
   return (
     <section aria-labelledby="vote-calendar-h" data-vote-calendar data-phase={state?.phase ?? "server"} data-fallback={schedule.fallback ? "" : undefined} className={cn("border-y border-ink py-4", className)}>
@@ -98,7 +96,9 @@ export function VoteCalendar({ view, className }: { view: CalendarView; classNam
                     {name} first tally
                     {at !== null && at !== undefined && <span className="num ml-2 text-xs text-ink-3">{formatInZone(at, "UTC")}</span>}
                   </span>
-                  <span className={cn("num text-xs", started ? "text-ink-3" : "text-ink-2")}>{at === null || at === undefined ? "Manifest unavailable" : now === null ? "" : started ? "Started" : "Upcoming"}</span>
+                  <span className={cn("num text-xs", started ? "text-ink-3" : "text-ink-2")}>
+                    {at === null || at === undefined ? "Unavailable" : now === null ? (schedule.fallback ? "Fallback" : "") : `${started ? "Started" : "Upcoming"}${schedule.fallback ? " (fallback)" : ""}`}
+                  </span>
                 </li>
               );
             })}
@@ -111,12 +111,17 @@ export function VoteCalendar({ view, className }: { view: CalendarView; classNam
               <span className="text-xs text-ink-3">{settled ? "Now" : "After B-tier"}</span>
             </li>
           </ol>
-          <p className="mt-2 text-xs text-ink-2">{REVISE_TEXT} A tier settles within 48 hours of its first tally.</p>
+          <p className="mt-2 text-xs text-ink-2">
+            {REVISE_TEXT}
+            {schedule.settleWithinHours !== null && ` A tier settles within ${schedule.settleWithinHours} hours of its first tally${schedule.fallback ? " (voting post)" : " (manifest tally windows)"}.`}
+          </p>
           <p className="mt-1 text-2xs text-ink-3">
             {schedule.fallback ? (
-              <>S-tier time is the documented fallback (Thu 3 Dec 2026, 21:00 UTC) because the manifest schedule is unavailable. </>
+              <>Tally times are the documented fallbacks (3, 7 and 9 Dec 2026, 21:00 UTC, from the voting post) because the manifest schedule is unavailable. The settled state starts 48 hours after the B-tier fallback tally (11 Dec 2026, 21:00 UTC). </>
             ) : (
-              <>Tally times: official vote manifest, schedule.firstTallyAt{view.manifestFetchedAt ? `, fetched ${formatDateTime(view.manifestFetchedAt)}` : ""}. </>
+              <>
+                Tally times: official vote manifest, schedule.firstTallyAt{view.manifestFetchedAt ? `, ${view.liveSchedule ? `read by this server ${formatDateTime(view.manifestFetchedAt)} (re-read at most every ${LIVE_TTL_MINUTES} minutes)` : `fetched ${formatDateTime(view.manifestFetchedAt)}`}` : ""}.{" "}
+              </>
             )}
             Results and community funding dates: <ExternalLink href={VOTING_POST_URL}>TheDAO voting post, 17 Nov 2026</ExternalLink>. No reminders, notifications or emails are sent.
           </p>

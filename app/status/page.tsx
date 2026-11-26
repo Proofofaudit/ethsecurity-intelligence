@@ -8,7 +8,8 @@ import { loadIntelligence } from "@/lib/intelligence/load";
 import { displayName } from "@/lib/intelligence/service";
 import { ingestionStatus } from "@/lib/intelligence/status";
 import { cn } from "@/lib/util/cn";
-import { FALLBACK_LABEL, FALLBACK_S_TALLY, resolveSchedule } from "@/lib/vote/calendar";
+import { FALLBACK_LABEL, FALLBACK_SETTLED_BY, FALLBACK_TALLIES, resolveSchedule } from "@/lib/vote/calendar";
+import { withLiveVote } from "@/lib/vote/live";
 
 export const metadata: Metadata = { title: "Data freshness" };
 export const dynamic = "force-dynamic";
@@ -34,7 +35,10 @@ const UTC = new Intl.DateTimeFormat("en-US", { weekday: "short", day: "numeric",
 const hours = (h: number | null) => (h === null ? "unknown" : h < 48 ? `${h} hours` : `${Math.round(h / 24)} days`);
 
 export default async function StatusPage() {
-  const { dataset: d, health } = await loadIntelligence();
+  const loaded = await loadIntelligence();
+  const health = loaded.health;
+  // Pool and schedule from the cached live manifest read when valid; everything else is the published snapshot.
+  const { dataset: d, live } = await withLiveVote(loaded.dataset);
   const s = ingestionStatus(d, health);
   const staleCheck = s.officialSync.validation.find((v) => v.check === "details_complete");
   const byId = new Map(d.initiatives.map((i) => [i.id, i]));
@@ -165,10 +169,19 @@ export default async function StatusPage() {
             <Ok ok={vm.status === "aligned"}>{VOTE_STATUS_LABEL[vm.status]}</Ok>
             <span className="block text-xs text-ink-3">{vm.statusReason}</span>
           </dd>
-          <dt className="text-ink-3">Fetched</dt>
+          <dt className="text-ink-3">Snapshot fetched</dt>
           <dd>
             {vm.fetchedAt ? formatDateTime(vm.fetchedAt) : "Not fetched"}
             {vm.stale && " (stored copy reused: the latest fetch failed)"}
+          </dd>
+          <dt className="text-ink-3">Live pool and schedule</dt>
+          <dd data-live-manifest={live.source}>
+            {live.source === "live" ? <span>Live manifest read {live.fetchedAt ? formatDateTime(live.fetchedAt) : ""}</span> : <span>Published snapshot</span>}
+            <span className="block text-xs text-ink-3">
+              {live.note}
+              {live.checkedAt && ` Last read attempt ${formatDateTime(live.checkedAt)}.`}
+            </span>
+            {live.error && <span className="block text-xs text-st-contradicted">{live.error}</span>}
           </dd>
           <dt className="text-ink-3">Contents</dt>
           <dd className="num">
@@ -189,10 +202,10 @@ export default async function StatusPage() {
           <dd data-calendar-fallback={resolveSchedule(d.vote).fallback ? "" : undefined}>
             {resolveSchedule(d.vote).fallback ? (
               <Ok ok={false}>
-                {FALLBACK_LABEL}: S-tier time {UTC.format(Date.parse(FALLBACK_S_TALLY))} is the documented fallback
+                {FALLBACK_LABEL}: schedule.firstTallyAt is missing, so the documented fallbacks from TheDAO&apos;s voting post are used: {FALLBACK_TALLIES.map((t, i) => `${["S", "A", "B"][i]}-tier ${UTC.format(Date.parse(t))}`).join(" · ")}; settled after {UTC.format(Date.parse(FALLBACK_SETTLED_BY))}
               </Ok>
             ) : (
-              <span>From the manifest (schedule.firstTallyAt[0])</span>
+              <span>From the manifest (schedule.firstTallyAt)</span>
             )}
           </dd>
           <dt className="text-ink-3">Disabled features</dt>

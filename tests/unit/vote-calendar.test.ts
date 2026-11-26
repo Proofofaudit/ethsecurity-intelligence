@@ -2,7 +2,7 @@ import { afterEach, describe, expect, it } from "vitest";
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import type { Dataset } from "@/lib/domain/schemas";
-import { calendarState, FALLBACK_S_TALLY, formatCountdown, formatInZone, IST, LOCKOUT_TEXT, resolveSchedule, SETTLED_HEADING } from "@/lib/vote/calendar";
+import { calendarHeading, calendarState, FALLBACK_S_TALLY, formatCountdown, formatInZone, IST, LOCKOUT_TEXT, maxSettleSeconds, resolveSchedule, SETTLED_HEADING } from "@/lib/vote/calendar";
 import { calendarView } from "@/lib/vote/view-data";
 import { unavailableVote } from "@/lib/vote/manifest";
 import { askDeltas, recordFundingView, VISIT_GAP_MS, WorkspaceSchema, type FundingVisits } from "@/components/workspace/schema";
@@ -29,14 +29,55 @@ describe("schedule source", () => {
     expect(calendarView(d).schedule.fallback).toBe(false);
   });
 
-  it("falls back to 2026-12-03T21:00:00Z only when the schedule is missing, and flags it", () => {
+  it("falls back to 3, 7 and 9 Dec 2026 21:00 UTC only when the schedule is missing, and flags it", () => {
     const s = resolveSchedule(unavailableVote("test"));
     expect(s.fallback).toBe(true);
-    expect(s.tallies).toEqual([Date.parse(FALLBACK_S_TALLY), null, null]);
-    expect(new Date(s.tallies[0]).toISOString()).toBe("2026-12-03T21:00:00.000Z");
-    expect(s.settledBy).toBeNull();
+    expect(s.tallies.map((t) => new Date(t!).toISOString())).toEqual(["2026-12-03T21:00:00.000Z", "2026-12-07T21:00:00.000Z", "2026-12-09T21:00:00.000Z"]);
+    expect(s.tallies[0]).toBe(Date.parse(FALLBACK_S_TALLY));
+    expect(new Date(s.settledBy!).toISOString()).toBe("2026-12-11T21:00:00.000Z");
+    expect(s.settleWithinHours).toBe(48);
     // A present but invalid schedule also falls back.
     expect(resolveSchedule({ ...schedule, scheduleAvailable: false }).fallback).toBe(true);
+  });
+
+  it("the fallback times equal the live manifest times (same post, same round)", () => {
+    const fb = resolveSchedule(unavailableVote("test"));
+    expect(fb.tallies).toEqual(resolveSchedule(schedule).tallies);
+    // The fallback settled time is B + 48 h; the manifest close is B + the halving windows, slightly earlier.
+    expect(fb.settledBy!).toBeGreaterThanOrEqual(resolveSchedule(schedule).settledBy!);
+  });
+});
+
+describe("fallback calendar after the S-tier tally (review v1)", () => {
+  const fb = resolveSchedule(unavailableVote("test"));
+  it("moves on to the A-tier and B-tier fallback tallies instead of claiming all have started", () => {
+    const afterS = calendarState(fb, S + 60_000);
+    expect(afterS).toMatchObject({ phase: "tallying", next: 1 });
+    expect(calendarHeading(fb, afterS)).toBe("A-tier first tally");
+    const afterA = calendarState(fb, Date.parse("2026-12-07T21:00:00Z") + 1);
+    expect(calendarHeading(fb, afterA)).toBe("B-tier first tally");
+    const afterB = calendarState(fb, Date.parse("2026-12-09T21:00:00Z") + 1);
+    expect(calendarHeading(fb, afterB)).toBe("All tier tallies have started");
+  });
+  it("reaches the settled state after 11 Dec 21:00 UTC", () => {
+    expect(calendarState(fb, Date.parse("2026-12-11T20:59:59Z")).phase).toBe("tallying");
+    const settled = calendarState(fb, Date.parse("2026-12-11T21:00:00Z"));
+    expect(settled.phase).toBe("settled");
+    expect(calendarHeading(fb, settled)).toBe(SETTLED_HEADING);
+  });
+  it("never claims all tallies started when a later time is unknown", () => {
+    const partial = { ...fb, tallies: [fb.tallies[0], null, null] as [number, null, null], settledBy: null };
+    expect(calendarHeading(partial, calendarState(partial, S + 1))).toBe("Later tally times unavailable");
+  });
+});
+
+describe("settle window", () => {
+  it("is computed from the manifest tally windows, not hard-coded", () => {
+    expect(maxSettleSeconds(86400, 9)).toBe(172462.5);
+    expect(resolveSchedule(schedule).settleWithinHours).toBe(48);
+    expect(resolveSchedule({ ...schedule, schedule: { ...schedule.schedule, initialWindow: 3600, maxWindows: 2 } }).settleWithinHours).toBe(2);
+    // The manifest close is the B-tier tally plus the full windows (floored to the second).
+    expect(1797022462 - 1796850000).toBe(Math.floor(maxSettleSeconds(86400, 9)));
   });
 });
 

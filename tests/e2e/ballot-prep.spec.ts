@@ -97,7 +97,7 @@ test.describe("Vote Calendar", () => {
 
   test("the data-freshness page says the countdown uses the manifest", async ({ page }) => {
     await page.goto("/status");
-    await expect(page.getByText("From the manifest (schedule.firstTallyAt[0])")).toBeVisible();
+    await expect(page.getByText("From the manifest (schedule.firstTallyAt)")).toBeVisible();
   });
 });
 

@@ -25,6 +25,8 @@ export default defineConfig({
       MONGODB_URI: "",
       ESI_LOCAL_STATE_DIR: path.join(process.cwd(), "test-results", "e2e-state"),
       RATE_LIMIT_SALT: "e2e-only-salt",
+      // Render from the committed snapshot only, so results do not depend on TheDAO's live API.
+      ESI_LIVE_MANIFEST: "off",
     },
   },
   projects: [

@@ -18,7 +18,9 @@
  *  - An entry also contributes the text inside and outside parentheses, so
  *    "Security Alliance (SEAL)" is tried as itself, "Security Alliance" and "SEAL".
  *  - A term matches a target when the full texts are equal after removing punctuation, or when
- *    the remaining (non-generic) words of one appear as a consecutive run in the other's.
+ *    the term's distinctive words appear as a consecutive run in the target's and every other
+ *    word of the term is in the target or optional (OPTIONAL_WORDS). The reverse direction (the
+ *    target inside the term) counts only when the target has two or more distinctive words.
  */
 import type { Dataset } from "@/lib/domain/schemas";
 import { strictKey } from "@/lib/domain/identity";
@@ -88,6 +90,16 @@ export const GENERIC_WORDS: readonly string[] = [
 ];
 const GENERIC = new Set(GENERIC_WORDS);
 
+/**
+ * Generic words that may be added or left out without changing which organization is meant:
+ * legal forms ("Ltd", "GmbH"), "Labs", "Team", "Research" and short connecting words. Every other
+ * generic word ("Capital", "DAO", "Security", "Foundation", ...) is part of the name when it is
+ * present: "Walnut Capital" is not "Walnut", and "Alliance DAO" is not "Security Alliance".
+ * Lower case, a subset of GENERIC_WORDS. Edit here; the Methodology page lists them.
+ */
+export const OPTIONAL_WORDS: readonly string[] = ["a", "ag", "an", "and", "at", "by", "co", "com", "corp", "for", "gmbh", "in", "inc", "io", "lab", "labs", "llc", "ltd", "of", "on", "org", "research", "sa", "team", "the", "to", "with", "xyz"];
+const OPTIONAL = new Set(OPTIONAL_WORDS);
+
 export type AffiliationField = "group" | "recipientTeam" | "organization";
 export const AFFILIATION_FIELD_LABEL: Record<AffiliationField, string> = {
   group: "manifest affiliation group",
@@ -153,15 +165,27 @@ function containsRun(hay: string[], needle: string[]): boolean {
   return false;
 }
 
+/**
+ * True when `inner` names something inside `outer`: the distinctive words of `inner` appear as a
+ * consecutive run in `outer`, and every word of `inner` missing from `outer` is optional.
+ */
+function namedWithin(inner: string, outer: string): boolean {
+  const iw = distinctiveWords(inner);
+  if (!iw.length || !containsRun(distinctiveWords(outer), iw)) return false;
+  const ow = new Set(words(outer));
+  return words(inner).every((w) => ow.has(w) || OPTIONAL.has(w));
+}
+
 /** True when one term matches one official text under the rule documented above. */
 export function termMatches(term: string, target: string): boolean {
   const a = strictKey(term);
   const b = strictKey(target);
   if (a.length >= 2 && a === b) return true;
-  const tw = distinctiveWords(term);
-  const gw = distinctiveWords(target);
-  if (!tw.length || !gw.length) return false;
-  return containsRun(gw, tw) || containsRun(tw, gw);
+  // The holder's term inside the official text ("SEAL" in "SEAL Security Frameworks").
+  if (namedWithin(term, target)) return true;
+  // The official text inside the holder's term, only when it has two or more distinctive words, so a
+  // one-word residue such as "Runtime" (from "Runtime Capital") never matches "Runtime Verification".
+  return distinctiveWords(target).length >= 2 && namedWithin(target, term);
 }
 
 /**

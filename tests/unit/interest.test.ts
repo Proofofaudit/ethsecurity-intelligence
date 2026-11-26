@@ -5,7 +5,7 @@ import type { Dataset } from "@/lib/domain/schemas";
 import { isCoiOrganization } from "@/lib/disclosure";
 import { isNeutral } from "@/lib/neutralLanguage";
 import { MODES } from "@/lib/skills/modes";
-import { findKeyword, FOCUS_MODE_TABLE, hasEvidenceLink, mayInterest, type FocusId, type InterestGroup, type InterestInitiative } from "@/lib/vote/interest";
+import { findKeyword, FOCUS_MODE_TABLE, hasEvidenceLink, KEYWORD_ENDINGS, matchKeyword, mayInterest, type FocusId, type InterestGroup, type InterestInitiative } from "@/lib/vote/interest";
 import { interestView } from "@/lib/vote/view-data";
 
 const d = JSON.parse(readFileSync(path.join(process.cwd(), "data", "published", "dataset.json"), "utf8")) as Dataset;
@@ -88,6 +88,48 @@ describe("may interest you", () => {
     expect(findKeyword("Refuzzing", "fuzzing")).toBeNull();
     expect(findKeyword("clear-signing for wallets", "clear signing")).toContain("clear-signing");
     expect(findKeyword("anything", "a")).toBeNull();
+  });
+
+  it("accepts common endings on the last word of a keyword", () => {
+    expect(findKeyword("Audits for wallets", "wallet")).toContain("wallets");
+    expect(findKeyword("Audits for wallets", "audit")).toContain("Audits");
+    expect(matchKeyword("Tools maintained by the team", "maintain")?.found).toBe("maintained");
+    expect(matchKeyword("Known attackers and their exploits", "attacker")?.found).toBe("attackers");
+    expect(matchKeyword("Open bug bounties", "bounty")?.found).toBe("bounties");
+    expect(matchKeyword("threat models for bridges", "threat model")?.found).toBe("threat models");
+    expect(KEYWORD_ENDINGS).toEqual(["s", "es", "ed", "ing", "er", "ers"]);
+    // Still whole words: no match inside a longer word or with an unlisted ending.
+    expect(findKeyword("Refuzzing", "fuzzing")).toBeNull();
+    expect(findKeyword("walletless", "wallet")).toBeNull();
+    expect(findKeyword("nodejs", "node")).toBeNull();
+  });
+
+  it("finds the inflected forms in the published cohort that whole-word matching missed (review v1)", () => {
+    const missed: [string, string][] = [
+      ["security-researcher", "economic-property-packs-for-amms-and-lending-"],
+      ["grant-evaluator", "decentralized-archive-for-ethereum-blob-data"],
+      ["grant-evaluator", "leakdetectai-detecting-and-eliminating-side-c"],
+      ["adversarial-reviewer", "dappfence-verifiable-frontend-security"],
+      ["adversarial-reviewer", "an-open-bug-bounty-program-for-all-of-ethereu"],
+      ["adversarial-reviewer", "rfp-stop-patches-from-becoming-exploits-coord"],
+    ];
+    for (const [mode, prefix] of missed) {
+      const g = mayInterest(view.initiatives, [`mode:${mode}` as FocusId], [], view.chips)[0]!;
+      expect(g.items.some((i) => i.slug.startsWith(prefix)), `${mode}: ${prefix}`).toBe(true);
+    }
+    // A typed keyword has no category fallback, so the ending matters there too.
+    const wallets = d.initiatives.filter((i) => /\bwallets\b/i.test(`${i.title} ${i.summary}`) && !/\bwallet\b/i.test(`${i.title} ${i.summary} ${i.standards.join(", ")}`));
+    expect(wallets.length).toBeGreaterThan(0);
+    const kw = mayInterest(view.initiatives, [], ["wallet"], view.chips)[0]!;
+    for (const i of wallets) expect(kw.items.some((x) => x.id === i.id), i.slug).toBe(true);
+  });
+
+  it("quotes the official form when it differs from the keyword", () => {
+    const g = mayInterest(view.initiatives, [], ["attack"], view.chips)[0]!;
+    const plural = g.items.find((i) => i.reasons[0]!.text.includes("(a form of “attack”)"));
+    expect(plural).toBeTruthy();
+    expect(plural!.reasons[0]!.text).toMatch(/mentions “attack\w+” \(a form of “attack”\)\.$/i);
+    for (const i of g.items) expect(isNeutral(i.reasons[0]!.text)).toBe(true);
   });
 
   it("treats the initiative with the site owner's conflict of interest exactly like every other", () => {

@@ -15,6 +15,7 @@ import { formatPct, formatUsd } from "@/lib/util/money";
 import { SinceLastVisit } from "@/components/workspace/since-visit";
 import { VoteCalendar } from "@/components/workspace/vote-calendar";
 import { calendarView, fundingView } from "@/lib/vote/view-data";
+import { withLiveVote } from "@/lib/vote/live";
 
 export const revalidate = 600;
 
@@ -29,7 +30,10 @@ function metricText(unit: string, v: number | null) {
 }
 
 export default async function OverviewPage() {
-  const { dataset: d, health } = await loadIntelligence();
+  const loaded = await loadIntelligence();
+  const health = loaded.health;
+  // Pool and schedule from the cached live manifest read (at most every 12 minutes); the rest is the published snapshot.
+  const { dataset: d, live } = await withLiveVote(loaded.dataset);
   const m = cohortMetrics(d);
   const val = (id: string) => m[id]?.value ?? null;
   const status = ingestionStatus(d, health);
@@ -68,7 +72,7 @@ export default async function OverviewPage() {
         }
       />
 
-      <VoteCalendar view={calendarView(d)} />
+      <VoteCalendar view={calendarView(d, live)} />
 
       <section aria-label="Cohort figures">
         <dl className="grid grid-cols-2 gap-px border-y border-ink bg-rule sm:grid-cols-3 xl:grid-cols-6 [&>div]:bg-paper [&>div]:px-4 [&>div]:py-4">

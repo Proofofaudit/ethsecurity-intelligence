@@ -106,7 +106,7 @@ let stateDir: string | null = null;
 if (!process.env.SCREENSHOT_BASE_URL) {
   stateDir = await fs.mkdtemp(path.join(os.tmpdir(), "esi-shots-"));
   server = spawn(process.execPath, [path.join("node_modules", "next", "dist", "bin", "next"), "start", "-p", String(PORT)], {
-    env: { ...process.env, MONGODB_URI: "", ESI_LOCAL_STATE_DIR: stateDir, NODE_ENV: "production" },
+    env: { ...process.env, MONGODB_URI: "", ESI_LOCAL_STATE_DIR: stateDir, NODE_ENV: "production", ESI_LIVE_MANIFEST: "off" },
     stdio: ["ignore", "ignore", "inherit"],
   });
   await waitForServer(BASE, 60_000);

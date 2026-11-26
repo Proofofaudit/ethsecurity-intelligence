@@ -5,12 +5,13 @@ import { PageHead } from "@/components/ui/layout";
 import { loadIntelligence } from "@/lib/intelligence/load";
 import { displayName } from "@/lib/intelligence/service";
 import { affiliationView, ballotView, calendarView, fundingView, interestView } from "@/lib/vote/view-data";
+import { withLiveVote } from "@/lib/vote/live";
 
 export const metadata: Metadata = { title: "My Workspace" };
 export const revalidate = 600;
 
 export default async function WorkspacePage() {
-  const { dataset: d } = await loadIntelligence();
+  const { dataset: d, live } = await withLiveVote((await loadIntelligence()).dataset);
   const initiatives = [...d.initiatives].map((i) => ({ id: i.id, slug: i.slug, label: displayName(d, i), sub: i.type === "rfp" ? "RFP" : (d.organizations.find((o) => o.id === i.organizationId)?.name ?? null) })).sort((a, b) => a.label.localeCompare(b.label));
   const changes: Record<string, ChangeRef[]> = {};
   for (const c of d.changes) if (c.initiativeId) (changes[c.initiativeId] ??= []).push({ id: c.id, at: c.detectedAt, kind: c.kind, summary: c.summary });
@@ -22,7 +23,7 @@ export default async function WorkspacePage() {
         title="Your private research workspace"
         lede={<p>Vote calendar, a starting set that may interest you, your affiliations, Ballot Prep, saved initiatives, bookmarked evidence, comparisons, notes, open questions and assessments. Everything on this page is stored in this browser only. There is no account, and nothing here is sent to the server.</p>}
       />
-      <WorkspaceView initiatives={initiatives} changes={changes} datasetVersion={d.meta.datasetVersion} vote={{ calendar: calendarView(d), funding: fundingView(d), ballot: ballotView(d), affiliation: affiliationView(d), interest: interestView(d) }} />
+      <WorkspaceView initiatives={initiatives} changes={changes} datasetVersion={d.meta.datasetVersion} vote={{ calendar: calendarView(d, live), funding: fundingView(d), ballot: ballotView(d), affiliation: affiliationView(d), interest: interestView(d) }} />
     </>
   );
 }

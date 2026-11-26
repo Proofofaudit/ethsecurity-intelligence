@@ -11,7 +11,8 @@ import type { Perspective } from "@/lib/skills/schema";
 /**
  * Research mode → official category slugs and keywords. This table is the single source for the
  * mapping; the Methodology page renders it and METHODOLOGY.md reproduces it. Edit it here.
- * Keywords match whole words, case-insensitive, in the official title, summary and standards.
+ * Keywords match whole words, case-insensitive, in the official title, summary and standards; the
+ * last word may carry one of KEYWORD_ENDINGS.
  */
 export const FOCUS_MODE_TABLE: readonly { mode: Perspective; categories: readonly string[]; keywords: readonly string[] }[] = [
   { mode: "smart-contract-auditor", categories: ["audits-analysis", "formal-verification", "fuzzing-testing", "compilers"], keywords: ["audit", "static analysis", "fuzzing", "formal verification", "Solidity", "compiler"] },
@@ -87,20 +88,40 @@ export function focusChips(categories: readonly { slug: string; label: string }[
 
 const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
-/** Whole-word, case-insensitive match; returns a short verbatim excerpt around the hit. */
-export function findKeyword(text: string, keyword: string): string | null {
+/**
+ * Endings accepted after a keyword's last word, so "attack" also finds "attacks" and "maintain"
+ * finds "maintained". A last word ending in a consonant plus "y" also matches "ies" and "ied"
+ * ("bounty" finds "bounties"). Edit here; METHODOLOGY.md and the Methodology page list them.
+ */
+export const KEYWORD_ENDINGS: readonly string[] = ["s", "es", "ed", "ing", "er", "ers"];
+
+function keywordPattern(k: string): RegExp {
+  const parts = k.split(/\s+/).map(escape);
+  const last = parts.pop()!;
+  const endings = `(?:${KEYWORD_ENDINGS.join("|")})?`;
+  const tail = /[^aeiou]y$/i.test(last) ? `${last.slice(0, -1)}(?:y${endings}|ies|ied)` : `${last}${endings}`;
+  return new RegExp(`(?<![\\p{L}\\p{N}])${[...parts, tail].join("[\\s-]+")}(?![\\p{L}\\p{N}])`, "iu");
+}
+
+/**
+ * Whole-word, case-insensitive match that also accepts KEYWORD_ENDINGS on the last word. Returns
+ * the official text as found and a short verbatim excerpt around it.
+ */
+export function matchKeyword(text: string, keyword: string): { found: string; excerpt: string } | null {
   const k = keyword.trim();
   if (k.length < 2) return null;
-  const re = new RegExp(`(?<![\\p{L}\\p{N}])${escape(k).replace(/\s+/g, "[\\s-]+")}(?![\\p{L}\\p{N}])`, "iu");
-  const m = re.exec(text);
+  const m = keywordPattern(k).exec(text);
   if (!m) return null;
   // Widen to whole words so the excerpt never starts or ends mid-word.
   let start = Math.max(0, m.index - 50);
   while (start > 0 && !/\s/.test(text[start - 1]!)) start--;
   let end = Math.min(text.length, m.index + m[0].length + 50);
   while (end < text.length && !/\s/.test(text[end]!)) end++;
-  return `${start > 0 ? "…" : ""}${text.slice(start, end).replace(/\s+/g, " ").trim()}${end < text.length ? "…" : ""}`;
+  return { found: m[0], excerpt: `${start > 0 ? "…" : ""}${text.slice(start, end).replace(/\s+/g, " ").trim()}${end < text.length ? "…" : ""}` };
 }
+
+/** The excerpt of matchKeyword, or null. */
+export const findKeyword = (text: string, keyword: string): string | null => matchKeyword(text, keyword)?.excerpt ?? null;
 
 function keywordReasons(i: InterestInitiative, keyword: string): InterestReason[] {
   const fields: [ReasonField, string][] = [
@@ -108,9 +129,13 @@ function keywordReasons(i: InterestInitiative, keyword: string): InterestReason[
     ["summary", i.summary],
     ["standards", i.standards.join(", ")],
   ];
+  const k = keyword.trim();
   for (const [field, text] of fields) {
-    const excerpt = findKeyword(text, keyword);
-    if (excerpt) return [{ text: `This may interest you because the ${REASON_FIELD_LABEL[field]} ${field === "standards" ? "include" : "mentions"} “${keyword.trim()}”.`, field, matched: excerpt }];
+    const hit = matchKeyword(text, k);
+    if (!hit) continue;
+    // Quote the official wording as found; name the keyword too when the form differs ("attacks" for "attack").
+    const said = hit.found.toLowerCase() === k.toLowerCase() ? `“${k}”` : `“${hit.found}” (a form of “${k}”)`;
+    return [{ text: `This may interest you because the ${REASON_FIELD_LABEL[field]} ${field === "standards" ? "include" : "mentions"} ${said}.`, field, matched: hit.excerpt }];
   }
   return [];
 }

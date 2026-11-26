@@ -67,9 +67,9 @@ export async function fetchRevision(slug: string, n: number): Promise<RevisionRe
 }
 
 /** Throws HttpError (transport or HTTP status) or ValidationFailure (shape changed). */
-export async function fetchVoteManifest(): Promise<VoteManifestResponse> {
+export async function fetchVoteManifest(opts: FetchOptions = politeOpts): Promise<VoteManifestResponse> {
   const url = officialUrls.manifest();
-  const { body } = await fetchJson(url, politeOpts);
+  const { body } = await fetchJson(url, opts);
   return parseOrThrow(VoteManifestResponseSchema, body, url);
 }
 
