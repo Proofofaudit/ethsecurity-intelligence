@@ -1,0 +1,40 @@
+{
+  "checks": [
+    {
+      "url": "https://ethdebug.github.io/format",
+      "status": 200,
+      "finalUrl": "https://ethdebug.github.io/format/",
+      "title": "Home | ethdebug format",
+      "description": "ethdebug format homepage",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:49.817Z"
+    },
+    {
+      "url": "https://walnut.dev/",
+      "status": 200,
+      "finalUrl": "https://walnut.dev/",
+      "title": "Walnut | Engineering the Onchain Future",
+      "description": "Walnut is building blockchain developer infrastructure at the boundary where code becomes execution.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:49.818Z"
+    },
+    {
+      "url": "https://www.argot.org/",
+      "status": 200,
+      "finalUrl": "https://www.argot.org/",
+      "title": "Argot Collective",
+      "description": "Building the critical infrastructure for Ethereum applications.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:28.674Z"
+    }
+  ]
+}

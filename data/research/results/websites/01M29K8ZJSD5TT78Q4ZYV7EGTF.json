@@ -1,0 +1,40 @@
+{
+  "checks": [
+    {
+      "url": "https://crystalintelligence.com/",
+      "status": 200,
+      "finalUrl": "https://crystalintelligence.com/",
+      "title": "Decision Intelligence for Digital Assets | Crystal Intelligence",
+      "description": "Decision intelligence for digital assets: crypto compliance software turning blockchain data and AI into evidence, from licence reviews to agentic payments.",
+      "contentType": "text/html; charset=UTF-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:48.875Z"
+    },
+    {
+      "url": "https://crystalintelligence.com/crystal-expert-for-law-enforcement",
+      "status": 200,
+      "finalUrl": "https://crystalintelligence.com/crystal-expert-for-law-enforcement/",
+      "title": "Cryptocurrency Investigation for Law Enforcement | Crystal",
+      "description": "Cryptocurrency investigation for law enforcement. Trace funds across 330+ blockchains, attribute wallets and export court-ready evidence.",
+      "contentType": "text/html; charset=UTF-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:48.876Z"
+    },
+    {
+      "url": "https://hackenproof.com/",
+      "status": 200,
+      "finalUrl": "https://hackenproof.com/",
+      "title": "Bug Bounty & Cybersecurity Audit Services | HackenProof",
+      "description": "HackenProof connects companies with 82,000+ verified security researchers through bug bounty programs and security audit services — Curated, Crowdsourced, and DualDefense.",
+      "contentType": "text/html;charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:48.876Z"
+    }
+  ]
+}

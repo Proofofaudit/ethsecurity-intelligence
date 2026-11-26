@@ -1,0 +1,64 @@
+{
+  "checks": [
+    {
+      "url": "https://docs.safe.global/core-api/api-overview",
+      "status": 200,
+      "finalUrl": "https://docs.safe.global/core-api/api-overview",
+      "title": "Safe Infrastructure – Safe Docs",
+      "description": "Safe Infrastructure is an open-source and modular smart account stack. Learn about its features and how to use it.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:28.755Z"
+    },
+    {
+      "url": "https://ethereum.foundation/",
+      "status": 200,
+      "finalUrl": "https://ethereum.foundation/",
+      "title": null,
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:25.157Z"
+    },
+    {
+      "url": "https://localsafe.eth.limo",
+      "status": 200,
+      "finalUrl": "https://localsafe.eth.limo/",
+      "title": "localsafe.eth",
+      "description": "Multi-Signature Wallet Interface",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:28.756Z"
+    },
+    {
+      "url": "https://localsafe.eth.limo/",
+      "status": 200,
+      "finalUrl": "https://localsafe.eth.limo/",
+      "title": "localsafe.eth",
+      "description": "Multi-Signature Wallet Interface",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:28.757Z"
+    },
+    {
+      "url": "https://tools.cyfrin.io/safe-hash",
+      "status": 429,
+      "finalUrl": "https://tools.cyfrin.io/safe-hash",
+      "title": "Vercel Security Checkpoint",
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": false,
+      "inconclusive": true,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:28.757Z"
+    }
+  ]
+}

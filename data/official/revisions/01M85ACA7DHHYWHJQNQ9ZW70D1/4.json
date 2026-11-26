@@ -1,0 +1,80 @@
+{
+  "revision": {
+    "n": 4,
+    "author": "0x1f0AfcfceFC98e8D9f4A82974e527429D665Acb7",
+    "source": "proposer",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1795487204.913,
+    "title": "RFP: What Replaces Patch Tuesday? Coordinated Disclosure for Bugs Shared Across Ethereum",
+    "summary": "Ethereum is permissionless, so when a bug turns up in shared code nobody knows who else runs it or where. The best-known model for coordinated fixes is Microsoft's Patch Tuesday, one scheduled day a month, and the day after is known as Exploit Wednesday. With AI reading every patch, a scheduled day tells attackers when to look, and waiting for it leaves a known bug live. This RFP asks bidders how Ethereum should coordinate instead, and pays for hand-run disclosures first, then an open standard built from them.",
+    "details": "",
+    "sections": {
+      "why": "Users are safer when every team running a buggy piece of shared code is warned privately and patches before the fix is public. Today nobody holds that list.\n\n- Geth shipped a pre-announced fix for CVE-2021-39137 ([advisory](https://github.com/advisories/GHSA-9856-9gg9-qcmq)) on August 24, 2021. Three days later it was exploited on mainnet, splitting off nodes that had not upgraded ([Geth postmortem](https://github.com/ethereum/go-ethereum/blob/master/docs/postmortems/2021-08-22-split-postmortem.md)).\n- Vyper fixed a broken reentrancy lock in December 2021 without realizing its impact, so protocols on old versions were not explicitly notified ([Vyper](https://hackmd.io/@vyperlang/HJUgNMhs2)). In July 2023 attackers took $69.3M from pools compiled with them, $52M after returns ([CertiK](https://www.certik.com/resources/blog/2qbPMcyJpR5UfoKrcjWxlQ-vyper-incident-anaylsis)).\n- In December 2023 an ERC-2771 and Multicall flaw affected thousands of contracts, and several pools holding almost 90 ETH were hacked before OpenZeppelin's full public disclosure ([OpenZeppelin](https://www.openzeppelin.com/news/secure-implementations-vulnerable-integrations)).\n- In a 2024 study, a GPT-4 agent exploited 87% of 15 disclosed vulnerabilities when handed the public advisory, and 7% without it ([arXiv](https://arxiv.org/abs/2404.08144)).",
+      "in_scope": "Bidders have complete freedom in how they get there, including their own milestones, within the hard requirements below. Each bid states a hypothesis and a plan of attack for three problems:\n\n1. Who else has it: find who runs the vulnerable code (forks, deployments, chains, node operators) on Ethereum and its L2s.\n2. A warning they trust: warn them privately, through a channel where each side can verify the other, so they act.\n3. Going public in the age of AI: stage fixes so they land in public repositories without exposing the bug early, release them together, then push operators to update.\n\nOne possible approach, the one the milestones below follow: start by hand. The selected team runs real disclosures alongside the teams fixing each bug, races to reach every other affected team before the fix is public, then systematizes what worked. The target clock is 24 hours from bug confirmed to every affected team notified. Example hypothesis: a dependency map built before any bug lets one person list every affected team inside that clock. This RFP is a starting point and will change; the final milestones are agreed with the selected team.\n\nThe lasting output is an open, broad disclosure standard (process, comms templates, when and how to go public), informed by SEAL 911 and the cases run. Bugs can come from any source; bids say where. The selected team may use the security contacts published under the companion security-contact RFP and may pass researcher payment to the companion bug broker.",
+      "out_scope": "- Finding bugs.\n- Whitehat rescues.\n- Findings only one team must fix (the companion bug broker RFP).",
+      "existing": "- [Microsoft Patch Tuesday](https://www.microsoft.com/en-us/msrc/faqs-security-update-guide) and [Exploit Wednesday](https://www.manageengine.com/patch-management/exploit-wednesday.html), the day after.\n- [SEAL 911](https://securityalliance.org/seal-911) handles live incidents; SEAL's [disclosure framework](https://frameworks.securityalliance.org/vulnerability-disclosure/overview) covers one affected project and tells teams to warn forks before publishing. Bids say whether their standard extends it.\n- [linux-distros](https://oss-security.openwall.org/wiki/mailing-lists/distros): Linux distributions' private embargo list, 14 days at most.\n- [CERT/CC VINCE](https://sei.cmu.edu/news/certcc-releases-vince-software-vulnerability-collaboration-platform): one shared case space for many vendors.\n- [Ethereum Foundation public disclosures](https://github.com/ethereum/public-disclosures): the EF cross-checks client bug bounty reports and shares them with affected client teams.\n- [Project Zero's Reporting Transparency trial](https://projectzero.google/2025/07/reporting-transparency.html) targets the \"upstream patch gap\".",
+      "who": "A team that client, rollup and protocol security leads already trust with embargoed information: a security alliance, an incident-response firm or a consortium of those leads. Nobody is pre-selected.\n\nDrafted by TheDAO Security Fund from a conversation with EthSec (ethsecurity.org) and Consensys. EthSec, TheDAO Security Fund and Giveth will not bid.",
+      "hard_req": "1. Bug details go only to verified contacts at teams that must act. Bids say how they verify them.\n2. A public log records each coordinated disclosure after release (what, when confirmed, when each team was notified, share patched), never before.\n3. The disclosure standard is published openly for anyone to use.\n4. Running costs come from the L2s and protocols served, or from a named home that funds it. Client teams are not expected to pay.\n5. **Outside means unaffiliated.** An outside team shares no owner, staff or funding relationship with the selected team. Affiliates count toward no criterion.\n6. Ethereum and L2s only."
+    },
+    "milestones": [
+      {
+        "name": "Plan of attack",
+        "amount": 15000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Hypothesis, plan of attack and disclosure policy with a severity rubric published, checked by the technical reviewer",
+          "At least 3 outside bug-finding teams agree to route shared-code bugs to the selected team, confirmed by those teams to the technical reviewer",
+          "One past public shared-code incident replayed with the plan, with the affected-team list and time taken checked by the technical reviewer"
+        ]
+      },
+      {
+        "name": "First 10 coordinated disclosures",
+        "amount": 30000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 10 coordinated disclosures of distinct bugs in shared code, each medium or higher on the published rubric and confirmed to the technical reviewer by at least 3 outside teams as affecting code they run",
+          "The disclosures span at least 4 of these verticals: Ethereum clients, rollups and infrastructure, DeFi, wallets, AI and crypto, checked by the technical reviewer",
+          "At least 5 of them reach an Ethereum client team, an L2 over $200M on L2BEAT, or a protocol holding over $100M onchain (value query linked), checked by the technical reviewer"
+        ]
+      },
+      {
+        "name": "Open disclosure standard in use",
+        "amount": 25000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Open standard published, checked by the technical reviewer",
+          "At least 5 outside organizations each run a disclosure the selected team did not coordinate and publish its record in the standard's format, at least 2 of them Ethereum client teams, L2s over $200M on L2BEAT, or SEAL, checked by the technical reviewer"
+        ]
+      },
+      {
+        "name": "At speed and self-sustaining",
+        "amount": 30000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 25 coordinated disclosures of distinct bugs in total, each confirmed by at least 3 outside teams as affecting code they run, on the public log and checked by the technical reviewer",
+          "Median time from bug confirmed to the last listed affected team notified under 24 hours, across the 15 disclosures after the first 10, from log timestamps checked by the technical reviewer",
+          "At least 90% of listed affected teams, on lists hash-committed before each first notice, had the fix deployed or a mitigation in place by the time the fix or its details went public, with affected teams found later counted as unpatched, checked by the technical reviewer",
+          "At least $15,000 in fees or contributions from at least 3 outside L2s or protocols served, confirmed by the technical reviewer, plus a plan to run 12 months past the grant"
+        ]
+      }
+    ],
+    "links": [
+      "https://frameworks.securityalliance.org/vulnerability-disclosure/overview"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "checks": [
+    {
+      "url": "https://dblp.org/pid/218/7096.html",
+      "status": 202,
+      "finalUrl": "https://dblp.org/pid/218/7096.html",
+      "title": "Making sure you're not a bot!",
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:53.769Z"
+    },
+    {
+      "url": "https://dblp.org/pid/26/211.html",
+      "status": 202,
+      "finalUrl": "https://dblp.org/pid/26/211.html",
+      "title": "Making sure you're not a bot!",
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:53.770Z"
+    },
+    {
+      "url": "https://eips.ethereum.org/EIPS/eip-7730",
+      "status": 200,
+      "finalUrl": "https://eips.ethereum.org/EIPS/eip-7730",
+      "title": "ERC-7730: Structured Data Clear Signing Format",
+      "description": "JSON format describing how to clear-sign smart contract calls and typed messages.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:25.017Z"
+    },
+    {
+      "url": "https://eips.ethereum.org/EIPS/eip-7885",
+      "status": 200,
+      "finalUrl": "https://eips.ethereum.org/EIPS/eip-7885",
+      "title": "EIP-7885: Precompile for NTT operations",
+      "description": "Proposal to add a precompiled contract that performs number theoretical transformation (NTT) and inverse (InvNTT).",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:53.771Z"
+    },
+    {
+      "url": "https://eips.ethereum.org/EIPS/eip-8004",
+      "status": 200,
+      "finalUrl": "https://eips.ethereum.org/EIPS/eip-8004",
+      "title": "ERC-8004: Trustless Agents",
+      "description": "Discover agents and establish trust through reputation and validation",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:53.771Z"
+    },
+    {
+      "url": "https://eips.ethereum.org/EIPS/eip-8051",
+      "status": 200,
+      "finalUrl": "https://eips.ethereum.org/EIPS/eip-8051",
+      "title": "EIP-8051: Precompile for ML-DSA signature verification",
+      "description": "Precompiled contracts for FIPS-204 ML-DSA signature verification and an EVM-optimized variant",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:53.797Z"
+    },
+    {
+      "url": "https://eips.ethereum.org/EIPS/eip-8052",
+      "status": 200,
+      "finalUrl": "https://eips.ethereum.org/EIPS/eip-8052",
+      "title": "EIP-8052: Precompile for Falcon support",
+      "description": "Proposal to add a precompiled contract that performs signature verifications using the Falcon signature scheme.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:53.811Z"
+    },
+    {
+      "url": "https://zknox.com",
+      "status": 200,
+      "finalUrl": "https://zknox.com/",
+      "title": "ZKNOX | Hardware Security & Cryptography",
+      "description": null,
+      "contentType": "text/html; charset=UTF-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:53.824Z"
+    },
+    {
+      "url": "https://zknox.com/",
+      "status": 200,
+      "finalUrl": "https://zknox.com/",
+      "title": "ZKNOX | Hardware Security & Cryptography",
+      "description": null,
+      "contentType": "text/html; charset=UTF-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:53.833Z"
+    },
+    {
+      "url": "https://zknox.eth.limo/posts/2026/03/13/zk_clear_signing_160326.html",
+      "status": 200,
+      "finalUrl": "https://zknox.eth.limo/posts/2026/03/13/zk_clear_signing_160326.html",
+      "title": "Unlimited public computation in constrained hardware using ZK proofs — Application to ZK clear signing",
+      "description": null,
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:53.977Z"
+    }
+  ]
+}

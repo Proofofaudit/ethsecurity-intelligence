@@ -1,0 +1,56 @@
+{
+  "revision": {
+    "n": 1,
+    "author": "0x30EcdAc7469B9D2A1385931cee29d8fC6cb78FA8",
+    "source": "submit",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1794408369.199,
+    "title": "Reusable Security Workflows for Triage of Vulnerability Reports",
+    "summary": "This initiative will research, develop and validate reusable workflows for Ethereum vulnerability triage and patch validation. Rather than building another standalone AI security agent, we will investigate how existing tools, agent skills, automated checks and human review can support trustworthy decisions. Audit firms, bounty platforms and protocol teams will be able to adapt the open workflows to their own tools and infrastructure. Independent teams will test them on real security work.",
+    "details": "",
+    "sections": {
+      "why": "- **Who is safer:** Ethereum and L2 protocol users whose security teams must investigate reported vulnerabilities and assess proposed fixes.\n- **From what:** False or inconclusive vulnerability reports, ineffective fixes, regressions that disrupt legitimate transactions, and new vulnerabilities introduced during repair.\n- **What anyone can point to afterwards:** Openly documented workflows, reproducible evaluations on Ethereum incidents, and evidence that independent auditing teams used the workflows on real findings.",
+      "in_scope": "- Workflow specifications for three decisions: whether a vulnerability is reproducible, whether a patch stops the exploit while preserving expected behavior, and whether a patch introduces security regressions.\n- Explicit inputs, outputs, verification steps, uncertainty states, escalation criteria and evidence formats for each workflow.\n- Portable agent skills and reference examples that can be adapted to different models, agent frameworks, and existing auditor toolchains.\n- Reproducible empirical evaluation on public Ethereum cases, including failure analysis and comparisons with existing individual-tool approaches.\n- Hands-on integration and feedback with independent audit firms and security teams using real Ethereum or L2 findings.",
+      "out_scope": "- Building a hosted service or requiring teams to adopt one agent framework or vendor.\n- Guaranteeing that all workflows outperform existing practice; negative and inconclusive findings will be documented.",
+      "team": "- **Sofia Bobadilla, lead:** PhD student at KTH, member of CHAINS and mab.xyz, with expertise on smart contract security, particularly on exploit validation, automated vulnerability repair and transaction replay. Homepage: https://sofiabobadilla.github.io/\n- **Martin Monperrus, advisor:** Professor of Software Technology at KTH and co-founder of mab.xyz. Homepage: https://www.monperrus.net/martin/\n\nOther funding: WASP (Knut and Alice Wallenberg Foundation) and the Swedish Foundation for Strategic Research support Sofia's PhD research. This grant supports applied workflow research, portable implementation examples, reproducible evaluation and external adoption, distinct from the existing research funding.",
+      "why_grant": "Our team has already published research and developed open tools addressing three stages of smart contract vulnerability response:\n\n- **Behavior preservation:** PonDeReplay, our open-source replay framework, compares patched contract behavior with historical Ethereum transactions [1]. This mechanism is key for revealing unintended effects; for example, a tested guard that stops an attack on Yearn yDAI also blocks 88 legitimate keeper calls [2].\n- **Exploit validation:** PoCo studies how AI agents turn vulnerability reports into runnable Foundry proofs of concept and how to verify that those tests actually demonstrate the reported issue [3].\n- **Patch effectiveness:** Our study of automated smart contract fixes evaluated whether patches stopped real exploits, showing why passing conventional checks is not sufficient evidence of security [4].\n\nThese results are publicly available, and our work on exploit validation and automated repair has been peer-reviewed. Our findings have also informed AI-related guidance for Ethereum Foundation grants [5].\n\nThe missing piece is not another standalone agent or replay tool, but independently evaluated guidance for combining these checks in real audits. We will study which workflows improve decisions across different setups, where they fail, and when human review is necessary. We will publish reusable specifications, integration examples, and evidence of adoption by independent auditing teams.\n\n**References:**\n\n[1] PonDeReplay (open-source replay framework).\nhttps://github.com/ASSERT-KTH/PonDeReplay\n\n[2] Smart Contract Invariants Protect Against Cybercriminals.\nhttps://arxiv.org/abs/2608.13191\n\n[3] PoCo: Agentic Proof-of-Concept Exploit Generation for Smart Contracts.\nhttps://arxiv.org/abs/2511.02780\n\n[4] Do Automated Fixes Truly Mitigate Smart Contract Exploits?\nhttps://arxiv.org/abs/2501.04600\n\n[5] Ethereum PhD Fellowship on AI-Powered Protocol Security: Research, Auditing, and Vulnerability Detection.\nhttps://web.archive.org/web/20260211213355/https://esp.ethereum.foundation/rounds/phdfp26/phdfp-rfpd1",
+      "commitments": "- MIT for code and agent skills; CC BY 4.0 for workflow specifications, public benchmarks and published evaluation results.\n- Sofia Bobadilla will maintain the published reference materials and fix reproducibility-breaking issues for 18 months after the final milestone.\n- Public benchmarks will use public incidents. Confidential adopter cases can be validated using redacted evidence supplied to the independent technical reviewer."
+    },
+    "milestones": [
+      {
+        "name": "Research and release reusable security workflows",
+        "amount": 6000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Publish at least 3 reusable workflows covering vulnerability validation, patch assessment, and regression checks. Each includes decision criteria, an integration example or agent skill, and clear guidance for human review. The technical reviewer checks the public release.",
+          "Evaluate the workflows on at least 15 public Ethereum or L2 cases, publishing reproducible tests, results, and failures. The technical reviewer checks the evidence and reruns the evaluation."
+        ]
+      },
+      {
+        "name": "Independent adoption and improvement",
+        "amount": 4000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 3 independent security teams outside KTH, CHAINS and mab.xyz use a workflow in their own setup on a real Ethereum or L2 finding. A technical reviewer verifies public or confidential redacted evidence of use.",
+          "Publish at least 1 updated workflow release incorporating external feedback, with integration guidance and a public change log. The technical reviewer checks the release."
+        ]
+      }
+    ],
+    "links": [
+      "https://github.com/ASSERT-KTH/PonDeReplay",
+      "https://arxiv.org/abs/2608.13191",
+      "https://arxiv.org/abs/2511.02780",
+      "https://arxiv.org/abs/2501.04600",
+      "https://web.archive.org/web/20260211213355/https://esp.ethereum.foundation/rounds/phdfp26/phdfp-rfpd1"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

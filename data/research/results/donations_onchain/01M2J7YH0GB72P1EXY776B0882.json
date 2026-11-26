@@ -1,0 +1,34 @@
+{
+  "checks": [
+    {
+      "txHash": "0xc36db373ec3d810aa0cf83578c9108e59b335c0a37a4bb2bf8aea819d8bfd5ba",
+      "found": true,
+      "success": true,
+      "blockNumber": 26117532,
+      "touchesSafe": true,
+      "checkedAt": "2026-11-26T09:28:23.262Z",
+      "rpc": "eth.drpc.org",
+      "error": null
+    },
+    {
+      "txHash": "0x0ee69534a2f29948a8b45d837bc729fae351b607b4bdc8a20d5a264887bcf54f",
+      "found": true,
+      "success": true,
+      "blockNumber": 25983733,
+      "touchesSafe": true,
+      "checkedAt": "2026-11-26T09:28:23.262Z",
+      "rpc": "eth.drpc.org",
+      "error": null
+    },
+    {
+      "txHash": "0xc8853be7c2794944b8af376ce134f6fffd9f25c3c0488410a2bb66768016fde2",
+      "found": true,
+      "success": true,
+      "blockNumber": 25983616,
+      "touchesSafe": true,
+      "checkedAt": "2026-11-26T09:28:23.262Z",
+      "rpc": "eth.drpc.org",
+      "error": null
+    }
+  ]
+}

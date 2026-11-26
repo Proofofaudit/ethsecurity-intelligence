@@ -1,0 +1,52 @@
+{
+  "revision": {
+    "n": 1,
+    "author": "",
+    "source": "content",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1789176084.452,
+    "title": "Community Fuzzing Tooling for Ethereum Ecosystem Projects",
+    "summary": "The Ethereum ecosystem is lacking a solution for scalable, continuous, and compute-intensive fuzzing campaigns for projects. For each project to subscribe to their own solution would be costly and could have diminishing returns over time to make it a worthwhile investment of time, money, and human capital. We are requesting proposals from applicants who have developed or can develop tools to orchestrate fuzzing at scale, assign compute resources efficiently, and flex these resources up and down in an agile manner so that any team can orchestrate their own fuzzing campaign for themselves. A self-serve model. This RFP would fund the construction and maintenance of such a tool.",
+    "details": "",
+    "sections": {
+      "why": "Security review has shifted a great deal of effort onto LLM-assisted tooling over the last eighteen months. That shift has been productive and remains accessible to teams through frontier models and private tools, but it is also incomplete. They are weakest precisely where fuzzing is strongest, particularly on regression detection and avoidance as developers ship new or harden existing code.\n\n**Current state:**\n\nMany teams know the above, but very few run fuzzing continuously. The reasons are mostly operational:\n\n- Compute: Meaningful fuzzing is measured in sustained core hours. Most teams cannot justify that as a standing line item for a single codebase, so it never gets budgeted.\n- Time: Someone has to write harnesses that generate inputs structured enough to reach deep code rather than bouncing off input validation.\n- Software: Teams that do try usually run a fuzzer in GitHub Actions or a similarly time-boxed CI runner, yielding a few minutes of fuzzing per commit. That is only enough to replay an existing corpus and generate suitable code coverage.",
+      "in_scope": "- A documented CLI or front-end UI\n- Running continuous fuzzing campaigns across multiple tenants in a secure manner\n- Ability to allocate compute across multiple projects and scale it up and down efficiently and on demand\n- Capability to hand off harnesses, corpora, and knowledge to users\n- Documentation so teams can maximally self-serve\n\n**On the milestone plan:**\n\nAmounts below are shown as a share of the awarded budget, with an indicative figure at a $150,000 award.",
+      "out_scope": "- Manual audits and code review. This program funds fuzzing infrastructure.\n- Authorship of harnesses and tests\n- Publishing exploit detail or proof-of-concept code for anything still unpatched\n- A guaranteed bug count. Fuzzing finds what it finds; the commitment is to compute and process.\n- Triage of findings\n- Incident response\n- Any other professional services",
+      "existing": "None named.",
+      "who": "The strongest bidder is a team that has run continuous fuzzing at scale before, over months rather than for the duration of an audit, and can show the following evidence: campaigns sustained, coverage figures, bugs found and disclosed. Proposals should be explicit about:\n\n- Coverage of languages and frameworks\n- Compute: State the sustained core hours you can field and where they come from\n- User Experience: How does the user access the tool? Is it via service request only? A CLI? A dedicated User Interface? Briefly describe the user flow as it will exist should the grant be awarded.\n\nThe proposal will likely be best served by a single grant recipient, but the RFP can certainly be considered for multiple participants if that best serves the needs of the ecosystem.",
+      "hard_req": "1. Aggregated results measured and published: Aggregate and abstracted statistics for coverage, findings, etc., updated at least quarterly on a public page. Bug counts alone are not an acceptable measure of a fuzzing program.\n2. Siloed User Experience: Users may only see their own findings for security purposes. This must be available to be considered for the grant.\n3. No user lock-in: Harnesses must build and run on standard open source fuzzing tooling. Every project keeps its harnesses, corpus, and documentation under an open license at no further cost, and must be able to keep running them without paying the grantee anything."
+    },
+    "milestones": [
+      {
+        "name": "Program stood up",
+        "amount": 75000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Specs and timeline provided for tool to go live",
+          "Intake form for grantor and grantee to gauge interest and sequencing is live",
+          "Ability for first project/users to potentially onboard"
+        ]
+      },
+      {
+        "name": "Ecosystem Adoption",
+        "amount": 75000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Onboarding flows are available and open",
+          "7+ projects have self-onboarded and begun a campaign",
+          "Publication of first aggregated and anonymized report to show baseline statistics for future QoQ reference"
+        ]
+      }
+    ],
+    "links": [],
+    "structured": true,
+    "goalUsd": null
+  }
+}

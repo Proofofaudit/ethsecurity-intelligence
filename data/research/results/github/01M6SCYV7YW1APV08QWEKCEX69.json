@@ -1,0 +1,172 @@
+{
+  "repos": [
+    {
+      "fullName": "Blobscan/blobscan",
+      "url": "https://github.com/Blobscan/blobscan",
+      "exists": true,
+      "description": "The pioneer blockchain explorer dedicated to navigate and visualize shard blob transactions.",
+      "license": "AGPL-3.0",
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "main",
+      "createdAt": "2022-10-08T00:38:36Z",
+      "pushedAt": "2026-11-15T18:00:14Z",
+      "stars": 103,
+      "openIssues": 126,
+      "language": "TypeScript",
+      "topics": [
+        "eip4844",
+        "ethereum"
+      ],
+      "latestRelease": {
+        "tag": "v1.52.0",
+        "publishedAt": "2026-11-15T06:48:14Z",
+        "url": "https://github.com/Blobscan/blobscan/releases/tag/v1.52.0"
+      },
+      "releaseCount": 83,
+      "hasCiWorkflows": true,
+      "hasTestsDir": false,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 100,
+      "contributorsSampled": 30,
+      "checkedAt": "2026-11-26T09:25:25.992Z",
+      "error": null
+    },
+    {
+      "fullName": "Blobscan/blobscan-ipld",
+      "url": "https://github.com/Blobscan/blobscan-ipld",
+      "exists": true,
+      "description": "Automatic IPLD DAG generator for Ethereum EIP-4844 blob data, designed for Blobscan-style indexers. Fetches finalized epochs from a Beacon Node, builds a deterministic content-addressed DAG, exports self-contained CAR v2 archives, and publishes a mutable network root via IPNS.",
+      "license": null,
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "master",
+      "createdAt": "2026-03-10T10:43:53Z",
+      "pushedAt": "2026-11-06T08:50:49Z",
+      "stars": 0,
+      "openIssues": 0,
+      "language": "Go",
+      "topics": [],
+      "latestRelease": null,
+      "releaseCount": 0,
+      "hasCiWorkflows": true,
+      "hasTestsDir": false,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 1,
+      "contributorsSampled": 1,
+      "checkedAt": "2026-11-26T09:25:25.992Z",
+      "error": null
+    },
+    {
+      "fullName": "base/blob-archiver",
+      "url": "https://github.com/base/blob-archiver",
+      "exists": true,
+      "description": null,
+      "license": "MIT",
+      "archived": true,
+      "fork": false,
+      "defaultBranch": "master",
+      "createdAt": "2024-02-01T02:35:42Z",
+      "pushedAt": "2026-10-07T14:28:05Z",
+      "stars": 127,
+      "openIssues": 0,
+      "language": "Go",
+      "topics": [],
+      "latestRelease": null,
+      "releaseCount": 0,
+      "hasCiWorkflows": true,
+      "hasTestsDir": false,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 14,
+      "contributorsSampled": 19,
+      "checkedAt": "2026-11-26T09:25:30.140Z",
+      "error": null
+    },
+    {
+      "fullName": "ethereum-optimism/optimism",
+      "url": "https://github.com/ethereum-optimism/optimism",
+      "exists": true,
+      "description": "Optimism is Ethereum, scaled.",
+      "license": "MIT",
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "develop",
+      "createdAt": "2020-02-06T22:28:26Z",
+      "pushedAt": "2026-11-26T09:03:52Z",
+      "stars": 6498,
+      "openIssues": 907,
+      "language": "Go",
+      "topics": [
+        "ethereum",
+        "l2-scaling",
+        "optimism",
+        "ovm",
+        "rollup"
+      ],
+      "latestRelease": {
+        "tag": "op-supernode/v1.2.0",
+        "publishedAt": "2026-11-25T13:20:14Z",
+        "url": "https://github.com/ethereum-optimism/optimism/releases/tag/op-supernode/v1.2.0"
+      },
+      "releaseCount": 100,
+      "hasCiWorkflows": true,
+      "hasTestsDir": false,
+      "hasSecurityPolicy": true,
+      "hasReadme": true,
+      "commitsLast90d": 100,
+      "contributorsSampled": 100,
+      "checkedAt": "2026-11-26T09:25:30.997Z",
+      "error": null
+    }
+  ],
+  "owners": [
+    {
+      "login": "base",
+      "type": "Organization",
+      "name": "Base",
+      "blog": "base.org",
+      "createdAt": "2016-01-09T20:07:08Z",
+      "publicRepos": 92,
+      "url": "https://github.com/base"
+    },
+    {
+      "login": "Blobscan",
+      "type": "Organization",
+      "name": "Blobscan",
+      "blog": "blobscan.com",
+      "createdAt": "2022-12-10T01:05:50Z",
+      "publicRepos": 18,
+      "url": "https://github.com/Blobscan"
+    },
+    {
+      "login": "ethereum-optimism",
+      "type": "Organization",
+      "name": "Optimism",
+      "blog": "https://optimism.io",
+      "createdAt": "2019-12-11T21:07:36Z",
+      "publicRepos": 145,
+      "url": "https://github.com/ethereum-optimism"
+    },
+    {
+      "login": "PabloCastellano",
+      "type": "User",
+      "name": "Pablo Castellano",
+      "blog": "https://pablog.me",
+      "createdAt": "2009-04-13T13:20:36Z",
+      "publicRepos": 294,
+      "url": "https://github.com/PabloCastellano"
+    },
+    {
+      "login": "PJColombo",
+      "type": "User",
+      "name": "0xelessar.eth",
+      "blog": null,
+      "createdAt": "2017-10-29T18:03:44Z",
+      "publicRepos": 39,
+      "url": "https://github.com/PJColombo"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "repos": [
+    {
+      "fullName": "eez-association/eez-core-protocol",
+      "url": "https://github.com/eez-association/eez-core-protocol",
+      "exists": true,
+      "description": "Smart contracts to manage synchronous rollups in Ethereum using ZK proofs",
+      "license": null,
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "main",
+      "createdAt": "2026-01-28T07:09:38Z",
+      "pushedAt": "2026-11-26T09:23:51Z",
+      "stars": 30,
+      "openIssues": 20,
+      "language": "Solidity",
+      "topics": [],
+      "latestRelease": null,
+      "releaseCount": 0,
+      "hasCiWorkflows": true,
+      "hasTestsDir": true,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 100,
+      "contributorsSampled": 5,
+      "checkedAt": "2026-11-26T09:25:45.848Z",
+      "error": null
+    }
+  ],
+  "owners": [
+    {
+      "login": "eez-association",
+      "type": "Organization",
+      "name": null,
+      "blog": null,
+      "createdAt": "2026-03-05T18:46:07Z",
+      "publicRepos": 15,
+      "url": "https://github.com/eez-association"
+    }
+  ]
+}

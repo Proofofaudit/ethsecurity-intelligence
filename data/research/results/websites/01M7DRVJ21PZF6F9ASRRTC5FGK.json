@@ -1,0 +1,112 @@
+{
+  "checks": [
+    {
+      "url": "https://audits.sherlock.xyz/watson/veerendravamshi",
+      "status": 200,
+      "finalUrl": "https://audits.sherlock.xyz/watson/veerendravamshi",
+      "title": "veerendravamshi - Sherlock",
+      "description": "Responsible disclosure is not a skill. It's a standard. Verified · VeerSec · vsec:2ad1a14d",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:12.187Z"
+    },
+    {
+      "url": "https://proofofaudits.com/",
+      "status": 200,
+      "finalUrl": "https://proofofaudits.com/",
+      "title": "Know what's audited before you sign | Proof of Audits",
+      "description": "Proof of Audits connects published audit reports to live smart contracts. See what matches, what changed, and what hasn't been verified.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:12.187Z"
+    },
+    {
+      "url": "https://proofofaudits.com/demos/proof-before-sign",
+      "status": 200,
+      "finalUrl": "https://proofofaudits.com/demos/proof-before-sign",
+      "title": "Would you sign this? Mainnet transactions, simulated before signing | Proof of Audits",
+      "description": "Pick a simulated mainnet transaction on Aave, Uniswap, Euler, EigenLayer, Safe, Morpho, Compound, Lido or Sky. See which of the contracts it runs a public audit report names, by whom, and what is still open.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:12.188Z"
+    },
+    {
+      "url": "https://proofofaudits.com/deployed/evidence/aave-v4",
+      "status": 200,
+      "finalUrl": "https://proofofaudits.com/deployed/evidence/aave-v4",
+      "title": "Aave V4 code observation at block 25,596,250",
+      "description": "POA's point-in-time code observation of Aave V4: exact Ethereum block, contract addresses, runtime bytecode hashes, implementation slots, published audit sources and open gaps. Not an audit match and not an Aave endorsement.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:12.188Z"
+    },
+    {
+      "url": "https://proofofaudits.com/explained/proof-before-sign",
+      "status": 200,
+      "finalUrl": "https://proofofaudits.com/explained/proof-before-sign",
+      "title": "Proof Before Sign, explained — Proof of Audits | Proof of Audits",
+      "description": "Was the code you are about to sign actually reviewed? A plain account of the problem, what we found and what other tools already do.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:12.364Z"
+    },
+    {
+      "url": "https://proofofaudits.com/explorer/functions",
+      "status": 200,
+      "finalUrl": "https://proofofaudits.com/explorer/functions",
+      "title": "Function explorer: fourteen Ethereum protocols, function by function | Proof of Audits",
+      "description": "Every callable function of fourteen Ethereum mainnet protocols at one pinned block, with its proxy route, static source dependencies, access modifiers and the audit reports that name its files.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:12.394Z"
+    },
+    {
+      "url": "https://proofofaudits.com/install",
+      "status": 200,
+      "finalUrl": "https://proofofaudits.com/install",
+      "title": "Know what's audited before you sign | Proof of Audits",
+      "description": "Proof of Audits connects published audit reports to live smart contracts. See what matches, what changed, and what hasn't been verified.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:12.457Z"
+    },
+    {
+      "url": "https://proofofaudits.com/proof-before-sign",
+      "status": 200,
+      "finalUrl": "https://proofofaudits.com/proof-before-sign",
+      "title": "Proof Before Sign: MetaMask Snap | Proof of Audits",
+      "description": "A MetaMask Snap that shows audit evidence, live-code match and upgrade control for Ethereum mainnet transactions before you confirm.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:12.503Z"
+    },
+    {
+      "url": "https://proofofaudits.com/whitepapers/proof-before-sign",
+      "status": 200,
+      "finalUrl": "https://proofofaudits.com/whitepapers/proof-before-sign",
+      "title": "Proof Before Sign — Whitepaper | Proof of Audits",
+      "description": "Audit evidence for the exact code a transaction will run, shown before the user signs",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:12.531Z"
+    }
+  ]
+}

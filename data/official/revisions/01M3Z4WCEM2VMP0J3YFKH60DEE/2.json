@@ -1,0 +1,66 @@
+{
+  "revision": {
+    "n": 2,
+    "author": "0x839395e20bbB182fa440d08F850E6c7A8f6F0780",
+    "source": "admin",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1791084932.423,
+    "title": "DappFence: Verifiable Frontend Security",
+    "summary": "DappFence is an open-source, client-side security system designed to protect users from compromised web frontends. The February 2025 Bybit theft, in which attackers manipulated the Safe wallet interface to deceive signers and steal approximately $1.5 billion, demonstrated why Ethereum security must extend beyond smart contracts to the interfaces people use to interact with them. DappFence verifies frontend assets against an authenticated integrity manifest and blocks resources that do not match the version defined by that manifest. Coinspect will harden the implementation, validate it in production deployments, finish and publish its integration tooling, and drive adoption by dApps.",
+    "details": "",
+    "sections": {
+      "why": "Smart contracts can be decentralized and independently verified, while the frontend used to interact with them still depends on centralized infrastructure. An attacker who compromises a dApp's domain, DNS, hosting platform or CDN can serve modified code that alters transaction parameters, and browsers do not check that the code they receive is the code the dApp team published. In February 2025, attackers modified the JavaScript served by the Safe wallet interface used by Bybit and drained its cold wallet without exploiting any contract bug ([Sygnia](https://www.sygnia.co/blog/sygnia-investigation-bybit-hack/), [NCC Group](https://www.nccgroup.com/research/in-depth-technical-analysis-of-the-bybit-hack/)). Frontend compromises also hit BadgerDAO ([TRM Labs](https://www.trmlabs.com/resources/blog/trm-investigates-badgerdao-defi-protocol-hacked)) and KyberSwap ([CoinDesk](https://www.coindesk.com/tech/2022/09/01/defi-platform-kyber-network-discloses-265k-exploit-vows-to-reimburse-all-funds)).\n\nGateways that serve dApps from IPFS face the same risk: in April 2026, attackers hijacked eth.limo's DNS for about five hours ([eth.limo post-mortem](https://discuss.ens.domains/t/eth-limo-dns-hijack-post-mortem/22079)), and a compromised gateway can serve modified code for every site it delivers.\n\nDappFence protects the users of every dApp that deploys it, including dApps served through IPFS gateways. Wallet defenses such as transaction simulation and clear signing check the transaction; DappFence checks the code that builds and presents it, so a modified interface is blocked before the user is asked to sign.",
+      "in_scope": "- Runtime hardening: Close the known gaps in the verification runtime, including stronger verification of a dApp's own Service Worker.\n- Signing and release workflow: Harden manifest generation, signing and verification.\n- Integration tooling: Finish and publish the Next.js and Vite integrations and extend them where production deployments require it.\n- Compatibility: Run the end-to-end test suite on Chrome and Firefox, and against sample applications built with each supported integration.\n- Production deployments: Deploy in live, publicly accessible dApps, starting with one and growing to the adoption target, and resolve the issues each deployment surfaces.\n- Support: Direct assistance to dApp teams integrating DappFence.\n- Documentation: Integration, onboarding, signing and release guides for dApp teams, and a threat model stating what DappFence protects against and what it does not.",
+      "out_scope": "- First visits and the protection window: Trust is established on a user's first visit. The browser downloads the DappFence script again once 24 hours have passed since its last check, so returning users have a protection window of up to 24 hours when the script is served with a long cache lifetime. Two cases are therefore not covered: a user whose first visit happens while the site is already compromised, and a compromise that persists beyond the protection window, after which the attacker's script can replace the Service Worker on returning users' browsers.\n- Supply chain and signing keys: Verification confirms that users run the release the publisher signed. It does not assess whether that release is safe: malicious code added before signing, through a compromised dependency or build pipeline, passes verification, as does code signed with a compromised key.",
+      "team": "**Coinspect** does the work. Andres A., the main author of the current DappFence codebase, leads development and works full-time on this grant (https://github.com/a-d-j-i).\n\nCoinspect is a security research and auditing firm founded in 2014: https://www.coinspect.com.\n\nCoinspect develops and owns the DappFence repository and has pledged $45,000, half of the funding goal. There is no other funding for this work.",
+      "why_grant": "DappFence already has a working implementation. Automated browser tests show that a modified page, script or external resource, including the DappFence script, is blocked, that new signed releases load without being blocked, and that attempts to wipe DappFence from the browser are detected.\n\nOn a user's first visit, the site installs a Service Worker that the browser keeps between visits. On later visits, that Service Worker verifies the frontend's code against manifests signed by the dApp's publisher and blocks any file that does not match. No external service, browser extension or dedicated infrastructure is involved: the script and the signed manifest are served from the dApp's own hosting, and an attacker who controls that hosting cannot forge a valid manifest without the publisher's private signing key. An attacker who tries to remove DappFence has to replace a Service Worker script whose expected hash is in the signed, public manifest, so such an attack is straightforward to monitor.\n\nThe repository contains:\n\n- The Service Worker runtime (@dappfence/core), with a report-only mode for gradual rollout.\n- A warning page and emergency panel shown when tampering is detected, and a status endpoint with verification results and block history.\n- Manifest tooling (@dappfence/manifest-tools) that hashes a build, signs the manifest and verifies signatures.\n- Initial build integrations for Next.js and Vite.\n- A test application and an end-to-end browser test suite.\n\nThe current implementation remains a prototype and requires hardening before production use. The grant pays for hardening, release and adoption, not for building what already exists.",
+      "commitments": "- Code published under the MIT license, with development public in the repository.\n- Coinspect maintains the public repository for 6 months after the last milestone, at no further cost: reviewing and merging contributions and publishing releases to npm.\n- DappFence has no business model yet; further development after the grant will need new funding."
+    },
+    "milestones": [
+      {
+        "name": "Core hardening and release candidate",
+        "amount": 30000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Release candidate tagged in the public repository",
+          "End-to-end test suite passing on Chrome and Firefox, including a sample application for each integration, in public CI runs",
+          "Threat model published in the repository"
+        ]
+      },
+      {
+        "name": "Production release and first deployment",
+        "amount": 30000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Production release, including the Next.js and Vite integrations, tagged in the repository and published to npm",
+          "Integration and onboarding guides published in the repository",
+          "At least 1 external dApp with public users on Ethereum or an L2 runs DappFence with blocking enabled in production, listed on a public page with its manifest URL"
+        ]
+      },
+      {
+        "name": "Adoption",
+        "amount": 30000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 5 more external dApps on Ethereum or its L2s run DappFence with blocking enabled in production, each a protocol holding over $1 million onchain and at least 1 of them over $50 million, listed on the same public page with its manifest URL.",
+          "For each of them, the page links its contract addresses and the onchain query showing its holdings"
+        ]
+      }
+    ],
+    "links": [
+      "https://github.com/coinspect/dappfence"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

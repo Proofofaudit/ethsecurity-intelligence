@@ -1,0 +1,64 @@
+{
+  "repos": [
+    {
+      "fullName": "wallix/awless",
+      "url": "https://github.com/wallix/awless",
+      "exists": true,
+      "description": "A Mighty CLI for AWS",
+      "license": "Apache-2.0",
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "master",
+      "createdAt": "2016-06-03T13:46:18Z",
+      "pushedAt": "2022-08-02T00:04:44Z",
+      "stars": 4955,
+      "openIssues": 120,
+      "language": "Go",
+      "topics": [
+        "awless",
+        "aws",
+        "aws-cli",
+        "cli",
+        "cloud",
+        "cloud-management",
+        "devops",
+        "devops-tools",
+        "golang"
+      ],
+      "latestRelease": {
+        "tag": "v0.1.11",
+        "publishedAt": "2018-06-21T12:21:55Z",
+        "url": "https://github.com/wallix/awless/releases/tag/v0.1.11"
+      },
+      "releaseCount": 24,
+      "hasCiWorkflows": false,
+      "hasTestsDir": false,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 0,
+      "contributorsSampled": 14,
+      "checkedAt": "2026-11-26T09:26:05.204Z",
+      "error": null
+    }
+  ],
+  "owners": [
+    {
+      "login": "okcontract",
+      "type": "Organization",
+      "name": null,
+      "blog": "https://okcontract.com",
+      "createdAt": "2020-12-09T21:03:30Z",
+      "publicRepos": 21,
+      "url": "https://github.com/okcontract"
+    },
+    {
+      "login": "wallix",
+      "type": "Organization",
+      "name": "WALLIX",
+      "blog": "https://www.wallix.com",
+      "createdAt": "2010-05-04T10:10:02Z",
+      "publicRepos": 54,
+      "url": "https://github.com/wallix"
+    }
+  ]
+}

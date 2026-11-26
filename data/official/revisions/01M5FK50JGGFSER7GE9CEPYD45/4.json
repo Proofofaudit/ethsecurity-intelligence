@@ -1,0 +1,98 @@
+{
+  "revision": {
+    "n": 4,
+    "author": "0xC92eee6082EbdB804196dDD4d07F8ac20EBD3dC9",
+    "source": "proposer",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1793152441.899,
+    "title": "AI-Guided Smart Contract Security Checks in Remix",
+    "summary": "Remix is working to expand on Cyfrin's public Security Checklists, and make them more actionable inside the Remix platform. This grant funds the structured tagging of audit checklists, RemixAI integration for targeted security reviews, and automated Foundry fuzz test generation to verify findings with concrete execution traces.",
+    "details": "",
+    "sections": {
+      "why": "With the rise of AI-generated contracts, a growing number of non-developers and beginners are creating and deploying smart contracts. This expands the attack surface, as these users often do not know which security checklists apply to their code or how to fix flagged vulnerabilities. Historically, over $8 billion in user funds has been lost specifically to smart contract execution flaws, according to an empirical study in Science Direct.\n\nIntegrating a consistently maintained and tagged Cyfrin Security Checklist directly into RemixAI solves this. Users get automated, contract-specific filters (such as ERC-20, NFT, or staking), actionable AI-guided fixes, and automated Foundry invariant tests that validate checklist findings with counterexample execution traces.",
+      "in_scope": "- Tagging Cyfrin's security checks so they can be filtered by contract type (ERC-20, NFT mint, vault, staking, etc.), relevant code patterns, severity, and required Solidity knowledge\n- Upgrading RemixAI to read these tags and filter checklists based on the specific contract\n- Building tailored security reports with actionable, AI-generated fixes scoped to specific vulnerability types\n- Developing and deploying x402 endpoints with enhanced audit capabilities\n- Cross-model audits where two or more models audit the same code and propose a joint report\n- Audits at runtime using the checklist combined with an execution trace and Solidity source code\n- Publishing Remix plugins for Claude and OpenAI, making security checklists and runtime audits available as connectors\n- Automated Foundry fuzz and invariant test generation from checklist items and static analysis findings, executing through the Desktop Foundry runner and recording traces to the run directory\n- Driving adoption through quarterly community calls to review findings, plus educational efforts including documentation, six workshops, media support, and video tutorials",
+      "out_scope": "- Performing traditional, manual audits on user contracts",
+      "team": "- **Yann Levreau**: Lead Dev, Remix (https://github.com/yann300)\n- **Stephané Tetsing**: AI Dev, Remix (https://github.com/STetsing)\n- **Aniket**: x402 Dev, Remix (https://github.com/Aniket-Engg)\n- **Maitreya Gaikwad**: Security Researcher, Remix (https://github.com/Assassin859)",
+      "why_grant": "This initiative builds directly on the proprietary integration of the existing Remix IDE and Cyfrin’s Security Checklists. Remix has already delivered initial scoping, architecture, and agentic workflows under a $15,000 internal commitment. As the maintainer of the platform, the Remix team possesses a decisive head start that cannot be replicated by a third party, and Remix's diverse user base is the ideal audience for this initiative's outputs.",
+      "commitments": "- Main workflow code published under Apache 2.0 and MIT. x402 code under MIT.\n- Remix maintains the tools and functionality for at least 12 months after the final milestone at no further cost to the fund.\n- Cyfrin checklist updated quarterly with new findings for the duration of the initiative.\n- The long-term funding model is sustained through tiered subscriptions, AI top-ups, and pay-per-use x402 revenue.\n- Pinned targets: at least 5,000 unique users generating reports and 3 third-party integrations."
+    },
+    "milestones": [
+      {
+        "name": "Initial Architecture & Scoping",
+        "amount": 15000,
+        "adoption": false,
+        "done": true,
+        "link": "https://github.com/remix-project-org/remix-project",
+        "month": "",
+        "criteria": [
+          "Initial scoping, architecture, and integration for checklist ingestion completed by Remix team",
+          "x402 integration enabling independent agents to perform compilations, deployments, and contract audits",
+          "Security analysis subagent and deep LangChain integration deployed in prototype",
+          "Audience-based contract audit report generation initial workflow completed",
+          "Proof of concept connectors published for Claude platforms"
+        ]
+      },
+      {
+        "name": "Tagged Checklists & x402 Endpoints",
+        "amount": 65000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "2027-01",
+        "criteria": [
+          "Cyfrin checklist updated with Q4 2026 findings, with every check tagged by contract type, relevant patterns, severity, and required knowledge, merged into Remix's main repository",
+          "Cross-model audit flow is live in Remix",
+          "x402 endpoints deployed with audit capabilities and documented for third-party use"
+        ]
+      },
+      {
+        "name": "AI Integration & Runtime Audits",
+        "amount": 50000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "2027-03",
+        "criteria": [
+          "RemixAI checklist filtering is live in Remix, allowing users to generate tailored security reports based on contract type and user experience level",
+          "Runtime audit support (combining execution trace with source code) is live in Remix",
+          "Remix plugins published for Claude and OpenAI, making security checklists and runtime audits available as connectors in both platforms"
+        ]
+      },
+      {
+        "name": "Adoption and Usage",
+        "amount": 85000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "2027-05",
+        "criteria": [
+          "At least 5,000 unique users generate a smart contract security report using the RemixAI checklist workflow, verified by public Remix telemetry excluding automated accounts",
+          "At least 3 third-party developer tools, IDE extensions, or token launchpads integrate the x402 endpoints in production, verified by the independent technical reviewer",
+          "At least 50 contracts deployed on Ethereum mainnet or an L2 had a High or Critical finding from the RemixAI checklist workflow fixed before deploying, with the report and the fix linked, verified by the independent technical reviewer"
+        ]
+      },
+      {
+        "name": "Automated Fuzzing & Invariant Generation",
+        "amount": 50000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "2027-06",
+        "criteria": [
+          "Automated generator in the audit pipeline producing targeted, AI-based Foundry fuzz and invariant tests from checklist items and static analysis findings",
+          "Foundry test runner live in Remix, executing generated tests and recording confirmed bugs, counterexamples, and execution traces into the audit run directory"
+        ]
+      }
+    ],
+    "links": [
+      "https://github.com/remix-project-org/remix-project",
+      "https://github.com/remix-project-org/remix-api",
+      "https://github.com/remix-project-org/x402",
+      "https://github.com/Cyfrin/audit-checklist",
+      "https://github.com/Cyfrin/cyfrin-audit-reports"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "repos": [
+    {
+      "fullName": "security-alliance/frameworks",
+      "url": "https://github.com/security-alliance/frameworks",
+      "exists": true,
+      "description": "Official repository for the Security Frameworks by SEAL. Curated and battle-tested security best practices with a focus on crypto/web3.",
+      "license": "Other/unrecognised",
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "develop",
+      "createdAt": "2024-05-31T17:09:47Z",
+      "pushedAt": "2026-11-24T16:54:20Z",
+      "stars": 99,
+      "openIssues": 36,
+      "language": "TypeScript",
+      "topics": [
+        "best-practices",
+        "checklist",
+        "crypto",
+        "cryptocurrency",
+        "framwork",
+        "guidelines",
+        "practices",
+        "security",
+        "web2",
+        "web3",
+        "web3-security"
+      ],
+      "latestRelease": {
+        "tag": "v0.0.3",
+        "publishedAt": "2026-11-11T15:43:02Z",
+        "url": "https://github.com/security-alliance/frameworks/releases/tag/v0.0.3"
+      },
+      "releaseCount": 3,
+      "hasCiWorkflows": true,
+      "hasTestsDir": false,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 82,
+      "contributorsSampled": 49,
+      "checkedAt": "2026-11-26T09:26:38.673Z",
+      "error": null
+    }
+  ],
+  "owners": [
+    {
+      "login": "mattaereal",
+      "type": "User",
+      "name": "Matías Aereal Aeón",
+      "blog": "blog.theredguild.org",
+      "createdAt": "2010-09-05T19:11:59Z",
+      "publicRepos": 63,
+      "url": "https://github.com/mattaereal"
+    },
+    {
+      "login": "scode2277",
+      "type": "User",
+      "name": "Sara Russo",
+      "blog": null,
+      "createdAt": "2023-11-09T14:39:43Z",
+      "publicRepos": 13,
+      "url": "https://github.com/scode2277"
+    },
+    {
+      "login": "security-alliance",
+      "type": "Organization",
+      "name": "Security Alliance",
+      "blog": "https://securityalliance.org",
+      "createdAt": "2023-08-04T07:47:32Z",
+      "publicRepos": 47,
+      "url": "https://github.com/security-alliance"
+    }
+  ]
+}

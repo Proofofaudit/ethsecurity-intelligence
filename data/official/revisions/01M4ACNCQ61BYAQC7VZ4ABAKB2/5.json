@@ -1,0 +1,92 @@
+{
+  "revision": {
+    "n": 5,
+    "author": "0x7767FB920338eED6Fe68A4d7C411f84a3F24f20c",
+    "source": "admin",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1794559164.377,
+    "title": "Assertions.eth: Assertions for Safes, enforced on every transaction, readable by every signer",
+    "summary": "An assertion checks the outcome of a transaction on-chain, and a failed check reverts it. Assertions protected the $220M TheDAO Security Fund launch. This grant makes them easy to use for any Safe on v1.3.0 or later: the Assertion Builder installs Safe Research's audited Safe{Policies} guard with a Protections policy that checks every later transaction, and a new Assertion Viewer shows signers a Safe's policies and assertions as plain sentences. Checks can also use values read while the transaction runs.",
+    "details": "",
+    "sections": {
+      "why": "Safe owners and DAO voters approve calldata, and the result can differ from what they expected: state moves after signing, and calldata can hide what it does. An assertion writes the expected outcome into the transaction, such as a minimum balance after a swap, and the transaction reverts when the outcome is different. Signers are protected from a wrong result even when they cannot read the calldata.\n\nToday an assertion travels inside the batch it guards. That leaves gaps this grant closes:\n\n- **Only that batch is protected.** An attacker's transaction carries no assertions. [Safe{Policies}](https://github.com/safe-research/policy-engine) refuses any transaction no policy allows, and the Protections policy checks the outcome of every one it admits, whoever wrote it. Bybit lost about $1.5 billion in February 2025 ([FBI](https://www.ic3.gov/PSA/2025/PSA250226)) to a Safe transaction that replaced its code with a delegatecall: on a Safe set up this way, no policy allows it and it reverts.\n- **Signers take the author's word.** The description of the checks comes from whoever built the batch. The Viewer rebuilds it from the transaction and from the Safe's policies.\n- **Checks compare against fixed numbers.** Notations records a value while the transaction runs, so a rule can say \"no transaction takes out more than 50,000 USDC\" whatever the balance is.",
+      "in_scope": "- **[Notations](https://github.com/BlossomLabs/Assertions/issues/10)**: the contract that records a value while a transaction runs, for later checks to compare against, and deploys the compiled assertions.\n- **[EVMcrispr](https://github.com/BlossomLabs/Assertions/issues/10)**: a `set` whose value is read when the batch executes, which a Safe and a DAO vote need because sometimes they execute days after they are written. Our own review of the Safe module, so it leaves experimental status.\n- **[Protections policy](https://github.com/BlossomLabs/Assertions/issues/14)**: a policy for Safe{Policies}, covering owner and module transactions. It wraps the Safe's other policies, so a transaction an allowlist or a co-signer admits is still checked. When the guard checks a transaction, the policy records the Safe's state and admits it only as a batch ending with the Safe's assertions, which compare the result with that record and revert the whole transaction when one fails. Owners add their own rules, such as owners unchanged or a limit on how far a balance moves. Changing or removing them waits out the guard's configuration delay, so a stolen threshold cannot switch them off at once.\n- **Assertion Builder**: adapted to use the new features and to compile a Safe's assertions to Solidity. One transaction sets up Safe{Policies} (allow rules for what the Safe already does, the Protections policy, both guard slots) and [upgrades](https://next-docs.evmcrispr.com/reference/safe/commands/upgrade/) a Safe on v1.3.0 or later to v1.5.0.\n- **Protect your Safe**: a preset flow at assertions.eth, where owners paste a Safe address, pick ready-made rules (owners unchanged, a limit per transaction) and sign one transaction, and a public board listing every protected Safe with its onchain balance.\n- **[Assertion Viewer](https://github.com/BlossomLabs/Assertions/issues/13)**: open a pending or executed transaction or a Safe address and read each assertion and policy as a plain sentence, checked against the calldata and deployed code, including pending policy changes.",
+      "out_scope": "- Safe versions before v1.3.0.\n- Other account types (ERC-7579, ERC-6900).\n- Frame transactions ([EIP-8141](https://eips.ethereum.org/EIPS/eip-8141), [EIP-7906](https://eips.ethereum.org/EIPS/eip-7906)), planned for Assertions v3 ([#16](https://github.com/BlossomLabs/Assertions/issues/16), [#17](https://github.com/BlossomLabs/Assertions/issues/17)) once both drafts are final. The Protections policy is built for that path: in v3 it requires a trailing check frame instead of a batch ending with the check, which also admits single calls and module transactions, and the check can refuse any change to the Safe it does not allow. Safes move by a policy change through the guard's delay, keeping the same guard.\n- Changes to Safe{Policies}, and policies other than the Protections policy.",
+      "team": "**[Blossom Labs](https://blossom.software)**, the team behind EVMcrispr and Assertions, carries out all the work in this grant.\n\n- [Sem](https://github.com/sembrestels), lead engineer: author of the Assertions contracts, the EVMcrispr compiler and the Assertion Builder, and of the [launch transaction](https://etherscan.io/tx/0x462475a38cd8a3b75b2732db28ea21a7addfce059af03ea4f638f461c707bf10) of TheDAO Security Fund.\n- [Rodrigo Castillo](https://www.linkedin.com/in/rodrigo-castillo), designer at Giveth: designs the Builder and Viewer interfaces.\n\nBlossom Labs is the round operator of TheDAO Security Fund Round 2, and Rodrigo works at Giveth, which administers the fund, so the independent technical reviewer for these milestones is named in the grant agreement and is not Blossom Labs.\n\nNo other funder pays for this scope. TheDAO Security Fund Round 1 [paid about $7,186](https://thedao.fund/transparency/assertions-eth-on-chain-transaction-guards-for-ethereum) for the existing contracts. Blossom Labs has no tie to Safe Research, which builds Safe{Policies}.",
+      "why_grant": "- [Four contracts](https://assertions.eth.limo/docs/contracts/deployments/) live on Ethereum mainnet, with tests and symbolic proofs. The new work builds on them as deployed, so none is changed or redeployed.\n- The Assertion Builder and docs at assertions.eth.\n- EVMcrispr's Safe module, still experimental, with commands that read and set a Safe's guards and [upgrade](https://next-docs.evmcrispr.com/reference/safe/commands/upgrade/) a Safe to v1.5.0.\n- [Notations](https://github.com/BlossomLabs/Assertions/issues/10) and [Protections](https://github.com/BlossomLabs/Assertions/issues/14) prototypes in their respective specs, tested against Safe v1.5.0 bytecode. The Protections prototype's compiled checkers carry over to the policy.\n\nThis grant pays for what is left: Notations on mainnet, Protections turned into a Safe{Policies} policy, our review of EVMcrispr's Safe module, the Builder changes, and the Viewer, built from scratch.",
+      "commitments": "- Contracts, Builder and Viewer are MIT licensed. The EVMcrispr changes are released under EVMcrispr's license, AGPL-3.0.\n- Blossom Labs maintains the contracts, the Builder and the Viewer for 12 months after the last milestone at no further cost: assertions.eth stays online and reported bugs are fixed. EVMcrispr consulting funds it.\n- Pinned target: at least 10 outside Safes, holding at least $3,000,000 combined, execute a transaction checked with what this grant builds.\n- One exception: Notations and the Protections policy ship labeled unaudited until an audit is funded or we can formally verify them, as we have started to do for the existing contracts ([140 of 326 claims so far](https://github.com/BlossomLabs/Assertions/blob/master/docs/claims.md)). The Safe{Policies} guard is installed only from Certora's audited commit."
+    },
+    "milestones": [
+      {
+        "name": "Notations: extend what can be asserted",
+        "amount": 18000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Notations deployed on mainnet and verified on Etherscan",
+          "An EVMcrispr release compiles an execution-time `set`, with a mainnet transaction linked from the docs",
+          "TheDAO Security Fund round 2 Safes holding a cumulative of at least $1,000,000 execute mainnet transactions checked against a value recorded in it, shown on Etherscan"
+        ]
+      },
+      {
+        "name": "Protections policy: assertions that stay on a Safe",
+        "amount": 16000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "The Protections policy and a Safe{Policies} guard from Certora's audited commit are deployed on mainnet and verified on Etherscan",
+          "One Safe transaction built at assertions.eth installs Safe{Policies} with the Protections policy on a mainnet Safe, and a later one breaking an assertion reverts, both linked from the docs",
+          "Public CI passes fuzz and mutation suites for owner and module transactions, and a replay of the Bybit transaction against Safe v1.5.0 with this setup, which reverts",
+          "An EVMcrispr release ships the Safe module without the experimental label"
+        ]
+      },
+      {
+        "name": "Assertion Viewer: read every assertion as a plain sentence",
+        "amount": 12000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "The Viewer at assertions.eth shows the launch batch of at least 1 multisig that governs over $1M, and the policies, pending changes and assertions of a mainnet Safe, each as a plain sentence"
+        ]
+      },
+      {
+        "name": "Campaign: Protect your Safe",
+        "amount": 26000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "A public page at assertions.eth lists every Safe with the Protections policy installed, with its onchain balance",
+          "At least 10 Safes outside Blossom Labs and TheDAO Security Fund, governing at least $10,000,000 combined and none below $50,000, each execute a mainnet transaction checked by an assertion that uses Notations or by the Protections policy, with every transaction listed in the docs; at least 3 of them have the Protections policy installed, and 1 of those 3 has over $500,000 in governed assets."
+        ]
+      },
+      {
+        "name": "Revenue",
+        "amount": 3000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Create a report analyzing operating costs and profit, including a business plan with projections for profitability within a year.",
+          "Revenue collected (not including grants) must sum to over $3000"
+        ]
+      }
+    ],
+    "links": [
+      "https://assertions.eth.limo",
+      "https://github.com/BlossomLabs/Assertions",
+      "https://github.com/safe-research/policy-engine"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

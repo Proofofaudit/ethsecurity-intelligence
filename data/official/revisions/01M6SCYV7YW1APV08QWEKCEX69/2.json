@@ -1,0 +1,122 @@
+{
+  "revision": {
+    "n": 2,
+    "author": "0x7767FB920338eED6Fe68A4d7C411f84a3F24f20c",
+    "source": "admin",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1794558724.738,
+    "title": "Blobscan: Decentralized Archive for Ethereum Blob Data",
+    "summary": "The blob archiver that Optimism's documentation recommends to rollup node operators was archived on Oct 9, 2026 and is no longer maintained, while Ethereum nodes prune blobs after 18 days. Blobscan already serves its full mainnet blob archive from IPFS. This grant adds three-node redundancy, lets community DAppNode operators pin copies, and serves the archive through the beacon blobs endpoint rollup nodes already call. It also decodes Base, Arbitrum One, OP Mainnet and Mantle blobs, and funds paid API tiers that cover the running cost.",
+    "details": "",
+    "sections": {
+      "why": "Ethereum nodes prune blob contents after 18 days by default, and with PeerDAS nodes sample availability without storing full blobs. Older blob data then lives only in a few archives.\n\nWho is safer: users of rollups whose state can only be rebuilt and checked from blob data. From what: losing that data when a single archive fails. Base ($14.15B), Arbitrum One ($9.35B), OP Mainnet ($1.48B) and Mantle ($1.21B) alone secure about $26 billion, according to L2BEAT on 6 November 2026.\n\nRollup software already depends on these archives:\n\n- **Optimism:** a node that syncs from data older than 18 days needs an archive source, and a fault-proof dispute over a block older than the retention window needs a blob archiver.\n- **Arbitrum:** new nodes, and nodes back from a long time offline, need historical blob data.\n- **Aztec:** its documentation points operators to archive services such as Blobscan.\n\nOur own logs show the same. Between 7 October and 6 November 2026, 92% of the 3.9 million distinct blobs requested from Blobscan's API were older than 18 days, data Ethereum's own nodes had already deleted. Live nodes of at least three L2s read new blobs from it within the hour, and today all of that depends on a single node.\n\nThe archiver Optimism's documentation recommends, base/blob-archiver, was archived by its owner on Oct 9, 2026. Our endpoint serves the route op-node requests (`/eth/v1/beacon/blobs/{slot}`), so an operator can add it as a fallback beacon URL.\n\nEthPandaOps also runs a blob archive endpoint. Both add resilience, and ours lets anyone keep their own copy.",
+      "in_scope": "- Two more archive servers hosted by supporters in other locations, so every mainnet blob sits on three Blobscan-run nodes in different places\n- A public CID registry with the network root published via IPNS, and a status page with archive-health metrics (pinned coverage per epoch, copies per blob) and a public alert when any blob falls below 3 copies\n- A DAppNode package: independent operators pin the rollups and the disk space they choose\n- A beacon-API-compatible blobs endpoint (`/eth/v1/beacon/blobs/{slot}`, `genesis`, `spec`) with a free rate-limited tier and paid tiers (API keys, quotas, x402 payments): an archive sync tier for history syncs, and a rollup node tier with an SLA, sold as an independent fallback next to a team's main beacon provider\n- Paid full and custom CAR exports (by rollup or date range) over HTTP; the full mainnet archive is close to 3 TB\n- Paid bulk metadata exports: per-rollup index, KZG commitments and decoded batch metadata\n- Explorer decoders for Base, Arbitrum One (and Orbit chains such as Robinhood Chain), OP Mainnet and Mantle blobs\n- Analytics: new blob metrics, dashboard and address pages (funded by EF)",
+      "out_scope": "- Gnosis Chain and any other non-Ethereum chain\n- Mantle data from before its Arsia upgrade (16 April 2026), when it posted to EigenDA",
+      "team": "- **Paulo Colombo**: web3 developer, 6+ years, DAO tooling and dApp UIs (Gardens, EVMcrispr, TEC Hatch). https://github.com/PJColombo\n- **Pablo Castellano**: senior DevOps engineer, 15+ years running scalable systems. https://github.com/PabloCastellano\n\nEF funded the analytics workstream of the same Blobscan project; its Dagster pipeline also computes the archive-health metrics in this grant. No other funder pays for this scope. Blobscan is the team's own codebase.",
+      "why_grant": "Built with the team's own funds:\n\n- The Blobscan explorer and API are live: about 6.5M API requests a month, excluding retry loops, and about 1.2 TB served.\n- An IPFS (Kubo) node runs in production. All mainnet blobs are migrated to it, the backend writes new blobs to it, and Blobscan users download blobs from it.\n- The IPLD generator builds a deterministic DAG per epoch and exports CAR v2 archives: https://github.com/Blobscan/blobscan-ipld\n\nThat single node is the only copy today, so our own archive is a single point of failure. This grant fixes that first.",
+      "commitments": "- Code stays AGPL-3.0.\n- Each blob is stored as one raw IPFS block (CIDv1, sha2-256, the full 131,072 bytes), so its CID matches any other archive that stores blobs as raw blocks.\n- The free tier, including the blobs endpoint at a rate limit, stays free. Any blob can also be fetched free from IPFS by its CID in the public registry.\n- The Blobscan team maintains the archive, the blobs endpoint, the DAppNode package and the decoders after the last milestone, paid for by API tier revenue."
+    },
+    "milestones": [
+      {
+        "name": "Data pipeline (Dagster migration)",
+        "amount": 5600,
+        "adoption": false,
+        "done": true,
+        "link": "https://github.com/Blobscan/blobscan/pull/969",
+        "month": "",
+        "criteria": [
+          "Aggregation jobs run as Dagster pipelines with historical backfill, shown in the public repository"
+        ]
+      },
+      {
+        "name": "Three-node archive and public registry",
+        "amount": 4000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "2027-04",
+        "criteria": [
+          "Every mainnet blob is stored on 3 Blobscan-run nodes in 3 different locations, shown on the public status page",
+          "A public registry of IPLD roots is live, with the network root published via IPNS, linked from docs.blobscan.com",
+          "Archive-health metrics (pinned coverage per epoch, copies per blob) are live on the public status page and API",
+          "A public alert channel notifies within 1 hour when any blob has fewer than 3 copies, shown in a drill where the technical reviewer takes one node offline"
+        ]
+      },
+      {
+        "name": "Community replication",
+        "amount": 14000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "2027-09",
+        "criteria": [
+          "At least 20 independent operators outside Blobscan, in at least 3 countries, run the DAppNode package and each pin the blobs of at least 1 rollup of their choice for at least 30 consecutive days, verified from the public registry by the technical reviewer (distinct peer IDs on distinct IPs, excluding Blobscan staff and node hosts)"
+        ]
+      },
+      {
+        "name": "Rollup decoders",
+        "amount": 8400,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "2027-06",
+        "criteria": [
+          "Decoders for Base, Arbitrum One (including Robinhood Chain), OP Mainnet and Mantle (since Arsia) blobs are live in the explorer on blobscan.com, each checked by the technical reviewer against the rollup's published format"
+        ]
+      },
+      {
+        "name": "Blob metrics and dashboard",
+        "amount": 14400,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "2026-12",
+        "criteria": [
+          "At least 10 new blob-specific metrics are live on the public API and dashboard, documented at docs.blobscan.com",
+          "Charts support hourly, daily, weekly, monthly and yearly resolutions, live on blobscan.com"
+        ]
+      },
+      {
+        "name": "Blobs endpoint, paid API tiers and revenue",
+        "amount": 25200,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "2027-11",
+        "criteria": [
+          "The blobs endpoint is live with a free rate-limited tier, and paid CAR exports are live, shown on the public usage page",
+          "At least 6 organizations outside Blobscan pay for an API tier or an export, 2 of them teams running nodes for Robinhood Chain, Ink, Arbitrum One, Base, Lighter or World Chain, verified from payment records by the technical reviewer",
+          "Revenue, not counting grants, of at least $750 a month for 3 consecutive months, above current monthly infrastructure cost, verified from payment records by the technical reviewer"
+        ]
+      },
+      {
+        "name": "Rollup endpoint adoption",
+        "amount": 8400,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "2028-01",
+        "criteria": [
+          "At least 3 rollup teams or node providers outside Blobscan run the blobs endpoint as a fallback beacon URL in production, 1 of them from the Robinhood Chain, Ink, Base, Arbitrum One, OP Mainnet or Mantle teams, verified by the technical reviewer"
+        ]
+      }
+    ],
+    "links": [
+      "https://github.com/Blobscan/blobscan",
+      "https://github.com/Blobscan/blobscan-ipld",
+      "https://blobscan.com",
+      "https://docs.blobscan.com",
+      "https://paragraph.com/@blobscan/blobscan-the-cost-of-archiving-ethereums-blob-data",
+      "https://docs.blobscan.com/docs/funding",
+      "https://docs.optimism.io/node-operators/guides/management/blobs",
+      "https://docs.optimism.io/stack/fault-proofs/challenger",
+      "https://docs.arbitrum.io/run-a-node/beacon-nodes-historical-blobs",
+      "https://docs.aztec.network/operate/operators/setup/blob_storage",
+      "https://github.com/base/blob-archiver",
+      "https://github.com/ethereum-optimism/optimism/blob/develop/op-service/sources/l1_beacon_client.go"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

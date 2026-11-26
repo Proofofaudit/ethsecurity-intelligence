@@ -1,0 +1,66 @@
+{
+  "revision": {
+    "n": 6,
+    "author": "0x8432319097D7365a686167Bab33d7425B356b2b2",
+    "source": "proposer",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1790371679.255,
+    "title": "EEZ Extends Ethereum: Making Its Contracts Safe for Chains to Adopt",
+    "summary": "EEZ extends Ethereum, and Ethereum's security with it. EEZ turns cross-chain execution into an Ethereum primitive: rollups and L1 call each other in one transaction, checked on Ethereum with no bridge in between, and a protocol deploys once instead of on every chain. This grant takes EEZ from audit to adoption: an independent audit and fixes, a testnet where outside chains can try the audited contracts, and a final payment only when outside chains and protocols run EEZ on mainnet. Our mission is to deliver an open-source model, within a non-profit framework, that is secure enough for everyone to use; its adoption rests on shared risk, which requires shared security, shared funding, and shared collaboration.",
+    "details": "",
+    "sections": {
+      "why": "Some of the largest losses in Ethereum's history happened at its bridges: honeypots of locked funds guarded by small signer sets that rely on reputation rather than contract logic or validity proofs, prioritizing UX over security. Ronin, Poly Network, BNB Bridge, Wormhole, and Nomad all sit near the top of the [Rekt leaderboard](https://rekt.news/leaderboard/), and each broke the layer that decides which cross-chain messages are valid. \n\nEEZ turns cross-chain execution into an Ethereum primitive. A contract on one rollup calls a contract on another rollup, or on L1, and uses the return value in the same transaction, with the result checked on Ethereum. That takes the bridge out of these flows:\n\n- Moving assets between rollups no longer needs a third-party contract holding pooled assets, so there is no bridge pool for an attacker to drain.\n- Atomic multi-chain actions, such as a swap funded from another rollup, complete fully or revert together, within one L1 block, provided a builder includes the bundle.\n- A smaller attack surface. Today a protocol copies itself onto every network it reaches, and duplication breeds bugs: version drift, per-chain initialization mistakes, maintenance across every copy. The Balancer v2 exploit drained the same code chain by chain. With EEZ a protocol deploys once, where it is easiest to audit and secure, and a fix applies everywhere. \n\nEvery Layer 2 becomes a true extension of Ethereum: one account and one contract address across connected chains, with wallets routing sends so funds sent to the wrong chain can stop being lost. Ethereum L1 stays as secure as it is today, since its consensus does not depend on EEZ. What changes is the layer above it: cross-chain validity is decided by checks on Ethereum instead of by a signer set's reputation, the locked-fund pools that made bridges worth attacking disappear, and the code that can lose user money across chains collapses to one set that Ethereum can see and everyone can audit.\n\n**What each rollup keeps.** Each rollup declares the proof systems it accepts and how many must agree, and every cross-chain outcome is checked on L1 against them; the composer that builds each bundle can at most stall calls. Based rollups, like the first Gnosis deployment, go further: sequencing happens inside the L1 block, and anyone can rebuild the chain from L1 data alone. Today one attestation signer runs the check by re-executing each block window, so until more proof systems are added, a chain's safety rests on that signer. The audit covers the signer, the multi-prover design it plugs into, and how each rollup locks its configuration down.\n\n**What independently tested guarantees change.** Every rollup that adopts EEZ inherits the same contract set on Ethereum. Its cross-chain attack surface becomes that reviewed set plus its own configuration, instead of a bridge it built and audited alone. Every later adopter shares one review, and a fix reaches all of them at once. The same sharing is the risk: a flaw in the shared set is a flaw everywhere, which is why no chain should adopt it on the EEZ team's word alone. The audit turns these guarantees from a design claim into something a rollup can rely on; the testnet lets outside chains verify it, and mainnet adoption shows they did.\n\nWith audited EEZ, users and teams will be able to:\n\n- Move assets between rollups with no third-party pool holding funds for an attacker to drain.\n- Run atomic multi-chain actions, such as a swap funded from another rollup, that complete fully or revert together within one L1 block, provided a builder includes the bundle.\n- Deploy a protocol once, where it is easiest to audit, and serve every connected chain from that one deployment, so a fix applies everywhere.\n- Use one account and one contract address across connected chains, with wallets routing sends so funds sent to the wrong chain can stop being lost.\n- Adopt a shared, independently audited contract set instead of building and auditing a bridge alone, with every later adopter sharing the same review and every fix reaching all of them at once.\n\nEEZ is not a dapp and not a product. It is an Ethereum public good: an open, permissionless protocol for synchronous composability between Ethereum rollups. The core EEZ contract has no admin role. Each connected rollup keeps its own contract, whose owner sets the accepted proof systems, verification keys, and threshold. That design puts the security of the whole system on its smart contracts, which is exactly what this grant puts under independent review.",
+      "in_scope": "* **Independent audit** of the EEZ core contracts at one pinned commit, including privileged roles, cross-chain behavior, and the single attestation signer live today with the multi-prover design it plugs into. Fixes by the EEZ team, re-review by the auditor. About 8 to 10 senior-auditor-weeks; report within 2 months of the auditor's appointment.\n* **Integration environment:** the audited contracts on a public testnet, integration docs, a conformance suite, a reference integration, and a support channel. Celo, Polygon, and Linea build their own integrations; this grant pays none of that.\n* **Integration support** for the first outside chain or protocol that goes to mainnet.",
+      "out_scope": "* Rollup node software, provers, sequencers, and other off-chain infrastructure\n* The internal economics of connected rollups\n* Re-auditing changes made after the pinned commit",
+      "team": "The EEZ Association does the work and is accountable for the outcome.\n\n* [Jordi Baylina](https://x.com/jbaylina), core contributor\n* [Friederike Ernst](https://x.com/tw_tter), co-initiator\n* [Eduardo Antuña](https://x.com/eduadiez), core contributor\n* [Jesús Ligero](https://x.com/JesusLigero3), core contributor\n* [Armagan Ercan](https://x.com/epochzer0), coordinator\n\nOther funding: Gnosis commits $30,000 to this goal and hosts the testnet nodes; the $10,000 milestone covers the contract deployment, documentation, conformance suite, and reference integration built on top.",
+      "why_grant": "* The protocol is built and public at [eez-core-protocol](https://github.com/eez-association/eez-core-protocol): contracts, specifications under `docs/`, end-to-end test scenarios, and open findings from internal review. The contracts are prepared for devnets and ready for audit.\n* GnosisDAO [approved GIP-153](https://snapshot.org/#/s:gnosis.eth/proposal/0x5522f4cbd034c966a08d6901b05c7ad7300041b3e0d75a0ad3da868af1a98b98), making Gnosis Chain the first governance-backed adopter.\n* [Celo](https://celo.org/), [Polygon](https://polygon.technology/), and [Linea](https://linea.build/) have agreed in discussions with us to test the audited contracts.\n* Vitalik Buterin stress-tested the design with Jordi Baylina at ETHPrague 2026 ([fireside](https://www.youtube.com/watch?v=prgWmgUbSVQ)) and called EEZ \"a quite helpful effort\" at Dappcon Berlin ([panel](https://www.youtube.com/watch?v=gfG-R8AOu0E)). Joseph Lubin supports EEZ publicly ([post](https://x.com/etheconomiczone/status/2052390993610133513)).",
+      "commitments": "* **License:** MIT, with a LICENSE file at the repository root.\n* **Maintenance:** the EEZ Association maintains the contracts and the public security record after the grant; the testnet stays public for at least 12 months after the report.\n* **Pinned target:** at least 2 outside chains and 4 dapps from the adoption lists run EEZ on mainnet within 6 months of the audit report. If the condition is met earlier, the adoption milestone is disbursed earlier.\n* **Independent auditor:** we publish a shortlist of at least 2 firms and why we chose one; the auditor has no ties to the EEZ Association, its contributors, Gnosis, or ZisK."
+    },
+    "milestones": [
+      {
+        "name": "Independent audit",
+        "amount": 70000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Auditor's written independence statement published before work starts",
+          "Audit report published for the pinned commit",
+          "Every critical and high finding fixed, with the auditor's re-review published"
+        ]
+      },
+      {
+        "name": "Integration environment",
+        "amount": 10000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Audited contracts live on a public testnet, with docs and a conformance suite passing in public CI",
+          "Reference integration published: a test chain connected using only the docs, with transactions on a public explorer"
+        ]
+      },
+      {
+        "name": "Production adoption",
+        "amount": 40000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 2 outside chains run the audited contracts on mainnet, from this list: Celo, Polygon, Linea, Base, Arbitrum, Optimism, Robinhood Chain, shown by deployment addresses and each chain's public announcement",
+          "At least 4 dapps use EEZ on mainnet, from this list: Aave, Uniswap, Lido, Safe, CoW, Morpho, Sky, shown by their deployed integrations and each team's public announcement",
+          "Transactions from users outside that team replace a named bridge-dependent flow, confirmed by the independent reviewer on a public explorer"
+        ]
+      }
+    ],
+    "links": [
+      "https://github.com/eez-association/eez-core-protocol"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

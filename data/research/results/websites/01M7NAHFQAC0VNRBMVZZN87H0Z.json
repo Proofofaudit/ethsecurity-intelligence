@@ -1,0 +1,124 @@
+{
+  "checks": [
+    {
+      "url": "https://coinmarketcap.com/academy/article/safe-multisig-zodiac-roles-key-compromise",
+      "status": 200,
+      "finalUrl": "https://coinmarketcap.com/academy/article/safe-multisig-zodiac-roles-key-compromise",
+      "title": "Likely Compromised Key Moves Funds From Safe Multisig via Zodiac | CoinMarketCap",
+      "description": "A probably compromised role key moved about 4.39M USDC and 1.72M syrupUSDC out of one Safe multisig via a Zodiac Roles module; no contract flaw was found.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:33.776Z"
+    },
+    {
+      "url": "https://cointelegraph.com/news/safe-wallet-reportedly-loses-millions-after-key-compromise",
+      "status": 200,
+      "finalUrl": "https://cointelegraph.com/news/safe-wallet-reportedly-loses-millions-after-key-compromise",
+      "title": "Safe Wallet Reportedly Loses $6.45M in Likely Key Compromise",
+      "description": "A Safe wallet reportedly lost $6.45 million in crypto, with Zodiac’s co-founder pointing to a likely compromised key and overly permissive wallet settings.",
+      "contentType": "text/html;charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:33.777Z"
+    },
+    {
+      "url": "https://kesaviwebsolutions.com/",
+      "status": 200,
+      "finalUrl": "https://kesaviwebsolutions.com/",
+      "title": "KW Solutions || Custom Web Design & Digital Growth | AI-Powered WordPress & Next.js Experts",
+      "description": "Boost your business with a custom-designed website built in WordPress or Next.js. Our expert team integrates SEO, PPC, and social media marketing to maximize exposure. We also develop AI-enhanced SaaS applications, leveraging ChatGPT and t…",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:33.777Z"
+    },
+    {
+      "url": "https://roles.gnosisguild.org/",
+      "status": 200,
+      "finalUrl": "https://roles.gnosisguild.org/",
+      "title": "Zodiac Roles",
+      "description": "Role-based access control for smart accounts",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:33.778Z"
+    },
+    {
+      "url": "https://www.npmjs.com/package/@saviours/audit",
+      "status": 403,
+      "finalUrl": "https://www.npmjs.com/package/@saviours/audit",
+      "title": "Just a moment...",
+      "description": null,
+      "contentType": "text/html; charset=UTF-8",
+      "ok": false,
+      "inconclusive": true,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:33.811Z"
+    },
+    {
+      "url": "https://www.saviours.xyz",
+      "status": 200,
+      "finalUrl": "https://www.saviours.xyz/",
+      "title": "saviours · Control-Path Auditor",
+      "description": "Before a DAO executes a proposal, know who gains power over its treasury. Audit Safe Delay/modules. Review Privilege Diff. Signer decides.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:33.830Z"
+    },
+    {
+      "url": "https://www.saviours.xyz/",
+      "status": 200,
+      "finalUrl": "https://www.saviours.xyz/",
+      "title": "saviours · Control-Path Auditor",
+      "description": "Before a DAO executes a proposal, know who gains power over its treasury. Audit Safe Delay/modules. Review Privilege Diff. Signer decides.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:33.833Z"
+    },
+    {
+      "url": "https://www.saviours.xyz/audit",
+      "status": 200,
+      "finalUrl": "https://www.saviours.xyz/audit",
+      "title": "saviours · Control-Path Auditor",
+      "description": "Before a DAO executes a proposal, know who gains power over its treasury. Audit Safe Delay/modules. Review Privilege Diff. Signer decides.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:33.884Z"
+    },
+    {
+      "url": "https://www.saviours.xyz/integrate",
+      "status": 200,
+      "finalUrl": "https://www.saviours.xyz/integrate",
+      "title": "saviours · Control-Path Auditor",
+      "description": "Before a DAO executes a proposal, know who gains power over its treasury. Audit Safe Delay/modules. Review Privilege Diff. Signer decides.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:33.947Z"
+    },
+    {
+      "url": "https://www.saviours.xyz/pilots",
+      "status": 200,
+      "finalUrl": "https://www.saviours.xyz/pilots",
+      "title": "saviours · Control-Path Auditor",
+      "description": "Before a DAO executes a proposal, know who gains power over its treasury. Audit Safe Delay/modules. Review Privilege Diff. Signer decides.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:33.953Z"
+    }
+  ]
+}

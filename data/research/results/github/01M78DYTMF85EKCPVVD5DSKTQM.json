@@ -1,0 +1,41 @@
+{
+  "repos": [
+    {
+      "fullName": "security-alliance/lazarus-group-data",
+      "url": "https://github.com/security-alliance/lazarus-group-data",
+      "exists": true,
+      "description": "SEAL's open data behind lazarus.group: DPRK IT-worker registry and public records. Corrections and new records welcome via PR.",
+      "license": "CC-BY-4.0",
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "main",
+      "createdAt": "2026-10-28T21:54:32Z",
+      "pushedAt": "2026-11-17T02:19:48Z",
+      "stars": 1,
+      "openIssues": 0,
+      "language": "JavaScript",
+      "topics": [],
+      "latestRelease": null,
+      "releaseCount": 0,
+      "hasCiWorkflows": true,
+      "hasTestsDir": false,
+      "hasSecurityPolicy": true,
+      "hasReadme": true,
+      "commitsLast90d": 15,
+      "contributorsSampled": 2,
+      "checkedAt": "2026-11-26T09:26:42.243Z",
+      "error": null
+    }
+  ],
+  "owners": [
+    {
+      "login": "security-alliance",
+      "type": "Organization",
+      "name": "Security Alliance",
+      "blog": "https://securityalliance.org",
+      "createdAt": "2023-08-04T07:47:32Z",
+      "publicRepos": 47,
+      "url": "https://github.com/security-alliance"
+    }
+  ]
+}

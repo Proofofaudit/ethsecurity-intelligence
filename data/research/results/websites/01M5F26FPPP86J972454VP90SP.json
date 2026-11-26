@@ -1,0 +1,124 @@
+{
+  "checks": [
+    {
+      "url": "https://blog.kleros.io/the-market-won-this-time-season-2-of-the-foresight-movie-experiment/",
+      "status": 200,
+      "finalUrl": "https://blog.kleros.io/the-market-won-this-time-season-2-of-the-foresight-movie-experiment/",
+      "title": "The Market Won This Time: Season 2 of the Foresight Movie Experiment",
+      "description": "Session 2 of the Foresight movie experiment has resolved. Twenty markets opened, five were resolved against Clément's ratings, nearly 337 traders participated, and roughly $4.18k moved through the markets. The market beat every baseline we…",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:49.687Z"
+    },
+    {
+      "url": "https://ethresear.ch/t/prediction-market-design-for-betting-on-many-highly-improbable-events/8280",
+      "status": 200,
+      "finalUrl": "https://ethresear.ch/t/prediction-market-design-for-betting-on-many-highly-improbable-events/8280",
+      "title": "Prediction market design for betting on many highly improbable events - Economics - Ethereum Research",
+      "description": "One of the challenges with prediction markets on events where the probabilities are very lopsided (ie. either very close to 0 or very close to 1) is that betting on the more likely outcome is very capital inefficient. If…",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:49.687Z"
+    },
+    {
+      "url": "https://gov.gitcoin.co/t/deep-funding-gg24-web3-tooling-and-infra-round/25040",
+      "status": 200,
+      "finalUrl": "https://gov.gitcoin.co/t/deep-funding-gg24-web3-tooling-and-infra-round/25040",
+      "title": "Deep Funding GG24 Web3 Tooling and Infra Round - 🌱 Gitcoin Grants - Gitcoin Governance",
+      "description": "GG24 Deep Funding Round Update The GG24 Dev Tooling and Web3 Infra Round approved $350,000 for allocation via deep funding, with Devansh Mehta, Clement Lesaege, Allan Niemerg as round operators and Conor Svenson & Andrew…",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:49.688Z"
+    },
+    {
+      "url": "https://jagged-ironclad-e1b.notion.site/Default-Risk-Prediction-Markets-Beginner-User-Guide-35da95a2cc7d80fba056c16d17e99303",
+      "status": 200,
+      "finalUrl": "https://jagged-ironclad-e1b.notion.site/Default-Risk-Prediction-Markets-Beginner-User-Guide-35da95a2cc7d80fba056c16d17e99303",
+      "title": "Default Risk Prediction Markets — Beginner User Guide | Notion",
+      "description": "Introduction",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:49.689Z"
+    },
+    {
+      "url": "https://kleros.io",
+      "status": 200,
+      "finalUrl": "https://kleros.io/",
+      "title": "Kleros | The arbitration protocol for the internet economy",
+      "description": "Kleros is the decentralized arbitration protocol offering fair and efficient dispute resolution for the new economy since 2019.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:49.819Z"
+    },
+    {
+      "url": "https://risk.seer.pm",
+      "status": 200,
+      "finalUrl": "https://risk.seer.pm/",
+      "title": "Foresight | Kleros",
+      "description": "Prediction markets for distilled human judgement",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:49.892Z"
+    },
+    {
+      "url": "https://risk.seer.pm/",
+      "status": 200,
+      "finalUrl": "https://risk.seer.pm/",
+      "title": "Foresight | Kleros",
+      "description": "Prediction markets for distilled human judgement",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:49.937Z"
+    },
+    {
+      "url": "https://seer.pm/",
+      "status": 200,
+      "finalUrl": "https://seer.pm/",
+      "title": "Seer",
+      "description": "A Next Generation Prediction Marketplace. Create, trade, and farm predictions like never before.",
+      "contentType": "text/html; charset=UTF-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:50.107Z"
+    },
+    {
+      "url": "https://www.chainalysis.com/blog/kelpdao-bridge-exploit-april-2026",
+      "status": 200,
+      "finalUrl": "https://www.chainalysis.com/blog/kelpdao-bridge-exploit-april-2026/",
+      "title": "Inside the KelpDAO Bridge Exploit",
+      "description": "Here's what we know about the KelpDAO Exploit, what the on-chain evidence shows, and why this class of exploit requires a different kind of monitoring.",
+      "contentType": "text/html; charset=UTF-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:50.263Z"
+    },
+    {
+      "url": "https://www.coindesk.com/tech/2026/04/20/aave-could-face-up-to-usd230-million-in-losses-after-kelp-dao-bridge-exploit-triggers-defi-chaos",
+      "status": 429,
+      "finalUrl": "https://www.coindesk.com/tech/2026/04/20/aave-could-face-up-to-usd230-million-in-losses-after-kelp-dao-bridge-exploit-triggers-defi-chaos",
+      "title": "Vercel Security Checkpoint",
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": false,
+      "inconclusive": true,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:50.274Z"
+    }
+  ]
+}

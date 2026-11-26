@@ -1,0 +1,78 @@
+{
+  "revision": {
+    "n": 9,
+    "author": "0x839395e20bbB182fa440d08F850E6c7A8f6F0780",
+    "source": "admin",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1795108915.041,
+    "title": "Assertions.eth: Transactions that check themselves, ensuring simulation outcomes",
+    "summary": "An assertion checks the outcome of a transaction on-chain, and a failed check reverts it. Assertions protected the $220M TheDAO Security Fund launch. This grant makes them easy to use from any account, a Safe, a DAO vote or a wallet: checks can use values read while the transaction runs, and a new Assertion Viewer shows signers each assertion as a plain sentence. A public board measures the money each protected transaction moves and the money its account holds and controls.",
+    "details": "",
+    "sections": {
+      "why": "Safe owners, DAO voters and wallet users approve calldata, and the result can differ from what they expected: state moves after signing, and calldata can hide what it does. An assertion writes the expected outcome into the transaction, such as a minimum balance after a swap, and the transaction reverts when the outcome is different. Signers are protected from a wrong result even when they cannot read the calldata.\n\nOP Mainnet's next upgrade ([superchain-ops eth/084](https://github.com/ethereum-optimism/superchain-ops/tree/main/src/tasks/eth/084-U21-op-ink-soneium-uni)) is one Safe transaction that gives 25 contracts new code across four chains, including the vault holding over 180,000 ETH of bridge deposits. Its signers see a delegatecall and a wall of hex, and the task's README lists checks to run after it executes. We wrote those checks into the transaction instead, with the ones the Builder reads from the chain: 60 checks, all passing on a mainnet fork, and if one fails nothing executes.\n\nTwo gaps remain, and this grant closes them:\n\n- **Signers take the author's word.** The description of the checks comes from whoever built the batch. The Viewer rebuilds it from the transaction.\n- **Checks compare against fixed numbers.** Notations records a value while the transaction runs, so a check can say \"this transaction takes out at most 50,000 USDC\" whatever the balance is.",
+      "in_scope": "- **[Notations](https://github.com/BlossomLabs/Assertions/issues/10)**: the contract that records a value while a transaction runs, for later checks to compare against, and deploys the compiled assertions.\n- **[EVMcrispr](https://github.com/BlossomLabs/Assertions/issues/10)**: a `set` whose value is read when the batch executes, which a Safe and a DAO vote need because sometimes they execute days after they are written. Our own review of the Safe module, so it leaves experimental status.\n- **Assertion Builder**: adapted to use the new features.\n- **Protect your transactions**: a public board at assertions.eth listing every mainnet transaction checked by the Assertions contracts, with three values measured from onchain data: the money the transaction transfers, the money the originating account holds, and the money that account controls (for a bridge admin, the assets in the bridge it can upgrade). Each value links its addresses and its query.\n- **[Assertion Viewer](https://github.com/BlossomLabs/Assertions/issues/13)**: open a pending or executed transaction and read each assertion as a plain sentence, checked against the calldata and deployed code.",
+      "out_scope": "- Guards and policies that check transactions an account did not build with assertions.\n- Frame transactions ([EIP-8141](https://eips.ethereum.org/EIPS/eip-8141), [EIP-7906](https://eips.ethereum.org/EIPS/eip-7906)), planned for Assertions v3 ([#16](https://github.com/BlossomLabs/Assertions/issues/16), [#17](https://github.com/BlossomLabs/Assertions/issues/17)) once both drafts are final.",
+      "team": "**[Blossom Labs](https://blossom.software)**, the team behind EVMcrispr and Assertions, carries out all the work in this grant.\n\n- [Sem](https://github.com/sembrestels), lead engineer: author of the Assertions contracts, the EVMcrispr compiler and the Assertion Builder, and of the [launch transaction](https://etherscan.io/tx/0x462475a38cd8a3b75b2732db28ea21a7addfce059af03ea4f638f461c707bf10) of TheDAO Security Fund.\n- [Rodrigo Castillo](https://www.linkedin.com/in/rodrigo-castillo), designer at Giveth: designs the Builder and Viewer interfaces.\n\nBlossom Labs is the round operator of TheDAO Security Fund Round 2, and Rodrigo works at Giveth, which administers the fund, so the independent technical reviewer for these milestones is named in the grant agreement and is not Blossom Labs.\n\nNo other funder pays for this scope. TheDAO Security Fund Round 1 [paid about $7,186](https://thedao.fund/transparency/assertions-eth-on-chain-transaction-guards-for-ethereum) for the existing contracts.",
+      "why_grant": "- [Four contracts](https://assertions.eth.limo/docs/contracts/deployments/) live on Ethereum mainnet, with tests and symbolic proofs. The new work builds on them as deployed, so none is changed or redeployed.\n- The Assertion Builder and docs at assertions.eth, which already build protected batches for a [Safe](https://assertions.eth.limo/docs/guides/safe/), a [DAO proposal](https://assertions.eth.limo/docs/guides/dao-proposals/) and a [wallet](https://assertions.eth.limo/docs/guides/wallet-batches/).\n- EVMcrispr's Safe module, still experimental.\n- A [Notations](https://github.com/BlossomLabs/Assertions/issues/10) prototype in its spec.\n\nThis grant pays for what is left: Notations on mainnet, our review of EVMcrispr's Safe module, the Builder changes, the board, and the Viewer, built from scratch.",
+      "commitments": "- Contracts, Builder, Viewer and board are MIT licensed. The EVMcrispr changes are released under EVMcrispr's license, AGPL-3.0.\n- Blossom Labs maintains the contracts, the Builder, the Viewer and the board for 12 months after the last milestone at no further cost: assertions.eth stays online and reported bugs are fixed. EVMcrispr consulting funds it.\n- Pinned target: at least 10 outside accounts, holding at least $3,000,000 combined, execute a transaction checked with what this grant builds.\n- One exception: Notations ships labeled unaudited until an audit is funded or we can formally verify it, as we have started to do for the existing contracts ([140 of 326 claims so far](https://github.com/BlossomLabs/Assertions/blob/master/docs/claims.md))."
+    },
+    "milestones": [
+      {
+        "name": "Notations: extend what can be asserted",
+        "amount": 18000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Notations deployed on mainnet and verified on Etherscan",
+          "An EVMcrispr release compiles an execution-time `set`, with a mainnet transaction linked from the docs",
+          "TheDAO Security Fund round 2 Safes holding a cumulative of at least $1,000,000 execute mainnet transactions checked against a value recorded in it, shown on Etherscan",
+          "An EVMcrispr release ships the Safe module without the experimental label"
+        ]
+      },
+      {
+        "name": "Assertion Viewer: read every assertion as a plain sentence",
+        "amount": 12000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "The Viewer at assertions.eth is live and shows the assertions of the launch batch of at least 1 multisig that governs over $1M, each as a plain sentence"
+        ]
+      },
+      {
+        "name": "Campaign: Protect your transactions",
+        "amount": 26000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "A public page at assertions.eth lists every protected mainnet transaction with the money it transfers, the money its originating account holds and the money that account controls, each with its addresses and query linked",
+          "At least 10 accounts outside Blossom Labs and TheDAO Security Fund, controlling at least $10,000,000 combined and none below $50,000, each execute a transaction on Ethereum or an L2, checked by an assertion, listed on that page; at least 3 of them controls over $500,000"
+        ]
+      },
+      {
+        "name": "Revenue",
+        "amount": 3000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Create a report analyzing operating costs and profit, including a business plan with projections for profitability within a year.",
+          "Revenue collected (not including grants) must sum to over $3000"
+        ]
+      }
+    ],
+    "links": [
+      "https://assertions.eth.limo",
+      "https://github.com/BlossomLabs/Assertions"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

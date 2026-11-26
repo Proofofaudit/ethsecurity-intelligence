@@ -1,0 +1,100 @@
+{
+  "checks": [
+    {
+      "url": "https://app.devcon.org/schedule/hitchhiking-into-silicon-true-open-source-hardware-down-to-the-transistor",
+      "status": 200,
+      "finalUrl": "https://app.devcon.org/schedule/hitchhiking-into-silicon-true-open-source-hardware-down-to-the-transistor",
+      "title": "Hitchhiking into Silicon: True Open-Source Hardware Down to the Transistor - Devcon 8 India",
+      "description": "Open-source hardware has historically stopped at the circuit board. The primary computer chips we use remain proprietary black boxes, requiring blind trust in massive fabrication factories. This talk…",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:08.863Z"
+    },
+    {
+      "url": "https://app.devcon.org/schedule/latest-developments-in-open-silicon",
+      "status": 200,
+      "finalUrl": "https://app.devcon.org/schedule/latest-developments-in-open-silicon",
+      "title": "Latest Developments in Open Silicon - Devcon 8 India",
+      "description": "Often “trustless” is misused to simply mean shoving trust assumptions down a layer or two, out of sight. But ultimately, “self-custody” built on the world’s most closed-source, oligarch-controlled de…",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:08.864Z"
+    },
+    {
+      "url": "https://crossbar-inc.com",
+      "status": 200,
+      "finalUrl": "https://crossbar-inc.com/",
+      "title": "CrossBar &ndash; CrossBar, Inc.",
+      "description": "CrossBar is advancing the frontier of memory and silicon systems, building architectures that combine performance, security, and verifiability at the hardware level.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:08.864Z"
+    },
+    {
+      "url": "https://crossbar-inc.com/",
+      "status": 200,
+      "finalUrl": "https://crossbar-inc.com/",
+      "title": "CrossBar &ndash; CrossBar, Inc.",
+      "description": "CrossBar is advancing the frontier of memory and silicon systems, building architectures that combine performance, security, and verifiability at the hardware level.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:08.865Z"
+    },
+    {
+      "url": "https://crossbar-inc.com/pages/ostros",
+      "status": 200,
+      "finalUrl": "https://crossbar-inc.com/pages/ostros",
+      "title": "Ostros &ndash; CrossBar, Inc.",
+      "description": "CrossBar is advancing the frontier of memory and silicon systems, building architectures that combine performance, security, and verifiability at the hardware level.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:09.037Z"
+    },
+    {
+      "url": "https://csrc.nist.gov/projects/cryptographic-algorithm-validation-program/details?product=21968",
+      "status": 200,
+      "finalUrl": "https://csrc.nist.gov/projects/cryptographic-algorithm-validation-program/details?product=21968",
+      "title": "Cryptographic Algorithm Validation Program | CSRC",
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:09.047Z"
+    },
+    {
+      "url": "https://www.bunniestudios.com/",
+      "status": 200,
+      "finalUrl": "https://www.bunniestudios.com/",
+      "title": "bunnie's blog",
+      "description": null,
+      "contentType": "text/html; charset=UTF-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:09.214Z"
+    },
+    {
+      "url": "https://www.giveth.io/project/CrossBar-open-source-security-hardware-wallet",
+      "status": 200,
+      "finalUrl": "https://www.giveth.io/project/CrossBar-open-source-security-hardware-wallet",
+      "title": "Giveth",
+      "description": "The Future of Giving",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:09.344Z"
+    }
+  ]
+}

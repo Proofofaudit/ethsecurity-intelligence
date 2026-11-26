@@ -1,0 +1,41 @@
+{
+  "repos": [
+    {
+      "fullName": "devhb1/Saviour",
+      "url": "https://github.com/devhb1/Saviour",
+      "exists": true,
+      "description": "Saviour reads an Ethereum mainnet Safe at one block and reports who can act through it beyond the owners. The report covers the Safe, its Delay module, and Roles v2.1.1 members, targets, and selectors taken from chain logs. A second person opens the same link and checks that the digest matches.",
+      "license": "MIT",
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "main",
+      "createdAt": "2026-09-06T11:51:25Z",
+      "pushedAt": "2026-11-18T12:10:13Z",
+      "stars": 0,
+      "openIssues": 0,
+      "language": "TypeScript",
+      "topics": [],
+      "latestRelease": null,
+      "releaseCount": 0,
+      "hasCiWorkflows": true,
+      "hasTestsDir": false,
+      "hasSecurityPolicy": true,
+      "hasReadme": true,
+      "commitsLast90d": 100,
+      "contributorsSampled": 1,
+      "checkedAt": "2026-11-26T09:26:34.004Z",
+      "error": null
+    }
+  ],
+  "owners": [
+    {
+      "login": "devhb1",
+      "type": "User",
+      "name": "Harshit Bainsla",
+      "blog": null,
+      "createdAt": "2022-11-26T00:37:57Z",
+      "publicRepos": 23,
+      "url": "https://github.com/devhb1"
+    }
+  ]
+}

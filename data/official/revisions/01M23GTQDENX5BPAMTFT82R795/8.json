@@ -1,0 +1,89 @@
+{
+  "revision": {
+    "n": 8,
+    "author": "0x1f0AfcfceFC98e8D9f4A82974e527429D665Acb7",
+    "source": "proposer",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1795008447.834,
+    "title": "RFP: OpSec Ratings Coalition to Build & Maintain an \"L2BEAT for OpSec\"",
+    "summary": "Every team says it takes OpSec seriously, but nobody can check. This RFP funds a neutral coordinator to get at least 6 OpSec audit firms working together, so more teams get OpSec audits and fix what they find, with a public board of the teams that did (every gap stays private). Then the list gets teeth: protocols, bridges, L2s, wallets and exchanges make a current listing on the board a condition of doing business.",
+    "details": "",
+    "sections": {
+      "why": "Your keys, your devices, your multisig process, your access controls... these matter as much as your smart contracts:\n\n- Bybit lost nearly $1.5B in ETH in February 2025 after attackers took over one Safe developer's computer ([Chainalysis](https://www.chainalysis.com/blog/bybit-exchange-hack-february-2025-crypto-security-dprk/)).\n- KelpDAO lost about $292M in April 2026 through compromised RPC nodes, \"not a smart contract hack\" ([Chainalysis](https://www.chainalysis.com/blog/kelpdao-bridge-exploit-april-2026/)).\n\nSerious teams already buy OpSec audits, and all of that work is invisible, while the findings often wait on a to-do list. After TheDAO hack, shipping an unaudited contract became negligent. OpSec audits need the same shift, and SOC 2 checklists were never built for stolen keys and tricked signers. Teams that complete an OpSec audit and fix what it finds get listed on a public board.\n\nA rating only matters if missing it costs something, the way no bank works with a firm that fails compliance. Once the exchanges, protocols, bridges, L2s and wallets that move the money require a current listing, weak OpSec costs a team its listings and integrations, and users are safer from stolen keys, hijacked laptops, tricked signers and poisoned infrastructure.",
+      "in_scope": "This RFP pays for coordination: getting the OpSec audit firms working together, then getting the businesses that move the money to require an OpSec audit. The board is the easy part.\n\nBidders have complete freedom in how they get there, including their own milestones, within the hard requirements below. What matters is three outcomes: more teams get OpSec audits, teams act on them by fixing what they find, and the OpSec audit firms coordinate as one coalition, ideally one that outlives the grant on member dues and runs shared services like red teaming. This money funds only the coordinator.\n\nOne possible approach:\n\n- A simple public board of teams that completed an OpSec audit and fixed every critical and high finding, with their auditor and dates. It may also show facts anyone can check onchain, such as timelocks, multisig thresholds and outflow limits, the way L2BEAT Stages shows rollup trust assumptions.\n- The founding firms list the teams they audit first, with a clear path for any qualified OpSec firm to join. The coalition decides.\n- Shared outcome goals in place of one rigid checklist, such as \"after a compromise, the team can trace affected systems and the root cause within 24 hours\", built on SEAL's frameworks, with the auditor answering for the result.\n- A six-month check-in, and a verification committee that spot-checks listings.\n- Member dues, equal votes for founding firms and a neutral name. Fees from listed teams only if the coalition chooses, the same fee whatever the result.\n- The first organizations that require a current listing.",
+      "out_scope": "- Performing the OpSec audits (the OpSec audit firms do that)\n- Requiring every firm to adopt one shared standard (the coalition may agree one if it helps)\n- A heavy platform build",
+      "existing": "- [SEAL Security Frameworks](https://frameworks.securityalliance.org/): SEAL's open OpSec, multisig, treasury and incident frameworks, the natural base for the standard.\n- [SEAL Certifications](https://securityalliance.org/our-work/certifications): modular certifications assessed by auditors SEAL accredits, recorded as onchain attestations. Bids may build the standard and rater roster on it; a bid that starts fresh explains why.\n- [L2BEAT Stages](https://l2beat.com/stages): the model, a public maturity rating for rollups.\n- [Coinspect Wallet Security Ranking](https://wallets.coinspect.com/): a quarterly public security score for Ethereum wallets.",
+      "who": "Nobody is pre-selected. The dream candidate is a credible coordinator who can get 6+ OpSec audit firms to work together (if you have ever tried to get six companies to agree on anything, you know that's the real work here), then get the protocols and wallets that matter to write a listing into their policies.\n\nA strong bid reads like a founder pitch: one credible lead or a lean team, its own plan, and why audit firms and protocols will take its call. The OpSec audit firms that back this RFP before the vote each name one ETHSecurity Badge holder to the panel that reviews bids, and the panel's majority picks the coordinator.\n\nThe longterm goal of this initiative is to bootstrap an organization that can make Operational Security Audits as necessary as smart contract audits. We expect in the long run for this organization to provide many shared services for the OpSec auditors, such as becoming a certification authority, red teaming projects on the board, etc. \n\nDrafted by Griff Green of TheDAO Security Fund, with feedback from several OpSec audit firms. Griff runs no audit firm and will not bid.",
+      "hard_req": "1. Listing only. The board shows a team's name, its auditor, dates and facts already public onchain (timelocks, multisig thresholds, rate limits), never its gaps, findings or why a team is missing.\n2. Fixed before listed. A team is listed only after its auditor confirms every critical and high finding is fixed.\n3. Human-led audits. Only human-led, crypto-specific OpSec audits earn a listing; an automated or AI-only scan, or a generic SOC 2 or ISO 27001 report, never does.\n4. Open and tool-agnostic. Any rules under CC BY 4.0, board code under MIT, and a listing is reachable with any tools or vendors.\n5. Listings expire. A listing lasts at most 12 months and is suspended on a disclosed incident or material change until the team is re-audited.\n6. Built to last. The coalition and board keep running after the final milestone on money other than TheDAO's, with a maintenance plan in the bid.\n7. **Neutral coordinator.** The coordinator is not an OpSec audit firm, because whoever runs the coalition would gain an edge over the firms it convened."
+    },
+    "milestones": [
+      {
+        "name": "Coalition formed",
+        "amount": 20000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 4 OpSec audit firms join the coalition and commit to listing teams they audit, signatures published",
+          "Coordinator's public plan: what the board shows, who can list teams and how listings expire"
+        ]
+      },
+      {
+        "name": "Board and first listings",
+        "amount": 25000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Public board live, showing listed teams, their auditors and dates only",
+          "At least 10 teams listed after fixing every critical and high finding, at least 1 by each founding firm"
+        ]
+      },
+      {
+        "name": "Adoption evidence",
+        "amount": 65000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 25 teams independent of the coordinator listed, at least 10 of them on their first OpSec audit (confirmed by each team to the technical reviewer) and at least 5 holding over $100M measured onchain (addresses and query linked, checked by the technical reviewer)",
+          "Public metrics page: OpSec audits completed, critical and high fixes confirmed, and every OpSec incident at a listed team with its auditor of record"
+        ]
+      },
+      {
+        "name": "Business model",
+        "amount": 25000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Business plan published: pricing, who pays, cost to run, year-two projection",
+          "At least $40,000 paid to the coalition from sources other than TheDAO (dues, fees or backers), shown onchain or by invoices the payers confirm to the technical reviewer"
+        ]
+      },
+      {
+        "name": "Rating as a requirement",
+        "amount": 65000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 5 organizations independent of the coordinator and the raters publish a policy making a current listing on the board a condition of listing, integrating, bridging to, accepting collateral from or onboarding a team",
+          "Each is a protocol, CEX, bridge or L2 holding over $100M measured onchain (addresses and query linked, on Ethereum or L2s) or on this list, at least 1 of them from it: MetaMask, Rabby, Ledger, Trust Wallet, Phantom, Trezor."
+        ]
+      }
+    ],
+    "links": [
+      "https://frameworks.securityalliance.org/",
+      "https://securityalliance.org/our-work/certifications"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

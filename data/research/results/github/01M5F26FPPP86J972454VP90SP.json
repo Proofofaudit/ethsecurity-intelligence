@@ -1,0 +1,50 @@
+{
+  "repos": [
+    {
+      "fullName": "seer-pm/risk-pricing-ui",
+      "url": "https://github.com/seer-pm/risk-pricing-ui",
+      "exists": true,
+      "description": null,
+      "license": "MIT",
+      "archived": false,
+      "fork": true,
+      "defaultBranch": "main",
+      "createdAt": "2026-08-04T04:48:25Z",
+      "pushedAt": "2026-10-25T03:15:31Z",
+      "stars": 0,
+      "openIssues": 1,
+      "language": "TypeScript",
+      "topics": [],
+      "latestRelease": null,
+      "releaseCount": 0,
+      "hasCiWorkflows": false,
+      "hasTestsDir": false,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 7,
+      "contributorsSampled": 5,
+      "checkedAt": "2026-11-26T09:25:49.813Z",
+      "error": null
+    }
+  ],
+  "owners": [
+    {
+      "login": "nvm1410",
+      "type": "User",
+      "name": null,
+      "blog": null,
+      "createdAt": "2018-08-08T13:27:18Z",
+      "publicRepos": 43,
+      "url": "https://github.com/nvm1410"
+    },
+    {
+      "login": "seer-pm",
+      "type": "Organization",
+      "name": null,
+      "blog": null,
+      "createdAt": "2024-01-18T18:22:13Z",
+      "publicRepos": 15,
+      "url": "https://github.com/seer-pm"
+    }
+  ]
+}

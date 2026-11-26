@@ -1,0 +1,136 @@
+{
+  "checks": [
+    {
+      "url": "https://auditware.io/",
+      "status": 200,
+      "finalUrl": "https://auditware.io/",
+      "title": "Auditware | Web3 OpSec Audits & Sentry Monitoring",
+      "description": "Operational security audits for Web3 teams: keys, devices, CI/CD, cloud and smart contracts, all mapped to W3OS and SEAL.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:28.684Z"
+    },
+    {
+      "url": "https://diligence.security/",
+      "status": 403,
+      "finalUrl": "https://diligence.security/",
+      "title": "Just a moment...",
+      "description": null,
+      "contentType": "text/html; charset=UTF-8",
+      "ok": false,
+      "inconclusive": true,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:28.685Z"
+    },
+    {
+      "url": "https://frameworks.securityalliance.org/",
+      "status": 200,
+      "finalUrl": "https://frameworks.securityalliance.org/",
+      "title": "Security Frameworks | Security Alliance",
+      "description": "Comprehensive security framework documentation for Web3 projects and blockchain security best practices.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:28.686Z"
+    },
+    {
+      "url": "https://l2beat.com/stages",
+      "status": 200,
+      "finalUrl": "https://ethbeat.org/stages",
+      "title": "Stages - ETHBEAT",
+      "description": "Discover the latest updates on ETHBEAT’s Stages framework - the go-to system for assessing the maturity of rollups on Ethereum.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:28.686Z"
+    },
+    {
+      "url": "https://quantstamp.com/",
+      "status": 200,
+      "finalUrl": "https://quantstamp.com/",
+      "title": "Quantstamp: Securing the Future of Web3",
+      "description": "A global leader in blockchain security, Quantstamp has secured billions in digital assets and is trusted by web3's most notable projects.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:28.723Z"
+    },
+    {
+      "url": "https://securityalliance.org/our-work/certifications",
+      "status": 200,
+      "finalUrl": "https://securityalliance.org/our-work/certifications",
+      "title": "SEAL Certifications | Security Alliance",
+      "description": "Crypto-native security certifications designed to provide a clear baseline for the crypto industry",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:28.724Z"
+    },
+    {
+      "url": "https://wallets.coinspect.com/",
+      "status": 200,
+      "finalUrl": "https://wallets.coinspect.com/",
+      "title": "Wallet Security Ranking",
+      "description": "Compare cryptocurrency wallet security across platforms. Explore security scores, detailed checks, and evidence to understand how wallets protect your assets.",
+      "contentType": "text/html; charset=UTF-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:28.777Z"
+    },
+    {
+      "url": "https://www.chainalysis.com/blog/bybit-exchange-hack-february-2025-crypto-security-dprk",
+      "status": 200,
+      "finalUrl": "https://www.chainalysis.com/blog/bybit-exchange-hack-february-2025-crypto-security-dprk/",
+      "title": "Collaboration in the Wake of Record-Breaking Bybit Theft",
+      "description": "We look at how the near-$1.5 billion Bybit exploit occurred, the attackers’ link to the DPRK, and how we are collaborating to help recover funds.",
+      "contentType": "text/html; charset=UTF-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:28.813Z"
+    },
+    {
+      "url": "https://www.chainalysis.com/blog/kelpdao-bridge-exploit-april-2026",
+      "status": 200,
+      "finalUrl": "https://www.chainalysis.com/blog/kelpdao-bridge-exploit-april-2026/",
+      "title": "Inside the KelpDAO Bridge Exploit",
+      "description": "Here's what we know about the KelpDAO Exploit, what the on-chain evidence shows, and why this class of exploit requires a different kind of monitoring.",
+      "contentType": "text/html; charset=UTF-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:50.263Z"
+    },
+    {
+      "url": "https://www.chainsecurity.com/",
+      "status": 200,
+      "finalUrl": "https://www.chainsecurity.com/",
+      "title": "Smart Contract Audits | ChainSecurity",
+      "description": "ChainSecurity is one of the longest-established blockchain security firms, auditing critical code, business logic, and architecture across DeFi and Web3 since 2017.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:44.482Z"
+    },
+    {
+      "url": "https://zeroshadow.io/",
+      "status": 200,
+      "finalUrl": "https://zeroshadow.io/",
+      "title": "zeroShadow | Incident Response & Blockchain Intelligence",
+      "description": "Global leader in Web3 intelligence and incident response. We",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:28.870Z"
+    }
+  ]
+}

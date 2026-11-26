@@ -1,0 +1,44 @@
+{
+  "checks": [
+    {
+      "txHash": "0xd1f4ae8522a5ec8b69f0cb2864a4cdffaf7ca2b8bc40773137d3f5549c2ba777",
+      "found": true,
+      "success": true,
+      "blockNumber": 26495698,
+      "touchesSafe": true,
+      "checkedAt": "2026-11-26T09:25:31.193Z",
+      "rpc": "ethereum-rpc.publicnode.com",
+      "error": null
+    },
+    {
+      "txHash": "0x9518dfd6876afa97ed64dc230d46618d3e1a4004592bb09aa7a60dfcd83a0593",
+      "found": true,
+      "success": true,
+      "blockNumber": 26492262,
+      "touchesSafe": true,
+      "checkedAt": "2026-11-26T09:25:31.193Z",
+      "rpc": "ethereum-rpc.publicnode.com",
+      "error": null
+    },
+    {
+      "txHash": "0x536a21f0a0f1004ed429133b45b71af8bd4c01bbfaa1b33a4a24287779e4125d",
+      "found": true,
+      "success": true,
+      "blockNumber": 26492094,
+      "touchesSafe": true,
+      "checkedAt": "2026-11-26T09:25:31.193Z",
+      "rpc": "ethereum-rpc.publicnode.com",
+      "error": null
+    },
+    {
+      "txHash": "0x4af2a8a4eca0376bf0912dd6de631908b10842d85b234c7fcefa205e7817c340",
+      "found": true,
+      "success": true,
+      "blockNumber": 26484486,
+      "touchesSafe": true,
+      "checkedAt": "2026-11-26T09:25:31.193Z",
+      "rpc": "ethereum-rpc.publicnode.com",
+      "error": null
+    }
+  ]
+}

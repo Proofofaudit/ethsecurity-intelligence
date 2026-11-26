@@ -1,0 +1,59 @@
+{
+  "name": "ethsecurity-intelligence",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Independent research and decision-support platform for TheDAO Security Fund badge holders.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20.18"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "ingest": "tsx scripts/ingest.ts",
+    "research": "tsx scripts/research.ts",
+    "publish": "tsx scripts/publish.ts",
+    "db:setup": "tsx scripts/db-setup.ts",
+    "db:load": "tsx scripts/db-load.ts",
+    "db:local": "tsx scripts/local-mongo.ts",
+    "skills:build": "tsx scripts/build-skills.ts",
+    "mcp": "tsx mcp/stdio.ts",
+    "mcp:smoke": "tsx scripts/mcp-smoke.ts",
+    "screenshots": "tsx scripts/screenshots.ts",
+    "pipeline": "npm run ingest && npm run research && npm run publish && npm run skills:build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "@tanstack/react-table": "^8.21.3",
+    "@xyflow/react": "^13.0.3",
+    "cmdk": "^1.1.1",
+    "diff": "^9.0.0",
+    "mongodb": "^7.9.1",
+    "next": "^16.4.6",
+    "radix-ui": "^1.8.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@tailwindcss/postcss": "^4.3.5",
+    "@types/node": "^22.20.7",
+    "@types/react": "^19.3.3",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.4.6",
+    "mongodb-memory-server": "^11.4.0",
+    "postcss": "^8.5.33",
+    "tailwindcss": "^4.3.5",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vitest": "^5.1.2"
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "checks": [
+    {
+      "url": "https://celo.org/",
+      "status": 200,
+      "finalUrl": "https://celo.org/",
+      "title": "Celo: Ethereum Layer 2 for Payments, Stablecoins & DeFi",
+      "description": "Celo is an Ethereum L2 powering fast, low-cost payments, native stablecoins, and DeFi apps — driving real-world adoption and financial inclusion worldwide.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:45.652Z"
+    },
+    {
+      "url": "https://gnosis.io/",
+      "status": 200,
+      "finalUrl": "https://www.gnosis.io/",
+      "title": "Gnosis — Re-engineering finance for human agency and access",
+      "description": "Gnosis spent the last decade building at the forefront of the digitisation of capital because the choices we make now will determine who thrives.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:45.653Z"
+    },
+    {
+      "url": "https://golem.network/",
+      "status": 200,
+      "finalUrl": "https://golem.network/",
+      "title": "Golem Network",
+      "description": "Golem is a decentralized marketplace for computing power. It consists of a network of nodes that implement the Golem network protocol.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:45.653Z"
+    },
+    {
+      "url": "https://linea.build/",
+      "status": 200,
+      "finalUrl": "https://linea.build/",
+      "title": "Linea: The L2 Where Ethereum Wins",
+      "description": "Linea is the Layer 2 network built from first principles to strengthen Ethereum and the entire ETH economy.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:45.654Z"
+    },
+    {
+      "url": "https://polygon.technology/",
+      "status": 200,
+      "finalUrl": "https://polygon.technology/",
+      "title": "Move, program and store money anywhere on Earth",
+      "description": "Polygon Open Money Stack adds instant, programmable stablecoin payments to the systems a business already runs, through one API.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:45.698Z"
+    },
+    {
+      "url": "https://rekt.news/leaderboard",
+      "status": 200,
+      "finalUrl": "https://rekt.news/leaderboard",
+      "title": "Rekt - <!-- -->Leaderboard",
+      "description": "DeFi / Crypto - Investigative journalism &amp; creative commentary",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:45.708Z"
+    },
+    {
+      "url": "https://snapshot.org/",
+      "status": 200,
+      "finalUrl": "https://snapshot.org/",
+      "title": "Snapshot",
+      "description": null,
+      "contentType": "text/html; charset=UTF-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:45.711Z"
+    }
+  ]
+}

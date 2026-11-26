@@ -1,0 +1,103 @@
+{
+  "revision": {
+    "n": 1,
+    "author": "0xBcbC63d0841811f403fBb04CFA164806Bf189051",
+    "source": "submit",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1791386443.458,
+    "title": "Free, Backtestable Onchain Monitoring on 17 EVM Chains",
+    "summary": "Dedaub runs a monitoring platform where anyone can write unlimited onchain queries in DedaubQL and run up to 2 alerts, free of charge, on 8 EVM chains. This grant buys the storage that takes it to 17 chains and keeps 12 months of uncompressed history on every one of them (24 on Ethereum mainnet), so any alert can be replayed over past exploits before a team relies on it. It also buys one analysis server that runs the Gigahorse decompiler on the new chains. Everything the hardware enables stays free, and ETHSecurity Badge holders and SEAL members get unlimited access for 36 months.",
+    "details": "",
+    "sections": {
+      "why": "Two gaps, one cause.\n\n- Coverage: the platform indexes 8 chains, and the same attackers, the same bytecode and the same Ethereum-issued assets are on dozens more. Arc, launched on 16 September with Uniswap, Aave and Morpho deployed on day one, has no free query or alert coverage at all; teams deploying there are already asking us for it.\n- Backtesting: an alert that has never been run against a real attack is an untested guess. Replaying an alert over history needs call traces and logs in a form that can be scanned quickly. We compress older data to stay within capacity, and a backfill on compressed data slows from milliseconds to tens of minutes per day of history.\n\nThe cause is storage. Adding chains without more disk makes the compression problem worse. Adding disk without more chains leaves the ecosystem's value uncovered.\n\nWho is safer: any team on the 17 chains, whose alerts can be replayed over past exploits before they rely on them, and incident responders, who get the decoded internal-call trace of an attack transaction the same day on chains whose explorer shows no traces. Six of the 9 new chains are Ethereum L2s or Ethereum-aligned chains whose value is Ethereum-bridged: Linea, MegaETH, World Chain, Ink, Gnosis, Unichain. Arc, Monad and Plasma run the same EVM bytecode, host forks of Ethereum protocols and hold Ethereum-issued assets. Attackers reuse Ethereum exploit code across all of them.",
+      "in_scope": "What the money buys. Every item is an example; the purchase may be of analogous hardware.\n\n- 12 Memblaze PBlaze7 7A40 61.44 TB NVMe drives, $24,950 each, $299,400 (Bytehaus written quote to Neville Grech, 27 May 2026, to be re-quoted)\n- One analysis server, current-generation CPU, at least 1 TB of RAM, $50,000 (Dedaub target figure, quote pending)\n- One 24-bay NVMe enclosure, $10,229 (Serial Cables list price, 28 September 2026)\n- One external HBA with four cables, $1,707 (Serial Cables list prices, 28 September 2026)\n\nWhat gets delivered:\n\n- 9 new chains in three tranches: Arc, Unichain, Ink; then Linea, Gnosis, MegaETH; then Monad, Plasma, World Chain. Every chain gets traces, logs and token transfers indexed, DedaubQL alerts, email, webhook and Telegram notifications, the CLI and agent skill.\n- Decompilation on every new chain: the analysis server runs the Gigahorse decompiler, so every contract on them becomes readable without source, free.\n- A backtesting storage tier: 12 drives in mirrored pairs (about 369 TB usable) attached to Dedaub's existing database server, keeping 24 months of uncompressed history for Ethereum mainnet and 12 months for the other 16 chains. Backfill becomes a normal step when creating an alert, from the web app and the CLI.\n- Decoded traces for responders: the internal-call trace of any transaction on a funded chain, queryable in DedaubQL and exportable from the CLI.\n- Unlimited access for ETHSecurity Badge holders and SEAL members: unlimited active alerts with backfill and decoded traces without rate limits, for 36 months from tranche 1 going live.",
+      "out_scope": "- Archive nodes. Dedaub sources archive data from RPC providers at its own cost.\n- The network, data centre space, RPC subscriptions and bandwidth, and the people who onboard chains and run the platform. None of this is billed to the grant, now or later.",
+      "existing": "Everything this grant extends is Dedaub's own and in production:\n\n- The monitoring platform at https://app.dedaub.com, live on 8 EVM chains, with DedaubQL queries, alerts, backfill and email, webhook and Telegram notifications.\n- The CLI and agent skill, MIT-licensed, with reference notes for 95 protocols: https://github.com/Dedaub/monitoring-cli\n- The Gigahorse decompiler, free since 2018, more than 16,000 registered users across ten EVM chains.\n\nThere is nothing else to build on. The grant buys the storage and one analysis server; the software, the chain data feeds and the people are Dedaub's.",
+      "who": "Dedaub does the work. This is a grant, not a competition: the platform, the decompiler and the CLI named above are Dedaub's own, and the hardware extends them.\n\nDrafted by Giorgio Bonuccelli with the Dedaub engineering team. A Dedaub team member, Yannis Bollanos, holds an ETHSecurity Badge and will abstain from ranking this initiative.",
+      "hard_req": "1. The CLI and its agent skill stay MIT-licensed. The platform remains Dedaub's hosted service, free at the tier described above.\n2. The free tier (unlimited queries, 2 active alerts per user, no time limit, no credit card) is live on every funded chain, and Dedaub keeps it after the grant as its own policy, as it has with the decompiler since 2018.\n3. ETHSecurity Badge holders and SEAL members get unlimited alerts with backfill and decoded traces without rate limits for 36 months from tranche 1 going live. Dedaub carries the compute cost.\n4. 12 months of uncompressed history on all 17 chains, 24 on Ethereum mainnet. If measured volumes or drive prices force a cut, Arbitrum and Optimism shorten first to 6 months; Ethereum mainnet and the new chains never shorten.\n5. Dedaub owns and runs the equipment, keeps every funded chain live through the last milestone and beyond, and provides invoices and serial numbers for every item to the technical reviewer.\n6. Dedaub re-quotes every line in writing before signing and covers any price rise between signing and purchase up to 15% of the quoted price. Every item may be replaced by analogous hardware; the analysis server may be a refurbished unit with equivalent specifications.\n7. Dedaub staff and contractors never count towards any milestone.\n8. Each tranche stands on its own: if the round funds less than the full amount, the chain count drops with it."
+    },
+    "milestones": [
+      {
+        "name": "Tranche 1 live: Arc, Unichain, Ink",
+        "amount": 107736,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Analysis server, enclosure, external HBA and 4 drives installed, with invoices and serial numbers provided to the technical reviewer",
+          "Arc, Unichain and Ink live in the Security Suite from a free account, in the app and the CLI, checked by the technical reviewer"
+        ]
+      },
+      {
+        "name": "Tranche 1 in use",
+        "amount": 54000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 1 named web3 project team outside Dedaub runs a monitoring alert on Arc, Unichain or Ink, verified by the technical reviewer",
+          "At least 6 SEAL members and at least 10 ETHSecurity Badge holders have signed in and run an alert or a query on those chains, verified by the technical reviewer"
+        ]
+      },
+      {
+        "name": "Tranche 2 live: Linea, Gnosis, MegaETH",
+        "amount": 66500,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "4 more drives installed, with invoices and serial numbers provided to the technical reviewer",
+          "Linea, Gnosis and MegaETH live in the Security Suite from a free account, in the app and the CLI, checked by the technical reviewer"
+        ]
+      },
+      {
+        "name": "Tranche 2 in use",
+        "amount": 33300,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 3 named web3 project teams outside Dedaub run a monitoring alert on one of the six new chains, verified by the technical reviewer",
+          "At least 6 SEAL members and at least 10 ETHSecurity Badge holders have signed in and run an alert or a query on Linea, Gnosis or MegaETH, verified by the technical reviewer"
+        ]
+      },
+      {
+        "name": "Tranche 3 live: Monad, Plasma, World Chain",
+        "amount": 66500,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Last 4 drives installed, with invoices and serial numbers provided to the technical reviewer",
+          "Monad, Plasma and World Chain live in the Security Suite from a free account, in the app and the CLI, checked by the technical reviewer",
+          "12 months of uncompressed history on all 17 chains, 24 on Ethereum mainnet, checked by the technical reviewer with a backfill"
+        ]
+      },
+      {
+        "name": "Tranche 3 in use",
+        "amount": 33300,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 5 named web3 project teams outside Dedaub run a monitoring alert on one of the nine new chains, verified by the technical reviewer",
+          "At least 6 SEAL members and at least 10 ETHSecurity Badge holders have signed in and run an alert or a query on Monad, Plasma or World Chain, verified by the technical reviewer"
+        ]
+      }
+    ],
+    "links": [
+      "https://github.com/Dedaub/monitoring-cli",
+      "https://app.dedaub.com",
+      "https://dedaub.com/audits"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "checks": [
+    {
+      "url": "https://blog.ethereum.org/2026/11/06/glamsterdam-8037-8038",
+      "status": 200,
+      "finalUrl": "https://blog.ethereum.org/2026/11/06/glamsterdam-8037-8038",
+      "title": "EIP-8037/EIP-8038 Glamsterdam | Ethereum Foundation Blog",
+      "description": "Glamsterdam, the next update for Ethereum, is currently being tested on testnets. During these tests Chainsecurity has found a few projects that would be...",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:48.243Z"
+    },
+    {
+      "url": "https://defillama.com/chain/ethereum",
+      "status": 403,
+      "finalUrl": "https://defillama.com/chain/ethereum",
+      "title": "Just a moment...",
+      "description": null,
+      "contentType": "text/html; charset=UTF-8",
+      "ok": false,
+      "inconclusive": true,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:48.244Z"
+    },
+    {
+      "url": "https://ethsecurity.org",
+      "status": 200,
+      "finalUrl": "https://ethsecurity.org/",
+      "title": "Eth Security",
+      "description": "Eth Security is a nonprofit exploit research organization securing the Ethereum network by pushing the limits of digital intelligence.",
+      "contentType": "text/html; charset=UTF-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:48.244Z"
+    },
+    {
+      "url": "https://ethsecurity.org/",
+      "status": 200,
+      "finalUrl": "https://ethsecurity.org/",
+      "title": "Eth Security",
+      "description": "Eth Security is a nonprofit exploit research organization securing the Ethereum network by pushing the limits of digital intelligence.",
+      "contentType": "text/html; charset=UTF-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:48.245Z"
+    },
+    {
+      "url": "https://ethsecurity.org/content/argus",
+      "status": 200,
+      "finalUrl": "https://ethsecurity.org/content/argus/",
+      "title": "Argus — Eth Security",
+      "description": "Why point-in-time audits are not enough for a live network, and how Eth Security continuously scans the Ethereum dependency graph to find and confirm critical vulnerabilities.",
+      "contentType": "text/html; charset=UTF-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:48.281Z"
+    },
+    {
+      "url": "https://immunefi.com/blog/research/the-ecosystem-vulnerability-scoreboard-6-years-of-defi-loss-data",
+      "status": 200,
+      "finalUrl": "https://immunefi.com/blog/research/the-ecosystem-vulnerability-scoreboard-6-years-of-defi-loss-data/",
+      "title": "The Ecosystem Vulnerability Scoreboard: 6 Years of DeFi Loss Data",
+      "description": "Immunefi maps six years of DeFi protocol losses across major ecosystems. Total losses fell 80% from 2022, but new multi-chain and custodial risks are emerging.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:48.283Z"
+    },
+    {
+      "url": "https://l2beat.com/scaling/tvs",
+      "status": 200,
+      "finalUrl": "https://ethbeat.org/layer2s/tvs",
+      "title": "Total value secured - ETHBEAT",
+      "description": "Track total value secured across Ethereum scaling solutions.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:48.376Z"
+    },
+    {
+      "url": "https://www.chainalysis.com/blog/crypto-hacking-stolen-funds-2026",
+      "status": 200,
+      "finalUrl": "https://www.chainalysis.com/blog/crypto-hacking-stolen-funds-2026/",
+      "title": "2025 Crypto Theft Reaches $3.4 Billion",
+      "description": "North Korean hackers stole $2.02 billion in cryptocurrency in 2025, a 51% year-over-year increase, pushing their all-time total to $6.75 billion.",
+      "contentType": "text/html; charset=UTF-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:48.475Z"
+    }
+  ]
+}

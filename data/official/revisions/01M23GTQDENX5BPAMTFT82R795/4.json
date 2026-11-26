@@ -1,0 +1,91 @@
+{
+  "revision": {
+    "n": 4,
+    "author": "0x7767FB920338eED6Fe68A4d7C411f84a3F24f20c",
+    "source": "admin",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1793510297.039,
+    "title": "OpSec Ratings Coalition to Build & Maintain an \"L2BEAT for OpSec\"",
+    "summary": "Every team says it takes OpSec seriously, and nobody can check. This RFP funds a coordinator to get at least 6 OpSec audit firms onto one A / AA / AAA rating, show tiers on a public board (every gap stays private) and hand it to a body the firms own. Then the rating gets teeth: protocols, bridges, L2s, wallets and exchanges make a current tier a condition of doing business.",
+    "details": "",
+    "sections": {
+      "why": "Your keys, your devices, your multisig process, your access controls... these matter as much as your smart contracts:\n\n- Bybit lost nearly $1.5B in ETH in February 2025 after attackers took over one Safe developer's computer ([Chainalysis](https://www.chainalysis.com/blog/bybit-exchange-hack-february-2025-crypto-security-dprk/)).\n- KelpDAO lost about $292M in April 2026 through compromised RPC nodes, \"not a smart contract hack\" ([Chainalysis](https://www.chainalysis.com/blog/kelpdao-bridge-exploit-april-2026/)).\n\nSerious teams already buy OpSec audits, and all of that work is invisible. Think of a Moody's rating: people want one because everyone recognizes what it means. Teams that earn an A, AA or AAA get their tier on a public board. That's it, just the tier (a public list of weaknesses is a gift to attackers).\n\nA rating only matters if missing it costs something, the way no bank works with a firm that fails compliance. Once the exchanges, protocols, bridges, L2s and wallets that move the money require a current tier, weak OpSec costs a team its listings and integrations, and users are safer from stolen keys, hijacked laptops, tricked signers and poisoned infrastructure.",
+      "in_scope": "This RFP pays for coordination: getting the OpSec audit firms onto one standard, then getting the businesses that move the money to require it. The board is the easy part.\n\nRated teams pay a fixed fee. Accredited raters, the human-led OpSec audit firms, rate inside audits they already run, get paid from the fee pool and may pay dues for the right to rate. This money funds only the coordinator.\n\nDeliverables:\n\n- One scoring template with A / AA / AAA tiers. An A team follows best practices and we don't expect it to have incidents. AAA is wild: secure beyond what's reasonable.\n- The founding firms onboarded as the first raters.\n- A simple public board.\n- A membership body with rater accreditation, a verification committee that spot-checks ratings and a pooled fee model.\n- The first organizations that require a current tier.\n- The handoff to the membership body.",
+      "out_scope": "- Performing the OpSec audits (the accredited firms do that)\n- A heavy platform build",
+      "existing": "- [SEAL Security Frameworks](https://frameworks.securityalliance.org/): SEAL's open OpSec, multisig, treasury and incident frameworks, the natural base for the template.\n- [SEAL Certifications](https://securityalliance.org/our-work/certifications): modular certifications assessed by auditors SEAL accredits, recorded as onchain attestations. Bids may build the tiers and rater roster on it; a bid that starts fresh explains why.\n- [L2BEAT Stages](https://l2beat.com/stages): the model, a public maturity rating for rollups.\n- [Coinspect Wallet Security Ranking](https://wallets.coinspect.com/): a quarterly public security score for Ethereum wallets.",
+      "who": "Nobody is pre-selected. The dream candidate is a credible coordinator who can get 6+ OpSec audit firms to sign the same document (if you have ever tried to get six companies to agree on anything, you know that's the real work here), then get the protocols and wallets that matter to write a tier into their policies.\n\nIdeally the coordinator is not an audit firm, because whoever holds the pen on the standard walks away with an edge over the firms they convened. An audit firm that coordinates takes no rater role and no ownership of the board during the grant.\n\nDrafted by Griff Green of TheDAO Security Fund, which streams funding to SEAL. Griff runs no audit firm and will not bid.",
+      "hard_req": "1. Tiers only. The board shows a team's tier, valid-until date and last check-in, never its gaps or the reasons behind its tier.\n2. Human-led ratings. Only accredited firms running human-led OpSec audits issue tiers; an automated or AI-only scan never earns one. A rater that fails the verification committee's spot checks loses accreditation.\n3. Open and versioned. Template and tiers under CC BY 4.0, board code under MIT. The template and tiers change at most once a year through a dated, attributable process.\n4. Tool-agnostic. Every tier is reachable with any tools or vendors.\n5. One firm, one vote, neutral name. Equal governance for every founding firm; no coordinator or firm branding.\n6. Fixed fees, pooled. Every team pays the same fee whatever tier it earns, into the body's pool, which pays raters and the committee.\n7. Twelve months, checked at six, suspended on events. A rating lasts 12 months, lapses without the six-month self-attestation and check-in, and is suspended on a disclosed incident or material change until re-rated.\n8. Handoff and maintenance. The standard, board, name and any secretariat transfer to the membership body within six months of the final milestone, with no coordinator veto. The body maintains them from fees and dues."
+    },
+    "milestones": [
+      {
+        "name": "Agreed standard",
+        "amount": 40000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Scoring template and A / AA / AAA tier definitions published and versioned",
+          "At least 6 OpSec audit firms sign the template and commit to rating with it, signatures published",
+          "Membership body charter published, including rater accreditation and its loss and the handoff date"
+        ]
+      },
+      {
+        "name": "Board and first ratings",
+        "amount": 25000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Public board live, showing tiers, valid-until dates and last check-ins only",
+          "At least 6 teams rated on the board, at least 1 by each founding firm, fees paid into the body's pool"
+        ]
+      },
+      {
+        "name": "Adoption evidence",
+        "amount": 65000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 20 teams independent of the coordinator rated on the board, at least 5 of them holding over $100M measured onchain (addresses and query linked, checked by the technical reviewer)",
+          "Every rating older than six months shows a check-in date on the board, and suspensions and spot checks appear in a public change log, with no reasons given"
+        ]
+      },
+      {
+        "name": "Business model",
+        "amount": 20000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Business plan published: pricing, who pays, cost to run, year-two projection",
+          "At least $40,000 of fees and dues paid into the pool, including second-year renewal fees from at least 10 rated teams independent of the coordinator, shown onchain or by invoices the payers confirm to the technical reviewer"
+        ]
+      },
+      {
+        "name": "Rating as a requirement",
+        "amount": 50000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 5 organizations independent of the coordinator and the raters publish a policy making a current tier a condition of listing, integrating, bridging to, accepting collateral from or onboarding a team",
+          "Each is a protocol, bridge or L2 holding over $100M measured onchain (addresses and query linked, checked by the technical reviewer) or on this list, at least 1 of them from it: Aave, Lido, Uniswap, Morpho, Sky, Curve, EigenLayer, Base, Arbitrum, Optimism, MetaMask, Rabby, Ledger, Trust Wallet, Coinbase, Kraken",
+          "Each policy applied at least once, confirmed privately by the organization to the technical reviewer"
+        ]
+      }
+    ],
+    "links": [
+      "https://frameworks.securityalliance.org/",
+      "https://securityalliance.org/our-work/certifications"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

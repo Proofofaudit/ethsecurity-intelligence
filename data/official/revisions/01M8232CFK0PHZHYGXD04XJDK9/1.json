@@ -1,0 +1,106 @@
+{
+  "revision": {
+    "n": 1,
+    "author": "0xC8f6aC0d0f0c52d4E3D674DE4A3D3aFBdc461a38",
+    "source": "submit",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1795366662.643,
+    "title": "BlockThreat: Weekly Threat Intelligence That Keeps Ethereum Teams Ahead of Attackers",
+    "summary": "BlockThreat is the weekly briefing 13,000+ blockchain security professionals, DeFi projects, exchanges, law enforcement, many financial institutions read to keep up with attackers tactics by learning their tactics, what was hacked and how, which vulnerabilities and techniques are new, what DPRK is doing, and what to change this week. This grant funds 12 months of its Ethereum and L2 coverage and, for the first time, tracks what teams do with it. It pays in full only if at least 10 outside teams apply a recommendation, at least 3 stop a real attack with one, and outside organizations put in $20,000 of new revenue so BlockThreat keeps running without the fund.",
+    "details": "",
+    "sections": {
+      "why": "BlockThreat told teams where the attacks were going before they got there:\n\nApril 2026: after the KelpDAO and Drift hacks, it told teams to treat nodes, relayers and signers as part of the protocol, and to \"stop using every day machines to sign multi-million-dollar transactions\" (April).\nJuly 2026: its outlook named the next target: \"the next likely frontier will be signer infrastructure\", the systems that approve and sign high-value transactions (July).\nSeptember 2026: it predicted that the next big exchange hack would start with social engineering, and told teams to audit their signing services and treat source control access like signing keys (September).\nOctober 29: attackers went from a fake job interview to an engineer's laptop to Binance's wallet signing service, which signed 50 EIP-7702 authorizations and emptied its main Ethereum hot wallet. The loss was $6.3B (Cointelegraph, Week 44).\nFirst week of November: 9 of the 13 incidents BlockThreat tracked across the industry, and about 97% of the $53.2M lost, came from outside smart contracts, led by $48.6M of validly signed withdrawals at one exchange (Week 45).\n\nAn audit covers none of this, and a defense built for last quarter's attacks is already behind. The warnings are public but scattered across hundreds of blogs, X threads, chatrooms and disclosures that no security team has time to read. BlockThreat reads them, re-ranks the threats every week and month, and says what to change.\n\nWho is safer: security teams at Ethereum and L2 protocols, exchanges, custodians and wallets, against the attack vectors in play right now, such as compromised signing infrastructure and keys, fake-interview malware, frontend and DNS hijacks, and known bugs in forked code. Afterwards, anyone can point to teams that changed a defense because of a BlockThreat recommendation, and to teams that stopped a real attack with it.",
+      "in_scope": "* 12 months of weekly briefings: the attack vector behind every Ethereum and L2 incident, the vulnerability disclosures, research, tools and threat-actor reporting that matter to Ethereum teams, and what to do about them (what to patch, what control to add, what to test for, who is on notice)\n\n* 12 monthly outlooks: Ethereum loss statistics, the re-ranked top 10 attack vectors, and the threats to prepare for next\n\n* Impact tracking, which is new work: a reporting link in every edition, follow-up with teams that act on a recommendation, and a quarterly impact report\n\n* Building the sponsor base that pays for BlockThreat after the grant, at prices already published.",
+      "out_scope": "Live exploit monitoring, incident response and audits. The focus of the newsletter is on deep analysis of past incidents, extraction of emerging threats and lessons, and consistently accurate future outlook to point out future incidents.",
+      "team": "Peter Kacherginsky (@iphelix) does the work: editor of BlockThreat since 2019, sourcing, analysis and impact tracking. He has more than 20 years in security and founded Coinbase's blockchain security team. He has spoken at DeFi Security Summit for the past four years, most recently on \"The State of DeFi Security - 2026\", and seven years of his editions are public at blockthreat.com.\n\nBlockThreat earns money from reader support, advertising, Enterprise subscriptions and Peter's advisory work for protocols (blockthreat.com/vciso). The Ethereum Foundation and TheDAO Security Fund each sponsored it once before, and neither funds this scope. No other funder pays for this work.",
+      "why_grant": "* Seven years of weekly editions without a gap, plus monthly outlooks with loss statistics, the top 10 attack vectors and emerging threats, all free to read since November 2026.\n\n* The readers are the defenders: 13,000+ subscribers at 1,900+ organizations, among them exchanges, custodians, protocols and audit firms. Past advertisers include Immunefi, Chainalysis, Trail of Bits and OpenZeppelin.\n\n* One edition covers a defender's whole week. Week 44 had 30 incidents, 5 vulnerabilities and 18 research papers and tools, plus DPRK, malware and scam reporting.\n\n* The sourcing: 294 feeds, 972 X accounts, 48 chatrooms and 15 newsletters. That is 32+ hours of reading a week, filtered with an in-house classification tool, reviewed by hand, and delivered as a 10-minute edition.\n\n* The data behind the statistics: 2,313 incidents tracked, growing by 10 to 15 a week.\n\nA new threat intelligence desk would have to build all of this first. Here the fund pays $6,000 a month for the Ethereum share of one editor's time, and readers and sponsors pay for the rest.",
+      "commitments": "* Every weekly briefing and monthly outlook stays free to read, with no paywall, and may be quoted with attribution.\n\n* Peter keeps publishing BlockThreat for at least 12 months after the last milestone, paid from reader support, advertising and Enterprise.\n\n* Pinned targets: at least 10 outside teams applying a recommendation and at least 3 stopping a real attack.\n\n* Sponsors and advertisers never shape coverage and paid placements are labeled."
+    },
+    "milestones": [
+      {
+        "name": "First six months of briefings",
+        "amount": 15000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 24 weekly editions and 6 monthly outlooks published, each weekly edition naming the attack vector for every Ethereum and L2 incident it covers and giving defensive recommendations",
+          "Reporting link live in every edition, and the first quarterly impact report published"
+        ]
+      },
+      {
+        "name": "Twelve months of briefings",
+        "amount": 15000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 48 weekly editions and 12 monthly outlooks published in total",
+          "At least 4 quarterly impact reports published, with their counts confirmed by the technical reviewer"
+        ]
+      },
+      {
+        "name": "First teams apply a recommendation",
+        "amount": 6000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 3 outside teams building or operating on Ethereum or its L2s apply a BlockThreat recommendation against an attack vector it reported (a patch, a new control, a detection rule or a rehearsed response), at least 1 of them a protocol, exchange or custodian holding over $100M onchain",
+          "Each team confirms the edition, the vector and the change, in public or in a signed confirmation to the technical reviewer, who checks the change under confidentiality"
+        ]
+      },
+      {
+        "name": "Ten teams apply a recommendation",
+        "amount": 8000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 3 outside Ethereum or L2 teams detect or block a real attack attempt that used a vector BlockThreat reported, after applying its recommendation, at least 1 of them holding over $100M onchain",
+          "The technical reviewer sees, for each, the edition, the control applied and the dated attempt (an alert, a ticket or a blocked transaction)"
+        ]
+      },
+      {
+        "name": "Teams stop attacks",
+        "amount": 10000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 3 outside Ethereum or L2 teams detect or block a real attack attempt that used a vector BlockThreat reported, after applying its recommendation, at least 1 of them holding over $100M onchain",
+          "The technical reviewer sees, for each, the edition, the control applied and the dated attempt (an alert, a ticket or a blocked transaction)"
+        ]
+      },
+      {
+        "name": "Sustainability",
+        "amount": 18000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least $20,000 of new revenue received during the grant, not counting grants, from at least 5 outside organizations (sponsorship, advertising or Enterprise), verified privately by the technical reviewer",
+          "A one-page plan published showing recurring revenue at month 12 and how it covers the cost of the briefings after the grant"
+        ]
+      }
+    ],
+    "links": [
+      "https://blockthreat.com",
+      "https://blockthreat.com/archive/",
+      "https://blockthreat.com/blockthreat-september-2026/",
+      "https://blockthreat.com/blockthreat-week-44-2026/",
+      "https://blockthreat.com/blockthreat-week-45-2026/",
+      "https://blockthreat.com/the-breaking-point-of-ethical-security-research/",
+      "https://defisecuritysummit.org/2026/agenda#dss26-8a22d50b07fcd274"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "revision": {
+    "n": 1,
+    "author": "0xa240D5B0AAfbd926b8FC82B3edf0e5b2C98c423B",
+    "source": "submit",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1794845384.577,
+    "title": "Zealynx Defence: paid security training and practical help with suspicious messages",
+    "summary": "Build a paid training programme that helps Ethereum teams verify suspicious requests and practise safer decisions. One subscription includes the paid course library and a case assistant that explains suspicious messages, suggests verification steps and recommends training. Three free checks introduce the tool. TheDAO supports creation; subscriptions sustain delivery and updates.",
+    "details": "",
+    "sections": {
+      "why": "An attacker can reach Ethereum assets through the people controlling accounts, devices and signing permissions. The [FBI](https://www.ic3.gov/PSA/2024/PSA240903) documents tailored social engineering against crypto employees. Teams need people who can verify a request and respond appropriately, including when a convincing message lacks enough evidence to trust it.\n\nWe will teach those decisions through practice and a fresh assessment, then provide guidance when a new situation arises. Completion will demonstrate scoped skills, not certify that someone cannot be deceived.",
+      "in_scope": "One foundation course covering verification, accounts, devices, payments, signing and escalation; 30 reviewed case records; 12 exercises with legitimate counterparts and fresh assessment. These establish an expandable curriculum rather than a fixed list of scams.\n\nA text-based case assistant explains supported patterns, uncertainty and protective steps, and recommends lessons. Team assignment and completion records support onboarding. Shared research becomes professional briefs, exercises, assistant references and newsletter material, with source dates and human review before publication.\n\nAdapt suitable channel videos into free platform resources, with Carlos's narration and Zealynx explanatory cards instead of the primate character, reusing rights-cleared material.",
+      "out_scope": "Audits, guaranteed scam detection, automatic actions, continuous inbox monitoring, unlimited coaching and payment for completed work.",
+      "team": "Carlos Vendrell leads Zealynx's security work and Academy. Zealynx owns the platform and delivers the programme. Earlier Academy support was 6.4466 ETH, valued at $12,008 when sent in [TheDAO's transparency record](https://thedao.fund/transparency/); previously funded work is excluded.",
+      "why_grant": "Academy Defence already provides simulated security drills. Our Primate explain hacks channel supplies sourced scam and hack research. Reusing these assets reduces new work; the grant funds structured learning, assessment, reviewed guidance and additional software.",
+      "commitments": "- Maintain funded materials and essential corrections for 12 months from release; customer revenue supports subsequent operation.\n- Publish new rights-cleared teaching handouts and assessment criteria under CC BY 4.0; existing software and third-party material retain their licences.\n- Preserve existing free/member rights and private case inputs. Pin assessment, payment and distinct-person verification rules before recruitment."
+    },
+    "milestones": [
+      {
+        "name": "Reviewed course and assessment",
+        "amount": 10000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Independent reviewer accepts the complete course, 30 sourced records, 12 exercises and fresh-task assessment rubric.",
+          "Publish the incremental-work and prior-funding reconciliation."
+        ]
+      },
+      {
+        "name": "Case assistant and hosted delivery",
+        "amount": 10000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Independent reviewer reproduces the learner/team journey and accepts privacy controls and assistant guidance against an agreed 80-case test set, with a sanitised report."
+        ]
+      },
+      {
+        "name": "Paid learning and sustainable operation",
+        "amount": 10000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "500 distinct paying outside Ethereum/L2 learners complete the course and fresh assessment; independent review excludes staff, bots, duplicates, refunds and grant-paid seats.",
+          "Three consecutive months of earned customer revenue after fulfilment costs cover ongoing labour, support and maintenance; independent review excludes grants and unearned subscription billings."
+        ]
+      }
+    ],
+    "links": [
+      "https://academy.zealynx.io/defense",
+      "https://www.zealynx.io/"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

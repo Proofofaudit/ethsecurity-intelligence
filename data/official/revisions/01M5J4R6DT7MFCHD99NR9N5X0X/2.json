@@ -1,0 +1,94 @@
+{
+  "revision": {
+    "n": 2,
+    "author": "0x839395e20bbB182fa440d08F850E6c7A8f6F0780",
+    "source": "admin",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1792926225.887,
+    "title": "SEAL Security Frameworks: Maintaining open security knowledge for Ethereum (scope: Infra, AI and Front-end)",
+    "summary": "Frameworks turns practitioners' know-how into free, open Ethereum security guidance. This grant funds research, review and maintenance to complete AI, infrastructure and frontend sections for people and agents. Experienced external practitioners will steward subjects, contribute knowledge and improve the reference through recurring review and use in their own security work.",
+    "details": "",
+    "sections": {
+      "why": "Frameworks has significant ongoing maintenance costs and no monetization: practical security know-how stays free for every team. Research, source checks, technical review, updates and releases recur as the reference grows and becomes agent-readable. This grant funds that capacity.\n\nA developer workstation, cloud account or compromised frontend can put users' funds at risk. Chainalysis recorded over $3.4 billion in crypto theft in 2025, including the $1.5 billion Bybit theft. Sygnia traced the attack from a compromised developer workstation through reused AWS sessions to altered JavaScript served from Safe's S3 bucket, leading signers to approve a disguised transaction.\n\nThe Nx s1ngularity attack used AI command-line tools to search developer machines for credentials; investigators reported over 2,000 exposed secrets and about 1,700 affected users. Funded sections address developer AI, infrastructure access and frontend delivery. Frameworks publishes machine-readable guidance, extending the reference to agents.",
+      "in_scope": "1. AI security: at least 4 new or substantively expanded pages covering coding-assistant permissions, secret separation, tool and MCP trust, and isolation, plus a team usage-policy template. Reuse existing DevSecOps isolation guidance.\n2. Infrastructure: finish the cloud, identity and access management, zero trust and operating system security pages, covering account isolation, sessions, API keys, privileged access and secrets.\n3. Frontend: finish the overview, web application security, common vulnerabilities and tools pages, with configurations for security headers, Content Security Policy, subresource integrity, hosting and CDN access.\n4. Research, source checks, specialist review, configuration validation, and documented assumptions and limitations.\n5. Recruit experienced external stewards for defined subjects; coordinate recurring reviews and integrate compatible, licensed guides with attribution.\n6. Document external organizations' use of the guidance in existing Ethereum security work and upstream resulting improvements.\n7. Maintain funded pages and shared publishing and release processes; update sources, resolve conflicts and publish corrections.",
+      "out_scope": "1. Performing individual assessments, implementation engagements or onboarding for external teams.\n2. A new assessment platform, rating system, certification, scanner or security product.\n3. New content programs outside the three funded areas.",
+      "team": "1. Matta (mattaereal), initiative lead. Leads SEAL Security Frameworks: sets its direction and scope, and does technical review. Founder of The Red Guild. https://github.com/mattaereal \n\n2. Sara (scode2277), co-maintainer. Maintains Frameworks day-to-day: content, reviews, contributor coordination, and releases. https://github.com/scode2277",
+      "why_grant": "SEAL is a 501(c)(3) nonprofit founded by samczsun. Frameworks has 30+ sections shaped by dozens of contributors. It periodically shares relevant TLP:GREEN information; DPRK/IT worker guidance is one of the things that draws on SEAL Intel. Frameworks coordinates with SEAL Certs to align overlapping guidance. Its site, contribution process, machine-readable exports, and releases already exist.\n\nAt proposal baseline, AI had seven short pages; frontend and most infrastructure pages were unpublished drafts on the development site. The grant funds completion, knowledge integration, and maintenance. The OPSEC Ratings Coalition initiative lists Frameworks as prior art.\n\nDeveloping and maintaining authoritative security documentation demands years of dedicated research and significant institutional support, as demonstrated by foundational public goods like MDN, Wikipedia, the OWASP Top 10, and the NIST Cybersecurity Framework. While consuming these resources is seamless, sustaining them requires long-term commitment. Supporting Frameworks directly funds this critical security reference for the Web3 ecosystem while extending SEAL's current operational runway of 8.5 months.",
+      "commitments": "1. Publish content under CC BY-SA 4.0, with source-license compatibility checked before external material is incorporated.\n2. Keep grant scope, contributions, attribution, technical reviews, releases and maintenance records public.\n3. Matta and Sara remain maintainers through the established review and release cycle.\n4. Stewards take named responsibility for subjects across the funded areas and complete recurring technical reviews of the guidance.\n5. Relevant experience is evidenced by published research, assessments, incident response, security operations or maintained guidance.\n6. Counted organizations are independent of SEAL, The Red Guild and grant delivery. Grant-funded maintainers are excluded; each organization and its named steward count once.\n7. Qualifying external use is a public record showing an independent organization applied funded guidance in its own completed Ethereum assessment or operational review, linking it to checks and conclusions. A citation alone does not qualify.\n8. Contributors retain attribution. Funding confers no editorial approval or privileged access.\n9. Generate machine-readable material from the reference and link it to source pages and releases."
+    },
+    "milestones": [
+      {
+        "name": "AI security expansion",
+        "amount": 11000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 4 AI pages and the policy template are published on the production site and in the changelog.",
+          "An external AI specialist approves the section in public PR reviews; source checks and configuration validation are linked."
+        ]
+      },
+      {
+        "name": "Infrastructure finished and published",
+        "amount": 11000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "The 4 infrastructure pages named in scope are published on the production site and in the changelog.",
+          "An external infrastructure specialist approves the pages in public PR reviews; source checks and configuration validation are linked."
+        ]
+      },
+      {
+        "name": "Frontend security finished and published",
+        "amount": 11000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "The 4 frontend pages and configurations named in scope are published on the production site and in the changelog.",
+          "An external web security specialist approves the section in public PR reviews; configuration results and control limitations are linked."
+        ]
+      },
+      {
+        "name": "Experienced stewardship and first external use",
+        "amount": 5000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 5 experienced practitioners from 3 independent organizations each complete a public technical review and substantive merged contribution. The independent reviewer verifies experience and named responsibilities in the stewardship register.",
+          "At least 1 of those organizations demonstrates qualifying external use in its own completed review and contributes an improvement arising from that use, verified by the independent technical reviewer from public artifacts.",
+          "At least 3 AI-focused web3 companies self-report that they used SEAL Frameworks to improve their security set-up At least 1 must have a Token TVL of $10M or assets governed of over $1M."
+        ]
+      },
+      {
+        "name": "Sustained stewardship, external reuse and maintenance",
+        "amount": 12000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 5 counted stewards each complete technical work in 2 separate review cycles, verified from public reviews and merged contributions by the independent reviewer.",
+          "Cumulatively at least 7 counted organizations each demonstrate qualifying external use and contribute an improvement arising from that use, 2 of which have a token with a market cap of over $100M or assents being governed of over $50M verified by the independent technical reviewer from public artifacts.",
+          "All 6 monthly logs are public; each funded page lists its owner, review status and remaining work. The independent reviewer verifies that machine-readable exports match the pages and link to sources.",
+          "At least 10 AI-focused web3 companies self-report that they used SEAL Frameworks to improve their security set-up At least 4 must have a Token TVL of $10M or assets governed of over $1M."
+        ]
+      }
+    ],
+    "links": [
+      "https://github.com/security-alliance/frameworks",
+      "https://frameworks.securityalliance.org/",
+      "https://frameworks.securityalliance.dev/",
+      "https://frameworks.securityalliance.org/changelog"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

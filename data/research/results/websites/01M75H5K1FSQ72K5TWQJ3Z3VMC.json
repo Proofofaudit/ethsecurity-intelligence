@@ -1,0 +1,88 @@
+{
+  "checks": [
+    {
+      "url": "https://arxiv.org/abs/2501.04600",
+      "status": 200,
+      "finalUrl": "https://arxiv.org/abs/2501.04600",
+      "title": "[2501.04600] Do Automated Fixes Truly Mitigate Smart Contract Exploits?",
+      "description": "Abstract page for arXiv paper 2501.04600: Do Automated Fixes Truly Mitigate Smart Contract Exploits?",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:55.030Z"
+    },
+    {
+      "url": "https://arxiv.org/abs/2511.02780",
+      "status": 200,
+      "finalUrl": "https://arxiv.org/abs/2511.02780",
+      "title": "[2511.02780] PoCo: Agentic Proof-of-Concept Exploit Generation for Smart Contracts",
+      "description": "Abstract page for arXiv paper 2511.02780: PoCo: Agentic Proof-of-Concept Exploit Generation for Smart Contracts",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:55.031Z"
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.13191",
+      "status": 200,
+      "finalUrl": "https://arxiv.org/abs/2608.13191",
+      "title": "[2608.13191] Smart Contract Invariants Protect Against Cybercriminals",
+      "description": "Abstract page for arXiv paper 2608.13191: Smart Contract Invariants Protect Against Cybercriminals",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:55.031Z"
+    },
+    {
+      "url": "https://mab.xyz/",
+      "status": 200,
+      "finalUrl": "https://mab.xyz/",
+      "title": "mab.xyz - Web3 Security Firm in Stockholm",
+      "description": "mab.xyz is a web3 security firm in Stockholm. Deep expertise in smart contract, blockchain infrastructure and software supply chain security.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:53.941Z"
+    },
+    {
+      "url": "https://sofiabobadilla.github.io/",
+      "status": 200,
+      "finalUrl": "https://sofiabobadilla.github.io/",
+      "title": "Sofia Bobadilla · Smart Contract Security",
+      "description": "Sofia Bobadilla, PhD student at KTH researching smart contract security, exploit generation and automated repair.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:54.098Z"
+    },
+    {
+      "url": "https://web.archive.org/web/20260211213355/https://esp.ethereum.foundation/rounds/phdfp26/phdfp-rfpd1",
+      "status": 200,
+      "finalUrl": "https://web.archive.org/web/20260211213355/https://esp.ethereum.foundation/rounds/phdfp26/phdfp-rfpd1",
+      "title": "Apply for AI-Powered Protocol Security: Research, Auditing, and Vulnerability Detection | Ethereum Foundation ESP",
+      "description": "Submit your application for: AI-Powered Protocol Security: Research, Auditing, and Vulnerability Detection - This RFP covers two distinct research directions: (1) Protocol Specification Research (2) Smart Contract Security Auditing Applica…",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:55.031Z"
+    },
+    {
+      "url": "https://www.monperrus.net/martin",
+      "status": 404,
+      "finalUrl": "https://www.monperrus.net/martin",
+      "title": null,
+      "description": null,
+      "contentType": "text/html",
+      "ok": false,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:54.168Z"
+    }
+  ]
+}

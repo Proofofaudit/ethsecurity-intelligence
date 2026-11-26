@@ -1,0 +1,100 @@
+{
+  "checks": [
+    {
+      "url": "https://huggingface.co/datasets/Farseen0/scar-corpus",
+      "status": 200,
+      "finalUrl": "https://huggingface.co/datasets/Farseen0/scar-corpus",
+      "title": "Farseen0/scar-corpus · Datasets at Hugging Face",
+      "description": "Dataset with 231k rows (Text). Explore, preview and download it on Hugging Face.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:35.207Z"
+    },
+    {
+      "url": "https://scarai.xyz",
+      "status": 200,
+      "finalUrl": "https://scarai.xyz/",
+      "title": "SCAR AI — the verification layer for machine-written code",
+      "description": "SCAR forks the chain one block before a real exploit, replays the attack against a fix, tests that legitimate use still works, and returns a verdict with receipts: solved, not solved or inconclusive.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:35.208Z"
+    },
+    {
+      "url": "https://scarai.xyz/receipts/",
+      "status": 200,
+      "finalUrl": "https://scarai.xyz/receipts/",
+      "title": "Receipts — SCAR AI",
+      "description": "All 48 graded test fixes across four real exploits: 11 solved, 15 that stop the exploit and still fail, 6 inconclusive. Each with its checks, patch and hashes.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:35.208Z"
+    },
+    {
+      "url": "https://scarai.xyz/revisions/",
+      "status": 200,
+      "finalUrl": "https://scarai.xyz/revisions/",
+      "title": "Revision review — SCAR AI",
+      "description": "A verdict is only true for the code it ran on. SCAR re-runs its checks on each new revision, marks which requirements changed, refuses to reuse an old result and blocks approval when a check disappears. Preview on public OpenZeppelin and S…",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:35.209Z"
+    },
+    {
+      "url": "https://thedao.fund/transparency/scar-ai-retrieval-for-smart-contract-security",
+      "status": 200,
+      "finalUrl": "https://thedao.fund/transparency/scar-ai-retrieval-for-smart-contract-security/",
+      "title": "SCAR: AI Retrieval for Smart Contract Security — funded for Ethereum security | TheDAO Security Fund",
+      "description": "Full breakdown of the funding SCAR: AI Retrieval for Smart Contract Security received for Ethereum security. Public, verifiable, on-chain.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:35.334Z"
+    },
+    {
+      "url": "https://www.coindesk.com/tech/2026/07/23/bitcoin-ethereum-linked-protocols-lose-usd35-million-in-multiple-attacks-hours-apart",
+      "status": 429,
+      "finalUrl": "https://www.coindesk.com/tech/2026/07/23/bitcoin-ethereum-linked-protocols-lose-usd35-million-in-multiple-attacks-hours-apart",
+      "title": "Vercel Security Checkpoint",
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": false,
+      "inconclusive": true,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:35.345Z"
+    },
+    {
+      "url": "https://www.intellimation.ai/",
+      "status": 200,
+      "finalUrl": "https://www.intellimation.ai/",
+      "title": "Intellimation.ai",
+      "description": "intellimation.ai is an enterprise AI software provider - not a model lab, not a chatbot - that builds production AI applications operating at the inference layer, wrapping any underlying LLM in proprietary financial-domain intelligence to …",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:35.347Z"
+    },
+    {
+      "url": "https://www.trmlabs.com/resources/blog/h1-2026-crypto-hacks-reach-record-high-as-losses-fall-below-usd-1-billion",
+      "status": 200,
+      "finalUrl": "https://www.trmlabs.com/resources/blog/h1-2026-crypto-hacks-reach-record-high-as-losses-fall-below-usd-1-billion",
+      "title": "2026 Crypto Hacks: Record Incidents, Losses Halve | TRM Labs",
+      "description": "Crypto hack incidents hit a record 207 in H1 2026, but losses fell to USD 972M. TRM’s analysis breaks down North Korea’s role and the two threat models defining 2026.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:35.352Z"
+    }
+  ]
+}

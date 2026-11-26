@@ -1,0 +1,92 @@
+{
+  "revision": {
+    "n": 3,
+    "author": "0x7767FB920338eED6Fe68A4d7C411f84a3F24f20c",
+    "source": "admin",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1794558734.998,
+    "title": "NorthScan: DPRK IT Worker Screening for the Ethereum Ecosystem",
+    "summary": "NorthScan will provide approved Ethereum organizations with a controlled service for screening GitHub profiles for behavioral, identity and network signals associated with DPRK IT worker activity. The six-month pilot will combine automated assessments with selected human review, practical integration resources and measurable adoption across the ecosystem. The grant will also validate a sustainable freemium and paid-access model for trusted organizations.",
+    "details": "",
+    "sections": {
+      "why": "Ethereum organizations often evaluate remote contributors through fragmented checks that miss coordinated GitHub activity, fabricated professional identities and network patterns associated with DPRK IT worker operations. General KYC and background-check services rarely provide this GitHub-specific threat context.\n\nAfter this pilot, approved organizations will be able to submit a public GitHub profile before hiring, funding or granting technical access and receive a structured, evidence-based assessment with confidence levels and selected human review. This will support better-informed decisions while treating the results as risk signals rather than definitive attribution.",
+      "in_scope": "* A secure, access-controlled screening API for approved organizations. It will accept a public GitHub username or profile URL and return a structured JSON assessment containing relevant behavioral, identity and network signals, supporting evidence and confidence levels.\n\n* Secure pilot infrastructure, including API-key authentication, rate limiting, usage logging, credential revocation, persistent database hosting and a documented process for escalating selected assessments to human review.\n\n* Public integration resources: API documentation, JSON schema, synthetic examples and a lightweight open-source SDK that participating organizations can use from their own environments.\n\n* A controlled pilot with at least 10 independent Ethereum ecosystem organizations, at least 100 non-test profile assessments and at least 10 participant-submitted cases receiving human analyst review.\n\n* Demonstrated technical adoption, with at least five participating organizations using the documented API or SDK from their own environments and at least three participants providing documented feedback.\n\n* A whitelisted freemium model for trusted organizations, including a small allowance of free screenings, proposed paid tiers and access safeguards.\n\n* Commercial validation of the service, including a concise sustainability plan and evidence of initial organizations paying for screening capacity.\n\n* A concise public GitHub screening guide describing defensive indicators and appropriate interpretation of results without disclosing NorthScan’s private detection logic, database or sensitive intelligence.\n\nThe funding pays for engineering and security hardening, hosting and database infrastructure, API and SDK development, documentation, pilot onboarding and support, human analyst time, participant coordination, and validation of a sustainable operating model beyond the grant.",
+      "out_scope": "* No public dashboard or unsupervised access to NorthScan’s internal intelligence platform.\n\n* No public release of NorthScan’s private source code, intelligence database, detection rules, scoring methodology or sensitive investigative material.\n\n* No ATS, HRIS, KYC provider, identity-verification or background-check integration during this grant.\n\n* No access to private GitHub accounts or repositories, compromised credentials or non-public platform data. Assessments use publicly available information.\n\n* No mass collection or enrichment of personal information, broad email discovery, wallet tracing or continuous monitoring of every assessed profile.\n\n* No public bulk IOC feed or commitment to produce recurring threat-intelligence reports. Public reporting is limited to the concise screening guide and approved aggregate pilot findings.\n\n* No unlimited human investigations. Human review is limited to the cases specified in the milestones.\n\n* No automated hiring rejection, legal determination or definitive attribution of a person to the DPRK. NorthScan provides evidence-based risk signals to support decisions made by participating organizations.\n\n* No 24/7 incident-response service, guaranteed detection of every DPRK IT worker or guaranteed prevention of infiltration.",
+      "team": "NorthScan is led by Heiner García Pérez, an independent cyber threat intelligence researcher specializing in DPRK IT worker activity, OSINT, HUMINT, financial crime and GitHub-based investigations. Heiner will lead the research, product direction, screening methodology, pilot operations, human reviews and participant support. Limited specialist support may be contracted for discrete engineering or infrastructure tasks, but Heiner remains accountable for every milestone.\n\nRelevant work and track record:\n\n* NorthScan: https://northscan.co/\n* About NorthScan: https://northscan.co/about\n* The GitHub Diaries: https://northscan.co/articles/github-diaries\n* ANY.RUN investigation, Part 1: https://any.run/cybersecurity-blog/lazarus-group-it-workers-investigation/\n* ANY.RUN investigation, Part 2: https://any.run/cybersecurity-blog/lazarus-group-it-workers-investigation-part-two/\n* Insomni’hack presentation: https://insomnihack.ch/talks/smile-youre-on-camera-livestreaming-from-north-koreas-it-workers-laptop-farm/\n* Security Alliance contribution: https://radar.securityalliance.org/from-north-korean-it-workers-to-it-recruiters/\n\nNorthScan previously received approximately $2,000 in community funding through Giveth and TheDAO Security Fund. The remaining development and research have primarily been self-funded, and there is no other committed funding for the work described in this proposal.\n\nNorthScan owns and operates the private screening platform, intelligence registry and detection methodology used for this initiative. ANY.RUN and BCA LTD were research collaborators on the linked investigations but are not recipients of this grant. NorthScan does not own or maintain GitHub, Giveth, TheDAO, ANY.RUN or Security Alliance codebases, and no external organization named above controls the proposed service.",
+      "why_grant": "NorthScan is not starting from a concept. A working private intelligence platform already stores and connects GitHub accounts, public commit-email observations, sources and provenance; performs GitHub profile lookups; preserves profile snapshots; maps follower and following networks; identifies network communities and evidence similarities; and supports analyst review and exportable assessments. The underlying database, investigative rules and detection logic are private, but designated TheDAO curators can receive a supervised live walkthrough without receiving access to the source code or intelligence database.\n\nThis foundation was developed from more than two years of direct research into DPRK IT worker operations. Public evidence of that work includes:\n\n* NorthScan research: https://northscan.co/\n* The GitHub Diaries: https://northscan.co/articles/github-diaries\n* ANY.RUN investigation, Part 1: https://any.run/cybersecurity-blog/lazarus-group-it-workers-investigation/\n* ANY.RUN investigation, Part 2: https://any.run/cybersecurity-blog/lazarus-group-it-workers-investigation-part-two/\n* Security Alliance contribution: https://radar.securityalliance.org/from-north-korean-it-workers-to-it-recruiters/\n\nThe grant therefore pays to harden and adapt an existing research platform into a controlled screening service: secure API access, documentation, a lightweight SDK, pilot operations, selected human review and adoption validation. The $50,000 price is below a from-scratch build because the core platform, intelligence corpus, investigative methodology and working GitHub-analysis workflows already exist. Public release of the internal codebase, database or detection logic is not included because these are NorthScan’s core security and investigative assets.",
+      "commitments": "Licensing\n\n* The lightweight client SDK and synthetic integration examples will be published under the MIT License.\n* The API documentation, JSON schema and public GitHub screening guide will be published under CC BY 4.0.\n* Published materials will remain publicly accessible after the grant.\n\nMaintenance\n\n* NorthScan will maintain the published SDK, documentation and examples for at least 12 months after the final milestone, including critical security, compatibility and documentation fixes.\n* The hosted screening service will remain available to approved organizations for at least six months after the final milestone while the validated freemium and paid-access model supports longer-term operation.\n* This maintenance commitment does not include major new features, unlimited screenings, unlimited human investigations or 24/7 support.\n\nPinned targets\n\nThe milestone amounts and acceptance targets are fixed as submitted. In particular, the adoption payment remains conditional on evidence of at least 10 participating organizations, 100 non-test assessments, 10 human-reviewed cases, five organizations using the API or SDK from their own environments, documented feedback from three participants, and at least three participating organizations purchasing additional screening capacity at the published pilot price.\n\nRequested exception\n\nNorthScan’s internal platform source code, intelligence database, detection rules, scoring methodology and sensitive investigative material will remain private and proprietary. The hosted API will remain restricted to approved organizations rather than becoming permissionless or publicly accessible, because unrestricted access could expose investigative methods, enable evasion or create privacy and abuse risks."
+    },
+    "milestones": [
+      {
+        "name": "Name: Secure Screening Service and Pilot Readiness",
+        "amount": 17000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "An authenticated screening endpoint accepts a public GitHub username or profile URL and returns a structured JSON assessment.",
+          "Each assessment includes relevant behavioral, identity and network signals, confidence levels and supporting public evidence.",
+          "API-key authentication, rate limiting, usage logging and credential revocation are implemented.",
+          "Persistent database infrastructure and reliable pilot hosting are configured.",
+          "A documented workflow exists for escalating selected assessments to human analyst review.",
+          "NorthScan provides the appointed independent technical reviewer with a private live walkthrough of its existing internal platform and the new screening workflow, without disclosing its database, source code or detection logic. The same walkthrough is available to designated TheDAO curators upon request",
+          "The service is ready to issue credentials to approved pilot participants by the end of Month 2."
+        ]
+      },
+      {
+        "name": "Pilot Launch and Public Integration Resources",
+        "amount": 8000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "The screening API is available for onboarding approved pilot participants.",
+          "A lightweight client SDK is published in a public GitHub repository under the MIT License.",
+          "API documentation, a JSON schema and synthetic integration examples are published.",
+          "Participant onboarding, authentication, usage and API-key revocation instructions are completed.",
+          "A concise GitHub screening guide is published under CC BY 4.0, describing defensive indicators, limitations and appropriate interpretation of results.",
+          "Published documentation explains that assessments provide risk signals rather than definitive attribution or automated hiring decisions."
+        ]
+      },
+      {
+        "name": "Whitelisted Freemium and Sustainability Model",
+        "amount": 5000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "A documented eligibility and approval process is established for organizations requesting access.",
+          "A controlled freemium tier is implemented, providing each approved organization with three free screening requests.",
+          "Published pilot pricing is established for additional automated assessments and optional human review.",
+          "A basic paid-access and usage-tracking workflow is implemented and tested without exposing payment or customer information.",
+          "A sustainability plan documents expected hosting, maintenance and analyst costs and explains how paid usage can support the service after the grant.",
+          "Access, abuse prevention, data handling, retention and credential-revocation terms are documented."
+        ]
+      },
+      {
+        "name": "Proven Adoption by Ethereum Ecosystem Organizations",
+        "amount": 20000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 10 independent Ethereum ecosystem organizations use the NorthScan service for real contributor, contractor or technical-access screening, with each organization submitting at least five non-test requests.",
+          "Participating organizations request and receive at least 100 non-test GitHub profile assessments through the pilot.",
+          "At least 10 participant-submitted assessments receive human analyst review and are delivered back to the requesting organizations.",
+          "At least five participating organizations use the published SDK or documented API from their own environments to submit screening requests.",
+          "At least three participating organizations provide documented feedback describing their use of the service, its usefulness, limitations or desired improvements.",
+          "At least three participating organizations purchase additional screening capacity at the published pilot price.",
+          "The appointed independent technical reviewer receives anonymized usage records or private participant confirmations sufficient to verify these adoption results without publicly identifying screened individuals."
+        ]
+      }
+    ],
+    "links": [],
+    "structured": true,
+    "goalUsd": null
+  }
+}

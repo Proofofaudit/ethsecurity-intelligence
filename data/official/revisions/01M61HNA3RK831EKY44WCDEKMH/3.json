@@ -1,0 +1,113 @@
+{
+  "revision": {
+    "n": 3,
+    "author": "0x1f0AfcfceFC98e8D9f4A82974e527429D665Acb7",
+    "source": "admin",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1793281239.545,
+    "title": "Keep ETH InfraOps Open, Secure & Resilient: Validator Operation Standard Adoption Programme",
+    "summary": "ValOS (Validator Operations Standard) is an open-source security standard, risk and controls framework, and collection of best practices for secure and resilient Ethereum node operations. Developed with contributors across staking operations, exchanges, risk, cybersecurity and assurance, ValOS evolved through two community releases, the first in 2024 and the full standard in Sep 2026.\n\nThe ValOS Operational Adoption Programme (VOAP) will drive adoption across two parts of the Ethereum ecosystem:\n- Staking: Node operators and staking pools use ValOS to assess and improve operational security, while staking protocols use ValOS evidence in operator oversight and decisions.\n- Security & Assurance: Auditors, ratings providers, monitoring platforms, risk providers, and other security parties incorporate ValOS into their existing security services and products.\n\nOver 18 months, VOAP will coordinate these efforts, targeting 12 organisations that demonstrably use and embed ValOS in their operations, products, services or decisions, with mechanisms to maintain security and resilience over time.",
+    "details": "",
+    "sections": {
+      "why": "**ValOS is currently the only open-source standard for Ethereum validator operational security.** Other industry standards exist, but they restrict how people can use, modify or build upon them.\n\nValOS is free for anyone to adopt, adapt and extend, including for commercial use. This makes security controls accessible to more operators, while allowing auditors, monitoring platforms, ratings providers and other security companies to build their own tools and services to assess, monitor and improve infrastructure security.\n\n**The ValOS standard has already been developed and gone through two rounds of updates and improvements. The next step is adoption.** The priority now is to put this work into practice, with organisations implementing security controls in their day-to-day operations to reduce risks, prevent failures and improve Ethereum infrastructure resilience.\n\n**VOAP brings the same openness to adoption.** It helps operators implement ValOS security controls and security providers independently assess, monitor and support those practices. Together, they help ensure security improvements are not just documented, but implemented and maintained over time.\n\nThe programme will openly share adoption approaches, progress, challenges and lessons learned, while protecting confidential and security-sensitive information.\n\n**Each adoption makes the next one easier.** Others can learn from what works, reuse proven security practices and build on previous work instead of starting from scratch. This allows security improvements made by one organisation to benefit others across Ethereum.\n\nAs more organisations adopt ValOS, their practical experience can also help improve the standard, keeping its security controls relevant as Ethereum infrastructure and risks evolve.\n\n**The goal is not simply to have an open security standard, but to put it to work — building an open, community-driven security ecosystem where more operators implement stronger security controls, independent providers help maintain them, and shared learning makes Ethereum infrastructure safer and more resilient.**",
+      "in_scope": "VOAP will deliver a coordinated, open adoption programme across Ethereum's staking and security and assurance ecosystems.\n\nThe programme will identify and develop adoption opportunities, recruit prospective adopters, facilitate ValOS integration into existing operations, products and services, and drive the ongoing application of security and resilience practices.\n\nThe work is organised into three areas.\n\n**1. Staking Ecosystem: Implementing ValOS in Validator Operations**\n\nVOAP will drive adoption among infrastructure operators and staking organisations through two pathways:\n\n- **Self-assessment:** Recruit and support operators to assess their security practices against ValOS, identify gaps, apply relevant controls and declare their alignment with the standard, without requiring paid third-party certification.\n- **Independent assessment:** Connect operators with qualified external assurance providers and facilitate access to ValOS-based independent assessments.\n\nVOAP will also work with staking protocols, pools and institutional stakers to develop ways of incorporating ValOS assurance evidence into operator selection, oversight and incentives.\n\nThe objective is to embed ValOS into how Ethereum staking organisations assess, manage and continuously improve their operational security and resilience.\n\n**2. Security & Assurance Ecosystem: Integrating ValOS into Security Services**\n\nVOAP will drive adoption among organisations that assess, secure, monitor and support Ethereum validator infrastructure, across six areas:\n\n- **Assurance & certification:** Integrate ValOS into independent security assessments, certification, control verification and ongoing assurance.\n- **Ratings & risk intelligence:** Incorporate ValOS into validator security ratings, operator evaluations and risk analytics.\n- **Security monitoring & detection:** Use ValOS risks and controls in monitoring, alerting and ongoing security oversight.\n- **Infrastructure security technologies:** Build upon ValOS in validator security tooling, key management, distributed validator technology (DVT) and infrastructure protection services.\n- **Incident response & resilience:** Incorporate ValOS into incident preparedness, response, recovery testing and operational resilience services.\n- **Financial security & risk protection:** Use ValOS assurance evidence in underwriting, insurance, slashing protection and security-related risk decisions.\n\n**Every VOAP-supported integration must address how security practices or assurance remain effective and relevant over time.** VOAP will make continuity a core requirement of its adoption partnerships, including suitable mechanisms for ongoing monitoring, periodic reviews, remediation follow-up or reassessment after material changes and incidents.\n\nThe specific mechanisms will be designed, implemented and maintained by the adopting organisations themselves.\n\nThe objective is to embed ValOS into the existing services and technologies that help Ethereum infrastructure prevent security failures, detect problems, respond, recover and improve.\n\n**3. Open Adoption: Making Adoption Open, Collaborative and Reusable**\n\nVOAP will operate as an **Open Adoption Programme**, allowing anyone in the Ethereum ecosystem to participate, propose adoption opportunities, contribute to integrations and build upon existing work.\n\nVOAP will:\n\n- **Maintain an open adoption register:** Publish opportunities, their proposed ValOS applications, progress, obstacles and next steps, so others can participate or pursue them independently.\n- **Document adoption work as it happens:** Share outreach approaches, integration methods, decisions, outcomes and lessons learned, including unsuccessful efforts, while protecting confidential and security-sensitive information.\n- **Publish reusable adoption resources:** Make non-confidential integration examples, practical guidance and relevant materials openly available so other organisations can adapt and extend them.\n- **Enable community participation and continuity:** Allow external contributors to propose opportunities, contribute improvements and continue adoption efforts using existing ValOS infrastructure, without depending on Lionscraft.\n\n**The result is an open, reusable body of adoption work that grows with each contribution.** Every adoption can make the next easier, while helping the Ethereum ecosystem independently expand, maintain and improve the use of ValOS.",
+      "out_scope": "- Performing audits, security assessments or certification.\n- Operating or securing third-party validator infrastructure.\n- Building or maintaining partners' security products or services.\n- Creating new assurance, ratings or certification standards.\n- Routine ValOS governance, standards maintenance or publication of ValOS v2.\n- Funding or administering existing Lido assessment subsidies.\n- Adoption outside the Ethereum ecosystem.",
+      "team": "**[Lionscraft](https://www.lionscraft.io/) has been the lead contributor, coordinator and maintainer of D.U.C.K. and subsequently ValOS since the initiative began in 2023.** Over nearly three years, Lionscraft has led the development, publication and ongoing improvement of the standard, its security controls, tools and best practices.\n\nThe initiative has involved contributions from 20 organisations across Ethereum staking, node operations, cybersecurity, risk and assurance. Lionscraft coordinated their participation, bringing together organisations with different expertise and levels of involvement. Some were major contributors to the standard and its supporting resources, while others provided specialist input, reviewed specific sections or contributed to individual controls and practices.\n\nThis experience is directly relevant to VOAP. Lionscraft has already demonstrated its ability to coordinate diverse independent organisations around a shared, open-source security framework, manage contributions and turn that collaboration into published outputs. **VOAP builds on this experience, shifting the focus from developing ValOS to driving its adoption across the Ethereum ecosystem.**",
+      "why_grant": "**ValOS is the result of nearly three years of development and industry collaboration, originally initiated and funded through Lido.**\n\nBeginning with D.U.C.K. in November 2023, the initiative evolved through two phases of development, delivering an open-source security standard, risk and controls framework, assessment resources, toolkits and best practices for Ethereum validator operations. The full ValOS standard launched in September 2026.\n\nThe work has already delivered:\n\n- **An open-source standard:** Published security risks, controls, mitigation practices and assessment guidance, available for anyone to use, adapt and extend.\n- **Tools and best practices:** Existing resources that support operators in assessing and improving their security and resilience.\n- **Industry collaboration:** Contributions from 20 organisations across staking operations, exchanges, cybersecurity, risk and assurance.\n- **An independent assessment pathway:** Qualified third-party assessors can evaluate operators against ValOS. Lido will also subsidise part of the assessment costs for four early-adopter node operators.\n\nWith the standard, toolkits and best practices now established, the next phase is accelerating adoption across the wider Ethereum ecosystem.\n\n**Public documentation and prior work:** The initiative's development history is documented in the [original D.U.C.K. proposal on Lido Research](https://research.lido.fi/t/d-u-c-k-distributed-utilization-of-configurations-and-knowledge-proposal/5848), with its first published framework available in the [D.U.C.K. Knowledge Base](https://duck-initiative.gitbook.io/d.u.c.k.-knowledge-base). The subsequent development phase is documented in the [ValOS governance, assurance and adoption proposal](https://research.lido.fi/t/strengthen-d-u-c-k-governance-assurance-and-real-world-adoption/9849/4). Lido's continuing support for independent assessments is documented in the [early-adopter assessment subsidy proposal](https://research.lido.fi/t/proposal-funding-request-for-valos-early-adopter-assessment-subsidies/10657). The resulting open-source standard and its development history are available in the [ValOS GitHub repository](https://github.com/lidofinance/valos).",
+      "commitments": "- **Operational security adoption:** Drive real-world implementation of ValOS security controls among Ethereum infrastructure operators and integration into existing security and assurance services.\n- **Verifiable adoption:** Target at least 12 independently verifiable adopting organisations, including 6 staking infrastructure operators and 6 security and assurance providers.\n- **Open adoption:** Publicly document adoption opportunities, approaches, progress, outcomes and lessons learned, making non-confidential materials openly available for others to reuse and extend.\n- **Security and resilience continuity:** Ensure VOAP-supported adoptions address how operational security controls, assessments and assurance will be maintained, reviewed and improved over time.\n- **Independent verification:** Provide evidence of completed adoption milestones for independent review, while protecting confidential information and security-sensitive findings.\n- **Long-term sustainability:** Enable adopting organisations to maintain their own implementations and allow the wider Ethereum community to continue adoption efforts through existing ValOS infrastructure, independently of Lionscraft."
+    },
+    "milestones": [
+      {
+        "name": "Activate ValOS Adoption",
+        "amount": 12000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Identify at least 20 qualified prospective adopters across Ethereum's staking and security and assurance ecosystems, each with a specific ValOS security or resilience application; the independent reviewer verifies prospect records.",
+          "Deliver individualised ValOS adoption approaches to organisations in the initial pool, identifying the application and next action; the reviewer verifies dated correspondence."
+        ]
+      },
+      {
+        "name": "Drive Staking Ecosystem Adoption",
+        "amount": 21000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Deliver at least 10 documented operator-specific adoption actions involving ValOS self-assessment, independent assessment or ongoing security and resilience practices; the independent reviewer inspects correspondence and activity records.",
+          "Deliver at least 6 tailored proposals to staking protocols, pools or institutional stakers explaining how ValOS evidence could inform operator oversight, selection or incentives; the reviewer verifies proposals and delivery records."
+        ]
+      },
+      {
+        "name": "Drive Security & Assurance Ecosystem Adoption",
+        "amount": 21000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Deliver at least 10 documented provider-specific adoption actions involving real ValOS applications in assurance, ratings, monitoring, infrastructure security or financial risk services; the independent reviewer checks correspondence and activity records.",
+          "Deliver at least 6 tailored provider proposals describing a specific ValOS integration, relevant security risks and a partner-owned mechanism for continued assessment, monitoring or review; the reviewer verifies delivery records."
+        ]
+      },
+      {
+        "name": "Staking Ecosystem Operational Adoption — First 3 Operators",
+        "amount": 13500,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 3 independent Ethereum node operators, each running at least 30,000 ETH worth of mainnet validators, use ValOS through completed self-assessments or independent assessments",
+          "Each operator incorporates ValOS into its security-management processes and identifies responsibility for continued control review; the reviewer verifies the supporting records."
+        ]
+      },
+      {
+        "name": "Security & Assurance Ecosystem Operational Adoption — Second 3 Providers",
+        "amount": 13500,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 6 total independent Ethereum node operators, each running at least 30,000 ETH worth of mainnet validators, use ValOS through completed self-assessments or independent assessments, at least 1 of them a Lido node operator",
+          "Each provider incorporates ValOS into a repeatable service process with a mechanism for continued review, monitoring or reassessment; the reviewer inspects operating evidence, confidentially where necessary."
+        ]
+      },
+      {
+        "name": "Staking Ecosystem Operational Adoption — Third set of Operators",
+        "amount": 13500,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 9 total independent Ethereum node operators, each running at least 30,000 ETH worth of mainnet validators, use ValOS through completed self-assessments or independent assessments, at least 1 of them: Kiln, Figment, Chorus One, P2P, Everstake, or Coinbase.",
+          "Each operator incorporates ValOS into its security-management processes and identifies responsibility for continued control review; the reviewer verifies the supporting records."
+        ]
+      },
+      {
+        "name": "Security & Assurance Ecosystem Operational Adoption — Next 3 Providers",
+        "amount": 13500,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 3 additional independent security and assurance providers, not counted in the first security and assurance adoption milestone, use ValOS in actual Ethereum validator security assessments, ratings, monitoring, infrastructure-security services or risk decisions; the independent technical reviewer verifies real external service use.",
+          "Each provider incorporates ValOS into a repeatable service process with a mechanism for continued review, monitoring or reassessment; the reviewer inspects operating evidence, confidentially where necessary."
+        ]
+      }
+    ],
+    "links": [
+      "https://www.valos.global/",
+      "https://github.com/lidofinance/valos"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

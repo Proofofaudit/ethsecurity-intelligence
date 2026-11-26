@@ -1,0 +1,71 @@
+{
+  "revision": {
+    "n": 5,
+    "author": "0x839395e20bbB182fa440d08F850E6c7A8f6F0780",
+    "source": "admin",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1793187852.215,
+    "title": "Trust and Security Assessment Framework for Agentic DeFi",
+    "summary": "Owney turns its Trust and Security Assessment Framework for DeFi agents (13 subcategories, 3 platforms assessed) into an open, machine-readable standard and a continuous assessment pipeline that agent platforms integrate with. Today no independent, public, versioned assessment tells depositors which agents are safe to use.",
+    "details": "",
+    "sections": {
+      "why": "Autonomous agents move user liquidity across DeFi on Ethereum and its L2s. A model, a prompt, a hot key, an operator, every protocol touched: any one can lose the funds. Depositors (individuals and institutions) cannot tell a careful agent from a reckless one.\n\nNo agent has lost user funds yet. But during the KelpDAO rsETH exploit (April 2026, $124 million to $230 million of bad debt on Aave) and the Resolv USR depeg (March 2026, about $25 million extracted), Zyfai's agents exited early while depositors sat frozen in Aave (sources: https://www.bankless.com/read/agents-and-x402-make-defi-safer, https://x.com/Zyfai_/status/2036119040528375853). The same autonomy loses funds when screening, key management or incident response is weak. Afterwards, anyone can open the public board and see a current assessment of every integrated agent, re-checked at least every 14 days.",
+      "in_scope": "The board exists; this is not a website. The money buys:\n\n- Framework v2: criteria, evidence and scoring for every subcategory, as an open specification plus agent skills a pipeline can execute, and a performance pillar: one reporting format in place of self-reported APY, one metric combining returns with risk.\n- A continuous pipeline: platforms integrate once, re-assessment runs on a schedule and on change.\n- Re-assessing the 3 existing platforms and onboarding new ones.",
+      "out_scope": "- Building or operating any DeFi agent\n- Audits of any protocols\n- A returns leaderboard: the board never ranks agents by APY\n- A heavy platform build",
+      "team": "- Wiebe Hendriks, Founder & CEO Owney, https://www.linkedin.com/in/wiebe-hendriks/\n- Jeevesh Kuril, DeFi Researcher AtlasYield, https://www.linkedin.com/in/jeeveshkuril/\n- Maciej Poszywak, Security Researcher CODESPECT, https://www.linkedin.com/in/maciejcodespect/\n\nFramework v1 was co-developed with CODESPECT, Hacken and CORE3. Owney discloses any commercial relationship with the assessed platforms.",
+      "why_grant": "Framework v1 is finished: Security, Risk and Robustness, 13 subcategories, a 0 to 10 score on cited evidence. Zyfai, SurfLiquid and Yield Seeker are assessed, results at https://risk.owney.app/, and all three endorsed it publicly. The methodology is still private; publishing it is milestone 1. Rebuilding from scratch would take most of the grant.",
+      "commitments": "- OSI-approved license for the specification, skills and pipeline code; methodology public and versioned.\n- Re-assessment at least every 14 days and on every reported change; stale assessments marked stale.\n- Identical fees, process and criteria for every platform; conflict-of-interest rules published.\n- Owney maintains it after the grant, funded by fees from connected platforms and assessment work.\n- Pinned targets: 6 platforms assessed, 3 integrated with over $200,000 of user funds each and over $10,000,000 together, and 3 platforms fixing a finding from their assessment."
+    },
+    "milestones": [
+      {
+        "name": "Framework v2, formalized for machine processing",
+        "amount": 6500,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Framework v2 (13 subcategories plus a performance pillar based on the AtlasYield KPIs) published under an OSI-approved license with a dated changelog",
+          "Skills in a public repository; the 3 existing platforms re-assessed with v2, live on the board with the version stated"
+        ]
+      },
+      {
+        "name": "Continuous assessment pipeline for agent integration",
+        "amount": 15000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Integration documentation, conflict-of-interest rules and fee schedule published",
+          "At least 3 platforms re-assessed by the pipeline without manual intervention, results on the board with version and date"
+        ]
+      },
+      {
+        "name": "Adoption evidence",
+        "amount": 18500,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 6 DeFi agent platforms assessed with v2 and live on the board",
+          "At least 3 agent platforms outside Owney, running on Ethereum or an Ethereum L2, integrated with the pipeline, each managing over $200,000 of user funds and together over $10,000,000, measured onchain with the query linked, re-assessment history live on the board",
+          "At least 3 platforms change their setup to fix a finding from their assessment (key management, screening or incident response), shown in the re-assessment history on the board and confirmed by the independent technical reviewer",
+          "A public metrics page and the maintenance and funding plan published with a named maintainer",
+          "At least $3,000 of assessment or pipeline fees collected from connected platforms, not counting grants, confirmed by the independent technical reviewer"
+        ]
+      }
+    ],
+    "links": [
+      "https://risk.owney.app/",
+      "https://owney.app",
+      "https://www.linkedin.com/pulse/its-time-set-trust-security-standards-agentic-defi-yield-owney-0v2yc/",
+      "https://x.com/Zyfai_/status/2048750943001567380",
+      "https://atlasyield.club/"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

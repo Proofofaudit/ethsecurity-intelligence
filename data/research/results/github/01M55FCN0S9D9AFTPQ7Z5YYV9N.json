@@ -1,0 +1,72 @@
+{
+  "repos": [
+    {
+      "fullName": "scarai-xyz/evmpatch-env",
+      "url": "https://github.com/scarai-xyz/evmpatch-env",
+      "exists": true,
+      "description": "Replays real smart-contract exploits against proposed fixes on frozen chain state. Verdicts: solved, not solved or inconclusive, with receipts.",
+      "license": "Apache-2.0",
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "main",
+      "createdAt": "2026-09-10T03:38:59Z",
+      "pushedAt": "2026-11-20T22:18:04Z",
+      "stars": 2,
+      "openIssues": 0,
+      "language": "Solidity",
+      "topics": [
+        "ethereum",
+        "exploit-replay",
+        "foundry",
+        "smart-contract-security"
+      ],
+      "latestRelease": null,
+      "releaseCount": 0,
+      "hasCiWorkflows": true,
+      "hasTestsDir": true,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 22,
+      "contributorsSampled": 1,
+      "checkedAt": "2026-11-26T09:26:36.898Z",
+      "error": null
+    },
+    {
+      "fullName": "scarai-xyz/scar-retrieval",
+      "url": "https://github.com/scarai-xyz/scar-retrieval",
+      "exists": true,
+      "description": "SCAR: sparse retrieval for smart-contract audit findings. Benchmark datasets, corpus, training and evaluation code, research checkpoints.",
+      "license": "Apache-2.0",
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "main",
+      "createdAt": "2026-04-26T17:19:20Z",
+      "pushedAt": "2026-09-15T10:23:25Z",
+      "stars": 2,
+      "openIssues": 0,
+      "language": "Python",
+      "topics": [],
+      "latestRelease": null,
+      "releaseCount": 0,
+      "hasCiWorkflows": false,
+      "hasTestsDir": false,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 5,
+      "contributorsSampled": 1,
+      "checkedAt": "2026-11-26T09:26:36.898Z",
+      "error": null
+    }
+  ],
+  "owners": [
+    {
+      "login": "scarai-xyz",
+      "type": "Organization",
+      "name": "SCAR AI",
+      "blog": "https://scarai.xyz",
+      "createdAt": "2026-10-08T06:25:56Z",
+      "publicRepos": 3,
+      "url": "https://github.com/scarai-xyz"
+    }
+  ]
+}

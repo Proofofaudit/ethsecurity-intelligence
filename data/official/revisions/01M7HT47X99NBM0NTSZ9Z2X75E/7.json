@@ -1,0 +1,101 @@
+{
+  "revision": {
+    "n": 7,
+    "author": "0x2Ef6B1b67e0A705d1B6b644F4C5C86Ae4B42d2Eb",
+    "source": "proposer",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1795357933.039,
+    "title": "Trustblock: every public Ethereum and L2 audit tied to the contracts and commit it reviewed, free to look up",
+    "summary": "Trustblock indexes over 10,800 public audit reports from 60 security firms and shows them in an audit card on 26 block explorers, including Etherscan, and on Blockscout. This grant ties every Ethereum and L2 report to the repo, commit and deployed addresses it names, and makes every record free to look up on public pages and through a free API. For the 100 largest Ethereum and L2 protocols it closes the coverage gaps and shows, for each core contract, whether the live code matches the audited commit and who can upgrade it. Anyone about to sign, list collateral or integrate can then see which public report named that exact contract, with each finding in the firm's own words.",
+    "details": "",
+    "sections": {
+      "why": "- Users and protocols lose money to code nobody reviewed. ack3's H1 2026 incident dataset (Gattermayer, Kalivoda and Bašović, https://arxiv.org/abs/2608.13792) covers 135 DeFi incidents in the first half of 2026. Of the 68 where a pre-incident audit was found, 46 were hit through code outside every audit's scope, and out-of-scope paths account for 94.4% of those 68 incidents' losses.\n- An \"audited\" badge does not say which contracts a report covered. That answer sits in PDFs on 60 firm websites, each with its own words for severity and status, and new reports appear every week.\n- On Trustblock today, fewer than half of all reports name a deployed contract address (46.5%), and only about 1 in 5 protocol audits do (18.4%, 1,225 of 6,644). Many name a repository instead, so the link from a report to the live contract has to be made, and kept current: a report missing for three months is a gap a user cannot see.\n- Every effort that compares deployed code with audits needs the same input first: which report reviewed which commit, which files and which addresses. This grant produces that input for every public Ethereum and L2 audit and makes it free to look up, record by record.\n- Afterwards, a wallet user about to sign, a risk team listing collateral or an explorer visitor can look up which public reports named this exact contract and commit, with each finding's severity and status as the firm wrote it, or see that no report names it. Every record links to the firm's own PDF, so anyone can check it.",
+      "in_scope": "- Ethereum mainnet, and L2s holding at least $200 million on L2BEAT at the start date.\n- Repo, commit and deployed addresses extracted from every Ethereum and L2 report on Trustblock and linked to the contracts, each marked \"named in report\" or \"confirmed by firm\".\n- Every Ethereum and L2 record free to look up on public pages and through the free API tier, with a documented field format and a dated weekly log of what was added.\n- Missing public reports added for the 100 largest Ethereum and L2 DeFi protocols by TVL, and for each of their core contracts (the deployed contracts the protocol lists on its own documentation's deployment page, up to 20 per protocol): the verified source compared with the audited commit (matches, differs with the changed files listed, or not verifiable), who can upgrade it (proxy admin, owner, multisig signers and threshold, timelock), and every upgrade since the audit.\n- Six months of upkeep: every new public report from the indexed firms on an Ethereum or L2 project read twice, checked, pinned and added, and the card and API kept answering.",
+      "out_scope": "- Alt-L1s and non-EVM chains, even where Trustblock covers them.\n- Rebuilding contracts from source to compare bytecode, and the deployed-code comparison for protocols beyond the 100 largest.\n- Reviewing or auditing code.\n- Ranking, scoring or endorsing firms or protocols, or any statement that a contract carries no risk.",
+      "team": "- Bilel Seddik, CEO of Trustblock: product, data and partnerships (https://x.com/0xBilel).\n- Reports arrive two ways: firms with verified accounts publish through the dashboard or the API, and Trustblock indexes the rest from firms' public sites and GitHub, attributed to the firm. No other funder pays for this scope.\n- Relationships: Trustblock works with the security firms that publish on it, including Quantstamp, QuillAudits, Hacken, Zokyo, and ack3 (formerly Ackee Blockchain), whose incident dataset is cited above. Etherscan and Blockscout show Trustblock's card through their own integrations. None of them funds this work unless listed as a backer, and Trustblock does not rank or score firms.",
+      "why_grant": "Already built, all public:\n- A publishing platform for security firms: verified firm accounts publish reports, scope and findings through a dashboard or the API. Today it holds over 10,800 public audit reports from 60 firms, on more than 7,200 projects: https://app.trustblock.run\n- Contract-level data: about 22,000 deployed contract addresses tied to reports, and over 5,100 reports that name a deployed contract address.\n- Report files kept on IPFS: about 3,900 reports are kept only as our pinned IPFS copy, so they stay readable when a firm's page moves or disappears.\n- An audit card on the contract pages of 26 block explorers, including Etherscan, and on Blockscout: open the Cards tab of the Uniswap token link above.\n- A reading pipeline: new reports are read twice, blind, and a finding goes in only when both readings agree on its severity and the firm's own status word (\"Mitigated\" stays \"Mitigated\"). A third reading settles any disagreement.\n- A free API tier, embeds for firms and projects, public project, firm and audit pages, and a sitemap and llms.txt for search engines and AI agents.\n- Grants delivered: Starknet Foundation (25,000 USDC, 2024; Starknet support shipped in January 2025) and AngelHack x Polygon (80,000 POL, 2025; three milestones reported complete in December 2025).\n- The platform, the explorer integrations and the reading pipeline are already paid for. What costs money every month is the reading itself: following 60 firms' sites, reading each new PDF twice, checking it, and keeping the card and API answering. This grant pays for the scope pinning, six months of that reading work on Ethereum and L2, and the open release, at a fraction of what a build from scratch would cost.",
+      "commitments": "- Access: every Ethereum and L2 record stays free to read on Trustblock's public pages and through the free API tier, each linked to the firm's own report. The platform's code is not part of this grant.\n- Free use: the explorer card and the free API tier stay free for display partners and non-commercial users.\n- Maintenance: anything that breaks in the records or the free lookups is fixed within 30 days through month 6. After that, the records stay free to look up for at least 24 months.\n- Accuracy: each report is read twice, blind, and each firm's status word is kept as written. Where we cannot read it, the field is marked unchecked, never guessed. A blind check of 100 findings per firm is published for the 5 firms holding the most Ethereum and L2 audits.\n- Signed statements by firms, where they exist, are shown next to the record."
+    },
+    "milestones": [
+      {
+        "name": "Every record free to look up",
+        "amount": 6000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Every Ethereum and L2 report on Trustblock can be looked up by contract address and by report on public pages and through the free API tier, with its findings, each finding's severity and the firm's own status word, and the addresses it names. A documented field format and a dated weekly log of what was added are published. The reviewer looks up 20 rows."
+        ]
+      },
+      {
+        "name": "The 100 largest protocols: who can change the code",
+        "amount": 5000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "The list of the 100 largest Ethereum and L2 DeFi protocols by TVL is frozen and published at the start date, with each protocol's core contracts: the deployed contracts on its own documentation's deployment page, up to 20 per protocol (\"docs list none\" is recorded as such).",
+          "For each core contract, who can upgrade or administer it, read onchain (proxy admin or owner; a multisig's signers and threshold; a timelock's delay; or \"immutable\"), and every upgrade since the audit tied to it, from the standard upgrade events.",
+          "The reviewer draws 10 core contracts at random and reads the upgrade rights onchain; the milestone passes if the reviewer agrees on at least 9 of the 10."
+        ]
+      },
+      {
+        "name": "Every report pinned to its commit, and the deployed code compared",
+        "amount": 10500,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "A baseline list of the Ethereum and L2 reports on Trustblock is published at the start date. Every report on it carries the repo, commit and deployed addresses it names, linked to the contracts, or is marked \"names none\"; each value marked \"named in report\" or \"confirmed by firm\". Records can also be looked up by commit.",
+          "Every report the indexed firms list publicly for the 100 protocols on the start date is on Trustblock and pinned, or listed with the reason it isn't.",
+          "For each of their core contracts, one outcome with its evidence: source matches the audited commit; differs, with the changed files listed; or not verifiable, with the reason (no commit in the report, private repository, source not verified, or no public audit covers this contract).",
+          "The reviewer checks 30 random rows against the reports (at least 29 correct) and re-runs the comparison on 10 core contracts (at least 9 agree)."
+        ]
+      },
+      {
+        "name": "Record kept current, months 1 to 3",
+        "amount": 2500,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 95% of the public reports the indexed firms publish for Ethereum or L2 projects in the period are on Trustblock within 14 days, read twice and pinned, with a dated weekly log of what was added; the reviewer checks 10 new reports against the log."
+        ]
+      },
+      {
+        "name": "Record kept current, months 4 to 6",
+        "amount": 2500,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Same test for months 4 to 6, with the deployed-code comparison, upgrade rights and upgrade history re-run monthly for the 100 protocols; the reviewer checks 10 new reports against the log."
+        ]
+      },
+      {
+        "name": "Outside products show it before users act, within 12 months of the start date",
+        "amount": 13500,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 3 teams outside Trustblock use the record in their own published work or production process (for example an incident analysis, a risk or listing review, research, or a product showing it), each one new since the start date, and at least 1 of them a wallet or transaction-review tool, a block explorer, a risk team, or a protocol holding over $20 million onchain; each confirmed by a public link, or by the independent technical reviewer where a team cannot be named.",
+          "At least 10 audit firms beyond the start-date count confirm the scope of their own Ethereum or L2 reports on Trustblock (\"confirmed by firm\" marks on their records), at least 3 of them from this list: OpenZeppelin, Trail of Bits, ChainSecurity, Spearbit, Consensys Diligence, Sigma Prime, Certora, Cyfrin, Zellic, Ackee Blockchain, Runtime Verification, Nethermind Security."
+        ]
+      }
+    ],
+    "links": [
+      "https://app.trustblock.run",
+      "https://etherscan.io/address/0x1f9840a85d5af5bf1d1762f925bdaddc4201f984#cards"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

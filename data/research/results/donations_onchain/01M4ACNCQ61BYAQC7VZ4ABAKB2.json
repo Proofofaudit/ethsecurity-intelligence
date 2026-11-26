@@ -1,0 +1,14 @@
+{
+  "checks": [
+    {
+      "txHash": "0x8adef157a842ec295c64eac7fd762d950bbe8de3bb4d6ef7352d692fed8ea1ec",
+      "found": true,
+      "success": true,
+      "blockNumber": 26412972,
+      "touchesSafe": true,
+      "checkedAt": "2026-11-26T09:27:43.380Z",
+      "rpc": "eth.drpc.org",
+      "error": null
+    }
+  ]
+}

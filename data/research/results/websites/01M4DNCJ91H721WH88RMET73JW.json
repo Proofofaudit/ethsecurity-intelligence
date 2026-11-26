@@ -1,0 +1,100 @@
+{
+  "checks": [
+    {
+      "url": "https://corpus-core.gitbook.io/specification-colibri-stateless",
+      "status": 200,
+      "finalUrl": "https://corpus-core.gitbook.io/specification-colibri-stateless",
+      "title": "About colibri.stateless | Specification colibri.stateless",
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:31.222Z"
+    },
+    {
+      "url": "https://corpus-core.gitbook.io/whitepaper-colibri-stateless",
+      "status": 200,
+      "finalUrl": "https://corpus-core.gitbook.io/whitepaper-colibri-stateless",
+      "title": "Motivation | whitepaper-colibri-client",
+      "description": "colibri.stateless – A Stateless and Trustless Client for Ethereum and (any) other blockchain",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:31.223Z"
+    },
+    {
+      "url": "https://eips.ethereum.org/EIPS/eip-1186",
+      "status": 200,
+      "finalUrl": "https://eips.ethereum.org/EIPS/eip-1186",
+      "title": "EIP-1186: RPC-Method to get Merkle Proofs - eth_getProof",
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:31.224Z"
+    },
+    {
+      "url": "https://ethereum.foundation/",
+      "status": 200,
+      "finalUrl": "https://ethereum.foundation/",
+      "title": null,
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:25.157Z"
+    },
+    {
+      "url": "https://medium.com/corpus-core-insights/colibri-stateless-production-release-8d5a88c116d1",
+      "status": 403,
+      "finalUrl": "https://medium.com/corpus-core-insights/colibri-stateless-production-release-8d5a88c116d1",
+      "title": "Just a moment...",
+      "description": null,
+      "contentType": "text/html; charset=UTF-8",
+      "ok": false,
+      "inconclusive": true,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:31.224Z"
+    },
+    {
+      "url": "https://unchainedcrypto.com/layerzero-links-292-million-kelp-dao-bridge-exploit-to-north-koreas-lazarus-group",
+      "status": 200,
+      "finalUrl": "https://unchainedcrypto.com/layerzero-links-292-million-kelp-dao-bridge-exploit-to-north-koreas-lazarus-group/",
+      "title": "LayerZero Links $292 Million Kelp DAO Bridge Exploit to North Korea’s Lazarus Group - Unchained",
+      "description": "North Korea’s Lazarus Group likely stole $292 million from Kelp DAO’s rsETH bridge by exploiting a single-verifier configuration that LayerZero says it had warned against.",
+      "contentType": "text/html; charset=UTF-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:35.027Z"
+    },
+    {
+      "url": "https://www.corpuscore.tech/",
+      "status": 200,
+      "finalUrl": "https://www.corpuscore.tech/",
+      "title": "corpus.core | Stateless Ethereum Client & Trustless Web3 Infrastructure",
+      "description": "Colibri is a stateless ethereum client and trustless light client for Ethereum and EVM chains. Cryptographic proofs instead of trusted RPC — verify locally with Corpus Core.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:31.251Z"
+    },
+    {
+      "url": "https://www.corpuscore.tech/blog/the-code-was-fine-thats-the-problem",
+      "status": 200,
+      "finalUrl": "https://www.corpuscore.tech/blog/the-code-was-fine-thats-the-problem",
+      "title": "The Code Was Fine. That's the Problem. | Corpus Core",
+      "description": "A post-mortem on the KelpDAO exploit — why trust-layer failures in cross-chain bridges need cryptographic verification, not just more validators.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:35.028Z"
+    }
+  ]
+}

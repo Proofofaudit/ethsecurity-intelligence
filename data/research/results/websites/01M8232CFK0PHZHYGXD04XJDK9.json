@@ -1,0 +1,100 @@
+{
+  "checks": [
+    {
+      "url": "https://blockthreat.com",
+      "status": 200,
+      "finalUrl": "https://blockthreat.com/",
+      "title": "Blockchain Threat Intelligence",
+      "description": "A weekly breakdown of blockchain security incidents, vulnerabilities, research, and tools with deep analysis on root causes, impact, and what actually matters for defenders.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:30.805Z"
+    },
+    {
+      "url": "https://blockthreat.com/",
+      "status": 200,
+      "finalUrl": "https://blockthreat.com/",
+      "title": "Blockchain Threat Intelligence",
+      "description": "A weekly breakdown of blockchain security incidents, vulnerabilities, research, and tools with deep analysis on root causes, impact, and what actually matters for defenders.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:30.806Z"
+    },
+    {
+      "url": "https://blockthreat.com/archive/",
+      "status": 200,
+      "finalUrl": "https://blockthreat.com/archive/",
+      "title": "Archive",
+      "description": "Every incident, vulnerability, and postmortem worth your attention, in one briefing a week. Read by 13,000+ blockchain security professionals since 2019.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:30.807Z"
+    },
+    {
+      "url": "https://blockthreat.com/blockthreat-september-2026/",
+      "status": 200,
+      "finalUrl": "https://blockthreat.com/blockthreat-september-2026/",
+      "title": "BlockThreat - September, 2026",
+      "description": "$780M stolen across 76 incidents. DPRK tops $1B for the year, uncensored models close in on the frontier, and who’s next in line for a $100M+ hack.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:30.808Z"
+    },
+    {
+      "url": "https://blockthreat.com/blockthreat-week-44-2026/",
+      "status": 200,
+      "finalUrl": "https://blockthreat.com/blockthreat-week-44-2026/",
+      "title": "BlockThreat - Week 44, 2026",
+      "description": "$6.362B stolen across 30 incidents. DPRK hit Binance in the largest heist in history.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:30.827Z"
+    },
+    {
+      "url": "https://blockthreat.com/blockthreat-week-45-2026/",
+      "status": 200,
+      "finalUrl": "https://blockthreat.com/blockthreat-week-45-2026/",
+      "title": "BlockThreat - Week 45, 2026",
+      "description": "$53M stolen across 13 incidents. Signing infra under siege. Rethinking defense.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:30.830Z"
+    },
+    {
+      "url": "https://blockthreat.com/the-breaking-point-of-ethical-security-research/",
+      "status": 200,
+      "finalUrl": "https://blockthreat.com/the-breaking-point-of-ethical-security-research/",
+      "title": "The Breaking Point of Ethical Security Research",
+      "description": "The blockchain industry spent years training an army of security researchers. Then it abandoned them.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:30.832Z"
+    },
+    {
+      "url": "https://defisecuritysummit.org/2026/agenda#dss26-8a22d50b07fcd274",
+      "status": 200,
+      "finalUrl": "https://defisecuritysummit.org/2026/agenda",
+      "title": "DeFi Security Summit | DSS",
+      "description": "Revisit DeFi Security Summit 2026 in Mumbai: 95 recordings, automatic caption exports and the original programme.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:30.837Z"
+    }
+  ]
+}

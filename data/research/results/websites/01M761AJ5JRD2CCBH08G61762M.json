@@ -1,0 +1,160 @@
+{
+  "checks": [
+    {
+      "url": "https://arxiv.org/abs/2411.18401",
+      "status": 200,
+      "finalUrl": "https://arxiv.org/abs/2411.18401",
+      "title": "[2411.18401] Proving and Rewarding Client Diversity to Strengthen Resilience of Blockchain Networks",
+      "description": "Abstract page for arXiv paper 2411.18401: Proving and Rewarding Client Diversity to Strengthen Resilience of Blockchain Networks",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:53.783Z"
+    },
+    {
+      "url": "https://arxiv.org/abs/2504.21679",
+      "status": 200,
+      "finalUrl": "https://arxiv.org/abs/2504.21679",
+      "title": "[2504.21679] Causes and Canonicalization of Unreproducible Builds in Java",
+      "description": "Abstract page for arXiv paper 2504.21679: Causes and Canonicalization of Unreproducible Builds in Java",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:53.783Z"
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.24888",
+      "status": 200,
+      "finalUrl": "https://arxiv.org/abs/2607.24888",
+      "title": "[2607.24888] Trusting-Trust Attack against an Entire Linux Distribution through Binary Manipulation",
+      "description": "Abstract page for arXiv paper 2607.24888: Trusting-Trust Attack against an Entire Linux Distribution through Binary Manipulation",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:53.784Z"
+    },
+    {
+      "url": "https://blog.ethereum.org/2025/01/17/academic-grants-recipients",
+      "status": 200,
+      "finalUrl": "https://blog.ethereum.org/2025/01/17/academic-grants-recipients",
+      "title": "Announcing the 2024 Academic Grants Round Recipients | Ethereum Foundation Blog",
+      "description": "The Ecosystem Funding Initiative team is thrilled to announce the recipients of the 2024 Academic Grants Round! This round, we are proud to support 41 projects...",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:53.784Z"
+    },
+    {
+      "url": "https://chains.proj.kth.se/",
+      "status": 200,
+      "finalUrl": "https://chains.proj.kth.se/",
+      "title": "CHAINS Research Project at KTH | CHAINS research project at KTH Royal Institute of Technology",
+      "description": "The source for the website of the SSF CHAINS project https://chains.proj.kth.se/",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:53.797Z"
+    },
+    {
+      "url": "https://chains.proj.kth.se/recommendations-chains.html",
+      "status": 200,
+      "finalUrl": "https://chains.proj.kth.se/recommendations-chains.html",
+      "title": "The official CHAINS software supply chain recommendations | CHAINS research project at KTH Royal Institute of Technology",
+      "description": "The source for the website of the SSF CHAINS project https://chains.proj.kth.se/",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:53.797Z"
+    },
+    {
+      "url": "https://ethereum.foundation/",
+      "status": 200,
+      "finalUrl": "https://ethereum.foundation/",
+      "title": null,
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:25.157Z"
+    },
+    {
+      "url": "https://luj.fr/",
+      "status": 200,
+      "finalUrl": "https://luj.fr/",
+      "title": "Julien Malka — Software Engineering Researcher",
+      "description": "PhD student working on NixOS, software supply chains, and reproducible builds.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:53.804Z"
+    },
+    {
+      "url": "https://mab.xyz/",
+      "status": 200,
+      "finalUrl": "https://mab.xyz/",
+      "title": "mab.xyz - Web3 Security Firm in Stockholm",
+      "description": "mab.xyz is a web3 security firm in Stockholm. Deep expertise in smart contract, blockchain infrastructure and software supply chain security.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:53.941Z"
+    },
+    {
+      "url": "https://sofiabobadilla.github.io/",
+      "status": 200,
+      "finalUrl": "https://sofiabobadilla.github.io/",
+      "title": "Sofia Bobadilla · Smart Contract Security",
+      "description": "Sofia Bobadilla, PhD student at KTH researching smart contract security, exploit generation and automated repair.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:54.098Z"
+    },
+    {
+      "url": "https://www.diva-portal.org/smash/record.jsf?pid=diva2%3A1908608",
+      "status": 200,
+      "finalUrl": "https://www.diva-portal.org/smash/record.jsf?pid=diva2%3A1908608",
+      "title": "Oh noes!",
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:54.143Z"
+    },
+    {
+      "url": "https://www.monperrus.net/martin",
+      "status": 404,
+      "finalUrl": "https://www.monperrus.net/martin",
+      "title": null,
+      "description": null,
+      "contentType": "text/html",
+      "ok": false,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:54.168Z"
+    },
+    {
+      "url": "https://www.openwall.com/lists/oss-security/2024/03/29/4",
+      "status": 200,
+      "finalUrl": "https://www.openwall.com/lists/oss-security/2024/03/29/4",
+      "title": "oss-security - backdoor in upstream xz/liblzma leading to ssh server compromise",
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:54.334Z"
+    }
+  ]
+}

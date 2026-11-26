@@ -1,0 +1,148 @@
+{
+  "checks": [
+    {
+      "url": "https://arxiv.org/abs/2404.08144",
+      "status": 200,
+      "finalUrl": "https://arxiv.org/abs/2404.08144",
+      "title": "[2404.08144] LLM Agents can Autonomously Exploit One-day Vulnerabilities",
+      "description": "Abstract page for arXiv paper 2404.08144: LLM Agents can Autonomously Exploit One-day Vulnerabilities",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:29.892Z"
+    },
+    {
+      "url": "https://frameworks.securityalliance.org/vulnerability-disclosure/overview",
+      "status": 200,
+      "finalUrl": "https://frameworks.securityalliance.org/vulnerability-disclosure/overview/",
+      "title": "Vulnerability Disclosure | Security Alliance",
+      "description": "Coordinated vulnerability disclosure in Web3 for researchers and teams: report safely, handle reports privately, warn forks, publish after the fix.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:25.614Z"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-9856-9gg9-qcmq",
+      "status": 200,
+      "finalUrl": "https://github.com/advisories/GHSA-9856-9gg9-qcmq",
+      "title": "Ethereum Contains Consensus Flaw During Block Processing · CVE-2021-39137 · GitHub Advisory Database · GitHub",
+      "description": "GitHub is where people build software. More than 225 million people use GitHub to discover, fork, and contribute to over 800 million projects.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:27:31.436Z"
+    },
+    {
+      "url": "https://hackmd.io/@vyperlang/HJUgNMhs2",
+      "status": 200,
+      "finalUrl": "https://hackmd.io/@vyperlang/HJUgNMhs2",
+      "title": "Vyper Nonreentrancy Lock Vulnerability Technical Post-Mortem Report - HackMD",
+      "description": "On the 30th of July, 2023, multiple Curve.Fi liquidity pools were exploited as a result of a latent vulnerability in the Vyper compiler, specifically in versions 0.2.15, 0.2.16, and 0.3.0. While bug was identified and patched by the v0.3.1…",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:29.893Z"
+    },
+    {
+      "url": "https://oss-security.openwall.org/wiki/mailing-lists/distros",
+      "status": 200,
+      "finalUrl": "https://oss-security.openwall.org/wiki/mailing-lists/distros",
+      "title": "mailing-lists:distros [OSS-Security]",
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:29.894Z"
+    },
+    {
+      "url": "https://projectzero.google/2025/07/reporting-transparency.html",
+      "status": 200,
+      "finalUrl": "https://projectzero.google/2025/07/reporting-transparency.html",
+      "title": "Policy and Disclosure: 2025 Edition - Project Zero",
+      "description": "Posted by Tim Willis, Google Project ZeroIn 2021, we updated our vulnerability disclosure policy to the current \"90+30\" model. Our goals were to dr...",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:29.895Z"
+    },
+    {
+      "url": "https://securityalliance.org/seal-911",
+      "status": 200,
+      "finalUrl": "https://securityalliance.org/our-work/seal-911",
+      "title": "SEAL 911 | Security Alliance",
+      "description": "24/7 cryptocurrency incident response for the crypto ecosystem",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:22.654Z"
+    },
+    {
+      "url": "https://sei.cmu.edu/news/certcc-releases-vince-software-vulnerability-collaboration-platform",
+      "status": 200,
+      "finalUrl": "https://sei.cmu.edu/news/certcc-releases-vince-software-vulnerability-collaboration-platform/",
+      "title": "CERT/CC Releases VINCE Software Vulnerability Collaboration Platform | CMU Software Engineering Institute",
+      "description": "The web-based platform enables direct communication between vulnerability stakeholders.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:29.904Z"
+    },
+    {
+      "url": "https://www.certik.com/resources/blog/2qbPMcyJpR5UfoKrcjWxlQ-vyper-incident-anaylsis",
+      "status": 200,
+      "finalUrl": "https://www.certik.com/blog/vyper-incident-anaylsis",
+      "title": "Vyper Incident Analysis | CertiK",
+      "description": "On July 30, reports surfaced of vulnerabilities in Vyper versions 0.2.15, 0.2.16 and 0.3.0 which left many Curve pools vulnerable to a reentrancy attack.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:29.950Z"
+    },
+    {
+      "url": "https://www.manageengine.com/patch-management/exploit-wednesday.html",
+      "status": 200,
+      "finalUrl": "https://www.manageengine.com/patch-management/exploit-wednesday.html",
+      "title": "Exploit Wednesday | Patch Manager Plus | ManageEngine",
+      "description": "Tuesday drops the fixes. Wednesday starts the clock. See which of this month’s Microsoft and third-party patches your endpoints are missing, prioritize exploited vulnerabilities, and deploy fixes in minutes.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:30.263Z"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/msrc/faqs-security-update-guide",
+      "status": 200,
+      "finalUrl": "https://www.microsoft.com/en-us/msrc/faqs-security-update-guide",
+      "title": "Security Update Guide FAQs",
+      "description": "Frequently asked questions on the Security Update Guide",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:30.545Z"
+    },
+    {
+      "url": "https://www.openzeppelin.com/news/secure-implementations-vulnerable-integrations",
+      "status": 200,
+      "finalUrl": "https://www.openzeppelin.com/news/secure-implementations-vulnerable-integrations",
+      "title": "Secure Implementations & Vulnerable Integrations in Smart Contracts: ERC-2771 Crisis Management",
+      "description": "Dec '23 saw critical smart contract vulnerability, sparking a community-led response, exemplifying need for cautious integration & timely communication in securing blockchain. Lessons: code not plug-and-play, communication key, upgradeable…",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:30.583Z"
+    }
+  ]
+}

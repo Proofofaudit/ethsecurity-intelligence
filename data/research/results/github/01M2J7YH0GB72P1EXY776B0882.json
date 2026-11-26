@@ -1,0 +1,46 @@
+{
+  "repos": [
+    {
+      "fullName": "ethdebug/format",
+      "url": "https://github.com/ethdebug/format",
+      "exists": true,
+      "description": "Smart contract debugging data format – Standards development working group ",
+      "license": "Other/unrecognised",
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "main",
+      "createdAt": "2022-11-14T19:33:47Z",
+      "pushedAt": "2026-11-24T05:39:33Z",
+      "stars": 80,
+      "openIssues": 67,
+      "language": "TypeScript",
+      "topics": [
+        "debugging-data-format",
+        "ethereum",
+        "smart-contracts",
+        "standards-working-group"
+      ],
+      "latestRelease": null,
+      "releaseCount": 0,
+      "hasCiWorkflows": true,
+      "hasTestsDir": false,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 99,
+      "contributorsSampled": 8,
+      "checkedAt": "2026-11-26T09:26:50.210Z",
+      "error": null
+    }
+  ],
+  "owners": [
+    {
+      "login": "ethdebug",
+      "type": "Organization",
+      "name": null,
+      "blog": null,
+      "createdAt": "2018-11-02T15:44:31Z",
+      "publicRepos": 5,
+      "url": "https://github.com/ethdebug"
+    }
+  ]
+}

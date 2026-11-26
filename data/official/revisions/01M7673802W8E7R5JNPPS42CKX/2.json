@@ -1,0 +1,84 @@
+{
+  "revision": {
+    "n": 2,
+    "author": "0x839395e20bbB182fa440d08F850E6c7A8f6F0780",
+    "source": "admin",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1794592405.476,
+    "title": "Defimon Rescue Agent: Autonomous Whitehat Rescues for Safe Harbor Protocols on Ethereum",
+    "summary": "Defimon detects DeFi exploits in under a second and has returned over $2.5M to victims. This grant turns that into an autonomous rescue agent for the 33 protocols that adopted the SEAL Whitehat Safe Harbor: a rescue playbook per adopter, verified with the protocol, and an agent that identifies the root cause and the funds still at risk within minutes and moves the remaining funds straight to the protocol's registered recovery address, with no human in the loop. Safe Harbor bounties pay for running it after the grant.",
+    "details": "",
+    "sections": {
+      "why": "Most exploits drain a protocol over several transactions, across minutes or hours. The funds still in the contract after the first transaction can be rescued, but only by someone who sees the attack at once, understands the bug fast enough to reuse it defensively, and has legal cover to do it. That almost never happens. The SEAL whitehat rescue list records 25 rescues worth about $80.7M since 2022, and only 5 of them were done under Safe Harbor, although 33 protocols holding $60.7B have adopted it (safeharbor.securityalliance.org). Whitehats hold back because reusing the attacker's path is legal risk, and because nobody runs rescue capacity as a standing service.\n\nWho is safer: users of Safe Harbor adopters on Ethereum mainnet, Arbitrum One, OP Mainnet and Base (Aave, Lido, Sky, Uniswap, Pendle, Euler, Balancer, Polymarket and 25 others). From what: an exploit in progress, while part of the funds is still in the contract. What anyone can point to afterwards: at least 5 adopters that verified their rescue playbook and know Defimon as a responder, a published benchmark of minutes from attack transaction to root cause, a public incident log, and, when an exploit hits an adopter, funds returned to its on-chain recovery address, confirmed by the protocol and by SEAL 911.\n\nThe money at stake, from the DefiLlama hacks dataset (api.llama.fi/hacks, pulled November 11, 2026; DeFi protocols on Ethereum mainnet or an Ethereum L2, centralized exchanges excluded):\n\n- 2025: 70 incidents, $447M lost, of which 56 contract-level exploits worth $364M.\n- 2026 to date: 130 incidents, $557M lost, of which 111 contract-level exploits worth $414M.\n- Three Safe Harbor adopters were exploited in the last 12 months: Balancer V2 ($128M, November 2025), Makina ($4.2M, 2026, $3.4M returned under Safe Harbor), Lazy Summer ($6M, 2026).\n\nHow much of that is rescuable: Decurity reconstructed the per-transaction drain timelines of 10 multi-transaction exploits from 2022 to 2026 (rescue-window.decurity.io). In 6 of the 10, more than 80% of the funds at risk were still on the contract 5 minutes after the first attacker transaction, and 6 of the 10 drains lasted longer than an hour. Where a bot acted inside that window (Squid, Foom), 81% to 82% of the funds at risk came back the same day; where nobody did (CrossCurve, $2.76M), less than 1% came back.\n\nWhy the rescue has to be autonomous: 49% of vulnerable contracts are exploited within 30 days of deployment and 85% of vulnerable proxy implementations within 30 days of the upgrade (time-to-hack.decurity.io). Incidents are spread evenly across all four 6-hour blocks of the UTC day, so a human responder misses most of the 5-minute windows, and a playbook written once goes stale at the adopter's next upgrade.",
+      "in_scope": "- Covered chains: Ethereum mainnet, Arbitrum One, OP Mainnet and Base. These are the chains Defimon runs detection and rescue on today.\n- A rescue playbook for every Safe Harbor adopter with at least $10M on a covered chain: recovery address and scoped assets read from the SafeHarborRegistry (0x326733493E143b8904716E7A64A9f4fb6A185a2c), bounty and identity terms, security contact, and a pre-written rescue execution path. A public index shows the terms; the execution paths stay private.\n- Playbooks kept current: every implementation upgrade of an adopter's scoped contracts, which Defimon already detects, triggers a re-verification of that adopter's playbook within 7 days.\n- Playbooks verified with the adopters themselves: recovery address, scoped contracts and security contact confirmed by the protocol, and Defimon introduced as a responder it should expect to hear from. Where an adopter's agreement requires Named identity (Aave, Sky, Euler, Balancer, Silo, Makina, Origin, Reserve and others), Decurity completes KYC and sanctions screening at payout, as the agreement requires.\n- The root-cause agent benchmarked on replayed historic exploits, with the replay set and results published.\n- Private transaction submission (Flashbots Protect or equivalent) and the go/no-go checklist from the SEAL Whitehat Rescue Guide: active or imminent exploit, independence from the attacker, net benefit, return within the agreement deadline, SEAL 911 notified.\n- The rescue agent running against every covered adopter for 12 months, and a public incident log: every rescue-candidate event on an adopter is logged with acted or not acted, and why.\n- Free rescue-grade alert feed for SEAL 911 members for the grant period.\n- Outreach to protocols holding over $100M that have not adopted Safe Harbor, to add them to the registry.",
+      "out_scope": "- Rescues on protocols that have not adopted Safe Harbor. Those are legal risk for the whitehat; a legal destination for such funds is the subject of the separate RFP \"An Open Bug Bounty Program for All of Ethereum: White Hat Rescued Funds Distribution Service\" on this board.\n- Initiating an exploit, acting on a known vulnerability before an attack starts, or bug bounty reporting. Rescues start only during an active or imminent exploit.\n- Any chain other than Ethereum mainnet, Arbitrum One, OP Mainnet and Base. Defimon also runs detection on Polygon PoS, BNB Chain, Avalanche and Hyperliquid, and nothing on those chains counts toward any deliverable or milestone.\n- Tracing or freezing funds the attacker already moved, and negotiating with attackers.",
+      "team": "Decurity does the work. The rescue is fully autonomous: Defimon's agent detects the exploit, identifies the vulnerable function and the funds still at risk, and moves them to the protocol's registered recovery address from the playbook, so the protocol holds its funds again before anyone at Decurity is awake. People do the follow-up, none of it time-critical: notifying SEAL 911 and the protocol's security contact, the incident log entry, and KYC where the agreement requires it for the bounty. Arseniy Reutov, CTO and co-founder, leads the program (QuickNode case study: https://www.quicknode.com/blog/real-time-defi-exploit-detection). Arseniy holds an ETHSecurity Badge and will abstain from rating and ranking this initiative.\n\nPublic cases where Defimon rescued funds or warned the team before the drain:\n\n- Foom.cash, February 26, 2026: $1.84M rescued on Ethereum and returned the same day; Foom.cash paid a 10% security fee:\n    - https://defimon.xyz/blog/foom-cash-whitehat-rescue-february-2026\n- Squid Router, April 7, 2026: $512K rescued:\n    - https://x.com/DefimonAlerts/status/2041530294369386806\n- Veil.cash: 2.025 ETH rescued\n    - https://x.com/Veildotcash/status/2025293773891404225\n- Secured.finance: alert 45 minutes before the hack\n    - https://x.com/DefimonAlerts/status/2096855557575458950\n- Ajna.finance: team alerted one hour before the hack\n    - https://x.com/DefimonAlerts/status/2093632180656263283\n- Guru.fund: team alerted before 85% of funds were drained\n    - https://x.com/DefimonAlerts/status/2080679061265739844\n- Olas.network, Yam.finance: governance takeovers reported\n    - https://x.com/DefimonAlerts/status/2096432367908933790\n    - https://x.com/DefimonAlerts/status/2095019159847313766\n- Kpk.io: proxy backdoor reported\n    - https://x.com/DefimonAlerts/status/2079618207569133651\n- CPIMP: several projects notified\n    - https://x.com/DefimonAlerts/status/2003167362829418679\n\nNo other funder pays for this scope. Defimon's paid feed ($200 per month) and Signals channel ($50 per month) fund detection today; nothing funds standing rescue capacity.",
+      "why_grant": "Everything the grant extends is live:\n\n- Detection on Ethereum, Arbitrum, Optimism, Base and Polygon with an LLM-verified confirmed-attacks stream and early detection of attacker contracts, proxy upgrades and malicious governance proposals.\n- An AI agent that, given an attack transaction, identifies the vulnerable function and the balances still exposed, and executes the rescue. Measured on real incidents: Squid Router was rescued 4 minutes after the first attacker transaction, $512K of $623K at risk (82%); Foom.cash 16 minutes after the first exploit transaction landed on Base, which included recognizing the same flaw in the separate Ethereum deployment, $1.84M of $2.26M at risk (81%).\n- The operational experience of those rescues. Foom.cash also showed the gap this grant closes: the protocol had no Safe Harbor terms, no recovery address and no responder it knew, so the return relied on goodwill on both sides.\n\nThe grant pays for the part nobody funds: per-adopter rescue readiness (registry data, recovery addresses verified with the protocol, pre-written rescue paths), benchmarking the root-cause agent, private transaction submission, legal review of the runbook against the Safe Harbor terms, and running the agent and its follow-up process for 12 months. A from-scratch build of detection plus rescue capacity would cost several times this budget.",
+      "commitments": "- The rescue runbook, the adopter index, the replay benchmark set and the incident log are published under CC BY 4.0. The rescue execution tooling stays closed, because it would help attackers as much as defenders.\n- Every rescue under this program returns funds to the protocol's registered recovery address within the agreement deadline and is reported in the public incident log. Decurity keeps only the bounty the agreement defines. Rescues are rewarded by Safe Harbor bounties, never by this grant.\n- Decurity keeps the rescue agent running against every covered adopter for at least 12 months after the last milestone, paid from Safe Harbor bounties and feed revenue, at no further cost to the fund.\n- Decurity staff, affiliates and Decurity's own contracts never count toward any milestone."
+    },
+    "milestones": [
+      {
+        "name": "Rescue readiness across Safe Harbor adopters",
+        "amount": 50000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Rescue playbooks exist for at least 20 Safe Harbor adopters with scoped contracts on Ethereum mainnet, Arbitrum One, OP Mainnet or Base, with the public index live and the execution paths shown to the technical reviewer",
+          "Root-cause agent replayed over at least 30 historic exploits on the covered chains with median time from attack transaction to identified vulnerable function and at-risk balances under 10 minutes, replay set and results published",
+          "Public runbook and go/no-go checklist published, with private transaction submission tested on a fork for at least 6 historic exploits of current adopters and timings published",
+          "Upgrade tracking live: every implementation upgrade of a covered adopter's scoped contracts is logged and its playbook re-verified within 7 days, shown to the technical reviewer from the log"
+        ]
+      },
+      {
+        "name": "Live rescue operations and reporting",
+        "amount": 55000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Public incident log live: every rescue-candidate event on an adopter logged within 72 hours with the decision and the reason, first quarterly report published",
+          "Monthly full rescue drill on a fork of a current adopter, with time from alert to simulated return published for at least 6 drills",
+          "A published plan showing how Safe Harbor bounties and subscriptions cover running the agent for 12 months after the grant"
+        ]
+      },
+      {
+        "name": "Playbooks verified by current Safe Harbor adopters",
+        "amount": 35000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 10 Safe Harbor adopters outside Decurity, 5 holding over $50M onchain, confirm to the technical reviewer that they verified their playbook's recovery address, scoped contracts and security contact with Decurity and know Defimon as a responder"
+        ]
+      },
+      {
+        "name": "New Safe Harbor adopters onboarded",
+        "amount": 20000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 5 protocols outside Decurity, at least 2 holding over $50M onchain, adopt Safe Harbor on the registry after onboarding by the team, shown by the SafeHarborAdoption event and confirmed by each protocol's security contact to the technical reviewer"
+        ]
+      }
+    ],
+    "links": [
+      "https://defimon.xyz/",
+      "https://github.com/Decurity",
+      "https://defimon.xyz/blog/foom-cash-whitehat-rescue-february-2026",
+      "https://etherscan.io/address/0x46c403e3DcAF219D9D4De167cCc4e0dd8E81Eb72",
+      "https://rescue-window.decurity.io/",
+      "https://time-to-hack.decurity.io/",
+      "https://safeharbor.securityalliance.org/",
+      "https://frameworks.securityalliance.org/safe-harbor/whitehat"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

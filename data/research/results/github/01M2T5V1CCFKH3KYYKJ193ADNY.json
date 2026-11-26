@@ -1,0 +1,50 @@
+{
+  "repos": [
+    {
+      "fullName": "Runtime-Capital/safe-lockdown-guard",
+      "url": "https://github.com/Runtime-Capital/safe-lockdown-guard",
+      "exists": true,
+      "description": "An anti-coercion guard for Safe multisigs. MIT, no admin, no upgradeability.",
+      "license": "MIT",
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "main",
+      "createdAt": "2026-08-26T21:16:05Z",
+      "pushedAt": "2026-11-12T09:59:21Z",
+      "stars": 0,
+      "openIssues": 0,
+      "language": "Solidity",
+      "topics": [
+        "ethereum",
+        "foundry",
+        "multisig",
+        "safe",
+        "security",
+        "self-custody",
+        "smart-contracts",
+        "solidity"
+      ],
+      "latestRelease": null,
+      "releaseCount": 0,
+      "hasCiWorkflows": true,
+      "hasTestsDir": true,
+      "hasSecurityPolicy": true,
+      "hasReadme": true,
+      "commitsLast90d": 3,
+      "contributorsSampled": 0,
+      "checkedAt": "2026-11-26T09:26:31.956Z",
+      "error": null
+    }
+  ],
+  "owners": [
+    {
+      "login": "Runtime-Capital",
+      "type": "Organization",
+      "name": "Runtime Capital",
+      "blog": "https://runtime.capital",
+      "createdAt": "2026-01-01T18:13:24Z",
+      "publicRepos": 1,
+      "url": "https://github.com/Runtime-Capital"
+    }
+  ]
+}

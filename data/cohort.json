@@ -1,0 +1,282 @@
+{
+  "frozenAt": "2026-11-26T09:19:49.152Z",
+  "source": "https://initiatives.thedao.fund/api/initiatives.json?status=ballot",
+  "note": "Research cohort frozen from the first validated ballot snapshot. Changes in ballot eligibility are flagged, never silently applied.",
+  "members": [
+    {
+      "id": "01M4ACNCQ61BYAQC7VZ4ABAKB2",
+      "slug": "assertions-for-safes-enforced-on-every-transaction-readable",
+      "title": "Assertions.eth: Transactions that check themselves, ensuring simulation outcomes"
+    },
+    {
+      "id": "01M6SCYV7YW1APV08QWEKCEX69",
+      "slug": "decentralized-archive-for-ethereum-blob-data",
+      "title": "Blobscan: Decentralized Archive for Ethereum Blob Data"
+    },
+    {
+      "id": "01M4RK0Z7B8YQFYWMH43P4CGH9",
+      "slug": "address-poisoning-detection-and-public-api-for-ethereum-and",
+      "title": "Blockscout: Address Poisoning Detection and Public API for Ethereum and L2s"
+    },
+    {
+      "id": "01M8232CFK0PHZHYGXD04XJDK9",
+      "slug": "blockthreat-weekly-threat-intelligence-that-keeps-ethereum-t",
+      "title": "BlockThreat: Weekly Threat Intelligence That Keeps Ethereum Teams Ahead of Attackers"
+    },
+    {
+      "id": "01M4DNFKC31D46AZVBBWKZVS52",
+      "slug": "know-what-you-sign-verified-simulation-against-blind-signing",
+      "title": "colibri: Know What You Sign, Verified Simulation Against Blind Signing"
+    },
+    {
+      "id": "01M4DNCJ91H721WH88RMET73JW",
+      "slug": "make-dapps-verify-what-they-show-colibri-in-wallets-defi-and",
+      "title": "colibri: Make dApps Verify What They Show in Wallets, DeFi and Web3 Apps"
+    },
+    {
+      "id": "01M4DN8CG9M5000N3YK13NC88H",
+      "slug": "trustless-across-ethereum-colibri-verification-for-l2-networ",
+      "title": "colibri: Trustless Across Ethereum, Verification for L2 Networks and Bridges"
+    },
+    {
+      "id": "01M3Z4WCEM2VMP0J3YFKH60DEE",
+      "slug": "dappfence-verifiable-frontend-security",
+      "title": "DappFence: Verifiable Frontend Security"
+    },
+    {
+      "id": "01M4BF7QP1AJ27GBXGYY15HJ4H",
+      "slug": "free-backtestable-onchain-monitoring-on-17-evm-chains",
+      "title": "Dedaub: Free, Backtestable Onchain Monitoring on 13 EVM Chains"
+    },
+    {
+      "id": "01M7673802W8E7R5JNPPS42CKX",
+      "slug": "defimon-rescue-agent-autonomous-whitehat-rescues-for-safe-ha",
+      "title": "Defimon Rescue Agent: Autonomous Whitehat Rescues for Safe Harbor Protocols on Ethereum"
+    },
+    {
+      "id": "01M2GVWSZPN62EB6QN9EWXMR3Z",
+      "slug": "fund-echidna-development-through-2027-2",
+      "title": "Echidna: Fund Development Through 2027"
+    },
+    {
+      "id": "01M2MT3AC43G0TF72GJ2AAVV8M",
+      "slug": "independent-security-assurance-for-the-eez-smart-contracts",
+      "title": "EEZ: Making Its Contracts Safe for Chains to Adopt"
+    },
+    {
+      "id": "01M5BS1GCHNK98FGV1QVSWW3AP",
+      "slug": "eth-daily-security-getting-ethereum-users-to-the-tools-that",
+      "title": "ETH Daily Security: Getting Ethereum Users to the Tools That Protect Them"
+    },
+    {
+      "id": "01M7MMH5TT52AVYP26YGMH849V",
+      "slug": "ethsec-ai-security-review-of-the-ethereum-ecosystem",
+      "title": "EthSec: AI Security Review of the Ethereum Ecosystem"
+    },
+    {
+      "id": "01M29K8ZJSD5TT78Q4ZYV7EGTF",
+      "slug": "forensiq-faster-ethereum-incident-response-through-evidence",
+      "title": "ForensIQ: Faster Ethereum Incident Response Through Evidence Reconstruction"
+    },
+    {
+      "id": "01M4PN0TQFGMJCHHQZ68BET28K",
+      "slug": "scaling-kann-ai-for-ai-smart-contract-security-2",
+      "title": "Kann Audits: Scaling Kann AI for AI Smart Contract Security"
+    },
+    {
+      "id": "01M5F26FPPP86J972454VP90SP",
+      "slug": "open-risk-pricing-for-defi-a-public-price-for-default-risk",
+      "title": "Kleros x Seer: Open Risk Pricing for DeFi, a Public Price for Default Risk"
+    },
+    {
+      "id": "01M7FKT26WBRVS419EJG2EKJ1Q",
+      "slug": "leakdetectai-detecting-and-eliminating-side-channel-vulnerab",
+      "title": "LeakDetectAI: Detecting and Eliminating Side-Channel Vulnerabilities in Ethereum Wallets and AI Agents"
+    },
+    {
+      "id": "01M761AJ5JRD2CCBH08G61762M",
+      "slug": "reproducible-ethereum-clients-official-releases-that-anyone",
+      "title": "mab.xyz: Reproducible Builds for the 12 Main Ethereum Clients"
+    },
+    {
+      "id": "01M75H5K1FSQ72K5TWQJ3Z3VMC",
+      "slug": "reusable-security-workflows-for-triage-of-vulnerability-repo",
+      "title": "mab.xyz: Reusable Security Workflows for Triage of Vulnerability Reports"
+    },
+    {
+      "id": "01M5MAKDMCM05EYB6HWDWJFDNY",
+      "slug": "formally-verified-evm-for-ethereum",
+      "title": "Nethermind: Formally Verified EVM for Ethereum"
+    },
+    {
+      "id": "01M2QFPTN1BQDS7VYA5G5QH6B3",
+      "slug": "dprk-it-worker-screening-for-the-ethereum-ecosystem",
+      "title": "NorthScan: DPRK IT Worker Screening for the Ethereum Ecosystem"
+    },
+    {
+      "id": "01M2K91QF23NEAFTEQ35CC0X51",
+      "slug": "onchain-risk-map-an-open-operational-incident-graph-for-ethe",
+      "title": "OKcontract: Onchain Risk Map, an Open Operational Incident Graph for Ethereum Security"
+    },
+    {
+      "id": "01M37FFV4J021XZCFD3NRKS5PZ",
+      "slug": "onay-local-signing-companion",
+      "title": "Onay: Local signing companion"
+    },
+    {
+      "id": "01M7G1TMPA644E14RREP7FWFS3",
+      "slug": "ostros-an-open-source-hardware-wallet-on-crossbar-s-security",
+      "title": "Ostros: an open-source hardware wallet on CrossBar's security chip, against screen implants and blind signing"
+    },
+    {
+      "id": "01M5YJ9GV0J653S0MEAY8X291D",
+      "slug": "trust-and-security-assessment-framework-for-agentic-defi",
+      "title": "Owney: Trust and Security Assessment Framework for Agentic DeFi"
+    },
+    {
+      "id": "01M7DRVJ21PZF6F9ASRRTC5FGK",
+      "slug": "proof-of-audits-proof-before-sign-for-ethereum-wallets-and-a",
+      "title": "Proof of Audits: Proof Before Sign for Ethereum Wallets and Agents"
+    },
+    {
+      "id": "01M23GTPYREBX59SBNC6JF3FJC",
+      "slug": "automated-eip-compliance-checks-for-ethereum-clients",
+      "title": "PRSpec: Spec-to-Client Verification for Ethereum Execution Clients"
+    },
+    {
+      "id": "01M4XZYSTKER585WFBTPDS2C3Z",
+      "slug": "economic-property-packs-for-amms-and-lending-markets-fuzz-te",
+      "title": "RA2: Economic property packs for AMMs and lending markets, fuzz tests any protocol runs in its own CI"
+    },
+    {
+      "id": "01M5FK50JGGFSER7GE9CEPYD45",
+      "slug": "ai-guided-smart-contract-security-checks-in-remix",
+      "title": "Remix: AI-Guided Smart Contract Security Checks"
+    },
+    {
+      "id": "01M2K8EKQAH710WKDRANQ04TVG",
+      "slug": "exploit-exposure-layer-free-data-on-every-wallet-still-appro",
+      "title": "Revoke.cash: Exploit Exposure Layer, Free Data on Every Wallet Still Approved to an Exploited Contract"
+    },
+    {
+      "id": "01M85ABCFNN4GQ4022QQB0TC14",
+      "slug": "rfp-a-bug-broker-that-gets-ethereum-bugs-fixed-and-researche",
+      "title": "RFP: A Bug Broker That Gets Ethereum Bugs Fixed and Researchers Paid, Bounty or No Bounty"
+    },
+    {
+      "id": "01M5929GJEQH8S33FQJ1E2J9CD",
+      "slug": "an-open-bug-bounty-program-for-all-of-ethereum-white-hat-res",
+      "title": "RFP: An Open Bug Bounty Program for All of Ethereum: White Hat Rescued Funds Distribution Service"
+    },
+    {
+      "id": "01M68T944HQTVQFH8CHAYM48NZ",
+      "slug": "independent-attestations-for-the-erc-7730-descriptors-of-eth",
+      "title": "RFP: Clear Signing: Independent Attestations for the ERC-7730 Descriptors of Ethereum's 100 Most-Used Contracts"
+    },
+    {
+      "id": "01M29K8XZ44RZWGYDYY0NWB6YN",
+      "slug": "community-fuzzing-tooling-for-ethereum-ecosystem-projects",
+      "title": "RFP: Community Fuzzing Tooling for Ethereum Ecosystem Projects"
+    },
+    {
+      "id": "01M85AA84PDDXCW4W3S80WCAY7",
+      "slug": "rfp-no-more-lost-bug-reports-a-verified-security-contact-for",
+      "title": "RFP: Hunt Down Every Ethereum Team Until It Publishes a security.txt and Joins a Web of Trust"
+    },
+    {
+      "id": "01M23GTQDENX5BPAMTFT82R795",
+      "slug": "opsec-ratings-coalition-to-build-maintain-an-l2beat-for-opse",
+      "title": "RFP: OpSec Ratings Coalition to Build & Maintain an \"L2BEAT for OpSec\""
+    },
+    {
+      "id": "01M29K91G30RT7153MBM3VXDAZ",
+      "slug": "production-ready-local-first-safe-ui",
+      "title": "RFP: Production-Ready Local-First Safe UI"
+    },
+    {
+      "id": "01M85ACA7DHHYWHJQNQ9ZW70D1",
+      "slug": "rfp-stop-patches-from-becoming-exploits-coordinated-fixes-fo",
+      "title": "RFP: What Replaces Patch Tuesday? Coordinated Disclosure for Bugs Shared Across Ethereum"
+    },
+    {
+      "id": "01M2T5V1CCFKH3KYYKJ193ADNY",
+      "slug": "safe-lockdown-guard-an-emergency-freeze-for-kidnapping-and-c",
+      "title": "Runtime Capital: Safe Lockdown Guard, an Emergency Freeze for Kidnapping and Coercion"
+    },
+    {
+      "id": "01M7NAHFQAC0VNRBMVZZN87H0Z",
+      "slug": "saviour-who-can-act-through-a-safe-at-one-pinned-block",
+      "title": "Saviour: Who can act through a Safe at one pinned block"
+    },
+    {
+      "id": "01M55FCN0S9D9AFTPQ7Z5YYV9N",
+      "slug": "scar-test-security-fixes-against-the-real-exploit-before-the",
+      "title": "SCAR: Test security fixes against the real exploit before they ship"
+    },
+    {
+      "id": "01M71Z2R3ZWPWHNVGZTHHHD0Q0",
+      "slug": "audit-transparency-for-ethereum-every-defi-protocol-s-audits",
+      "title": "SEAL Audit Transparency: every DeFi protocol's audits, mapped to the code running onchain today"
+    },
+    {
+      "id": "01M5J4R6DT7MFCHD99NR9N5X0X",
+      "slug": "seal-security-frameworks-maintaining-open-security-knowledge",
+      "title": "SEAL Frameworks: Maintaining open security knowledge for Ethereum (Infra, AI and Front-end)"
+    },
+    {
+      "id": "01M78DYTMF85EKCPVVD5DSKTQM",
+      "slug": "seal-intel-scaling-blockchain-threat-intelligence-enhancing",
+      "title": "SEAL Intel: Scaling Actionable Threat Intelligence for Ethereum"
+    },
+    {
+      "id": "01M3P9YXBE9VX4ERF32AYBJQRT",
+      "slug": "preparing-encrypted-mempools-for-inclusion-in-the-earliest-e",
+      "title": "Shutter: Preparing encrypted mempools for inclusion in the earliest EIP possible"
+    },
+    {
+      "id": "01M2K23TNDZTEHTXSVRGKM28X1",
+      "slug": "tee-security-handbook-practical-verification-failure-analysi",
+      "title": "TEE Security Handbook: practical verification, failure analysis and recovery for Ethereum"
+    },
+    {
+      "id": "01M7HT47X99NBM0NTSZ9Z2X75E",
+      "slug": "trustblock-every-public-ethereum-and-l2-audit-tied-to-the-co",
+      "title": "Trustblock: every public Ethereum and L2 audit tied to the contracts and commit it reviewed, free to look up"
+    },
+    {
+      "id": "01M61HNA3RK831EKY44WCDEKMH",
+      "slug": "keep-eth-infraops-open-secure-resilient-validator-operation",
+      "title": "ValOS: Keep ETH InfraOps Open, Secure & Resilient"
+    },
+    {
+      "id": "01M29K92BMFXAB2TQVZZRJS5YE",
+      "slug": "securing-ethereum-with-formal-verification",
+      "title": "Verity Labs: Securing Ethereum with Formal Verification"
+    },
+    {
+      "id": "01M2JQEP933CCFFVD10YF3MW6J",
+      "slug": "wake-v5-maintenance-and-ai-assisted-fuzzing",
+      "title": "Wake: v5 Maintenance and AI-Assisted Fuzzing"
+    },
+    {
+      "id": "01M5XPS7SD7745YF5GJR7BE8F0",
+      "slug": "clear-signing-ratings-fixes-and-ecosystem-adoption-for-hardw",
+      "title": "Walletbeat: Clear signing ratings, fixes and ecosystem adoption for hardware and software wallets"
+    },
+    {
+      "id": "01M2J7YH0GB72P1EXY776B0882",
+      "slug": "source-level-debugging-for-solidity-ethdebug-in-solc-2",
+      "title": "Walnut: Source-Level Debugging for Solidity, ethdebug in solc"
+    },
+    {
+      "id": "01M7JHY7W1HRMCKZS3R99YM7QM",
+      "slug": "zealynx-defence-paid-security-training-and-practical-help-wi",
+      "title": "Zealynx Defence: practical security training and help with suspicious messages"
+    },
+    {
+      "id": "01M3VHWKD6B41SZ1E7RWCKKSAX",
+      "slug": "zk-clear-signing-verifiable-transaction-display-for-hardware",
+      "title": "ZKNOX: ZK Clear Signing, verifiable transaction display for hardware and software wallets"
+    }
+  ]
+}

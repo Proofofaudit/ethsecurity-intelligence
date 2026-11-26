@@ -1,0 +1,66 @@
+{
+  "revision": {
+    "n": 1,
+    "author": "0x6f136aAE5c18C4F9C67ABd1487d9b9611A9d8237",
+    "source": "submit",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1791826623.723,
+    "title": "Address Poisoning Detection and Public API for Ethereum and L2s",
+    "summary": "Blockscout scores every token transfer for address poisoning and serves the verdict through a public API. A working draft is open as PR #14931. This grant funds tuning, a backfill, Metadata reporting, and outside wallet adoption.",
+    "details": "",
+    "sections": {
+      "why": "Address poisoning plants dust transfers from look-alike addresses in a victim's history, hoping they copy the wrong one. Scam Sniffer tracked a $50 million loss in December 2025 and a $12.2 million loss in January 2026 ([Cointelegraph](https://cointelegraph.com/news/over-62m-lost-address-poisoning-since-december-scam-sniffer)). Blockscout offers only an admin-managed scam badge today. Afterwards, any wallet can check an address against a public verdict before a user sends funds.",
+      "in_scope": "- Tune rule weights and thresholds on a labeled sample, and publish precision.\n- Harden the realtime fetcher and backfill past transfers.\n- Report flagged addresses to the Metadata microservice.\n- Document the public `poisoning` field for Ethereum and the L2s Blockscout hosts.\n- QA and staging at mainnet scale.",
+      "out_scope": "- Chains other than Ethereum and its L2s.\n- Wallet interfaces, which integrators build.\n- Blocking or reversing transfers.",
+      "team": "Blockscout does the work: Victor Baranov, lead engineer; Nikita Savik, product and API manager; Nick Zenchick, DevOps; Tom Goriunov, front end; Yan Yaskov, Lead QA. Track record: [Victor](https://github.com/vbaranov), [Nikita](https://github.com/NikitaSavik), [Nick](https://github.com/nzenchik), [Tom](https://github.com/tom2drum), [Yan](https://github.com/yvaskov), [Blockscout](https://github.com/blockscout/blockscout). No other funder pays for this scope.",
+      "why_grant": "[PR #14931](https://github.com/blockscout/blockscout/pull/14931) is a working draft: a weighted rule engine, a realtime indexer fetcher, a storage table, a `poisoning` field on API v2 token transfers, and tests. It lacks a backfill and Metadata reporting, so this ask covers tuning, backfill, reporting and adoption.",
+      "commitments": "- The current Blockscout repository license applies.\n- Blockscout maintains the feature set after the money is spent, committing at least 5 engineering hours per month from paid API plan revenue.\n- New requests are funded by the projects that ask for them."
+    },
+    "milestones": [
+      {
+        "name": "Tuned detector with backfill",
+        "amount": 19200,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "PR #14931 and the backfill are merged into master, visible in the public repository.",
+          "Past Ethereum mainnet token transfers are backfilled, checked by the technical reviewer against the public API.",
+          "A precision report on a labeled sample of at least 100 flagged transfers is published in the repository, with the labeled list."
+        ]
+      },
+      {
+        "name": "Public API and Metadata reporting",
+        "amount": 6000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Flagged addresses are reported to the Metadata microservice, shown by the public tag on a live Blockscout instance.",
+          "The `poisoning` field and its environment variables are documented in the public docs repository."
+        ]
+      },
+      {
+        "name": "Outside wallet adoption",
+        "amount": 14400,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 3 wallets outside Blockscout run the verdict in production for Ethereum or L2 transfers, targeting these to start: Ledger, Rabby, Rainbow, Keeper, Ambire, MetaMask, Trust Wallet, Safe, each shown by a public announcement, a merged pull request, or confirmation from the technical reviewer.",
+          "A maintenance plan committing at least 5 engineering hours per month is published in the repository."
+        ]
+      }
+    ],
+    "links": [
+      "https://github.com/blockscout/blockscout/pull/14931",
+      "https://github.com/blockscout/blockscout"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "repos": [
+    {
+      "fullName": "Fosurero/PRSpec",
+      "url": "https://github.com/Fosurero/PRSpec",
+      "exists": true,
+      "description": "AI-powered CI checks for Ethereum spec compliance. Catches spec↔code mismatches before they hit mainnet. Built by Safi El-Hassanine | AI-powered CI guardian for Ethereum protocol specs.",
+      "license": "MIT",
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "main",
+      "createdAt": "2026-02-03T18:31:09Z",
+      "pushedAt": "2026-11-12T02:09:56Z",
+      "stars": 16,
+      "openIssues": 10,
+      "language": "Python",
+      "topics": [],
+      "latestRelease": null,
+      "releaseCount": 0,
+      "hasCiWorkflows": true,
+      "hasTestsDir": true,
+      "hasSecurityPolicy": true,
+      "hasReadme": true,
+      "commitsLast90d": 26,
+      "contributorsSampled": 3,
+      "checkedAt": "2026-11-26T09:26:15.256Z",
+      "error": null
+    }
+  ],
+  "owners": [
+    {
+      "login": "Fosurero",
+      "type": "User",
+      "name": "Eng/ Safi Elhassanin",
+      "blog": null,
+      "createdAt": "2026-01-27T21:37:10Z",
+      "publicRepos": 14,
+      "url": "https://github.com/Fosurero"
+    }
+  ]
+}

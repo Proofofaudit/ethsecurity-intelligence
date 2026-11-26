@@ -1,0 +1,52 @@
+{
+  "checks": [
+    {
+      "url": "https://atlasyield.club/",
+      "status": 200,
+      "finalUrl": "https://atlasyield.club/",
+      "title": "AtlasYield — Independent risk ratings and execution layer for onchain yield",
+      "description": "AtlasYield rates DeFi vaults on 16 factors, shows who controls each one, and tests every day whether money can actually come back out. Free and public for people, apps and AI agents, with every score published before the outcome is known. …",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:11.132Z"
+    },
+    {
+      "url": "https://owney.app",
+      "status": 200,
+      "finalUrl": "https://owney.app/",
+      "title": "Owney",
+      "description": "Your gateway to DeFi agents",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:11.133Z"
+    },
+    {
+      "url": "https://risk.owney.app/",
+      "status": 200,
+      "finalUrl": "https://risk.owney.app/",
+      "title": "Owney — Pool monitoring",
+      "description": "Every pool Owney's agents can allocate to, scored by AtlasYield on 16 factors across yield, safety, liquidity and sustainability.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:11.134Z"
+    },
+    {
+      "url": "https://www.bankless.com/read/agents-and-x402-make-defi-safer",
+      "status": 200,
+      "finalUrl": "https://www.bankless.com/read/agents-and-x402-make-defi-safer",
+      "title": "Agents and x402 Make DeFi Safer | Bankless",
+      "description": "When used properly, agents can shrink DeFi’s attack surface while helping users react to live risk before it becomes damage.",
+      "contentType": "text/html; charset=UTF-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:11.134Z"
+    }
+  ]
+}

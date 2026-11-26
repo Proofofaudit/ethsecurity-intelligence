@@ -1,0 +1,90 @@
+{
+  "repos": [
+    {
+      "fullName": "BlossomLabs/Assertions",
+      "url": "https://github.com/BlossomLabs/Assertions",
+      "exists": true,
+      "description": "On-chain assertions for securing DAO proposals and Safe transactions. Verify invariants atomically.",
+      "license": "MIT",
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "master",
+      "createdAt": "2026-01-27T23:44:39Z",
+      "pushedAt": "2026-11-11T21:00:30Z",
+      "stars": 4,
+      "openIssues": 13,
+      "language": "TypeScript",
+      "topics": [],
+      "latestRelease": null,
+      "releaseCount": 0,
+      "hasCiWorkflows": true,
+      "hasTestsDir": true,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 100,
+      "contributorsSampled": 2,
+      "checkedAt": "2026-11-26T09:25:24.667Z",
+      "error": null
+    },
+    {
+      "fullName": "ethereum-optimism/superchain-ops",
+      "url": "https://github.com/ethereum-optimism/superchain-ops",
+      "exists": true,
+      "description": "superchain-ops allows builders to create and execute tasks on EVM chains. ",
+      "license": "MIT",
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "main",
+      "createdAt": "2023-08-18T15:52:37Z",
+      "pushedAt": "2026-11-25T22:05:41Z",
+      "stars": 99,
+      "openIssues": 27,
+      "language": "Solidity",
+      "topics": [
+        "devops",
+        "ethereum",
+        "multsig",
+        "optimism-l2"
+      ],
+      "latestRelease": null,
+      "releaseCount": 0,
+      "hasCiWorkflows": true,
+      "hasTestsDir": true,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 90,
+      "contributorsSampled": 62,
+      "checkedAt": "2026-11-26T09:25:24.667Z",
+      "error": null
+    }
+  ],
+  "owners": [
+    {
+      "login": "BlossomLabs",
+      "type": "Organization",
+      "name": "Blossom Labs",
+      "blog": "https://blossom.software",
+      "createdAt": "2021-07-31T13:56:42Z",
+      "publicRepos": 56,
+      "url": "https://github.com/BlossomLabs"
+    },
+    {
+      "login": "ethereum-optimism",
+      "type": "Organization",
+      "name": "Optimism",
+      "blog": "https://optimism.io",
+      "createdAt": "2019-12-11T21:07:36Z",
+      "publicRepos": 145,
+      "url": "https://github.com/ethereum-optimism"
+    },
+    {
+      "login": "sembrestels",
+      "type": "User",
+      "name": "Sem",
+      "blog": null,
+      "createdAt": "2011-07-22T04:01:35Z",
+      "publicRepos": 106,
+      "url": "https://github.com/sembrestels"
+    }
+  ]
+}

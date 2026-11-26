@@ -1,0 +1,76 @@
+{
+  "checks": [
+    {
+      "url": "https://clearsigning.org",
+      "status": 200,
+      "finalUrl": "https://clearsigning.org/",
+      "title": "Clear Signing | See What You Sign",
+      "description": "The open standard for human-readable transaction signing.",
+      "contentType": "text/html; charset=UTF-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:25.016Z"
+    },
+    {
+      "url": "https://eips.ethereum.org/EIPS/eip-7730",
+      "status": 200,
+      "finalUrl": "https://eips.ethereum.org/EIPS/eip-7730",
+      "title": "ERC-7730: Structured Data Clear Signing Format",
+      "description": "JSON format describing how to clear-sign smart contract calls and typed messages.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:25.017Z"
+    },
+    {
+      "url": "https://erc7730.sourcify.dev",
+      "status": 200,
+      "finalUrl": "https://erc7730.sourcify.dev/",
+      "title": "ERC7730 Clear Signing Dashboard · Sourcify",
+      "description": null,
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:25.017Z"
+    },
+    {
+      "url": "https://ethereum.foundation/",
+      "status": 200,
+      "finalUrl": "https://ethereum.foundation/",
+      "title": null,
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:25.157Z"
+    },
+    {
+      "url": "https://www.bybit.com/en/learn/this-week-in-bybit/bybit-security-incident-timeline",
+      "status": 403,
+      "finalUrl": "https://www.bybit.com/en/learn/this-week-in-bybit/bybit-security-incident-timeline",
+      "title": "Access Denied",
+      "description": null,
+      "contentType": "text/html",
+      "ok": false,
+      "inconclusive": true,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:25.018Z"
+    },
+    {
+      "url": "https://www.nccgroup.com/research/in-depth-technical-analysis-of-the-bybit-hack",
+      "status": 200,
+      "finalUrl": "https://www.nccgroup.com/research/in-depth-technical-analysis-of-the-bybit-hack/",
+      "title": "Bybit Hack: In-Depth Technical Analysis | NCC Group",
+      "description": "Explore a detailed breakdown of the Bybit hack, uncovering attack methods, vulnerabilities, and security lessons learned.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:41.401Z"
+    }
+  ]
+}

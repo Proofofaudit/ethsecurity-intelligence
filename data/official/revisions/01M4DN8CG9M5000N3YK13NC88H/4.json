@@ -1,0 +1,92 @@
+{
+  "revision": {
+    "n": 4,
+    "author": "0x7767FB920338eED6Fe68A4d7C411f84a3F24f20c",
+    "source": "admin",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1794564282.482,
+    "title": "colibri: Trustless Across Ethereum, Verification for L2 Networks and Bridges",
+    "summary": "colibri turns blockchain reads from a trust assumption into a cryptographic check. This grant makes that security model reusable across Ethereum’s L2s a production multi-chain verification framework, a public capability table for L2 networks, and an explicit capability/fallback model with no silent downgrade. Success means at least 5 L2 networks use colibri verification in their own production products and at least 3 cross-chain protocols use it where a false read can move real value. Chain-specific engineering that can be funded by a chain foundation is explicitly excluded.",
+    "details": "",
+    "sections": {
+      "why": "Ethereum's security model is based on independent verification, but most applications abandon that property at the RPC boundary. The problem becomes more severe across L2s and bridges, where one application may trust several independent read infrastructures. The April 2026 KelpDAO incident (https://www.corpuscore.tech/blog/the-code-was-fine-thats-the-problem) showed the direct consequence: compromised RPC infrastructure caused a verifier to attest to a non-existent source-chain event, releasing about $292 million on the destination chain (https://unchainedcrypto.com/layerzero-links-292-million-kelp-dao-bridge-exploit-to-north-koreas-lazarus-group/). colibri moves verification to the application edge: data is accepted only together with evidence that the client verifies locally.",
+      "in_scope": "- Hardening only the reusable multi-chain verification components required by this grant: common proof interfaces, explicit verification/trust modes, cross-chain conformance tests, live-chain testing and reproducible CI. General Ethereum-core work unrelated to multi-chain adoption is excluded.\n- A public, machine-readable support table for every network (the Verification Capability Model): what colibri verifies natively, what it verifies only partially, and where it relies on the fallback. Applications read the active mode for each request. \n- A chain integration framework: standardized chain/consensus adapter interfaces where possible, reusable L2 verification components, an integration SDK, conformance and live-chain tests, test vectors, compatibility checks, and a documented process for adding a network.\n- A witness-based verification fallback protocol for networks without native proofs yet: defined security assumptions, integration with the Capability Model, applications always able to identify fallback use, no silent downgrade, a migration path to native verification, reference implementation, test vectors, and documentation.\n- Integration support for L2 teams and cross-chain protocols adopting colibri verification.\n- At least 2 reference network integrations on materially different architectures, selected only where their chain-specific engineering is not being paid by another foundation, grants program or commercial integration budget.",
+      "out_scope": "- Integrations into wallets, DeFi protocols and other dApps. A companion initiative covers them.\n- Networks that are not Ethereum or one of its L2s, this grant covers Ethereum L2s and bridges only. \n- New language bindings such as Go. They belong to the companion dApp initiative. \n- Pragmatic Adaptive Privacy (PAP). A companion initiative covers it. \n- Transaction simulation and the open transaction-security foundation. A companion initiative covers them, built on the verified data this grant delivers. \n- Commercial vRPC, prover services, and integration work for RPC providers.\n - The full integration cost of chains that have their own foundation, grants program or integration budget. They may pay separately for chain-specific engineering, support and maintenance beyond the reusable components funded here.",
+      "team": "corpus.core (Germany) does the work.\n- **Simon Jentzsch, Chief Architect.** Worked on TheDAO (2016), co-founder of slock.it, built the Universal Sharing Network and Incubed (IN3), the first minimal verification client for Ethereum. Co-author of EIP-1186 (eth_getProof), the Merkle-proof standard most Ethereum light clients use for state verification.\n- **Steffen Kux, Vision & Product.** Head of the project business at slock.it from 2017, with industrial clients such as Siemens and Energy Web Foundation. Worked on Incubed, CEO of dm3, Co-founder of corpus.ventures.\n- **Jork Leonhardt, Business & Ecosystem.** COO at slock.it, co-founder of Tokenize.it and corpus.ventures.\nTrack record: colibri has been in production since November 2025 and is integrated in the Ethereum Foundation's Kohaku wallet SDK, the Freedom browser, Ambire and beel.com (formerly Tokenize.it).\nhttps://github.com/corpus-core/colibri-stateless\nhttps://eips.ethereum.org/EIPS/eip-1186\nhttps://medium.com/corpus-core-insights/colibri-stateless-production-release-8d5a88c116d1\nhttps://github.com/ethereum/kohaku/blob/HEAD/packages/provider/README.md\nhttps://github.com/AmbireTech/ambire-common/blob/HEAD/src/controllers/verification/verification.ts\nhttps://github.com/solardev-xyz/freedom-browser/blob/HEAD/src/shared/chains.json\n\nOther funding for this scope: none.",
+      "why_grant": "colibri has been in production since November 2025 and runs on Ethereum, Gnosis and the OP Stack. The verifier, the execution and consensus proofs, and a zk-compressed consensus proof already exist. Bindings are available for JavaScript/TypeScript, Swift, Kotlin/Java, Python, Dart/Flutter and Rust. This grant pays for what is missing: the chain adapter framework, the per-network support table, the fallback protocol and the new networks. A team starting from scratch would first have to build the verifier itself.",
+      "commitments": "- **License:** the verifier, chain adapters, support table, fallback protocol and test suites are released under an OSI-approved open-source license. Commercial vRPC and prover services built on top are not covered.\n- **Maintenance:** corpus.core maintains the chain integrations and the support table after the grant, funded by commercial products built on the open core.\n- **Pinned targets:** a public support table covering at least 6 Ethereum L2 networks and at least 5 L2 networks using colibri verification in a production product run by the chain team, 2 of them from the named list, and at least 3 cross-chain protocols using colibri verification in production.\n- **Exception requested:** a merged upstream pull request counts toward the bridge target when the bridge's own release schedule delays production use."
+    },
+    "milestones": [
+      {
+        "name": "Reusable verification hardening",
+        "amount": 25000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Execution, consensus and zk-consensus verification released as a tagged production version, with live-chain test vectors passing in public CI",
+          "Verification and trust modes exposed in the API and documented",
+          "Benchmarks for verification time and memory on mobile, browser and embedded targets published in the repository"
+        ]
+      },
+      {
+        "name": "Multi-chain framework and reference networks",
+        "amount": 60000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Chain adapter interfaces, integration SDK and conformance test suite published in the public repository, with a documented process for adding a network",
+          "Public, machine-readable support table (Verification Capability Model) listing at least 6 Ethereum L2 networks, each with a minimum TVL of $50M and at least 2 of them on materially different architectures, each passing live-chain tests in public CI"
+        ]
+      },
+      {
+        "name": "Explicit verification fallback",
+        "amount": 25000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Witness-based fallback specification published, stating its security assumptions and the migration path to native verification",
+          "Reference implementation with test vectors passing in public CI, demonstrated on at least 1 network where native proofs are not available",
+          "Applications receive the fallback mode with every affected response, with no silent downgrade, shown by a public test"
+        ]
+      },
+      {
+        "name": "Adoption 1: colibri integration in Ethereum L2s first wave",
+        "amount": 45000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 3 Ethereum L2 networks use colibri verification in a production product run by the chain team (official wallet, bridge interface or explorer) or run a public colibri prover for their network, confirmed publicly by each chain team",
+          "At least 1 of them from this list: Base, Arbitrum, Optimism, Linea, zkSync Era, Mantle, Celo, World Chain, Ink, or Robinhood Chain"
+        ]
+      },
+      {
+        "name": "Adoption 2: colibri integration in Ethereum L2s full program",
+        "amount": 90000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 5 Ethereum L2 networks in total meet the criterion of the first adoption milestone, at least 2 of them from its list",
+          "At least 3 cross-chain protocols verify data from Ethereum or its L2s with colibri in production, confirmed publicly by each team, at least 1 of them from this list or securing over $100 million onchain (addresses and query linked): Across Protocol, Stargate (LayerZero), Hop Protocol, Synapse Protocol, Wormhole, deBridge, Axelar, Chainlink CCIP"
+        ]
+      }
+    ],
+    "links": [
+      "https://corpus-core.gitbook.io/whitepaper-colibri-stateless",
+      "https://corpus-core.gitbook.io/specification-colibri-stateless",
+      "https://github.com/corpus-core/colibri-stateless"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

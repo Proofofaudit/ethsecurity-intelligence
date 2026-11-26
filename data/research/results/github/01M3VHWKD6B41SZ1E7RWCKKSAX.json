@@ -1,0 +1,68 @@
+{
+  "repos": [
+    {
+      "fullName": "ZKNoxHQ/ZKlarity",
+      "url": "https://github.com/ZKNoxHQ/ZKlarity",
+      "exists": true,
+      "description": "A ZK clear signing for Defi(Aave) contracts",
+      "license": null,
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "main",
+      "createdAt": "2026-02-27T16:28:04Z",
+      "pushedAt": "2026-03-23T14:35:16Z",
+      "stars": 5,
+      "openIssues": 0,
+      "language": "Assembly",
+      "topics": [],
+      "latestRelease": null,
+      "releaseCount": 0,
+      "hasCiWorkflows": false,
+      "hasTestsDir": false,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 0,
+      "contributorsSampled": 1,
+      "checkedAt": "2026-11-26T09:26:54.266Z",
+      "error": null
+    }
+  ],
+  "owners": [
+    {
+      "login": "btchip",
+      "type": "User",
+      "name": "Nicolas Bacca",
+      "blog": "https://www.zknox.com",
+      "createdAt": "2012-12-29T09:10:09Z",
+      "publicRepos": 79,
+      "url": "https://github.com/btchip"
+    },
+    {
+      "login": "rdubois-crypto",
+      "type": "User",
+      "name": "Renaud Dubois",
+      "blog": null,
+      "createdAt": "2022-04-05T08:36:20Z",
+      "publicRepos": 47,
+      "url": "https://github.com/rdubois-crypto"
+    },
+    {
+      "login": "simonmasson",
+      "type": "User",
+      "name": "Simon Masson",
+      "blog": null,
+      "createdAt": "2016-12-14T14:00:24Z",
+      "publicRepos": 27,
+      "url": "https://github.com/simonmasson"
+    },
+    {
+      "login": "ZKNoxHQ",
+      "type": "Organization",
+      "name": null,
+      "blog": null,
+      "createdAt": "2024-12-14T17:06:52Z",
+      "publicRepos": 50,
+      "url": "https://github.com/ZKNoxHQ"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "revision": {
+    "n": 3,
+    "author": "0x7767FB920338eED6Fe68A4d7C411f84a3F24f20c",
+    "source": "admin",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1794558845.849,
+    "title": "Runtime Capital: Safe Lockdown Guard, an Emergency Freeze for Kidnapping and Coercion",
+    "summary": "Kidnapping and physical coercion can force Safe owners to authorize transfers with perfectly valid signatures. Safe Lockdown Guard gives them a separate emergency action: freeze guarded transfers with a credential that cannot spend funds. Runtime Capital has built and published the open-source audit candidate; this $14,000 request funds the remaining independent audit cost, with a final milestone tied to verified use on Ethereum mainnet. The audit, fixes and installation documentation will be public for every compatible Safe operator.",
+    "details": "",
+    "sections": {
+      "why": "A Safe verifies signatures, not whether its owners signed freely. Physical coercion can turn a valid signing quorum into an attack path. Treasury operators need a separate emergency action that can interrupt transfers without giving another party custody or spending authority.\n\nThe guard lets a registered emergency credential start an on-chain freeze. With the required configuration, it blocks owner and module transfers and new ERC-1271 signature validation during the incident. A restricted recovery path lets owners replace a compromised signer with a pre-approved recovery owner. Normal operation resumes after the configured lockdown and recovery periods. An optional transaction delay provides time to activate the freeze before a coerced transaction executes. The contracts have no team administrator or privileged unlock key. The protection has documented boundaries, including existing token allowances and previously valid signatures; it does not guarantee an attacker's behaviour or a person's physical safety.",
+      "in_scope": "- An independent Solidity audit of the exact agreed candidate commit: the lockdown and timelock contracts, their supporting components, fallback handler, PasswordVerifier and WebAuthnVerifier, and their integration with pinned dependencies, as specified in the public audit brief.\n- Remediation and auditor verification of every medium, high and critical finding before production release, with dispositions for remaining findings in the public report.\n- A tagged audited release, a deployment manifest identifying supported networks and verified contract code, and an installation guide covering all three Safe integration slots and emergency credential configuration.\n- Deployment of the audited contracts on Ethereum mainnet and verification of a working installation used for real treasury custody. Runtime Capital supplies coordination, documentation and onboarding effort without a separate development or marketing fee.",
+      "out_scope": "- New contract features, a token, user incentives or a commercial product build.\n- Re-auditing Safe itself or upstream dependencies independently of their integration with this guard.\n- A frontend or hosted-service audit, Safe version migration, and unsupported network deployments.\n- Claims to freeze third-party token allowances, prevent DeFi liquidations, or revoke signatures already valid before activation.",
+      "team": "The team behind Runtime Capital, a DeFi fund, developed the guard and funded its development. This is its contribution to Ethereum's public security infrastructure: reusable code, public specifications and an independent audit that any compatible Safe operator can use. Runtime Capital handles auditor coordination, remediation, release documentation and ongoing maintenance. Public project contact: contact@runtime.capital.\n\nThe project has been awarded a subsidy of up to $6,500 through the Ethereum Security Subsidy Program, a joint initiative involving the Ethereum Foundation's Trillion Dollar Security Initiative, Chainlink Labs, Nethermind, participating audit firms and Areta Market. The subsidy is delivered as a discount from participating audit providers, covering at most 30% of an eligible quote. At our $20,000 gross audit ceiling, it reduces the cost by $6,000, leaving $14,000 to fund. Participation is not an endorsement or recommendation by the program partners. This discount is already deducted from the amount requested here.",
+      "why_grant": "The public v1.0.0-audit-candidate.3 tag contains the implementation, specification, audit brief, integration tests against Safe v1.5.0, adversarial test cases and installation verification tooling. Its audit brief records 1,118 non-comment source lines, 483 passing tests and 15 stateful invariant properties. These are documented results for that candidate, not a substitute for an external audit. The candidate is not yet externally audited or released for value-bearing production use.\n\nRuntime Capital already owns the implementation work and can resolve findings directly. Development costs are already paid; the request covers the remaining external audit bill. The auditor has not been selected. Selection will use an eligible marketplace provider, a confirmed scope, remediation review and a public report, within the $20,000 gross ceiling.",
+      "commitments": "- Keep original guard code under MIT and the Safe-derived fallback handler under LGPL-3.0-only. The release has no protocol fee or token requirement.\n- Runtime Capital maintains the released code and installation documentation at its own cost after the grant.\n- Complete the independent audit, publish the audited release and establish verified production use on Ethereum mainnet within one month of funding. The expected work schedule is two weeks for the audit followed by two weeks for mainnet deployment and installation on operational Safes.\n- Establish at least one verified installation of the audited release on an operational treasury Safe holding real assets and using the guard for actual custody."
+    },
+    "milestones": [
+      {
+        "name": "Independent audit and audited release",
+        "amount": 9300,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "The selected audit firm publishes its report identifying the exact reviewed commit and the Solidity scope listed in the public audit brief, including both verifier contracts.",
+          "The report or its published remediation addendum confirms that every medium, high and critical finding has been fixed and rechecked, and records dispositions for all remaining findings.",
+          "The public repository contains the tagged audited release and installation guide covering the transaction guard, module guard, bound fallback handler, initialization and usable emergency credentials."
+        ]
+      },
+      {
+        "name": "Ethereum mainnet deployment and verified production use",
+        "amount": 4700,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "A public deployment manifest identifies the audited singleton and its companion fallback handler on Ethereum mainnet, with verified source and deployed bytecode matching the audited release.",
+          "The independent technical reviewer named in the grant agreement publishes a signed attestation confirming that at least 5 operational treasury Safes holding over $10M in combined TVL  authorizing power over TVL counts) uses the audited release for actual custody."
+        ]
+      }
+    ],
+    "links": [
+      "https://github.com/Runtime-Capital/safe-lockdown-guard",
+      "https://github.com/Runtime-Capital/safe-lockdown-guard/tree/v1.0.0-audit-candidate.3",
+      "https://github.com/Runtime-Capital/safe-lockdown-guard/blob/v1.0.0-audit-candidate.3/AUDIT_BRIEF.md",
+      "https://github.com/Runtime-Capital/safe-lockdown-guard/blob/v1.0.0-audit-candidate.3/SECURITY_ASSURANCE.md",
+      "https://app.notion.com/p/valiant-polo-a06/Ethereum-Security-Subsidy-Program-Info-Page-32d2019bf073817dbfe6de2056c7d81f"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

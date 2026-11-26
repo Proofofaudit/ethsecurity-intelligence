@@ -1,0 +1,76 @@
+{
+  "checks": [
+    {
+      "url": "https://ethproofs.org/learn",
+      "status": 200,
+      "finalUrl": "https://ethproofs.org/learn",
+      "title": "Learn | Ethproofs",
+      "description": "race to prove Ethereum in real-time",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:59.452Z"
+    },
+    {
+      "url": "https://nethereum.com/",
+      "status": 200,
+      "finalUrl": "https://nethereum.com/",
+      "title": "Nethereum",
+      "description": "Nethereum is the .NET integration platform for Ethereum and EVM-compatible blockchains. A complete development stack with 130+ packages — from smart contract interaction and EVM simulation to blockchain indexing, account abstraction, walle…",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:59.453Z"
+    },
+    {
+      "url": "https://scholar.google.com/citations?user=pSDXCfIAAAAJ&hl=en",
+      "status": 200,
+      "finalUrl": "https://scholar.google.com/citations?user=pSDXCfIAAAAJ&hl=en",
+      "title": "Maxim Menshikov - Google Scholar",
+      "description": "Interpretica Research - Cited by 27 - static analysis - development tools - compilers",
+      "contentType": "text/html; charset=ISO-8859-1",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:59.454Z"
+    },
+    {
+      "url": "https://vtss.doc.ic.ac.uk/people/sutherland.html",
+      "status": 200,
+      "finalUrl": "https://vtss.doc.ic.ac.uk/people/sutherland.html",
+      "title": "Sutherland",
+      "description": "Julian defended his PhD thesis, Compositional termination verification for fine-grained concurrency, in 2022. Julian is currently a Formal Verification Engin...",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:59.454Z"
+    },
+    {
+      "url": "https://www.ethernodes.org/",
+      "status": 403,
+      "finalUrl": "https://www.ethernodes.org/",
+      "title": "Just a moment...",
+      "description": null,
+      "contentType": "text/html; charset=UTF-8",
+      "ok": false,
+      "inconclusive": true,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:59.519Z"
+    },
+    {
+      "url": "https://www.nethermind.io/",
+      "status": 200,
+      "finalUrl": "https://www.nethermind.io/",
+      "title": "Nethermind | Ethereum Infrastructure & Blockchain Research",
+      "description": "Nethermind builds secure blockchain infrastructure, advances Ethereum through research and engineering, and helps institutions deploy decentralized systems.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:59.571Z"
+    }
+  ]
+}

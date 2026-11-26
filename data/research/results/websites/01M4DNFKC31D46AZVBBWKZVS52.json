@@ -1,0 +1,88 @@
+{
+  "checks": [
+    {
+      "url": "https://corpus-core.gitbook.io/specification-colibri-stateless",
+      "status": 200,
+      "finalUrl": "https://corpus-core.gitbook.io/specification-colibri-stateless",
+      "title": "About colibri.stateless | Specification colibri.stateless",
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:31.222Z"
+    },
+    {
+      "url": "https://corpus-core.gitbook.io/whitepaper-colibri-stateless",
+      "status": 200,
+      "finalUrl": "https://corpus-core.gitbook.io/whitepaper-colibri-stateless",
+      "title": "Motivation | whitepaper-colibri-client",
+      "description": "colibri.stateless – A Stateless and Trustless Client for Ethereum and (any) other blockchain",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:31.223Z"
+    },
+    {
+      "url": "https://eips.ethereum.org/EIPS/eip-1186",
+      "status": 200,
+      "finalUrl": "https://eips.ethereum.org/EIPS/eip-1186",
+      "title": "EIP-1186: RPC-Method to get Merkle Proofs - eth_getProof",
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:31.224Z"
+    },
+    {
+      "url": "https://ethereum.foundation/",
+      "status": 200,
+      "finalUrl": "https://ethereum.foundation/",
+      "title": null,
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:25.157Z"
+    },
+    {
+      "url": "https://medium.com/corpus-core-insights/colibri-stateless-production-release-8d5a88c116d1",
+      "status": 403,
+      "finalUrl": "https://medium.com/corpus-core-insights/colibri-stateless-production-release-8d5a88c116d1",
+      "title": "Just a moment...",
+      "description": null,
+      "contentType": "text/html; charset=UTF-8",
+      "ok": false,
+      "inconclusive": true,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:31.224Z"
+    },
+    {
+      "url": "https://www.a16zcrypto.com/posts/article/bybit-hack-lessons",
+      "status": 200,
+      "finalUrl": "https://a16zfrontier.com/posts/article/bybit-hack-lessons/",
+      "title": "Breaking down the Bybit hack",
+      "description": "What happened to Bybit and Safe during the crypto",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:31.246Z"
+    },
+    {
+      "url": "https://www.corpuscore.tech/",
+      "status": 200,
+      "finalUrl": "https://www.corpuscore.tech/",
+      "title": "corpus.core | Stateless Ethereum Client & Trustless Web3 Infrastructure",
+      "description": "Colibri is a stateless ethereum client and trustless light client for Ethereum and EVM chains. Cryptographic proofs instead of trusted RPC — verify locally with Corpus Core.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:31.251Z"
+    }
+  ]
+}

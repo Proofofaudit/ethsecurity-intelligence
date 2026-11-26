@@ -1,0 +1,90 @@
+{
+  "revision": {
+    "n": 4,
+    "author": "0xa3F35136C3E7CF2BDd41834451E06904E737Ca56",
+    "source": "proposer",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1794940240.466,
+    "title": "PRSpec: Spec-to-Client Verification for Ethereum Execution Clients",
+    "summary": "Ethereum relies on multiple independent execution clients implementing the same protocol specifications consistently. Yet specifications evolve, implementations differ, and conventional tests only cover explicitly defined scenarios.\nPRSpec adds a complementary verification layer that connects EIP requirements directly to client source code, combining deterministic checks with LLM-assisted semantic analysis.\nIts V2 release introduces deterministic witnesses, specification change tracking (Fork Watch), adversarial verification, and reproducible evidence tied to exact specification revisions and client commits.\nPRSpec already supports Besu, Geth, Nethermind, and Reth, with a working CI pilot demonstrated on a Besu fork.\nThis initiative will turn the existing implementation into a practical, privacy-conscious workflow that client teams can independently evaluate and integrate.",
+    "details": "",
+    "sections": {
+      "why": "Ethereum already has extensive testing infrastructure. PRSpec does not replace EEST, Hive, or existing client tests.\nThe missing piece is a practical way to connect specification requirements with their corresponding implementation points across independent clients.\nWhen an EIP changes, engineers must manually trace affected requirements, identify relevant code paths, and determine whether each client has implemented the change consistently.\nPRSpec helps automate this process through three complementary capabilities:\n- **Deterministic checks:** Extract measurable requirements from pinned EIP revisions and verify them against client-code anchors, without requiring an LLM.\n- **Fork Watch:** Compare specification revisions, identify changed parameters, and map their impact to relevant verification rules and client files.\n- **Semantic analysis:** Use LLM-assisted analysis and adversarial verification to identify potential implementation divergences. Findings remain candidates for engineering review, not automatic bug confirmations.\nThe goal is to help client teams identify issues earlier, investigate them with reproducible evidence, and decide where additional tests or implementation changes are needed.",
+      "in_scope": "The initiative focuses on making PRSpec V2 independently deployable, reproducible, and practical for execution-client teams.\n\n1. **Production packaging:** Finalize the CLI and Docker distribution, pinned environments, installation instructions, and reproducible examples.\n2. **Deterministic verification:** Expand witness coverage beyond EIP-1559 and EIP-4844, improve fork-aware rules and client-code anchors, and evaluate EEST-format witnesses against EELS.\n3. **Local model execution:** Validate open-weight models through OpenAI-compatible endpoints, publish hardware requirements and inference costs, and preserve the `--no-cloud` guard.\n4. **Client CI integration:** Turn the Besu pilot into a reusable integration kit, add PR-level reporting, and work with client teams on advisory, non-blocking trials.\n5. **Finding quality:** Maintain transparent triage records covering confirmed findings, disputed findings, false-positive candidates, and incomplete analyses.\n6. **Maintainability:** Document how to add EIPs, forks, client mappings, and rules, and provide an integration guide and technical walkthrough.",
+      "out_scope": "PRSpec is an additional verification layer, not a replacement for existing testing infrastructure.\nThis initiative does not promise:\n- Complete EIP compliance or proof that an implementation is bug-free.\n- Replacement of EEST, Hive, ethereum/tests, or existing review processes.\n- Automatic confirmation of LLM-generated findings.\n- Consensus-layer client support.\n- Deterministic verification of every semantic requirement.\n- Mandatory transmission of proprietary source code to external AI providers.\n- Official client adoption or endorsement without public confirmation.\n- Perpetual maintenance beyond the grant period.",
+      "team": "**Safi El-Hassanine — Founder and Lead Developer**\nPRSpec is independently built and maintained by Safi El-Hassanine, a software developer focused on Ethereum infrastructure, protocol verification, and developer tooling.\nHe designed and developed the project's architecture, multi-client analysis engine, deterministic verification system, Fork Watch, and CI pilot.\nPRSpec's public development history includes technical discussions with Nethermind, Ethereum Foundation execution-specs contributors, Besu, and go-ethereum.\nThe grant will directly support continued engineering and open-source development. Safi will be responsible for delivering the milestones and publishing their supporting evidence.",
+      "why_grant": "PRSpec is a working open-source project, not a proposal to build a tool from scratch. Its V2 implementation includes:\n\n**1. Four execution-client integrations**\nSource-code mappings for Geth (Go), Nethermind (C#), Besu (Java), and Reth (Rust). The semantic analysis registry covers 10 EIPs across the clients, with Reth currently covering 7.\n\n**2. Deterministic verification**\nThe witness engine currently includes EIP-1559 and EIP-4844 rulebooks.\n- 34 cross-client checks: 34 matched, 0 mismatched, 0 incomplete.\n- Two additional rule/client combinations are explicitly marked as lacking verified code anchors.\n- A historical EIP-4844 replay correctly identifies three constants changed by a real specification commit.\n\n**3. Fork Watch**\nImplemented and tested against a historical EIP-4844 change, identifying modified parameters, affected verification rules, and relevant client files.\n\n**4. Semantic analysis and adversarial verification**\nA published mutation experiment tested 10 pre-registered implementation deviations:\n- 6 confirmed, 1 flagged, 3 inconclusive.\n- 0 missed and 0 errors.\nThe clean baseline produced 33 raw issues, all rejected during automated verification.\nThis is a single experiment on one pinned client revision, not a statistically established detection or false-positive rate.\n\n**5. Working CI pilot**\nOn November 12, 2026, PRSpec completed an end-to-end GitHub Actions pilot on a Besu fork. It produced a report artifact and reproducible evidence, including a terminal transcript and screen recording.\nThe pilot is advisory and non-blocking. It is not installed in the official Besu repository.\n\n**6. Engineering and reproducibility**\nThe V2 codebase includes:\n- Installable CLI and Dockerfile with pinned dependencies.\n- Local OpenAI-compatible model support and a `--no-cloud` privacy guard.\n- Fail-closed exit codes.\n- JSON, Markdown, and HTML reports.\n- 210 passing automated tests, with 2 skipped tests requiring an API key.\n\n**Explore the implementation and evidence:**\n- GitHub: https://github.com/Fosurero/PRSpec\n- Verification record: https://github.com/Fosurero/PRSpec/blob/main/VERIFICATION.md\n- Roadmap: https://github.com/Fosurero/PRSpec/blob/main/ROADMAP.md\n- Besu pilot evidence: https://github.com/Fosurero/PRSpec/tree/main/docs/evidence/2026-11-12/besu-fork-e2e",
+      "commitments": "**Open source:** PRSpec and its documentation will remain available under the MIT license.\n**Privacy:** Teams can run PRSpec in their own infrastructure. Local model support and `--no-cloud` will remain available, with external data flows and costs documented.\n**Reproducibility:** Results will identify the relevant EIP revision, client commit, and model configuration where applicable. Incomplete analyses will not be presented as successful checks.\n**Finding quality:** Findings will be reported as review candidates, with confirmed, disputed, false-positive, and incomplete results tracked separately.\n**Adoption transparency:** Only publicly evidenced integrations will count as adoption. Trials and technical discussions will be reported separately.\n**Independent review:** PRSpec will seek independent execution-client engineering review of its methodology, finding quality, and integration safety. Review will not be presented as endorsement.\n**Continuity:** A public maintenance guide will explain how to extend coverage and reproduce existing results. The repository will remain publicly accessible after the grant period."
+    },
+    "milestones": [
+      {
+        "name": "Production-ready packaging and docs",
+        "amount": 4000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "PRSpec CLI and Docker image published with pinned, reproducible builds; a reviewer goes from clean checkout to a completed analysis run with one documented command",
+          "Integration documentation published, including LLM inference options (local model and API-key paths) with realistic cost estimates per run",
+          "Public CI on the PRSpec repo runs the tool's own test suite green"
+        ]
+      },
+      {
+        "name": "First client onboarding",
+        "amount": 3000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "A named execution-layer client team publicly confirms they are trialing PRSpec via a merged PR, public issue, or public statement from that team",
+          "PRSpec deployed in that team's environment and completing runs against their staging branch, with a run report shared publicly (redacted as the team requires)",
+          "Initial findings triaged with the client team; at least one written-up finding (real mismatch, spec ambiguity, or documented false positive) published"
+        ]
+      },
+      {
+        "name": "Live pipeline integration and continuous checking",
+        "amount": 3000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "PRSpec running as an automated recurring check in the first client's staging/testing pipeline, confirmed by a public CI configuration or public statement from that team (any of the major clients: Nethermind, Geth, Besu, or Reth)",
+          "Published triage/false-positive report covering at least one month of automated runs",
+          "Integration bugs and automation fixes from live operation merged and released"
+        ]
+      },
+      {
+        "name": "Multi-client adoption",
+        "amount": 4000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least one additional major execution-layer client team running PRSpec as a recurring pre-release check, publicly confirmed by that team (any of the major clients: Nethermind, Geth, Besu, or Reth)",
+          "A public adoption page listing which clients run PRSpec, which EIPs are covered, and links to each public confirmation",
+          "At least one new EIP or fork added to coverage during the grant, demonstrating the extension process end to end",
+          "Published maintenance plan and a recorded walkthrough or workshop for client teams to reference"
+        ]
+      },
+      {
+        "name": "Majority client adoption",
+        "amount": 6000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least three execution-layer client teams running PRSpec as a recurring pre-release check, publicly confirmed by those teams (must include Nethermind and Geth)"
+        ]
+      }
+    ],
+    "links": [],
+    "structured": true,
+    "goalUsd": null
+  }
+}

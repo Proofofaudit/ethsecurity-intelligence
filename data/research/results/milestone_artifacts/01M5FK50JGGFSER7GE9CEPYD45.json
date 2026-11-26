@@ -1,0 +1,21 @@
+{
+  "artifacts": [
+    {
+      "milestoneIndex": 0,
+      "url": "https://github.com/remix-project-org/remix-project",
+      "pull": null,
+      "http": {
+        "url": "https://github.com/remix-project-org/remix-project",
+        "status": 200,
+        "finalUrl": "https://github.com/remix-project-org/remix-project",
+        "title": "GitHub - remix-project-org/remix-project: Remix Web3 is a browser-based platform that enables users to build Ethereum contracts with Web3 languages (Solidity, …",
+        "description": "Remix Web3 is a browser-based platform that enables users to build Ethereum contracts with Web3 languages (Solidity, Noir, Circom) and to debug transactions. - remix-project-org/remix-project",
+        "contentType": "text/html; charset=utf-8",
+        "ok": true,
+        "inconclusive": false,
+        "error": null,
+        "checkedAt": "2026-11-26T09:26:20.642Z"
+      }
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "checks": [
+    {
+      "url": "https://ethdaily.io",
+      "status": 200,
+      "finalUrl": "https://ethdaily.io/",
+      "title": "ETH Daily - The Trusted Ethereum News Briefing - ETH Daily News",
+      "description": "Daily Ethereum news, protocol updates, L2 developments, DeFi research, and institutional adoption.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:46.494Z"
+    },
+    {
+      "url": "https://ethdaily.io/",
+      "status": 200,
+      "finalUrl": "https://ethdaily.io/",
+      "title": "ETH Daily - The Trusted Ethereum News Briefing - ETH Daily News",
+      "description": "Daily Ethereum news, protocol updates, L2 developments, DeFi research, and institutional adoption.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:46.495Z"
+    },
+    {
+      "url": "https://ethdaily.io/ads",
+      "status": 200,
+      "finalUrl": "https://ethdaily.io/ads",
+      "title": "Advertise on ETH Daily — Sponsor the Newsletter and Podcast - ETH Daily News",
+      "description": "Sponsor the ETH Daily newsletter and podcast, reaching 6,000+ audio subscribers, 4,000+ newsletter subscribers, and 26,000+ social followers.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:46.496Z"
+    },
+    {
+      "url": "https://ethdaily.io/category/security",
+      "status": 200,
+      "finalUrl": "https://ethdaily.io/category/security",
+      "title": "security - ETH Daily News - ETH Daily News",
+      "description": "Posts tagged security from ETH Daily News.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:46.497Z"
+    },
+    {
+      "url": "https://ethdaily.io/terms",
+      "status": 200,
+      "finalUrl": "https://ethdaily.io/terms",
+      "title": "Terms - ETH Daily News",
+      "description": null,
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:46.582Z"
+    },
+    {
+      "url": "https://pod.link/eth",
+      "status": 429,
+      "finalUrl": "https://pod.link/eth",
+      "title": "Vercel Security Checkpoint",
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": false,
+      "inconclusive": true,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:46.605Z"
+    }
+  ]
+}

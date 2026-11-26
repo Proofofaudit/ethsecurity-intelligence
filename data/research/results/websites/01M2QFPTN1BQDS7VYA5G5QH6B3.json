@@ -1,0 +1,100 @@
+{
+  "checks": [
+    {
+      "url": "https://any.run/cybersecurity-blog/lazarus-group-it-workers-investigation",
+      "status": 200,
+      "finalUrl": "https://any.run/cybersecurity-blog/lazarus-group-it-workers-investigation/",
+      "title": "How We Caught Lazarus's IT Workers Scheme Live on Camera",
+      "description": "See how Lazarus Group's IT workers scheme was exposed on a live camera using real-time monitoring inside ANY.RUN’s sandbox.",
+      "contentType": "text/html; charset=UTF-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:03.404Z"
+    },
+    {
+      "url": "https://any.run/cybersecurity-blog/lazarus-group-it-workers-investigation-part-two",
+      "status": 200,
+      "finalUrl": "https://any.run/cybersecurity-blog/lazarus-group-it-workers-investigation-part-two/",
+      "title": "Smile, You’re on Camera! Part 2: Lazarus IT Workers Exposed",
+      "description": "See what happened after suspected Lazarus-linked IT workers were hired, from forged identities and AI tools to remote access and supporting infrastructure.",
+      "contentType": "text/html; charset=UTF-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:03.406Z"
+    },
+    {
+      "url": "https://insomnihack.ch/talks/smile-youre-on-camera-livestreaming-from-north-koreas-it-workers-laptop-farm",
+      "status": 200,
+      "finalUrl": "https://www.insomnihack.ch/",
+      "title": "Insomni'hack",
+      "description": "Insomni’hack is a leading cybersecurity conference and hacking contest in Switzerland, attracting professionals and enthusiasts from around the world for networking and knowledge sharing.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:03.406Z"
+    },
+    {
+      "url": "https://northscan.co",
+      "status": 200,
+      "finalUrl": "https://northscan.co/",
+      "title": "NorthScan | Threat Intelligence & Research",
+      "description": "Threat intelligence initiative focused on uncovering North Korean IT worker infiltration and impersonation techniques through HUMINT and OSINT analysis.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:03.407Z"
+    },
+    {
+      "url": "https://northscan.co/",
+      "status": 200,
+      "finalUrl": "https://northscan.co/",
+      "title": "NorthScan | Threat Intelligence & Research",
+      "description": "Threat intelligence initiative focused on uncovering North Korean IT worker infiltration and impersonation techniques through HUMINT and OSINT analysis.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:03.443Z"
+    },
+    {
+      "url": "https://northscan.co/about",
+      "status": 200,
+      "finalUrl": "https://northscan.co/about",
+      "title": "NorthScan | Threat Intelligence & Research",
+      "description": "Threat intelligence initiative focused on uncovering North Korean IT worker infiltration and impersonation techniques through HUMINT and OSINT analysis.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:03.463Z"
+    },
+    {
+      "url": "https://northscan.co/articles/github-diaries",
+      "status": 200,
+      "finalUrl": "https://northscan.co/articles/github-diaries",
+      "title": "NorthScan | Threat Intelligence & Research",
+      "description": "Threat intelligence initiative focused on uncovering North Korean IT worker infiltration and impersonation techniques through HUMINT and OSINT analysis.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:03.520Z"
+    },
+    {
+      "url": "https://radar.securityalliance.org/from-north-korean-it-workers-to-it-recruiters",
+      "status": 200,
+      "finalUrl": "https://radar.securityalliance.org/from-north-korean-it-workers-to-it-recruiters/",
+      "title": "From North Korean IT Workers to IT recruiters",
+      "description": "The ongoing monitoring of DPRK IT workers' networks reveals the pivot from remote \"workers\" to \"recruiters\" with the goal of scaling operations.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:03.570Z"
+    }
+  ]
+}

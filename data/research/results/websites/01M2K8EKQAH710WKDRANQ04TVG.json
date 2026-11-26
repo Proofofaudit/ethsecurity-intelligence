@@ -1,0 +1,40 @@
+{
+  "checks": [
+    {
+      "url": "https://revoke.cash/",
+      "status": 200,
+      "finalUrl": "https://revoke.cash/",
+      "title": "Revoke Your Token Approvals on Over 80 Networks | Revoke.cash",
+      "description": "Take back control of your wallet and stay safe by revoking token approvals and permissions you granted on Ethereum and over 80 other networks.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:21.106Z"
+    },
+    {
+      "url": "https://revoke.cash/about",
+      "status": 200,
+      "finalUrl": "https://revoke.cash/about",
+      "title": "About Us | Revoke.cash",
+      "description": "Revoke.cash was created in 2019 by Rosco Kalis as a tool to manage your token approvals. Since then it has grown to be a staple in web3 security.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:21.107Z"
+    },
+    {
+      "url": "https://revoke.cash/exploits",
+      "status": 200,
+      "finalUrl": "https://revoke.cash/exploits",
+      "title": "Approval Hacks & Exploits | Revoke.cash",
+      "description": "Over $356M has been stolen in approval hacks since 2020. Check if you are affected.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:21.107Z"
+    }
+  ]
+}

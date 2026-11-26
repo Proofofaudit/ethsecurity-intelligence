@@ -1,0 +1,28 @@
+{
+  "checks": [
+    {
+      "url": "https://ethereum.foundation/",
+      "status": 200,
+      "finalUrl": "https://ethereum.foundation/",
+      "title": null,
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:25.157Z"
+    },
+    {
+      "url": "https://remix.live/",
+      "status": 200,
+      "finalUrl": "https://remix.live/",
+      "title": "Remix – The Web3 IDE",
+      "description": "Remix is the open-source Web3 IDE to build, test, and deploy smart contracts in your browser. Learn, prototype, and launch blockchain projects with ease.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:18.778Z"
+    }
+  ]
+}

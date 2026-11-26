@@ -1,0 +1,81 @@
+{
+  "revision": {
+    "n": 1,
+    "author": "0xeea92137BDEbB9CCa2Ada16FBB50878c2cCEfb6E",
+    "source": "submit",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1794505665.167,
+    "title": "SEAL Intel: Scaling Blockchain Threat Intelligence - Enhancing Reporting and Recommendation Capabilities for Ethereum Infinite Garden",
+    "summary": "Security Alliance (SEAL) proposes expanding its existing intelligence program into an automated threat intelligence and response capability for Ethereum and its L2 ecosystem. The project will improve collection, enrichment, correlation, and distribution of threat data, delivering actionable alerts and intelligence feeds to security teams. The goal is to help ecosystem participants recognize emerging threats and act faster.\nThe goal is to deliver relevant, timely and properly structured intelligence to blockchain companies for the purpose of boosting their security posture. Incidents such as the most recent Binance exchange hack, continuous and ever-evolving social engineering and malware campaigns as well as LLM-scaled vulnerability research conducted by hackers leave little room for error and require fast adaptation capability by SOC teams across the whole industry.\nSEAL and its initiative - SEAL Intel - is extremely well positioned to provide such intelligence based on indicators collected through real incidents occurring in the EVM ecosystem.",
+    "details": "",
+    "sections": {
+      "why": "Ethereum security teams face high volumes of fragmented threat information across incidents, malicious domains, attacker infrastructure, and external research. Turning these signals into timely, relevant warnings often requires manual collection, validation, and analyst effort.\n\nThis initiative would help teams move from scattered indicators to actionable intelligence: correlated threats, relevant exposure information, and alerts that can inform preventive action and incident response.\n\nFor a long time the blockchain industry security gap was related to smart contracts security. However, we observe a significant shift in malicious campaigns targeting underlying infrastructure and operational security of cryptocurrency companies, developers and users. Mitigating such threats is reliant on receiving actionable intelligence and exact recommendations extracted from real-life cases SEAL is processing daily.\n\nWeb2 security firms often lack necessary context and/or observability pipelines to provide intelligence relevant to the Web3 ecosystem. Similarly, the pricing range and availability of classic security vendors is often carving out a considerable number of Web3 companies from provider’s services.\n\nSEAL Intel is an initiative that can help to close this gap. SEAL is a well recognized security organization within blockchain space with an operational intel distribution network, 24/7 availability and broad spectrum of expertise relevant for Web3 threat intelligence. SEAL and their contributors are also well-aligned with blockchain principles.",
+      "in_scope": "Automated pipelines for better  ingestion and normalization of selected Ethereum-relevant intelligence sources with the goal of providing tailored recommendations, flash alerting, real-time data streams and better coordination across otherwise fragmented entities. Our goal is to scale our Information Sharing and Analysis Center (ISAC) capabilities by offering more complete services as well as better coordination between participants of ISAC programme. Additional services will include invitation  only in depth private briefings and  quarterly reports from SEAL Intel experts.\n\nWORKSTREAMS\n\n• Collection and normalization: Ethereum threat intelligence is currently fragmented on three fronts:\n\n1. Sources: it is scattered across open-source feeds, security firms, on-chain monitoring, vulnerability disclosures, social channels, private groups, and partner ISACs/CERTs, with no single point of aggregation. A single aggregation point, with automated connectors pulling from a curated and regularly reviewed source set, so participants no longer have to monitor each source themselves.\n2. Structure: it arrives as free-text reports, chat messages, spreadsheets, and incompatible feed schemas. Normalization to one common schema (STIX 2.1), extended for Ethereum-specific indicators such as addresses, contracts, transaction hashes, and malicious dApp domains. Automated extraction turns unstructured reports into structured records.\n3. Breadth: it spans smart contract exploits, phishing and drainer campaigns, infrastructure and supply-chain compromise, and state-linked actor activity, which no single team tracks completely. A shared taxonomy that classifies every item by threat category and affected participant type, so coverage gaps become visible and each participant can filter to what concerns them.\n\n\n• Processing and analysis: Automation deduplicates, enriches, and correlates at volume, but nothing is distributed without analyst review. Human-in-the-loop curation is a hard requirement, covering three checks:\n\n1. Correctness: validating indicators and claims, and scoring source reliability and confidence, so that false positives do not reach participants.\n2. Enrichment: adding the context, attribution, and links to known campaigns that automated tooling misses.\n3. Relevance: judging which participants an item matters to and how urgently, so that they receive only what they can act on.\n\nThe finished product of this stage is intelligence a Web3 organization can act on. Each item is verified and merged into a single analyst-approved record. Analysts who understand how Ethereum protocols, infrastructure, and attackers operate then add the context that generic threat feeds lack: who is affected, how the threat plays out on-chain and off-chain, and what specific steps to take. Because the pipeline automates the volume work and the ISAC sits inside the ecosystem, close to both the sources and the affected teams, this reaches participants while they can still act on it. Flash alerts, data feeds, and tailored recommendations are all produced from these records, so every service carries the same accuracy, relevance, and concrete guidance.\n\n• Dissemination: Tiered products matched to urgency and audience:\n\n1. flash alerts for active threats\n2. tailored recommendations by participant profile (e.g. protocol, infrastructure provider, wallet, exchange)\n3. periodic sector summaries\n4. machine-readable feeds via API/TAXII for direct integration into participants' tooling\n\n• Member contribution and coordination: The core of the ISAC is two-way exchange: participants contribute as well as consume, and the ISAC connects them to each other.\n\n1. Submission: low-friction channels (portal, API, secure messaging) for reporting incidents, indicators, and observations.\n2. Protected sharing: optional anonymization and redaction of attributing details, with TLP marking chosen by the submitter, so that sharing does not expose the reporting organization.\n3. Requests for information: participants can query the ISAC and, through it, other participants, for example to ask whether anyone else is seeing the same activity.\n4. Incident coordination: for threats that affect several participants, the ISAC convenes the affected parties, maintains a shared picture of the situation, and synchronizes response and disclosure.\n5. Community structures: trusted working groups by segment or topic, and liaison with external bodies (other ISACs, CERTs, security response groups), so that coordination reaches beyond the membership.\n6. Feedback to contributors: confirming what was done with a submission and what it led to, which sustains the incentive to share.\n\n•Trust and governance: Vetted membership, role-based access, TLP 2.0 marking enforced end to end, redaction of attributing details, audit logs of access and sharing, and quality checks for false positives and stale indicators.\n\n• Pilot and iteration: Phased integrations with a defined cohort of Ethereum ecosystem partners, with structured feedback on relevance, timeliness, and actionability used to tune sources, scoring, and products.\n\n• Measurement and evidence: Metrics that show the ISAC works, with documentation and milestone evidence for each deliverable:\n\n1. participation: active participants and contribution rate\n2. speed: time from detection to dissemination\n3. use: feed and API consumption, and alerts acted upon\n4. quality: false-positive rate",
+      "out_scope": "• Guaranteed prevention of all exploits or phishing campaigns.\n• Full replacement of participant security operations or incident response teams.\n• Unlimited custom research and consulting for individual organizations.\n• Expansion to unrelated chains unless separately funded.\n• Features and private donor services not expressly included in agreed grant milestones.",
+      "team": "Security Alliance (SEAL) will lead delivery through its existing Intel program. @blackbigswan is a lead of the SEAL threat intelligence initiative; Joe Dobson (ex-Mandiant) contributes security research and lends his expertise to structuring actionable threat intelligence offerings tailored for enterprise and government organizations; Peter Kacherginsky contributes limited part-time extensive security expertise from both Web2 and Web3 world he operates a well-known security newsletter BlockThreat. BlockThreat onchain data  now will also be available as part of SEAL Intel intelligence.",
+      "why_grant": "SEAL already operates a threat intelligence function, maintains intelligence workflows and OpenCTI-related capabilities, and supports ecosystem security through SEAL 911 and related programs. The proposed work expands an operating program rather than starting a new intelligence team from scratch.\n\nSEAL is maintaining a +100 channels (hotlines) with multiple participants of the blockchain ecosystem, including DeFi protocols, centralized exchanges and infrastructure providers. We provide on-demand insight into malicious campaigns spotted by entities that participate in hotlines channels.\n\nWe operate a 24/7 support ticket pipeline through @seal_911_bot and @seal_tips_bot - helping individual users and companies with initial incident response, on-chain tracing and coordination across industry.\n\nOur weekly (public) threat intel reports provide a view into the scope of SEAL’s operations. With the future scaling we want to move from the “informative” nature of the initiative into the “actionable” stage - issuing direct recommendations based on modeled attack patterns and trends observed.\n\nWe are the main contributor to phishing domain blocklists in the ecosystem. Detecting between five to ten thousand malicious front ends weekly. Upon detection, our integration with MetaMask operated eth-phishing-detect blocklist allows us to render front end lures inoperational within minutes after detection.\n\nWe conduct in-depth research of malware infrastructure and payloads, often disrupting existing campaigns by both DPRK APT groups as well as typical crimeware (Malware-as-a-service). We report on new capabilities, tactics, techniques and procedures (TTPs), indicators of compromise (IOCs), perform front end takedowns (blocklists) and EV code signing certification revocations.",
+      "commitments": "SEAL intends to maintain the grant-funded capabilities after the buildout and pursue sustainability through an enhanced annual Intel/ISAC donor package, currently envisioned at $50,000 per year. Public-good outputs and any paid/private features will be distinguished in the final proposal."
+    },
+    "milestones": [
+      {
+        "name": "Data ingestion and normalization",
+        "amount": 50000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Automated connectors/data feeds run in production for at least 10 sources across at least 5 source classes, and the source list is provided to the reviewer.",
+          "100% of ingested items are stored as STIX 2.1 bundles, including Ethereum-specific indicators (addresses, contracts, transaction hashes, dApp domains).",
+          "On a test set of 50 unstructured reports, automated extraction recovers at least 90% of the indicators an analyst identifies by hand.",
+          "At least 50% of observables ingested over a 14-day period are linked to an entity (threat actor, campaign, malware family, or incident), not stored as standalone observables.",
+          "An automated overlap report runs at least daily for 14 consecutive days, flagging matches between newly ingested external intelligence and SEAL’s privately gathered data."
+        ]
+      },
+      {
+        "name": "Correlation, analyst workflows and alert delivery",
+        "amount": 128000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Median analyst time to produce a report through the new workflow is at least 50% lower than a manual baseline, measured on 10 reports against 5 baseline reports timed at the start of the grant.",
+          "Over a 30-day period, every alert for a relevant threat reaches participants within 24 hours of detection, and the median time is reported.",
+          "At least 2 intelligence reports per month with recommendations are produced through the new workflow and distributed. (Volume may vary depending on incidents unfolding)",
+          "A TAXII 2.1 and REST endpoint is live with authentication, and an external test client can pull records filtered by threat category, participant type, and TLP level.",
+          "Recommendation templates exist for different participant profiles (protocol, infrastructure provider, wallet, exchange, security firm, government, institution etc.), with one issued example of each.",
+          "The partner onboarding guide, API reference, and TLP handling policy are published."
+        ]
+      },
+      {
+        "name": "Partner adoption pilot (adoption)",
+        "amount": 89000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "6 independent organizations, covering at least 3 participant types, each pulled from the feed or API on at least 20 days of a 30-day window, shown by access logs.",
+          "At least 4 of those organizations confirm in writing that the TAXII or REST feed is integrated into their own security tooling.",
+          "At least 4 of those organizations each submitted a contribution that became a released record.",
+          "At least 3 organizations each confirm in writing a specific action (a block, credential rotation, patch, or takedown) taken because of an alert or recommendation",
+          "At least 6 further organizations are onboarded and pulling from the feed after the pilot cohort, with at least 2 joining in each of the final two months."
+        ]
+      }
+    ],
+    "links": [
+      "https://lazarus.group/",
+      "https://github.com/security-alliance/lazarus-group-data",
+      "https://radar.securityalliance.org/",
+      "https://github.com/security-alliance",
+      "https://radar.securityalliance.org/tradertraitor-vs-contagious-interview-a-look-at-binances-initial-incident-report/",
+      "https://radar.securityalliance.org/beware-of-cold-reachouts-infostealer-malware-campaigns-targeting-crypto/",
+      "https://radar.securityalliance.org/vs-code-tasks-abuse-by-contagious-interview-dprk/",
+      "https://radar.securityalliance.org/seal-weekly-stats-20-27-oct-2026/ + https://x.com/_SEAL_Org/status/2115200816722153777"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

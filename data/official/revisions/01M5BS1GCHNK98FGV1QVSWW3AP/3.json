@@ -1,0 +1,69 @@
+{
+  "revision": {
+    "n": 3,
+    "author": "0x839395e20bbB182fa440d08F850E6c7A8f6F0780",
+    "source": "admin",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1792889307.406,
+    "title": "ETH Daily Security: Getting Ethereum Users to the Tools That Protect Them",
+    "summary": "Ethereum security builders ship good tools, and most users never hear about them. ETH Daily is moving from a general news briefing to a dedicated security publication, and uses its existing audience to send users to anti-phishing tools. Every tool link is a unique invite link, so each wallet that takes a security action is counted and verified.",
+    "details": "",
+    "sections": {
+      "why": "Builders keep shipping tools that stop attacks: approval revokers, wallets that check signatures and transactions. A tool only protects the users who find it, and users have no single place to learn what exists. They scramble to search X, GitHub and Reddit.\n\nWallet drainers took $494 million from 332,000 addresses in 2024 and $83.85 million from 106,106 wallets in 2025 (Scam Sniffer annual reports, drops.scamsniffer.io). Users who revoke bad approvals, check signatures and verify addresses avoid these attacks.",
+      "in_scope": "- ETH Daily becomes a dedicated Ethereum security publication for the grant period\n- A public hub of security tools and guides on token approvals, wallet signatures and address poisoning\n- A unique, trackable invite link for each listed tool\n- Guides and podcast episodes that send the audience to the hub\n- A published neutrality policy",
+      "out_scope": "- Building security tools\n- Onboarding tool teams: we bring users to teams that already exist\n- Coverage of chains other than Ethereum",
+      "team": "ETH Daily (pseudonymous): solo producer of a daily Ethereum news podcast, newsletter and social feed for over 4 years. Track record: https://x.com/ethdaily",
+      "why_grant": "The distribution exists: 10,000 combined newsletter and podcast subscribers and 26,000 combined followers on X, Lens and Farcaster (https://ethdaily.io/ads). Four years of coverage and a security archive are public. Nobody else funds this scope, which is why the price is $2,900 a month.",
+      "commitments": "- Guides published under CC BY 4.0\n- Paid referrals and sponsored listings are disclosed inline and never change what we recommend\n- The hub is maintained for 12 months after the last milestone at no further cost\n- Pinned target: at least 200 verified wallets completing a security action"
+    },
+    "milestones": [
+      {
+        "name": "Hub live",
+        "amount": 3700,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Hub live on ethdaily.io listing at least 8 tools and guides, checked by the technical reviewer",
+          "Neutrality policy live at https://ethdaily.io/terms and linked from the hub",
+          "Unique invite link live for each listed tool"
+        ]
+      },
+      {
+        "name": "Verified security actions",
+        "amount": 3000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 200 distinct wallets completed a security action through the tracking links (revoked an approval or activated a listed tool), with duplicates, staff and automated wallets excluded.",
+          "The count verified by the technical reviewer from the link logs",
+          "At least 2 outside tool teams confirm activations in writing."
+        ]
+      },
+      {
+        "name": "Sustainability",
+        "amount": 2000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least $1,500 of sponsorship or referral revenue, not counting grants, received from at least 2 outside projects, shown on a revenue note and verified by the technical reviewer"
+        ]
+      }
+    ],
+    "links": [
+      "https://ethdaily.io",
+      "https://pod.link/eth",
+      "https://ethdaily.io/category/security",
+      "https://ethdaily.io/ads",
+      "https://ethdaily.io/terms"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

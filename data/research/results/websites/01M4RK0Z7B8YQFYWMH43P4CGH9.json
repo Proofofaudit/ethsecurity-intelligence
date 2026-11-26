@@ -1,0 +1,40 @@
+{
+  "checks": [
+    {
+      "url": "https://cointelegraph.com/news/over-62m-lost-address-poisoning-since-december-scam-sniffer",
+      "status": 200,
+      "finalUrl": "https://cointelegraph.com/news/over-62m-lost-address-poisoning-since-december-scam-sniffer",
+      "title": "Two Victims Lose $62 Million To Address Poisoning Since December",
+      "description": "Address poisoning claimed $62 million from two victims since December. Signature phishing rose 207% in January amid surging Ethereum dust attacks.",
+      "contentType": "text/html;charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:28.673Z"
+    },
+    {
+      "url": "https://www.argot.org/",
+      "status": 200,
+      "finalUrl": "https://www.argot.org/",
+      "title": "Argot Collective",
+      "description": "Building the critical infrastructure for Ethereum applications.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:28.674Z"
+    },
+    {
+      "url": "https://www.blockscout.com/",
+      "status": 200,
+      "finalUrl": "https://www.blockscout.com/",
+      "title": "Powerful multichain search by Blockscout",
+      "description": "Explore crypto activities with Blockscout",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:28.675Z"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "revision": {
+    "n": 1,
+    "author": "0x4969FD488578d9b2B553b2c58343fDA14a40C9a1",
+    "source": "submit",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1789482457.379,
+    "title": "Wake v5 Maintenance and AI-Assisted Fuzzing",
+    "summary": "ack3 will maintain Wake v5 and improve its AI-assisted fuzzing workflow for Solidity. The work covers compatibility updates, targeted code improvements, documentation, runnable examples, and resolution of GitHub issues raised by Wake users. Wake remains open source and usable independently of ack3's commercial audits.",
+    "details": "",
+    "sections": {
+      "why": "Wake combines Solidity testing, fuzzing, static analysis, and code intelligence in a Python framework. Maintaining that stack requires continued work as Solidity, Python packages, EVM implementations, and Ethereum hard forks change. Unresolved compatibility problems and user-reported defects make security tests harder to reproduce and maintain.\n\nAI can reduce the mechanical work involved in writing fuzz tests, but useful tests still need explicit invariants, correct state models, and reviewable execution results. This initiative improves the parts of Wake that support that workflow. Developers and auditors will have a maintained Wake v5 release, clearer AI-assisted fuzzing paths, and public fixes for problems reported through GitHub.",
+      "in_scope": "- Maintain the Wake v5 release line and address compatibility changes affecting Solidity compilation, Python support, EVM behavior, testing, fuzzing, and static analysis.\n- Resolve GitHub issues that affect Wake reliability and usability, with fixes or documented resolutions linked from public issue threads.\n- Improve Wake interfaces and workflows used for AI-assisted fuzz-test preparation and execution.\n- Update documentation and publish runnable examples showing how AI-assisted fuzzing fits into Wake tests.\n- Publish tagged releases and release notes for completed work.",
+      "out_scope": "- A fully autonomous audit system.\n- A guarantee that fuzzing finds a fixed number of vulnerabilities or reaches a fixed coverage percentage.\n- A Wake v6 rewrite or an unrelated replacement framework.\n- Dedicated consulting, integration support, or developer onboarding as a milestone.\n- Documentation of private user activity.\n- New detector families unrelated to the maintenance and AI-assisted fuzzing scope.",
+      "team": "**ack3** does the work. Michal Převrátil leads Wake engineering and published ack3's 2026 comparison of Wake, Foundry, Echidna, and an agent-written harness. Josef Gattermayer leads ack3 and provides technical and project oversight. ack3's security researchers use Wake in Solidity reviews and test releases against real audit workflows.\n\nThe team's public track record is available at https://ack3.ai, https://github.com/ack3-ai/wake, and the linked fuzzing benchmark. No other funder currently pays for this scope.",
+      "why_grant": "Wake is an existing open-source framework built and maintained by the team now operating as ack3. Wake v5 already provides Python-based Solidity testing, property-based fuzzing, manually guided fuzzing, static-analysis detectors, typed Solidity representations, coverage, call tracing, and an EVM execution backend. Its documentation and releases are public.\n\nack3 also uses Wake in security work and has already tested AI-assisted fuzzing approaches. The linked benchmark records a concrete agent-written harness experiment, while the Wake documentation contains the testing and fuzzing foundations this initiative will extend. A new team would first need to learn the compiler pipeline, generated Python types, EVM backend, fuzzing runtime, static-analysis model, and release process. The $20,000 goal funds focused maintenance and improvements to the existing framework rather than a new framework build.",
+      "commitments": "- Grant-funded Wake code remains public under the repository's existing open-source license.\n- Work, issues, fixes, tests, and releases are tracked in the public Wake repository.\n- ack3 continues maintaining Wake after the grant because the team uses it in its own security-review work.\n- The adoption target is based on public GitHub issues from users outside ack3, with reporter confirmations visible on the issue threads."
+    },
+    "milestones": [
+      {
+        "name": "Wake v5 maintenance release",
+        "amount": 6500,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "A tagged Wake v5 maintenance release is published in https://github.com/ack3-ai/wake with release notes linking the included fixes and compatibility changes.",
+          "Public CI passes the supported Python and Solidity test matrix at the tagged release commit."
+        ]
+      },
+      {
+        "name": "AI-assisted fuzzing improvements",
+        "amount": 6500,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "AI-assisted fuzzing improvements are included in a tagged Wake v5 release, with their implementation and tests public in https://github.com/ack3-ai/wake.",
+          "Wake documentation publishes one end-to-end AI-assisted fuzzing workflow and at least two runnable Solidity fuzzing examples.",
+          "Each published example runs successfully in public CI at the release commit."
+        ]
+      },
+      {
+        "name": "External-user issue resolution",
+        "amount": 7000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 8 GitHub issues opened by accounts outside ack3 are closed with linked code changes or documented resolutions.",
+          "At least 4 of those issue reporters publicly confirm on the issue thread that they tested the current Wake v5 resolution.",
+          "Public release notes link every qualifying issue and reporter confirmation."
+        ]
+      }
+    ],
+    "links": [
+      "https://github.com/ack3-ai/wake",
+      "https://ack3.ai",
+      "https://ack3.ai/wake/docs/latest/",
+      "https://ack3.ai/research/benchmarking-evm-fuzzers-against-an-agent-written-harness/",
+      "https://qf.giveth.io/project/wake:-solidity-static-analysis-and-fuzzing-framework?roundId=16"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

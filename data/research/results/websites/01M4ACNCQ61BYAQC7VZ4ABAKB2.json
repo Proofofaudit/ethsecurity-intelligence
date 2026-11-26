@@ -1,0 +1,136 @@
+{
+  "checks": [
+    {
+      "url": "https://assertions.eth.limo",
+      "status": 200,
+      "finalUrl": "https://assertions.eth.limo/",
+      "title": "Assertions: Set the conditions. Then send it.",
+      "description": "Between signing and execution, the chain is not the same. Assertions check what has to be true the moment your transaction runs. If one fails, nothing happens.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:24.636Z"
+    },
+    {
+      "url": "https://assertions.eth.limo/docs/contracts/deployments",
+      "status": 200,
+      "finalUrl": "https://assertions.eth.limo/docs/contracts/deployments/",
+      "title": "Deployments | Assertions",
+      "description": "The contract addresses, the chains they are deployed on, and how to deploy them to another chain.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:24.662Z"
+    },
+    {
+      "url": "https://assertions.eth.limo/docs/guides/dao-proposals",
+      "status": 200,
+      "finalUrl": "https://assertions.eth.limo/docs/guides/dao-proposals/",
+      "title": "DAO proposals | Assertions",
+      "description": "Protect a Governor or Aragon OSx proposal: where the assertions go, why they must be absolute, how to simulate, create the proposal and what voters see.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:24.663Z"
+    },
+    {
+      "url": "https://assertions.eth.limo/docs/guides/safe",
+      "status": 200,
+      "finalUrl": "https://assertions.eth.limo/docs/guides/safe/",
+      "title": "Safe batches | Assertions",
+      "description": "Build a Safe transaction with assertions in the builder, simulate it, propose it, and what the other signers see.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:24.664Z"
+    },
+    {
+      "url": "https://assertions.eth.limo/docs/guides/wallet-batches",
+      "status": 200,
+      "finalUrl": "https://assertions.eth.limo/docs/guides/wallet-batches/",
+      "title": "Wallet batches | Assertions",
+      "description": "Build a protected batch for your own wallet in the builder, simulate it, send it as one atomic group, and what happens when an assertion fails.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:25.432Z"
+    },
+    {
+      "url": "https://blossom.software",
+      "status": 200,
+      "finalUrl": "https://blossom.software/",
+      "title": "Blossom Labs - Researching Emergence",
+      "description": "We are a developer team specialized in building blockchain-based infrastructure for online communities.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:25.439Z"
+    },
+    {
+      "url": "https://blossom.software/",
+      "status": 200,
+      "finalUrl": "https://blossom.software/",
+      "title": "Blossom Labs - Researching Emergence",
+      "description": "We are a developer team specialized in building blockchain-based infrastructure for online communities.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:25.445Z"
+    },
+    {
+      "url": "https://eips.ethereum.org/EIPS/eip-7906",
+      "status": 200,
+      "finalUrl": "https://eips.ethereum.org/EIPS/eip-7906",
+      "title": "EIP-7906: Transaction Assertions via State Diff Opcode",
+      "description": "Opcodes that expose a transaction's state diff to on-chain assertions that can reject the transaction's outcome",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:25.549Z"
+    },
+    {
+      "url": "https://eips.ethereum.org/EIPS/eip-8141",
+      "status": 200,
+      "finalUrl": "https://eips.ethereum.org/EIPS/eip-8141",
+      "title": "EIP-8141: Frame Transaction",
+      "description": "Add frame abstraction for transaction validation, execution, and gas payment",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:25.551Z"
+    },
+    {
+      "url": "https://etherscan.io/tx/0x462475a38cd8a3b75b2732db28ea21a7addfce059af03ea4f638f461c707bf10",
+      "status": 200,
+      "finalUrl": "https://etherscan.io/tx/0x462475a38cd8a3b75b2732db28ea21a7addfce059af03ea4f638f461c707bf10",
+      "title": "Ethereum Transaction Hash: 0x462475a38c... | Etherscan",
+      "description": "curator.griff.eth Call Exec Transaction Function on 0x47b7655E...3e5C6377D | Success | Jan-29-2026 07:31:47 PM (UTC)",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:25.552Z"
+    },
+    {
+      "url": "https://thedao.fund/transparency/assertions-eth-on-chain-transaction-guards-for-ethereum",
+      "status": 200,
+      "finalUrl": "https://thedao.fund/transparency/assertions-eth-on-chain-transaction-guards-for-ethereum/",
+      "title": "Assertions.eth On-chain Transaction Guards for Ethereum — funded for Ethereum security | TheDAO Security Fund",
+      "description": "Full breakdown of the funding Assertions.eth On-chain Transaction Guards for Ethereum received for Ethereum security. Public, verifiable, on-chain.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:25.615Z"
+    }
+  ]
+}

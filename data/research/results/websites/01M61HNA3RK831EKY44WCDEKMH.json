@@ -1,0 +1,88 @@
+{
+  "checks": [
+    {
+      "url": "https://duck-initiative.gitbook.io/d.u.c.k.-knowledge-base",
+      "status": 200,
+      "finalUrl": "https://duck-initiative.gitbook.io/d.u.c.k.-knowledge-base",
+      "title": "Introduction | D.U.C.K. - Knowledge Base",
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:43.843Z"
+    },
+    {
+      "url": "https://lionscraft.io/",
+      "status": 200,
+      "finalUrl": "https://lionscraft.io/",
+      "title": "Lionscraft | Blockchain, Digital Assets & AI Automation",
+      "description": "Lionscraft is a Singapore-based technology company specialising in blockchain, digital assets and AI automation. We provide advisory, systems integration, operations, security, research and training.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:43.843Z"
+    },
+    {
+      "url": "https://research.lido.fi/t/d-u-c-k-distributed-utilization-of-configurations-and-knowledge-proposal/5848",
+      "status": 200,
+      "finalUrl": "https://research.lido.fi/t/d-u-c-k-distributed-utilization-of-configurations-and-knowledge-proposal/5848",
+      "title": "D.U.C.K. - Distributed Utilization of Configurations and Knowledge Proposal - Community Grants / Initiatives - Lido Governance",
+      "description": "TL;DR We are proposing the initiative DUCK, Distributed Utilization of Configurations and Knowledge, with the goal to equip Lido node operators and beyond with open-source resources enhancing operations and mitigating ri…",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:43.844Z"
+    },
+    {
+      "url": "https://research.lido.fi/t/proposal-funding-request-for-valos-early-adopter-assessment-subsidies/10657",
+      "status": 200,
+      "finalUrl": "https://research.lido.fi/t/proposal-funding-request-for-valos-early-adopter-assessment-subsidies/10657",
+      "title": "Proposal: Funding Request for ValOS Early-Adopter Assessment Subsidies - Community Grants / Initiatives - Lido Governance",
+      "description": "TL;DR This proposal requests $60,000.00 from LEGO, as a part of the “DUCK FLAP grant pool” mentioned in the Strengthen DUCK LEGO proposal, to subsidize assurance assessments for four early-adopter Node Operators (NOs) un…",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:43.845Z"
+    },
+    {
+      "url": "https://research.lido.fi/t/strengthen-d-u-c-k-governance-assurance-and-real-world-adoption/9849/4",
+      "status": 200,
+      "finalUrl": "https://research.lido.fi/t/strengthen-d-u-c-k-governance-assurance-and-real-world-adoption/9849/4",
+      "title": "Strengthen D.U.C.K.: Governance, Assurance, and Real-World Adoption - #4 by JulianU - Community Grants / Initiatives - Lido Governance",
+      "description": "TL;DR This proposal aims to strengthen the D.U.C.K. knowledge base and governance framework to enhance its real-world applicability and long-term sustainability. Currently, D.U.C.K. operates as an open community-driven i…",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:44.268Z"
+    },
+    {
+      "url": "https://www.lionscraft.io/",
+      "status": 200,
+      "finalUrl": "https://lionscraft.io/",
+      "title": "Lionscraft | Blockchain, Digital Assets & AI Automation",
+      "description": "Lionscraft is a Singapore-based technology company specialising in blockchain, digital assets and AI automation. We provide advisory, systems integration, operations, security, research and training.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:44.293Z"
+    },
+    {
+      "url": "https://www.valos.global/",
+      "status": 200,
+      "finalUrl": "https://www.valos.global/",
+      "title": "ValOS - Validator Operations Standard",
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:44.329Z"
+    }
+  ]
+}

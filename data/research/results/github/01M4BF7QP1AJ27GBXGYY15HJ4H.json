@@ -1,0 +1,55 @@
+{
+  "repos": [
+    {
+      "fullName": "Dedaub/monitoring-cli",
+      "url": "https://github.com/Dedaub/monitoring-cli",
+      "exists": true,
+      "description": "Command-line tool to monitor on-chain activity on Ethereum and EVM chains; Write SQL queries and deploy real-time blockchain alerts with Dedaub.",
+      "license": "MIT",
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "main",
+      "createdAt": "2026-05-25T13:08:45Z",
+      "pushedAt": "2026-11-25T13:14:21Z",
+      "stars": 4,
+      "openIssues": 1,
+      "language": "Python",
+      "topics": [
+        "arbitrum",
+        "base",
+        "blockchain-monitoring",
+        "cli",
+        "dedaub",
+        "defi-monitoring",
+        "ethereum",
+        "evm",
+        "on-chain-alerts",
+        "real-time-alerts",
+        "robinhood",
+        "smart-contract-monitoring",
+        "sql"
+      ],
+      "latestRelease": null,
+      "releaseCount": 0,
+      "hasCiWorkflows": true,
+      "hasTestsDir": true,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 57,
+      "contributorsSampled": 4,
+      "checkedAt": "2026-11-26T09:25:42.596Z",
+      "error": null
+    }
+  ],
+  "owners": [
+    {
+      "login": "Dedaub",
+      "type": "Organization",
+      "name": "Dedaub",
+      "blog": "https://dedaub.com",
+      "createdAt": "2019-10-28T13:50:56Z",
+      "publicRepos": 19,
+      "url": "https://github.com/Dedaub"
+    }
+  ]
+}

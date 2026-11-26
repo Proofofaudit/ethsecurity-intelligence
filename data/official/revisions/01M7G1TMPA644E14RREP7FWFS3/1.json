@@ -1,0 +1,164 @@
+{
+  "revision": {
+    "n": 1,
+    "author": "0xea5fd2b278C1945bC115981391524C1902624b9b",
+    "source": "submit",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1794761380.554,
+    "title": "Ostros: an open-source hardware wallet on Crossbar's security chip, against screen implants and blind signing",
+    "summary": "Ostros is Crossbar's hardware wallet, open from the chip to the apps. It runs on Daric, Crossbar's open-core RISC-V security chip, and the Rust-based Xous operating system. This grant adds chip attestation, clear signing, a recovery phrase a screen implant cannot read, an owner check that firmware and chip are genuine, an independent security review, and an app loader for outside security apps. The grant is paid out as wallets add Ostros support, owners verify their own devices, and outside teams build security apps on it.",
+    "details": "",
+    "sections": {
+      "why": "- **Screen implants.** In October 2026, Ledger confirmed a hidden implant in at least one device sold through a reseller. It read the recovery phrase off the screen during setup and sent it out over a mobile network. Reported losses exceed $86 million (BleepingComputer, Ledger).\n- **Blind signing.** In February 2025, Bybit lost about $1.5 billion after its Safe signers approved a malicious upgrade they could not read on their devices (BlockSec).\n- **No way to check.** Most hardware wallet owners cannot verify that their device runs the published firmware on a genuine chip.\n\nAfter this grant, an Ostros owner creates a recovery phrase that a screen implant never sees in full, reads Ethereum transactions in plain language before signing, and confirms their firmware and chip are genuine.\n\nThis grant is one step toward a hardware wallet owners can verify end to end, from an open-source chip through open software to a device they can open and inspect. Crossbar builds both the chip and the wallet, so this goal can be reached. Any hardware wallet can reuse the split recovery phrase method, the attestation design and the owner verification tool, the way distributions build on Linux. A follow-on initiative will (1) make the device openable and (2) let owners inspect the chip inside their own wallet.",
+      "in_scope": "- **Attestation:** each Ostros can prove it carries a genuine Daric chip, set up in a new factory personalization flow. The split recovery phrase and the app loader both build on it.\n  - Technical: a key generated inside the chip at personalization, checked against a published Crossbar root, as a per-device certificate or anonymous attestation (scheme chosen during the grant).\n- **Clear signing:** Ostros shows Ethereum transactions in plain language (ERC-7730), or the verifiable digest (ERC-8213) when no descriptor exists.\n- **Web companion:** connects Ostros to any Ethereum app through WalletConnect.\n  - Technical: USB or Bluetooth. The device decodes and displays each request itself, so the companion never decides what the owner sees.\n- **Owner verification:** a public guide and tool to rebuild the firmware, match its hash and check the attestation.\n- **Split recovery phrase:** of a 24-word phrase, 12 words show on the Ostros screen and 12 go to the owner's computer over a connection the computer checks comes from a genuine Ostros chip. An implant on the screen never sees the full phrase, so an attacker needs both an implant and malware on the computer (method by Nicolas Bacca, Devcon 8).\n  - Technical: the computer accepts its 12 words only after checking that the session key is signed by the device's attestation key. The 12 words an implant could see leave more than 120 bits of the phrase unknown.\n- **App loader and developer kit:** outside teams install security apps without rebuilding the firmware, with an emulator and system API documentation.\n  - Technical: each app runs in its own Xous process, isolated by the MMU, under a permission model that limits what each app can reach.",
+      "out_scope": "- Planned follow-on initiative: (1) the openable device and (2) research into chip inspection in the Ostros package\n- Drivers not needed for these features (power management, fingerprint, NFC, vibrator, LED), the app store website and MPC on the RISC-V core: Crossbar builds these with its own funds\n- Apps for other chains (Bitcoin and others)",
+      "team": "Crossbar has built security hardware for 16 years, holds more than 200 patents, and works with TSMC and Foxconn.\n\n- **Mark Davis**, CEO, Crossbar: https://www.linkedin.com/in/mark-davis-16945b4/\n- **Sung Hyun Jo**, CTO, Crossbar: https://www.linkedin.com/in/sunghyunjo/\n- **Andrew \"bunnie\" Huang**, advisor; former Chief of Hardware Security at Crossbar; created IRIS chip inspection and co-created Xous: https://www.bunniestudios.com\n- **Miriam Neubauer**, strategy, product and growth: https://www.linkedin.com/in/miriamneubauer/\n- Plus more than 10 Crossbar engineers across chip design, hardware and firmware.\n\n**Collaborators:** Nicolas Bacca (ZKNOX, co-founder and former CTO of Ledger) develops the Ethereum signer Ostros runs and designed the split recovery phrase method. Nicolas is an ETHSecurity Badge holder. ZKNOX's own initiative (ZK Clear Signing) pays for different work, and ZKNOX does not count as an adopter. Sylvain Bellemare (Sureshot Labs) works on firmware and bootloaders: https://www.linkedin.com/in/sylvainbellemare/\n\n**Other funding:** a previous Giveth round raised $20,047 from 147 contributors for SDK documentation and outreach. No other funder pays for this scope.",
+      "why_grant": "- **The chip:** Daric, Crossbar's security chip with published RTL, SDK and documentation: a 350 MHz RISC-V core with an MMU, 4 MiB of ReRAM, crypto accelerators, a true random number generator, a key store, glitch sensors and a security mesh. Its post-quantum library (ML-DSA, ML-KEM) is NIST CAVP-validated on the RISC-V core.\n- **The software:** Xous runs on Ostros with a fully open bootloader, core drivers, an e-ink UI, seed generation and key management. The firmware build is deterministic.\n- **The Ethereum signer:** the shared Ethereum signer (https://github.com/ethereum/ethereum-app) runs on Ostros hardware with verifiable signing (ERC-8213), demoed at Devcon 8.\n- **Developers:** the Founders Edition ships to developers in late November 2026, and teams have applied to build apps on it. At Devcon 8, 196 developers signed up for Crossbar's Dabao hackathon and picked up a free board with the same die, so they already use the RISC-V, Rust and Xous tools Ostros needs.\n- **In use and openly reviewed:** Ostros builds on the open Xous environment (OS and secure boot), where findings from public reviews of the Daric die are fixed. The Baochip version of that die shipped in every DEF CON 34 badge (August 2026). At Devcon 8, Crossbar guided about 250 attendees one by one through IRIS inspections, on their own chip or on a demo chip.\n\nThe secure chip and the operating system already exist, so the price covers the security features and their adoption.",
+      "commitments": "- Software under Apache 2.0; chip RTL and board design files under CERN-OHL-W, except the bus fabric, USB PHY and analog blocks, which do not process data.\n- Pinned targets: release firmware rebuilds bit-identically from source, the full recovery phrase never appears on the Ostros screen, and no secret is shared across devices.\n- Ostros works with any Ethereum app and does not require a proprietary companion app.\n- Public vulnerability disclosure process; fixes ship as signed, reproducible firmware.\n- Crossbar maintains the grant deliverables for at least 12 months after the final milestone (security fixes, firmware updates, review of outside pull requests).\n- Crossbar publishes the IRIS rig design, software and Devcon 8 reference images under open licenses."
+    },
+    "milestones": [
+      {
+        "name": "Attestation",
+        "amount": 22500,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Each Daric chip generates its attestation key inside the chip at personalization and never exports it; Crossbar's root and verification method published, tested by the reviewer on a shipping Ostros",
+          "Factory personalization flow for the RISC-V boot path documented in a public repository"
+        ]
+      },
+      {
+        "name": "Clear signing",
+        "amount": 10000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Ostros firmware shows ERC-7730 clear signing where a descriptor exists and the ERC-8213 digest otherwise, and always shows approve, permit and delegation calls in full with a warning, tagged in a public repository, tested by the reviewer"
+        ]
+      },
+      {
+        "name": "Web companion",
+        "amount": 5000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Web companion signs Ethereum transactions from WalletConnect apps with Ostros over USB or Bluetooth, release tagged in a public repository, tested by the reviewer"
+        ]
+      },
+      {
+        "name": "Owner verification",
+        "amount": 10000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Firmware rebuilt from source with the public guide is bit-identical to the image on a shipping Ostros, tested by the reviewer",
+          "The public tool checks a shipping Ostros's attestation against Crossbar's published root, tested by the reviewer"
+        ]
+      },
+      {
+        "name": "Split recovery phrase",
+        "amount": 18500,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Ostros firmware never shows the full recovery phrase on its screen: 12 of 24 words on the device, 12 sent to the computer only over a session signed by the device's attestation key, tagged in a public repository, tested by the reviewer",
+          "Method and threat model published, confirmed in writing by the reviewer"
+        ]
+      },
+      {
+        "name": "Independent security review",
+        "amount": 22000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "An independent security firm reviews the split recovery phrase and attestation; public report with 0 open high or critical findings"
+        ]
+      },
+      {
+        "name": "App loader and developer kit",
+        "amount": 27500,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Reviewer installs a sample outside app on a shipping Ostros without a firmware rebuild; it runs in its own isolated process",
+          "Emulator and system API documentation published in a public repository"
+        ]
+      },
+      {
+        "name": "Wallet support",
+        "amount": 17500,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 2 wallets from this list support Ostros as a signer, shown in their app, docs or release notes: MetaMask, Rabby, Trust Wallet, Coinbase Wallet, Rainbow, Zerion, Ambire, Frame, or any other wallet listed on ethereum.org's wallet finder"
+        ]
+      },
+      {
+        "name": "First verified owners",
+        "amount": 15000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 100 owners outside Crossbar complete owner verification on a purchased Ostros, each linked to an Ethereum account the device signs for; signed or zero-knowledge records audited by the reviewer, duplicates, staff and demo accounts excluded"
+        ]
+      },
+      {
+        "name": "Verified owners at scale and revenue",
+        "amount": 25000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 500 owners outside Crossbar in total complete owner verification under the same rules, at least half of them linked to accounts holding at least 0.1 ETH (balance checked onchain, query linked), total published",
+          "At least $100,000 of Ostros revenue from buyers outside Crossbar, earned after funding and not counting grants, confirmed by the reviewer from sales records"
+        ]
+      },
+      {
+        "name": "Outside security apps",
+        "amount": 17000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 4 distinct security apps from teams outside Crossbar protect keys or accounts for Ethereum or an Ethereum L2 (for example passkeys for smart accounts, recovery phrase splitting, or threshold co-signing), each with a public repository and each used by at least 10 verified owners, confirmed by the reviewer"
+        ]
+      }
+    ],
+    "links": [
+      "https://crossbar-inc.com/pages/ostros",
+      "https://github.com/crossbar-inc/daric-hardware",
+      "https://github.com/crossbar-inc/daric-sdk",
+      "https://github.com/crossbar-inc/daric-doc",
+      "https://github.com/ethereum/ethereum-app",
+      "https://github.com/betrusted-io/xous-core",
+      "https://github.com/btchip/devcon8/blob/main/Devcon8_Building_the_Ethereum_Universal_Signer.pdf",
+      "https://www.giveth.io/project/crossbar-open-source-security-hardware-wallet",
+      "https://csrc.nist.gov/projects/cryptographic-algorithm-validation-program/details?product=21968",
+      "https://app.devcon.org/schedule/latest-developments-in-open-silicon",
+      "https://app.devcon.org/schedule/hitchhiking-into-silicon-true-open-source-hardware-down-to-the-transistor"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

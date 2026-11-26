@@ -1,0 +1,76 @@
+{
+  "checks": [
+    {
+      "url": "https://veritylabs.dev/",
+      "status": 200,
+      "finalUrl": "https://veritylabs.dev/",
+      "title": "Verity | We secure critical code with formal verification",
+      "description": "Audits give you opinions. We give you certainty. Verity formally proves your smart contracts do exactly what they're supposed to using Lean 4 and mathematical proofs.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:45.091Z"
+    },
+    {
+      "url": "https://veritylabs.dev/projects/verity",
+      "status": 200,
+      "finalUrl": "https://veritylabs.dev/projects/verity",
+      "title": "Verity: Smart Contracts You Can Prove Correct | Our Work | Verity",
+      "description": "Verity is an open-source language and compiler for Ethereum smart contracts. Write a contract, state the rules it must follow, and prove that it follows them.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:45.092Z"
+    },
+    {
+      "url": "https://veritylabs.dev/research",
+      "status": 200,
+      "finalUrl": "https://veritylabs.dev/research",
+      "title": "Research | Verity",
+      "description": "Audits give you opinions. We give you certainty. Verity formally proves your smart contracts do exactly what they're supposed to using Lean 4 and mathematical proofs.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:45.093Z"
+    },
+    {
+      "url": "https://veritylabs.dev/research/verity",
+      "status": 200,
+      "finalUrl": "https://veritylabs.dev/research/verity",
+      "title": "Verity | Research | Verity",
+      "description": "Audits give you opinions. We give you certainty. Verity formally proves your smart contracts do exactly what they're supposed to using Lean 4 and mathematical proofs.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:45.093Z"
+    },
+    {
+      "url": "https://veritylang.com/",
+      "status": 200,
+      "finalUrl": "https://veritylang.com/",
+      "title": "Verity, Formally Verified Smart Contract Compiler (Lean 4)",
+      "description": "Import supported Solidity functions and prove properties of the resulting model in Lean 4, or write contracts directly in Verity and compile them to EVM bytecode.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:45.199Z"
+    },
+    {
+      "url": "https://www.unlink.xyz/",
+      "status": 200,
+      "finalUrl": "https://www.unlink.xyz/",
+      "title": "Unlink",
+      "description": "Move money on blockchains. Without the broadcast. Built for fintechs, payment processors, and treasury teams. Audit-ready and compliant by default.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:45.210Z"
+    }
+  ]
+}

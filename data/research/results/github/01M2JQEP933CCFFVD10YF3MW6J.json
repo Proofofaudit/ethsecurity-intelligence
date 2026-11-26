@@ -1,0 +1,72 @@
+{
+  "repos": [
+    {
+      "fullName": "ack3-ai/wake",
+      "url": "https://github.com/ack3-ai/wake",
+      "exists": true,
+      "description": "Wake is a Python-based Solidity development and fuzz testing framework with built-in vulnerability detectors.",
+      "license": "ISC",
+      "archived": false,
+      "fork": true,
+      "defaultBranch": "main",
+      "createdAt": "2026-09-08T12:18:46Z",
+      "pushedAt": "2026-11-23T22:23:34Z",
+      "stars": 22,
+      "openIssues": 0,
+      "language": "Python",
+      "topics": [],
+      "latestRelease": {
+        "tag": "v5.0.0",
+        "publishedAt": "2026-11-16T14:27:32Z",
+        "url": "https://github.com/ack3-ai/wake/releases/tag/v5.0.0"
+      },
+      "releaseCount": 4,
+      "hasCiWorkflows": true,
+      "hasTestsDir": true,
+      "hasSecurityPolicy": true,
+      "hasReadme": true,
+      "commitsLast90d": 100,
+      "contributorsSampled": 19,
+      "checkedAt": "2026-11-26T09:26:47.723Z",
+      "error": null
+    }
+  ],
+  "owners": [
+    {
+      "login": "ack3-ai",
+      "type": "Organization",
+      "name": "ack3",
+      "blog": "https://ack3.ai",
+      "createdAt": "2025-07-17T21:22:04Z",
+      "publicRepos": 14,
+      "url": "https://github.com/ack3-ai"
+    },
+    {
+      "login": "jaczkal",
+      "type": "User",
+      "name": null,
+      "blog": "https://jaczkal.eth.limo/",
+      "createdAt": "2019-10-01T14:52:56Z",
+      "publicRepos": 13,
+      "url": "https://github.com/jaczkal"
+    },
+    {
+      "login": "meditationduck",
+      "type": "User",
+      "name": "Naoki Yoshida",
+      "blog": null,
+      "createdAt": "2018-06-14T11:22:47Z",
+      "publicRepos": 15,
+      "url": "https://github.com/meditationduck"
+    },
+    {
+      "login": "michprev",
+      "type": "User",
+      "name": null,
+      "blog": null,
+      "createdAt": "2014-04-13T16:43:14Z",
+      "publicRepos": 38,
+      "url": "https://github.com/michprev"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "checks": [
+    {
+      "url": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html",
+      "status": 200,
+      "finalUrl": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html",
+      "title": "STIX Version 2.1",
+      "description": "This document describes the STIX language for expressing cyber threat and observable information and defines its concepts and overall structure.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:04.997Z"
+    },
+    {
+      "url": "https://eips.ethereum.org/EIPS/eip-4337",
+      "status": 200,
+      "finalUrl": "https://eips.ethereum.org/EIPS/eip-4337",
+      "title": "ERC-4337: Account Abstraction Using Alt Mempool",
+      "description": "Account abstraction without consensus-layer protocol changes, instead relying on higher-layer infrastructure.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:04.997Z"
+    },
+    {
+      "url": "https://ethereum.org/reports/trillion-dollar-security/",
+      "status": 200,
+      "finalUrl": "https://ethereum.org/reports/trillion-dollar-security/",
+      "title": "Trillion Dollar Security Project - Security Challenges Overview Report | ⁦ethereum.org⁩",
+      "description": "The 1TS project is an ecosystem-wide effort to upgrade Ethereum's security. This report surveys the existing security challenges facing the ecosystem.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:04.998Z"
+    },
+    {
+      "url": "https://map.okcontract.com",
+      "status": 200,
+      "finalUrl": "https://map.okcontract.com/",
+      "title": "Onchain Attack Map",
+      "description": "An interactive map of institutional onchain infrastructure and the attack surfaces that connect it.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:04.999Z"
+    },
+    {
+      "url": "https://map.okcontract.com/",
+      "status": 200,
+      "finalUrl": "https://map.okcontract.com/",
+      "title": "Onchain Attack Map",
+      "description": "An interactive map of institutional onchain infrastructure and the attack surfaces that connect it.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:05.033Z"
+    },
+    {
+      "url": "https://okcontract.com/",
+      "status": 200,
+      "finalUrl": "https://okcontract.com/",
+      "title": "OKcontract Labs | Cybersecurity Research",
+      "description": "OKcontract Labs is a cybersecurity research company. Our goal is to make critical software verifiable, from the permissions people approve to the bytecode machines run.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:05.081Z"
+    },
+    {
+      "url": "https://onchainattack.org/",
+      "status": 200,
+      "finalUrl": "https://onchainattack.org/",
+      "title": "OAK — OnChain Attack Knowledge: crypto attack taxonomy",
+      "description": "Open vendor-neutral taxonomy of on-chain adversary behavior.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:05.087Z"
+    },
+    {
+      "url": "https://www.defiscan.info/",
+      "status": 200,
+      "finalUrl": "https://www.defiscan.info/",
+      "title": "DeFiScan — DeFi Centralization Reviews",
+      "description": "Continuous counter-party risk assessment. Verify the exposure of any DeFi protocol with onchain evidence.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:05.101Z"
+    },
+    {
+      "url": "https://www.oreilly.com/library/view/opa-up-and/9781449328849/author_bios.html",
+      "status": 403,
+      "finalUrl": "https://www.oreilly.com/library/view/opa-up-and/9781449328849/author_bios.html",
+      "title": "Access Denied",
+      "description": null,
+      "contentType": "text/html",
+      "ok": false,
+      "inconclusive": true,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:05.140Z"
+    }
+  ]
+}

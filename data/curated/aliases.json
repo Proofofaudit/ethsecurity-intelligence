@@ -1,0 +1,55 @@
+[
+  {
+    "names": [
+      "Security Alliance (SEAL) Intel",
+      "SEAL Security Frameworks",
+      "SEAL",
+      "Security Alliance (SEAL)"
+    ],
+    "canonicalName": "Security Alliance (SEAL)",
+    "reason": "Proposal texts state that Security Alliance (SEAL) delivers these initiatives (SEAL Intel program, SEAL Frameworks, SEAL Audit Transparency); two official recipient URLs are on securityalliance.org.",
+    "sourceUrls": [
+      "https://initiatives.thedao.fund/initiative/audit-transparency-for-ethereum-every-defi-protocol-s-audits",
+      "https://initiatives.thedao.fund/initiative/seal-security-frameworks-maintaining-open-security-knowledge",
+      "https://initiatives.thedao.fund/initiative/seal-intel-scaling-blockchain-threat-intelligence-enhancing",
+      "https://securityalliance.org/"
+    ]
+  },
+  {
+    "names": [
+      "corpus.core colibri team",
+      "corpus.core"
+    ],
+    "canonicalName": "corpus.core",
+    "reason": "Each colibri proposal states that corpus.core maintains the deliverables after the grant; the corpus.core backer record links to corpuscore.tech.",
+    "sourceUrls": [
+      "https://initiatives.thedao.fund/initiative/know-what-you-sign-verified-simulation-against-blind-signing",
+      "https://initiatives.thedao.fund/initiative/make-dapps-verify-what-they-show-colibri-in-wallets-defi-and",
+      "https://initiatives.thedao.fund/initiative/trustless-across-ethereum-colibri-verification-for-l2-networ",
+      "https://www.corpuscore.tech/"
+    ]
+  },
+  {
+    "names": [
+      "Decurity (Defimon)",
+      "Decurity"
+    ],
+    "canonicalName": "Decurity",
+    "reason": "The Defimon Rescue Agent proposal names Decurity as the operator (\"Decurity keeps only the bounty the agreement defines\"); recipient label is \"Decurity (Defimon)\".",
+    "sourceUrls": [
+      "https://initiatives.thedao.fund/initiative/defimon-rescue-agent-autonomous-whitehat-rescues-for-safe-ha",
+      "https://decurity.io"
+    ]
+  },
+  {
+    "names": [
+      "brainbot (Shutter Network)",
+      "brainbot"
+    ],
+    "canonicalName": "brainbot",
+    "reason": "The Shutter proposal commits that brainbot will continue maintaining its EIP-8184 contributions; recipient label is \"brainbot (Shutter Network)\".",
+    "sourceUrls": [
+      "https://initiatives.thedao.fund/initiative/preparing-encrypted-mempools-for-inclusion-in-the-earliest-e"
+    ]
+  }
+]

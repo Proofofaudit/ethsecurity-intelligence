@@ -1,0 +1,55 @@
+{
+  "revision": {
+    "n": 2,
+    "author": "0x8432319097D7365a686167Bab33d7425B356b2b2",
+    "source": "proposer",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1789552583.559,
+    "title": "Independent Security Assurance for the EEZ Smart Contracts",
+    "summary": "Fund an independent security audit and a standing bug bounty for the EEZ smart contracts through TheDAO Security Fund. EEZ is FOSS, and its security should be built the same way: open scrutiny from independently staffed teams, with every report, finding, and artifact published. A snapshot from the audit, continuous coverage from the bounty, and the final milestone pays only when chains adopt the reviewed contracts.",
+    "details": "",
+    "sections": {
+      "why": "The Ethereum Economic Zone (EEZ) is fully decentralized and open protocol and  infrastructure for synchronous composability between Ethereum rollups. It is designed without centralized operators or trusted intermediaries and permisionless , which makes the security and correctness of its smart contracts fundamental to the security of the system as a whole. GnosisDAO has approved GIP-153, making Gnosis Chain the first governance-backed adopter, and the contracts are ready for audits and deployed on testnets.\n\nLaunching a new rollup or app chain via EEZ offers massive benefits. The network remains fully self-sovereign retaining its custom state transitions, prover schemes, and core architecture while EEZ provides a unified framework for synchronous composability with all other EEZ-connected networks, including Ethereum. We are in discussions with new projects, and with running app chains that want to tap Ethereum liquidity this way. The first thing they ask for is an independent security record.\n\nThe objective is to build security assurance through multiple complementary approaches rather than relying on a single audit or security provider. The resulting findings, specifications, tests, verification artifacts, and security tooling get published so they benefit both EEZ and the broader Ethereum ecosystem.\n\nThe primary step for the successful adoption of the EEZ is to verify its security and ensure that security is continuously maintained. We plan to achieve adoption by building upon these foundational pillars.",
+      "in_scope": "**Expected Audit Process**\n\nWe expect the audit engagement to follow a clear and structured process:\n\n**1. Scope & Kick-off**\n\nConfirm the exact codebase, commit hash, components in scope, relevant dependencies, assumptions, and known areas of concern.\n\n**2. System Understanding**\n\nReview the protocol architecture, critical flows, privileged roles, trust assumptions, and key security properties before starting the detailed review. Understand how protocol messages, proof commitments, and execution on Ethereum L1 and participating rollups (L2s) fit together.\n\nIdentify which guarantees are enforced by the contracts and which depend on proof systems, off-chain components, or operational assumptions.\n\n**3. Security Review**\n\nPerform an independent manual review of the in-scope code and protocol documentation, supported by appropriate security tooling and testing techniques where relevant. Cross-chain behavior is a required part of this review.\n\nIn addition to contract security, assess:\n\nWhether the contracts and protocol specification are consistent with each other.\n\nWhether the specification is clear and sufficient for independent implementation.\n\nWhether EEZ can provide the intended synchronous cross-chain interactions, including nested calls, static reads, failures, and rollback, and under which assumptions.\n\nWhether the protocol abstractions and message format support different chain architectures, including EVM and non-EVM chains, and what adaptations or core changes are required.\n\n**4. Findings & Preliminary Report**\n\nDocument validated findings with clear severity, impact, root cause, affected components, and recommended remediation. Critical issues should be communicated as soon as they are confirmed.\n\n**5. Findings Review**\n\nWalk through the findings with the development team to align on impact, assumptions, and the proposed remediation approach.\n\n**6. Remediation Review**\n\nReview the implemented fixes and verify that each issue has been properly addressed without introducing regressions.\n\n**7. Final Report**\n\nDeliver a final report covering the audited scope, methodology, findings, remediation status, remaining risks, and the final reviewed code version.\n\n---",
+      "out_scope": "- Rollup node software, provers, sequencers, and any off-chain infrastructure\n- The internal economics of individual rollups connected to EEZ\n- Re-auditing protocol changes made after the pinned commit\n- Marketing, badges, or any public claim beyond what the published evidence supports",
+      "existing": "- The protocol source and its contract-level specifications are public: eez-core-protocol, including specs for the core protocol, execution entries, the multi-prover design, and blob format under `docs/`.\n- The repository tracks open security findings from internal review. Bidders start from a documented codebase, not a blank page.",
+      "who": "Nobody is pre-selected. The winning bid can be a single coordinator subcontracting the work, a security firm partnering with a formal verification or tooling team, or a consortium. What matters is that the plan combines at least two complementary approaches performed by teams with no shared ownership, personnel, or financial ties.\n\nTo help Giveth judge the strongest bid, EEZ core contributors Eduardo Antuña and Jesús Ligero will be available as technical advisors during the selection process: they know the codebase best and can assess whether a proposed plan actually covers it.",
+      "hard_req": "1. **Everything published.** The full audit report, findings, severity ratings, and fix reviews are released publicly; any test suites or tooling produced ship under an OSI license.\n2. **Independent auditor.** The audit team has no shared ownership, personnel, or financial ties to the EEZ core contributors or to Gnosis, disclosed in writing.\n3. **Verifiable acceptance.** Every milestone criterion below can be checked by a stranger from public evidence.\n4. **Fixed target.** All work runs against one pinned commit. Any material protocol change during the engagement is documented in the public record.\n5. **Bounty continuity.** The bug bounty runs on a named public platform with a published scope and payout table, and stays funded and open for at least 6 months after audit."
+    },
+    "milestones": [
+      {
+        "name": "Full Audit",
+        "amount": 70000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "A pinned commit of eez-core-protocol named as the review target, with the in-scope contract list published",
+          "At least one full independent review of the in-scope contracts completed, combining at least two complementary approaches per the hard requirements",
+          "Complete report published: findings, severity ratings, and status",
+          "Every critical and high finding fixed or publicly acknowledged with rationale, and the fixes re-reviewed by the team that found them"
+        ]
+      },
+      {
+        "name": "Adoption with Bug Bounty Program",
+        "amount": 50000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "A public bug bounty live on a named platform, covering the audited contracts at the pinned commit or a documented successor",
+          "Published scope and severity payout table, with a maximum payout of at least $10.000",
+          "The program funded and open for at least 6 months, shown on the platform's public page"
+        ]
+      }
+    ],
+    "links": [
+      "https://github.com/eez-association/eez-core-protocol"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

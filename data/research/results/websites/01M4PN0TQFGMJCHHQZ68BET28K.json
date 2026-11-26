@@ -1,0 +1,88 @@
+{
+  "checks": [
+    {
+      "url": "https://kannailabs.com",
+      "status": 200,
+      "finalUrl": "https://scan.kannaudits.com/",
+      "title": "AI Smart Contract Security Scanner for Solidity | Kann AI",
+      "description": "Scan Solidity smart contracts and public GitHub repositories for potential vulnerabilities with Kann AI Model Alpha, the AI security scanner from Kann Audits.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:49.042Z"
+    },
+    {
+      "url": "https://kannailabs.com/",
+      "status": 200,
+      "finalUrl": "https://scan.kannaudits.com/",
+      "title": "AI Smart Contract Security Scanner for Solidity | Kann AI",
+      "description": "Scan Solidity smart contracts and public GitHub repositories for potential vulnerabilities with Kann AI Model Alpha, the AI security scanner from Kann Audits.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:49.043Z"
+    },
+    {
+      "url": "https://kannaudits.com/",
+      "status": 200,
+      "finalUrl": "https://kannaudits.com/",
+      "title": "Kann Audits | Web3 Security Audit Company",
+      "description": "Web3 security audits by researchers with 50+ valid bugs and $50K+ in bounty and contest earnings, plus Kann AI, formal verification, and incident response.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:49.044Z"
+    },
+    {
+      "url": "https://kannaudits.com/audits",
+      "status": 200,
+      "finalUrl": "https://kannaudits.com/audits",
+      "title": "Smart Contract Security Audit Reports | Kann Audits",
+      "description": "Browse published Kann Audits smart contract and Web3 security audit reports with documented scope, findings, severity, remediation status, and source PDFs.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:49.044Z"
+    },
+    {
+      "url": "https://kannaudits.com/solutions/ai-security-scan",
+      "status": 200,
+      "finalUrl": "https://kannaudits.com/solutions/ai-security-scan",
+      "title": "AI Smart Contract Vulnerability Scanner | Kann Audits",
+      "description": "Kann AI is a smart contract vulnerability scanner for Solidity: call-graph context, function-level findings, and expert validation. Run it locally or hosted.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:49.106Z"
+    },
+    {
+      "url": "https://scan.kannaudits.com",
+      "status": 200,
+      "finalUrl": "https://scan.kannaudits.com/",
+      "title": "AI Smart Contract Security Scanner for Solidity | Kann AI",
+      "description": "Scan Solidity smart contracts and public GitHub repositories for potential vulnerabilities with Kann AI Model Alpha, the AI security scanner from Kann Audits.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:49.117Z"
+    },
+    {
+      "url": "https://scan.kannaudits.com/",
+      "status": 200,
+      "finalUrl": "https://scan.kannaudits.com/",
+      "title": "AI Smart Contract Security Scanner for Solidity | Kann AI",
+      "description": "Scan Solidity smart contracts and public GitHub repositories for potential vulnerabilities with Kann AI Model Alpha, the AI security scanner from Kann Audits.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:49.141Z"
+    }
+  ]
+}

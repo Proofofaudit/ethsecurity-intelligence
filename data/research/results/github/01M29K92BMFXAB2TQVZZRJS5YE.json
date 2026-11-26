@@ -1,0 +1,75 @@
+{
+  "repos": [
+    {
+      "fullName": "lfglabs-dev/verity",
+      "url": "https://github.com/lfglabs-dev/verity",
+      "exists": true,
+      "description": "Formally verified smart contracts gives mathematical certainty across all inputs and execution paths. We bet that agents will make full formal verification practical.",
+      "license": "MIT",
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "main",
+      "createdAt": "2026-02-08T16:57:52Z",
+      "pushedAt": "2026-11-26T09:09:43Z",
+      "stars": 166,
+      "openIssues": 55,
+      "language": "Lean",
+      "topics": [],
+      "latestRelease": {
+        "tag": "v1.0.0",
+        "publishedAt": "2026-10-03T12:53:41Z",
+        "url": "https://github.com/lfglabs-dev/verity/releases/tag/v1.0.0"
+      },
+      "releaseCount": 2,
+      "hasCiWorkflows": true,
+      "hasTestsDir": true,
+      "hasSecurityPolicy": true,
+      "hasReadme": true,
+      "commitsLast90d": 100,
+      "contributorsSampled": 16,
+      "checkedAt": "2026-11-26T09:26:45.324Z",
+      "error": null
+    },
+    {
+      "fullName": "lfglabs-dev/ethereum-verification-benchmark",
+      "url": "https://github.com/lfglabs-dev/ethereum-verification-benchmark",
+      "exists": true,
+      "description": "Benchmark for Verity-based smart contract verification research",
+      "license": null,
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "main",
+      "createdAt": "2026-03-09T16:22:03Z",
+      "pushedAt": "2026-10-29T06:03:48Z",
+      "stars": 4,
+      "openIssues": 6,
+      "language": "Lean",
+      "topics": [],
+      "latestRelease": {
+        "tag": "v0.3",
+        "publishedAt": "2026-10-14T09:18:51Z",
+        "url": "https://github.com/lfglabs-dev/ethereum-verification-benchmark/releases/tag/v0.3"
+      },
+      "releaseCount": 3,
+      "hasCiWorkflows": true,
+      "hasTestsDir": true,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 63,
+      "contributorsSampled": 4,
+      "checkedAt": "2026-11-26T09:26:45.324Z",
+      "error": null
+    }
+  ],
+  "owners": [
+    {
+      "login": "lfglabs-dev",
+      "type": "Organization",
+      "name": "LFG Labs",
+      "blog": "https://veritylabs.dev/",
+      "createdAt": "2022-07-04T09:00:00Z",
+      "publicRepos": 137,
+      "url": "https://github.com/lfglabs-dev"
+    }
+  ]
+}

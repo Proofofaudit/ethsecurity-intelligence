@@ -1,0 +1,76 @@
+{
+  "checks": [
+    {
+      "url": "https://beta.walletbeat.eth.limo/about",
+      "status": 200,
+      "finalUrl": "https://beta.walletbeat.eth.limo/about/",
+      "title": "About Walletbeat",
+      "description": "Describes Walletbeat as a project: the vision, the mission, project objectives and commitments.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:48.757Z"
+    },
+    {
+      "url": "https://beta.walletbeat.eth.limo/test",
+      "status": 200,
+      "finalUrl": "https://beta.walletbeat.eth.limo/test/",
+      "title": "Walletbeat – Wallet test playground",
+      "description": "Walletbeat is an Ethereum wallet rating site. It aims to provide a trustworthy, up-to-date source of information about the state of the Ethereum wallet ecosystem",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:48.759Z"
+    },
+    {
+      "url": "https://decrypt.co/286728/radiant-capital-exploited-50-million",
+      "status": 200,
+      "finalUrl": "https://decrypt.co/286728/radiant-capital-exploited-50-million",
+      "title": "Radiant Capital Exploited for $50 Million Across BNB Chain, Arbitrum - Decrypt",
+      "description": "Radiant confirmed that its lending markets were facing an \"issue\" Wednesday, urging users to revoke permissions to smart contracts.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:48.759Z"
+    },
+    {
+      "url": "https://walletbeat.eth.limo",
+      "status": 200,
+      "finalUrl": "https://walletbeat.eth.limo/",
+      "title": "Walletbeat - Who watches the wallets?",
+      "description": "Walletbeat is an Ethereum wallet rating site. It aims to provide a trustworthy, up-to-date source of information about the state of the Ethereum wallet ecosystem",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:48.760Z"
+    },
+    {
+      "url": "https://walletbeat.eth.limo/",
+      "status": 200,
+      "finalUrl": "https://walletbeat.eth.limo/",
+      "title": "Walletbeat - Who watches the wallets?",
+      "description": "Walletbeat is an Ethereum wallet rating site. It aims to provide a trustworthy, up-to-date source of information about the state of the Ethereum wallet ecosystem",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:49.092Z"
+    },
+    {
+      "url": "https://www.theblock.co/post/343530/lazarus-appears-to-compromise-safe-developer-machine-in-lead-up-to-1-5-billion-bybit-hack-report",
+      "status": 403,
+      "finalUrl": "https://www.theblock.co/post/343530/lazarus-appears-to-compromise-safe-developer-machine-in-lead-up-to-1-5-billion-bybit-hack-report",
+      "title": "Just a moment...",
+      "description": null,
+      "contentType": "text/html; charset=UTF-8",
+      "ok": false,
+      "inconclusive": true,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:49.422Z"
+    }
+  ]
+}

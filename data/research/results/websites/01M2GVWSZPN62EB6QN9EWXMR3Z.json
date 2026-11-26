@@ -1,0 +1,76 @@
+{
+  "checks": [
+    {
+      "url": "https://arxiv.org/pdf/1908.09878",
+      "status": 200,
+      "finalUrl": "https://arxiv.org/pdf/1908.09878",
+      "title": null,
+      "description": null,
+      "contentType": "application/pdf",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:44.460Z"
+    },
+    {
+      "url": "https://dl.acm.org/doi/10.1145/2976002.2976017",
+      "status": 403,
+      "finalUrl": "https://dl.acm.org/doi/10.1145/2976002.2976017",
+      "title": "Just a moment...",
+      "description": null,
+      "contentType": "text/html; charset=UTF-8",
+      "ok": false,
+      "inconclusive": true,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:44.461Z"
+    },
+    {
+      "url": "https://dl.acm.org/doi/10.1145/3395363.3404366",
+      "status": 403,
+      "finalUrl": "https://dl.acm.org/doi/10.1145/3395363.3404366",
+      "title": "Just a moment...",
+      "description": null,
+      "contentType": "text/html; charset=UTF-8",
+      "ok": false,
+      "inconclusive": true,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:44.462Z"
+    },
+    {
+      "url": "https://seceureka.com/",
+      "status": 200,
+      "finalUrl": "https://seceureka.com/",
+      "title": "Josselin Feist | Blockchain Security Researcher",
+      "description": "Blockchain Security Researcher",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:44.462Z"
+    },
+    {
+      "url": "https://snapshot.box/",
+      "status": 200,
+      "finalUrl": "https://snapshot.box/",
+      "title": "Snapshot",
+      "description": null,
+      "contentType": "text/html; charset=UTF-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:44.475Z"
+    },
+    {
+      "url": "https://www.chainsecurity.com/",
+      "status": 200,
+      "finalUrl": "https://www.chainsecurity.com/",
+      "title": "Smart Contract Audits | ChainSecurity",
+      "description": "ChainSecurity is one of the longest-established blockchain security firms, auditing critical code, business logic, and architecture across DeFi and Web3 since 2017.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:44.482Z"
+    }
+  ]
+}

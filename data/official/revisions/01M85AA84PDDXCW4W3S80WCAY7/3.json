@@ -1,0 +1,68 @@
+{
+  "revision": {
+    "n": 3,
+    "author": "0x1f0AfcfceFC98e8D9f4A82974e527429D665Acb7",
+    "source": "proposer",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1795487178.851,
+    "title": "RFP: Hunt Down Every Ethereum Team Until It Publishes a security.txt and a Disclosure Policy",
+    "summary": "Ethereum is permissionless, so teams publish security contacts many ways or not at all, and researchers and their AI agents cannot reliably find where a bug goes or how to encrypt it. Of the 50 largest DeFi entries on Ethereum, 37 serve no security.txt, and only 2 publish one with an encryption key. AI is finding bugs fast, so this needs solving now. This RFP pays a person or small team to settle one standard and get every team to publish it.",
+    "details": "",
+    "sections": {
+      "why": "Researchers need one clear pathway to every team. A report that never reaches the team leaves users exposed until an attacker finds the same bug.\n\n- Researchers now hunt with AI agents. An agent can route and encrypt a report automatically only when every team publishes the same machine-readable record in the same place.\n- Our count (November 23, 2026) checked the website DeFiLlama lists for each entry.",
+      "in_scope": "This RFP funds outreach: someone who goes out and gets teams to publish.\n\nBidders have complete freedom in how they get there, including their own milestones, within the hard requirements below. What matters is two outcomes: one agreed standard for what teams publish and where, and every Ethereum and L2 team with real value at stake publishing it. This RFP is a starting point and will change; the final milestones are agreed with the selected team.\n\nOne possible approach, the one the milestones below follow:\n\n- Settle the standard: what every project publishes (a contact, a private channel such as an encryption key, and a vulnerability disclosure policy, or VDP, with scope, expected response and safe harbor) and where (security.txt, SECURITY.md with GitHub private reporting, an onchain record such as ERC-5437), endorsed by groups that send and receive reports.\n- Hunt teams down one by one: direct outreach, pull requests to their repositories, whatever tactics work.\n- A public campaign, for example on X, naming who has published and who has not.\n- A simple public tracker, a checkmark per record per project, mainly to track this grant's progress and give teams a gold star.\n- Optionally, a way for projects to recognize known researchers.",
+      "out_scope": "- Running bug bounties.\n- Validating or handling reports (the companion bug broker RFP).\n- Emergency response to live hacks ([SEAL 911](https://securityalliance.org/seal-911) does that).\n- Publishing anything about a project's vulnerabilities.",
+      "existing": "- [RFC 9116](https://www.rfc-editor.org/rfc/rfc9116): security.txt, with fields for a contact, an encryption key and a policy.\n- [SEAL's vulnerability disclosure framework](https://frameworks.securityalliance.org/vulnerability-disclosure/overview): tells teams to publish one consistent set of contacts everywhere researchers look, with a [SECURITY.md template and sample security.txt](https://frameworks.securityalliance.org/vulnerability-disclosure/security-contact) and a policy template. The natural starting point.\n- [disclose.io's dioterms](https://github.com/disclose/dioterms): public-domain VDP and safe harbor templates.\n- [ERC-5437](https://eips.ethereum.org/EIPS/eip-5437): an onchain contact with an encryption key, status Stagnant.",
+      "who": "A team researchers already trust, good at relentless, polite outreach and loud public campaigns. Nobody is pre-selected.\n\nDrafted by TheDAO Security Fund from a conversation with EthSec (ethsecurity.org) and Consensys. EthSec, TheDAO Security Fund and Giveth will not bid.",
+      "hard_req": "1. **Verified means project-controlled.** A record counts only when the project publishes it itself: on its domain, in its repository or from its admin or governance address.\n2. **Encrypted to count.** Only records with a published encryption key or a private reporting form the project controls count.\n3. **Open and maintained.** The standard is published under CC0 or CC BY 4.0, and a home outside the selected team commits in public to maintain it after the grant. The tracker's data is open, each checkmark linked to the project's own record.\n4. **Names only, never bugs.** Campaigns and the tracker show only whether a project published the records, never a vulnerability, finding or report.\n5. **Outside means unaffiliated.** An outside team shares no owner, staff or funding relationship with the selected team. Affiliates count toward no criterion.\n6. Ethereum and L2 projects only."
+    },
+    "milestones": [
+      {
+        "name": "Standard agreed",
+        "amount": 15000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Standard published and endorsed in public posts by at least 4 outside groups that send reports, at least 1 of them Immunefi, Cantina or a firm from the research-team list below, checked by the technical reviewer",
+          "At least 4 outside groups that receive reports endorse it in public and publish its records themselves, each an Ethereum client team, an L2 over $200M on L2BEAT or a protocol holding over $100M onchain (value query linked), checked by the technical reviewer",
+          "Tracker live with a dated baseline for at least 300 Ethereum and L2 projects, at least 100 holding over $10M onchain (value query linked), checked by the technical reviewer"
+        ]
+      },
+      {
+        "name": "Projects publish",
+        "amount": 25000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 100 outside teams missing the standard's records in the baseline publish every record it requires under their own control, each linked from the tracker, answering a test message from the technical reviewer and still live at the final milestone",
+          "Each holds over $1M onchain (value query linked), is an L2 over $200M on L2BEAT, is an Ethereum client team, or maintains a compiler or a library used by a project holding over $100M onchain, accepted by the technical reviewer",
+          "At least 40 of them hold over $10M onchain and 8 over $500M (value query linked), checked by the technical reviewer"
+        ]
+      },
+      {
+        "name": "Reports reach the right people",
+        "amount": 20000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 30 medium-or-higher findings from outside research teams, rated by the receiving team, sent to records published under this initiative and acknowledged as valid within 3 days of receipt, each report and reply timestamp shown to the technical reviewer (counts only, no details)",
+          "Those findings come from at least 5 outside research teams, 2 of them from this list: OpenZeppelin, Trail of Bits, ChainSecurity, Spearbit, Consensys Diligence, Sigma Prime, Certora, Cyfrin, Zellic, Ackee Blockchain, Runtime Verification, Nethermind Security, checked by the technical reviewer",
+          "At least 1 of Etherscan, Blockscout, Immunefi and Cantina shows projects' records under the standard on its live pages, checked by the technical reviewer"
+        ]
+      }
+    ],
+    "links": [
+      "https://www.rfc-editor.org/rfc/rfc9116",
+      "https://frameworks.securityalliance.org/vulnerability-disclosure/overview"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

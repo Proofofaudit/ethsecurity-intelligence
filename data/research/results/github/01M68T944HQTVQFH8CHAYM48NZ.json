@@ -1,0 +1,41 @@
+{
+  "repos": [
+    {
+      "fullName": "ethereum/clear-signing-erc7730-registry",
+      "url": "https://github.com/ethereum/clear-signing-erc7730-registry",
+      "exists": true,
+      "description": null,
+      "license": "CC0-1.0",
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "master",
+      "createdAt": "2024-02-05T12:03:54Z",
+      "pushedAt": "2026-11-26T07:51:11Z",
+      "stars": 135,
+      "openIssues": 194,
+      "language": "JavaScript",
+      "topics": [],
+      "latestRelease": null,
+      "releaseCount": 0,
+      "hasCiWorkflows": true,
+      "hasTestsDir": true,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 100,
+      "contributorsSampled": 100,
+      "checkedAt": "2026-11-26T09:26:25.427Z",
+      "error": null
+    }
+  ],
+  "owners": [
+    {
+      "login": "ethereum",
+      "type": "Organization",
+      "name": null,
+      "blog": "https://ethereum.org",
+      "createdAt": "2013-12-24T00:26:58Z",
+      "publicRepos": 334,
+      "url": "https://github.com/ethereum"
+    }
+  ]
+}

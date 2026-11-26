@@ -1,0 +1,52 @@
+{
+  "checks": [
+    {
+      "url": "https://app.dedaub.com",
+      "status": 403,
+      "finalUrl": "https://app.dedaub.com/",
+      "title": "Just a moment...",
+      "description": null,
+      "contentType": "text/html; charset=UTF-8",
+      "ok": false,
+      "inconclusive": true,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:42.003Z"
+    },
+    {
+      "url": "https://app.dedaub.com/",
+      "status": 403,
+      "finalUrl": "https://app.dedaub.com/",
+      "title": "Just a moment...",
+      "description": null,
+      "contentType": "text/html; charset=UTF-8",
+      "ok": false,
+      "inconclusive": true,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:42.004Z"
+    },
+    {
+      "url": "https://dedaub.com/",
+      "status": 200,
+      "finalUrl": "https://dedaub.com/",
+      "title": "Dedaub",
+      "description": "Dedaub ensures top-notch smart contract security. 300+ audits, $70B protected. Trust us for your blockchain needs!",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:42.005Z"
+    },
+    {
+      "url": "https://dedaub.com/audits",
+      "status": 200,
+      "finalUrl": "https://dedaub.com/audits",
+      "title": "Dedaub Audit Reports",
+      "description": "Explore detailed smart contract audit reports of blockchain projects from Dedaub",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:42.005Z"
+    }
+  ]
+}

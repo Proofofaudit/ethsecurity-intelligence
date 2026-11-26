@@ -1,0 +1,52 @@
+{
+  "checks": [
+    {
+      "url": "https://everything.inc",
+      "status": 200,
+      "finalUrl": "https://everything.inc/",
+      "title": "Everything V3: Swap, Lend, Borrow and Leverage on One DeFi Protocol",
+      "description": "Everything V3 finally unifies DeFi, efficiently: swaps, lending, borrowing and leverage draw on one capital-efficient pool, with nothing idle and no oracle. V1 Beta is live; V3 is coming soon.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:17.996Z"
+    },
+    {
+      "url": "https://everything.inc/",
+      "status": 200,
+      "finalUrl": "https://everything.inc/",
+      "title": "Everything V3: Swap, Lend, Borrow and Leverage on One DeFi Protocol",
+      "description": "Everything V3 finally unifies DeFi, efficiently: swaps, lending, borrowing and leverage draw on one capital-efficient pool, with nothing idle and no oracle. V1 Beta is live; V3 is coming soon.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:17.997Z"
+    },
+    {
+      "url": "https://immunefi.com/blog/bug-fix-reviews/hack-analysis-cream-finance-oct-2021",
+      "status": 200,
+      "finalUrl": "https://immunefi.com/blog/bug-fix-reviews/hack-analysis-cream-finance-oct-2021/",
+      "title": "Hack Analysis: Cream Finance Oct 2021",
+      "description": "Introduction Cream Finance experienced a major exploit on October 27, 2021, resulting in a loss of $130m in available liquidity. In this article, we will be walking through and explaining the fundamental flaw that the protocol experienced …",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:17.998Z"
+    },
+    {
+      "url": "https://www.chainalysis.com/blog/euler-finance-flash-loan-attack",
+      "status": 200,
+      "finalUrl": "https://www.chainalysis.com/blog/euler-finance-flash-loan-attack/",
+      "title": "Euler Finance Flash Loan Attack Explained",
+      "description": "On March 13, 2023, hackers stole $197 million from DeFi protocol Euler Finance. Learn how the attacker did it using flash loans here.",
+      "contentType": "text/html; charset=UTF-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:17.998Z"
+    }
+  ]
+}

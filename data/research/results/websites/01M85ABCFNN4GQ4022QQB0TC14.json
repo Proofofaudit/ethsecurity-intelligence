@@ -1,0 +1,64 @@
+{
+  "checks": [
+    {
+      "url": "https://immunefi.com/",
+      "status": 200,
+      "finalUrl": "https://immunefi.com/",
+      "title": "Crypto & Smart Contract Bug Bounty Platform | Immunefi",
+      "description": "Crypto and smart contract bug bounty programs. Immunefi has paid $140M+ across 650+ protocols, more than the rest of the market combined.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:22.653Z"
+    },
+    {
+      "url": "https://securityalliance.org/seal-911",
+      "status": 200,
+      "finalUrl": "https://securityalliance.org/our-work/seal-911",
+      "title": "SEAL 911 | Security Alliance",
+      "description": "24/7 cryptocurrency incident response for the crypto ecosystem",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:22.654Z"
+    },
+    {
+      "url": "https://www.zerodayinitiative.com/about",
+      "status": 200,
+      "finalUrl": "https://www.zerodayinitiative.com/about/",
+      "title": "About Us - TrendAI™ Zero Day Initiative™ (ZDI)",
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:22.655Z"
+    },
+    {
+      "url": "https://www.zerodayinitiative.com/advisories/disclosure_policy",
+      "status": 200,
+      "finalUrl": "https://www.zerodayinitiative.com/advisories/disclosure_policy/",
+      "title": "Disclosure Policy - TrendAI™ Zero Day Initiative™ (ZDI)",
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:22.656Z"
+    },
+    {
+      "url": "https://www.zerodayinitiative.com/advisories/disclosure_policy/",
+      "status": 200,
+      "finalUrl": "https://www.zerodayinitiative.com/advisories/disclosure_policy/",
+      "title": "Disclosure Policy - TrendAI™ Zero Day Initiative™ (ZDI)",
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:22.802Z"
+    }
+  ]
+}

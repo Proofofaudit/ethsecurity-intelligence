@@ -1,0 +1,112 @@
+{
+  "checks": [
+    {
+      "url": "https://decurity.io",
+      "status": 200,
+      "finalUrl": "https://www.decurity.io/",
+      "title": "Smart Contract Audits & Web3 Security — Decurity",
+      "description": "Decurity: smart contract audits and web3 security for 1inch, Compound, Yearn, Gearbox and ether.fi. 180+ engagements, 60+ named clients, every finding count published.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:42.912Z"
+    },
+    {
+      "url": "https://defimon.xyz/",
+      "status": 403,
+      "finalUrl": "https://defimon.xyz/",
+      "title": "Just a moment...",
+      "description": null,
+      "contentType": "text/html; charset=UTF-8",
+      "ok": false,
+      "inconclusive": true,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:42.913Z"
+    },
+    {
+      "url": "https://defimon.xyz/blog/foom-cash-whitehat-rescue-february-2026",
+      "status": 403,
+      "finalUrl": "https://defimon.xyz/blog/foom-cash-whitehat-rescue-february-2026",
+      "title": "Just a moment...",
+      "description": null,
+      "contentType": "text/html; charset=UTF-8",
+      "ok": false,
+      "inconclusive": true,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:42.913Z"
+    },
+    {
+      "url": "https://etherscan.io/address/0x46c403e3DcAF219D9D4De167cCc4e0dd8E81Eb72",
+      "status": 200,
+      "finalUrl": "https://etherscan.io/address/0x46c403e3DcAF219D9D4De167cCc4e0dd8E81Eb72",
+      "title": "Defimon: Whitehat Bot | Address: 0x46c403e3...d8E81Eb72 | Etherscan",
+      "description": "Address (EOA) | Balance: $106,555.51 across 8 Chains | Transactions: 131 | As at Nov-26-2026 09:25:43 AM (UTC)",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:42.914Z"
+    },
+    {
+      "url": "https://frameworks.securityalliance.org/safe-harbor/whitehat",
+      "status": 200,
+      "finalUrl": "https://frameworks.securityalliance.org/safe-harbor/whitehat/",
+      "title": "Whitehat Rescue Guide | Security Alliance",
+      "description": "Safe Harbor for whitehats: legal framework for intervening during active exploits. Pre-intervention checklist, post-intervention fund return procedures",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:42.950Z"
+    },
+    {
+      "url": "https://rescue-window.decurity.io/",
+      "status": 200,
+      "finalUrl": "https://rescue-window.decurity.io/",
+      "title": "DeFi Exploit Drain Timelines — Decurity Research",
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:42.951Z"
+    },
+    {
+      "url": "https://safeharbor.securityalliance.org/",
+      "status": 200,
+      "finalUrl": "https://safeharbor.securityalliance.org/",
+      "title": null,
+      "description": null,
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:43.097Z"
+    },
+    {
+      "url": "https://time-to-hack.decurity.io/",
+      "status": 200,
+      "finalUrl": "https://time-to-hack.decurity.io/",
+      "title": "Time-to-Hack Analysis - Decurity",
+      "description": "In this analysis, we explored at the speed at which vulnerable smart contracts get exploited and the factors that contribute to the discovery and exploitation of these vulnerabilities.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:43.209Z"
+    },
+    {
+      "url": "https://www.quicknode.com/blog/real-time-defi-exploit-detection",
+      "status": 200,
+      "finalUrl": "https://www.quicknode.com/blog/real-time-defi-exploit-detection",
+      "title": "How Defimon Detects DeFi Exploits in Under a Second | Quicknode",
+      "description": "Decurity's CTO on rebuilding Defimon from polling to push. Sub-second exploit alerts across eight chains, run by one engineer.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:43.224Z"
+    }
+  ]
+}

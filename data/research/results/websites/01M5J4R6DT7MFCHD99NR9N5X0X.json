@@ -1,0 +1,76 @@
+{
+  "checks": [
+    {
+      "url": "https://frameworks.securityalliance.dev/",
+      "status": 200,
+      "finalUrl": "https://frameworks.securityalliance.dev/",
+      "title": "Security Frameworks | Security Alliance",
+      "description": "Comprehensive security framework documentation for Web3 projects and blockchain security best practices.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:38.481Z"
+    },
+    {
+      "url": "https://frameworks.securityalliance.org/",
+      "status": 200,
+      "finalUrl": "https://frameworks.securityalliance.org/",
+      "title": "Security Frameworks | Security Alliance",
+      "description": "Comprehensive security framework documentation for Web3 projects and blockchain security best practices.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:28.686Z"
+    },
+    {
+      "url": "https://frameworks.securityalliance.org/changelog",
+      "status": 200,
+      "finalUrl": "https://frameworks.securityalliance.org/changelog/",
+      "title": "Changelog",
+      "description": "Comprehensive security framework documentation for Web3 projects and blockchain security best practices.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:38.481Z"
+    },
+    {
+      "url": "https://frameworks.securityalliance.org/intro/introduction/",
+      "status": 200,
+      "finalUrl": "https://frameworks.securityalliance.org/intro/introduction/",
+      "title": "Introduction to SEAL Frameworks | Security Alliance",
+      "description": "Introduction to SEAL Security Frameworks: curated resources for blockchain security best practices. Learn about Web3 security, contribute to the project, and discover SEAL's mission.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:38.482Z"
+    },
+    {
+      "url": "https://octant.app/",
+      "status": 403,
+      "finalUrl": "https://octant.app/",
+      "title": "Just a moment...",
+      "description": null,
+      "contentType": "text/html; charset=UTF-8",
+      "ok": false,
+      "inconclusive": true,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:37.871Z"
+    },
+    {
+      "url": "https://trustwallet.com/",
+      "status": 200,
+      "finalUrl": "https://trustwallet.com/",
+      "title": "Best Crypto Wallet for Web3, NFTs and DeFi | Trust Wallet",
+      "description": "Unlock the power of your cryptocurrency assets and explore the world of Web3 with Trust. The leading self-custody multi-chain platform. Download Trust app now!",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:37.935Z"
+    }
+  ]
+}

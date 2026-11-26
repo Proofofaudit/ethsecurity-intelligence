@@ -1,0 +1,90 @@
+{
+  "revision": {
+    "n": 2,
+    "author": "0x7767FB920338eED6Fe68A4d7C411f84a3F24f20c",
+    "source": "admin",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1794558779.741,
+    "title": "Echidna: Fund Development Through 2027",
+    "summary": "Fund Gustavo Grieco, Echidna's creator and maintainer, to carry out Echidna's 2026 to 2027 roadmap during 2027: keep EVM execution current, improve campaign and worker architecture, strengthen symbolic verification, turn agent control into a dependable workflow and optimize execution performance. At minimum, the period produces three tagged maintenance or minor releases, at least two substantial roadmap outcomes delivered in tagged releases, three technical posts, and a public SKILL prompt and MCP workflow for AI agents.",
+    "details": "",
+    "sections": {
+      "why": "Smart contracts can pass large unit test suites and still fail after an unexpected sequence of calls, actors, prices, timestamps, upgrades, or token behaviors. Echidna attacks that gap with stateless and stateful property-based testing. It generates transaction sequences from a contract ABI and searches for inputs that falsify user-defined properties or Solidity assertions.  \nEchidna already combines coverage guidance, corpus mutation, source integration, automatic test minimization, Foundry reproducers, hevm cheatcodes, and optional symbolic execution. Its next challenge is reliability at the seams: EVM behavior changes, campaign and worker coordination, symbolic-execution edge cases, agent control and improved performance. Those are the areas that determine whether auditors can trust a long-running campaign and reproduce what it found.",
+      "in_scope": "> * EVM and toolchain compatibility: hevm, Slither, new Foundry cheatcodes, crytic-compile, SMT solver configuration, packaging, and operating-system support  \n> * Campaign and worker architecture and execution performance  \n> * Symbolic execution for verification, exploration, and counterexample discovery, with bounds and unsupported cases reported plainly  \n> * Continued development of the MCP integration so agents can inspect and direct live fuzzing campaigns  \n> * A public versioned SKILL prompt that teaches an agent Echidna's capabilities  \n> * Fixes and feedback sent upstream to hevm, Slither, and Foundry  \n> * Support for users running long and complex campaigns, on Telegram, Discord, and GitHub\n\nSix months of maintainer time at $8,000 a month, spread over the 12-month grant and including VPS capacity and frontier-model access, is $48,000.",
+      "out_scope": "> * Rewriting Echidna in another language  \n> * Building a general autonomous auditor or claiming that an LLM replaces a security engineer  \n> * Writing a complete fuzzing harness or invariant suite for one protocol  \n> * Performing an audit or formal-verification engagement for a specific protocol  \n> * Supporting non-EVM chains except through the normal EVM-compatible stack",
+      "team": "Gustavo Grieco does the work, in the public [Echidna repository](https://github.com/crytic/echidna).  \nHe was the lead developer of Echidna and the lead author of [the ISSTA 2020 paper](https://dl.acm.org/doi/10.1145/3395363.3404366) that introduced it. He was a security engineer at Trail of Bits from September 2017 to April 2025, junior to principal, across blockchain audits, fuzzing, and tool development, and has been independent since. He has been [elected Audit Committee Technical Expert for the Arbitrum DAO since July 2025](https://snapshot.box/#/s:arbitrumfoundation.eth/proposal/0x131574819442cb6da293795ee9faeec4754a5af664b535b654b3d9d3d53f47e1). He co-authored the [Slither paper](https://arxiv.org/pdf/1908.09878) and echidna-parade, and before Echidna he built another fuzzer: [QuickFuzz](https://dl.acm.org/doi/10.1145/2976002.2976017). Echidna lives in the crytic GitHub organization, which Trail of Bits runs. Even after he left Trail of Bits, Gustavo is still a volunteer to keep Echidna maintained.",
+      "why_grant": "The recipient has the decisive head start. The work touches Echidna's Haskell engine, release process, hevm and Slither integrations, symbolic execution, Foundry compatibility, and the existing MCP preview. A new vendor would first spend months on implementation details and EVM edge cases.  \nThe [2026-2027 roadmap discussion](https://github.com/crytic/echidna/issues/1612) is the maintainer's planning thread, where users prioritize the goals. The 2.3 [releases](https://github.com/crytic/echidna/releases) added optional symbolic verification, multiple SMT solvers, Foundry reproducers, and an experimental MCP interface. The [public fuzzing campaigns list](https://github.com/perimetersec/public-fuzzing-campaigns-list) shows the tool in real audit work, and Recon Invariant Testing Extension and scfuzzbench are external users or integration targets.  \n**Example roadmap outcomes**, to show the expected scope. The milestones name the class of outcome, so the issue can change.\n\n> * Fork support like [issue \\#1623](https://github.com/crytic/echidna/issues/1623): the relevant fork's execution-layer changes supported in hevm and Echidna, with fork-specific and conformance tests.  \n> * Symbolic verification like [issue \\#1625](https://github.com/crytic/echidna/issues/1625): difficult properties proved by combining fuzzing and symbolic execution, with replayable counterexamples.",
+      "commitments": "> 1. **Open source and public development.** All grant-funded code, tests, documentation, and examples are published under AGPLv3 or another OSI-approved license, through public issues, pull requests, and tagged releases.  \n> 2. **Roadmap delivery.** Each roadmap outcome ships in a tagged release whose notes explain the improvement and link to the test, reproducer, or benchmark behind it.  \n> 3. **Substitution and 2026 carry-over.** A blocked roadmap item may be replaced by one of equal or greater security value and scope, with the reason, the replacement, and its acceptance evidence published first. Unfinished 2026 roadmap work counts if it happens in 2027, was not funded elsewhere, and is of comparable scope and importance.  \n> 4. **Current EVM support.** Finalized EVM and toolchain changes in the work period are covered by public regression tests. No milestone depends on an Ethereum upgrade shipping on a fixed date: if a fork slips, the fork-dated target moves with it.  \n> 5. **Honest output.** Agent controls are documented. Symbolic results state the mode, solver, bounds, timeout status, unsupported operations, and caveats, and incomplete analysis is never reported as verified. Release artifacts tie to public source tags, and installation paths are tested in CI.  \n> 6. **Post-grant maintenance.** The recipient keeps maintaining Echidna after the grant (releases, triage, security reports, user support on the public channels), without follow-on funding and at a pace set by his other paid work.  \n> 7. **Pinned targets, counted from the first payment.** EVM fidelity and campaign reliability: within 90 days after the next Ethereum mainnet fork activates. Symbolic verification and agent workflows: within 7 months. Roadmap completion and handoff: within 10 months. Adoption: within 12 months."
+    },
+    "milestones": [
+      {
+        "name": "EVM fidelity and campaign reliability",
+        "amount": 10000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "A tagged release ships with a public changelog and installation artifacts, and every improvement in its release notes links to a test, reproducer, or benchmark",
+          "The release supports the execution-layer changes of the next Ethereum mainnet fork that activates in the grant period, with a public fork-specific test and a conformance test in hevm, by the pinned target in commitment 7\\. If no fork activates, public regression tests cover the changes finalized for",
+          "A public reproducer, command included, shows the last 2026 release failing or unsupported on at least 1 newly supported execution-layer behavior where the 2027 release gives the expected result",
+          "At least 1 technical post explains a compatibility, performance, reliability, or reproducer improvement from this milestone"
+        ]
+      },
+      {
+        "name": "Symbolic verification and agent workflows",
+        "amount": 12000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "A second tagged release delivers a symbolic-verification roadmap outcome, or a substitute under commitment 3, against acceptance evidence published in the repository before work began: a public reproducer with the command, mode, solver, limits, and result, with any counterexample replayable",
+          "The MCP workflow for an agent to inspect and direct a live campaign is documented in the repository, with at least 1 end-to-end example a reader can run",
+          "A public versioned SKILL prompt for Echidna covers property design, stateful fuzzing, corpus and reproducers, symbolic verification, and MCP workflows, with at least 1 usage example",
+          "At least 1 public pull request from this work is submitted upstream to hevm, Slither, or Foundry and linked from the release notes",
+          "At least 1 technical post explains an agent-guided fuzzing or symbolic-verification workflow from this milestone"
+        ]
+      },
+      {
+        "name": "Roadmap completion and handoff",
+        "amount": 10000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "A third tagged release ships with a public changelog and a second roadmap outcome, against acceptance evidence published in the repository before work began and linked from the release notes",
+          "At least 3 technical posts across the grant, including at least 1 worked example of agent-guided fuzzing on an open-source project the recipient does not maintain with at least 500 GitHub stars",
+          "A public note in the repository states the post-grant maintenance commitment and the expected support and release model"
+        ]
+      },
+      {
+        "name": "Adoption",
+        "amount": 16000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least two named protocols or audit firms publicly confirm using a 2027 release on a named project. Validated: published on a site that organization controls",
+          "At least two entries added to the public fuzzing campaigns list by parties outside this grant name Echidna for a 2027 campaign. Validated: the merged commits that added them, linked",
+          "At least two repositories outside the recipient's control run a 2027 release in CI. Validated: public merged pull request and CI configuration",
+          "Recon Invariant Testing Extension or scfuzzbench publicly supports a 2027 release. Validated: an integration record or benchmark configuration in their public repository",
+          "At least two firms or open-source projects outside this grant publicly report using the SKILL prompt or MCP workflow, each report naming the release or using features included . Validated: published on a site or repository that such organizations control",
+          "At least 1000 downloads of 2027 release binaries in brew. Validated: using the [brew stats](https://formulae.brew.sh/formula/echidna) that are collected after 30/90 days of the 2027 release.",
+          "A public adoption map lists every qualifying confirmation, campaigns-list entry, CI integration, benchmark record, and SKILL or MCP report, each dated and linked"
+        ]
+      }
+    ],
+    "links": [
+      "https://github.com/crytic/echidna",
+      "https://github.com/crytic/echidna/issues/1612",
+      "https://github.com/crytic/echidna/releases",
+      "https://github.com/perimetersec/public-fuzzing-campaigns-list"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

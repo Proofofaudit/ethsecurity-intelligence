@@ -1,0 +1,41 @@
+{
+  "repos": [
+    {
+      "fullName": "lidofinance/valos",
+      "url": "https://github.com/lidofinance/valos",
+      "exists": true,
+      "description": null,
+      "license": "Apache-2.0",
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "main",
+      "createdAt": "2025-07-08T14:00:35Z",
+      "pushedAt": "2026-09-13T09:36:46Z",
+      "stars": 8,
+      "openIssues": 12,
+      "language": "HTML",
+      "topics": [],
+      "latestRelease": null,
+      "releaseCount": 0,
+      "hasCiWorkflows": true,
+      "hasTestsDir": false,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 0,
+      "contributorsSampled": 7,
+      "checkedAt": "2026-11-26T09:26:44.811Z",
+      "error": null
+    }
+  ],
+  "owners": [
+    {
+      "login": "lidofinance",
+      "type": "Organization",
+      "name": "Lido",
+      "blog": "https://lido.fi",
+      "createdAt": "2020-07-16T13:14:05Z",
+      "publicRepos": 264,
+      "url": "https://github.com/lidofinance"
+    }
+  ]
+}

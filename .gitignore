@@ -1,0 +1,17 @@
+node_modules/
+.next/
+out/
+.scratch/
+.data/
+.env
+.env.*
+!.env.example
+*.log
+coverage/
+playwright-report/
+test-results/
+next-env.d.ts
+*.tsbuildinfo
+.DS_Store
+.cache/
+data/research/cache/

@@ -1,0 +1,16 @@
+{
+  "checks": [
+    {
+      "url": "https://osec.io/",
+      "status": 200,
+      "finalUrl": "https://osec.io/",
+      "title": "OtterSec",
+      "description": "Blockchain security audits and research.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:25.463Z"
+    }
+  ]
+}

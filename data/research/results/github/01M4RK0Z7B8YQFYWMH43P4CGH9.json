@@ -1,0 +1,95 @@
+{
+  "repos": [
+    {
+      "fullName": "blockscout/blockscout",
+      "url": "https://github.com/blockscout/blockscout",
+      "exists": true,
+      "description": "Blockchain explorer for Ethereum based network and a tool for inspecting and analyzing EVM based blockchains. ",
+      "license": "Other/unrecognised",
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "master",
+      "createdAt": "2018-01-12T22:45:24Z",
+      "pushedAt": "2026-11-25T21:56:10Z",
+      "stars": 4785,
+      "openIssues": 164,
+      "language": "Elixir",
+      "topics": [
+        "blockchain",
+        "elixir",
+        "ethereum",
+        "explorer"
+      ],
+      "latestRelease": {
+        "tag": "v12.1.0",
+        "publishedAt": "2026-11-24T15:17:40Z",
+        "url": "https://github.com/blockscout/blockscout/releases/tag/v12.1.0"
+      },
+      "releaseCount": 100,
+      "hasCiWorkflows": true,
+      "hasTestsDir": false,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 100,
+      "contributorsSampled": 100,
+      "checkedAt": "2026-11-26T09:25:29.289Z",
+      "error": null
+    }
+  ],
+  "owners": [
+    {
+      "login": "blockscout",
+      "type": "Organization",
+      "name": "Blockscout",
+      "blog": "https://www.blockscout.com/",
+      "createdAt": "2018-12-05T10:49:32Z",
+      "publicRepos": 54,
+      "url": "https://github.com/blockscout"
+    },
+    {
+      "login": "NikitaSavik",
+      "type": "User",
+      "name": null,
+      "blog": null,
+      "createdAt": "2012-05-03T09:07:39Z",
+      "publicRepos": 14,
+      "url": "https://github.com/NikitaSavik"
+    },
+    {
+      "login": "nzenchik",
+      "type": "User",
+      "name": "Nick Zenchik",
+      "blog": null,
+      "createdAt": "2020-05-20T09:34:42Z",
+      "publicRepos": 4,
+      "url": "https://github.com/nzenchik"
+    },
+    {
+      "login": "tom2drum",
+      "type": "User",
+      "name": "tom goriunov",
+      "blog": "http://ohhhh.me",
+      "createdAt": "2016-09-11T11:19:11Z",
+      "publicRepos": 39,
+      "url": "https://github.com/tom2drum"
+    },
+    {
+      "login": "vbaranov",
+      "type": "User",
+      "name": "Victor Baranov",
+      "blog": "https://ethereum.stackexchange.com/users/2128/viktor-baranov",
+      "createdAt": "2013-05-04T19:49:52Z",
+      "publicRepos": 95,
+      "url": "https://github.com/vbaranov"
+    },
+    {
+      "login": "yvaskov",
+      "type": "User",
+      "name": "Yan Vaskov",
+      "blog": null,
+      "createdAt": "2020-10-02T14:56:05Z",
+      "publicRepos": 1,
+      "url": "https://github.com/yvaskov"
+    }
+  ]
+}

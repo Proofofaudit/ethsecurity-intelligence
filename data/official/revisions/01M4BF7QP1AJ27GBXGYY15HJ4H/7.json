@@ -1,0 +1,78 @@
+{
+  "revision": {
+    "n": 7,
+    "author": "0xBcbC63d0841811f403fBb04CFA164806Bf189051",
+    "source": "proposer",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1793698963.205,
+    "title": "Free, Backtestable Onchain Monitoring on 13 EVM Chains",
+    "summary": "Dedaub runs a monitoring platform where anyone can write unlimited onchain queries in DedaubQL and run up to 2 alerts, free of charge, on 8 EVM chains. This grant buys the storage to expand to at least 13 chains, add at least 5 Ethereum L2s, and keep 12 months of uncompressed history on every newly supported chain (24 on Ethereum mainnet), so any alert can be replayed over past exploits before a team relies on it. It also buys one analysis server that runs the Gigahorse decompiler on the new chains. The free tier stays free, SEAL and SEAL 911 members get unlimited access for 36 months, and Dedaub launches a new paid offer for its monitoring infrastructure to sustain it.",
+    "details": "",
+    "sections": {
+      "why": "Two gaps, one cause.\n\n- Coverage: the platform indexes 8 chains, and the same attackers, the same bytecode and the same Ethereum-issued assets are on dozens more. Ethereum L2s with billions in value, such as Mantle, is not covered by the platform today.\n- Backtesting: an alert that has never been run against a real attack is an untested guess. Replaying an alert over history needs call traces and logs in a form that can be scanned quickly. We compress older data to stay within capacity, and a backfill on compressed data slows from milliseconds to tens of minutes per day of history.\n\nThe cause is storage. Adding chains without more disk makes the compression problem worse. Adding disk without more chains leaves the ecosystem's value uncovered.\n\nWho is safer: any team on the covered chains, whose alerts can be replayed over past exploits before they rely on them, and incident responders, who get the decoded internal-call trace of an attack transaction the same day on chains whose explorer shows no traces. Every new chain is an Ethereum L2 whose value settles on Ethereum. Attackers reuse Ethereum exploit code across all of them.",
+      "in_scope": "What the money buys. Every item is an example; the purchase may be of analogous hardware.\n\n- 8 Memblaze PBlaze7 7A40 61.44 TB NVMe drives, $24,950 each, $199,600 (Bytehaus written quote to Neville Grech, 27 May 2026, to be re-quoted)\n- One analysis server, current-generation CPU, at least 1 TB of RAM, $50,000 (Dedaub target figure, quote pending)\n- One 24-bay NVMe enclosure, $10,229 (Serial Cables list price, 28 September 2026)\n- One external HBA with four cables, $1,707 (Serial Cables list prices, 28 September 2026)\n\nWhat gets delivered:\n\n- At least 5 new Ethereum L2s. At least 3 of them from: Robinhood Chain, Mantle, World Chain, Ink, Linea, ZKsync Era, Celo, Ronin. Any other L2 counts only if L2BEAT shows at least $200M in value secured when it goes live. Every chain gets traces, logs, and token transfers indexed, DedaubQL alerts, email, webhook, and Telegram notifications, the CLI, and agent skill.\n- Decompilation on every new chain: the analysis server runs the Gigahorse decompiler, so every EVM bytecode contract on them becomes readable without source, free.\n- A backtesting storage tier: 8 drives in mirrored pairs (about 246 TB usable) attached to Dedaub's existing database server, keeping 24 months of uncompressed history for Ethereum mainnet and 12 months for the other chains. Backfill becomes a normal step when creating an alert, from the web app and the CLI.\n- Decoded traces for responders: the internal-call trace of any transaction on a funded chain, queryable in DedaubQL and exportable from the CLI.\n- Unlimited access for SEAL and SEAL 911 members: unlimited active alerts with backfill and decoded traces without rate limits, for 36 months from the first new chain going live.\n- A new paid offer: a new way to pay for Dedaub's monitoring infrastructure (for example self-serve subscriptions for teams and/or protocol maintainers), so the service is sustained by its users.",
+      "out_scope": "- Archive nodes. Dedaub sources archive data from RPC providers at its own cost.\n- The network, data centre space, RPC subscriptions and bandwidth, and the people who onboard chains and run the platform. None of this is billed to the grant, now or later.\n- Alt-L1s (for example Arc, Monad, Plasma, Gnosis). Dedaub may add them, paid for by the chain or the apps on it, not by this grant.",
+      "team": "Dedaub does the work. This is a grant, not a competition: the platform, the decompiler and the CLI named below are Dedaub's own, and the hardware extends them.\n\nDrafted by Giorgio Bonuccelli with the Dedaub engineering team. A Dedaub team member, Yannis Bollanos, holds an ETHSecurity Badge and will abstain from ranking this initiative.",
+      "why_grant": "Everything this grant extends is Dedaub's own and in production:\n\n- The monitoring platform at https://app.dedaub.com, live on 8 EVM chains, with DedaubQL queries, alerts, backfill and email, webhook and Telegram notifications.\n- The CLI and agent skill, MIT-licensed, with reference notes for 95 protocols: https://github.com/Dedaub/monitoring-cli\n- The Gigahorse decompiler, free since 2018, more than 16,000 registered users across ten EVM chains.\n\nThere is nothing else to build on. The grant buys the storage and one analysis server; the software, the chain data feeds and the people are Dedaub's.",
+      "commitments": "1. The CLI and its agent skill stay MIT-licensed. The platform remains Dedaub's hosted service, free at the tier described above.\n2. The free tier (unlimited queries, 2 active alerts per user, no time limit, no credit card) is live on every funded chain, and Dedaub keeps it after the grant as its own policy, as it has with the decompiler since 2018.\n3. SEAL and SEAL 911 members get unlimited alerts with backfill and decoded traces without rate limits for 36 months from the first new chain going live. Dedaub carries the compute cost.\n4. 12 months of uncompressed history on every covered chain, 24 on Ethereum mainnet. If measured volumes or drive prices force a cut, Arbitrum and Optimism shorten first to 6 months; Ethereum mainnet and the new chains never shorten.\n5. Dedaub owns and runs the equipment, keeps every funded chain live through the last milestone and beyond, and provides invoices and serial numbers for every item to the technical reviewer.\n6. Dedaub re-quotes every line in writing before signing and covers any price rise between signing and purchase up to 15% of the quoted price. Every item may be replaced by analogous hardware; the analysis server may be a refurbished unit with equivalent specifications.\n7. Dedaub staff and contractors never count towards any milestone.\n8. If the round funds less than the full amount, the number of new L2s drops with it."
+    },
+    "milestones": [
+      {
+        "name": "Hardware installed, first 3 L2s live",
+        "amount": 90000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Analysis server, enclosure, external HBA and 4 drives installed, with invoices and serial numbers provided to the technical reviewer",
+          "3 qualifying Ethereum L2s live in the Security Suite from a free account, in the app and the CLI, checked by the technical reviewer"
+        ]
+      },
+      {
+        "name": "5 L2s live with full history",
+        "amount": 85000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Last 4 drives installed, with invoices and serial numbers provided to the technical reviewer",
+          "At least 5 qualifying Ethereum L2s live in the Security Suite from a free account, in the app and the CLI, at least 3 of them from the named list, checked by the technical reviewer",
+          "12 months of uncompressed history on every covered chain, 24 on Ethereum mainnet, checked by the technical reviewer with a backfill"
+        ]
+      },
+      {
+        "name": "In use",
+        "amount": 40000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 10 named web3 project teams outside Dedaub run a production monitoring alert on the new L2s, at least 5 of them from teams with over $100M TVL, and 2 with over $1B TVL verified by the technical reviewer"
+        ]
+      },
+      {
+        "name": "New revenue model",
+        "amount": 50000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Dedaub launches a new paid offer for its monitoring infrastructure.",
+          "The new offer brings in at least $100,000 of new revenue within the grant, and uses the new L2s to some extent; shown privately to the technical reviewer"
+        ]
+      }
+    ],
+    "links": [
+      "https://github.com/Dedaub/monitoring-cli",
+      "https://app.dedaub.com",
+      "https://dedaub.com/audits."
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

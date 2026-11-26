@@ -1,0 +1,112 @@
+{
+  "checks": [
+    {
+      "url": "https://assetrecovery.io/",
+      "status": 200,
+      "finalUrl": "https://assetrecovery.io/",
+      "title": "DART — Digital Asset Recovery Technologies",
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:23.938Z"
+    },
+    {
+      "url": "https://frameworks.securityalliance.org/safe-harbor/whitehat",
+      "status": 200,
+      "finalUrl": "https://frameworks.securityalliance.org/safe-harbor/whitehat/",
+      "title": "Whitehat Rescue Guide | Security Alliance",
+      "description": "Safe Harbor for whitehats: legal framework for intervening during active exploits. Pre-intervention checklist, post-intervention fund return procedures",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:42.950Z"
+    },
+    {
+      "url": "https://kleros.io/",
+      "status": 200,
+      "finalUrl": "https://kleros.io/",
+      "title": "Kleros | The arbitration protocol for the internet economy",
+      "description": "Kleros is the decentralized arbitration protocol offering fair and efficient dispute resolution for the new economy since 2019.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:23.940Z"
+    },
+    {
+      "url": "https://news.un.org/en/story/2023/08/1140187",
+      "status": 200,
+      "finalUrl": "https://news.un.org/en/story/2023/08/1140187",
+      "title": "Hundreds of thousands trafficked into online criminality across SE Asia | UN News",
+      "description": "Criminal gangs in southeast Asia are using torture and abuse to force hundreds of thousands of people into an online scam operation which generates billions of dollars per year, the UN rights office (OHCHR) said on Tuesday.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:23.941Z"
+    },
+    {
+      "url": "https://securityalliance.org/safe-harbor",
+      "status": 200,
+      "finalUrl": "https://securityalliance.org/our-work/safe-harbor",
+      "title": "Safe Harbor | Security Alliance",
+      "description": "Legal protection for whitehat rescues during active exploits",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:23.942Z"
+    },
+    {
+      "url": "https://thedao.fund/",
+      "status": 200,
+      "finalUrl": "https://thedao.fund/",
+      "title": "TheDAO Security Fund | TheDAO is Back",
+      "description": "TheDAO is back and is allocating over 75,000 ETH to strengthen Ethereum security. BULLISH.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:23.969Z"
+    },
+    {
+      "url": "https://www.anthropic.com/research/smart-contracts",
+      "status": 200,
+      "finalUrl": "https://www.anthropic.com/research/smart-contracts",
+      "title": "AI agents find smart contract exploits \\ Anthropic",
+      "description": "On a benchmark of real exploited contracts, AI agents found vulnerabilities worth a combined $4.6 million, underscoring the need for AI-powered defense.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:24.060Z"
+    },
+    {
+      "url": "https://www.ic3.gov/PSA/2025/PSA250226",
+      "status": 200,
+      "finalUrl": "https://www.ic3.gov/PSA/2025/PSA250226",
+      "title": "Internet Crime Complaint Center (IC3) | North Korea Responsible for $1.5 Billion Bybit Hack",
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:24.176Z"
+    },
+    {
+      "url": "https://www.nknews.org/2024/03/north-korea-relies-on-crypto-theft-for-up-to-half-of-foreign-income-un-report",
+      "status": 200,
+      "finalUrl": "https://www.nknews.org/2024/03/north-korea-relies-on-crypto-theft-for-up-to-half-of-foreign-income-un-report/",
+      "title": "North Korea relies on crypto theft for up to half of foreign income: UN report | NK News",
+      "description": "North Korea’s theft of cryptocurrency accounts for as much as half of its foreign financing and plays a major role in bankrolling the regime’s nuclear ambitions, a new U.N. report states, estimating that DPRK cybercriminals have stolen $3 …",
+      "contentType": "text/html; charset=UTF-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:24.184Z"
+    }
+  ]
+}

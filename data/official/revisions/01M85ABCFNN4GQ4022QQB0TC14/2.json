@@ -1,0 +1,79 @@
+{
+  "revision": {
+    "n": 2,
+    "author": "0x1f0AfcfceFC98e8D9f4A82974e527429D665Acb7",
+    "source": "proposer",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1795486218.647,
+    "title": "RFP: A Bug Broker That Gets Ethereum Bugs Fixed and Researchers Paid, Bounty or No Bounty",
+    "summary": "Bug bounties only work where a program exists and someone reads the inbox. HEY Research Lab, a small lab on this board, has filed 110 private advisories across 50 projects, and teams have accepted or published 40 so far. This RFP seeds a broker that takes a validated finding to the right team, sees it fixed and the researcher paid, then lives on its fees.",
+    "details": "",
+    "sections": {
+      "why": "Every valid finding left unfixed waits for the next attacker to find it. Users are safer when someone owns the job of getting it fixed.\n\n- Bounties work where programs exist: [Immunefi](https://immunefi.com/) has paid researchers over $140M. Code with no bounty, no maintainer or a program that never answers has no such path.\n- We expect researchers without a broker to drop findings rather than chase unbountied teams, and a lone researcher who asks an unbountied team to pay risks looking like an extortionist.\n\nAfterwards anyone can point to fixes shipped and researchers paid.",
+      "in_scope": "A team researchers can hand a validated finding to and trust to get it fixed.\n\nBidders have complete freedom in how they get there, including their own milestones, within the hard requirements below. What matters is three outcomes: validated findings reach a team that can fix them, they get fixed, including in unmaintained code, and researchers get paid, bounty or no bounty.\n\nOne possible approach, the one the milestones below follow:\n\n- Validate each finding, find the owner and hand over the full finding with an offer to help fix it.\n- File and defend researchers' submissions to existing bounty programs for a commission.\n- Run as a nonprofit, a firm or a membership body.\n- Use the security contacts published under the companion security-contact RFP, without depending on them.",
+      "out_scope": "- Bug hunting itself.\n- Operating a bounty platform.\n- Whitehat rescues of funds at risk ([separate RFP](https://initiatives.thedao.fund/initiative/an-open-bug-bounty-program-for-all-of-ethereum-white-hat-res) on this board).\n- Bugs in shared code where several teams must fix together (the companion coordinated-patching RFP).",
+      "existing": "- [Zero Day Initiative](https://www.zerodayinitiative.com/about/): Web2's trusted broker since 2005. It pays researchers, then gives the vendor full details and a 120-day deadline ([policy](https://www.zerodayinitiative.com/advisories/disclosure_policy/)). TrendAI supports it and uses its findings to protect TrendAI customers before vendors patch, so bids here must show who pays.\n- [CERT/CC VINCE](https://sei.cmu.edu/news/certcc-releases-vince-software-vulnerability-collaboration-platform): a shared case space for reporters and vendors.",
+      "who": "Audit firms with AI bug-hunting pipelines, research collectives, bounty platforms, or a new firm. The best pitch answers one question: why will researchers and teams both trust you? Nobody is pre-selected.\n\nDrafted by TheDAO Security Fund from a conversation with EthSec (ethsecurity.org) and Consensys. EthSec or Consensys Diligence may bid. A fix counted toward this RFP's milestones cannot also count toward another initiative's milestones on this board. TheDAO Security Fund and Giveth will not bid.",
+      "hard_req": "These keep payment voluntary and protect researchers and teams.\n\n1. **Disclosure never depends on payment.** The affected team receives the full finding at first contact, with no condition, before any payment request.\n2. **Terms first.** Payment terms are published before any team is contacted and are the same for every team. A law firm's written opinion on the model goes to the technical reviewer, and its summary is published, before the first payment request.\n3. A finding goes only to the teams that must fix it. No sale or license to anyone else.\n4. Nothing about an unfixed finding is published, including which team is slow to respond.\n5. Every finding is validated with a working proof of concept before any team is contacted.\n6. Researchers may stay unnamed in public.\n7. **Outside means unaffiliated.** An outside team shares no owner, staff or funding relationship with the selected team. Affiliates count toward no criterion.\n8. Ethereum and L2 code only."
+    },
+    "milestones": [
+      {
+        "name": "Broker open",
+        "amount": 35000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Disclosure policy, payment terms, severity rubric and the legal opinion's summary published, and intake live, checked by the technical reviewer",
+          "At least 3 outside research teams submitting findings, confirmed by those teams to the technical reviewer"
+        ]
+      },
+      {
+        "name": "First fixes",
+        "amount": 25000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 15 medium-or-higher findings from at least 3 outside research teams fixed by at least 8 outside teams, each fix a patched commit or upgraded contract checked by the technical reviewer",
+          "At least 5 of the fixing teams hold over $10M onchain (value query linked), checked by the technical reviewer",
+          "At least 3 of the findings are high or critical, checked by the technical reviewer"
+        ]
+      },
+      {
+        "name": "At scale",
+        "amount": 55000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 75 distinct medium-or-higher findings fixed, at least 15 high or critical, across at least 30 outside teams each holding over $1M onchain (value query linked), from at least 8 outside research teams, 2 of them from this list: OpenZeppelin, Trail of Bits, ChainSecurity, Spearbit, Consensys Diligence, Sigma Prime, Certora, Cyfrin, Zellic, Ackee Blockchain, Runtime Verification, Nethermind Security, checked by the technical reviewer",
+          "At least 10 of the fixing teams hold over $50M onchain (value query linked), checked by the technical reviewer",
+          "At least 25 of the fixes are in code with no live bounty program, checked by the technical reviewer",
+          "Median time from intake to the affected team acknowledging under 7 days, on the broker's public metrics page, checked by the technical reviewer"
+        ]
+      },
+      {
+        "name": "Paying for itself",
+        "amount": 35000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least $150,000 paid to researchers through the broker by at least 5 outside teams or bounty programs, at least $50,000 of it for code with no live bounty program, each payment made after the payer had the full finding, checked by the technical reviewer",
+          "At least $30,000 of broker revenue, confirmed by the technical reviewer, plus a plan to run 12 months past the grant without grants"
+        ]
+      }
+    ],
+    "links": [
+      "https://www.zerodayinitiative.com/advisories/disclosure_policy/"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

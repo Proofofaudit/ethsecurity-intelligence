@@ -1,0 +1,85 @@
+{
+  "revision": {
+    "n": 2,
+    "author": "0x839395e20bbB182fa440d08F850E6c7A8f6F0780",
+    "source": "admin",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1789399026.67,
+    "title": "Production-Ready Local-First Safe UI",
+    "summary": "This RFP funds a production-ready, local-first Safe multisig UI, deployed to IPFS with reproducible builds, that anyone can run with nothing but an RPC endpoint and a wallet. It is an independent way to execute transactions if Safe for any reason becomes unreachable, and a tool to cross-check every hash before signers approve.",
+    "details": "",
+    "sections": {
+      "why": "A Safe is a contract on Ethereum. Its owners and threshold are on-chain, and anyone can execute a transaction once it carries enough owner signatures to meet the threshold. In the standard flow, everything before that step happens off-chain, through the hosted Safe{Wallet} frontend that Safe Labs operates and the Safe Transaction Service behind it. Self-hosting that stack means running the Client Gateway, the Transaction Service and a tracing archive node for internal-transaction indexing, so few teams do.\n\nIn July 2024, WazirX lost roughly $235M from a Safe multisig managed through Liminal Custody, whose interface showed a routine transfer while the signatures authorized a malicious contract upgrade. In October 2024, malware on the computers of Radiant Capital's signers showed a clean transaction while their hardware wallets received different calldata; the signers signed blind instead of checking the domain and message hash on the device, and lost roughly $50M. In February 2025, malicious JavaScript in the hosted Safe{Wallet} frontend showed Bybit's signers one transaction while their hardware wallets signed another, and roughly $1.5B left the Safe. These incidents are different manifestations of the same underlying problem: the software presenting a transaction to a signer cannot be treated as a trusted part of the signing boundary.\n\nAssume Safe's hosted frontend and Transaction Service disappear tomorrow. A non-technical multisig signer should still be able to:\n\n- open this UI from a local copy or the IPFS release\n- connect a hardware wallet\n- rebuild the transaction from the Safe's on-chain state (owners, threshold, nonce, contract version) and the parameters they were sent, then recompute its hashes locally\n- verify exactly what they are signing\n- exchange signatures with the other owners through ordinary files or links\n- execute the transaction using only a JSON-RPC endpoint\n\nNo Safe account, Safe backend, project-operated server, indexer or technical help required. That is Vitalik's walkaway test.",
+      "in_scope": "This RFP pays for finishing, hardening and maintaining a local-first Safe UI with minimal dependencies and trivial deployment. Optimise for the least technical signer rather than the developer running the UI. Deliverables:\n\n- Ethereum Mainnet, Safe contract versions v1.3.0 and v1.4.1 at minimum\n- Production hardening of an existing codebase, or a fresh build\n- The full lifecycle against one standard JSON-RPC endpoint: load a Safe from chain state, propose, sign, exchange signatures, execute, manage owners and threshold, arbitrary contract calls\n- Signature exchange without a server: signed transaction packages exported and imported through ordinary files or shareable links, with nested Safe (EIP-1271) support and approveHash as the on-chain alternative\n- Verification: enter or import a transaction's full SafeTx parameters and recompute the EIP-712 domain hash, message hash and safeTxHash locally, with calldata decoded offline from a bundled selector database or a user-supplied ABI\n- Hardware wallet signing on Ledger and Trezor at minimum, over WebUSB or WebHID or through a vendor library bundled with the app\n- A command-line tool or local API that returns the hashes and decoded calldata for a given Safe address, chain ID and transaction parameters, for scripts and AI agents\n- Reproducible IPFS builds with fixed import settings, an ENS name whose contenthash resolves to the current release, and docs for running locally and verifying a build\n- 12 months of maintenance after the first tagged release (expected within 3 months of funding), and a business plan for the years after",
+      "out_scope": "- Full Safe{Wallet} parity (Safe Apps, swaps, staking, onramps)\n- Hosted backends or indexers, including a team-run web server for this UI (the IPFS and ENS release is in scope)\n- Chains beyond Ethereum Mainnet\n- Mobile apps\n- New smart contracts",
+      "existing": "- [localsafe.eth](https://github.com/Cyfrin/localsafe.eth) (Cyfrin, MIT), live at [localsafe.eth.limo](https://localsafe.eth.limo). Its README calls it \"still a project in early development\": Safe v1.4.1 only, no transaction history; last release v0.3.1, June 18, 2026.\n- [Eternal Safe](https://github.com/eternalsafe/wallet) (GPL-3.0), a Safe{Wallet} fork (app v1.26.2) that needs only an RPC URL. Received a Safe Grants Program grant; maintained by Devan Non; signature \"smart links\" are encoded rather than encrypted; v1.4.1 by default.\n- [Safe's own monorepo](https://github.com/safe-global/safe-wallet-monorepo) (GPL-3.0). Self-hosting it means the [Client Gateway](https://github.com/safe-global/safe-client-gateway), the [Transaction Service](https://github.com/safe-global/safe-transaction-service) and a tracing archive node ([Safe docs](https://docs.safe.global/core-api/api-overview)).\n- Hash-verification tools: [safe-tx-hashes-util](https://github.com/pcaversaccio/safe-tx-hashes-util), [OpenZeppelin Safe Utils](https://github.com/OpenZeppelin/safe-utils), [Cyfrin safe-hash](https://tools.cyfrin.io/safe-hash). They verify hashes only.\n\nA bid built on another codebase should show it meets these hard requirements with fewer runtime dependencies.",
+      "who": "Nobody is pre-selected. Teams that have already shipped Safe frontends or signing tools, including the people behind localsafe.eth and Eternal Safe, will be judged on that record, and the budget is $120,000 either way. Safe contributors are welcome to bid or to co-fund.\n\nCo-drafted by Griff Green and pcaversaccio, both Curators of TheDAO Security Fund. pcaversaccio maintains [safe-tx-hashes-util](https://github.com/pcaversaccio/safe-tx-hashes-util), listed above.",
+      "hard_req": "1. **Open source.** An OSI-approved license, MIT or GPL-3.0 expected, and a public repository from the first commit of funded work.\n2. **RPC only, nothing project-operated.** Every flow works against a standard JSON-RPC endpoint. Runtime dependencies are minimised, with no dependency on a hosted SaaS, proprietary API, mandatory backend, indexer, telemetry service, analytics provider or project-operated infrastructure, and no analytics or telemetry in the UI.\n3. **Signature exchange without a server.** Signed transaction packages export and import through ordinary files or shareable links. Imported signatures are checked against the transaction's safeTxHash and the Safe's current owner set before they are accepted: signature recovery for EOA owners, an isValidSignature call for contract owners. Off-chain signatures work for nested Safes through EIP-1271, and on-chain approval through approveHash is supported as an alternative.\n4. **Hardware wallets.** Ledger and Trezor at minimum, over WebUSB or WebHID or through a bundled vendor library. Before signing, the UI shows the EIP-712 domain hash, message hash and safeTxHash. The device shows the domain hash and the message hash, and the signer matches those against the UI and an independent hash tool. Vendor libraries are bundled and served with the app, with no popup, iframe or metadata fetched from a vendor's servers and no separate bridge daemon to install.\n5. **Undecodable calldata stays unverified.** Calldata the UI cannot decode is shown as raw bytes with an unverified label, never as safe to sign.\n6. **Verifiable builds.** Reproducible from a tagged commit to the published IPFS CID with fixed import settings, by an unaffiliated user without the team's infrastructure; the ENS contenthash resolves to the current release.\n7. **Trivial deployment.** Open a local copy or the IPFS release, connect a hardware wallet, and work. Nothing to install beyond that.\n8. **A maintenance and business plan in the proposal.** Who maintains the UI for the 12 months after the first tagged release, and how it is paid for after that.\n9. **Public evidence for every milestone.** Recordings, transaction hashes, CIDs, test runs and named parties confirming, all published."
+    },
+    "milestones": [
+      {
+        "name": "Complete lifecycle without Safe infrastructure",
+        "amount": 45000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "A public repository under an OSI-approved license with a tagged release, and a published recording of the complete lifecycle on a v1.3.0 Safe and on a v1.4.1 Safe on Mainnet, using only the local or IPFS UI, one named public JSON-RPC endpoint and hardware wallets, with the browser's network panel sh",
+          "A published recording on a 2-of-3 Mainnet Safe: signer 1 constructs and exports the transaction; signer 2 imports it from a file or link, verifies the hashes on a Ledger, signs and exports the package again; signer 3 imports that package, verifies on a Trezor and signs; an independent machine import",
+          "A published recording of off-chain Safe signatures created, exported, imported, validated and used without the Transaction Service, including a nested Safe signing through EIP-1271",
+          "A recorded recovery test: an operator unaffiliated with the team, starting from only the Safe address, a JSON-RPC endpoint and the exported artifacts, obtains the UI from the tagged source or the IPFS release and executes a previously signed transaction; transaction hash published",
+          "Published automated tests, passing in public CI, for a stale nonce, two transactions competing for one nonce, an already-executed transaction, a cancelled or replaced transaction, and an imported signature that belongs to a different transaction",
+          "A published command-line tool or local API that prints the three hashes and decoded calldata for a given Safe address, chain ID and transaction parameters, with a published example matching at least 1 of the hash tools under Existing work",
+          "A scripted build that reproduces the published IPFS CID from the tagged commit with fixed import settings (CID version, chunker, raw leaves), with the release page listing every runtime dependency, confirmed in public by at least 3 named unaffiliated parties without access to the team's infrastructu",
+          "A published security review of transaction construction, EIP-712 hashing, signature import and validation, and execution, by a reviewer with no ties to the team, paid from this milestone, findings and fixes public"
+        ]
+      },
+      {
+        "name": "Adoption",
+        "amount": 40000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 20 named teams state in public that they keep this UI as a backup for their Safe, each statement linked from a public page",
+          "The public page carrying those statements shows the current release, its CID, and the names of the parties who confirmed the CID"
+        ]
+      },
+      {
+        "name": "12 months of maintenance",
+        "amount": 20000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 2 maintenance releases in the 12 months after the first tagged release, tracking Safe contract and dependency changes, each CID confirmed in public by at least 1 party unaffiliated with the team",
+          "A public issue tracker where every reported issue has a public response within 14 days",
+          "A public handoff doc naming the maintainers, who controls the release keys and the ENS name, and what a forker needs to carry it on"
+        ]
+      },
+      {
+        "name": "Business model executed",
+        "amount": 15000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Public evidence that the business model from the proposal has earned at least $20,000: on-chain payments, or published invoices confirmed by the paying customers"
+        ]
+      }
+    ],
+    "links": [
+      "https://github.com/Cyfrin/localsafe.eth",
+      "https://localsafe.eth.limo",
+      "https://github.com/eternalsafe/wallet",
+      "https://github.com/pcaversaccio/safe-tx-hashes-util"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

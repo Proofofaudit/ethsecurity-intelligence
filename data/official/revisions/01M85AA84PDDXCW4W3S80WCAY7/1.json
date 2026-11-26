@@ -1,0 +1,67 @@
+{
+  "revision": {
+    "n": 1,
+    "author": "0x1f0AfcfceFC98e8D9f4A82974e527429D665Acb7",
+    "source": "submit",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1795474923.67,
+    "title": "RFP: No More Lost Bug Reports, a Verified Security Contact for Every Ethereum Project Worth Attacking",
+    "summary": "A valid bug report that cannot find its owner waits for an attacker to find the same bug. Of the 50 largest DeFi entries on Ethereum by DeFiLlama, 37 serve no security.txt on the website DeFiLlama lists for them, and only 2 publish an encryption key. This RFP funds the outreach to get every project with real value at stake to publish a verified contact, plus one open lookup for researchers and their bug-hunting agents.",
+    "details": "",
+    "sections": {
+      "why": "Users are safer when valid reports reach a team that can fix them.\n\n- Our count, November 23, 2026, checks the website DeFiLlama lists for each entry. Many of these teams run bug bounties; what is missing is a contact researchers can find, with a key to encrypt to.\n\nAfterwards anyone can count the contacts projects published themselves, and the technical reviewer confirms how many valid reports reached them.",
+      "in_scope": "We pay for the outcome: every Ethereum and L2 project with real value at stake publishes an encrypted contact it controls, findable in one query. The real work is outreach. The design is the bidder's.\n\n- Getting projects to publish: security.txt, SECURITY.md with GitHub private vulnerability reporting, an onchain record such as ERC-5437, or another route.\n- One open directory of those records that people and agents can query.\n- Bidders may add a way for projects to recognize known researchers.\n- Coverage of protocols, L2s, client teams and widely used libraries, where shared bugs land.",
+      "out_scope": "- Running bug bounties.\n- Validating or handling reports (the companion bug broker RFP).\n- Emergency response to live hacks ([SEAL 911](https://securityalliance.org/seal-911) does that).\n- Publishing anything about a project's vulnerabilities.",
+      "existing": "- [RFC 9116](https://www.rfc-editor.org/rfc/rfc9116): security.txt, with a field for an encryption key.\n- Hand-kept lists go stale. [Trail of Bits' list](https://github.com/trailofbits/blockchain-security-contacts) of about 250 entries across all chains and categories was last updated in February 2025, and OpenZeppelin's [Security Registry](https://github.com/ethereum-lists/contracts) took its last entry in February 2022.\n- [ERC-5437](https://eips.ethereum.org/EIPS/eip-5437): an onchain security contact with an encryption key, status Stagnant. OpenZeppelin recommends a `@custom:security-contact` tag in contract source ([SECURITY.md](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/SECURITY.md)).\n- [SEAL Safe Harbor](https://github.com/security-alliance/safe-harbor): adopters register agreements onchain, and each agreement carries contact details.\n- [RFP: Directory of Value](https://initiatives.thedao.fund/initiative/directory-of-value) on this board maps what holds value. Bidders may attach contacts to it but must not depend on it.",
+      "who": "A team good at relentless, polite outreach that researchers already trust: a security collective, block explorer, bug bounty platform or audit firm. Nobody is pre-selected.\n\nDrafted by TheDAO Security Fund from a conversation with EthSec (ethsecurity.org) and Consensys. EthSec may bid. TheDAO Security Fund and Giveth will not bid.",
+      "hard_req": "1. **Verified means project-controlled.** An entry shows as verified only when it matches a record the project publishes itself: security.txt on its domain, SECURITY.md in its repository, an onchain record from its admin or governance address, or another record only the project can publish. Anything else shows as unverified.\n2. **Walk-away test.** Entries re-verify automatically from those records, the data is open, and anyone can run the indexer.\n3. **Encrypted to count.** Only verified entries with a private channel count toward milestones: a published encryption key, or a private reporting form the project controls, such as [GitHub private vulnerability reporting](https://docs.github.com/en/code-security/security-advisories/working-with-repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository).\n4. **A maintained home.** A named organization commits to run it after the grant. Queries stay free, since charging would block the outcome.\n5. **Outside means unaffiliated.** An outside team shares no owner, staff or funding relationship with the selected team. Affiliates count toward no criterion.\n6. Ethereum and L2 projects only."
+    },
+    "milestones": [
+      {
+        "name": "Directory live",
+        "amount": 15000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Public directory and query interface live with at least 300 Ethereum and L2 projects, at least 100 holding over $10M onchain (value query linked), each entry linked to the project's own record or marked unverified, checked by the technical reviewer",
+          "Dated baseline snapshot of every listed project's records published, checked by the technical reviewer"
+        ]
+      },
+      {
+        "name": "Projects publish a verified contact",
+        "amount": 25000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 100 outside teams with no encrypted contact in the baseline snapshot publish one under their own control, each linked from the directory and checked by the technical reviewer",
+          "Each holds over $1M onchain (value query linked), is an L2 over $200M on L2BEAT, is an Ethereum client team, or maintains a compiler or library, as accepted by the technical reviewer",
+          "At least 40 of them hold over $10M onchain (value query linked), checked by the technical reviewer",
+          "At least 8 of them hold over $500M onchain (value query linked), checked by the technical reviewer"
+        ]
+      },
+      {
+        "name": "Reports reach the right people",
+        "amount": 20000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 30 medium-or-higher findings, as rated by the receiving team, sent to contacts published under this initiative and acknowledged as valid within 7 days, each acknowledgment shown to the technical reviewer (counts only, no details)",
+          "Those findings come from at least 5 outside research teams, 2 of them from this list: OpenZeppelin, Trail of Bits, ChainSecurity, Spearbit, Consensys Diligence, Sigma Prime, Certora, Cyfrin, Zellic, Ackee Blockchain, Runtime Verification, Nethermind Security, checked by the technical reviewer",
+          "At least 1 outside platform among Etherscan, Blockscout, Immunefi and Cantina links directory contacts from its live pages, checked by the technical reviewer, and the named home confirms in public that it maintains the directory"
+        ]
+      }
+    ],
+    "links": [
+      "https://www.rfc-editor.org/rfc/rfc9116"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

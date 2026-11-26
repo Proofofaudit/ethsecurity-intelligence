@@ -1,0 +1,100 @@
+{
+  "checks": [
+    {
+      "url": "https://discuss.ens.domains/t/eth-limo-dns-hijack-post-mortem/22079",
+      "status": 200,
+      "finalUrl": "https://discuss.ens.domains/t/eth-limo-dns-hijack-post-mortem/22079",
+      "title": "Eth.limo DNS hijack post-mortem - 🌱 ENS Ecosystem - ENS DAO Governance Forum",
+      "description": "eth.limo DNS hijack post-mortem At approximately 19:07 EDT on 2026-04-17 our EasyDNS account was compromised via a social engineering attack directed at EasyDNS in which the attacker impersonated one of our team membe…",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:41.299Z"
+    },
+    {
+      "url": "https://ethereum.foundation/",
+      "status": 200,
+      "finalUrl": "https://ethereum.foundation/",
+      "title": null,
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:25.157Z"
+    },
+    {
+      "url": "https://www.coindesk.com/tech/2022/09/01/defi-platform-kyber-network-discloses-265k-exploit-vows-to-reimburse-all-funds",
+      "status": 429,
+      "finalUrl": "https://www.coindesk.com/tech/2022/09/01/defi-platform-kyber-network-discloses-265k-exploit-vows-to-reimburse-all-funds",
+      "title": "Vercel Security Checkpoint",
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": false,
+      "inconclusive": true,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:41.300Z"
+    },
+    {
+      "url": "https://www.coinspect.com",
+      "status": 200,
+      "finalUrl": "https://www.coinspect.com/",
+      "title": "Coinspect: Web3 Security Services Beyond Smart Contract Audits",
+      "description": "Coinspect builds security for a decentralized world since 2014. Our mission is to protect users and strengthen the web3 ecosystem with exceptional services.",
+      "contentType": "text/html; charset=UTF-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:41.301Z"
+    },
+    {
+      "url": "https://www.coinspect.com/",
+      "status": 200,
+      "finalUrl": "https://www.coinspect.com/",
+      "title": "Coinspect: Web3 Security Services Beyond Smart Contract Audits",
+      "description": "Coinspect builds security for a decentralized world since 2014. Our mission is to protect users and strengthen the web3 ecosystem with exceptional services.",
+      "contentType": "text/html; charset=UTF-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:41.301Z"
+    },
+    {
+      "url": "https://www.nccgroup.com/research/in-depth-technical-analysis-of-the-bybit-hack",
+      "status": 200,
+      "finalUrl": "https://www.nccgroup.com/research/in-depth-technical-analysis-of-the-bybit-hack/",
+      "title": "Bybit Hack: In-Depth Technical Analysis | NCC Group",
+      "description": "Explore a detailed breakdown of the Bybit hack, uncovering attack methods, vulnerabilities, and security lessons learned.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:41.401Z"
+    },
+    {
+      "url": "https://www.sygnia.co/blog/sygnia-investigation-bybit-hack",
+      "status": 403,
+      "finalUrl": "https://www.sygnia.co/blog/sygnia-investigation-bybit-hack",
+      "title": "Just a moment...",
+      "description": null,
+      "contentType": "text/html; charset=UTF-8",
+      "ok": false,
+      "inconclusive": true,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:41.415Z"
+    },
+    {
+      "url": "https://www.trmlabs.com/resources/blog/trm-investigates-badgerdao-defi-protocol-hacked",
+      "status": 200,
+      "finalUrl": "https://www.trmlabs.com/resources/blog/trm-investigates-badgerdao-defi-protocol-hacked",
+      "title": "TRM Labs | TRM Investigates: BadgerDAO DeFi Protocol Hacked",
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:41.460Z"
+    }
+  ]
+}

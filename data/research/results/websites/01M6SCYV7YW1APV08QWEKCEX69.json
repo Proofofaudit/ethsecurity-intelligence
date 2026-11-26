@@ -1,0 +1,112 @@
+{
+  "checks": [
+    {
+      "url": "https://blobscan.com",
+      "status": 200,
+      "finalUrl": "https://blobscan.com/",
+      "title": null,
+      "description": "Blobscan is the first EIP4844 Blob Transaction explorer, a web-based application that offers a seamless experience for navigating and indexing blob data.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:24.720Z"
+    },
+    {
+      "url": "https://docs.arbitrum.io/run-a-node/beacon-nodes-historical-blobs",
+      "status": 200,
+      "finalUrl": "https://docs.arbitrum.io/run-a-node/beacon-nodes-historical-blobs",
+      "title": "Beacon Nodes: Historical Blobs",
+      "description": "Learn more about the impacts of the Fusaka upgrade when running a beacon node.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:24.721Z"
+    },
+    {
+      "url": "https://docs.aztec.network/operate/operators/setup/blob_storage",
+      "status": 200,
+      "finalUrl": "https://docs.aztec.network/operate/operators/setup/blob_storage",
+      "title": "Blob retrieval | Aztec Documentation",
+      "description": null,
+      "contentType": "text/html; charset=UTF-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:24.722Z"
+    },
+    {
+      "url": "https://docs.blobscan.com",
+      "status": 200,
+      "finalUrl": "https://docs.blobscan.com/",
+      "title": "Blobscan - EIP-4844 blob explorer.",
+      "description": "First blockchain explorer to navigate and visualize EIP-4844 blobs.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:24.723Z"
+    },
+    {
+      "url": "https://docs.blobscan.com/docs/funding",
+      "status": 200,
+      "finalUrl": "https://docs.blobscan.com/docs/funding",
+      "title": "Funding - Docs",
+      "description": "Blobscan funding",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:24.788Z"
+    },
+    {
+      "url": "https://docs.optimism.io/node-operators/guides/management/blobs",
+      "status": 200,
+      "finalUrl": "https://docs.optimism.io/node-operators/guides/management/blobs",
+      "title": "Optimism Documentation",
+      "description": "Configure op-node to fetch L1 batcher blob data, including blobs older than the beacon retention window.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:24.933Z"
+    },
+    {
+      "url": "https://docs.optimism.io/stack/fault-proofs/challenger",
+      "status": 200,
+      "finalUrl": "https://docs.optimism.io/op-stack/fault-proofs/challenger",
+      "title": "Optimism Documentation",
+      "description": "Learn about OP-Challenger and how it operates within the OP Stack's Fault Proof System.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:25.043Z"
+    },
+    {
+      "url": "https://ethereum.foundation/",
+      "status": 200,
+      "finalUrl": "https://ethereum.foundation/",
+      "title": null,
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:25.157Z"
+    },
+    {
+      "url": "https://paragraph.com/@blobscan/blobscan-the-cost-of-archiving-ethereums-blob-data",
+      "status": 200,
+      "finalUrl": "https://paragraph.com/@blobscan/blobscan-the-cost-of-archiving-ethereums-blob-data",
+      "title": "Blobscan: The Cost of Archiving Ethereum’s Blob Data",
+      "description": "A deep dive into the real infrastructure, costs, and sustainability challenges behind preserving blob data long-term.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:25.203Z"
+    }
+  ]
+}

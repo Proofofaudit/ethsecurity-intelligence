@@ -1,0 +1,54 @@
+{
+  "repos": [
+    {
+      "fullName": "disclose/dioterms",
+      "url": "https://github.com/disclose/dioterms",
+      "exists": true,
+      "description": "Open-source vulnerability disclosure policy templates.",
+      "license": "CC0-1.0",
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "master",
+      "createdAt": "2020-06-30T03:39:31Z",
+      "pushedAt": "2026-07-30T20:07:49Z",
+      "stars": 76,
+      "openIssues": 0,
+      "language": null,
+      "topics": [
+        "boilerplate",
+        "bug-bounty",
+        "disclosure",
+        "disclosure-policy",
+        "exemption",
+        "legal",
+        "responsible-disclosure",
+        "safe-harbor-language",
+        "security",
+        "security-research",
+        "vulnerability-disclosure",
+        "vulnerability-disclosure-policies"
+      ],
+      "latestRelease": null,
+      "releaseCount": 0,
+      "hasCiWorkflows": false,
+      "hasTestsDir": false,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 0,
+      "contributorsSampled": 8,
+      "checkedAt": "2026-11-26T09:26:25.885Z",
+      "error": null
+    }
+  ],
+  "owners": [
+    {
+      "login": "disclose",
+      "type": "Organization",
+      "name": "disclose.io",
+      "blog": "https://disclose.io",
+      "createdAt": "2014-08-04T04:55:53Z",
+      "publicRepos": 23,
+      "url": "https://github.com/disclose"
+    }
+  ]
+}

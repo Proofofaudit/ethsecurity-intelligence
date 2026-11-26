@@ -1,0 +1,124 @@
+{
+  "checks": [
+    {
+      "url": "https://ack3.ai",
+      "status": 200,
+      "finalUrl": "https://ack3.ai/",
+      "title": "ack3 — Deep reviews of critical code",
+      "description": "ack3 is an AI-native web3 cybersecurity company. Auditors review, fuzz, and scan smart contracts with AI in the loop, on tools built in-house.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:47.032Z"
+    },
+    {
+      "url": "https://ack3.ai/",
+      "status": 200,
+      "finalUrl": "https://ack3.ai/",
+      "title": "ack3 — Deep reviews of critical code",
+      "description": "ack3 is an AI-native web3 cybersecurity company. Auditors review, fuzz, and scan smart contracts with AI in the loop, on tools built in-house.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:47.033Z"
+    },
+    {
+      "url": "https://ack3.ai/research/benchmarking-evm-fuzzers-against-an-agent-written-harness/",
+      "status": 200,
+      "finalUrl": "https://ack3.ai/research/benchmarking-evm-fuzzers-against-an-agent-written-harness/",
+      "title": "Benchmarking EVM Fuzzers Against an Agent-Written Harness — ack3 research",
+      "description": "Three EVM fuzzers ran eight hours per maze against 153 reachable Daedaluzz assertions; an agent-written harness ran once. The deciding variable was not speed.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:47.034Z"
+    },
+    {
+      "url": "https://ack3.ai/research/introducing-manually-guided-fuzzing-a-new-approach-in-smart-contract-testing",
+      "status": 200,
+      "finalUrl": "https://ack3.ai/research/introducing-manually-guided-fuzzing-a-new-approach-in-smart-contract-testing/",
+      "title": "Introducing Manually Guided Fuzzing: A New Approach in Smart Contract Testing — ack3 research",
+      "description": "Learn how manually guided fuzzing combines stateful, white-box testing with flows and invariants to test complex smart contracts more efficiently.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:47.034Z"
+    },
+    {
+      "url": "https://ack3.ai/research/lido-nest-audit-summary",
+      "status": 200,
+      "finalUrl": "https://ack3.ai/research/lido-nest-audit-summary/",
+      "title": "Lido NEST audit summary — ack3 research",
+      "description": "NEST automates LDO buybacks funded by Lido DAO treasury earnings. Our security review covered the contracts, the fixes, and the verified mainnet deployment.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:47.233Z"
+    },
+    {
+      "url": "https://ack3.ai/research/why-ai-assisted-smart-contract-testing-belongs-in-python",
+      "status": 200,
+      "finalUrl": "https://ack3.ai/research/why-ai-assisted-smart-contract-testing-belongs-in-python/",
+      "title": "Why AI-Assisted Smart Contract Testing Belongs in Python — ack3 research",
+      "description": "Code corpora and current benchmarks show why AI-assisted Solidity tests benefit from Python, while human review stays focused on test logic.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:47.235Z"
+    },
+    {
+      "url": "https://ack3.ai/wake/docs/latest/",
+      "status": 200,
+      "finalUrl": "https://ack3.ai/wake/docs/latest/",
+      "title": "Wake - Wake",
+      "description": "Wake is a Python-based Solidity development and testing framework with built-in vulnerability detectors.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:47.242Z"
+    },
+    {
+      "url": "https://lido.fi/",
+      "status": 200,
+      "finalUrl": "https://lido.fi/",
+      "title": "Lido Liquid Staking",
+      "description": "Empowering and securing Ethereum since 2020",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:47.259Z"
+    },
+    {
+      "url": "https://qf.giveth.io/project/wake:-solidity-static-analysis-and-fuzzing-framework?roundId=16",
+      "status": 200,
+      "finalUrl": "https://qf.giveth.io/project/wake:-solidity-static-analysis-and-fuzzing-framework?roundId=16",
+      "title": "Wake: Solidity static analysis and fuzzing framework",
+      "description": "Wake is a development framework for Solidity smart contracts that combines testing, fuzzing, static analysis, and IDE tooling in a single Python-based toolkit — helping developers write safer contr...",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:47.275Z"
+    },
+    {
+      "url": "https://safe.global/",
+      "status": 200,
+      "finalUrl": "https://safe.global/",
+      "title": "Safe | Smart Accounts for Secure Onchain Asset Management",
+      "description": "Manage digital assets onchain with Safe{Wallet}, Safe Pro, and Safe’s APIs and smart account infrastructure.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:47.283Z"
+    }
+  ]
+}

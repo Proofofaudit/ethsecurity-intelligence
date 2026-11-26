@@ -1,0 +1,34 @@
+{
+  "artifacts": [
+    {
+      "milestoneIndex": 0,
+      "url": "https://github.com/argotorg/solidity/pull/16727",
+      "pull": {
+        "url": "https://github.com/argotorg/solidity/pull/16727",
+        "checkedAt": "2026-11-26T09:26:52.324Z",
+        "exists": true,
+        "state": "closed",
+        "merged": true,
+        "mergedAt": "2026-05-28T08:14:48Z",
+        "title": "ethdebug: Improve current testing infra",
+        "author": "djolertrk"
+      },
+      "http": null
+    },
+    {
+      "milestoneIndex": 1,
+      "url": "https://github.com/argotorg/solidity/pull/16780",
+      "pull": {
+        "url": "https://github.com/argotorg/solidity/pull/16780",
+        "checkedAt": "2026-11-26T09:26:53.505Z",
+        "exists": true,
+        "state": "closed",
+        "merged": true,
+        "mergedAt": "2026-08-19T19:54:48Z",
+        "title": "feat: add internal spec for debug-info",
+        "author": "djolertrk"
+      },
+      "http": null
+    }
+  ]
+}

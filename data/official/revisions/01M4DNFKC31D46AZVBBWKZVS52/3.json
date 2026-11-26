@@ -1,0 +1,66 @@
+{
+  "revision": {
+    "n": 3,
+    "author": "0x7767FB920338eED6Fe68A4d7C411f84a3F24f20c",
+    "source": "admin",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1794564276.532,
+    "title": "colibri: Know What You Sign, Verified Simulation Against Blind Signing",
+    "summary": "A secure key does not help when the signer is shown one transaction and authorizes another effect. The Bybit attack demonstrated the scale of this failure mode. This grant turns colibri's verified local simulation into an open pre-sign security layer: independently reconstruct transaction effects from cryptographically verified state, apply deterministic security policies, and return machine-readable block/warn/confirm decisions that wallets can enforce before signing. The result must ship in at least 5 production signing flows.",
+    "details": "",
+    "sections": {
+      "why": "The signing interface is itself part of the security boundary. In the February 2025 Bybit incident, compromised Safe infrastructure presented signers with a benign-looking operation while malicious transaction data changed control of the wallet; about $1.46 billion was stolen (https://www.a16zcrypto.com/posts/article/bybit-hack-lessons). Hardware wallets protect keys, but they cannot protect a user who authorizes a malicious effect they cannot independently understand. colibri can simulate locally on verified state, independent of the dApp or RPC that constructed the transaction. This grant makes that independent check enforceable before signing and deploys it in real signing flows.",
+      "in_scope": "- Local transaction simulation on verified state. \n- Structured effect extraction: token transfers, approvals, NFT movements, balance changes, ownership and upgrade changes, reverts. \n- A baseline deterministic rule engine with an extensible rule and policy interface. \n- A machine-readable result that wallets use to block, warn or require extra confirmation, demonstrated in a reference signing flow.\n - An open interface for local explanation components, with a reference integration of a local model. Security decisions never depend on the model, and transaction data never goes to a hosted LLM. \n- Reproducible test vectors for normal, suspicious and malicious transactions. \n- Integration support for wallets and signing tools adopting it.",
+      "out_scope": "- Advanced commercial transaction-security capabilities: domain-specific language models, model weights, training data, specialized analyzers and rule sets, threat intelligence. corpus.core may license these separately. \n- Training custom models. The reference integration uses an existing local model runtime. \n- Hosted or managed services. \n- The verification core, new chains, general dApp integrations and PAP. Companion initiatives cover them.",
+      "team": "corpus.core (Germany) does the work.\n- **Simon Jentzsch, Chief Architect.** Worked on TheDAO (2016), co-founder of slock.it, built the Universal Sharing Network and Incubed (IN3), the first minimal verification client for Ethereum. Co-author of EIP-1186 (eth_getProof), the Merkle-proof standard most Ethereum light clients use for state verification.\n- **Steffen Kux, Vision & Product.** Head of the project business at slock.it from 2017, with industrial clients such as Siemens and Energy Web Foundation. Worked on Incubed, CEO of dm3, Co-founder of corpus.ventures.\n- **Jork Leonhardt, Business & Ecosystem.** COO at slock.it, co-founder of Tokenize.it and corpus.ventures.\nTrack record: colibri has been in production since November 2025 and is integrated in the Ethereum Foundation's Kohaku wallet SDK, the Freedom browser, Ambire and beel.com (formerly Tokenize.it).\n\nhttps://github.com/corpus-core/colibri-stateless\nhttps://eips.ethereum.org/EIPS/eip-1186\nhttps://medium.com/corpus-core-insights/colibri-stateless-production-release-8d5a88c116d1\nhttps://github.com/ethereum/kohaku/blob/HEAD/packages/provider/README.md\nhttps://github.com/AmbireTech/ambire-common/blob/HEAD/src/controllers/verification/verification.ts\nhttps://github.com/solardev-xyz/freedom-browser/blob/HEAD/src/shared/chains.json\n\nOther funding for this scope: none.",
+      "why_grant": "colibri already executes eth_call locally on verified state. A transaction-security prototype runs on top of it: local simulation and evaluation by a small local model, fully in the browser, already integrated in the Kohaku wallet SDK (https://github.com/ethereum/kohaku-extension/tree/HEAD/src/web/modules/sign-account-op/components/ColibriSimulationResult). This grant turns the prototype into an open foundation: structured effects, a deterministic rule engine, a wallet-facing policy interface and test vectors. A team starting from scratch would first need a client that verifies state locally, because a simulation on unverified data inherits the same trust problem.",
+      "commitments": "- **License:** local simulation, effect extraction, the baseline rule engine, the policy and explanation interfaces, the reference integrations and the test vectors are released under an OSI-approved open-source license. Commercial extensions built on top are not covered. \n- **Maintenance:** corpus.core maintains the open foundation after the grant, funded by commercial transaction-security products built on it. \n- **Pinned targets:** at least 5 new wallets or signing tools show colibri’s verified simulation results in their production signing; at least 2 from the list in the adoption milestone or teams whose multisig governs over $100 million onchain.\n- **Exception requested:** a merged upstream pull request counts toward the target when the integrating team's own release schedule delays production use."
+    },
+    "milestones": [
+      {
+        "name": "Verified simulation and deterministic policy engine",
+        "amount": 45000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Local simulation on verified state and structured effect extraction released, with test vectors for normal, suspicious and malicious transactions passing in public CI",
+          "Baseline rule engine with an extensible rule and policy interface, returning a machine-readable block, warn or confirm result"
+        ]
+      },
+      {
+        "name": "Independent pre-sign security interface",
+        "amount": 30000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Wallet-facing policy interface demonstrated in a reference signing flow in the public repository",
+          "Open explanation interface with a reference local-model integration that runs without any hosted LLM"
+        ]
+      },
+      {
+        "name": "Production signing-flow adoption",
+        "amount": 60000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 5 wallets or signing tools show colibri's verified simulation results in their production signing flow before signing, confirmed publicly by each team, not counting integrations live before this grant",
+          "At least 2 of them from this list, or teams whose multisig governs over $100 million onchain (addresses and query linked): MetaMask, Rabby, Trust Wallet, Safe, Rainbow, Coinbase Wallet, OKX Wallet, Bitget Wallet, Ledger, Trezor, Keystone, GridPlus"
+        ]
+      }
+    ],
+    "links": [
+      "https://corpus-core.gitbook.io/whitepaper-colibri-stateless",
+      "https://corpus-core.gitbook.io/specification-colibri-stateless",
+      "https://github.com/corpus-core/colibri-stateless"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

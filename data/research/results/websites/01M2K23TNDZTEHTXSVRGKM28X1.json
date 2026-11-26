@@ -1,0 +1,100 @@
+{
+  "checks": [
+    {
+      "url": "https://blog.base.dev/introducing-base-azul",
+      "status": 200,
+      "finalUrl": "https://www.base.org/blog/introducing-base-azul",
+      "title": "Introducing Base Azul | Base",
+      "description": "tl;dr Base Azul, our first independent network upgrade, is targeting mainnet activation on May 13, 2026. Azul makes Base more secure, more performant, and easier to build on.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:43.038Z"
+    },
+    {
+      "url": "https://bluethroatlabs.com/",
+      "status": 200,
+      "finalUrl": "https://bluethroatlabs.com/",
+      "title": "Bluethroat Labs",
+      "description": "We build domain-specific AI security agents for complex protocol architectures. One agent per domain. All of them sharing intelligence to stop cascading failures.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:43.039Z"
+    },
+    {
+      "url": "https://bluethroatlabs.com/docs/contributors",
+      "status": 200,
+      "finalUrl": "https://bluethroatlabs.com/docs/contributors",
+      "title": "Contributors | Bluethroat Labs",
+      "description": "We build domain-specific AI security agents for complex protocol architectures. One agent per domain. All of them sharing intelligence to stop cascading failures.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:43.039Z"
+    },
+    {
+      "url": "https://bluethroatlabs.com/docs/executive-summary",
+      "status": 200,
+      "finalUrl": "https://bluethroatlabs.com/docs/executive-summary",
+      "title": "TEE Security Guide for Web3 Protocols: Practical Engineering Handbook | Bluethroat Labs",
+      "description": "A practical security handbook for Web3 teams building with Trusted Execution Environments. Covers TEE failure modes in Web3, cloud enclave threat models, attestation, and layered secure architecture design — written for security engineers,…",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:43.040Z"
+    },
+    {
+      "url": "https://bluethroatlabs.com/reveries/cve-2026-22696-fetching-collateral-is-not-enough",
+      "status": 200,
+      "finalUrl": "https://bluethroatlabs.com/reveries/cve-2026-22696-fetching-collateral-is-not-enough",
+      "title": "CVE-2026-22696: QE Identity Verification Missing in dcap-qvl DCAP Quote Verifier | Bluethroat Labs",
+      "description": "Bluethroat Labs discovered missing QE Identity verification in Phala's dcap-qvl. A Critical-severity flaw affecting 47+ protocols built on dstack. Full technical breakdown.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:43.151Z"
+    },
+    {
+      "url": "https://bluethroatlabs.com/reveries/missing-tcb-status-check",
+      "status": 200,
+      "finalUrl": "https://bluethroatlabs.com/reveries/missing-tcb-status-check",
+      "title": "Missing TCB Status Enforcement in dstack's Attestation Library | Bluethroat Labs",
+      "description": "dstack's RA-TLS verifier checked quote authenticity but ignored Intel's TCB status verdict. Platforms marked OutOfDate or Revoked passed verification identically to UpToDate. Finding 2 of 6 from Bluethroat Labs' security assessment of the …",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:43.183Z"
+    },
+    {
+      "url": "https://paragraph.com/@taiko-labs/taiko-security-incident-a-postmortem-and-next-steps",
+      "status": 200,
+      "finalUrl": "https://paragraph.com/@taiko-labs/taiko-security-incident-a-postmortem-and-next-steps",
+      "title": "Taiko Security Incident: A Postmortem and Next Steps — Taiko Labs",
+      "description": "On the night of June 21, 2026 (UTC), Taiko was attacked. Over the next few hours the attacker forged proofs, pushed a fake version of our Layer 2 finalized onto Ethereum as if it was real, and used it to withdraw roughly USD 1.75 million f…",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:43.201Z"
+    },
+    {
+      "url": "https://phala.com/posts/dstack-security-update-attestation-pipeline-hardening",
+      "status": 200,
+      "finalUrl": "https://phala.com/posts/dstack-security-update-attestation-pipeline-hardening",
+      "title": "dstack Security Update — Attestation Pipeline Hardening | Phala",
+      "description": "Phala Cloud delivers confidential AI on TEE-protected GPUs — private LLM inference, sealed agents, and verifiable compute on Intel TDX + NVIDIA H100/H200.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:43.226Z"
+    }
+  ]
+}

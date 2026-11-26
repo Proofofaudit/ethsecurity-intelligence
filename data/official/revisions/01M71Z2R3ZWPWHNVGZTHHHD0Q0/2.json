@@ -1,0 +1,62 @@
+{
+  "revision": {
+    "n": 2,
+    "author": "0x7767FB920338eED6Fe68A4d7C411f84a3F24f20c",
+    "source": "admin",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1794558698.165,
+    "title": "SEAL Audit Transparency: every DeFi protocol's audits, mapped to the code running onchain today",
+    "summary": "An open, sourced record of every Ethereum DeFi protocol over $1 million in TVL, about 400 today: what each one had audited, what was in scope, what is running onchain now, and what changed through upgrades since. Each live contract is rebuilt from its audited commit and compared to the deployed bytecode, so anyone can see which live code no public audit covers. It needs no cooperation from protocols or audit firms, so it can cover the whole ecosystem.",
+    "details": "",
+    "sections": {
+      "why": "Users should know what they're trusting before they deposit. Today a protocol shows \"audited by X\", and that's where the information stops. It doesn't say how much of the live code the audit covered, whether the audit was three years ago and the code has been rewritten since, or whether the only change was one line. A determined user can piece this together for one protocol, but there's no public database that has it for every protocol in one place.\n\nAckee Blockchain found that 92 of 157 protocols on the Rekt list were hacked through unaudited or out-of-scope code, often while showing \"audited by\" logos ([Ackee, 2023](https://ackee.xyz/blog/why-we-need-to-start-using-erc-7512-onchain-audit-representation-right-now/)).\n\nAfterwards:\n- **Users and risk teams** can see, for any Ethereum DeFi protocol, which fund-holding contracts run code that no public audit covers, with every claim linked to its source.\n- **Security researchers** get a list of post-audit changes no audit covers, ranked by TVL, as a place to start looking.\n- **Protocols and audit firms** are accountable in public for what was actually reviewed and what shipped.",
+      "in_scope": "Every Ethereum DeFi protocol over $1 million in TVL on DeFiLlama: DEXs, lending, liquid staking, restaking, stablecoins, bridges and the rest. Together they hold 99.9% of Ethereum DeFi TVL, and new protocols are added as they cross $1 million. For each one:\n- Map the core contracts, resolve proxies to their current implementations, and record who can upgrade them.\n- Collect the public audits and record the commit and scope each report states.\n- Rebuild the audited commit with the deployed compiler settings and compare it to the live bytecode, accounting for metadata, immutables and linked libraries. Each difference is classed as cosmetic, covered by a later audit, or not covered by any public audit.\n- Publish audit statistics: share of core contracts covered by an audit, number of audits, time since the last one, and auditor working days where reports state them.\n- Roll contract results up into one protocol verdict, so an uncovered fund-holding contract can't hide behind the rest.\n- A public site with every protocol page and its sources, plus the full dataset, free to query.\n- A monthly refresh of every protocol that picks up new audits and upgrades, with a last-checked date on each record and a public corrections channel.\n\nSome protocols and audit firms don't publish reports, keep repos private, or leave contracts unverified, so full coverage isn't possible everywhere. Where that blocks a comparison, the record says exactly what's missing, and those gaps are published too.",
+      "out_scope": "- Rollup and L2 risk, which L2BEAT already does an excellent job covering.\n- Other chains: this grant covers Ethereum mainnet.\n- Protocols under $1 million in TVL. A protocol that falls below $1 million after it's added stays covered.",
+      "team": "- **SEAL (Security Alliance)** runs the project and publishes the results. SEAL is a nonprofit that shares threat intelligence and sets security standards for crypto. It runs SEAL 911, a free 24/7 incident hotline that has handled 3,300+ tickets; Safe Harbor, which lets whitehats step in to rescue funds during a live exploit; and SEAL Certifications, an operational security standard protocols are assessed against. Its frameworks and research are at [securityalliance.org](https://securityalliance.org/).\n- **Dickson Wu** leads it: the method, the tooling and reviewing results. Dickson helps run SEAL's Safe Harbor and SEAL Certifications programs.",
+      "why_grant": "A working prototype already runs the full pipeline on Ethereum: it maps core contracts and proxies, collects public audits with their stated commit and scope, rebuilds the audited code and compares it to live bytecode. A public preview covers the 20 largest Ethereum DeFi protocols: [ethereum-audit-register-demo.dicksonwu.xyz](https://ethereum-audit-register-demo.dicksonwu.xyz). The grant pays to extend it to every protocol over $1 million, publish it and keep it current.",
+      "commitments": "- **License:** the dataset under CC BY 4.0, with the method published.\n- **Maintenance:** every covered protocol is refreshed monthly for at least 12 months after launch, and SEAL keeps the dataset running after that."
+    },
+    "milestones": [
+      {
+        "name": "First 150 protocols",
+        "amount": 15000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Method published",
+          "Public pages live for the 150 largest Ethereum DeFi protocols on DeFiLlama, each claim linked to its source"
+        ]
+      },
+      {
+        "name": "Every protocol over $1 million",
+        "amount": 20000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Public pages live for every Ethereum DeFi protocol over $1 million on DeFiLlama, each one either checked or marked with exactly what is missing",
+          "Full dataset published under CC BY 4.0",
+          "Every page refreshed monthly for 3 months in a row, with its last-checked date shown"
+        ]
+      },
+      {
+        "name": "Adoption",
+        "amount": 18000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 5 teams outside SEAL use the dataset in their own published work or production process, at least 2 of them risk teams from LlamaRisk, Gauntlet, Chaos Labs, Block Analitica, Credora or DeFiSafety, or protocols holding over $100 million onchain; each confirmed by a public link, or by the independent technical reviewer where a team cannot be named"
+        ]
+      }
+    ],
+    "links": [],
+    "structured": true,
+    "goalUsd": null
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "artifacts": [
+    {
+      "milestoneIndex": 0,
+      "url": "https://github.com/Blobscan/blobscan/pull/969",
+      "pull": {
+        "url": "https://github.com/Blobscan/blobscan/pull/969",
+        "checkedAt": "2026-11-26T09:25:27.021Z",
+        "exists": true,
+        "state": "closed",
+        "merged": true,
+        "mergedAt": "2026-10-15T20:06:28Z",
+        "title": "Dagster integration",
+        "author": "PabloCastellano"
+      },
+      "http": null
+    }
+  ]
+}

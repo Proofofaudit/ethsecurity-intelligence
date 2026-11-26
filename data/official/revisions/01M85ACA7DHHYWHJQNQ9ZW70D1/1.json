@@ -1,0 +1,76 @@
+{
+  "revision": {
+    "n": 1,
+    "author": "0x1f0AfcfceFC98e8D9f4A82974e527429D665Acb7",
+    "source": "submit",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1795474991.341,
+    "title": "RFP: Stop Patches From Becoming Exploits, Coordinated Fixes for Shared Ethereum Code",
+    "summary": "Every public fix is also a public description of the bug. Ethereum's clients, rollup stacks and most-forked contracts share code across many teams, and the first team to push a fix tells attackers where to look in all the others. This RFP funds a coordinator that finds everyone running the vulnerable code, warns them privately and gets them patched before the fix goes public.",
+    "details": "",
+    "sections": {
+      "why": "Users of every chain and protocol running shared code are safer when all its operators patch before attackers can read the fix.\n\n- Geth shipped a pre-announced fix for CVE-2021-39137 on August 24, 2021. Three days later it was exploited on mainnet, splitting off nodes that had not upgraded. Geth's [postmortem](https://github.com/ethereum/go-ethereum/blob/master/docs/postmortems/2021-08-22-split-postmortem.md) calls that disclosure decision \"dangerous\" in hindsight, and its [disclosure policy](https://geth.ethereum.org/docs/developers/geth-developer/disclosures) keeps the option to patch silently.\n- Vyper fixed a broken reentrancy lock in v0.3.1 (December 2021) without realizing its impact, and protocols on the old versions were not explicitly notified ([Vyper](https://hackmd.io/@vyperlang/HJUgNMhs2)). In July 2023 attackers took $69.3M from Curve pools compiled with them ([CertiK](https://www.certik.com/resources/blog/2qbPMcyJpR5UfoKrcjWxlQ-vyper-incident-anaylsis)).\n- In December 2023 a flaw in how ERC-2771 and Multicall combine affected thousands of contracts. thirdweb and OpenZeppelin warned teams privately, and several pools holding almost 90 ETH were hacked before OpenZeppelin's full public disclosure ([OpenZeppelin](https://www.openzeppelin.com/news/secure-implementations-vulnerable-integrations)).\n- In a 2024 study, a GPT-4 agent exploited 87% of 15 disclosed vulnerabilities when handed the public advisory, and 7% without it ([arXiv](https://arxiv.org/abs/2404.08144)). Rollup stacks are the next case: L2BEAT lists 38 Ethereum L2s built on the OP Stack alone ([L2BEAT](https://l2beat.com/scaling/summary)).",
+      "in_scope": "This funds a coordinator that runs embargoed fixes for bugs in shared code, with downstream teams enrolled before the next bug. The mechanics are the bidder's. It must be able to:\n\n- find who runs the vulnerable code (forks, deployments, chains, node operators);\n- warn them privately;\n- stage fixes and release them together;\n- push operators to update after release.\n\nBids proposing a fixed patch day must show how it avoids telling attackers when to look. Bugs can come from any source; bids say where theirs will come from. The coordinator may pass researcher payment to a broker.",
+      "out_scope": "- Finding bugs.\n- Whitehat rescues.\n- Protocol upgrades decided through Ethereum's governance process.\n- Findings only one team must fix (the companion bug broker RFP).",
+      "existing": "- [linux-distros](https://oss-security.openwall.org/wiki/mailing-lists/distros): Linux distributions' private embargo list (14 days at most), with public release on [oss-security](https://www.openwall.com/lists/oss-security/).\n- [CERT/CC VINCE](https://sei.cmu.edu/news/certcc-releases-vince-software-vulnerability-collaboration-platform): one shared case space for many vendors.\n- [Project Zero's Reporting Transparency trial](https://projectzero.google/2025/07/reporting-transparency.html) (2025) targets the \"upstream patch gap\" between an upstream fix and its arrival downstream.\n- [Ethereum Foundation public disclosures](https://github.com/ethereum/public-disclosures): the EF cross-checks client bug bounty reports, shares them with affected client teams, and aims to publish them in 90 days. Bids say how they extend or work beside it.\n- The ERC-2771 response above, as a worked case.\n- [SEAL 911](https://securityalliance.org/seal-911), for attacks under way.",
+      "who": "A team that client, rollup and protocol security leads already trust with embargoed information: a security alliance, an incident-response firm or a consortium of those leads. Nobody is pre-selected.\n\nDrafted by TheDAO Security Fund from a conversation with EthSec (ethsecurity.org) and Consensys. TheDAO Security Fund and Giveth will not bid.",
+      "hard_req": "1. Embargo terms are published and signed by every enrolled team.\n2. Notices go only to teams running the affected code.\n3. A public log records each coordinated fix after release (what, when, share patched), never before.\n4. Bids name the shared code they cover first (clients, rollup stacks, widely forked contracts or libraries) and why.\n5. Running costs come from enrolled L2s and protocols, or from a named home that funds it. Client teams are not expected to pay.\n6. **Outside means unaffiliated.** An outside team shares no owner, staff or funding relationship with the selected team. Affiliates count toward no criterion.\n7. Ethereum and L2s only."
+    },
+    "milestones": [
+      {
+        "name": "Network and drill",
+        "amount": 20000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 10 outside teams sign the embargo terms, at least 4 of them Ethereum client teams, L2s over $200M on L2BEAT, or protocols holding over $100M onchain (value query linked), signed terms shown to the technical reviewer",
+          "One past public incident replayed, with the list of affected deployments checked by the technical reviewer"
+        ]
+      },
+      {
+        "name": "First coordinated fixes",
+        "amount": 30000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 3 high or critical bugs in shared code fixed under embargo, each affecting at least 3 outside teams, confirmed by those teams to the technical reviewer",
+          "At least 90% of the affected teams, on a list hash-committed before the first notice and checked by the technical reviewer after release, had the fix deployed or a mitigation in place by the time the fix or its details went public"
+        ]
+      },
+      {
+        "name": "At scale",
+        "amount": 35000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 10 coordinated fixes in total, each high or critical on the coordinator's published rubric and affecting at least 3 outside teams, on the public log and checked by the technical reviewer",
+          "At least 25 enrolled teams, at least 10 of them Ethereum client teams, L2s over $200M on L2BEAT, or protocols holding over $100M onchain (value query linked), checked by the technical reviewer",
+          "Across all 10, at least 90% of listed affected teams had the fix deployed or a mitigation in place by the time the fix or its details went public, checked by the technical reviewer"
+        ]
+      },
+      {
+        "name": "Sustainability",
+        "amount": 15000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least $15,000 in fees or contributions from at least 3 enrolled L2s or protocols, confirmed by the technical reviewer, plus a plan to run 12 months past the grant"
+        ]
+      }
+    ],
+    "links": [
+      "https://github.com/ethereum/go-ethereum/blob/master/docs/postmortems/2021-08-22-split-postmortem.md"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

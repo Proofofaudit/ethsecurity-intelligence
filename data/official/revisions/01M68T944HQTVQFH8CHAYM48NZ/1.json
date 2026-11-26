@@ -1,0 +1,67 @@
+{
+  "revision": {
+    "n": 1,
+    "author": "0x3411B735D8D4D62b3C7A73B7B5F02DE8DED631F0",
+    "source": "submit",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1793444843.665,
+    "title": "Independent Attestations for the ERC-7730 Descriptors of Ethereum's 100 Most-Used Contracts",
+    "summary": "Pay one established security firm to review, under its own name, the ERC-7730 clear signing descriptors for the 100 most-used verified Ethereum contracts and publish a signed attestation for each one, so wallets can trust what they render. The registry holds 739 descriptors, 166 carry an attestation, every one of those is signed by a single firm, and none of the top 100 contracts has an attested descriptor. Payment lands on published attestations and on a wallet that acts on them.",
+    "details": "",
+    "sections": {
+      "why": "Clear Signing (ERC-7730) is the Ethereum standard for showing users a human-readable summary of what they are about to sign, instead of raw calldata. Descriptors for each contract live in the open registry at github.com/ethereum/clear-signing-erc7730-registry, and wallets read them. A wrong descriptor is worse than none: the user sees a confident summary that does not match what the contract does. The registry's own reviewing guide says its pull request review is a plausibility check, and that the trust layer is the signed attestation an auditor publishes after verifying the descriptor against the contract's source. Wallets choose which attesters to trust and can refuse to render a descriptor nobody has attested. Bybit lost about $1.5 billion in February 2025 after its signers approved a Safe transaction whose displayed contents differed from what they signed ([Bybit incident timeline](https://www.bybit.com/en/learn/this-week-in-bybit/bybit-security-incident-timeline), [NCC Group analysis](https://www.nccgroup.com/research/in-depth-technical-analysis-of-the-bybit-hack/)).\n\nAttestation lags far behind authoring. On 2026-10-31 the registry had 739 descriptors and 166 attestations, all signed by one firm under Ethereum Foundation funding. Sourcify's live dashboard at erc7730.sourcify.dev ranks verified mainnet contracts by calls that are not plain ETH or standard token transfers: the top 100 carry 75% of those calls, 20 of them have a descriptor, and 0 of those descriptors are attested. Descriptor authoring for the rest is under way through the clear signing working group. Nobody is funded to verify and sign the result, and no second firm has put its name behind any descriptor.",
+      "in_scope": "This RFP pays one security firm for verification and signature. The firm's reputation is the deliverable: every attestation is published under the firm's own key and name.\n\n- Review each descriptor for a target contract against the registry's auditor guide\n- Publish an EAS offchain attestation (ERC-8176 schema) for each descriptor that passes, as a PR to the registry's sigs folder\n- For each descriptor that fails, post the defects on the registry PR or as an issue, and attest the corrected version once it is merged\n- Re-attest within 30 days when an attested descriptor changes, so the registry's dropped-attestations list stays empty for this batch\n- Publish a batch page: each target contract, its descriptor, review status, defects found, attestation UID and date\n\nThe target set is the top 100 verified contracts on erc7730.sourcify.dev by calls that are not filtered out (ETH, standard token transfers, closed source, bots etc) 7-day window, archived on the day the firm starts (based on final agreement with argot to allow for small manual fixes to the list). Descriptors for those contracts are written by others; the firm attests what exists and what lands during the engagement.\n\nThe submitter is allowed to update the list (with consent from TheDAO at milestones after 30 contracts attested and 80 contracts attested).",
+      "out_scope": "- Writing descriptors. The firm does not attest a descriptor it authored.\n- Contracts without verified source, and contracts outside the agreed list\n- Wallet-side code, schema changes, registry tooling",
+      "existing": "- The registry's auditor guide (auditors/README.md): the 5-step review, the ERC-8176 hash, the EAS schema, and the sigs folder format, built on the clearsig CLI (github.com/Cyfrin/clearsig)\n- The 166 attestations already in the registry, as the format and bar to match\n- Sourcify's clear-signing library, which lets a wallet name trusted attesters and fall back to raw calldata when no trusted attestation exists",
+      "who": "Nobody is pre-selected. We want one firm whose whole business is security and whose name a wallet would accept as a trusted attester: a smart contract audit firm, or a firm in monitoring or incident response with published Ethereum work. Today one firm signs every attestation in the registry; this RFP adds a second, independent name. A strong bid shows at least 3 years of published Ethereum security work, names the reviewers who will sign, and names a wallet it will work with on the adoption milestone.\n\nCo-drafted by the submitter with TheDAO Security Fund. The submitter is a listed co-author of ERC-7730, convened the clear signing working group meetings until the Ethereum Foundation took over that role. The submitter and his employer will not bid on this initiative.",
+      "hard_req": "1. **Security firm, in public.** The bidder is a company whose primary business is security, with at least 3 years of published Ethereum security work and at least 20 public audit or incident reports, linked in the bid.\n2. **By the book.** Every review follows the registry's auditor guide in full, and no attestation is issued for a descriptor that formats a function whose displayed intent the guide says v2 cannot express.\n3. **Under its own name.** Attestations are signed with a key the firm publicly declares as its own, in ERC-8176 format, merged into the registry's sigs folder.\n4. **Independent.** The firm attests no descriptor it wrote, and discloses any commercial relationship with a protocol whose descriptor it reviews.\n5. **Defects in public.** Every failed review is posted on the registry PR or as a registry issue before any attestation of the corrected version.\n6. **Maintenance.** For 12 months after the last milestone, the firm re-attests within 30 days any descriptor in the batch that changes."
+    },
+    "milestones": [
+      {
+        "name": "First 30 attested",
+        "amount": 12000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "The archived top-100 list and the batch page published, with review status per contract",
+          "At least 30 contracts from the list carry an attestation by the firm merged into the registry's sigs folder, linked by PR"
+        ]
+      },
+      {
+        "name": "Batch attested",
+        "amount": 21000,
+        "adoption": false,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 80 contracts from the list carry an attestation by the firm merged into the registry's sigs folder, linked by PR",
+          "Every defect the firm found is posted on the registry PR or as a registry issue, linked from the batch page"
+        ]
+      },
+      {
+        "name": "Wallets act on the attestations",
+        "amount": 17000,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "At least 1 wallet from this list names the firm as a trusted attester in a production release, shown in the wallet's public release notes or documentation: MetaMask, Rabby, Trust Wallet, Ledger, Trezor, Ambire etc."
+        ]
+      }
+    ],
+    "links": [
+      "https://clearsigning.org",
+      "https://github.com/ethereum/clear-signing-erc7730-registry",
+      "https://github.com/ethereum/clear-signing-erc7730-registry/blob/master/auditors/README.md",
+      "https://erc7730.sourcify.dev",
+      "https://eips.ethereum.org/EIPS/eip-7730"
+    ],
+    "structured": true,
+    "goalUsd": null
+  }
+}

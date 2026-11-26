@@ -1,0 +1,14 @@
+{
+  "checks": [
+    {
+      "txHash": "0x79dd40eb7f6c66e8d029ef9ec04d255ab988453b6bbc9df451e5aded197dd9e4",
+      "found": true,
+      "success": true,
+      "blockNumber": 26492013,
+      "touchesSafe": true,
+      "checkedAt": "2026-11-26T09:26:46.999Z",
+      "rpc": "ethereum-rpc.publicnode.com",
+      "error": null
+    }
+  ]
+}

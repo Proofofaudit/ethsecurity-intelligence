@@ -1,0 +1,168 @@
+{
+  "repos": [
+    {
+      "fullName": "AmbireTech/ambire-common",
+      "url": "https://github.com/AmbireTech/ambire-common",
+      "exists": true,
+      "description": "Common ground for the Ambire apps. This package puts together the core business logic behind the Ambire browser extensions and mobile apps.",
+      "license": null,
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "v2",
+      "createdAt": "2022-05-11T14:21:48Z",
+      "pushedAt": "2026-11-26T09:19:55Z",
+      "stars": 35,
+      "openIssues": 39,
+      "language": "TypeScript",
+      "topics": [
+        "account-abstraction",
+        "erc-4337",
+        "ethereum",
+        "evm",
+        "wallets"
+      ],
+      "latestRelease": {
+        "tag": "v2.117.0",
+        "publishedAt": "2026-11-25T12:26:28Z",
+        "url": "https://github.com/AmbireTech/ambire-common/releases/tag/v2.117.0"
+      },
+      "releaseCount": 100,
+      "hasCiWorkflows": true,
+      "hasTestsDir": true,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 100,
+      "contributorsSampled": 16,
+      "checkedAt": "2026-11-26T09:25:35.922Z",
+      "error": null
+    },
+    {
+      "fullName": "corpus-core/colibri-stateless",
+      "url": "https://github.com/corpus-core/colibri-stateless",
+      "exists": true,
+      "description": "the c4 monorepo ",
+      "license": "MIT",
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "dev",
+      "createdAt": "2025-01-20T18:03:41Z",
+      "pushedAt": "2026-11-26T09:22:43Z",
+      "stars": 37,
+      "openIssues": 123,
+      "language": "C",
+      "topics": [],
+      "latestRelease": {
+        "tag": "v3.2.1",
+        "publishedAt": "2026-11-21T23:40:58Z",
+        "url": "https://github.com/corpus-core/colibri-stateless/releases/tag/v3.2.1"
+      },
+      "releaseCount": 100,
+      "hasCiWorkflows": true,
+      "hasTestsDir": true,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 100,
+      "contributorsSampled": 5,
+      "checkedAt": "2026-11-26T09:25:35.922Z",
+      "error": null
+    },
+    {
+      "fullName": "ethereum/kohaku",
+      "url": "https://github.com/ethereum/kohaku",
+      "exists": true,
+      "description": "Privacy-first tooling for the Ethereum ecosystem",
+      "license": null,
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "master",
+      "createdAt": "2025-08-01T12:12:11Z",
+      "pushedAt": "2026-11-24T12:38:13Z",
+      "stars": 442,
+      "openIssues": 34,
+      "language": "TypeScript",
+      "topics": [],
+      "latestRelease": {
+        "tag": "@kohaku-eth/tornado-cash@0.1.0-alpha.40",
+        "publishedAt": "2026-11-24T12:38:14Z",
+        "url": "https://github.com/ethereum/kohaku/releases/tag/%40kohaku-eth/tornado-cash%400.1.0-alpha.40"
+      },
+      "releaseCount": 100,
+      "hasCiWorkflows": true,
+      "hasTestsDir": false,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 100,
+      "contributorsSampled": 23,
+      "checkedAt": "2026-11-26T09:25:35.938Z",
+      "error": null
+    },
+    {
+      "fullName": "solardev-xyz/freedom-browser",
+      "url": "https://github.com/solardev-xyz/freedom-browser",
+      "exists": true,
+      "description": "Freedom Browser — decentralized web browsing with Swarm, IPFS, Radicle, ENS, and Tezos Domains",
+      "license": "MPL-2.0",
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "main",
+      "createdAt": "2026-02-08T07:17:01Z",
+      "pushedAt": "2026-11-25T05:12:46Z",
+      "stars": 173,
+      "openIssues": 178,
+      "language": "JavaScript",
+      "topics": [],
+      "latestRelease": {
+        "tag": "nightly",
+        "publishedAt": "2026-11-25T05:12:49Z",
+        "url": "https://github.com/solardev-xyz/freedom-browser/releases/tag/nightly"
+      },
+      "releaseCount": 7,
+      "hasCiWorkflows": true,
+      "hasTestsDir": true,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 100,
+      "contributorsSampled": 13,
+      "checkedAt": "2026-11-26T09:25:37.134Z",
+      "error": null
+    }
+  ],
+  "owners": [
+    {
+      "login": "AmbireTech",
+      "type": "Organization",
+      "name": "Ambire",
+      "blog": "https://www.ambire.com",
+      "createdAt": "2017-06-02T10:40:43Z",
+      "publicRepos": 70,
+      "url": "https://github.com/AmbireTech"
+    },
+    {
+      "login": "corpus-core",
+      "type": "Organization",
+      "name": "corpus.core",
+      "blog": "https://corpuscore.tech",
+      "createdAt": "2025-01-13T13:13:44Z",
+      "publicRepos": 14,
+      "url": "https://github.com/corpus-core"
+    },
+    {
+      "login": "ethereum",
+      "type": "Organization",
+      "name": null,
+      "blog": "https://ethereum.org",
+      "createdAt": "2013-12-24T00:26:58Z",
+      "publicRepos": 334,
+      "url": "https://github.com/ethereum"
+    },
+    {
+      "login": "solardev-xyz",
+      "type": "Organization",
+      "name": "Solar Dev",
+      "blog": "https://solardev.xyz/",
+      "createdAt": "2026-01-10T10:32:52Z",
+      "publicRepos": 24,
+      "url": "https://github.com/solardev-xyz"
+    }
+  ]
+}

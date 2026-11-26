@@ -1,0 +1,41 @@
+{
+  "repos": [
+    {
+      "fullName": "Kann-Audits/Kann-Audits",
+      "url": "https://github.com/Kann-Audits/Kann-Audits",
+      "exists": true,
+      "description": null,
+      "license": null,
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "main",
+      "createdAt": "2025-01-22T22:45:17Z",
+      "pushedAt": "2026-11-22T01:04:33Z",
+      "stars": 65,
+      "openIssues": 0,
+      "language": null,
+      "topics": [],
+      "latestRelease": null,
+      "releaseCount": 0,
+      "hasCiWorkflows": false,
+      "hasTestsDir": false,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 20,
+      "contributorsSampled": 1,
+      "checkedAt": "2026-11-26T09:25:49.462Z",
+      "error": null
+    }
+  ],
+  "owners": [
+    {
+      "login": "Kann-Audits",
+      "type": "Organization",
+      "name": "Kann Audits",
+      "blog": "https://kannaudits.com/",
+      "createdAt": "2025-01-22T20:44:36Z",
+      "publicRepos": 3,
+      "url": "https://github.com/Kann-Audits"
+    }
+  ]
+}

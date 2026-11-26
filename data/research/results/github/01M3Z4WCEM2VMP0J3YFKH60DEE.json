@@ -1,0 +1,50 @@
+{
+  "repos": [
+    {
+      "fullName": "coinspect/dappfence",
+      "url": "https://github.com/coinspect/dappfence",
+      "exists": true,
+      "description": "Verifiable Frontends for dApps",
+      "license": "MIT",
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "main",
+      "createdAt": "2026-04-20T21:43:11Z",
+      "pushedAt": "2026-11-24T14:14:31Z",
+      "stars": 10,
+      "openIssues": 12,
+      "language": "JavaScript",
+      "topics": [],
+      "latestRelease": null,
+      "releaseCount": 0,
+      "hasCiWorkflows": true,
+      "hasTestsDir": false,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 100,
+      "contributorsSampled": 3,
+      "checkedAt": "2026-11-26T09:25:41.834Z",
+      "error": null
+    }
+  ],
+  "owners": [
+    {
+      "login": "a-d-j-i",
+      "type": "User",
+      "name": "Andres",
+      "blog": null,
+      "createdAt": "2012-02-22T00:57:39Z",
+      "publicRepos": 59,
+      "url": "https://github.com/a-d-j-i"
+    },
+    {
+      "login": "coinspect",
+      "type": "Organization",
+      "name": "Coinspect",
+      "blog": "https://www.coinspect.com",
+      "createdAt": "2014-07-11T23:47:28Z",
+      "publicRepos": 31,
+      "url": "https://github.com/coinspect"
+    }
+  ]
+}

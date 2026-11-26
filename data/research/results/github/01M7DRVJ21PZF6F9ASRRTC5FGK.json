@@ -1,0 +1,50 @@
+{
+  "repos": [
+    {
+      "fullName": "ProofOfAudits/proof-before-sign-snap",
+      "url": "https://github.com/ProofOfAudits/proof-before-sign-snap",
+      "exists": true,
+      "description": "Published Proof Before Sign Snap source; ordinary MetaMask installation pending allowlisting.",
+      "license": "Apache-2.0",
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "codex/snap-0.5.1",
+      "createdAt": "2026-10-08T05:35:38Z",
+      "pushedAt": "2026-11-14T07:16:29Z",
+      "stars": 0,
+      "openIssues": 0,
+      "language": "JavaScript",
+      "topics": [],
+      "latestRelease": null,
+      "releaseCount": 0,
+      "hasCiWorkflows": false,
+      "hasTestsDir": false,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 6,
+      "contributorsSampled": 2,
+      "checkedAt": "2026-11-26T09:26:14.289Z",
+      "error": null
+    }
+  ],
+  "owners": [
+    {
+      "login": "MKVEERENDRA",
+      "type": "User",
+      "name": "VEERENDRA VAMSHI",
+      "blog": "https://veerendravamshi.netlify.app/",
+      "createdAt": "2023-06-16T03:22:48Z",
+      "publicRepos": 181,
+      "url": "https://github.com/MKVEERENDRA"
+    },
+    {
+      "login": "ProofOfAudits",
+      "type": "Organization",
+      "name": "ProofOfAudits",
+      "blog": "https://proofofaudits.com",
+      "createdAt": "2026-07-06T15:01:59Z",
+      "publicRepos": 2,
+      "url": "https://github.com/ProofOfAudits"
+    }
+  ]
+}

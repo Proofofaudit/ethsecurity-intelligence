@@ -1,0 +1,213 @@
+{
+  "repos": [
+    {
+      "fullName": "chains-project/geth-rebuild",
+      "url": "https://github.com/chains-project/geth-rebuild",
+      "exists": true,
+      "description": "A verifiable rebuilder for geth",
+      "license": null,
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "main",
+      "createdAt": "2024-05-06T10:34:30Z",
+      "pushedAt": "2024-11-12T08:39:09Z",
+      "stars": 3,
+      "openIssues": 5,
+      "language": "Go",
+      "topics": [],
+      "latestRelease": null,
+      "releaseCount": 0,
+      "hasCiWorkflows": false,
+      "hasTestsDir": false,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 0,
+      "contributorsSampled": 1,
+      "checkedAt": "2026-11-26T09:25:54.502Z",
+      "error": null
+    },
+    {
+      "fullName": "ethereum/go-ethereum",
+      "url": "https://github.com/ethereum/go-ethereum",
+      "exists": true,
+      "description": "Go implementation of the Ethereum protocol",
+      "license": "LGPL-3.0",
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "master",
+      "createdAt": "2013-12-26T13:05:46Z",
+      "pushedAt": "2026-11-25T13:44:24Z",
+      "stars": 51486,
+      "openIssues": 510,
+      "language": "Go",
+      "topics": [
+        "blockchain",
+        "ethereum",
+        "geth",
+        "go",
+        "p2p"
+      ],
+      "latestRelease": {
+        "tag": "v1.17.10",
+        "publishedAt": "2026-10-23T12:07:39Z",
+        "url": "https://github.com/ethereum/go-ethereum/releases/tag/v1.17.10"
+      },
+      "releaseCount": 100,
+      "hasCiWorkflows": true,
+      "hasTestsDir": true,
+      "hasSecurityPolicy": true,
+      "hasReadme": true,
+      "commitsLast90d": 100,
+      "contributorsSampled": 100,
+      "checkedAt": "2026-11-26T09:25:54.502Z",
+      "error": null
+    },
+    {
+      "fullName": "paradigmxyz/reth",
+      "url": "https://github.com/paradigmxyz/reth",
+      "exists": true,
+      "description": "Modular, contributor-friendly and blazing-fast implementation of the Ethereum protocol, in Rust",
+      "license": "Apache-2.0",
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "main",
+      "createdAt": "2022-09-15T23:05:57Z",
+      "pushedAt": "2026-11-26T09:06:07Z",
+      "stars": 5868,
+      "openIssues": 280,
+      "language": "Rust",
+      "topics": [
+        "blockchain",
+        "contributor-friendly",
+        "distributed-systems",
+        "ethereum",
+        "execution-layer",
+        "modular",
+        "p2p",
+        "rust"
+      ],
+      "latestRelease": {
+        "tag": "v2.11.0",
+        "publishedAt": "2026-11-11T10:47:00Z",
+        "url": "https://github.com/paradigmxyz/reth/releases/tag/v2.11.0"
+      },
+      "releaseCount": 100,
+      "hasCiWorkflows": true,
+      "hasTestsDir": false,
+      "hasSecurityPolicy": true,
+      "hasReadme": true,
+      "commitsLast90d": 100,
+      "contributorsSampled": 100,
+      "checkedAt": "2026-11-26T09:25:57.511Z",
+      "error": null
+    },
+    {
+      "fullName": "sigp/lighthouse",
+      "url": "https://github.com/sigp/lighthouse",
+      "exists": true,
+      "description": "Ethereum consensus client in Rust",
+      "license": "Apache-2.0",
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "stable",
+      "createdAt": "2018-07-06T07:56:39Z",
+      "pushedAt": "2026-11-26T02:12:04Z",
+      "stars": 3502,
+      "openIssues": 588,
+      "language": "Rust",
+      "topics": [
+        "eth2",
+        "ethereum",
+        "proof-of-stake"
+      ],
+      "latestRelease": {
+        "tag": "v8.3.3",
+        "publishedAt": "2026-11-09T07:12:58Z",
+        "url": "https://github.com/sigp/lighthouse/releases/tag/v8.3.3"
+      },
+      "releaseCount": 100,
+      "hasCiWorkflows": true,
+      "hasTestsDir": false,
+      "hasSecurityPolicy": true,
+      "hasReadme": true,
+      "commitsLast90d": 100,
+      "contributorsSampled": 100,
+      "checkedAt": "2026-11-26T09:25:58.104Z",
+      "error": null
+    }
+  ],
+  "owners": [
+    {
+      "login": "algomaster99",
+      "type": "User",
+      "name": "Aman Sharma",
+      "blog": "https://algomaster99.github.io/",
+      "createdAt": "2018-01-07T11:22:11Z",
+      "publicRepos": 127,
+      "url": "https://github.com/algomaster99"
+    },
+    {
+      "login": "chains-project",
+      "type": "Organization",
+      "name": "CHAINS research project at KTH Royal Institute of Technology",
+      "blog": "https://chains.proj.kth.se",
+      "createdAt": "2022-04-26T04:28:21Z",
+      "publicRepos": 82,
+      "url": "https://github.com/chains-project"
+    },
+    {
+      "login": "ethereum",
+      "type": "Organization",
+      "name": null,
+      "blog": "https://ethereum.org",
+      "createdAt": "2013-12-24T00:26:58Z",
+      "publicRepos": 334,
+      "url": "https://github.com/ethereum"
+    },
+    {
+      "login": "javierron",
+      "type": "User",
+      "name": "Javier Ron Arteaga",
+      "blog": null,
+      "createdAt": "2012-11-13T19:17:09Z",
+      "publicRepos": 85,
+      "url": "https://github.com/javierron"
+    },
+    {
+      "login": "paradigmxyz",
+      "type": "Organization",
+      "name": "Paradigm",
+      "blog": "https://paradigm.xyz",
+      "createdAt": "2022-01-09T00:44:39Z",
+      "publicRepos": 72,
+      "url": "https://github.com/paradigmxyz"
+    },
+    {
+      "login": "sigp",
+      "type": "Organization",
+      "name": "Sigma Prime",
+      "blog": "https://sigmaprime.io",
+      "createdAt": "2016-10-07T02:03:14Z",
+      "publicRepos": 136,
+      "url": "https://github.com/sigp"
+    },
+    {
+      "login": "Stamp9",
+      "type": "User",
+      "name": "Raphina Liu",
+      "blog": null,
+      "createdAt": "2018-10-25T16:15:39Z",
+      "publicRepos": 25,
+      "url": "https://github.com/Stamp9"
+    },
+    {
+      "login": "vivi365",
+      "type": "User",
+      "name": "Vivi Andersson",
+      "blog": "https://vivi365.github.io/",
+      "createdAt": "2022-04-20T14:40:04Z",
+      "publicRepos": 25,
+      "url": "https://github.com/vivi365"
+    }
+  ]
+}

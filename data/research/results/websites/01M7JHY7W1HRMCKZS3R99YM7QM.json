@@ -1,0 +1,64 @@
+{
+  "checks": [
+    {
+      "url": "https://academy.zealynx.io/",
+      "status": 200,
+      "finalUrl": "https://academy.zealynx.io/",
+      "title": "Learn DeFi by Building Real Protocols | Zealynx Academy",
+      "description": "Build Uniswap, Compound, Yearn, and Liquity from scratch. Audit real forks, train AI auditors, and level up with hands-on Web3 lessons from Zealynx.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:53.312Z"
+    },
+    {
+      "url": "https://academy.zealynx.io/defense",
+      "status": 200,
+      "finalUrl": "https://academy.zealynx.io/defense",
+      "title": "Defense — Recognition Training | Zealynx Academy",
+      "description": "Train your eye against the real attacks that empty wallets and hijack workspaces — recruiter lures, wallet drains, fake support, deepfakes — inside faithful replicas of the exact apps they arrive on. Loss-prevention you can feel.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:53.313Z"
+    },
+    {
+      "url": "https://thedao.fund/transparency",
+      "status": 200,
+      "finalUrl": "https://thedao.fund/transparency/",
+      "title": "Transparency | TheDAO Security Fund",
+      "description": "TheDAO Security Fund transparency report — 135 Ethereum security projects funded, with every allocation accountable and verifiable on-chain.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:53.314Z"
+    },
+    {
+      "url": "https://www.ic3.gov/PSA/2024/PSA240903",
+      "status": 200,
+      "finalUrl": "https://www.ic3.gov/PSA/2024/PSA240903",
+      "title": "Internet Crime Complaint Center (IC3) | North Korea Aggressively Targeting Crypto Industry with Well-Disguised Social Engineering Attacks",
+      "description": null,
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:53.314Z"
+    },
+    {
+      "url": "https://www.zealynx.io/",
+      "status": 200,
+      "finalUrl": "https://www.zealynx.io/",
+      "title": "Zealynx | Smart Contract Audits & Blockchain Security",
+      "description": "Boutique smart contract audit firm with a public audit archive. Expert EVM and Solana audits, AI security, and application pentesting. Direct access to senior auditors, not a ticket queue.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:53.390Z"
+    }
+  ]
+}

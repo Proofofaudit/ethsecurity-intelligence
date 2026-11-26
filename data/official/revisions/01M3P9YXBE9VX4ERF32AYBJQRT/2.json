@@ -1,0 +1,45 @@
+{
+  "revision": {
+    "n": 2,
+    "author": "0x4fBCdB2d3267269C857F3a29645b9815fca7E6a8",
+    "source": "proposer",
+    "archived": false,
+    "state": "live",
+    "createdAt": 1791771971.862,
+    "title": "Preparing encrypted mempools for inclusion in the earliest EIP possible",
+    "summary": "EIP-8184, LUCID, proposes encrypting transactions as they move through Ethereum’s public mempool and revealing them only after their ordering has been committed.\n\nThe design has progressed significantly. The main remaining security barrier is the optionality problem: the party responsible for revealing a decryption key may have an opportunity to withhold it after a transaction has already been committed.\n\nA promising approach is to use independent key publishers, with validators helping identify reliable providers. This would also enable a competitive marketplace for encryption and decryption service providers rather than relying on a single provider.\n\nThe goal of this initiative is to resolve the optionality problem, update the LUCID specification, obtain independent security review of optionality design, and formally propose EIP-8184 for inclusion in Ethereum’s I* hard fork.",
+    "details": "",
+    "sections": {
+      "why": "Ethereum’s public mempool reveals transaction details before their order is finalized, creating opportunities for front-running, transaction copying, censorship, and other forms of harmful MEV.\n\nMore than $1.8 billion has extracted from Ethereum users through MEV since 2020, much of it through tactics including front-running and sandwich attacks. Encrypted mempools can reduce this attack surface by keeping transaction information hidden until ordering has been fixed.\n\nLUCID provides a path to doing this at the Ethereum protocol level while preserving an open and permissionless transaction pipeline. Resolving optionality is an important remaining security requirement before LUCID can be proposed for inclusion in I*.",
+      "in_scope": "- resolving the optionality problem\n- defining the role and security model for independent key publishers\n- developing the public threat model, economic analysis of key withholding, and test vectors for both execution and consensus layers\n- obtaining independent security review of the optionality design\n- revising EIP-8184\n- technical review with Ethereum researchers and client teams\n- preparing LUCID to be proposed for consideration in I*",
+      "out_scope": "- guaranteeing acceptance or inclusion of EIP-8184 in I*, which is determined through Ethereum’s protocol upgrade process\n- full production deployment on Ethereum Mainnet\n- long-term operation of encryption or decryption service providers\n- development of unrelated private order-flow or MEV mitigation systems",
+      "team": "The recipient is brainbot, a core contributor to Shutter Network.\n\n- Jannik Luhn, Developer. Author of EIP-8105 and contributor to LUCID development.\n- Luis Bezzenberger, Project Manager. Coordinates encrypted mempool development and ecosystem work.\n\nBoth have worked on encrypted mempools through Shutter Network for several years.\n\nThe team also helps coordinate the Encrypt the Mempool coalition, which brings together Ethereum researchers, client teams, builders, and infrastructure providers working to advance encrypted mempools for Ethereum.\n\nbrainbot receives monthly funding from Shutter DAO 0x36 for broader encrypted mempool work. That funding does not cover this milestone.",
+      "why_grant": "brainbot and Shutter Network have years of encrypted mempool research and implementation experience. Jannik authored EIP-8105, and the team is actively contributing to EIP-8184.\n\nShutter has also deployed encrypted mempool technology on Gnosis Chain and previously launched a Shutterized OP Stack testnet on Sepolia. The work here builds directly on existing specifications, implementations, and relationships with Ethereum client teams.",
+      "commitments": "- work funded by this initiative will be open source.\n- brainbot will continue maintaining its contributions to EIP-8184 and coordinating LUCID development through its ongoing encrypted mempool work.\n- Client implementations remain maintained by their respective upstream client teams."
+    },
+    "milestones": [
+      {
+        "name": "1. Expand LUCID with key publisher whitelisting and prepare EIP for I",
+        "amount": 11500,
+        "adoption": true,
+        "done": false,
+        "link": "",
+        "month": "",
+        "criteria": [
+          "Revised EIP-8184 includes validator governance of the key publisher set, public threat model and protocol design, comparison of alternatives, economic model of key withholding, and test vectors for both layers.",
+          "Review takes place with researchers and client teams through AllCoreDevs and Encrypt the Mempool calls, with remaining blockers published.",
+          "LUCID / EIP-8184 is formally brought into Ethereum’s I* protocol-upgrade process for consideration by core developers and client teams.",
+          "Independent security review of the optionality design.",
+          "The pull request proposing LUCID / EIP-8184 for inclusion in I* is merged into the I* Meta EIP, with the public pull request and Meta EIP providing evidence."
+        ]
+      }
+    ],
+    "links": [
+      "https://eips.ethereum.org/EIPS/eip-8184",
+      "https://eips.ethereum.org/EIPS/eip-8105",
+      "https://encryptedmempool.org/"
+    ],
+    "structured": true,
+    "goalUsd": 11500
+  }
+}

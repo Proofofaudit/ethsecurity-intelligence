@@ -1,0 +1,41 @@
+{
+  "repos": [
+    {
+      "fullName": "ASSERT-KTH/PonDeReplay",
+      "url": "https://github.com/ASSERT-KTH/PonDeReplay",
+      "exists": true,
+      "description": "Come Mr.DJ, song pon de replay.",
+      "license": "MIT",
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "main",
+      "createdAt": "2026-03-02T09:39:52Z",
+      "pushedAt": "2026-11-12T18:21:45Z",
+      "stars": 1,
+      "openIssues": 2,
+      "language": "Python",
+      "topics": [],
+      "latestRelease": null,
+      "releaseCount": 0,
+      "hasCiWorkflows": true,
+      "hasTestsDir": true,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 8,
+      "contributorsSampled": 2,
+      "checkedAt": "2026-11-26T09:25:55.843Z",
+      "error": null
+    }
+  ],
+  "owners": [
+    {
+      "login": "ASSERT-KTH",
+      "type": "Organization",
+      "name": "ASSERT",
+      "blog": "https://github.com/ASSERT-KTH/",
+      "createdAt": "2020-11-05T10:07:51Z",
+      "publicRepos": 230,
+      "url": "https://github.com/ASSERT-KTH"
+    }
+  ]
+}

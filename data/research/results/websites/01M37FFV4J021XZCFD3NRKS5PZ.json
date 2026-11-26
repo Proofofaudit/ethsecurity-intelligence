@@ -1,0 +1,76 @@
+{
+  "checks": [
+    {
+      "url": "https://explorer.sourcify.app",
+      "status": 200,
+      "finalUrl": "https://explorer.sourcify.app/",
+      "title": "Project Independence",
+      "description": null,
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:05.626Z"
+    },
+    {
+      "url": "https://explorer.sourcify.app/",
+      "status": 200,
+      "finalUrl": "https://explorer.sourcify.app/",
+      "title": "Project Independence",
+      "description": null,
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:05.627Z"
+    },
+    {
+      "url": "https://sourcify.dev",
+      "status": 200,
+      "finalUrl": "https://sourcify.dev/",
+      "title": "sourcify.eth",
+      "description": "Source code verification for Ethereum smart contracts. Open-source, open-data, open-standards.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:05.627Z"
+    },
+    {
+      "url": "https://sourcify.dev/",
+      "status": 200,
+      "finalUrl": "https://sourcify.dev/",
+      "title": "sourcify.eth",
+      "description": "Source code verification for Ethereum smart contracts. Open-source, open-data, open-standards.",
+      "contentType": "text/html",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:05.628Z"
+    },
+    {
+      "url": "https://www.argot.org/",
+      "status": 200,
+      "finalUrl": "https://www.argot.org/",
+      "title": "Argot Collective",
+      "description": "Building the critical infrastructure for Ethereum applications.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:28.674Z"
+    },
+    {
+      "url": "https://www.blockscout.com/",
+      "status": 200,
+      "finalUrl": "https://www.blockscout.com/",
+      "title": "Powerful multichain search by Blockscout",
+      "description": "Explore crypto activities with Blockscout",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:25:28.675Z"
+    }
+  ]
+}

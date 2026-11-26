@@ -1,0 +1,95 @@
+{
+  "repos": [
+    {
+      "fullName": "crytic/echidna",
+      "url": "https://github.com/crytic/echidna",
+      "exists": true,
+      "description": "Ethereum smart contract fuzzer",
+      "license": "AGPL-3.0",
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "master",
+      "createdAt": "2017-08-27T23:13:10Z",
+      "pushedAt": "2026-11-26T08:57:00Z",
+      "stars": 3201,
+      "openIssues": 108,
+      "language": "Haskell",
+      "topics": [
+        "ethereum",
+        "evm",
+        "fuzzer",
+        "security",
+        "smart-contracts",
+        "solidity",
+        "testing"
+      ],
+      "latestRelease": {
+        "tag": "v2.4.0",
+        "publishedAt": "2026-11-04T18:37:07Z",
+        "url": "https://github.com/crytic/echidna/releases/tag/v2.4.0"
+      },
+      "releaseCount": 44,
+      "hasCiWorkflows": true,
+      "hasTestsDir": true,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 25,
+      "contributorsSampled": 54,
+      "checkedAt": "2026-11-26T09:25:44.737Z",
+      "error": null
+    },
+    {
+      "fullName": "perimetersec/public-fuzzing-campaigns-list",
+      "url": "https://github.com/perimetersec/public-fuzzing-campaigns-list",
+      "exists": true,
+      "description": "A list of public fuzzing campaigns",
+      "license": null,
+      "archived": false,
+      "fork": false,
+      "defaultBranch": "main",
+      "createdAt": "2024-02-06T10:33:48Z",
+      "pushedAt": "2026-01-24T12:39:26Z",
+      "stars": 130,
+      "openIssues": 0,
+      "language": null,
+      "topics": [
+        "echidna",
+        "evm",
+        "foundry",
+        "fuzzing",
+        "medusa",
+        "solidity"
+      ],
+      "latestRelease": null,
+      "releaseCount": 0,
+      "hasCiWorkflows": false,
+      "hasTestsDir": false,
+      "hasSecurityPolicy": false,
+      "hasReadme": true,
+      "commitsLast90d": 0,
+      "contributorsSampled": 4,
+      "checkedAt": "2026-11-26T09:25:44.737Z",
+      "error": null
+    }
+  ],
+  "owners": [
+    {
+      "login": "crytic",
+      "type": "Organization",
+      "name": "Crytic",
+      "blog": "https://www.trailofbits.com/",
+      "createdAt": "2019-03-07T17:42:29Z",
+      "publicRepos": 65,
+      "url": "https://github.com/crytic"
+    },
+    {
+      "login": "perimetersec",
+      "type": "Organization",
+      "name": "Perimeter",
+      "blog": "https://perimetersec.io",
+      "createdAt": "2023-12-17T20:43:47Z",
+      "publicRepos": 14,
+      "url": "https://github.com/perimetersec"
+    }
+  ]
+}

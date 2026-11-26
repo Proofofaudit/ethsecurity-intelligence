@@ -1,0 +1,76 @@
+{
+  "checks": [
+    {
+      "url": "https://app.trustblock.run",
+      "status": 200,
+      "finalUrl": "https://app.trustblock.run/",
+      "title": "Trustblock · The open data layer for web3 security",
+      "description": "The open data layer for web3 security. Who audited what, what they found, and what's still open, across security firms. Search it, embed it, or query the API.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:43.487Z"
+    },
+    {
+      "url": "https://app.trustblock.run/",
+      "status": 200,
+      "finalUrl": "https://app.trustblock.run/",
+      "title": "Trustblock · The open data layer for web3 security",
+      "description": "The open data layer for web3 security. Who audited what, what they found, and what's still open, across security firms. Search it, embed it, or query the API.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:43.487Z"
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.13792",
+      "status": 200,
+      "finalUrl": "https://arxiv.org/abs/2608.13792",
+      "title": "[2608.13792] The ack3 H1 2026 DeFi Incident Dataset: Audit Scope Across 135 Security Incidents",
+      "description": "Abstract page for arXiv paper 2608.13792: The ack3 H1 2026 DeFi Incident Dataset: Audit Scope Across 135 Security Incidents",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:43.488Z"
+    },
+    {
+      "url": "https://etherscan.io/address/0x1f9840a85d5af5bf1d1762f925bdaddc4201f984#cards",
+      "status": 200,
+      "finalUrl": "https://etherscan.io/address/0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
+      "title": "Uniswap Protocol: UNI Token | Address: 0x1f9840a8...c4201f984 | Etherscan",
+      "description": "Contract: Verified | Token Rep: OK | Price: $4.74 | Transactions: 4,084,563 | As at Nov-26-2026 09:26:43 AM (UTC)",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:43.488Z"
+    },
+    {
+      "url": "https://trustblock.run",
+      "status": 200,
+      "finalUrl": "https://trustblock.run/",
+      "title": "Trustblock · The open data layer for web3 security",
+      "description": "The open data layer for web3 security. One open security record per web3 project: who reviewed the code, what they found and what is still open. Free to read, and open to build on through our API.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:43.542Z"
+    },
+    {
+      "url": "https://trustblock.run/",
+      "status": 200,
+      "finalUrl": "https://trustblock.run/",
+      "title": "Trustblock · The open data layer for web3 security",
+      "description": "The open data layer for web3 security. One open security record per web3 project: who reviewed the code, what they found and what is still open. Free to read, and open to build on through our API.",
+      "contentType": "text/html; charset=utf-8",
+      "ok": true,
+      "inconclusive": false,
+      "error": null,
+      "checkedAt": "2026-11-26T09:26:43.645Z"
+    }
+  ]
+}
