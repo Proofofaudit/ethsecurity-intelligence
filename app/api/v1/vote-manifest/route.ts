@@ -20,7 +20,7 @@ export const GET = handle(async () => {
     sources: [v.source],
     limitations: [
       live.source === "live"
-        ? `Pool and schedule: live manifest read by this server at ${live.fetchedAt}, re-read at most every ${LIVE_TTL_MINUTES} minutes. Groups and goals: last published sync. The vote contract is the final authority.`
+        ? `Pool, schedule and readAt: live manifest read by this server at ${live.fetchedAt}, re-read at most every ${LIVE_TTL_MINUTES} minutes (fields listed in live.fields). Groups, goals, ballot rules, configRevision, fetchedAt and objectHash: last published sync. The vote contract is the final authority.`
         : "Read at the last official sync, not live. The vote contract is the final authority.",
       ...(v.features.groupsAvailable ? [] : ["Affiliation groups are withheld: the manifest is unavailable or its slug/project alignment was not confirmed."]),
     ],

@@ -9,7 +9,10 @@ import type { Dataset } from "@/lib/domain/schemas";
 import { ValidationFailure } from "@/lib/official/client";
 import type { VoteManifest, VoteManifestResponse } from "@/lib/official/schemas";
 import { HttpError } from "@/lib/util/http";
-import { createLiveVote, LIVE_TTL_MINUTES, LIVE_TTL_MS, liveVoteEnabled, rejectLive } from "@/lib/vote/live";
+import { readdirSync, readFileSync } from "node:fs";
+import path from "node:path";
+import { createLiveVote, LIVE_FIELDS, LIVE_TTL_MINUTES, LIVE_TTL_MS, liveVoteEnabled, overlayAllowed, rejectLive } from "@/lib/vote/live";
+import { validateVote } from "@/research/publish";
 import { resolveSchedule } from "@/lib/vote/calendar";
 import { calendarView } from "@/lib/vote/view-data";
 import { latestValidSnapshot, readObject } from "@/research/store";
@@ -135,6 +138,64 @@ describe("live manifest cache", () => {
     expect(view.schedule.fallback).toBe(false);
     expect(view.liveSchedule).toBe(true);
     expect(view.manifestFetchedAt).toBe(live.fetchedAt);
+  });
+
+  it("never overlays a snapshot whose manifest is unavailable, so the publish invariant holds (review v2)", async () => {
+    const unavailable: Dataset = {
+      ...d,
+      vote: { ...d.vote, status: "unavailable", statusReason: "Vote manifest not retrieved (HTTP 404).", groupsAvailable: false, scheduleAvailable: false, schedule: null, poolMicroUsd: null, poolCents: null, opensAt: null, closesAt: null, initiativeGroups: {} },
+    };
+    expect(overlayAllowed(unavailable.vote)).toBe(false);
+    expect(overlayAllowed(d.vote)).toBe(true);
+    expect(overlayAllowed({ ...d.vote, status: "unaligned" })).toBe(true);
+    const h = harness([() => ({ manifest: withPool("700000000000") })]);
+    const r = await h.live.apply(unavailable);
+    expect(r.dataset).toBe(unavailable);
+    expect(r.dataset.vote.poolCents).toBeNull();
+    expect(r.dataset.vote.scheduleAvailable).toBe(false);
+    expect(r.live.source).toBe("snapshot");
+    expect(r.live.fields).toEqual([]);
+    expect(r.live.note).toContain("no vote manifest");
+    // TheDAO is not even asked: nothing could be shown.
+    expect(h.calls()).toBe(0);
+    expect(validateVote(r.dataset)).toEqual([]);
+  });
+
+  it("an overlaid section still passes the publish invariants for the vote section", async () => {
+    const h = harness([() => ({ manifest: withPool("700000000000") })]);
+    const { dataset } = await h.live.apply(d);
+    expect(validateVote(dataset)).toEqual([]);
+  });
+
+  it("readAt comes from the live read; configRevision, fetchedAt and objectHash stay with the snapshot (review v2)", async () => {
+    const liveRead: VoteManifest = { ...withPool("700000000000"), readAt: { block: 99_999_999, timestamp: 1_800_000_000 }, configRevision: "rev-live" };
+    const h = harness([() => ({ manifest: liveRead })]);
+    const { dataset, live } = await h.live.apply(d);
+    expect(dataset.vote.readAt).toEqual({ block: 99_999_999, timestamp: 1_800_000_000 });
+    expect(dataset.vote.configRevision).toBe(d.vote.configRevision);
+    expect(dataset.vote.fetchedAt).toBe(d.vote.fetchedAt);
+    expect(dataset.vote.objectHash).toBe(d.vote.objectHash);
+    expect(live.fields).toEqual(LIVE_FIELDS);
+    expect(live.fields).toContain("readAt");
+    expect(live.fields).not.toContain("configRevision");
+    expect(live.configRevision).toBe("rev-live");
+    expect(live.note).toContain("config revision rev-live");
+    // Every field outside LIVE_FIELDS is the snapshot's.
+    for (const k of Object.keys(d.vote) as (keyof Dataset["vote"])[]) if (!(LIVE_FIELDS as readonly string[]).includes(k)) expect(dataset.vote[k], k).toEqual(d.vote[k]);
+    // A read without readAt does not keep the snapshot's block next to the live pool.
+    const h2 = harness([() => ({ manifest: { ...withPool("700000000000"), readAt: undefined } })]);
+    expect((await h2.live.apply(d)).dataset.vote.readAt).toBeNull();
+  });
+
+  it("pages that show the live pool are rendered per request, so page age never adds to the 12-minute cache (review v2)", () => {
+    const files = (readdirSync(path.join(process.cwd(), "app"), { recursive: true }) as string[]).filter((f) => /(^|\/)(page|route)\.tsx?$/.test(f));
+    const users = files.filter((f) => readFileSync(path.join(process.cwd(), "app", f), "utf8").includes("withLiveVote"));
+    expect(users.sort()).toEqual(["api/v1/vote-manifest/route.ts", "page.tsx", "status/page.tsx", "workspace/page.tsx"]);
+    for (const f of users) {
+      const src = readFileSync(path.join(process.cwd(), "app", f), "utf8");
+      expect(src, f).toContain('export const dynamic = "force-dynamic";');
+      expect(src, f).not.toMatch(/export const revalidate/);
+    }
   });
 
   it("is off when disabled, in unit tests and during next build", async () => {

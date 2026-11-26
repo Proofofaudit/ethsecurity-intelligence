@@ -19,7 +19,8 @@
  *    "Security Alliance (SEAL)" is tried as itself, "Security Alliance" and "SEAL".
  *  - A term matches a target when the full texts are equal after removing punctuation, or when
  *    the term's distinctive words appear as a consecutive run in the target's and every other
- *    word of the term is in the target or optional (OPTIONAL_WORDS). The reverse direction (the
+ *    word of the term is in the target or optional (OPTIONAL_WORDS, or SAME_NAME_OPTIONAL_WORDS
+ *    when the target has no word the term lacks). The reverse direction (the
  *    target inside the term) counts only when the target has two or more distinctive words.
  */
 import type { Dataset } from "@/lib/domain/schemas";
@@ -92,13 +93,23 @@ const GENERIC = new Set(GENERIC_WORDS);
 
 /**
  * Generic words that may be added or left out without changing which organization is meant:
- * legal forms ("Ltd", "GmbH"), "Labs", "Team", "Research" and short connecting words. Every other
- * generic word ("Capital", "DAO", "Security", "Foundation", ...) is part of the name when it is
- * present: "Walnut Capital" is not "Walnut", and "Alliance DAO" is not "Security Alliance".
+ * legal forms ("Ltd", "GmbH"), brand suffixes ("Labs", "Security", "Foundation", "Project",
+ * "Network"), "Team", "Research" and short connecting words. So "Nethermind Security" matches
+ * "Nethermind" and "Remix Project" matches "Remix". Every other generic word ("Capital",
+ * "Ventures", ...) is part of the name when it is present: "Walnut Capital" is not "Walnut".
  * Lower case, a subset of GENERIC_WORDS. Edit here; the Methodology page lists them.
  */
-export const OPTIONAL_WORDS: readonly string[] = ["a", "ag", "an", "and", "at", "by", "co", "com", "corp", "for", "gmbh", "in", "inc", "io", "lab", "labs", "llc", "ltd", "of", "on", "org", "research", "sa", "team", "the", "to", "with", "xyz"];
+export const OPTIONAL_WORDS: readonly string[] = ["a", "ag", "an", "and", "at", "by", "co", "com", "corp", "for", "foundation", "gmbh", "in", "inc", "io", "lab", "labs", "llc", "ltd", "network", "of", "on", "org", "project", "research", "sa", "security", "team", "the", "to", "with", "xyz"];
 const OPTIONAL = new Set(OPTIONAL_WORDS);
+
+/**
+ * Generic words that may be added only when the official text has no word the entry lacks:
+ * "Kleros DAO" matches "Kleros", but "Alliance DAO" matches neither "Security Alliance (SEAL)"
+ * nor "Security Alliance" ("security" is not in the entry). Lower case, a
+ * subset of GENERIC_WORDS. Edit here; the Methodology page lists them.
+ */
+export const SAME_NAME_OPTIONAL_WORDS: readonly string[] = ["dao"];
+const SAME_NAME_OPTIONAL = new Set(SAME_NAME_OPTIONAL_WORDS);
 
 export type AffiliationField = "group" | "recipientTeam" | "organization";
 export const AFFILIATION_FIELD_LABEL: Record<AffiliationField, string> = {
@@ -167,13 +178,18 @@ function containsRun(hay: string[], needle: string[]): boolean {
 
 /**
  * True when `inner` names something inside `outer`: the distinctive words of `inner` appear as a
- * consecutive run in `outer`, and every word of `inner` missing from `outer` is optional.
+ * consecutive run in `outer`, and every word of `inner` missing from `outer` is optional
+ * (OPTIONAL_WORDS, or SAME_NAME_OPTIONAL_WORDS when every word of `outer` is in `inner`).
  */
 function namedWithin(inner: string, outer: string): boolean {
   const iw = distinctiveWords(inner);
-  if (!iw.length || !containsRun(distinctiveWords(outer), iw)) return false;
+  const odw = distinctiveWords(outer);
+  if (!iw.length || !containsRun(odw, iw)) return false;
   const ow = new Set(words(outer));
-  return words(inner).every((w) => ow.has(w) || OPTIONAL.has(w));
+  const inw = new Set(words(inner));
+  // "Kleros DAO" names "Kleros"; "Alliance DAO" does not name "Security Alliance".
+  const sameName = iw.length === odw.length && [...ow].every((w) => inw.has(w));
+  return words(inner).every((w) => ow.has(w) || OPTIONAL.has(w) || (sameName && SAME_NAME_OPTIONAL.has(w)));
 }
 
 /** True when one term matches one official text under the rule documented above. */

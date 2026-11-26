@@ -104,6 +104,27 @@ describe("may interest you", () => {
     expect(findKeyword("nodejs", "node")).toBeNull();
   });
 
+  it("drops a final 'e' before -ed, -ing, -er and -ers (review v2)", () => {
+    expect(matchKeyword("Securing Ethereum with formal verification", "secure")?.found).toBe("Securing");
+    expect(matchKeyword("A decentralized archive", "decentralize")?.found).toBe("decentralized");
+    expect(matchKeyword("Funds secured by the DAO", "secure")?.found).toBe("secured");
+    expect(matchKeyword("It secures funds", "secure")?.found).toBe("secures");
+    expect(matchKeyword("A secure wallet", "secure")?.found).toBe("secure");
+    // The stem alone or an unlisted ending is not a match.
+    expect(findKeyword("secur", "secure")).toBeNull();
+    expect(findKeyword("security", "secure")).toBeNull();
+    // Two-letter words keep the plain endings, so "be" never finds "bed".
+    expect(findKeyword("a bed", "be")).toBeNull();
+    // The published cohort: typed keywords find the initiatives the e-final miss left out.
+    for (const [kw, prefix] of [
+      ["secure", "securing-ethereum-with-formal-verification"],
+      ["decentralize", "decentralized-archive-for-ethereum-blob-data"],
+    ] as const) {
+      const g = mayInterest(view.initiatives, [], [kw], view.chips)[0]!;
+      expect(g.items.some((i) => i.slug.startsWith(prefix)), kw).toBe(true);
+    }
+  });
+
   it("finds the inflected forms in the published cohort that whole-word matching missed (review v1)", () => {
     const missed: [string, string][] = [
       ["security-researcher", "economic-property-packs-for-amms-and-lending-"],

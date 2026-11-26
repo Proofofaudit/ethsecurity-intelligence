@@ -17,7 +17,8 @@ import { VoteCalendar } from "@/components/workspace/vote-calendar";
 import { calendarView, fundingView } from "@/lib/vote/view-data";
 import { withLiveVote } from "@/lib/vote/live";
 
-export const revalidate = 600;
+// Rendered per request so pool and schedule are never older than the 12-minute live cache (an ISR page cache would add up to its own age on top).
+export const dynamic = "force-dynamic";
 
 const MONTH = new Intl.DateTimeFormat("en-US", { month: "long", year: "numeric", timeZone: "UTC" });
 

@@ -8,7 +8,8 @@ import { affiliationView, ballotView, calendarView, fundingView, interestView } 
 import { withLiveVote } from "@/lib/vote/live";
 
 export const metadata: Metadata = { title: "My Workspace" };
-export const revalidate = 600;
+// Rendered per request so pool and schedule are never older than the 12-minute live cache (an ISR page cache would add up to its own age on top).
+export const dynamic = "force-dynamic";
 
 export default async function WorkspacePage() {
   const { dataset: d, live } = await withLiveVote((await loadIntelligence()).dataset);

@@ -9,6 +9,9 @@
  * replaces a valid value: the last valid live value (or else the published snapshot) stays, and
  * the failure is reported on the data-freshness page.
  *
+ * The live read also replaces `readAt` (the block that produced the pool) and is applied only over
+ * a snapshot whose manifest status is "aligned" or "unaligned", never over an "unavailable" one.
+ *
  * Affiliation groups, goals and TheDAO asks are not refreshed here; they change only when a new
  * dataset passes the truth audit and is published.
  */
@@ -32,6 +35,10 @@ export interface LiveVoteState {
   error: string | null;
   /** One sentence for the data-freshness page. */
   note: string;
+  /** Vote section fields replaced by the live read (LIVE_FIELDS); empty when the snapshot is shown. */
+  fields: readonly string[];
+  /** Config revision of the live read shown; null when the snapshot is shown or the read has none. */
+  configRevision: string | null;
 }
 
 type Fetcher = () => Promise<VoteManifestResponse>;
@@ -54,7 +61,23 @@ export function rejectLive(m: VoteManifest, d: Dataset): string | null {
   return null;
 }
 
-/** The snapshot vote section with the live pool and schedule. Everything else stays as published. */
+/**
+ * Fields of the vote section that the live read replaces. Every other field (status, groups,
+ * goals, ballot rules, `configRevision`, `fetchedAt`, `objectHash`, `stale`, ...) describes the
+ * published snapshot. `configRevision` stays with the snapshot because it identifies the config
+ * the published groups and ballot rules come from; the live read's revision is in
+ * LiveVoteState.configRevision.
+ */
+export const LIVE_FIELDS = ["poolMicroUsd", "poolCents", "opensAt", "closesAt", "schedule", "scheduleAvailable", "readAt"] as const;
+
+/**
+ * The live read may be shown only over a snapshot that holds a manifest. An "unavailable"
+ * snapshot cannot expose a pool or schedule (the publish invariant in research/publish.ts), so it
+ * stays as published until a dataset with the manifest passes the truth audit.
+ */
+export const overlayAllowed = (v: VoteSection) => v.status === "aligned" || v.status === "unaligned";
+
+/** The snapshot vote section with the live pool, schedule and read point (LIVE_FIELDS). */
 export function overlayVote(v: VoteSection, m: VoteManifest): VoteSection {
   return {
     ...v,
@@ -64,6 +87,8 @@ export function overlayVote(v: VoteSection, m: VoteManifest): VoteSection {
     closesAt: m.closesAt,
     schedule: { opensAt: m.schedule.opensAt, firstTallyAt: [...m.schedule.firstTallyAt], initialWindow: m.schedule.initialWindow, maxWindows: m.schedule.maxWindows },
     scheduleAvailable: true,
+    // The block of the live read, so the shown block always produced the shown pool.
+    readAt: m.readAt ? { block: m.readAt.block, timestamp: m.readAt.timestamp } : null,
   };
 }
 
@@ -104,7 +129,14 @@ export function createLiveVote(opts: { fetcher?: Fetcher; now?: () => number; tt
 
   async function apply(d: Dataset): Promise<{ dataset: Dataset; live: LiveVoteState }> {
     if (!enabled()) {
-      return { dataset: d, live: { source: "snapshot", fetchedAt: null, checkedAt: null, error: null, note: "Live refresh is off on this server, so the pool and schedule are those of the published snapshot." } };
+      return { dataset: d, live: { source: "snapshot", fetchedAt: null, checkedAt: null, error: null, note: "Live refresh is off on this server, so the pool and schedule are those of the published snapshot.", fields: [], configRevision: null } };
+    }
+    if (!overlayAllowed(d.vote)) {
+      // No read at all: nothing could be shown over a snapshot without a manifest.
+      return {
+        dataset: d,
+        live: { source: "snapshot", fetchedAt: null, checkedAt: null, error: null, note: "The published snapshot has no vote manifest, so no live pool or schedule is shown until a dataset with the manifest passes the truth audit and is published.", fields: [], configRevision: null },
+      };
     }
     if (checkedAt === null || now() - checkedAt >= ttl) {
       inflight ??= refresh(d).finally(() => {
@@ -118,9 +150,11 @@ export function createLiveVote(opts: { fetcher?: Fetcher; now?: () => number; tt
     if (!usable) {
       return {
         dataset: d,
-        live: { source: "snapshot", fetchedAt: null, checkedAt: checked, error: lastError, note: `Pool and schedule from the published snapshot. The server re-reads the manifest at most every ${LIVE_TTL_MINUTES} minutes.` },
+        live: { source: "snapshot", fetchedAt: null, checkedAt: checked, error: lastError, note: `Pool and schedule from the published snapshot. The server re-reads the manifest at most every ${LIVE_TTL_MINUTES} minutes.`, fields: [], configRevision: null },
       };
     }
+    const liveRevision = usable.manifest.configRevision ?? null;
+    const revisionNote = liveRevision !== d.vote.configRevision ? ` The live read has config revision ${liveRevision ?? "(none)"}; affiliation groups and ballot rules are from the published revision ${d.vote.configRevision ?? "(none)"}.` : "";
     return {
       dataset: { ...d, vote: overlayVote(d.vote, usable.manifest) },
       live: {
@@ -128,7 +162,9 @@ export function createLiveVote(opts: { fetcher?: Fetcher; now?: () => number; tt
         fetchedAt: usable.fetchedAt,
         checkedAt: checked,
         error: lastError,
-        note: `Pool and schedule from the live manifest, read by this server at most every ${LIVE_TTL_MINUTES} minutes and shared by all visitors.${lastError ? " The latest read was not used, so the last valid read is shown." : ""}`,
+        note: `Pool and schedule from the live manifest, read by this server at most every ${LIVE_TTL_MINUTES} minutes and shared by all visitors.${lastError ? " The latest read was not used, so the last valid read is shown." : ""}${revisionNote}`,
+        fields: LIVE_FIELDS,
+        configRevision: liveRevision,
       },
     };
   }

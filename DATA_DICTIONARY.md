@@ -92,7 +92,7 @@ Source: `https://initiatives.thedao.fund/api/vote/manifest`. Stored in the `curr
 | `initiativeGroups` | record | Initiative id to group names. Empty unless `status` is `aligned`. |
 | `alignment` | object | `ok` and `checks[]` (`check`, `ok`, `detail`), see [METHODOLOGY.md](METHODOLOGY.md#official-vote-manifest). |
 
-At request time the server may replace `poolMicroUsd`, `poolCents`, `opensAt`, `closesAt`, `schedule` and `scheduleAvailable` with a validated live manifest read, cached for 12 minutes (`lib/vote/live.ts`). The stored section is never changed by this. `GET /api/v1/vote-manifest` reports the source in `live`:
+At request time the server may replace `poolMicroUsd`, `poolCents`, `opensAt`, `closesAt`, `schedule`, `scheduleAvailable` and `readAt` with a validated live manifest read, cached for 12 minutes (`LIVE_FIELDS` in `lib/vote/live.ts`). It does so only when the stored `status` is `aligned` or `unaligned`; an `unavailable` section is returned as stored, with no pool or schedule. All other fields, including `status`, `configRevision`, `ballotRules`, the groups, `fetchedAt`, `objectHash` and `stale`, always describe the published snapshot: `fetchedAt` and `objectHash` are the snapshot's fetch time and content address, and `configRevision` is the configuration the published groups and ballot rules come from. So the returned `readAt.block` is always the block of the returned pool. The stored section is never changed by this. `GET /api/v1/vote-manifest` reports the source in `live`:
 
 | Field | Type | Meaning |
 | --- | --- | --- |
@@ -100,7 +100,9 @@ At request time the server may replace `poolMicroUsd`, `poolCents`, `opensAt`, `
 | `live.fetchedAt` | string or null | When the server read the live values shown; null for the snapshot. |
 | `live.checkedAt` | string or null | The server's last read attempt. |
 | `live.error` | string or null | Why the last read was not used (failed or did not validate). |
-| `live.note` | string | Plain-language summary. |
+| `live.note` | string | Plain-language summary. Names both revisions when the live read's `configRevision` differs from the published one. |
+| `live.fields` | string[] | The fields above that came from the live read; empty for the snapshot. |
+| `live.configRevision` | string or null | Configuration revision of the live read shown; null for the snapshot. |
 
 ## Initiative
 

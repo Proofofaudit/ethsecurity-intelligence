@@ -91,7 +91,9 @@ const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 /**
  * Endings accepted after a keyword's last word, so "attack" also finds "attacks" and "maintain"
  * finds "maintained". A last word ending in a consonant plus "y" also matches "ies" and "ied"
- * ("bounty" finds "bounties"). Edit here; METHODOLOGY.md and the Methodology page list them.
+ * ("bounty" finds "bounties"). A last word of three letters or more ending in a consonant plus
+ * "e" drops the "e" before "ed", "ing", "er" and "ers" ("secure" finds "securing" and "secured").
+ * Edit here; METHODOLOGY.md and the Methodology page list them.
  */
 export const KEYWORD_ENDINGS: readonly string[] = ["s", "es", "ed", "ing", "er", "ers"];
 
@@ -99,7 +101,14 @@ function keywordPattern(k: string): RegExp {
   const parts = k.split(/\s+/).map(escape);
   const last = parts.pop()!;
   const endings = `(?:${KEYWORD_ENDINGS.join("|")})?`;
-  const tail = /[^aeiou]y$/i.test(last) ? `${last.slice(0, -1)}(?:y${endings}|ies|ied)` : `${last}${endings}`;
+  // Consonant + "y": "bounty" → "bounties". Consonant + "e" (three letters or more): the "e" is
+  // dropped before "ed", "ing", "er" and "ers", so "secure" → "securing" and "decentralize" →
+  // "decentralized"; "s" and "es" stay on the full word ("secures").
+  const tail = /[^aeiou]y$/i.test(last)
+    ? `${last.slice(0, -1)}(?:y${endings}|ies|ied)`
+    : last.length >= 3 && /[^aeiou]e$/i.test(last)
+      ? `${last.slice(0, -1)}(?:e(?:s)?|ed|ing|er|ers)`
+      : `${last}${endings}`;
   return new RegExp(`(?<![\\p{L}\\p{N}])${[...parts, tail].join("[\\s-]+")}(?![\\p{L}\\p{N}])`, "iu");
 }
 

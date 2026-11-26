@@ -21,6 +21,7 @@ import {
   peersOf,
   POSSIBLY_OWN,
   S_TIER_REMINDER,
+  SAME_NAME_OPTIONAL_WORDS,
   sharedAffiliations,
   termMatches,
 } from "@/lib/vote/affiliation";
@@ -92,8 +93,34 @@ describe("affiliation matching", () => {
   });
 
   it("optional words are a subset of the generic words", () => {
-    for (const w of OPTIONAL_WORDS) expect(GENERIC_WORDS).toContain(w);
-    for (const w of ["capital", "dao", "security", "foundation", "protocol", "ventures"]) expect(OPTIONAL_WORDS).not.toContain(w);
+    for (const w of [...OPTIONAL_WORDS, ...SAME_NAME_OPTIONAL_WORDS]) expect(GENERIC_WORDS).toContain(w);
+    for (const w of ["capital", "dao", "protocol", "ventures"]) expect(OPTIONAL_WORDS).not.toContain(w);
+    for (const w of ["security", "foundation", "project", "network"]) expect(OPTIONAL_WORDS).toContain(w);
+    expect(SAME_NAME_OPTIONAL_WORDS).toEqual(["dao"]);
+  });
+
+  it("a full brand name with a generic suffix matches the shorter official text (review v2)", () => {
+    // Each matched nothing under the v1 fix, although the official text names the same organization.
+    const brands: [string, string][] = [
+      ["Nethermind Security", "Nethermind"],
+      ["Zealynx Security", "Zealynx"],
+      ["Remix Project", "Remix"],
+      ["Blockscout Foundation", "Blockscout"],
+      ["Kleros DAO", "Kleros"],
+      ["Shutter Network", "brainbot (Shutter Network)"],
+    ];
+    for (const [entry, official] of brands) {
+      const own = [...new Set(targets.filter((t) => strictKey(t.text) === strictKey(official)).map((t) => t.initiativeId))].sort();
+      expect(own.length, official).toBeGreaterThan(0);
+      const m = matchAffiliations([entry], targets);
+      expect(Object.keys(m).sort(), entry).toEqual(expect.arrayContaining(own));
+      for (const id of own) expect(m[id]!.some((x) => x.text === official), entry).toBe(true);
+    }
+    // "DAO" may be added only when the official text has no word the entry lacks.
+    expect(termMatches("Kleros DAO", "Kleros")).toBe(true);
+    expect(termMatches("Kleros DAO", "Kleros Cooperative")).toBe(false);
+    expect(termMatches("Alliance DAO", "Security Alliance (SEAL)")).toBe(false);
+    expect(termMatches("Alliance DAO", "Security Alliance")).toBe(false);
   });
 
   it("splits parentheses and matches case-insensitively", () => {

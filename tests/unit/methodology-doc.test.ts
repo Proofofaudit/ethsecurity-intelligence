@@ -8,7 +8,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { FOCUS_MODE_TABLE, KEYWORD_ENDINGS } from "@/lib/vote/interest";
 import { MODE_BY_ID } from "@/lib/skills/modes";
-import { GENERIC_WORDS, OPTIONAL_WORDS } from "@/lib/vote/affiliation";
+import { GENERIC_WORDS, OPTIONAL_WORDS, SAME_NAME_OPTIONAL_WORDS } from "@/lib/vote/affiliation";
 
 const doc = fs.readFileSync(path.join(process.cwd(), "METHODOLOGY.md"), "utf8");
 
@@ -43,6 +43,8 @@ describe("METHODOLOGY.md", () => {
 
   it("lists the optional affiliation words and the keyword endings exactly", () => {
     expect(doc).toContain(`(\`OPTIONAL_WORDS\`, ${OPTIONAL_WORDS.length} words): ${OPTIONAL_WORDS.join(", ")}.`);
+    expect(doc).toContain(`(\`SAME_NAME_OPTIONAL_WORDS\`: ${SAME_NAME_OPTIONAL_WORDS.join(", ")})`);
     expect(doc).toContain(`(\`KEYWORD_ENDINGS\`): ${KEYWORD_ENDINGS.join(", ")}.`);
+    expect(doc).toContain('drops the "e" before "ed", "ing", "er" and "ers"');
   });
 });
