@@ -2,8 +2,9 @@ import Link from "next/link";
 import { ArrowUpRight } from "@/components/ui/icons";
 import { formatDateTime } from "@/components/ui/money";
 
-export const REPO_URL = "https://github.com/Proofofaudit/ethsecurity-intelligence";
-export const COI_SHORT = "Disclosure: this site and Proof of Audits, one of the initiatives on this ballot, have the same owner.";
+import { COI_SHORT, REPO_URL } from "@/lib/disclosure";
+
+export { COI_SHORT, REPO_URL };
 
 export function CoiStrip({ href }: { href: string }) {
   return (

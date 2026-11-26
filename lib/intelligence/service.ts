@@ -8,7 +8,7 @@ import type { Claim, Dataset, EntityType, EvidenceStatus, Initiative, LifecycleS
 import { EVIDENCE_STATUS_LABEL } from "@/lib/domain/schemas";
 import { ONE_TS_DOMAINS, SECURITY_PROBLEMS, STAGE_LABEL, STAGE_ONE_TS } from "@/lib/domain/taxonomy";
 import { backerTotals, cohortMetrics, initiativeMetrics, type MetricValue } from "@/lib/metrics/compute";
-import { METHODOLOGY_VERSION } from "@/lib/metrics/registry";
+import { METHODOLOGY_VERSION, METRIC_BY_ID } from "@/lib/metrics/registry";
 import { formatUsd, sumCents } from "@/lib/util/money";
 import { sentences } from "@/lib/util/text";
 import { hypotheses, pairSignals, type PairSignals } from "./overlap";
@@ -578,6 +578,28 @@ export function fundingRelationships(d: Dataset) {
     selfPledgeNote: "A self-pledge is a pledge whose backer name resolves (by the identity rules) to the initiative's own recipient organization. It is common and legitimate; it is listed so reviewers can see independent support separately.",
     candidates: d.aliases.filter((a) => a.resolution === "candidate_unconfirmed"),
     concentration: cohortMetrics(d)["cohort.top5_backer_share"],
+  };
+}
+
+export const FUNDING_IDENTITY =
+  "Official raised = outstanding pledges + confirmed donations. Received pledges arrive as donations and are already inside donated; they are never added twice.";
+
+/** Funding breakdown for one initiative: official figures, pledge rows with backer names, donations and financial metrics. */
+export function fundingBreakdown(d: Dataset, ini: Initiative) {
+  const metrics = Object.fromEntries(
+    Object.entries(initiativeMetrics(d, ini)).filter(([k]) => {
+      const cat = METRIC_BY_ID.get(k)?.category;
+      return cat === "financial" || cat === "concentration";
+    }),
+  );
+  return {
+    initiativeId: ini.id,
+    slug: ini.slug,
+    funding: ini.funding,
+    identity: FUNDING_IDENTITY,
+    pledges: d.pledges.filter((p) => p.initiativeId === ini.id).map((p) => ({ ...p, backerName: orgName(d, p.backerId) ?? p.company })),
+    donations: d.donations.filter((x) => x.initiativeId === ini.id),
+    metrics,
   };
 }
 

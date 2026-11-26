@@ -1,13 +1,13 @@
 {
   "version": "0.2",
   "language": "en-US",
-  "ignorePaths": ["node_modules", ".next", "data", ".scratch", "package-lock.json"],
+  "ignorePaths": ["node_modules", ".next", "data", ".scratch", "package-lock.json", "skills/ethsecurity-*"],
   "words": [
     "xyflow", "eips", "colibri", "beneficiar", "collabItems", "collabAssumption", "trustblock", "walletbeat",
     "ained", "ainer", "ainers", "aining", "ains", "ations", "backtest", "backtestable", "bigram", "bigrams", "bmaint", "cmdk",
-    "defi", "dprk", "enance", "ethsecurity", "fmax", "fmin", "frontends", "funder", "giveth", "gmax", "gmin", "herfindahl",
-    "hirschman", "hyps", "idxs", "infraops", "inis", "integrat", "lede", "lockdown", "maint", "maxage", "mets", "msdone",
-    "mult", "nums", "opsec", "organi", "rels", "rfps", "sents", "substack", "thedao", "tlds", "toks", "topup", "turbopack",
+    "defi", "doesnotexist", "dprk", "enance", "ethsecurity", "fmax", "fmin", "frontends", "funder", "giveth", "gmax", "gmin", "herfindahl",
+    "hirschman", "hyps", "idxs", "infraops", "inis", "integrat", "lede", "lockdown", "maint", "maxage", "mets", "modelcontextprotocol", "msdone",
+    "mult", "nums", "opsec", "organi", "rels", "rfps", "sents", "statelessly", "streamable", "substack", "thedao", "tlds", "toks", "topup", "turbopack",
     "unigrams", "upserted", "upserts", "whitehat", "zknox"
   ]
 }
