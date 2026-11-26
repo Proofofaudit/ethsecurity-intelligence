@@ -104,7 +104,7 @@ Any Node.js host that runs `next start` works, for example Vercel. Set these env
 | | |
 | --- | --- |
 | ![Research table](docs/screenshots/research-table-1440-light.png) | ![Proof of Audits dossier](docs/screenshots/dossier-poa-1440-light.png) |
-| ![Ballot Prep in My Workspace](docs/screenshots/workspace-1440-dark.png) | ![Overview on mobile](docs/screenshots/overview-412-dark.png) |
+| ![Ballot Prep in My Workspace](docs/screenshots/workspace-ballot-prep-1440-dark.png) | ![Overview on mobile](docs/screenshots/overview-412-dark.png) |
 
 All screenshots, at 1440x900 and 412x915 in light and dark, are in [docs/screenshots](docs/screenshots).
 

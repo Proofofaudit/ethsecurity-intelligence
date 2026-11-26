@@ -42,6 +42,7 @@ const ALLOWED: Record<string, { name: number; ident: number; reason: string }> =
   "components/shell/nav.ts": { name: 1, ident: 0, reason: "Search keywords of the About and disclosure page" },
   "lib/skills/build.ts": { name: 2, ident: 0, reason: "Disclosure lines in generated research briefs" },
   "lib/skills/context.ts": { name: 0, ident: 2, reason: "Names the Proof of Audits initiative in the brief's disclosure" },
+  "scripts/screenshots.ts": { name: 0, ident: 2, reason: "Captures the dossier with the disclosure note for docs/screenshots (import + find)" },
   "mcp/server.ts": { name: 1, ident: 3, reason: "Disclosure in MCP server instructions and on the organization profile" },
 };
 
