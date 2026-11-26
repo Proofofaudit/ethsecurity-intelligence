@@ -20,7 +20,7 @@ export const CATEGORY_LABEL: Record<z.infer<typeof CorrectionCategory>, string> 
   outdated: "Information is outdated",
   missing_context: "Missing important context",
   missing_evidence: "Evidence exists that we did not consider",
-  misattributed: "Attributed to the wrong person or organisation",
+  misattributed: "Attributed to the wrong person or organization",
   other: "Other",
 };
 

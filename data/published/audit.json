@@ -1,7 +1,7 @@
 {
-  "datasetVersion": "20261126T101107Z-1cb9ae37+cfdb82eb",
-  "at": "2026-11-26T10:21:33.865Z",
-  "checked": 1806,
+  "datasetVersion": "20261126T101107Z-1cb9ae37+aab45113",
+  "at": "2026-11-26T10:51:59.463Z",
+  "checked": 1971,
   "failures": [],
   "byCheck": {
     "official_record_present": {
@@ -41,6 +41,18 @@
       "failed": 0
     },
     "title": {
+      "checked": 55,
+      "failed": 0
+    },
+    "summary": {
+      "checked": 55,
+      "failed": 0
+    },
+    "plain_explanation": {
+      "checked": 55,
+      "failed": 0
+    },
+    "reality_split": {
       "checked": 55,
       "failed": 0
     },

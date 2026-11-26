@@ -136,6 +136,43 @@ export function summarize(d: Dataset, ini: Initiative): InitiativeSummary {
   };
 }
 
+/**
+ * One-sentence plain-language explanation shown at the top of a dossier: the opening sentence
+ * of the official summary, copied verbatim (the truth audit checks it is a prefix of the raw
+ * official summary). A very short opening sentence is joined with the next one.
+ */
+export function plainExplanation(ini: Pick<Initiative, "summary">): string {
+  const text = ini.summary.replace(/\s+/g, " ").trim();
+  const parts = text.split(/(?<=[.!?])\s+(?=[A-Z0-9"“(])/);
+  const first = parts[0] ?? text;
+  if (first.length < 40 && parts[1]) return `${first} ${parts[1]}`;
+  return first;
+}
+
+export interface PaletteClaimHit {
+  id: string;
+  initiativeSlug: string;
+  initiative: string;
+  assertion: string;
+  status: EvidenceStatus;
+}
+
+/** Claim search for the command palette: every query token must appear in the claim text. */
+export function searchClaims(d: Dataset, q: string, limit = 8): PaletteClaimHit[] {
+  const tokens = q.toLowerCase().split(/\s+/).filter((t) => t.length >= 2).slice(0, 8);
+  if (!tokens.length) return [];
+  const out: PaletteClaimHit[] = [];
+  for (const c of d.claims) {
+    const hay = `${c.assertion} ${c.quote ?? ""}`.toLowerCase();
+    if (!tokens.every((t) => hay.includes(t))) continue;
+    const ini = d.initiatives.find((i) => i.id === c.initiativeId);
+    if (!ini) continue;
+    out.push({ id: c.id, initiativeSlug: ini.slug, initiative: ini.shortTitle, assertion: c.assertion.length > 200 ? `${c.assertion.slice(0, 199)}…` : c.assertion, status: c.status });
+    if (out.length >= limit) break;
+  }
+  return out;
+}
+
 export const FilterSchema = z
   .object({
     q: z.string().trim().max(200).optional(),
@@ -513,7 +550,7 @@ export function fundingRelationships(d: Dataset) {
     backers,
     multiInitiativeBackers: backers.filter((b) => b.initiatives.length > 1),
     selfPledges,
-    selfPledgeNote: "A self-pledge is a pledge whose backer name resolves (by the identity rules) to the initiative's own recipient organisation. It is common and legitimate; it is listed so reviewers can see independent support separately.",
+    selfPledgeNote: "A self-pledge is a pledge whose backer name resolves (by the identity rules) to the initiative's own recipient organization. It is common and legitimate; it is listed so reviewers can see independent support separately.",
     candidates: d.aliases.filter((a) => a.resolution === "candidate_unconfirmed"),
     concentration: cohortMetrics(d)["cohort.top5_backer_share"],
   };
@@ -711,7 +748,7 @@ export function traceClaim(d: Dataset, claimId: string) {
     impact: {
       metrics,
       views: [
-        ini ? `Initiative dossier: /research/${ini.slug}` : null,
+        ini ? `Initiative dossier: /initiatives/${ini.slug}` : null,
         "Reality vs. Promises panel",
         claim.kind === "existing_artifact" || claim.kind === "milestone_completed" ? "Existing-work filter in Research" : null,
         spots.length ? `Research blind spots (${spots.length})` : null,

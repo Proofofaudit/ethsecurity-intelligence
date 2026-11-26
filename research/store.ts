@@ -1,5 +1,5 @@
 /**
- * Content-addressed, append-only file store for official snapshots and research artefacts.
+ * Content-addressed, append-only file store for official snapshots and research artifacts.
  * Objects are written once under data/official/objects/<sha256>.json; snapshot manifests
  * reference them by hash, so unchanged initiatives are never duplicated across syncs.
  */

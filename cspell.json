@@ -1,0 +1,12 @@
+{
+  "version": "0.2",
+  "language": "en-US",
+  "ignorePaths": ["node_modules", ".next", "data", ".scratch", "package-lock.json"],
+  "words": [
+    "ained", "ainer", "ainers", "aining", "ains", "ations", "backtest", "backtestable", "bigram", "bigrams", "bmaint", "cmdk",
+    "defi", "dprk", "enance", "ethsecurity", "fmax", "fmin", "frontends", "funder", "giveth", "gmax", "gmin", "herfindahl",
+    "hirschman", "hyps", "idxs", "infraops", "inis", "integrat", "lede", "lockdown", "maint", "maxage", "mets", "msdone",
+    "mult", "nums", "opsec", "organi", "rels", "rfps", "sents", "substack", "thedao", "tlds", "toks", "topup", "turbopack",
+    "unigrams", "upserted", "upserts", "whitehat", "zknox"
+  ]
+}

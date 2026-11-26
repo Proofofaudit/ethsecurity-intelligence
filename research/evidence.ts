@@ -137,7 +137,7 @@ export function profileEvidence(o: { login: string; type: string; name: string |
     id: evidenceId.profile(o.login),
     kind: "github_profile",
     url: o.url,
-    title: `GitHub ${o.type === "Organization" ? "organisation" : "user"} ${o.login}`,
+    title: `GitHub ${o.type === "Organization" ? "organization" : "user"} ${o.login}`,
     observedAt: at,
     facts: { login: o.login, type: o.type, name: o.name, createdAt: o.createdAt, publicRepos: o.publicRepos, blog: o.blog },
     excerpt: null,

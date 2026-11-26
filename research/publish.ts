@@ -194,7 +194,7 @@ export async function publish(opts: { log?: (m: string) => void; dryRun?: boolea
   }
   repositories.sort((a, b) => a.fullName.localeCompare(b.fullName));
 
-  // Organisations: attach website + GitHub profile observations.
+  // Organizations: attach website + GitHub profile observations.
   const organizations: Organization[] = layer.organizations.map((o) => {
     const site = o.website ? urlChecks.get(o.website) : undefined;
     const ghLogin = (o.github ?? (o.website ? parseGithub(o.website)?.owner : null))?.toLowerCase() ?? null;
@@ -364,7 +364,7 @@ export async function publish(opts: { log?: (m: string) => void; dryRun?: boolea
   }
   if (!opts.dryRun) await writeJson(DATASET_FILE, dataset, false);
   log(
-    `Published ${dataset.meta.datasetVersion}: ${dataset.initiatives.length} initiatives, ${claims.length} claims, ${dataset.evidence.length} evidence, ${repositories.length} repos, ${organizations.length} organisations, ${dataset.relationships.length} relationships, ${dataset.changes.length} changes`,
+    `Published ${dataset.meta.datasetVersion}: ${dataset.initiatives.length} initiatives, ${claims.length} claims, ${dataset.evidence.length} evidence, ${repositories.length} repos, ${organizations.length} organizations, ${dataset.relationships.length} relationships, ${dataset.changes.length} changes`,
   );
   return { dataset, problems };
 }

@@ -98,7 +98,7 @@ describe("unavailable values are null with a reason, never zero", () => {
     }
     expect(m["initiative.pct_funded"]?.unavailableReason).toBe("Goal is zero");
     expect(m["initiative.top_backer_share"]?.unavailableReason).toBe("No pledges");
-    expect(m["initiative.self_pledged"]?.unavailableReason).toBe("Recipient is not a resolved organisation");
+    expect(m["initiative.self_pledged"]?.unavailableReason).toBe("Recipient is not a resolved organization");
   });
 
   it("returns null with a reason for cohort ratios over an empty slice", () => {

@@ -1,5 +1,5 @@
 /**
- * MongoDB adapter (Atlas free tier M0 or any MongoDB ≥ 6). Collections are normalised: one
+ * MongoDB adapter (Atlas free tier M0 or any MongoDB ≥ 6). Collections are normalized: one
  * document per record, `_id` = canonical id. The published dataset is loaded by
  * `npm run db:load` after validation; the application only reads it.
  */

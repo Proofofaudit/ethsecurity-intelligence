@@ -169,7 +169,7 @@ export async function repoFacts(fullName: string, now = new Date()): Promise<Rep
     url: repo.html_url,
     exists: true,
     description: repo.description,
-    license: repo.license?.spdx_id && repo.license.spdx_id !== "NOASSERTION" ? repo.license.spdx_id : repo.license ? "Other/unrecognised" : null,
+    license: repo.license?.spdx_id && repo.license.spdx_id !== "NOASSERTION" ? repo.license.spdx_id : repo.license ? "Other/unrecognized" : null,
     archived: repo.archived,
     fork: repo.fork,
     defaultBranch: repo.default_branch,

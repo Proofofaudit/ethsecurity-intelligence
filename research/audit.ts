@@ -14,10 +14,13 @@
  *  7. Cohort metrics recomputed from raw responses equal the published metrics.
  *  8. The ingestion status (snapshot id, sync time, requests, failures, validation) equals the
  *     snapshot manifest it was published from, and the funding identity holds in raw data.
+ *  9. Dossier statements: the summary and its plain-language opening line match the raw official
+ *     summary verbatim, and the Reality vs. Promises budget split adds up to the raw milestones.
  */
 import type { DetailResponse } from "@/lib/official/schemas";
 import type { Dataset } from "@/lib/domain/schemas";
 import { cohortMetrics } from "@/lib/metrics/compute";
+import { plainExplanation, realityVsPromises } from "@/lib/intelligence/service";
 import { formatUsd, toCents } from "@/lib/util/money";
 import { stripMarkdown } from "@/lib/util/text";
 import { readObject, type SnapshotManifest } from "./store";
@@ -79,6 +82,20 @@ export async function auditDataset(d: Dataset, manifest: SnapshotManifest): Prom
       );
     }
     tick("title", ini.title === r.initiative.title, `${ini.slug} title`);
+    // Dossier header: the plain-language line is a verbatim prefix of the raw official summary.
+    const rawSummary = r.initiative.summary.replace(/\s+/g, " ").trim();
+    tick("summary", ini.summary.replace(/\s+/g, " ").trim() === rawSummary, `${ini.slug} summary differs from the official summary`);
+    const plain = plainExplanation(ini);
+    tick("plain_explanation", plain.length > 0 && rawSummary.startsWith(plain), `${ini.slug}: plain-language line is not a prefix of the official summary`);
+    // Reality vs. Promises: the completed / to build / adoption split adds up to the raw milestone budgets.
+    const split = realityVsPromises(d, ini, ms, d.claims.filter((c) => c.initiativeId === ini.id));
+    const rawMilestoneSum = r.initiative.milestones.reduce((s, x) => s + toCents(x.amount), 0);
+    tick(
+      "reality_split",
+      split.fundingForCompletedCents + split.fundingForProposedCents + split.fundingForAdoptionCents === rawMilestoneSum &&
+        split.existing.every((c) => c.status === "independently_verified" || c.status === "partially_supported"),
+      `${ini.slug}: Reality vs. Promises split does not add up to the official milestone budgets`,
+    );
   }
 
   // 2–5. Claims.

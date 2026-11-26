@@ -301,7 +301,7 @@ export async function normalize(manifest: SnapshotManifest): Promise<OfficialLay
     }
   }
 
-  // Organisations via identity resolution.
+  // Organizations via identity resolution.
   const curated = (await readJson<CuratedAlias[]>(path.join(DATA_DIR, "curated", "aliases.json"))) ?? [];
   const { entities, candidates } = resolveIdentities(nameRecords, curated, (name) => `org_${slugify(name) || "unnamed"}`);
   const organizations: Organization[] = [];
@@ -343,7 +343,7 @@ export async function normalize(manifest: SnapshotManifest): Promise<OfficialLay
         organizationId: e.id,
         resolution: res?.resolution ?? "exact_normalized",
         candidateOrganizationId: null,
-        reason: res?.reason ?? "Same name after case/punctuation normalisation",
+        reason: res?.reason ?? "Same name after case/punctuation normalization",
         sourceUrls: res?.sourceUrls ?? [],
       });
     }

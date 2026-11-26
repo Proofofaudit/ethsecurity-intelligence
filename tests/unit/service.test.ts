@@ -67,7 +67,7 @@ describe("filterInitiatives", () => {
     expect(ids(filterInitiatives(d, { researchComplete: true }))).toEqual(expected((s) => s.researchComplete));
   });
 
-  it("filters by standard (case-insensitive) and organisation", () => {
+  it("filters by standard (case-insensitive) and organization", () => {
     const std = d.initiatives.flatMap((i) => i.standards)[0]!;
     expect(ids(filterInitiatives(d, { standard: std.toLowerCase() }))).toEqual(d.initiatives.filter((i) => i.standards.includes(std)).map((i) => i.id).sort());
     const org = d.initiatives.find((i) => i.organizationId)!.organizationId!;

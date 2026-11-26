@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 
-/** Deterministic JSON serialisation with sorted object keys. */
+/** Deterministic JSON serialization with sorted object keys. */
 export function stableStringify(value: unknown): string {
   if (value === null || typeof value !== "object") return JSON.stringify(value) ?? "null";
   if (Array.isArray(value)) return `[${value.map(stableStringify).join(",")}]`;

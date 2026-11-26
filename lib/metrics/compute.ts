@@ -74,7 +74,7 @@ export function initiativeMetrics(d: Slice, ini: Initiative): Record<string, Met
     v(
       "initiative.self_pledged",
       ini.organizationId ? sumCents(pl.filter((p) => p.backerId === ini.organizationId).map((p) => p.amountCents)) : null,
-      "Recipient is not a resolved organisation",
+      "Recipient is not a resolved organization",
     ),
   );
   const ms = d.milestones.filter((m) => m.initiativeId === ini.id);

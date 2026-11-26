@@ -29,7 +29,7 @@ export interface ClaimContext {
   pulls: Map<string, PullFacts>;
   txChecks: Map<string, TxCheck>;
   owners: Map<string, { login: string; createdAt: string | null; publicRepos: number | null }>;
-  /** Organisation names from official records, used for literal counterparty matching only. */
+  /** Organization names from official records, used for literal counterparty matching only. */
   knownNames: string[];
   now: string;
 }
@@ -187,7 +187,7 @@ export function extractClaims(ctx: ClaimContext): { claims: Draft[]; integration
       ...base,
       key: "donations",
       kind: "donation",
-      assertion: `The official ledger lists ${ctx.donations.length} confirmed donation transaction${ctx.donations.length === 1 ? "" : "s"} to the initiative's Safe, totalling ${formatUsd(ini.funding.donatedCents, { precise: true })}.`,
+      assertion: `The official ledger lists ${ctx.donations.length} confirmed donation transaction${ctx.donations.length === 1 ? "" : "s"} to the initiative's Safe, totaling ${formatUsd(ini.funding.donatedCents, { precise: true })}.`,
       origin: "official",
       section: "funding",
       quote: null,
@@ -201,7 +201,7 @@ export function extractClaims(ctx: ClaimContext): { claims: Draft[]; integration
     });
   }
 
-  // 3. Proposal text: cited artefacts, quantitative statements, integrations, prior funding.
+  // 3. Proposal text: cited artifacts, quantitative statements, integrations, prior funding.
   const allLinks = ini.textLinks.map((l) => ({ url: l.url, text: l.text }));
   const seenRepos = new Set<string>();
   for (const l of ini.textLinks) {
@@ -228,7 +228,7 @@ export function extractClaims(ctx: ClaimContext): { claims: Draft[]; integration
       supportingEvidenceIds: exists && r ? [evidenceId.repo(r.fullName)] : [],
       status: exists ? "independently_verified" : "not_independently_verified",
       verificationMethod: exists
-        ? `GitHub API confirms the repository is public${r?.pushedAt ? `; last push ${r.pushedAt.slice(0, 10)}` : ""}${r?.license ? `; licence ${r.license}` : "; no licence detected"}.`
+        ? `GitHub API confirms the repository is public${r?.pushedAt ? `; last push ${r.pushedAt.slice(0, 10)}` : ""}${r?.license ? `; license ${r.license}` : "; no license detected"}.`
         : "The repository could not be retrieved (it may be private, renamed or removed).",
       limitations: exists ? lim : ["Not finding a repository is not evidence that the work does not exist."],
       material: PRIOR_WORK_SECTIONS.has(l.section),
@@ -397,7 +397,7 @@ export type { Draft as ClaimDraft };
 export const CLAIM_KIND_LABEL: Record<ClaimKind, string> = {
   milestone_deliverable: "Planned deliverable",
   milestone_completed: "Completed milestone",
-  existing_artifact: "Existing artefact",
+  existing_artifact: "Existing artifact",
   quantitative: "Quantitative statement",
   integration: "Integration",
   previous_funding: "Previous funding",
