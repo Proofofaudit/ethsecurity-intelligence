@@ -74,7 +74,8 @@ const FUNDING_FIELDS: { k: keyof Funding; label: string }[] = [
   { k: "pledgedCents", label: "Outstanding pledges" },
   { k: "donatedCents", label: "Received (donations)" },
   { k: "receivedCents", label: "Pledges marked received" },
-  { k: "remainingCents", label: "Remaining" },
+  { k: "theDaoAskCents", label: "TheDAO ask" },
+  { k: "remainingCents", label: "Remaining funding gap" },
 ];
 
 function FundingDiff({ before, after }: { before: Partial<Funding>; after: Partial<Funding> }) {

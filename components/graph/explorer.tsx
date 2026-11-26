@@ -467,6 +467,9 @@ function ProfileBody({ p }: { p: Profile }) {
           <Row k="Raised">
             <Money cents={i.raisedCents} /> (<Pct value={i.pct} />)
           </Row>
+          <Row k="TheDAO ask">
+            <Money cents={i.theDaoAskCents} reason="Goal or raised unavailable" />
+          </Row>
           <Row k="Recipient">{i.organization ?? i.recipientTeam ?? "No designated recipient (RFP)"}</Row>
           <Row k="Milestones">
             <span className="num">{i.milestones}</span>, of which <span className="num">{i.adoptionMilestones}</span> adoption

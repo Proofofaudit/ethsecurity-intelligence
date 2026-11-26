@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { ExternalLink } from "@/components/ui/button";
 import { Block, Note, PageHead, Stat } from "@/components/ui/layout";
-import { DateTime, formatDateTime } from "@/components/ui/money";
+import { DateTime, formatDateTime, Money } from "@/components/ui/money";
 import { loadIntelligence } from "@/lib/intelligence/load";
 import { displayName } from "@/lib/intelligence/service";
 import { ingestionStatus } from "@/lib/intelligence/status";
@@ -26,6 +26,10 @@ function Ok({ ok, children }: { ok: boolean; children: ReactNode }) {
   return <span className={cn("text-xs font-medium", ok ? "text-st-verified" : "text-st-contradicted")}>{children}</span>;
 }
 
+const VOTE_STATUS_LABEL = { aligned: "Aligned", unaligned: "Not aligned: group features disabled", unavailable: "Unavailable: dependent features disabled" } as const;
+
+const UTC = new Intl.DateTimeFormat("en-US", { weekday: "short", day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit", hourCycle: "h23", timeZone: "UTC", timeZoneName: "short" });
+
 const hours = (h: number | null) => (h === null ? "unknown" : h < 48 ? `${h} hours` : `${Math.round(h / 24)} days`);
 
 export default async function StatusPage() {
@@ -33,6 +37,8 @@ export default async function StatusPage() {
   const s = ingestionStatus(d, health);
   const staleCheck = s.officialSync.validation.find((v) => v.check === "details_complete");
   const byId = new Map(d.initiatives.map((i) => [i.id, i]));
+  const vm = s.voteManifest;
+  const pool = d.vote.poolCents;
 
   return (
     <div className="space-y-10">
@@ -143,6 +149,56 @@ export default async function StatusPage() {
           {s.research.initiativesMissingResearch.length > 0 && <p className="mt-3 text-xs text-ink-3">Not fully researched: {s.research.initiativesMissingResearch.map((x) => (byId.get(x.id) ? displayName(d, byId.get(x.id)!) : x.slug)).join(", ")}.</p>}
         </Block>
       </div>
+
+      <Block
+        title="Official vote manifest"
+        note={
+          <>
+            Source <ExternalLink href={vm.source}>/api/vote/manifest</ExternalLink>. {vm.note}
+          </>
+        }
+      >
+        <dl className="grid max-w-[860px] grid-cols-[minmax(0,10rem)_1fr] gap-x-4 gap-y-1.5 text-sm max-sm:grid-cols-1">
+          <dt className="text-ink-3">Status</dt>
+          <dd data-vote-status={vm.status}>
+            <Ok ok={vm.status === "aligned"}>{VOTE_STATUS_LABEL[vm.status]}</Ok>
+            <span className="block text-xs text-ink-3">{vm.statusReason}</span>
+          </dd>
+          <dt className="text-ink-3">Fetched</dt>
+          <dd>
+            {vm.fetchedAt ? formatDateTime(vm.fetchedAt) : "Not fetched"}
+            {vm.stale && " (stored copy reused: the latest fetch failed)"}
+          </dd>
+          <dt className="text-ink-3">Contents</dt>
+          <dd className="num">
+            {vm.slugs} slugs · {vm.projects} projects · {vm.groups} affiliation groups
+            {vm.configRevision !== null && ` · config revision ${vm.configRevision}`}
+          </dd>
+          <dt className="text-ink-3">Pool</dt>
+          <dd>
+            <Money cents={pool} reason="Vote manifest unavailable" />
+          </dd>
+          <dt className="text-ink-3">Tier tally starts</dt>
+          <dd className="num">
+            {d.vote.scheduleAvailable && d.vote.schedule
+              ? d.vote.schedule.firstTallyAt.map((t, i) => `${["S", "A", "B"][i] ?? i}-tier ${UTC.format(t * 1000)}`).join(" · ")
+              : "Unavailable"}
+          </dd>
+          <dt className="text-ink-3">Disabled features</dt>
+          <dd>{vm.disabled.length ? vm.disabled.join(", ") : "None"}</dd>
+        </dl>
+        <ul className="mt-3 max-w-[860px] divide-y divide-rule text-sm">
+          {vm.alignment.checks.map((c) => (
+            <li key={c.check} className="grid grid-cols-[minmax(0,1fr)_auto] gap-3 py-1.5">
+              <span className="min-w-0">
+                <span className="num text-xs">{c.check}</span>
+                <span className="block text-xs break-words text-ink-3">{c.detail}</span>
+              </span>
+              <Ok ok={c.ok}>{c.ok ? "Passed" : "Failed"}</Ok>
+            </li>
+          ))}
+        </ul>
+      </Block>
 
       <Block title="Publication">
         <dl className="grid max-w-[860px] grid-cols-[minmax(0,10rem)_1fr] gap-x-4 gap-y-1.5 text-sm max-sm:grid-cols-1">

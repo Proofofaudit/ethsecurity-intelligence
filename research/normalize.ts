@@ -5,8 +5,10 @@
  */
 import path from "node:path";
 import { promises as fs } from "node:fs";
-import type { DetailResponse, ListResponse, RevisionResponse } from "@/lib/official/schemas";
-import type { Donation, Initiative, Milestone, Organization, OrganizationAlias, Person, Pledge, Provenance, Revision } from "@/lib/domain/schemas";
+import type { DetailResponse, ListResponse, RevisionResponse, VoteManifestResponse } from "@/lib/official/schemas";
+import type { Donation, Initiative, Milestone, Organization, OrganizationAlias, Person, Pledge, Provenance, Revision, VoteSection } from "@/lib/domain/schemas";
+import { theDaoAskCents } from "@/lib/metrics/ask";
+import { buildVoteSection, unavailableVote } from "@/lib/vote/manifest";
 import { classifyStages, extractStandards } from "@/lib/domain/taxonomy";
 import { resolveIdentities, type CuratedAlias, type NameRecord } from "@/lib/domain/identity";
 import { toCents } from "@/lib/util/money";
@@ -14,7 +16,7 @@ import { contentHash, stableId } from "@/lib/util/hash";
 import { extractLinks, slugify } from "@/lib/util/text";
 import { officialUrls } from "@/lib/official/client";
 import { DATA_DIR, REVISIONS_DIR, readJson, readObject, type SnapshotManifest } from "./store";
-import { loadCohort } from "./ingest";
+import { ballotRecords, loadCohort, type Cohort } from "./ingest";
 
 export const NORMALIZER_VERSION = "normalize@1";
 
@@ -30,6 +32,7 @@ export interface OfficialLayer {
   people: Person[];
   revisions: Revision[];
   details: Map<string, DetailResponse>;
+  vote: VoteSection;
 }
 
 const tsToIso = (t: number | null | undefined): string | null => (t ? new Date(t * 1000).toISOString() : null);
@@ -193,6 +196,7 @@ export async function normalize(manifest: SnapshotManifest): Promise<OfficialLay
         live: d.summary.live ?? null,
         officialPct: d.pct ?? list?.pctFunded ?? null,
         remainingCents: Math.max(0, goalCents - officialRaisedCents),
+        theDaoAskCents: theDaoAskCents(goalCents, officialRaisedCents),
         ledgerCheckedAt: tsToIso(d.ledger?.checkedAt ?? null),
       },
       stages: classifyStages(fullText, categorySlugs),
@@ -406,9 +410,11 @@ export async function normalize(manifest: SnapshotManifest): Promise<OfficialLay
   }
 
   initiatives.sort((a, b) => a.title.localeCompare(b.title));
+  const vote = await loadVoteSection(manifest, cohort, ballot);
   return {
     manifest,
     ballot,
+    vote,
     initiatives,
     milestones,
     pledges,
@@ -419,6 +425,14 @@ export async function normalize(manifest: SnapshotManifest): Promise<OfficialLay
     revisions,
     details,
   };
+}
+
+/** Vote section from the snapshot's manifest object, re-checked against the snapshot's ballot. */
+export async function loadVoteSection(manifest: SnapshotManifest, cohort: Cohort, ballot: ListResponse): Promise<VoteSection> {
+  if (!manifest.vote) return unavailableVote("This snapshot was taken before vote manifest ingestion.");
+  const v = manifest.vote;
+  const body = v.object ? await readObject<VoteManifestResponse>(v.object) : null;
+  return buildVoteSection(body?.manifest ?? null, { objectHash: v.object, fetchedAt: v.fetchedAt, stale: v.stale, error: v.error }, new Map(cohort.members.map((m) => [m.slug, m.id])), ballotRecords(ballot));
 }
 
 export async function fileExists(p: string): Promise<boolean> {

@@ -28,7 +28,7 @@ export const viewport: Viewport = {
   ],
 };
 
-export const revalidate = 300;
+export const revalidate = 600;
 
 function paletteData(d: Dataset): { initiatives: PaletteInitiative[]; organizations: PaletteOrganization[] } {
   const name = (id: string | null) => (id ? (d.organizations.find((o) => o.id === id)?.name ?? null) : null);

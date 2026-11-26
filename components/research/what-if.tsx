@@ -320,6 +320,9 @@ export function WhatIfLab({ initiatives, hypotheses, initial }: { initiatives: L
                       <th scope="col" className="py-2 pr-3 text-right font-medium">
                         Gap
                       </th>
+                      <th scope="col" className="py-2 pr-3 text-right font-medium" title="Official TheDAO ask today, independent of your assumptions: goal minus official raised, floored at $0 and capped at $200,000">
+                        TheDAO ask (official)
+                      </th>
                       <th scope="col" className="py-2 pr-3 text-right font-medium">
                         Budget applied
                       </th>
@@ -349,6 +352,9 @@ export function WhatIfLab({ initiatives, hypotheses, initial }: { initiatives: L
                           </td>
                           <td className="py-2 pr-3 text-right">
                             <Money cents={r.gapCents} />
+                          </td>
+                          <td className="py-2 pr-3 text-right">
+                            <Money cents={r.officialTheDaoAskCents} reason="Goal or raised unavailable" />
                           </td>
                           <td className="py-2 pr-3 text-right">{a?.allocatedCents === null || !a ? <span className="text-ink-3">–</span> : <Money cents={a.allocatedCents} />}</td>
                           <td className="num py-2 pr-3 text-right text-xs whitespace-nowrap">

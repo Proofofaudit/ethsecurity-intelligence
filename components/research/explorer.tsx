@@ -37,7 +37,8 @@ const SORT_OPTIONS: { value: Exclude<ResearchParams["sort"], ""> | "relevance"; 
   { value: "relevance", label: "Search relevance (BM25)" },
   { value: "goal", label: "Requested amount" },
   { value: "pct", label: "Funding progress" },
-  { value: "remaining", label: "Still needed" },
+  { value: "ask", label: "TheDAO ask" },
+  { value: "remaining", label: "Remaining funding gap" },
   { value: "milestones", label: "Number of milestones" },
 ];
 
@@ -137,10 +138,16 @@ export function ResearchExplorer({ params, invalid, items, total, sortNote, face
         meta: { headerTitle: "Received and pledged as a share of the goal" },
       },
       {
+        id: "ask",
+        header: "TheDAO ask",
+        cell: ({ row }) => <Money cents={row.original.theDaoAskCents} reason="Goal or raised unavailable" />,
+        meta: { align: "right", headerTitle: "Goal minus official raised, floored at $0 and capped at $200,000" },
+      },
+      {
         id: "remaining",
-        header: "Still needed",
-        cell: ({ row }) => <Money cents={row.original.remainingCents} />,
-        meta: { align: "right" },
+        header: "Remaining gap",
+        cell: ({ row }) => <Money cents={row.original.remainingCents} className="text-ink-2" />,
+        meta: { align: "right", headerTitle: "Remaining funding gap: goal minus official raised, floored at $0, uncapped" },
       },
       {
         id: "milestones",
@@ -347,7 +354,7 @@ function Card({ r, selected, disabled, onToggle }: { r: Row; selected: boolean; 
             <SaveButton id={r.id} title={r.shortTitle} compact />
           </div>
           <FundingBar f={r} height={5} className="mt-3" />
-          <dl className="mt-2 grid grid-cols-3 gap-2 text-xs">
+          <dl className="mt-2 grid grid-cols-2 gap-2 text-xs sm:grid-cols-4">
             <div>
               <dt className="text-ink-3">Requested</dt>
               <dd>
@@ -358,6 +365,14 @@ function Card({ r, selected, disabled, onToggle }: { r: Row; selected: boolean; 
               <dt className="text-ink-3">Raised</dt>
               <dd>
                 <Money cents={r.raisedCents} /> <span className="text-ink-3">(<Pct value={r.pct} digits={0} />)</span>
+              </dd>
+            </div>
+            <div>
+              <dt className="text-ink-3" title="Goal minus official raised, floored at $0 and capped at $200,000">
+                TheDAO ask
+              </dt>
+              <dd>
+                <Money cents={r.theDaoAskCents} reason="Goal or raised unavailable" />
               </dd>
             </div>
             <div>

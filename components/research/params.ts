@@ -24,7 +24,7 @@ export interface ResearchParams {
   research: "complete" | "incomplete" | "";
   std: string;
   org: string;
-  sort: "" | "title" | "goal" | "raised" | "pct" | "remaining" | "milestones";
+  sort: "" | "title" | "goal" | "raised" | "pct" | "ask" | "remaining" | "milestones";
   order: "asc" | "desc" | "";
   view: "table" | "cards";
 }
@@ -56,7 +56,7 @@ export function parseParams(sp: SP): ResearchParams {
     research: oneOf(first(sp.research), ["complete", "incomplete"] as const),
     std: first(sp.std).slice(0, 20),
     org: first(sp.org).slice(0, 120),
-    sort: oneOf(first(sp.sort), ["title", "goal", "raised", "pct", "remaining", "milestones"] as const),
+    sort: oneOf(first(sp.sort), ["title", "goal", "raised", "pct", "ask", "remaining", "milestones"] as const),
     order: oneOf(first(sp.order), ["asc", "desc"] as const),
     view: first(sp.view) === "cards" ? "cards" : "table",
   };

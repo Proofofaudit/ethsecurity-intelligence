@@ -1,6 +1,6 @@
 /**
  * Cohort and initiative metrics against the published dataset. The expected figures are
- * validation references taken from the official API on 2026-11-26; the application never
+ * validation references taken from the official API on 2026-11-26 (snapshot 20261126T130839Z); the application never
  * hardcodes them, it computes them from the dataset.
  */
 import { beforeAll, describe, expect, it } from "vitest";
@@ -28,11 +28,13 @@ describe("cohort metrics (official baseline)", () => {
   it("matches the official goal, raised and remaining figures in integer cents", () => {
     const m = cohortMetrics(d);
     expect(val(m, "cohort.goal")).toBe(559_380_000);
-    expect(val(m, "cohort.raised")).toBe(179_899_919);
-    expect(val(m, "cohort.remaining")).toBe(379_480_081);
+    expect(val(m, "cohort.raised")).toBe(179_923_632);
+    expect(val(m, "cohort.remaining")).toBe(379_456_368);
+    // No initiative's gap exceeds the $200,000 cap in this snapshot, so the ask equals the gap.
+    expect(val(m, "cohort.thedao_ask")).toBe(379_456_368);
     expect(val(m, "cohort.pledged_outstanding")).toBe(164_437_300);
     expect(val(m, "cohort.received_pledges")).toBe(8_920_000);
-    expect(val(m, "cohort.donated")).toBe(15_462_619);
+    expect(val(m, "cohort.donated")).toBe(15_486_332);
     for (const x of Object.values(m)) if (x.value !== null && x.id !== "cohort.top5_backer_share" && !x.id.endsWith("coverage") && !x.id.endsWith("verified")) expect(Number.isSafeInteger(x.value), x.id).toBe(true);
   });
 

@@ -23,8 +23,8 @@ export function Num({ value, className, reason }: { value: number | null | undef
 
 export function NotAvailable({ reason, className }: { reason?: string; className?: string }) {
   return (
-    <span className={cn("text-ink-3 italic", className)} title={reason ?? "Not available"}>
-      Not available{reason ? <span className="sr-only">: {reason}</span> : null}
+    <span className={cn("text-ink-3 italic", className)} title={reason ?? "Unavailable"}>
+      Unavailable{reason ? <span className="sr-only">: {reason}</span> : null}
     </span>
   );
 }

@@ -53,11 +53,12 @@ export const TOOLS: ToolInfo[] = [
     name: "get_funding",
     title: "Funding breakdown, backers and funding relationships",
     description:
-      "scope \"initiative\": official funding figures, pledges with backer names, donations and financial metrics for one initiative. scope \"backers\": every backer with totals across the cohort (paginated). scope \"relationships\": backers of several initiatives, self-pledges, unconfirmed identity candidates and concentration.",
+      "scope \"initiative\": official funding figures (including theDaoAskCents: goal minus raised, capped at $200,000), pledges, donations and financial metrics for one initiative. scope \"backers\": every backer with cohort totals (paginated). scope \"relationships\": multi-initiative backers, self-pledges, identity candidates and concentration. scope \"vote_manifest\": the official vote manifest (pool, schedule, affiliation groups) with its alignment check.",
     covers: [
       { name: "get_funding_breakdown", how: "scope: \"initiative\"" },
       { name: "get_backers", how: "scope: \"backers\"" },
       { name: "analyze_funding_relationships", how: "scope: \"relationships\"" },
+      { name: "get_vote_manifest", how: "scope: \"vote_manifest\"" },
     ],
   },
   {

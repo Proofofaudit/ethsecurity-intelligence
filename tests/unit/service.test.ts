@@ -134,7 +134,7 @@ describe("simulatePortfolio", () => {
   it("applies pledge conversion, adoption exclusion and budget in the user's order", () => {
     const all = d.initiatives.map((i) => i.id);
     const full = simulatePortfolio(d, { initiativeIds: all });
-    expect(full.totals.gapCents).toBe(379_480_081);
+    expect(full.totals.gapCents).toBe(379_456_368);
     const half = simulatePortfolio(d, { initiativeIds: all, pledgeConversion: 0.5 });
     expect(half.totals.securedCents).toBeLessThan(full.totals.securedCents);
     const noAdoption = simulatePortfolio(d, { initiativeIds: all, excludeAdoptionMilestones: true });

@@ -1,0 +1,451 @@
+{
+  "snapshotId": "20261126T130839Z-fe7ea363",
+  "createdAt": "2026-11-26T13:08:39.340Z",
+  "officialGeneratedAt": "2026-11-26T13:08:39.775Z",
+  "previousSnapshotId": "20261126T101107Z-1cb9ae37",
+  "ballotObject": "2a938a274533c4de086162f2f13ec8da917e61a3e2b7d74de31fa60ee2a86348",
+  "initiatives": {
+    "ethsec-ai-security-review-of-the-ethereum-ecosystem": {
+      "id": "01M7MMH5TT52AVYP26YGMH849V",
+      "detail": "aaaad10daf9ccb442e2bcb53f9229e685a7910fe6af02beec1d42e1a8d4785ab",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:40.778Z",
+      "stale": false
+    },
+    "ai-guided-smart-contract-security-checks-in-remix": {
+      "id": "01M5FK50JGGFSER7GE9CEPYD45",
+      "detail": "46d8b7ecb7311dacb8461fcfa0214983c2759d739d23ed695b5df98ec2deb7e9",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:40.865Z",
+      "stale": false
+    },
+    "source-level-debugging-for-solidity-ethdebug-in-solc-2": {
+      "id": "01M2J7YH0GB72P1EXY776B0882",
+      "detail": "bbd81304c8e7b232b28d87aa360cd981e77f0ffb5fbdc5232374ae65e7ad6484",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:41.011Z",
+      "stale": false
+    },
+    "independent-security-assurance-for-the-eez-smart-contracts": {
+      "id": "01M2MT3AC43G0TF72GJ2AAVV8M",
+      "detail": "ff7765e9e524bcf507f1778b7d8b8c6a79d025a20a53b75ebac4711baad275de",
+      "comments": "7fe8328c1cda9185c88ad834366ddf9d6180d578efb24c8cef57c042aacaae76",
+      "detailFetchedAt": "2026-11-26T13:08:41.357Z",
+      "stale": false
+    },
+    "seal-intel-scaling-blockchain-threat-intelligence-enhancing": {
+      "id": "01M78DYTMF85EKCPVVD5DSKTQM",
+      "detail": "64538dec49cd1704ba3df41642c01337ab399d643f0dc1c806efd7548b42bae3",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:41.517Z",
+      "stale": false
+    },
+    "formally-verified-evm-for-ethereum": {
+      "id": "01M5MAKDMCM05EYB6HWDWJFDNY",
+      "detail": "c43d6cc1154c82c35e88dbce607369dd81fe9e1c3c0dec09f3edbb2d6c6e2be3",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:41.617Z",
+      "stale": false
+    },
+    "free-backtestable-onchain-monitoring-on-17-evm-chains": {
+      "id": "01M4BF7QP1AJ27GBXGYY15HJ4H",
+      "detail": "0581b92ad956df45c934ab02b47b4fd1721a0dd6d155325bc4ad7f014ae5d62b",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:41.942Z",
+      "stale": false
+    },
+    "trustless-across-ethereum-colibri-verification-for-l2-networ": {
+      "id": "01M4DN8CG9M5000N3YK13NC88H",
+      "detail": "6d66d7746bde5c604490f186deaa9ae6ccfcfa76a1929dcffdb6ddcf419207b0",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:42.070Z",
+      "stale": false
+    },
+    "ostros-an-open-source-hardware-wallet-on-crossbar-s-security": {
+      "id": "01M7G1TMPA644E14RREP7FWFS3",
+      "detail": "69af71a042e69810df492539ee1b501a131069e8bdbd7875d5b92750b707bda3",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:42.217Z",
+      "stale": false
+    },
+    "dappfence-verifiable-frontend-security": {
+      "id": "01M3Z4WCEM2VMP0J3YFKH60DEE",
+      "detail": "42659602126430825de26fe82e51907faf1fc7ac97da8312a795b57ec5f7f229",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:42.610Z",
+      "stale": false
+    },
+    "make-dapps-verify-what-they-show-colibri-in-wallets-defi-and": {
+      "id": "01M4DNCJ91H721WH88RMET73JW",
+      "detail": "18c13b12eda27f6121fb3f091976dddb1a1d54b1d669c0c801e2037d3819a6bb",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:42.725Z",
+      "stale": false
+    },
+    "an-open-bug-bounty-program-for-all-of-ethereum-white-hat-res": {
+      "id": "01M5929GJEQH8S33FQJ1E2J9CD",
+      "detail": "7002b4e9a37b4ce148c97b936097237638d61a8360cce6a655553209ce0fdc64",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:42.773Z",
+      "stale": false
+    },
+    "zk-clear-signing-verifiable-transaction-display-for-hardware": {
+      "id": "01M3VHWKD6B41SZ1E7RWCKKSAX",
+      "detail": "86a875a0082667583acf08e960dd2fc0e1b2295bfc723eb7ea62a0c0667cb937",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:43.300Z",
+      "stale": false
+    },
+    "opsec-ratings-coalition-to-build-maintain-an-l2beat-for-opse": {
+      "id": "01M23GTQDENX5BPAMTFT82R795",
+      "detail": "dcb97c2c12d2b626d282af46ed765af5dd389e42cecbd8e966ad23ee644b6016",
+      "comments": "11ba5c9bbb301c9b044781d3b5c180c4f97d3d2192be635803d347ddfc998031",
+      "detailFetchedAt": "2026-11-26T13:08:43.457Z",
+      "stale": false
+    },
+    "know-what-you-sign-verified-simulation-against-blind-signing": {
+      "id": "01M4DNFKC31D46AZVBBWKZVS52",
+      "detail": "4f14f7c68a203ec7b2cd24fe245f5f14533282f1fd87793b8d8172fcbc8a0f97",
+      "comments": "8fa59f925c6ca8714faedc60e0d91a77781a82b907454b0f010b698f26bac8cb",
+      "detailFetchedAt": "2026-11-26T13:08:43.614Z",
+      "stale": false
+    },
+    "defimon-rescue-agent-autonomous-whitehat-rescues-for-safe-ha": {
+      "id": "01M7673802W8E7R5JNPPS42CKX",
+      "detail": "c5f24943e5329f312ee727af7afded9b4edc6c04761db34c823ec94f796a4457",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:44.009Z",
+      "stale": false
+    },
+    "community-fuzzing-tooling-for-ethereum-ecosystem-projects": {
+      "id": "01M29K8XZ44RZWGYDYY0NWB6YN",
+      "detail": "3671d2348515dcc12af18d02b1ff4347f2cb664d3bbd078f60c4b7715251445a",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:44.126Z",
+      "stale": false
+    },
+    "rfp-a-bug-broker-that-gets-ethereum-bugs-fixed-and-researche": {
+      "id": "01M85ABCFNN4GQ4022QQB0TC14",
+      "detail": "f48b228e0b763301102c2b18df406857db0eca428f85e3d514c846fb6222a77c",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:44.173Z",
+      "stale": false
+    },
+    "forensiq-faster-ethereum-incident-response-through-evidence": {
+      "id": "01M29K8ZJSD5TT78Q4ZYV7EGTF",
+      "detail": "c470d891f5972c9821bb9897137319f5c3b777ed26a27e60db190d82580b2e8c",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:44.659Z",
+      "stale": false
+    },
+    "exploit-exposure-layer-free-data-on-every-wallet-still-appro": {
+      "id": "01M2K8EKQAH710WKDRANQ04TVG",
+      "detail": "a993223c5cc71dd1d5cc1f2f3cb168e824ba0cc34482e448433038ac76ff21fa",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:44.810Z",
+      "stale": false
+    },
+    "production-ready-local-first-safe-ui": {
+      "id": "01M29K91G30RT7153MBM3VXDAZ",
+      "detail": "ad11ff5b70a0792b3f24d1d172ee1cdbe5c80f794ce44280c64fdd3921ffc023",
+      "comments": "34ab3708f269ab28d5b2f2cc031f440113e78c179ac06726c5ac8b52b1a9de9d",
+      "detailFetchedAt": "2026-11-26T13:08:44.868Z",
+      "stale": false
+    },
+    "keep-eth-infraops-open-secure-resilient-validator-operation": {
+      "id": "01M61HNA3RK831EKY44WCDEKMH",
+      "detail": "16c54aab1b2378db350147412a3c29424490ed5f7eff49d900a408712d5db52c",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:45.225Z",
+      "stale": false
+    },
+    "seal-security-frameworks-maintaining-open-security-knowledge": {
+      "id": "01M5J4R6DT7MFCHD99NR9N5X0X",
+      "detail": "eab2607a86b7712887bc0bc455290926c695ebb5422527f424774fe9947b7695",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:45.467Z",
+      "stale": false
+    },
+    "rfp-stop-patches-from-becoming-exploits-coordinated-fixes-fo": {
+      "id": "01M85ACA7DHHYWHJQNQ9ZW70D1",
+      "detail": "c019f73e3d8c11839678fd98206436ea730f0e56dc7cd35b2f57db561eec9313",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:45.595Z",
+      "stale": false
+    },
+    "open-risk-pricing-for-defi-a-public-price-for-default-risk": {
+      "id": "01M5F26FPPP86J972454VP90SP",
+      "detail": "cdabb3e08cd859066c3a91631314040d3a0290e44b91dbeece436f20bb6254a3",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:45.998Z",
+      "stale": false
+    },
+    "economic-property-packs-for-amms-and-lending-markets-fuzz-te": {
+      "id": "01M4XZYSTKER585WFBTPDS2C3Z",
+      "detail": "4e8e5cb44a8bc9908b19b0fafd5cc807b5a81fa9fa378939675bbbc97f806957",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:46.108Z",
+      "stale": false
+    },
+    "scar-test-security-fixes-against-the-real-exploit-before-the": {
+      "id": "01M55FCN0S9D9AFTPQ7Z5YYV9N",
+      "detail": "e2ed0a303597bc080556ae3c7cb58fa7889a28c206c487bb0aea50c911dc30c7",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:46.253Z",
+      "stale": false
+    },
+    "decentralized-archive-for-ethereum-blob-data": {
+      "id": "01M6SCYV7YW1APV08QWEKCEX69",
+      "detail": "983416206cc9fc3d92d7c4b92f5b5cda97294499c87b520d0a7f0c1f2dbc83aa",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:46.705Z",
+      "stale": false
+    },
+    "independent-attestations-for-the-erc-7730-descriptors-of-eth": {
+      "id": "01M68T944HQTVQFH8CHAYM48NZ",
+      "detail": "4df6a8101f5978dd51b57fe31a7645f8a3e7893b320abc4b176ea50d08b3851f",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:46.854Z",
+      "stale": false
+    },
+    "audit-transparency-for-ethereum-every-defi-protocol-s-audits": {
+      "id": "01M71Z2R3ZWPWHNVGZTHHHD0Q0",
+      "detail": "1dad676a5b0d8e63a81b3cf764915a7d12d25a807e5fea351fd7d683012ba470",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:46.913Z",
+      "stale": false
+    },
+    "proof-of-audits-proof-before-sign-for-ethereum-wallets-and-a": {
+      "id": "01M7DRVJ21PZF6F9ASRRTC5FGK",
+      "detail": "20880589db14ec6a15d94407e000142ded6a2a9cf85ad97cec0ad43e0e024ccb",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:47.317Z",
+      "stale": false
+    },
+    "address-poisoning-detection-and-public-api-for-ethereum-and": {
+      "id": "01M4RK0Z7B8YQFYWMH43P4CGH9",
+      "detail": "d4c932155fc34e8f9a7e25d4730bdc1732e9e5465dc2cf2a6238578ff65385fa",
+      "comments": "c1f3fe8d4e494a313d7ff41abf3d1e2a1feeecb4f55d41f64b68b13d3edc461d",
+      "detailFetchedAt": "2026-11-26T13:08:47.503Z",
+      "stale": false
+    },
+    "blockthreat-weekly-threat-intelligence-that-keeps-ethereum-t": {
+      "id": "01M8232CFK0PHZHYGXD04XJDK9",
+      "detail": "6c4108d723ddfa3aca8ed93c36ff00669eb42eb4474d501f2a0da27b59c2d051",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:47.655Z",
+      "stale": false
+    },
+    "leakdetectai-detecting-and-eliminating-side-channel-vulnerab": {
+      "id": "01M7FKT26WBRVS419EJG2EKJ1Q",
+      "detail": "83f755f546a72bc16cc2358c8669a826410a6dcbb663f49da7db721ed2ca6fec",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:48.219Z",
+      "stale": false
+    },
+    "assertions-for-safes-enforced-on-every-transaction-readable": {
+      "id": "01M4ACNCQ61BYAQC7VZ4ABAKB2",
+      "detail": "ac6b8c2abb2a5be8d27f1e2660070350dbe8ee3868fc913ad600d7621f77ac2a",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:48.235Z",
+      "stale": false
+    },
+    "rfp-no-more-lost-bug-reports-a-verified-security-contact-for": {
+      "id": "01M85AA84PDDXCW4W3S80WCAY7",
+      "detail": "91c60e042efb59ae2e3d0888ce63f0dd8f12e41f59c943259ca7e0e4f021e678",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:48.393Z",
+      "stale": false
+    },
+    "onchain-risk-map-an-open-operational-incident-graph-for-ethe": {
+      "id": "01M2K91QF23NEAFTEQ35CC0X51",
+      "detail": "e6c53e2b88f43d6743c65e31fd60bc72596fa973c4300491d40910d538854218",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:48.797Z",
+      "stale": false
+    },
+    "fund-echidna-development-through-2027-2": {
+      "id": "01M2GVWSZPN62EB6QN9EWXMR3Z",
+      "detail": "0eafe91ebd9e2d88a4c6872bc3f211d60830a4ea2d0bc620741d3c44c5ceb6cd",
+      "comments": "230a8daf4c371ae208c46c787afd15366124dd108694cb37892630d990248f86",
+      "detailFetchedAt": "2026-11-26T13:08:48.849Z",
+      "stale": false
+    },
+    "scaling-kann-ai-for-ai-smart-contract-security-2": {
+      "id": "01M4PN0TQFGMJCHHQZ68BET28K",
+      "detail": "5a6c0e4e23936d543810624e813bb2c00e680f14f0f82271480259a12323a2bf",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:49.061Z",
+      "stale": false
+    },
+    "onay-local-signing-companion": {
+      "id": "01M37FFV4J021XZCFD3NRKS5PZ",
+      "detail": "41562b7c5cb719f7aae899aa791ef3d2670a6424617af3c6a62d86e3a2c95ab0",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:49.432Z",
+      "stale": false
+    },
+    "dprk-it-worker-screening-for-the-ethereum-ecosystem": {
+      "id": "01M2QFPTN1BQDS7VYA5G5QH6B3",
+      "detail": "0cc49c0e2e149ae863debbf2b93195a61fd64aee4e5f14555e341267f2e594eb",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:49.498Z",
+      "stale": false
+    },
+    "securing-ethereum-with-formal-verification": {
+      "id": "01M29K92BMFXAB2TQVZZRJS5YE",
+      "detail": "88d35ae782b4c9095fdd2169ada59ada56ea36cd53a838cb4cbc30349aa7756b",
+      "comments": "86b3f19b8c816982627ade350f2e3ccc3af7be87ee97eb797bb815e381497d1e",
+      "detailFetchedAt": "2026-11-26T13:08:49.720Z",
+      "stale": false
+    },
+    "trustblock-every-public-ethereum-and-l2-audit-tied-to-the-co": {
+      "id": "01M7HT47X99NBM0NTSZ9Z2X75E",
+      "detail": "85627392621dd7ff4f6970b9775b0ad4122b42fa3307ebab53212b70c082893a",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:50.142Z",
+      "stale": false
+    },
+    "reproducible-ethereum-clients-official-releases-that-anyone": {
+      "id": "01M761AJ5JRD2CCBH08G61762M",
+      "detail": "cdcf94beedc4d9160e62699bf05f7d0441778d9b077e358b9228faa772732d90",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:50.286Z",
+      "stale": false
+    },
+    "automated-eip-compliance-checks-for-ethereum-clients": {
+      "id": "01M23GTPYREBX59SBNC6JF3FJC",
+      "detail": "b3a8eabd37a544f19bf0680ea0f29e3dd40d5dd91784a7af1e88a99f646eda01",
+      "comments": "13b756e16ffbddd1491ace506cf1f51c855a030b00c3693f61fe3ba28203180d",
+      "detailFetchedAt": "2026-11-26T13:08:50.347Z",
+      "stale": false
+    },
+    "clear-signing-ratings-fixes-and-ecosystem-adoption-for-hardw": {
+      "id": "01M5XPS7SD7745YF5GJR7BE8F0",
+      "detail": "cc411e101db05dbdab6a5c153c2e0908334a4ad87da7382a6dd99cbff308853e",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:50.749Z",
+      "stale": false
+    },
+    "trust-and-security-assessment-framework-for-agentic-defi": {
+      "id": "01M5YJ9GV0J653S0MEAY8X291D",
+      "detail": "88ea77ea6ef881d309b5b0c5e1844914b1bcea375004c4086ed8299517354885",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:51.000Z",
+      "stale": false
+    },
+    "zealynx-defence-paid-security-training-and-practical-help-wi": {
+      "id": "01M7JHY7W1HRMCKZS3R99YM7QM",
+      "detail": "4ee0835c236e9824473720c1ecafa68ce867c3269c0ae859b2dc56798da74d34",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:51.161Z",
+      "stale": false
+    },
+    "safe-lockdown-guard-an-emergency-freeze-for-kidnapping-and-c": {
+      "id": "01M2T5V1CCFKH3KYYKJ193ADNY",
+      "detail": "b6fca2bb568caf6d2e997ede25a6e43f01c1ca31048e8bbf34f561654f1e98ed",
+      "comments": "4f060e043705b656b3a97886e24e71a332861bb23ca9585e271461ad7b0423dc",
+      "detailFetchedAt": "2026-11-26T13:08:51.409Z",
+      "stale": false
+    },
+    "wake-v5-maintenance-and-ai-assisted-fuzzing": {
+      "id": "01M2JQEP933CCFFVD10YF3MW6J",
+      "detail": "3618411eb92d18c7be44c7d0a8765e369319c7c47675b3fc428af3330810fc9f",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:51.615Z",
+      "stale": false
+    },
+    "tee-security-handbook-practical-verification-failure-analysi": {
+      "id": "01M2K23TNDZTEHTXSVRGKM28X1",
+      "detail": "83ea160f471eb0a2cc79ee61856ed663b03e3f67b24f5e1db6bb2ba1f1a22b4e",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:51.911Z",
+      "stale": false
+    },
+    "preparing-encrypted-mempools-for-inclusion-in-the-earliest-e": {
+      "id": "01M3P9YXBE9VX4ERF32AYBJQRT",
+      "detail": "6cf03ae4881209f0599fe19a7892a48d3e4ee1877423a89116daf7294687af88",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:52.149Z",
+      "stale": false
+    },
+    "saviour-who-can-act-through-a-safe-at-one-pinned-block": {
+      "id": "01M7NAHFQAC0VNRBMVZZN87H0Z",
+      "detail": "2b117e0f91e2dd1602cb5164b909bbbc7d8069421310c6f0775dee6904462554",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:52.302Z",
+      "stale": false
+    },
+    "reusable-security-workflows-for-triage-of-vulnerability-repo": {
+      "id": "01M75H5K1FSQ72K5TWQJ3Z3VMC",
+      "detail": "d66094e171788f657a8ed8bd78c8e912e7b128360b24b1362593d1f720ee0ebd",
+      "comments": "d801aa1fb7ddcc330a5e3173372ea6af4a3d08ec58074478e85aa5603e926658",
+      "detailFetchedAt": "2026-11-26T13:08:52.526Z",
+      "stale": false
+    },
+    "eth-daily-security-getting-ethereum-users-to-the-tools-that": {
+      "id": "01M5BS1GCHNK98FGV1QVSWW3AP",
+      "detail": "585f877b2c191b0f134c26ec2fe18ee4dc5c43f967a0a9b75ab36d196bcc1ebc",
+      "comments": "af3292756a12baea7a3dfabcba15576ac405f4ff1234feb40edcd554c37fb60f",
+      "detailFetchedAt": "2026-11-26T13:08:52.950Z",
+      "stale": false
+    }
+  },
+  "requests": 113,
+  "failedRequests": [],
+  "validation": [
+    {
+      "check": "ballot_schema",
+      "ok": true,
+      "detail": "schemaVersion 2, count 55"
+    },
+    {
+      "check": "unique_slugs",
+      "ok": true,
+      "detail": "55 unique of 55"
+    },
+    {
+      "check": "count_matches_array",
+      "ok": true,
+      "detail": "count=55, array=55"
+    },
+    {
+      "check": "all_status_ballot",
+      "ok": true,
+      "detail": "ballot"
+    },
+    {
+      "check": "details_complete",
+      "ok": true,
+      "detail": "55/55 details available (0 stale)"
+    },
+    {
+      "check": "cohort_membership",
+      "ok": true,
+      "detail": "cohort 55; new on ballot (not added): 0; cohort members not on ballot: 0"
+    },
+    {
+      "check": "detail_onBallot",
+      "ok": true,
+      "detail": "55/55 report onBallot=true"
+    },
+    {
+      "check": "list_detail_consistency",
+      "ok": true,
+      "detail": "goal, raised, milestone sums and pledge sums reconcile"
+    },
+    {
+      "check": "vote_manifest_alignment",
+      "ok": true,
+      "detail": "aligned: slugs and projects align by index for all 55 initiatives"
+    }
+  ],
+  "status": "valid",
+  "vote": {
+    "object": "734a07d8b0c8b319abbfc3bb9b76a6157a980b7a05866615e8740574531ae950",
+    "fetchedAt": "2026-11-26T13:08:39.957Z",
+    "stale": false,
+    "error": null,
+    "sourceUrl": "https://initiatives.thedao.fund/api/vote/manifest"
+  }
+}

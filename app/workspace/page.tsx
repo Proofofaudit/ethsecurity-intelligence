@@ -6,7 +6,7 @@ import { loadIntelligence } from "@/lib/intelligence/load";
 import { displayName } from "@/lib/intelligence/service";
 
 export const metadata: Metadata = { title: "My Workspace" };
-export const revalidate = 300;
+export const revalidate = 600;
 
 export default async function WorkspacePage() {
   const { dataset: d } = await loadIntelligence();

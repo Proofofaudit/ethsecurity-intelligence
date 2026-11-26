@@ -5,6 +5,7 @@
  */
 import { ResearchJob, type Dataset, type ResearchTask } from "@/lib/domain/schemas";
 import type { StoreHealth } from "@/lib/db/types";
+import { voteFeatureState } from "@/lib/vote/manifest";
 
 /** Research tasks that must succeed for an initiative to count as fully researched. */
 export const CORE_RESEARCH_TASKS: ResearchTask[] = ["websites", "github", "milestone_artifacts", "donations_onchain"];
@@ -46,6 +47,20 @@ export function ingestionStatus(d: Dataset, health: StoreHealth, now = new Date(
       officialDataAgeHours: ageHours(m.officialGeneratedAt, now),
       publishedAt: m.generatedAt,
       publishedAgeHours: ageHours(m.generatedAt, now),
+    },
+    voteManifest: {
+      ...voteFeatureState(d.vote),
+      statusReason: d.vote.statusReason,
+      source: d.vote.sourceUrl,
+      fetchedAt: d.vote.fetchedAt,
+      stale: d.vote.stale,
+      configRevision: d.vote.configRevision,
+      readAt: d.vote.readAt,
+      slugs: d.vote.slugs.length,
+      projects: d.vote.projects.length,
+      groups: d.vote.groups.length,
+      alignment: d.vote.alignment,
+      note: "slugs[i] and projects[i] are re-checked against the ballot records on every sync. If the check fails, nothing is remapped and features that depend on affiliation groups stay disabled until the manifest is confirmed.",
     },
     research: {
       run: m.research,

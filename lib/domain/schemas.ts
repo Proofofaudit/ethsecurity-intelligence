@@ -93,7 +93,10 @@ export const Funding = z.object({
   ledgerCents: z.number().int().nullable(),
   live: z.boolean().nullable(),
   officialPct: z.number().nullable(),
+  /** Remaining funding gap: max(0, goal − raised). A separate, secondary metric. */
   remainingCents: z.number().int(),
+  /** TheDAO ask: min(200,000 USD, max(0, goal − raised)). Null when an input is unavailable. */
+  theDaoAskCents: z.number().int().nullable(),
   ledgerCheckedAt: z.string().nullable(),
 });
 export type Funding = z.infer<typeof Funding>;
@@ -579,8 +582,53 @@ export const DatasetMeta = z.object({
 });
 export type DatasetMeta = z.infer<typeof DatasetMeta>;
 
+/**
+ * Official vote round manifest as published. `status`:
+ *  - aligned: the manifest parsed and `slugs[i]` / `projects[i]` were confirmed to belong together
+ *    for every index (same cohort slugs, same registered goal, same RFP flag as the ballot record).
+ *  - unaligned: the manifest parsed but the alignment check failed. Raw arrays are kept as
+ *    published by TheDAO (never remapped) and `initiativeGroups` stays empty.
+ *  - unavailable: no manifest (missing, HTTP error, or the response shape changed).
+ * Group-dependent features use `initiativeGroups` only when `groupsAvailable` is true.
+ */
+export const VoteAlignmentCheck = z.object({ check: z.string(), ok: z.boolean(), detail: z.string() });
+export const VoteSection = z.object({
+  status: z.enum(["aligned", "unaligned", "unavailable"]),
+  statusReason: z.string(),
+  groupsAvailable: z.boolean(),
+  scheduleAvailable: z.boolean(),
+  sourceUrl: z.string(),
+  fetchedAt: z.string().nullable(),
+  /** True when the live fetch failed and the last stored manifest was reused. */
+  stale: z.boolean(),
+  objectHash: z.string().nullable(),
+  kind: z.string().nullable(),
+  chainId: z.number().int().nullable(),
+  contract: z.string().nullable(),
+  configRevision: z.string().nullable(),
+  readAt: z.object({ block: z.number().int(), timestamp: z.number().int() }).nullable(),
+  opensAt: z.number().int().nullable(),
+  closesAt: z.number().int().nullable(),
+  schedule: z.object({ opensAt: z.number().int(), firstTallyAt: z.array(z.number().int()), initialWindow: z.number().int(), maxWindows: z.number().int() }).nullable(),
+  /** Six-decimal USD string exactly as published (micro-USD). */
+  poolMicroUsd: z.string().nullable(),
+  /** Pool in integer cents; null if the micro-USD value has sub-cent digits (shown as unavailable rather than rounded). */
+  poolCents: z.number().int().nullable(),
+  ballotRules: z.boolean().nullable(),
+  independentTiers: z.number().int().nullable(),
+  slugs: z.array(z.string()),
+  /** Per index, as published: projects[i] belongs to slugs[i] only when status is aligned. */
+  projects: z.array(z.object({ goalMicroUsd: z.string(), rfp: z.boolean(), groups: z.array(z.number().int()) })),
+  groups: z.array(z.string()),
+  /** Initiative id → affiliation group names. Empty unless status is aligned. */
+  initiativeGroups: z.record(z.string(), z.array(z.string())),
+  alignment: z.object({ ok: z.boolean(), checks: z.array(VoteAlignmentCheck) }),
+});
+export type VoteSection = z.infer<typeof VoteSection>;
+
 export const Dataset = z.object({
   meta: DatasetMeta,
+  vote: VoteSection,
   initiatives: z.array(Initiative),
   milestones: z.array(Milestone),
   pledges: z.array(Pledge),

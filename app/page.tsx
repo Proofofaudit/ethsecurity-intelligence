@@ -10,14 +10,15 @@ import { categoryDistribution, changes, coverage, filterInitiatives, fundingRela
 import { ingestionStatus } from "@/lib/intelligence/status";
 import { cohortMetrics } from "@/lib/metrics/compute";
 import { METRICS } from "@/lib/metrics/registry";
+import { THEDAO_ASK_CAP_CENTS } from "@/lib/metrics/ask";
 import { formatPct, formatUsd } from "@/lib/util/money";
 
-export const revalidate = 300;
+export const revalidate = 600;
 
 const MONTH = new Intl.DateTimeFormat("en-US", { month: "long", year: "numeric", timeZone: "UTC" });
 
 function metricText(unit: string, v: number | null) {
-  if (v === null) return "Not available";
+  if (v === null) return "Unavailable";
   if (unit === "usd_cents") return formatUsd(v);
   if (unit === "ratio") return formatPct(v);
   if (unit === "index") return v.toFixed(3);
@@ -36,6 +37,9 @@ export default async function OverviewPage() {
   const donated = val("cohort.donated") ?? 0;
   const receivedPledges = val("cohort.received_pledges") ?? 0;
   const remaining = val("cohort.remaining");
+  const ask = val("cohort.thedao_ask");
+  const pool = val("cohort.thedao_pool");
+  const capBinds = d.initiatives.some((i) => i.funding.remainingCents > THEDAO_ASK_CAP_CENTS);
   const cov = coverage(d);
   const cats = categoryDistribution(d).filter((c) => c.primaryCount > 0);
   const list = filterInitiatives(d, { limit: 100 });
@@ -74,7 +78,15 @@ export default async function OverviewPage() {
               </>
             }
           />
-          <Stat label="Still needed" value={<Money cents={remaining} />} sub="Sum of each initiative's remaining gap" />
+          <Stat
+            label="TheDAO ask"
+            value={<Money cents={ask} reason={m["cohort.thedao_ask"]?.unavailableReason ?? undefined} />}
+            sub={
+              <>
+                Sum over the {d.initiatives.length}, each capped at {formatUsd(THEDAO_ASK_CAP_CENTS)} · Pool <Money cents={pool} reason={m["cohort.thedao_pool"]?.unavailableReason ?? undefined} />
+              </>
+            }
+          />
           <Stat
             label="Research coverage"
             value={<Pct value={val("cohort.research_coverage")} digits={0} />}
@@ -95,7 +107,8 @@ export default async function OverviewPage() {
           <FundingLegend f={{ goalCents: goal, pledgedCents: pledged, donatedCents: donated, neededCents: remaining ?? undefined }} />
         </div>
         <Note className="mt-2 max-w-[880px]">
-          Received means confirmed onchain donations to initiative Safes. It already includes <Money cents={receivedPledges} /> of pledges marked received, so those are counted once. Pledged means outstanding commitments that have not arrived yet.
+          TheDAO ask is each initiative&apos;s goal minus official raised, floored at $0 and capped at {formatUsd(THEDAO_ASK_CAP_CENTS)}. The remaining funding gap, shown separately, is <Money cents={remaining} /> (uncapped)
+          {ask !== null && remaining !== null && !capBinds ? "; the two are equal while no initiative needs more than the cap." : "."} Received means confirmed onchain donations to initiative Safes. It already includes <Money cents={receivedPledges} /> of pledges marked received, so those are counted once. Pledged means outstanding commitments that have not arrived yet.
         </Note>
       </section>
 
@@ -224,15 +237,23 @@ export default async function OverviewPage() {
                   <span className="truncate text-sm font-medium group-hover:text-accent" title={i.title}>
                     {i.shortTitle}
                   </span>
-                  <span className="shrink-0 text-xs text-ink-3">
-                    <Money cents={i.goalCents} compact />
-                  </span>
                 </div>
                 <div className="mt-0.5 flex items-baseline justify-between gap-3 text-xs text-ink-3">
                   <span className="truncate">{i.organization ?? i.recipientTeam ?? "Request for proposals, no designated recipient"}</span>
                   <span className="shrink-0">{i.type === "rfp" ? "RFP" : i.categories[0]?.label}</span>
                 </div>
                 <FundingBar f={i} height={4} className="mt-2" />
+                <div className="mt-1 flex flex-wrap gap-x-3 text-2xs text-ink-3" data-funding-line>
+                  <span>
+                    Raised <Money cents={i.raisedCents} compact className="text-ink-2" />
+                  </span>
+                  <span>
+                    Goal <Money cents={i.goalCents} compact className="text-ink-2" />
+                  </span>
+                  <span>
+                    TheDAO ask <Money cents={i.theDaoAskCents} compact className="text-ink" reason="Goal or raised unavailable" />
+                  </span>
+                </div>
               </Link>
             </li>
           ))}

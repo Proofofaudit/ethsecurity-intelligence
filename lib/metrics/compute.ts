@@ -1,6 +1,7 @@
 /** Deterministic metric computation. See registry.ts for definitions. */
 import type { Dataset, Initiative } from "@/lib/domain/schemas";
 import { sumCents } from "@/lib/util/money";
+import { theDaoAskCents } from "./ask";
 import { METRIC_BY_ID } from "./registry";
 
 export interface MetricValue {
@@ -14,7 +15,7 @@ const v = (id: string, value: number | null, reason: string | null = null): Metr
   return { id, value, unavailableReason: value === null ? (reason ?? "Unavailable") : null };
 };
 
-type Slice = Pick<Dataset, "initiatives" | "milestones" | "pledges" | "donations" | "claims" | "researchJobs" | "evidence" | "repositories">;
+type Slice = Pick<Dataset, "initiatives" | "milestones" | "pledges" | "donations" | "claims" | "researchJobs" | "evidence" | "repositories"> & { vote?: Pick<Dataset["vote"], "poolCents" | "status"> };
 
 export function backerTotals(pledges: Dataset["pledges"]): Map<string, number> {
   const m = new Map<string, number>();
@@ -33,6 +34,16 @@ export function cohortMetrics(d: Slice): Record<string, MetricValue> {
   add(v("cohort.pledged_outstanding", sumCents(I.map((i) => i.funding.pledgedCents))));
   add(v("cohort.received_pledges", sumCents(I.map((i) => i.funding.receivedCents))));
   add(v("cohort.donated", sumCents(I.map((i) => i.funding.donatedCents))));
+  const asks = I.map((i) => theDaoAskCents(i.funding.goalCents, i.funding.officialRaisedCents));
+  const missingAsk = asks.filter((a) => a === null).length;
+  add(v("cohort.thedao_ask", missingAsk === 0 && I.length > 0 ? sumCents(asks as number[]) : null, I.length ? `TheDAO ask unavailable for ${missingAsk} initiative(s)` : "Empty cohort"));
+  add(
+    v(
+      "cohort.thedao_pool",
+      d.vote?.poolCents ?? null,
+      !d.vote || d.vote.status === "unavailable" ? "Vote manifest unavailable" : "Pool has sub-cent digits; shown as unavailable rather than rounded",
+    ),
+  );
   add(v("cohort.remaining", sumCents(I.map((i) => Math.max(0, i.funding.goalCents - i.funding.officialRaisedCents)))));
   const ids = new Set(I.map((i) => i.id));
   const ms = d.milestones.filter((m) => ids.has(m.initiativeId));
@@ -62,6 +73,7 @@ export function initiativeMetrics(d: Slice, ini: Initiative): Record<string, Met
   add(v("initiative.goal", f.goalCents));
   add(v("initiative.raised", f.officialRaisedCents));
   add(v("initiative.pct_funded", f.goalCents > 0 ? f.officialRaisedCents / f.goalCents : null, "Goal is zero"));
+  add(v("initiative.thedao_ask", theDaoAskCents(f.goalCents, f.officialRaisedCents), "Goal or raised unavailable"));
   add(v("initiative.remaining", Math.max(0, f.goalCents - f.officialRaisedCents)));
   add(v("initiative.donated_share", f.officialRaisedCents > 0 ? f.donatedCents / f.officialRaisedCents : null, "Nothing raised yet"));
   const pl = d.pledges.filter((p) => p.initiativeId === ini.id);

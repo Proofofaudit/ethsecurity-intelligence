@@ -8,7 +8,7 @@ import { PROMPT_VERSION } from "@/lib/skills";
 import { buildSkillContext } from "@/lib/skills/context";
 
 export const metadata: Metadata = { title: "AI Lab" };
-export const revalidate = 300;
+export const revalidate = 600;
 
 const GUARANTEES = [
   ["Cohort only", "Research stays within the ballot cohort. Anything outside it must be labeled."],

@@ -96,6 +96,7 @@ beforeAll(async () => {
     simulate: import("@/app/api/v1/simulate/route"),
     export: import("@/app/api/v1/export/route"),
     status: import("@/app/api/v1/status/route"),
+    voteManifest: import("@/app/api/v1/vote-manifest/route"),
     corrections: import("@/app/api/v1/corrections/route"),
     "moderation/corrections": import("@/app/api/v1/moderation/corrections/route"),
   };
@@ -234,7 +235,26 @@ describe("read endpoints", () => {
       expect(f.receivedCents).toBeLessThanOrEqual(f.donatedCents);
       const outstanding = r.json.data.pledges.filter((p: { status: string }) => p.status === "pledged").reduce((s: number, p: { amountCents: number }) => s + p.amountCents, 0);
       expect(outstanding).toBe(f.pledgedCents);
+      expect(f.theDaoAskCents).toBe(Math.min(20_000_000, Math.max(0, f.goalCents - f.officialRaisedCents)));
     }
+    const list = await get("initiatives", "/initiatives?limit=100");
+    for (const row of list.json.data.items) expect(row.theDaoAskCents).toBe(d.initiatives.find((i) => i.id === row.id)?.funding.theDaoAskCents);
+  });
+
+  it("serves the vote manifest from the published dataset with its alignment result", async () => {
+    const r = await get("voteManifest", "/vote-manifest");
+    expect(r.status).toBe(200);
+    expectEnvelope(r.json);
+    const v = r.json.data;
+    expect(v.status).toBe(d.vote.status);
+    expect(v.poolMicroUsd).toBe(d.vote.poolMicroUsd);
+    expect(v.poolCents).toBe(d.vote.poolCents);
+    expect(v.alignment).toEqual(d.vote.alignment);
+    expect(v.groups).toEqual(d.vote.groups);
+    if (d.vote.groupsAvailable) {
+      expect(v.initiatives).toHaveLength(d.vote.slugs.length);
+      for (const row of v.initiatives) expect(row.groups).toEqual(d.vote.initiativeGroups[row.id] ?? []);
+    } else expect(v.initiatives).toEqual([]);
   });
 
   it("serves the export as a downloadable attachment", async () => {

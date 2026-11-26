@@ -202,6 +202,53 @@ export const CommentsResponseSchema = z.object({
   ),
 });
 
+/**
+ * Vote round manifest (GET /api/vote/manifest, payload under `manifest`). Mirrors the
+ * `VoteManifest` type in BlossomLabs/thedao-initiatives shared/vote/manifest.ts, checked against
+ * the live response on 2026-11-26. Amounts are six-decimal USD as decimal strings (micro-USD);
+ * they are parsed with BigInt arithmetic, never as floats. `projects[i]` and `accounts[i]`
+ * belong to `slugs[i]`; the ingestion re-checks that alignment on every sync.
+ */
+const microUsd = z.string().regex(/^\d{1,78}$/, "six-decimal USD as a decimal string");
+const unixSeconds = z.number().int().nonnegative();
+const address = z.string().regex(/^0x[0-9a-fA-F]{40}$/);
+
+export const VoteScheduleSchema = z.object({
+  opensAt: unixSeconds,
+  firstTallyAt: z.array(unixSeconds).length(3),
+  initialWindow: unixSeconds,
+  maxWindows: z.number().int().nonnegative(),
+});
+
+export const VoteManifestSchema = z
+  .object({
+    kind: z.enum(["test", "real"]),
+    chainId: z.number().int(),
+    contract: address,
+    deployBlock: z.number().int().nonnegative(),
+    configRevision: z.string().optional(),
+    readAt: z.object({ block: z.number().int(), timestamp: unixSeconds, hash: z.string().optional() }).passthrough().optional(),
+    configAnchor: z.object({ block: z.number().int(), hash: z.string() }).passthrough().optional(),
+    opensAt: unixSeconds,
+    closesAt: unixSeconds,
+    schedule: VoteScheduleSchema,
+    poolUsd: microUsd,
+    badge: address.optional(),
+    slugs: z.array(z.string().min(1)),
+    projects: z.array(z.object({ goalUsd: microUsd, rfp: z.boolean(), groups: z.array(z.number().int().nonnegative()) }).passthrough()),
+    groups: z.array(z.string()),
+    currencies: z.array(z.object({ symbol: z.string(), asset: address, usdFeed: address, disabled: z.boolean().optional() }).passthrough()).optional(),
+    accounts: z.array(address).optional(),
+    independentTiers: z.number().int().nonnegative(),
+    ballotRules: z.boolean().optional(),
+  })
+  .passthrough();
+
+export const VoteManifestResponseSchema = z.object({ manifest: VoteManifestSchema });
+
+export type VoteManifest = z.infer<typeof VoteManifestSchema>;
+export type VoteManifestResponse = z.infer<typeof VoteManifestResponseSchema>;
+
 export type ListResponse = z.infer<typeof ListResponseSchema>;
 export type ListInitiative = z.infer<typeof ListInitiativeSchema>;
 export type DetailResponse = z.infer<typeof DetailResponseSchema>;

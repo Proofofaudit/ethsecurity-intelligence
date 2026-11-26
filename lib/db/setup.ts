@@ -91,7 +91,7 @@ export const VALIDATORS: Record<string, Document> = {
     submittedAt: str,
     submitterKey: str,
   }),
-  [AUX_COLLECTIONS.meta]: schema(["datasetVersion", "meta", "loadedAt"], { datasetVersion: str, loadedAt: str, meta: obj }),
+  [AUX_COLLECTIONS.meta]: schema(["datasetVersion", "meta", "vote", "loadedAt"], { datasetVersion: str, loadedAt: str, meta: obj, vote: obj }),
   [AUX_COLLECTIONS.snapshots]: schema(["snapshotId", "createdAt", "status"], { snapshotId: str, createdAt: str, status: { enum: ["valid", "invalid"] } }),
   [AUX_COLLECTIONS.metrics]: schema(["datasetVersion", "scope", "values"], { datasetVersion: str, scope: str, values: obj }),
   [AUX_COLLECTIONS.methodology]: schema(["version", "metrics"], { version: str, metrics: arr }),
@@ -143,7 +143,7 @@ export async function setupDatabase(db: Db, log: (m: string) => void = () => und
  */
 export async function loadDataset(db: Db, d: Dataset, extras: { snapshots?: Document[]; researchResults?: Document[] } = {}, log: (m: string) => void = () => undefined) {
   const version = d.meta.datasetVersion;
-  for (const [key, coll] of Object.entries(COLLECTIONS) as [Exclude<keyof Dataset, "meta">, string][]) {
+  for (const [key, coll] of Object.entries(COLLECTIONS) as [Exclude<keyof Dataset, "meta" | "vote">, string][]) {
     const rows = d[key] as { id: string }[];
     const c = db.collection(coll);
     for (let i = 0; i < rows.length; i += 500) {
@@ -159,6 +159,6 @@ export async function loadDataset(db: Db, d: Dataset, extras: { snapshots?: Docu
   for (const ini of d.initiatives)
     await db.collection(AUX_COLLECTIONS.metrics).replaceOne({ datasetVersion: version, scope: ini.id }, { datasetVersion: version, scope: ini.id, values: initiativeMetrics(d, ini) }, { upsert: true });
   await db.collection(AUX_COLLECTIONS.methodology).replaceOne({ version: METHODOLOGY_VERSION }, { version: METHODOLOGY_VERSION, metrics: METRICS, recordedAt: new Date().toISOString() }, { upsert: true });
-  await db.collection(AUX_COLLECTIONS.meta).replaceOne({ _id: "current" as never }, { datasetVersion: version, meta: d.meta, loadedAt: new Date().toISOString() }, { upsert: true });
+  await db.collection(AUX_COLLECTIONS.meta).replaceOne({ _id: "current" as never }, { datasetVersion: version, meta: d.meta, vote: d.vote, loadedAt: new Date().toISOString() }, { upsert: true });
   log(`dataset_meta.current → ${version}`);
 }

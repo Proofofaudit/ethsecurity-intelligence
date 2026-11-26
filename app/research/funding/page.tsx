@@ -6,6 +6,7 @@ import { Money, Pct } from "@/components/ui/money";
 import { StatusMark } from "@/components/ui/status";
 import { loadIntelligence } from "@/lib/intelligence/load";
 import { displayName, fundingRelationships } from "@/lib/intelligence/service";
+import { cohortMetrics } from "@/lib/metrics/compute";
 import { cn } from "@/lib/util/cn";
 
 export const metadata: Metadata = { title: "Funding relationships" };
@@ -19,6 +20,7 @@ export default async function FundingPage({ searchParams }: { searchParams: SP }
   const sort = one(sp.sort) === "amount" ? "amount" : "name";
   const { dataset: d } = await loadIntelligence();
   const fr = fundingRelationships(d);
+  const cm = cohortMetrics(d);
   const byId = new Map(d.initiatives.map((i) => [i.id, i]));
   const name = (id: string) => {
     const i = byId.get(id);
@@ -46,6 +48,10 @@ export default async function FundingPage({ searchParams }: { searchParams: SP }
         <Stat label="Backers of more than one initiative" value={<span className="num">{fr.multiInitiativeBackers.length}</span>} />
         <Stat label="Top-5 backer share" value={<Pct value={fr.concentration?.value ?? null} reason={fr.concentration?.unavailableReason ?? undefined} />} sub="Of all pledged amounts" />
       </dl>
+      <Note className="max-w-[880px]" data-funding-context>
+        Pledges are one part of official raised. Across the {d.initiatives.length} cohort initiatives: raised <Money cents={cm["cohort.raised"]?.value ?? null} /> (outstanding pledges <Money cents={cm["cohort.pledged_outstanding"]?.value ?? null} /> + confirmed donations <Money cents={cm["cohort.donated"]?.value ?? null} />, which already include <Money cents={cm["cohort.received_pledges"]?.value ?? null} /> of received pledges), goal <Money cents={cm["cohort.goal"]?.value ?? null} />, TheDAO ask{" "}
+        <Money cents={cm["cohort.thedao_ask"]?.value ?? null} reason={cm["cohort.thedao_ask"]?.unavailableReason ?? undefined} /> (capped at $200,000 per initiative).
+      </Note>
 
       <Block
         title="Backers"

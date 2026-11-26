@@ -11,6 +11,7 @@ import { backerTotals, cohortMetrics, initiativeMetrics, type MetricValue } from
 import { METHODOLOGY_VERSION, METRIC_BY_ID } from "@/lib/metrics/registry";
 import { NEUTRAL_SORT_LABEL } from "@/lib/neutralLanguage";
 import { formatUsd, sumCents } from "@/lib/util/money";
+import { voteFeatureState } from "@/lib/vote/manifest";
 import { sentences } from "@/lib/util/text";
 import { hypotheses, pairSignals, type PairSignals } from "./overlap";
 import { buildBm25, searchBm25 } from "./similarity";
@@ -80,7 +81,10 @@ export interface InitiativeSummary {
   pledgedCents: number;
   donatedCents: number;
   receivedCents: number;
+  /** Remaining funding gap (uncapped). Secondary to theDaoAskCents. */
   remainingCents: number;
+  /** TheDAO ask: min(200,000 USD, max(0, goal − raised)); null = unavailable. */
+  theDaoAskCents: number | null;
   pct: number | null;
   backers: number;
   milestones: number;
@@ -127,6 +131,7 @@ export function summarize(d: Dataset, ini: Initiative): InitiativeSummary {
     donatedCents: ini.funding.donatedCents,
     receivedCents: ini.funding.receivedCents,
     remainingCents: ini.funding.remainingCents,
+    theDaoAskCents: ini.funding.theDaoAskCents,
     pct: m["initiative.pct_funded"]?.value ?? null,
     backers: m["initiative.backers"]?.value ?? 0,
     milestones: ms.length,
@@ -204,7 +209,7 @@ export const FilterSchema = z
     researchComplete: z.boolean().optional(),
     standard: z.string().max(20).optional(),
     organizationId: z.string().max(120).optional(),
-    sort: z.enum(["title", "goal", "raised", "pct", "remaining", "milestones"]).optional(),
+    sort: z.enum(["title", "goal", "raised", "pct", "ask", "remaining", "milestones"]).optional(),
     order: z.enum(["asc", "desc"]).optional(),
     limit: z.number().int().min(1).max(100).optional(),
     offset: z.number().int().min(0).optional(),
@@ -270,6 +275,7 @@ export function filterInitiatives(d: Dataset, f: Filter = {}) {
       goal: (r) => r.goalCents,
       raised: (r) => r.raisedCents,
       pct: (r) => r.pct ?? -1,
+      ask: (r) => r.theDaoAskCents ?? -1,
       remaining: (r) => r.remainingCents,
       milestones: (r) => r.milestones,
     };
@@ -409,8 +415,10 @@ export function compare(d: Dataset, ids: string[]) {
   row("Security problem", "summary", "Official summary", inis.map((i) => i.summary));
   row("Funding", "goal", "Goal", sums.map((s) => formatUsd(s.goalCents)));
   row("Funding", "raised", "Official raised", sums.map((s) => formatUsd(s.raisedCents)));
+  row("Funding", "ask", "TheDAO ask (capped at $200,000)", sums.map((s) => formatUsd(s.theDaoAskCents)));
+  row("Funding", "split", "Pledged / received / donated", sums.map((s) => `${formatUsd(s.pledgedCents)} outstanding pledges / ${formatUsd(s.receivedCents)} received pledges (inside donations) / ${formatUsd(s.donatedCents)} confirmed donations`));
   row("Funding", "pct", "Funded", sums.map((s) => pct(s.pct)));
-  row("Funding", "remaining", "Remaining", sums.map((s) => formatUsd(s.remainingCents)));
+  row("Funding", "remaining", "Remaining funding gap (uncapped)", sums.map((s) => formatUsd(s.remainingCents)));
   row("Funding", "backers", "Distinct backers", sums.map((s) => String(s.backers)));
   row("Funding", "topBacker", "Largest backer share", mets.map((m) => pct(m["initiative.top_backer_share"]?.value)));
   row("Milestones", "count", "Milestones", sums.map((s) => String(s.milestones)));
@@ -872,6 +880,8 @@ export function simulatePortfolio(d: Dataset, input: z.input<typeof ScenarioSche
         shortTitle: ini.shortTitle,
         goalCents: ini.funding.goalCents,
         pledgedCents: ini.funding.pledgedCents,
+        /** Official TheDAO ask today (not affected by scenario assumptions). */
+        officialTheDaoAskCents: ini.funding.theDaoAskCents,
         extraCents: extra,
         plannedIntegrations: planned.length,
         scopeCents,
@@ -1010,6 +1020,40 @@ export function exportBundle(d: Dataset, ids?: string[]) {
     claims,
     evidence: d.evidence.filter((e) => evIds.has(e.id)),
     relationships: d.relationships.filter((r) => set.has(r.from.id) || set.has(r.to.id)),
+  };
+}
+
+// ───────────────────────────── Vote manifest ─────────────────────────────
+
+/**
+ * The official vote manifest as published, for the API and MCP. Affiliation groups are returned
+ * per initiative only when the slug/project alignment was confirmed on the last sync.
+ */
+export function voteManifest(d: Dataset) {
+  const v = d.vote;
+  const bySlug = new Map(d.initiatives.map((i) => [i.slug, i]));
+  return {
+    status: v.status,
+    statusReason: v.statusReason,
+    features: voteFeatureState(v),
+    source: v.sourceUrl,
+    fetchedAt: v.fetchedAt,
+    stale: v.stale,
+    round: { kind: v.kind, chainId: v.chainId, contract: v.contract, configRevision: v.configRevision, readAt: v.readAt, ballotRules: v.ballotRules, independentTiers: v.independentTiers },
+    poolMicroUsd: v.poolMicroUsd,
+    poolCents: v.poolCents,
+    schedule: v.scheduleAvailable ? { opensAt: v.opensAt, closesAt: v.closesAt, ...v.schedule } : null,
+    groups: v.groups,
+    initiatives: v.groupsAvailable
+      ? v.slugs.map((slug, i) => {
+          const ini = bySlug.get(slug);
+          return { index: i, slug, id: ini?.id ?? null, title: ini?.title ?? null, rfp: v.projects[i]?.rfp ?? null, groups: ini ? (v.initiativeGroups[ini.id] ?? []) : [] };
+        })
+      : [],
+    alignment: v.alignment,
+    note: v.groupsAvailable
+      ? "Initiatives with an empty groups list are unaffiliated in the manifest. RFPs carry no affiliation."
+      : "Per-initiative groups are withheld because the manifest is unavailable or its slug/project alignment was not confirmed.",
   };
 }
 

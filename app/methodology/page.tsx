@@ -69,7 +69,7 @@ export default function MethodologyPage() {
         }
       />
 
-      <Block id="metrics" title={`Metric registry (${METRICS.length} metrics)`} note="Missing inputs produce an explicit “Not available” with a reason, never a zero. All money is integer cents.">
+      <Block id="metrics" title={`Metric registry (${METRICS.length} metrics)`} note="Missing inputs produce an explicit “Unavailable” with a reason, never a zero. All money is integer cents.">
         {groups.map((g) => (
           <div key={g.level} className="mb-8">
             <h3 className="eyebrow mb-2">{g.title}</h3>

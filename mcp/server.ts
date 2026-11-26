@@ -35,6 +35,7 @@ import {
   findInitiative,
   fundingBreakdown,
   fundingRelationships,
+  voteManifest,
   metricsFor,
   pairDetails,
   plainExplanation,
@@ -148,7 +149,8 @@ function compact(d: Dataset, s: InitiativeSummary) {
     primaryStage: s.stages.find((x) => x.primary)?.stage ?? null,
     goalCents: s.goalCents,
     raisedCents: s.raisedCents,
-    remainingCents: s.remainingCents,
+    theDaoAskCents: s.theDaoAskCents,
+    remainingGapCents: s.remainingCents,
     pctFunded: s.pct,
     milestones: s.milestones,
     adoptionMilestones: s.adoptionMilestones,
@@ -321,7 +323,7 @@ export async function createServer(opts: ServerOptions = {}): Promise<McpServer>
     "get_funding",
     z
       .object({
-        scope: z.enum(["initiative", "backers", "relationships"]),
+        scope: z.enum(["initiative", "backers", "relationships", "vote_manifest"]),
         initiative: Ref.optional().describe("Required for scope \"initiative\"."),
         limit: Limit,
         cursor: Cursor,
@@ -334,6 +336,10 @@ export async function createServer(opts: ServerOptions = {}): Promise<McpServer>
         return wrap(d, fundingBreakdown(d, ini), { sources: initiativeSources(ini) });
       }
       if (initiative) throw badRequest(`initiative: only allowed when scope is "initiative"`);
+      if (scope === "vote_manifest") {
+        const v = voteManifest(d);
+        return wrap(d, v, { sources: [v.source], limitations: ["Read at the last official sync, not live. The vote contract is the final authority."] });
+      }
       const fr = fundingRelationships(d);
       if (scope === "backers") return wrap(d, { totalPledgedCents: fr.totalPledgedCents, order: "Largest pledge total first (descriptive, not a ranking of initiatives).", ...paginate(fr.backers, page(limit, cursor)) });
       return wrap(d, {

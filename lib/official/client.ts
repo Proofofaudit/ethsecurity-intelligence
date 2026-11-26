@@ -4,10 +4,12 @@ import {
   DetailResponseSchema,
   ListResponseSchema,
   RevisionResponseSchema,
+  VoteManifestResponseSchema,
   type CommentsResponse,
   type DetailResponse,
   type ListResponse,
   type RevisionResponse,
+  type VoteManifestResponse,
 } from "./schemas";
 import type { z } from "zod";
 
@@ -20,6 +22,8 @@ export const officialUrls = {
   comments: (slug: string) => `${OFFICIAL_BASE}/api/initiatives/${encodeURIComponent(slug)}/comments`,
   revision: (slug: string, n: number) => `${OFFICIAL_BASE}/api/initiatives/${encodeURIComponent(slug)}/revisions/${n}`,
   page: (slug: string) => `${OFFICIAL_BASE}/initiative/${encodeURIComponent(slug)}`,
+  /** Vote round manifest: ballot slugs, registered goals, affiliation groups, pool and schedule. */
+  manifest: () => `${OFFICIAL_BASE}/api/vote/manifest`,
 };
 
 export class ValidationFailure extends Error {
@@ -60,6 +64,13 @@ export async function fetchRevision(slug: string, n: number): Promise<RevisionRe
   const url = officialUrls.revision(slug, n);
   const { body } = await fetchJson(url, politeOpts);
   return parseOrThrow(RevisionResponseSchema, body, url);
+}
+
+/** Throws HttpError (transport or HTTP status) or ValidationFailure (shape changed). */
+export async function fetchVoteManifest(): Promise<VoteManifestResponse> {
+  const url = officialUrls.manifest();
+  const { body } = await fetchJson(url, politeOpts);
+  return parseOrThrow(VoteManifestResponseSchema, body, url);
 }
 
 export async function fetchComments(slug: string): Promise<CommentsResponse> {

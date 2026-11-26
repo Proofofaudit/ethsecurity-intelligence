@@ -22,6 +22,8 @@ import { slugify } from "@/lib/util/text";
 import { hypotheses, pairSignals, OVERLAP_METHOD_VERSION } from "@/lib/intelligence/overlap";
 import { revisionChanges, snapshotChanges } from "@/lib/intelligence/changes";
 import { METHODOLOGY_VERSION } from "@/lib/metrics/registry";
+import { remainingGapCents, theDaoAskCents } from "@/lib/metrics/ask";
+import { centsToMicroUsd, microUsdToCents } from "@/lib/vote/manifest";
 import { normalize } from "./normalize";
 import { latestValidSnapshot, PUBLISHED_DIR, DATA_DIR, RESEARCH_DIR, readJson, writeJson } from "./store";
 import { JOBS_FILE, PIPELINE_VERSION, initiativeUrls, parseGithub, readResult, type ArtifactResult, type DonationResult, type GithubResult, type WebsiteResult } from "./collect";
@@ -328,6 +330,7 @@ export async function publish(opts: { log?: (m: string) => void; dryRun?: boolea
     revisions: layer.revisions,
     changes: [...changes.values()].sort((a, b) => b.detectedAt.localeCompare(a.detectedAt)),
     researchJobs: jobs,
+    vote: layer.vote,
   };
   const hash = contentHash({ ...body, researchJobs: undefined, changes: undefined });
   const dataset: Dataset = {
@@ -383,10 +386,39 @@ export function validateDataset(d: Dataset, expected = EXPECTED): string[] {
     const sum = ms.reduce((s, m) => s + m.amountCents, 0);
     if (sum !== i.funding.goalCents) problems.push(`${i.slug}: milestone sum ${sum} ≠ goal ${i.funding.goalCents}`);
     if (i.funding.pledgedCents + i.funding.donatedCents !== i.funding.officialRaisedCents) problems.push(`${i.slug}: pledged + donated ≠ official raised`);
+    if (i.funding.remainingCents !== remainingGapCents(i.funding.goalCents, i.funding.officialRaisedCents)) problems.push(`${i.slug}: remaining funding gap ≠ max(0, goal − raised)`);
+    if (i.funding.theDaoAskCents !== theDaoAskCents(i.funding.goalCents, i.funding.officialRaisedCents)) problems.push(`${i.slug}: TheDAO ask ≠ min(200000, max(0, goal − raised))`);
   }
+  problems.push(...validateVote(d));
   const ids = new Set(d.claims.map((c) => c.id));
   if (ids.size !== d.claims.length) problems.push("duplicate claim ids");
   const evIds = new Set(d.evidence.map((e) => e.id));
   for (const c of d.claims) for (const e of c.supportingEvidenceIds) if (!evIds.has(e)) problems.push(`claim ${c.id} references missing evidence ${e}`);
   return problems.slice(0, 50);
+}
+
+/** Vote section invariants: group data is attached only to a confirmed alignment, never remapped. */
+export function validateVote(d: Pick<Dataset, "vote" | "initiatives">): string[] {
+  const v = d.vote;
+  const problems: string[] = [];
+  const ids = new Set(d.initiatives.map((i) => i.id));
+  const groupKeys = Object.keys(v.initiativeGroups);
+  if (v.groupsAvailable !== (v.status === "aligned")) problems.push("vote: groupsAvailable must equal status === aligned");
+  if (v.status === "aligned") {
+    if (!v.alignment.ok || v.alignment.checks.some((c) => !c.ok)) problems.push("vote: aligned without passing alignment checks");
+    if (v.slugs.length !== v.projects.length) problems.push("vote: slugs and projects differ in length");
+    if (groupKeys.length !== ids.size || groupKeys.some((k) => !ids.has(k))) problems.push("vote: initiativeGroups must cover exactly the cohort");
+    const bySlug = new Map(d.initiatives.map((i) => [i.slug, i]));
+    v.slugs.forEach((slug, i) => {
+      const ini = bySlug.get(slug);
+      const p = v.projects[i];
+      if (!ini || !p) return void problems.push(`vote: slugs[${i}] ${slug} is not a cohort initiative`);
+      if (BigInt(p.goalMicroUsd) !== centsToMicroUsd(ini.funding.goalCents)) problems.push(`vote: projects[${i}] goal differs from ${slug}`);
+      const names = p.groups.map((g) => v.groups[g]);
+      if (JSON.stringify(names) !== JSON.stringify(v.initiativeGroups[ini.id])) problems.push(`vote: groups of ${slug} differ from projects[${i}]`);
+    });
+  } else if (groupKeys.length) problems.push(`vote: initiativeGroups must be empty when status is ${v.status}`);
+  if (v.status === "unavailable" && (v.poolCents !== null || v.scheduleAvailable)) problems.push("vote: unavailable manifest cannot expose pool or schedule");
+  if (v.poolMicroUsd !== null && v.poolCents !== microUsdToCents(v.poolMicroUsd)) problems.push("vote: poolCents differs from poolMicroUsd");
+  return problems;
 }

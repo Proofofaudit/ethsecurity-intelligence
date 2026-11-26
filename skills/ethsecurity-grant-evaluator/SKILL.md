@@ -9,13 +9,13 @@ Use this skill when the reviewer asks for research on initiatives in TheDAO Secu
 
 Perspective: Grant evaluator. Read as a grant evaluator. Check whether milestones are specific and checkable, what exists today with proof, what the funding would build, and what happens after funding ends.
 
-Brief 2026.11-lab-v1, generated from dataset 20261126T101107Z-1cb9ae37+f4324857 (methodology 2026.11-v1). ETHSecurity Intelligence runs no AI model; it only provides the data. Decisions remain with the reviewer.
+Brief 2026.11-lab-v1, generated from dataset 20261126T130839Z-fe7ea363+03b2061d (methodology 2026.11-v1). ETHSecurity Intelligence runs no AI model; it only provides the data. Decisions remain with the reviewer.
 
 ## 1. Scope
 
 - Research only initiatives in the ballot cohort: the 55 initiatives frozen on 2026-11-26 (UTC) and published by ETHSecurity Intelligence. Everything else is out of scope. If you must mention another project to explain a dependency, label it "outside the cohort".
 - Filters set by the reviewer: none (the whole cohort).
-- At dataset 20261126T101107Z-1cb9ae37+f4324857, 55 of 55 initiatives match. Recheck with the tools; the data may have changed.
+- At dataset 20261126T130839Z-fe7ea363+03b2061d, 55 of 55 initiatives match. Recheck with the tools; the data may have changed.
 - Cover at most 10 initiatives in detail: the first 10 in the alphabetical order the server returns (by official title). List the other 45 by name only. Do not choose by your own view of merit.
 
 Matching initiatives (name, slug):
@@ -134,7 +134,7 @@ Focus questions:
 ## 5. Metrics and weights
 
 - `initiative.pct_funded`: Funded. Official raised as a share of goal.
-- `initiative.remaining`: Remaining. Funding still needed.
+- `initiative.remaining`: Remaining funding gap. Funding still needed to reach the goal, uncapped. Secondary to TheDAO ask.
 - `initiative.milestones`: Milestones. Number of milestones.
 - `initiative.largest_milestone_share`: Largest milestone share. Share of the goal in the largest single milestone.
 - `initiative.adoption_share`: Adoption-dependent share. Share of the goal in adoption milestones.

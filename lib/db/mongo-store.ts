@@ -29,7 +29,9 @@ export const COLLECTIONS = {
   revisions: "proposal_revisions",
   changes: "changes",
   researchJobs: "research_jobs",
-} as const satisfies Record<Exclude<keyof Dataset, "meta">, string>;
+} as const satisfies Record<Exclude<keyof Dataset, "meta" | "vote">, string>;
+// `meta` and the single-object `vote` section live in the dataset_meta `current` document, so
+// they move atomically with the version pointer.
 
 export const AUX_COLLECTIONS = {
   meta: "dataset_meta",
@@ -110,7 +112,7 @@ export class MongoStore implements IntelligenceStore {
       Object.entries(COLLECTIONS).map(async ([key, coll]) => [key, (await db.collection(coll).find({}).toArray()).map((d) => strip(d))] as const),
     );
     // meta.meta is the DatasetMeta object itself; its own datasetVersion field must be kept.
-    const raw = { meta: meta.meta as Document, ...Object.fromEntries(entries) };
+    const raw = { meta: meta.meta as Document, vote: meta.vote as Document, ...Object.fromEntries(entries) };
     const parsed = DatasetSchema.safeParse(raw);
     if (!parsed.success) throw new Error(`MongoDB dataset failed validation: ${parsed.error.issues[0]?.path.join(".")} ${parsed.error.issues[0]?.message}`);
     const d = parsed.data;

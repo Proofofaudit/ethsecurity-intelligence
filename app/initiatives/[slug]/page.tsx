@@ -22,9 +22,10 @@ import type { Claim, Evidence } from "@/lib/domain/schemas";
 import { loadIntelligence } from "@/lib/intelligence/load";
 import { BLIND_SPOT_LABEL, dependencies, dossier, PRESENT_SUPPORTED, plainExplanation } from "@/lib/intelligence/service";
 import { CORE_RESEARCH_TASKS } from "@/lib/intelligence/status";
-import { formatPct } from "@/lib/util/money";
+import { THEDAO_ASK_CAP_CENTS } from "@/lib/metrics/ask";
+import { formatPct, formatUsd } from "@/lib/util/money";
 
-export const revalidate = 300;
+export const revalidate = 600;
 export const dynamicParams = true;
 
 type Params = { params: Promise<{ slug: string }> };
@@ -226,6 +227,12 @@ export default async function InitiativePage({ params }: Params) {
               <Pct value={mv("initiative.pct_funded")} reason={mr("initiative.pct_funded")} />
               <span className="ml-1">raised · {mv("initiative.backers") ?? 0} distinct {mv("initiative.backers") === 1 ? "backer" : "backers"}</span>
             </p>
+            <p className="mt-2 flex items-baseline justify-between gap-3 border-t border-rule pt-2 text-sm" data-thedao-ask>
+              <span className="text-ink-2" title="Goal minus official raised, floored at $0 and capped at $200,000">
+                TheDAO ask
+              </span>
+              <Money cents={mv("initiative.thedao_ask")} reason={mr("initiative.thedao_ask")} className="font-medium" />
+            </p>
             <FundingBar f={f} height={10} className="mt-3" />
             <FundingLegend f={f} className="mt-2" />
             <dl className="mt-4 grid grid-cols-[1fr_auto] gap-y-1 border-t border-rule pt-3 text-xs">
@@ -264,7 +271,7 @@ export default async function InitiativePage({ params }: Params) {
                 </li>
                 <li>
                   Raised <Money cents={f.officialRaisedCents} className="text-ink" /> (<Pct value={mv("initiative.pct_funded")} />
-                  ): <Money cents={f.donatedCents} /> received and <Money cents={f.pledgedCents} /> pledged. <Money cents={mv("initiative.remaining")} /> is still needed.
+                  ): <Money cents={f.donatedCents} /> received and <Money cents={f.pledgedCents} /> pledged. TheDAO ask is <Money cents={mv("initiative.thedao_ask")} reason={mr("initiative.thedao_ask")} className="text-ink" /> (goal minus raised, capped at {formatUsd(THEDAO_ASK_CAP_CENTS)}); the remaining funding gap is <Money cents={mv("initiative.remaining")} />.
                 </li>
                 {(mv("initiative.adoption_share") ?? 0) > 0 && (
                   <li>
@@ -482,9 +489,10 @@ export default async function InitiativePage({ params }: Params) {
                   rows={[
                     ["Goal", <Money key="g" cents={f.goalCents} />],
                     ["Raised (official)", <span key="r"><Money cents={f.officialRaisedCents} /> <span className="text-xs text-ink-3">= pledged + received</span></span>],
+                    ["TheDAO ask", <span key="a"><Money cents={mv("initiative.thedao_ask")} reason={mr("initiative.thedao_ask")} /> <span className="text-xs text-ink-3">goal − raised, floored at $0, capped at {formatUsd(THEDAO_ASK_CAP_CENTS)}</span></span>],
                     ["Pledged, not yet received", <Money key="p" cents={f.pledgedCents} />],
                     ["Received onchain", <span key="d"><Money cents={f.donatedCents} /> <span className="text-xs text-ink-3">includes <Money cents={f.receivedCents} /> of pledges marked received</span></span>],
-                    ["Still needed", <Money key="n" cents={mv("initiative.remaining")} />],
+                    ["Remaining funding gap (uncapped)", <Money key="n" cents={mv("initiative.remaining")} />],
                     ["Paid out to recipient", <Money key="o" cents={f.paidOutCents} />],
                     ["Safe balance (official ledger)", f.ledgerCents === null ? <NotAvailable key="l" reason="Not reported by the API" /> : <span key="l"><Money cents={f.ledgerCents} /> {f.ledgerCheckedAt && <span className="text-xs text-ink-3">checked {formatDate(f.ledgerCheckedAt)}</span>}</span>],
                     ["Largest backer share", <Pct key="t" value={mv("initiative.top_backer_share")} reason={mr("initiative.top_backer_share")} />],

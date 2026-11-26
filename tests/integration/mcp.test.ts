@@ -168,6 +168,10 @@ describe("MCP tool execution", () => {
       expect(r.funding).toEqual(ini.funding);
       expect(r.pledges.length).toBe(d.pledges.filter((p) => p.initiativeId === ini.id).length);
     }
+    const vm = data(await call("get_funding", { scope: "vote_manifest" }));
+    expect(vm.status).toBe(d.vote.status);
+    expect(vm.poolCents).toBe(d.vote.poolCents);
+    expect(vm.alignment).toEqual(d.vote.alignment);
   });
 
   it("keeps every dossier with all sections within the result limit", async () => {

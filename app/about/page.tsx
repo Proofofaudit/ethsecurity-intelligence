@@ -8,7 +8,7 @@ import { loadIntelligence } from "@/lib/intelligence/load";
 import { fundingRelationships } from "@/lib/intelligence/service";
 
 export const metadata: Metadata = { title: "About and conflict-of-interest disclosure" };
-export const revalidate = 300;
+export const revalidate = 600;
 
 const BOARD_REPO = "https://github.com/BlossomLabs/thedao-initiatives";
 

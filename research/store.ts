@@ -69,6 +69,12 @@ export interface SnapshotManifest {
   failedRequests: { url: string; error: string }[];
   validation: { check: string; ok: boolean; detail: string }[];
   status: "valid" | "invalid";
+  /**
+   * Official vote manifest (GET /api/vote/manifest). Absent on snapshots taken before manifest
+   * ingestion. `object` is the hash of the validated `{ manifest }` response, or null when none
+   * is available (`error` says why). `stale` marks a reused object after a transport failure.
+   */
+  vote?: { object: string | null; fetchedAt: string | null; stale: boolean; error: string | null; sourceUrl: string };
 }
 
 export async function listSnapshots(): Promise<string[]> {

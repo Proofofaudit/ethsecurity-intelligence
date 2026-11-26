@@ -1,7 +1,7 @@
 {
-  "datasetVersion": "20261126T101107Z-1cb9ae37+f4324857",
-  "at": "2026-11-26T11:27:06.697Z",
-  "checked": 2697,
+  "datasetVersion": "20261126T130839Z-fe7ea363+03b2061d",
+  "at": "2026-11-26T13:08:55.912Z",
+  "checked": 2929,
   "failures": [],
   "byCheck": {
     "official_record_present": {
@@ -153,7 +153,67 @@
       "failed": 0
     },
     "revision_text": {
-      "checked": 251,
+      "checked": 252,
+      "failed": 0
+    },
+    "ballot_record_present": {
+      "checked": 55,
+      "failed": 0
+    },
+    "thedao_ask": {
+      "checked": 55,
+      "failed": 0
+    },
+    "remaining_gap": {
+      "checked": 55,
+      "failed": 0
+    },
+    "cohort_thedao_ask": {
+      "checked": 1,
+      "failed": 0
+    },
+    "cohort_remaining_gap": {
+      "checked": 1,
+      "failed": 0
+    },
+    "cohort_only_totals": {
+      "checked": 1,
+      "failed": 0
+    },
+    "vote_present": {
+      "checked": 1,
+      "failed": 0
+    },
+    "vote_pool_raw": {
+      "checked": 1,
+      "failed": 0
+    },
+    "vote_pool_cents": {
+      "checked": 1,
+      "failed": 0
+    },
+    "vote_pool_metric": {
+      "checked": 1,
+      "failed": 0
+    },
+    "vote_schedule": {
+      "checked": 1,
+      "failed": 0
+    },
+    "vote_ballot_rules": {
+      "checked": 1,
+      "failed": 0
+    },
+    "vote_arrays": {
+      "checked": 1,
+      "failed": 0
+    },
+    "vote_alignment": {
+      "checked": 1,
+      "failed": 0
+    },
+    "vote_groups": {
+      "checked": 55,
       "failed": 0
     }
   }

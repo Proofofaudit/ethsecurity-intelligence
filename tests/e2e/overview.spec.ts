@@ -17,7 +17,11 @@ test("overview figures equal the values computed from the published dataset", as
   await expect(statValue(page, "Qualified initiatives")).toHaveText(String(v("cohort.initiatives")));
   await expect(statValue(page, "Funding requested").first()).toHaveText(formatUsd(v("cohort.goal")));
   await expect(statValue(page, "Raised so far").first()).toHaveText(formatUsd(v("cohort.raised")));
-  await expect(statValue(page, "Still needed").first()).toHaveText(formatUsd(v("cohort.remaining")));
+  // TheDAO ask leads; the remaining funding gap is shown separately in the note.
+  await expect(statValue(page, "TheDAO ask").first()).toHaveText(formatUsd(v("cohort.thedao_ask")));
+  await expect(page.getByText(`The remaining funding gap, shown separately, is ${formatUsd(v("cohort.remaining"))}`)).toBeVisible();
+  // Every initiative card shows TheDAO ask beside raised and goal.
+  await expect(page.locator("[data-funding-line]")).toHaveCount(dataset.initiatives.length);
   await expect(statValue(page, "Research coverage").first()).toHaveText(formatPct(v("cohort.research_coverage"), 0));
 
   // Funding identity: raised = outstanding pledges + received donations.

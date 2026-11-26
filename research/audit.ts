@@ -19,8 +19,11 @@
  * 10. Research views: milestone shares of goal, backer pledge totals, the what-if baseline, the
  *     lifecycle coverage counts, collaboration hypotheses (recomputed from scratch) and the
  *     revision texts shown in the Time Machine all agree with the raw official records.
+ * 11. TheDAO ask per initiative and its cohort sum, recomputed from the raw ballot list; totals
+ *     cover the cohort only; the vote section (pool conversion, schedule, slug/project alignment
+ *     and affiliation groups) agrees with the raw vote manifest object.
  */
-import type { DetailResponse } from "@/lib/official/schemas";
+import type { DetailResponse, ListResponse, VoteManifestResponse } from "@/lib/official/schemas";
 import type { Dataset } from "@/lib/domain/schemas";
 import { cohortMetrics } from "@/lib/metrics/compute";
 import type { RevisionResponse } from "@/lib/official/schemas";
@@ -235,6 +238,75 @@ export async function auditDataset(d: Dataset, manifest: SnapshotManifest): Prom
         (rr.milestones ?? []).reduce((s, m) => s + toCents(m.amount), 0) === (rev.milestones ?? []).reduce((s, m) => s + m.amountCents, 0),
       `${rev.id}: revision ${rev.n} differs from the raw official revision`,
     );
+  }
+
+  // 11. TheDAO ask, cohort-only totals and the vote manifest, recomputed from raw objects.
+  const ballot = await readObject<ListResponse>(manifest.ballotObject);
+  const rawBallot = new Map(ballot.initiatives.map((i) => [i.slug, i]));
+  const CAP = 200_000 * 100;
+  let rawAskSum = 0;
+  let rawGapSum = 0;
+  for (const ini of d.initiatives) {
+    const b = rawBallot.get(ini.slug);
+    tick("ballot_record_present", !!b, `${ini.slug} missing from the raw ballot list`);
+    if (!b) continue;
+    const goal = Math.round(b.goalUsd * 100);
+    const raised = Math.round(b.raisedUsd * 100);
+    const ask = Math.min(CAP, Math.max(0, goal - raised));
+    rawAskSum += ask;
+    rawGapSum += Math.max(0, goal - raised);
+    tick("thedao_ask", ini.funding.theDaoAskCents === ask, `${ini.slug}: TheDAO ask ${formatUsd(ini.funding.theDaoAskCents)} ≠ raw ${formatUsd(ask)}`);
+    tick("remaining_gap", ini.funding.remainingCents === Math.max(0, goal - raised), `${ini.slug}: remaining funding gap differs from raw goal − raised`);
+  }
+  tick("cohort_thedao_ask", m["cohort.thedao_ask"]?.value === rawAskSum, `cohort TheDAO ask ${formatUsd(m["cohort.thedao_ask"]?.value)} ≠ raw ${formatUsd(rawAskSum)}`);
+  tick("cohort_remaining_gap", m["cohort.remaining"]?.value === rawGapSum, "cohort remaining funding gap differs from raw");
+  // Totals cover exactly the cohort: same ids as the cohort record, each a ballot initiative.
+  const cohortIds = new Set(d.meta.cohort.ids);
+  tick(
+    "cohort_only_totals",
+    d.initiatives.length === cohortIds.size && d.initiatives.every((i) => cohortIds.has(i.id) && rawBallot.has(i.slug)),
+    "published initiatives differ from the cohort, so totals would not be cohort-only",
+  );
+
+  const v = d.vote;
+  const rawVote = manifest.vote?.object ? (await readObject<VoteManifestResponse>(manifest.vote.object)).manifest : null;
+  tick("vote_present", (rawVote === null) === (v.status === "unavailable"), `vote status ${v.status} but raw manifest ${rawVote ? "present" : "absent"}`);
+  if (rawVote) {
+    tick("vote_pool_raw", v.poolMicroUsd === rawVote.poolUsd, "poolMicroUsd differs from the raw manifest poolUsd");
+    // Independent string conversion: six decimals, cents are the first two.
+    const s = rawVote.poolUsd.padStart(7, "0");
+    const exact = /0000$/.test(s);
+    const cents = exact ? Number(s.slice(0, -4)) : null;
+    tick("vote_pool_cents", v.poolCents === cents, `poolCents ${v.poolCents} ≠ ${cents} from poolUsd ${rawVote.poolUsd}`);
+    tick("vote_pool_metric", m["cohort.thedao_pool"]?.value === cents, "cohort.thedao_pool differs from the raw pool");
+    tick(
+      "vote_schedule",
+      !!v.schedule &&
+        v.schedule.opensAt === rawVote.schedule.opensAt &&
+        JSON.stringify(v.schedule.firstTallyAt) === JSON.stringify(rawVote.schedule.firstTallyAt) &&
+        v.schedule.initialWindow === rawVote.schedule.initialWindow &&
+        v.schedule.maxWindows === rawVote.schedule.maxWindows &&
+        v.opensAt === rawVote.opensAt && v.closesAt === rawVote.closesAt,
+      "schedule differs from the raw manifest",
+    );
+    tick("vote_ballot_rules", v.ballotRules === (rawVote.ballotRules ?? null) && v.configRevision === (rawVote.configRevision ?? null), "ballotRules or configRevision differs from the raw manifest");
+    tick("vote_arrays", JSON.stringify(v.slugs) === JSON.stringify(rawVote.slugs) && JSON.stringify(v.groups) === JSON.stringify(rawVote.groups), "slugs or groups differ from the raw manifest");
+    // Alignment recomputed from raw objects: projects[i] belongs to slugs[i] when the registered goal matches.
+    const bySlug = new Map(d.initiatives.map((i) => [i.slug, i]));
+    let aligned = rawVote.slugs.length === rawVote.projects.length && rawVote.slugs.length === d.initiatives.length && new Set(rawVote.slugs).size === rawVote.slugs.length;
+    rawVote.slugs.forEach((slug, i) => {
+      const p = rawVote.projects[i];
+      const b = rawBallot.get(slug);
+      if (!p || !b || !bySlug.has(slug) || BigInt(p.goalUsd) !== BigInt(Math.round(b.goalUsd * 100)) * 10_000n || p.rfp !== (b.type === "rfp")) aligned = false;
+    });
+    tick("vote_alignment", aligned === (v.status === "aligned") && aligned === v.groupsAvailable, `recomputed alignment ${aligned}, published status ${v.status}`);
+    if (aligned)
+      rawVote.slugs.forEach((slug, i) => {
+        const ini = bySlug.get(slug);
+        const names = (rawVote.projects[i]?.groups ?? []).map((g) => rawVote.groups[g]);
+        tick("vote_groups", !!ini && JSON.stringify(v.initiativeGroups[ini.id]) === JSON.stringify(names), `${slug}: published groups differ from raw projects[${i}].groups`);
+      });
+    else tick("vote_groups_withheld", Object.keys(v.initiativeGroups).length === 0, "groups published although alignment failed");
   }
 
   return { checked: Object.values(byCheck).reduce((s, x) => s + x.checked, 0), failures, byCheck };
