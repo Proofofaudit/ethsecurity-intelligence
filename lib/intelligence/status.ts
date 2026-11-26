@@ -3,13 +3,14 @@
  * research jobs (both produced by the pipeline) plus the live store health. Shared by the
  * /api/v1/status endpoint, the admin status view and the MCP server.
  */
-import type { Dataset, ResearchJob, ResearchTask } from "@/lib/domain/schemas";
+import { ResearchJob, type Dataset, type ResearchTask } from "@/lib/domain/schemas";
 import type { StoreHealth } from "@/lib/db/types";
 
 /** Research tasks that must succeed for an initiative to count as fully researched. */
 export const CORE_RESEARCH_TASKS: ResearchTask[] = ["websites", "github", "milestone_artifacts", "donations_onchain"];
 
-const STATES: ResearchJob["state"][] = ["succeeded", "failed", "skipped", "pending", "running"];
+/** Job states from the schema (internal identifiers, not display text). */
+const STATES: readonly ResearchJob["state"][] = ResearchJob.shape.state.options;
 
 const ageHours = (iso: string, now: Date) => {
   const t = Date.parse(iso);

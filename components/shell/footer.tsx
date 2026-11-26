@@ -31,7 +31,7 @@ export function Footer({ meta }: { meta: { datasetVersion: string; officialGener
       <div className="mx-auto grid max-w-[1320px] gap-8 px-5 py-8 text-xs text-ink-2 md:grid-cols-[1.3fr_1fr_1fr] md:px-8">
         <div className="space-y-2">
           <p className="text-sm font-semibold text-ink">ETHSecurity Intelligence</p>
-          <p>Independent research on the ballot initiatives of TheDAO Security Fund. No ranking, no score and no voting recommendation is produced. Decisions remain with the reviewer.</p>
+          <p>Independent research on the ballot initiatives of TheDAO Security Fund. No ranking, no score and no voting advice is produced. Decisions remain with the reviewer.</p>
           <p>{COI_SHORT}</p>
         </div>
         <nav aria-label="Secondary">

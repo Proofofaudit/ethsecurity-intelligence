@@ -9,6 +9,14 @@ import { loadPublishedDataset } from "@/lib/db/file-store";
 import { MCP_SERVER_NAME, mcpConnection, REQUESTED_CAPABILITIES, TOOLS } from "@/lib/mcp/catalog";
 import { buildConfigJson, buildSkill, MODES, modeConfig, PROMPT_VERSION } from "@/lib/skills";
 import { buildSkillContext } from "@/lib/skills/context";
+import { findBannedPhrases } from "@/lib/neutralLanguage";
+
+/** Refuses to write generated text that breaks the neutral-language rules (NEUTRAL_LANGUAGE.md). */
+function assertNeutral(file: string, text: string): string {
+  const hits = findBannedPhrases(text);
+  if (hits.length) throw new Error(`${file}: generated text contains banned phrases (${hits.map((h) => `"${h.match}"`).join(", ")}). Fix lib/skills and rebuild.`);
+  return text;
+}
 
 const DEFAULT_SITE_URL = "http://localhost:3000";
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || DEFAULT_SITE_URL).replace(/\/+$/, "");
@@ -28,8 +36,8 @@ for (const m of MODES) {
   const dir = path.join(out, skill.name);
   folders.set(m.id, skill.name);
   await fs.mkdir(dir, { recursive: true });
-  await fs.writeFile(path.join(dir, "SKILL.md"), skill.markdown);
-  await fs.writeFile(path.join(dir, "config.json"), `${JSON.stringify(buildConfigJson(config, ctx), null, 2)}\n`);
+  await fs.writeFile(path.join(dir, "SKILL.md"), assertNeutral(`${skill.name}/SKILL.md`, skill.markdown));
+  await fs.writeFile(path.join(dir, "config.json"), assertNeutral(`${skill.name}/config.json`, `${JSON.stringify(buildConfigJson(config, ctx), null, 2)}\n`));
   console.log(`skills/${skill.name}: SKILL.md, config.json`);
 }
 
@@ -68,5 +76,5 @@ const readme = [
   ...REQUESTED_CAPABILITIES.flatMap((name) => TOOLS.flatMap((t) => t.covers.filter((c) => c.name === name).map((c) => `| ${name} | \`${t.name}\` | ${c.how.replace(/\|/g, "\\|")} |`))),
   "",
 ].join("\n");
-await fs.writeFile(path.join(out, "README.md"), readme);
+await fs.writeFile(path.join(out, "README.md"), assertNeutral("README.md", readme));
 console.log("skills/README.md");

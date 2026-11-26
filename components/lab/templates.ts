@@ -31,7 +31,7 @@ function read(): Template[] {
   if (raw) {
     try {
       const list = z.array(TemplateSchema).max(100).safeParse(JSON.parse(raw));
-      // Templates that no longer match the schema (for example after an upgrade) are skipped, not deleted.
+      // Templates that no longer match the schema (for example after an upgrade) are ignored, not deleted.
       if (list.success)
         value = list.data.flatMap((t) => {
           const c = LabConfigSchema.safeParse(t.config);

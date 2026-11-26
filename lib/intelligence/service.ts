@@ -22,7 +22,7 @@ export const LIMITATIONS = [
   "Applicant statements are shown as quotations and are not treated as verified facts.",
   "Repository activity and reachability describe what exists publicly; they are not measures of security quality.",
   "Lifecycle tags and similarity hypotheses are rule-based and must be read as prompts for investigation, not findings.",
-  "No ranking, score or voting recommendation is produced. Decisions remain with the reviewer.",
+  "No ranking, score or voting advice is produced. Decisions remain with the reviewer.",
 ];
 
 export function envelope<T>(d: Dataset, data: T, extra: { sources?: string[]; limitations?: string[] } = {}) {
@@ -921,7 +921,7 @@ export function simulatePortfolio(d: Dataset, input: z.input<typeof ScenarioSche
       budgetLeftCents: remainingBudget,
     },
     disclaimer:
-      "Deterministic arithmetic over your assumptions. This is not a prediction of voting outcomes or delivery. Budget is applied to gaps in the order you listed the initiatives, which is your choice, not a recommendation.",
+      "Deterministic arithmetic over your assumptions. This is not a prediction of voting outcomes or delivery. Budget is applied to gaps in the order you listed the initiatives, which is your choice, not advice.",
   };
 }
 

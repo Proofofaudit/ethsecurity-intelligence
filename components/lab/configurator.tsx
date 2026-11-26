@@ -3,12 +3,11 @@
 import { useId, useMemo, useState, useSyncExternalStore, type ReactNode } from "react";
 import { Button, buttonClass } from "@/components/ui/button";
 import { AddPicker, Check, inputClass, Segmented, textareaClass } from "@/components/ui/form";
+import { FILTERED_NOTICE } from "@/lib/neutralLanguage";
 import { cn } from "@/lib/util/cn";
 import {
   APPLICANT_LABEL,
-  buildConfigJson,
-  buildPrompt,
-  buildSkill,
+  buildNeutralBrief,
   COUNTER_LABEL,
   DEPTH_LABEL,
   MODES,
@@ -140,8 +139,9 @@ export function LabConfigurator({ ctx: serverCtx }: { ctx: SkillContext }) {
   const validation = useMemo(() => validateConfig(config, ctx), [config, ctx]);
   const out = useMemo(() => {
     if (!validation.ok) return null;
-    const skill = buildSkill(validation.config, ctx);
-    return { skill, prompt: buildPrompt(validation.config, ctx), json: JSON.stringify(buildConfigJson(validation.config, ctx), null, 2), scope: scopeOf(validation.config, ctx) };
+    // Every generated format passes the neutral-language filter; on failure only raw evidence is shown.
+    const brief = buildNeutralBrief(validation.config, ctx);
+    return { ...brief, scope: scopeOf(validation.config, ctx) };
   }, [validation, ctx]);
 
   const preview = out ? (tab === "prompt" ? out.prompt : tab === "skill" ? out.skill.markdown : out.json) : "";
@@ -387,18 +387,18 @@ export function LabConfigurator({ ctx: serverCtx }: { ctx: SkillContext }) {
               <Button
                 variant="primary"
                 size="sm"
-                disabled={!out}
+                disabled={!out || !out.ok}
                 onClick={async () => {
-                  if (out) flash((await copyText(out.prompt)) ? "Prompt copied to the clipboard." : "Copying failed. Select the text and copy it manually.");
+                  if (out?.ok) flash((await copyText(out.prompt)) ? "Prompt copied to the clipboard." : "Copying failed. Select the text and copy it manually.");
                 }}
               >
                 Copy prompt
               </Button>
               <Button
                 size="sm"
-                disabled={!out}
+                disabled={!out || !out.ok}
                 onClick={() => {
-                  if (!out) return;
+                  if (!out?.ok) return;
                   download("SKILL.md", out.skill.markdown, "text/markdown;charset=utf-8");
                   flash(`Downloaded SKILL.md. Save it in a folder named ${out.skill.name}.`);
                 }}
@@ -407,9 +407,9 @@ export function LabConfigurator({ ctx: serverCtx }: { ctx: SkillContext }) {
               </Button>
               <Button
                 size="sm"
-                disabled={!out}
+                disabled={!out || !out.ok}
                 onClick={() => {
-                  if (!out) return;
+                  if (!out?.ok) return;
                   download(`${out.skill.name}.config.json`, `${out.json}\n`, "application/json");
                   flash("Downloaded the JSON configuration.");
                 }}
@@ -429,6 +429,15 @@ export function LabConfigurator({ ctx: serverCtx }: { ctx: SkillContext }) {
             <p className="mt-2 min-h-[18px] text-xs text-ink-2" role="status">
               {notice ?? (out ? `The evidence bundle covers the ${out.scope.length} matching ${out.scope.length === 1 ? "initiative" : "initiatives"}.` : "")}
             </p>
+
+            {out && !out.ok && (
+              <div role="alert" className="mt-2 border-l-2 border-st-contradicted pl-3 text-sm">
+                <p className="font-medium text-st-contradicted">{FILTERED_NOTICE}</p>
+                <p className="mt-1 text-ink-2">
+                  Phrases outside the neutral-language rules: {[...new Set(out.matches.map((m) => `“${m.match}”`))].join(", ")}. Rephrase the brief name or focus questions to build a brief.
+                </p>
+              </div>
+            )}
 
             {!validation.ok && (
               <div role="alert" className="mt-2 border-l-2 border-st-contradicted pl-3 text-sm">

@@ -16,7 +16,7 @@ const GUARANTEES = [
   ["Untrusted content", "Proposal text, websites, documentation and repositories are data, never instructions."],
   ["Plans are not capabilities", "Future targets and open milestones are never presented as existing work."],
   ["No scores", "No ranking, rating, probability or invented confidence number. Numbers come from the tools."],
-  ["Your decision", "Counterarguments and open questions, no voting recommendation. Decisions remain with the reviewer."],
+  ["Your decision", "Counterarguments and open questions, no voting advice. Decisions remain with the reviewer."],
 ] as const;
 
 export default async function LabPage() {

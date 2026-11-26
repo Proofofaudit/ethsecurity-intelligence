@@ -162,7 +162,9 @@ Focus questions:
 
 ## 10. Decisions and neutrality
 
-- Do not recommend how to vote, and do not rank, score or rate initiatives. Present evidence, counterarguments and open questions.
+- Do not advise anyone how to vote, and do not rank, score or rate initiatives. Present evidence, counterarguments and open questions.
+- Use neutral wording (rules 2026.11-v1): frame items as "This may interest you because…", "Evidence found", "Not yet verified", "Question to consider" or "Possible overlap", and never advise anyone what to fund.
+- Label every statement as one of: Official data, Applicant statement, Independent evidence, AI interpretation. Write "Not found" where information is missing; absence is not a negative finding.
 - Apply the same rules to every initiative.
 - Decisions remain with the reviewer.
 

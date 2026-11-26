@@ -104,7 +104,7 @@ export default async function StatusPage() {
               <caption className="sr-only">Research jobs by task and state</caption>
               <thead>
                 <tr className="border-b border-ink text-left text-2xs tracking-wide text-ink-3 uppercase">
-                  {["Task", "Succeeded", "Failed", "Skipped", "Pending"].map((h, i) => (
+                  {["Task", "Succeeded", "Failed", "Not run", "Pending"].map((h, i) => (
                     <th key={h} scope="col" className={cn("py-2 font-medium", i > 0 && "text-right")}>
                       {h}
                     </th>

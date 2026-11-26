@@ -63,7 +63,7 @@ export default async function AboutPage() {
           <p>Safeguards that apply to every initiative, including Proof of Audits:</p>
           <ul className="list-disc space-y-1 pl-5">
             <li>One pipeline, one set of rules, thresholds and wording for all {d.initiatives.length} initiatives.</li>
-            <li>No ranking, score, rating or recommendation. Lists default to alphabetical order.</li>
+            <li>No ranking, score, rating or voting advice. Lists default to alphabetical order.</li>
             <li>Official figures are copied from the official API, and a truth audit blocks publication if any published figure or quote differs from the raw record.</li>
             <li>A short notice sits at the top of every page, and the Proof of Audits dossier, its organization profile and the collaboration view repeat the disclosure.</li>
             <li>
@@ -83,7 +83,7 @@ export default async function AboutPage() {
       <div className="grid gap-10 lg:grid-cols-2 [&>*]:min-w-0">
         <Block title="What this site does not do">
           <ul className="list-disc space-y-1 pl-5 text-sm text-ink-2">
-            <li>It does not rank or score initiatives, and it makes no voting recommendation.</li>
+            <li>It does not rank or score initiatives, and it gives no voting advice.</li>
             <li>It has no sponsored placement. No initiative can pay to change how it is shown.</li>
             <li>It does not collect votes, wallet addresses or personal voting choices, and reviewers never sign in.</li>
             <li>It does not contact initiative teams or send messages on anyone&apos;s behalf.</li>

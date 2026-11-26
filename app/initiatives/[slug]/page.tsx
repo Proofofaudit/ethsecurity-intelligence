@@ -296,7 +296,7 @@ export default async function InitiativePage({ params }: Params) {
                   )}
                 </Sub>
               )}
-              <Note className="mt-4">No score, ranking or recommendation is produced.</Note>
+              <Note className="mt-4">No score, ranking or voting advice is produced.</Note>
             </Section>
 
             <Section id="problem" n={2} title="Problem and proposed solution" meta="Official summary and applicant text">

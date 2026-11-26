@@ -45,7 +45,7 @@ export default async function WhatIfPage({ searchParams }: { searchParams: SP })
         <ul className="mt-2 max-w-[860px] list-disc space-y-1 pl-5 text-sm text-ink-2">
           <li>Secured funding = confirmed donations + outstanding pledges × your conversion rate + any alternative funding you enter. Received pledges are already inside donations and are counted once.</li>
           <li>Gap = scope − secured, never below zero. Scope is the goal, or the goal minus open adoption milestones when you exclude them.</li>
-          <li>The budget is applied to gaps in the order you list the initiatives. Reorder them to see a different allocation. The order is your choice, not a recommendation.</li>
+          <li>The budget is applied to gaps in the order you list the initiatives. Reorder them to see a different allocation. The order is your choice, not advice.</li>
           <li>Delays add months to the stated duration. Adoption delays apply only to initiatives with open adoption milestones. Initiatives without a stated duration show no adjusted duration.</li>
           <li>Unavailable standards, unconfirmed integrations and assumed collaborations change no dollar figure. They mark which initiatives and milestones depend on that assumption, because the records do not support a numeric effect.</li>
           <li>No voting simulation is offered. TheDAO&apos;s official voting rules have not been independently verified for this site, and votes are cast only on TheDAO&apos;s own platform.</li>

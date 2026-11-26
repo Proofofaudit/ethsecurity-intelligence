@@ -5,6 +5,7 @@
  * This site runs no AI model; the output only instructs the reviewer's own assistant.
  */
 import { mcpConnection, TOOLS } from "@/lib/mcp/catalog";
+import { filterAiOutput, FILTERED_NOTICE, NEUTRAL_LANGUAGE_VERSION, NOT_FOUND, SOURCE_LABELS, type BannedMatch } from "@/lib/neutralLanguage";
 import { formatUsd } from "@/lib/util/money";
 import type { SkillContext, SkillInitiative } from "./context";
 import { MODE_BY_ID } from "./modes";
@@ -260,7 +261,9 @@ function body(c: LabConfig, ctx: SkillContext, audience: "skill" | "prompt"): st
   p(c.allowInference ? "- You may draw inferences. Start each with \"Inference:\" and give its basis." : "- Do not infer beyond the records. Where the records are silent, write \"Not established by the available evidence\".", "");
 
   p("## 10. Decisions and neutrality", "");
-  p("- Do not recommend how to vote, and do not rank, score or rate initiatives. Present evidence, counterarguments and open questions.");
+  p("- Do not advise anyone how to vote, and do not rank, score or rate initiatives. Present evidence, counterarguments and open questions.");
+  p(`- Use neutral wording (rules ${NEUTRAL_LANGUAGE_VERSION}): frame items as "This may interest you because…", "Evidence found", "Not yet verified", "Question to consider" or "Possible overlap", and never advise anyone what to fund.`);
+  p(`- Label every statement as one of: ${Object.values(SOURCE_LABELS).join(", ")}. Write "${NOT_FOUND}" where information is missing; absence is not a negative finding.`);
   p("- Apply the same rules to every initiative.");
   p(`- ${DECISION_CLAUSE}`, "");
 
@@ -293,6 +296,46 @@ export function buildSkill(input: unknown, ctx: SkillContext): { name: string; m
 /** Self-contained prompt for assistants without skill support. */
 export function buildPrompt(input: unknown, ctx: SkillContext): string {
   return body(assertValid(input, ctx), ctx, "prompt");
+}
+
+/**
+ * Raw evidence shown instead of a brief that fails the neutral-language filter: the matching
+ * initiatives in alphabetical order with their dossier and evidence API links. No generated text.
+ */
+export function rawEvidenceText(scope: SkillInitiative[], ctx: SkillContext): string {
+  const lines = [
+    `${FILTERED_NOTICE}`,
+    "",
+    `Matching initiatives (${scope.length} of ${ctx.cohortSize}, alphabetical by official title). Official data: ${ctx.officialSourceUrl}`,
+    "",
+    ...[...scope].sort(byTitle).flatMap((i) => [`- ${i.title}`, `  Dossier: ${ctx.siteUrl}/initiatives/${i.slug}`, `  Evidence (API): ${ctx.siteUrl}/api/v1/initiatives/${i.id}`]),
+  ];
+  return `${lines.join("\n")}\n`;
+}
+
+export interface NeutralBrief {
+  ok: boolean;
+  skill: { name: string; markdown: string };
+  prompt: string;
+  json: string;
+  /** Banned phrases found in the generated text; empty when ok. */
+  matches: BannedMatch[];
+}
+
+/**
+ * Builds every brief format and runs each through the neutral-language filter. If any format
+ * fails, all generated text is discarded and replaced by the raw evidence.
+ */
+export function buildNeutralBrief(input: unknown, ctx: SkillContext): NeutralBrief {
+  const c = assertValid(input, ctx);
+  const skill = buildSkill(c, ctx);
+  const prompt = buildPrompt(c, ctx);
+  const json = JSON.stringify(buildConfigJson(c, ctx), null, 2);
+  const fallback = rawEvidenceText(scopeOf(c, ctx), ctx);
+  const results = [skill.markdown, prompt, json].map((t) => filterAiOutput(t, fallback));
+  const matches = results.flatMap((r) => (r.ok ? [] : r.matches));
+  if (matches.length === 0) return { ok: true, skill, prompt, json, matches };
+  return { ok: false, skill: { name: skill.name, markdown: fallback }, prompt: fallback, json: JSON.stringify({ withheld: FILTERED_NOTICE, matching: scopeOf(c, ctx).map((i) => ({ id: i.id, slug: i.slug, title: i.title })) }, null, 2), matches };
 }
 
 /** JSON configuration with the resolved scope, connection details, output schema and empty provenance fields. */

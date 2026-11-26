@@ -89,7 +89,7 @@ test("command palette opens from the keyboard and navigates", async ({ page }) =
 test("keyboard-only navigation shows a visible focus indicator", async ({ page }) => {
   await page.goto("/");
   await page.keyboard.press("Tab");
-  const skip = page.getByRole("link", { name: "Skip to content" });
+  const skip = page.getByRole("link", { name: "Jump to content" });
   await expect(skip).toBeFocused();
   await expect(skip).toBeVisible();
   for (let i = 0; i < 4; i++) {

@@ -217,7 +217,7 @@ export default function MethodologyPage() {
 
       <Block id="neutrality" title="Neutrality rules">
         <ul className="max-w-[860px] list-disc space-y-1 pl-5 text-sm text-ink-2">
-          <li>No ranking, score, rating or voting recommendation is produced. Lists default to alphabetical order and say so.</li>
+          <li>No ranking, score, rating or voting advice is produced. Lists default to alphabetical order and say so.</li>
           <li>The same rules, thresholds and wording apply to every initiative and every category, including Proof of Audits, which has the same owner as this site.</li>
           <li>Applicant statements are quotations with their status. Only machine-observed evidence can make a statement verified or partially supported.</li>
           <li>Repository activity, reachability and counts describe what exists publicly. They are not measures of security quality.</li>
