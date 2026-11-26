@@ -103,6 +103,7 @@ At request time the server may replace `poolMicroUsd`, `poolCents`, `opensAt`, `
 | `live.note` | string | Plain-language summary. Names both revisions when the live read's `configRevision` differs from the published one. |
 | `live.fields` | string[] | The fields above that came from the live read; empty for the snapshot. |
 | `live.configRevision` | string or null | Configuration revision of the live read shown; null for the snapshot. |
+| `live.revisionNote` | string or null | Set when the live read's `configRevision` differs from the published one; shown on the data-freshness page and above the Ballot Prep rule checks. |
 
 ## Initiative
 

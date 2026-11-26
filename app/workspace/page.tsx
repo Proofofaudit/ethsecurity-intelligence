@@ -24,7 +24,7 @@ export default async function WorkspacePage() {
         title="Your private research workspace"
         lede={<p>Vote calendar, a starting set that may interest you, your affiliations, Ballot Prep, saved initiatives, bookmarked evidence, comparisons, notes, open questions and assessments. Everything on this page is stored in this browser only. There is no account, and nothing here is sent to the server.</p>}
       />
-      <WorkspaceView initiatives={initiatives} changes={changes} datasetVersion={d.meta.datasetVersion} vote={{ calendar: calendarView(d, live), funding: fundingView(d), ballot: ballotView(d), affiliation: affiliationView(d), interest: interestView(d) }} />
+      <WorkspaceView initiatives={initiatives} changes={changes} datasetVersion={d.meta.datasetVersion} vote={{ calendar: calendarView(d, live), funding: fundingView(d), ballot: ballotView(d, live), affiliation: affiliationView(d), interest: interestView(d) }} />
     </>
   );
 }

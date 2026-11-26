@@ -190,6 +190,11 @@ export function BallotPrep({ view, datasetVersion, deltas, affiliation }: { view
 
           <div>
             <p className="eyebrow mb-1">Rule checks</p>
+            {view.revisionNote && (
+              <p className="mb-2 border-l-2 border-st-partial pl-3 text-xs text-ink-2" data-config-revision-note>
+                {view.revisionNote}
+              </p>
+            )}
             {!checks ? (
               <p className="border-l-2 border-st-partial pl-3 text-sm text-ink-2" data-checks-disabled>
                 {view.disabledReason ?? "The pool value is unavailable, so the rule checks are off."}

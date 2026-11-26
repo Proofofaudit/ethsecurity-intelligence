@@ -14,7 +14,7 @@ import path from "node:path";
 import { createLiveVote, LIVE_FIELDS, LIVE_TTL_MINUTES, LIVE_TTL_MS, liveVoteEnabled, overlayAllowed, rejectLive } from "@/lib/vote/live";
 import { validateVote } from "@/research/publish";
 import { resolveSchedule } from "@/lib/vote/calendar";
-import { calendarView } from "@/lib/vote/view-data";
+import { ballotView, calendarView } from "@/lib/vote/view-data";
 import { latestValidSnapshot, readObject } from "@/research/store";
 
 let d: Dataset;
@@ -185,6 +185,22 @@ describe("live manifest cache", () => {
     // A read without readAt does not keep the snapshot's block next to the live pool.
     const h2 = harness([() => ({ manifest: { ...withPool("700000000000"), readAt: undefined } })]);
     expect((await h2.live.apply(d)).dataset.vote.readAt).toBeNull();
+  });
+
+  it("Ballot Prep names a config revision mismatch next to the rule checks, and only then (review v3)", async () => {
+    const other = await harness([() => ({ manifest: { ...withPool("700000000000"), configRevision: "rev-live" } })]).live.apply(d);
+    expect(other.live.revisionNote).toBe(`The live read has config revision rev-live; affiliation groups and ballot rules are from the published revision ${d.vote.configRevision ?? "(none)"}.`);
+    expect(other.live.note).toContain(other.live.revisionNote!);
+    const view = ballotView(other.dataset, other.live);
+    expect(view.revisionNote).toBe(other.live.revisionNote);
+    expect(view.poolMicro).toBe("700000000000");
+    const same = await harness([() => ({ manifest: { ...withPool("700000000000"), configRevision: d.vote.configRevision ?? undefined } })]).live.apply(d);
+    expect(same.live.revisionNote).toBeNull();
+    expect(ballotView(same.dataset, same.live).revisionNote).toBeNull();
+    expect(ballotView(d).revisionNote).toBeNull();
+    const src = readFileSync(path.join(process.cwd(), "components", "workspace", "ballot-prep.tsx"), "utf8");
+    expect(src).toContain("data-config-revision-note");
+    expect(readFileSync(path.join(process.cwd(), "app", "workspace", "page.tsx"), "utf8")).toContain("ballotView(d, live)");
   });
 
   it("pages that show the live pool are rendered per request, so page age never adds to the 12-minute cache (review v2)", () => {

@@ -17,11 +17,21 @@
  *    "Protocol" or "Ethereum Foundation" match nothing unless the whole text equals a target.
  *  - An entry also contributes the text inside and outside parentheses, so
  *    "Security Alliance (SEAL)" is tried as itself, "Security Alliance" and "SEAL".
+ *  - Official texts are split into name segments (nameSegments): the parts inside and outside
+ *    parentheses, then at commas, semicolons, slashes, and at hyphens in a part without spaces.
  *  - A term matches a target when the full texts are equal after removing punctuation, or when
- *    the term's distinctive words appear as a consecutive run in the target's and every other
- *    word of the term is in the target or optional (OPTIONAL_WORDS, or SAME_NAME_OPTIONAL_WORDS
- *    when the target has no word the term lacks). The reverse direction (the
- *    target inside the term) counts only when the target has two or more distinctive words.
+ *    the term names a segment (namesSegment): the term's distinctive words are the segment's
+ *    first distinctive words, in order; the segment's words before its first distinctive word
+ *    are in the term; every other word of the term is in the segment or optional
+ *    (OPTIONAL_WORDS, a number, or SAME_NAME_OPTIONAL_WORDS when the segment has no word the
+ *    term lacks); and when the term adds such a word, the segment adds only connecting words.
+ *    So "Intel" does not match "Security Alliance (SEAL) Intel", "Bloom" does not match
+ *    "Sem Bloom", "Alliance" does not match "Security Alliance" and "Runtime Foundation" does
+ *    not match "Runtime Capital", while "SEAL", "Kann" and "Nethermind Security" match.
+ *  - The reverse direction (a segment naming the start of the term) counts only when the
+ *    segment has two or more distinctive words.
+ *  - A manifest group that equals a name of exactly one organization also carries that
+ *    organization's other names, so "Argot Collective" reaches every initiative in group "Argot".
  */
 import type { Dataset } from "@/lib/domain/schemas";
 import { strictKey } from "@/lib/domain/identity";
@@ -122,6 +132,11 @@ export interface AffiliationTarget {
   initiativeId: string;
   field: AffiliationField;
   text: string;
+  /**
+   * Set on a "group" target whose text is a name of the organization that the manifest group
+   * names exactly (group "SEAL" → "Security Alliance (SEAL)"): the group text itself.
+   */
+  via?: string;
 }
 
 export interface AffiliationMatch {
@@ -130,6 +145,8 @@ export interface AffiliationMatch {
   field: AffiliationField;
   /** The official text it matched. */
   text: string;
+  /** The manifest group, when `text` is a name of the organization that group names. */
+  via?: string;
 }
 
 export type AffiliationOverride = "mine" | "not_mine";
@@ -170,26 +187,63 @@ export function entryTerms(entry: string): string[] {
   return [...out];
 }
 
-function containsRun(hay: string[], needle: string[]): boolean {
-  if (!needle.length || needle.length > hay.length) return false;
-  for (let i = 0; i + needle.length <= hay.length; i++) if (needle.every((w, j) => hay[i + j] === w)) return true;
-  return false;
+/**
+ * The name segments of a text: the parts inside parentheses, the rest joined, and each of those
+ * split at commas, semicolons and slashes, and at hyphens when the part has no space.
+ * "Security Alliance (SEAL) Intel" gives "SEAL" and "Security Alliance Intel"; "SEETA, Libp2p"
+ * gives "SEETA" and "Libp2p"; "ValOS-Lionscraft" gives "ValOS" and "Lionscraft"; "Safi
+ * El-Hassanine" stays one segment (a hyphen inside a multi-word name joins one word). Segments
+ * without a distinctive word are dropped.
+ */
+export function nameSegments(text: string): string[] {
+  const out: string[] = [];
+  const terms = entryTerms(text);
+  // entryTerms lists the text itself first, then (only when there are parentheses) its parts.
+  for (const part of terms.length > 1 ? terms.slice(1) : terms) {
+    for (const s of part.split(/[,;/]/).flatMap((x) => (/\s/.test(x.trim()) ? [x] : x.split("-")))) {
+      const t = s.trim();
+      if (t && distinctiveWords(t).length && !out.includes(t)) out.push(t);
+    }
+  }
+  return out;
 }
 
+/** Words that may come before a segment's first distinctive word without being part of the name. METHODOLOGY.md lists them. */
+export const LEADING_FREE_WORDS: readonly string[] = ["a", "an", "the"];
+const LEADING_FREE = new Set(LEADING_FREE_WORDS);
+/** Words that may sit in the official segment without counting as a different suffix. METHODOLOGY.md lists them. */
+export const CONNECTING_WORDS: readonly string[] = ["a", "an", "and", "at", "by", "for", "in", "of", "on", "the", "to", "with"];
+const CONNECTING = new Set(CONNECTING_WORDS);
+
 /**
- * True when `inner` names something inside `outer`: the distinctive words of `inner` appear as a
- * consecutive run in `outer`, and every word of `inner` missing from `outer` is optional
- * (OPTIONAL_WORDS, or SAME_NAME_OPTIONAL_WORDS when every word of `outer` is in `inner`).
+ * True when `inner` names the organization that the name segment `outer` starts with:
+ *  - the distinctive words of `inner` are the first distinctive words of `outer`, in order
+ *    (so "Intel" does not name "Security Alliance Intel" and "Bloom" does not name "Sem Bloom");
+ *  - every word of `outer` before its first distinctive word is in `inner` (so "Alliance" does
+ *    not name "Security Alliance", but "Security Alliance" does);
+ *  - every word of `inner` missing from `outer` is optional (OPTIONAL_WORDS, a number such as
+ *    "911", or SAME_NAME_OPTIONAL_WORDS when every word of `outer` is in `inner`);
+ *  - when `inner` adds such a word, `outer` adds nothing but connecting words, so two different
+ *    suffixes mean two names ("Runtime Foundation" is not "Runtime Capital", "Kleros Foundation"
+ *    is not "Kleros Cooperative").
  */
-function namedWithin(inner: string, outer: string): boolean {
-  const iw = distinctiveWords(inner);
+function namesSegment(inner: string, outer: string): boolean {
+  const ow = words(outer);
+  const owSet = new Set(ow);
+  // A number missing from the official text is treated like an optional word (see below).
+  const iw = distinctiveWords(inner).filter((w) => !/^\d+$/.test(w) || owSet.has(w));
   const odw = distinctiveWords(outer);
-  if (!iw.length || !containsRun(odw, iw)) return false;
-  const ow = new Set(words(outer));
-  const inw = new Set(words(inner));
+  if (!iw.length || iw.length > odw.length || !iw.every((w, j) => odw[j] === w)) return false;
+  const inAll = words(inner);
+  const inSet = new Set(inAll);
+  const head = ow.indexOf(odw[0]!);
+  if (!ow.slice(0, head).every((w) => inSet.has(w) || LEADING_FREE.has(w))) return false;
   // "Kleros DAO" names "Kleros"; "Alliance DAO" does not name "Security Alliance".
-  const sameName = iw.length === odw.length && [...ow].every((w) => inw.has(w));
-  return words(inner).every((w) => ow.has(w) || OPTIONAL.has(w) || (sameName && SAME_NAME_OPTIONAL.has(w)));
+  const sameName = ow.every((w) => inSet.has(w));
+  const innerExtra = inAll.filter((w) => !owSet.has(w));
+  // A number on its own is a program or edition of the same name ("SEAL 911" names "SEAL").
+  if (!innerExtra.every((w) => OPTIONAL.has(w) || /^\d+$/.test(w) || (sameName && SAME_NAME_OPTIONAL.has(w)))) return false;
+  return innerExtra.length === 0 || ow.every((w) => inSet.has(w) || CONNECTING.has(w));
 }
 
 /** True when one term matches one official text under the rule documented above. */
@@ -197,11 +251,13 @@ export function termMatches(term: string, target: string): boolean {
   const a = strictKey(term);
   const b = strictKey(target);
   if (a.length >= 2 && a === b) return true;
-  // The holder's term inside the official text ("SEAL" in "SEAL Security Frameworks").
-  if (namedWithin(term, target)) return true;
-  // The official text inside the holder's term, only when it has two or more distinctive words, so a
-  // one-word residue such as "Runtime" (from "Runtime Capital") never matches "Runtime Verification".
-  return distinctiveWords(target).length >= 2 && namedWithin(target, term);
+  const targetSegments = nameSegments(target);
+  // The holder's term names an official segment ("SEAL" in "SEAL Security Frameworks").
+  if (targetSegments.some((s) => namesSegment(term, s))) return true;
+  // An official segment names the start of the holder's term, only when the segment has two or more
+  // distinctive words, so a one-word name such as "Remix" never matches "Remix Records".
+  const termSegments = nameSegments(term);
+  return targetSegments.some((s) => distinctiveWords(s).length >= 2 && termSegments.some((t) => namesSegment(s, t)));
 }
 
 /**
@@ -212,23 +268,35 @@ export function termMatches(term: string, target: string): boolean {
 export function affiliationTargets(d: Dataset): AffiliationTarget[] {
   const out: AffiliationTarget[] = [];
   const seen = new Set<string>();
-  const add = (initiativeId: string, field: AffiliationField, text: string | null | undefined) => {
+  const add = (initiativeId: string, field: AffiliationField, text: string | null | undefined, via?: string) => {
     const t = text?.trim();
     if (!t) return;
     const k = `${initiativeId}|${field}|${strictKey(t)}`;
     if (seen.has(k)) return;
     seen.add(k);
-    out.push({ initiativeId, field, text: t });
+    out.push(via ? { initiativeId, field, text: t, via } : { initiativeId, field, text: t });
+  };
+  const orgNames = (org: Dataset["organizations"][number]) => [
+    org.name,
+    ...org.names,
+    ...d.aliases.filter((a) => a.organizationId === org.id && a.resolution !== "anonymous_not_merged" && a.resolution !== "candidate_unconfirmed").map((a) => a.alias),
+  ];
+  // A manifest group that is exactly a name of one known organization stands for that organization,
+  // so its other names reach every initiative in the group ("Argot Collective" for group "Argot").
+  const groupOrg = (g: string) => {
+    const hits = d.organizations.filter((o) => !o.anonymous && orgNames(o).some((n) => strictKey(n) === strictKey(g)));
+    return hits.length === 1 ? hits[0] : undefined;
   };
   for (const i of d.initiatives) {
-    if (d.vote.groupsAvailable) for (const g of d.vote.initiativeGroups[i.id] ?? []) add(i.id, "group", g);
+    if (d.vote.groupsAvailable)
+      for (const g of d.vote.initiativeGroups[i.id] ?? []) {
+        add(i.id, "group", g);
+        const o = groupOrg(g);
+        if (o) for (const n of orgNames(o)) if (strictKey(n) !== strictKey(g)) add(i.id, "group", n, g);
+      }
     add(i.id, "recipientTeam", i.recipientTeam);
     const org = i.organizationId ? d.organizations.find((o) => o.id === i.organizationId) : undefined;
-    if (org && !org.anonymous) {
-      add(i.id, "organization", org.name);
-      for (const n of org.names) add(i.id, "organization", n);
-      for (const a of d.aliases) if (a.organizationId === org.id && a.resolution !== "anonymous_not_merged" && a.resolution !== "candidate_unconfirmed") add(i.id, "organization", a.alias);
-    }
+    if (org && !org.anonymous) for (const n of orgNames(org)) add(i.id, "organization", n);
   }
   return out;
 }
@@ -242,7 +310,7 @@ export function matchAffiliations(entries: readonly string[], targets: readonly 
     for (const t of targets) {
       if (!terms.some((term) => termMatches(term, t.text))) continue;
       const list = (out[t.initiativeId] ??= []);
-      if (!list.some((m) => m.entry === entry && m.field === t.field && m.text === t.text)) list.push({ entry, field: t.field, text: t.text });
+      if (!list.some((m) => m.entry === entry && m.field === t.field && m.text === t.text)) list.push(t.via ? { entry, field: t.field, text: t.text, via: t.via } : { entry, field: t.field, text: t.text });
     }
   }
   return out;
@@ -262,6 +330,8 @@ export function affiliationFlag(id: string, matches: Record<string, AffiliationM
 /** True when the holder should see "You may be affiliated" / "Possibly your own or affiliated". */
 export const isFlagged = (f: AffiliationFlag) => f?.kind === "matched" || f?.kind === "marked";
 
+const describe = (m: AffiliationMatch) => (m.via ? `${AFFILIATION_FIELD_LABEL.group} “${m.via}” (organization name “${m.text}”)` : `${AFFILIATION_FIELD_LABEL[m.field]} “${m.text}”`);
+
 /** "“SEAL” matched manifest affiliation group “SEAL”" for each match, joined. */
 export function matchText(matches: readonly AffiliationMatch[]): string {
   const order: AffiliationField[] = ["group", "recipientTeam", "organization"];
@@ -270,9 +340,10 @@ export function matchText(matches: readonly AffiliationMatch[]): string {
   return [...byEntry]
     .map(([entry, ms]) => {
       // One official text per field keeps the line short; the organization alias only when nothing else matched.
-      const firsts = order.map((f) => ms.find((m) => m.field === f)).filter((m): m is AffiliationMatch => !!m);
+      // A direct group match is shown before one through the group's organization name.
+      const firsts = order.map((f) => ms.find((m) => m.field === f && !m.via) ?? ms.find((m) => m.field === f)).filter((m): m is AffiliationMatch => !!m);
       const shown = firsts.length > 1 ? firsts.filter((m) => m.field !== "organization") : firsts;
-      return `“${entry}” matched ${shown.map((m) => `${AFFILIATION_FIELD_LABEL[m.field]} “${m.text}”`).join(" and ")}`;
+      return `“${entry}” matched ${shown.map(describe).join(" and ")}`;
     })
     .join("; ");
 }

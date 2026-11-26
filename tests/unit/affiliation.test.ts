@@ -17,6 +17,7 @@ import {
   matchAffiliations,
   matchText,
   MAY_BE_AFFILIATED,
+  nameSegments,
   OPTIONAL_WORDS,
   peersOf,
   POSSIBLY_OWN,
@@ -121,6 +122,144 @@ describe("affiliation matching", () => {
     expect(termMatches("Kleros DAO", "Kleros Cooperative")).toBe(false);
     expect(termMatches("Alliance DAO", "Security Alliance (SEAL)")).toBe(false);
     expect(termMatches("Alliance DAO", "Security Alliance")).toBe(false);
+  });
+
+  it("regression set against the published dataset (review v3)", () => {
+    // Unrelated organizations and descriptor or surname words: no flag at all.
+    for (const entry of [
+      "Runtime Verification",
+      "Alliance DAO",
+      "Succinct Proof Labs",
+      "Daily Planet",
+      "Remix Records",
+      "Walnut Capital",
+      "Intel Foundation",
+      "Intel",
+      "Bloom Network",
+      "Runtime Foundation",
+      "Proof Network",
+      "Alliance",
+      "Ethereum Foundation",
+    ]) {
+      expect(matchAffiliations([entry], targets), entry).toEqual({});
+    }
+    // SEAL entries: exactly the SEAL group.
+    for (const entry of ["SEAL", "Security Alliance (SEAL)"]) expect(Object.keys(matchAffiliations([entry], targets)).sort(), entry).toEqual(sealGroup);
+    // Brand names with a suffix, the alias table and legal forms: still their organizations.
+    const own: [string, string][] = [
+      ["Nethermind Security", "Nethermind"],
+      ["Zealynx Security", "Zealynx"],
+      ["Remix Project", "Remix"],
+      ["Blockscout Foundation", "Blockscout"],
+      ["Kleros DAO", "Kleros"],
+      ["Shutter Network", "brainbot (Shutter Network)"],
+      ["Blossom Labs Ltd", "Blossom Labs"],
+      ["Decurity", "Decurity (Defimon)"],
+    ];
+    for (const [entry, official] of own) {
+      const ids = [...new Set(targets.filter((t) => t.text === official).map((t) => t.initiativeId))].sort();
+      expect(ids.length, official).toBeGreaterThan(0);
+      expect(Object.keys(matchAffiliations([entry], targets)).sort(), entry).toEqual(ids);
+    }
+  });
+
+  it("a one-word name matches only where an official name segment starts with it (review v3)", () => {
+    expect(termMatches("Intel", "Security Alliance (SEAL) Intel")).toBe(false);
+    expect(termMatches("Intel Foundation", "Security Alliance (SEAL) Intel")).toBe(false);
+    expect(termMatches("Bloom", "Sem Bloom")).toBe(false);
+    expect(termMatches("Bloom Network", "Sem Bloom")).toBe(false);
+    expect(termMatches("Alliance", "Security Alliance (SEAL)")).toBe(false);
+    expect(termMatches("Alliance", "Security Alliance")).toBe(false);
+    expect(termMatches("Hassanine", "Safi El-Hassanine (PRSpec)")).toBe(false);
+    // Two different suffixes are two names.
+    expect(termMatches("Runtime Foundation", "Runtime Capital")).toBe(false);
+    expect(termMatches("Proof Network", "Proof of Audits")).toBe(false);
+    expect(termMatches("Kleros Foundation", "Kleros Cooperative")).toBe(false);
+    // Segment heads still match.
+    expect(termMatches("SEAL", "Security Alliance (SEAL) Intel")).toBe(true);
+    expect(termMatches("Security Alliance", "Security Alliance (SEAL) Intel")).toBe(true);
+    expect(termMatches("Shutter", "brainbot (Shutter Network)")).toBe(true);
+    expect(termMatches("Libp2p", "SEETA, Libp2p")).toBe(true);
+    expect(termMatches("Lionscraft", "ValOS-Lionscraft")).toBe(true);
+    expect(termMatches("Kann", "Kann Audits")).toBe(true);
+    expect(termMatches("Nethermind", "Nethermind")).toBe(true);
+    // A number names a program of the same organization.
+    expect(Object.keys(matchAffiliations(["SEAL 911"], targets)).sort()).toEqual(sealGroup);
+    expect(termMatches("911", "SEAL")).toBe(false);
+    expect(nameSegments("Security Alliance (SEAL) Intel")).toEqual(["SEAL", "Security Alliance Intel"]);
+    expect(nameSegments("Safi El-Hassanine (PRSpec)")).toEqual(["PRSpec", "Safi El-Hassanine"]);
+    expect(nameSegments("ValOS-Lionscraft")).toEqual(["ValOS", "Lionscraft"]);
+  });
+
+  it("a manifest group that is a name of one organization carries that organization's other names (review v3)", () => {
+    const argot = Object.entries(d.vote.initiativeGroups)
+      .filter(([, g]) => g.includes("Argot"))
+      .map(([id]) => id)
+      .sort();
+    expect(argot.length).toBe(2);
+    const m = matchAffiliations(["Argot Collective"], targets);
+    expect(Object.keys(m).sort()).toEqual(argot);
+    expect(matchText(m[argot[0]!]!)).toBe("“Argot Collective” matched manifest affiliation group “Argot” (organization name “Argot Collective”)");
+    // SEAL's full name reaches the SEAL initiative whose recipient is another team.
+    expect(Object.keys(matchAffiliations(["Security Alliance"], targets)).sort()).toEqual(sealGroup);
+    expect(Object.keys(matchAffiliations(["SEAL Security Frameworks"], targets)).sort()).toEqual(sealGroup);
+    // A direct group match is shown first.
+    expect(matchText(matchAffiliations(["SEAL"], targets)[sealGroup[0]!]!)).toContain("manifest affiliation group “SEAL”");
+  });
+
+  it("common organizations outside the cohort match nothing", () => {
+    for (const entry of [
+      "OpenZeppelin",
+      "Trail of Bits",
+      "ConsenSys",
+      "Sigma Prime",
+      "Spearbit",
+      "Cantina",
+      "Code4rena",
+      "Sherlock",
+      "Immunefi",
+      "Chainlink Labs",
+      "Uniswap Labs",
+      "Lido DAO",
+      "MakerDAO",
+      "Optimism Foundation",
+      "Arbitrum Foundation",
+      "Offchain Labs",
+      "Polygon Labs",
+      "Gnosis",
+      "Safe",
+      "StarkWare",
+      "Matter Labs",
+      "Flashbots",
+      "Paradigm",
+      "Coinbase",
+      "Certora",
+      "Halborn",
+      "Quantstamp",
+      "CertiK",
+      "ChainSecurity",
+      "Protocol Guild",
+      "ENS Labs",
+      "MetaMask",
+      "WalletConnect",
+      "Gitcoin",
+      "Etherscan",
+      "Tenderly",
+      "Forta",
+      "Hypernative",
+      "Blockaid",
+      "Chainalysis",
+      "TRM Labs",
+      "Ledger",
+      "Trezor",
+      "Microsoft",
+      "Google",
+      "Bloom",
+      "The DAO",
+      "TheDAO Security Fund",
+    ]) {
+      expect(matchAffiliations([entry], targets), entry).toEqual({});
+    }
   });
 
   it("splits parentheses and matches case-insensitively", () => {

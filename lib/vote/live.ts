@@ -39,6 +39,11 @@ export interface LiveVoteState {
   fields: readonly string[];
   /** Config revision of the live read shown; null when the snapshot is shown or the read has none. */
   configRevision: string | null;
+  /**
+   * Set when the live read shown has another config revision than the published snapshot, whose
+   * groups and ballot rules stay in use. Shown on the data-freshness page and next to Ballot Prep.
+   */
+  revisionNote: string | null;
 }
 
 type Fetcher = () => Promise<VoteManifestResponse>;
@@ -129,13 +134,13 @@ export function createLiveVote(opts: { fetcher?: Fetcher; now?: () => number; tt
 
   async function apply(d: Dataset): Promise<{ dataset: Dataset; live: LiveVoteState }> {
     if (!enabled()) {
-      return { dataset: d, live: { source: "snapshot", fetchedAt: null, checkedAt: null, error: null, note: "Live refresh is off on this server, so the pool and schedule are those of the published snapshot.", fields: [], configRevision: null } };
+      return { dataset: d, live: { source: "snapshot", fetchedAt: null, checkedAt: null, error: null, note: "Live refresh is off on this server, so the pool and schedule are those of the published snapshot.", fields: [], configRevision: null, revisionNote: null } };
     }
     if (!overlayAllowed(d.vote)) {
       // No read at all: nothing could be shown over a snapshot without a manifest.
       return {
         dataset: d,
-        live: { source: "snapshot", fetchedAt: null, checkedAt: null, error: null, note: "The published snapshot has no vote manifest, so no live pool or schedule is shown until a dataset with the manifest passes the truth audit and is published.", fields: [], configRevision: null },
+        live: { source: "snapshot", fetchedAt: null, checkedAt: null, error: null, note: "The published snapshot has no vote manifest, so no live pool or schedule is shown until a dataset with the manifest passes the truth audit and is published.", fields: [], configRevision: null, revisionNote: null },
       };
     }
     if (checkedAt === null || now() - checkedAt >= ttl) {
@@ -150,11 +155,11 @@ export function createLiveVote(opts: { fetcher?: Fetcher; now?: () => number; tt
     if (!usable) {
       return {
         dataset: d,
-        live: { source: "snapshot", fetchedAt: null, checkedAt: checked, error: lastError, note: `Pool and schedule from the published snapshot. The server re-reads the manifest at most every ${LIVE_TTL_MINUTES} minutes.`, fields: [], configRevision: null },
+        live: { source: "snapshot", fetchedAt: null, checkedAt: checked, error: lastError, note: `Pool and schedule from the published snapshot. The server re-reads the manifest at most every ${LIVE_TTL_MINUTES} minutes.`, fields: [], configRevision: null, revisionNote: null },
       };
     }
     const liveRevision = usable.manifest.configRevision ?? null;
-    const revisionNote = liveRevision !== d.vote.configRevision ? ` The live read has config revision ${liveRevision ?? "(none)"}; affiliation groups and ballot rules are from the published revision ${d.vote.configRevision ?? "(none)"}.` : "";
+    const revisionNote = liveRevision !== d.vote.configRevision ? `The live read has config revision ${liveRevision ?? "(none)"}; affiliation groups and ballot rules are from the published revision ${d.vote.configRevision ?? "(none)"}.` : null;
     return {
       dataset: { ...d, vote: overlayVote(d.vote, usable.manifest) },
       live: {
@@ -162,9 +167,10 @@ export function createLiveVote(opts: { fetcher?: Fetcher; now?: () => number; tt
         fetchedAt: usable.fetchedAt,
         checkedAt: checked,
         error: lastError,
-        note: `Pool and schedule from the live manifest, read by this server at most every ${LIVE_TTL_MINUTES} minutes and shared by all visitors.${lastError ? " The latest read was not used, so the last valid read is shown." : ""}${revisionNote}`,
+        note: `Pool and schedule from the live manifest, read by this server at most every ${LIVE_TTL_MINUTES} minutes and shared by all visitors.${lastError ? " The latest read was not used, so the last valid read is shown." : ""}${revisionNote ? ` ${revisionNote}` : ""}`,
         fields: LIVE_FIELDS,
         configRevision: liveRevision,
+        revisionNote,
       },
     };
   }

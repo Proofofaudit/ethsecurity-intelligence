@@ -45,6 +45,8 @@ export interface BallotView {
   poolMicro: string | null;
   independentTiers: number;
   items: BallotItem[];
+  /** Set when the live pool comes from another config revision than the groups and rules (LiveVoteState.revisionNote). */
+  revisionNote: string | null;
 }
 
 export interface AffiliationView {
@@ -111,7 +113,8 @@ export function calendarView(d: Dataset, live?: LiveVoteState): CalendarView {
   return { schedule: resolveSchedule(d.vote), manifestFetchedAt: isLive ? live.fetchedAt : d.vote.fetchedAt, liveSchedule: isLive };
 }
 
-export function ballotView(d: Dataset): BallotView {
+/** `live`: the server's live manifest state from withLiveVote, when the page applied it. */
+export function ballotView(d: Dataset, live?: LiveVoteState): BallotView {
   const v = d.vote;
   const state = voteFeatureState(v);
   const checksOff = state.disabled.includes("Ballot Prep checks");
@@ -137,5 +140,6 @@ export function ballotView(d: Dataset): BallotView {
     poolMicro: v.poolMicroUsd,
     independentTiers: v.independentTiers ?? 1,
     items,
+    revisionNote: live?.source === "live" ? live.revisionNote : null,
   };
 }

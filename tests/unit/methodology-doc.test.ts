@@ -8,7 +8,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { FOCUS_MODE_TABLE, KEYWORD_ENDINGS } from "@/lib/vote/interest";
 import { MODE_BY_ID } from "@/lib/skills/modes";
-import { GENERIC_WORDS, OPTIONAL_WORDS, SAME_NAME_OPTIONAL_WORDS } from "@/lib/vote/affiliation";
+import { CONNECTING_WORDS, GENERIC_WORDS, LEADING_FREE_WORDS, OPTIONAL_WORDS, SAME_NAME_OPTIONAL_WORDS } from "@/lib/vote/affiliation";
 
 const doc = fs.readFileSync(path.join(process.cwd(), "METHODOLOGY.md"), "utf8");
 
@@ -46,5 +46,13 @@ describe("METHODOLOGY.md", () => {
     expect(doc).toContain(`(\`SAME_NAME_OPTIONAL_WORDS\`: ${SAME_NAME_OPTIONAL_WORDS.join(", ")})`);
     expect(doc).toContain(`(\`KEYWORD_ENDINGS\`): ${KEYWORD_ENDINGS.join(", ")}.`);
     expect(doc).toContain('drops the "e" before "ed", "ing", "er" and "ers"');
+  });
+
+  it("describes the name-segment rule with the word lists from the code (review v3)", () => {
+    expect(doc).toContain("`nameSegments`");
+    expect(doc).toContain(`(${LEADING_FREE_WORDS.map((w) => `"${w}"`).join(", ").replace(/, ("[^"]+")$/, " and $1")} excepted)`);
+    expect(doc).toContain(`nothing but connecting words (${CONNECTING_WORDS.join(", ")})`);
+    for (const s of ['"Intel" and "Intel Foundation" do not match', '"Bloom" and "Bloom Network" do not match "Sem Bloom"', '"Alliance" does not match "Security Alliance"', '"Runtime Foundation" and "Runtime Verification" do not match "Runtime Capital"', '"Argot Collective"'])
+      expect(doc).toContain(s);
   });
 });
