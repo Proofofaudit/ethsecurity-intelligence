@@ -22,6 +22,7 @@
     "db:setup": "tsx scripts/db-setup.ts",
     "db:load": "tsx scripts/db-load.ts",
     "db:local": "tsx scripts/local-mongo.ts",
+    "db:ping": "tsx scripts/db-ping.ts",
     "skills:build": "tsx scripts/build-skills.ts",
     "mcp": "tsx mcp/stdio.ts",
     "mcp:smoke": "tsx scripts/mcp-smoke.ts",

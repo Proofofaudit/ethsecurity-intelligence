@@ -1,0 +1,96 @@
+{
+  "datasetVersion": "20261126T091949Z-ca025c14+d7d90b2f",
+  "at": "2026-11-26T10:02:36.327Z",
+  "checked": 1748,
+  "failures": [],
+  "byCheck": {
+    "official_record_present": {
+      "checked": 55,
+      "failed": 0
+    },
+    "goal": {
+      "checked": 55,
+      "failed": 0
+    },
+    "raised": {
+      "checked": 55,
+      "failed": 0
+    },
+    "pledged": {
+      "checked": 55,
+      "failed": 0
+    },
+    "received": {
+      "checked": 55,
+      "failed": 0
+    },
+    "donated": {
+      "checked": 55,
+      "failed": 0
+    },
+    "milestone_count": {
+      "checked": 55,
+      "failed": 0
+    },
+    "milestone_fields": {
+      "checked": 211,
+      "failed": 0
+    },
+    "title": {
+      "checked": 55,
+      "failed": 0
+    },
+    "pledge_claim_matches_source": {
+      "checked": 86,
+      "failed": 0
+    },
+    "verified_has_support": {
+      "checked": 88,
+      "failed": 0
+    },
+    "donations_onchain": {
+      "checked": 23,
+      "failed": 0
+    },
+    "repo_exists": {
+      "checked": 61,
+      "failed": 0
+    },
+    "quote_verbatim": {
+      "checked": 118,
+      "failed": 0
+    },
+    "milestone_artifact": {
+      "checked": 4,
+      "failed": 0
+    },
+    "milestone_done_flag": {
+      "checked": 4,
+      "failed": 0
+    },
+    "alias_domain": {
+      "checked": 3,
+      "failed": 0
+    },
+    "alias_curated_sources": {
+      "checked": 5,
+      "failed": 0
+    },
+    "cohort_goal": {
+      "checked": 1,
+      "failed": 0
+    },
+    "cohort_raised": {
+      "checked": 1,
+      "failed": 0
+    },
+    "cohort_size": {
+      "checked": 1,
+      "failed": 0
+    },
+    "evidence_exists": {
+      "checked": 702,
+      "failed": 0
+    }
+  }
+}

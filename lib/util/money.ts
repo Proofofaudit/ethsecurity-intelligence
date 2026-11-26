@@ -37,11 +37,13 @@ export function formatUsd(cents: Cents | null | undefined, opts: { compact?: boo
     if (abs >= 10_000) return `$${Math.round(usd / 1000)}k`;
     if (abs >= 1_000) return `$${(usd / 1000).toFixed(1)}k`;
   }
+  // Never round away cents silently: non-whole amounts always show two decimals.
+  const showCents = opts.precise || cents % 100 !== 0;
   return usd.toLocaleString("en-US", {
     style: "currency",
     currency: "USD",
-    minimumFractionDigits: opts.precise ? 2 : 0,
-    maximumFractionDigits: opts.precise ? 2 : 0,
+    minimumFractionDigits: showCents ? 2 : 0,
+    maximumFractionDigits: showCents ? 2 : 0,
   });
 }
 

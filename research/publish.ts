@@ -28,6 +28,7 @@ import { JOBS_FILE, PIPELINE_VERSION, initiativeUrls, parseGithub, readResult, t
 import { extractClaims, finalizeClaims, type ClaimDraft } from "./claims";
 import { evidenceId, httpEvidence, officialEvidence, profileEvidence, proposalEvidence, pullEvidence, repoEvidence, txEvidence } from "./evidence";
 import { loadJobs } from "./queue";
+import { auditDataset } from "./audit";
 import type { UrlCheck } from "./web";
 import type { PullFacts, RepoFacts } from "./github";
 import type { TxCheck } from "./onchain";
@@ -124,6 +125,7 @@ export async function publish(opts: { log?: (m: string) => void; dryRun?: boolea
       pulls,
       txChecks,
       owners,
+      knownNames: [...new Set(layer.organizations.filter((o) => !o.anonymous).flatMap((o) => o.names))].filter((n) => n.toLowerCase() !== ini.recipientTeam?.toLowerCase()),
       now,
     });
     drafts.push(...r.claims);
@@ -232,13 +234,8 @@ export async function publish(opts: { log?: (m: string) => void; dryRun?: boolea
           return "";
         }
       })();
-      const kind: Product["kind"] = /^docs?\.|\/docs?\b/.test(host + new URL(url).pathname)
-        ? "docs"
-        : /^app\.|dashboard|scan\./.test(host)
-          ? "app"
-          : /arxiv|paper|\.pdf$/.test(url)
-            ? "paper"
-            : "website";
+      // Kind comes only from literal URL structure; no guessing from content.
+      const kind: Product["kind"] = /^docs?\./.test(host) || /^\/docs?(\/|$)/.test(new URL(url).pathname) ? "docs" : /^app\./.test(host) ? "app" : "website";
       const id = stableId("prod", url);
       const existing = products.find((p) => p.id === id);
       if (existing) {
@@ -356,6 +353,10 @@ export async function publish(opts: { log?: (m: string) => void; dryRun?: boolea
   };
 
   const problems = validateDataset(dataset);
+  const audit = await auditDataset(dataset, manifest);
+  problems.push(...audit.failures.slice(0, 50));
+  log(`Truth audit: ${audit.checked} checks, ${audit.failures.length} failures`);
+  if (!opts.dryRun) await writeJson(path.join(PUBLISHED_DIR, "audit.json"), { datasetVersion: dataset.meta.datasetVersion, at: now, ...audit });
   if (problems.length) {
     log(`Publish refused: ${problems.length} problem(s)`);
     for (const p of problems) log(`  - ${p}`);
