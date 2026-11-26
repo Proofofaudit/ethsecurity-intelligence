@@ -10,7 +10,7 @@ Recorded on 26 Nov 2026 (UTC) on branch `feat/full-platform`, Node.js 22.23, in 
 | Neutral-language lint | `npm run lint:language` | Pass: "no banned phrases" |
 | Unit and integration tests | `npm test` | Pass: 29 files, 340 tests (MongoDB 8.2.6 via mongodb-memory-server) |
 | Build | `npm run build` | Pass |
-| End-to-end tests | `npm run test:e2e` | Pass: 111 passed, 1 skipped (the internal link check runs on the desktop project only, by design) |
+| End-to-end tests | `npm run test:e2e` | Pass: 111 passed, 1 not run (the internal link check is desktop-only by design) |
 | MCP smoke test | `npm run mcp:smoke` | Pass: 48/48 checks, 42 tool calls across 16 tools |
 | Spell check | `npx cspell "**/*.md" --no-progress` | Pass: 0 issues |
 | Screenshots | `npm run screenshots` | 68 PNG files (17 views x 2 widths x 2 themes), inspected visually |
