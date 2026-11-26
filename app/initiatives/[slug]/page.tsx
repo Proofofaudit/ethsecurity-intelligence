@@ -15,6 +15,7 @@ import { ApplicantQuote } from "@/components/ui/markdown";
 import { DateTime, Money, NotAvailable, Pct, formatDate } from "@/components/ui/money";
 import { Section, Sections } from "@/components/ui/sections";
 import { StatusLegend, StatusMark } from "@/components/ui/status";
+import { ReviewedButton } from "@/components/workspace/review-button";
 import { SaveButton } from "@/components/workspace/save-button";
 import { CATEGORY_LABEL, CORRECTION_NOTICE } from "@/lib/corrections";
 import type { Claim, Evidence } from "@/lib/domain/schemas";
@@ -189,8 +190,32 @@ export default async function InitiativePage({ params }: Params) {
             <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs">
               <ExternalLink href={ini.url}>Official initiative page</ExternalLink>
               <SaveButton id={ini.id} title={ini.shortTitle} />
+              <ReviewedButton id={ini.id} title={ini.shortTitle} />
               <CorrectionButton type="initiative" id={ini.id} label={ini.title} />
             </div>
+            <nav aria-label="Research this initiative" className="mt-4 flex flex-wrap gap-x-4 gap-y-1.5 border-t border-rule pt-3 text-xs text-ink-3">
+              <span className="eyebrow">Explore</span>
+              <Link href={`/research/graph?type=initiative&id=${encodeURIComponent(ini.id)}`} className="hover:text-accent">
+                Relationship map
+              </Link>
+              {x.related.length > 0 && (
+                <Link href={`/research/compare?ids=${[ini.slug, ...x.related.map((r) => r.other?.slug).filter((s): s is string => !!s)].slice(0, 5).join(",")}`} className="hover:text-accent">
+                  Compare with related ({Math.min(x.related.length, 4)})
+                </Link>
+              )}
+              <Link href={`/research/milestones?ini=${ini.slug}`} className="hover:text-accent">
+                Milestones across the cohort
+              </Link>
+              <Link href={`/research/blind-spots?ini=${ini.slug}`} className="hover:text-accent">
+                Blind spots ({x.blindSpots.length})
+              </Link>
+              <Link href={`/research/changes?ini=${ini.slug}`} className="hover:text-accent">
+                Changes ({x.changes.length})
+              </Link>
+              <Link href={`/research/what-if?ids=${ini.slug}`} className="hover:text-accent">
+                What-if
+              </Link>
+            </nav>
           </div>
 
           <aside aria-label="Funding" className="border-t border-ink pt-3 lg:border-t-0 lg:border-l lg:border-rule lg:pt-0 lg:pl-6">

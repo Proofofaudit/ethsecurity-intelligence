@@ -11,6 +11,7 @@ import { backerTotals, cohortMetrics, initiativeMetrics, type MetricValue } from
 import { METHODOLOGY_VERSION } from "@/lib/metrics/registry";
 import { formatUsd, sumCents } from "@/lib/util/money";
 import { sentences } from "@/lib/util/text";
+import { hypotheses, pairSignals, type PairSignals } from "./overlap";
 import { buildBm25, searchBm25 } from "./similarity";
 
 export const PRESENT_SUPPORTED: EvidenceStatus[] = ["independently_verified", "partially_supported"];
@@ -41,6 +42,17 @@ export function envelope<T>(d: Dataset, data: T, extra: { sources?: string[]; li
 
 export function findInitiative(d: Dataset, idOrSlug: string): Initiative | undefined {
   return d.initiatives.find((i) => i.id === idOrSlug || i.slug === idOrSlug);
+}
+
+/**
+ * Label used where several initiatives appear together. Some recipients have more than one
+ * initiative with the same short title (for example three "colibri" proposals), so those fall
+ * back to the official title.
+ */
+export function displayName(d: Dataset, ini: Pick<Initiative, "id" | "shortTitle" | "title">): string {
+  const dup = d.initiatives.some((x) => x.id !== ini.id && x.shortTitle.toLowerCase() === ini.shortTitle.toLowerCase());
+  if (!dup) return ini.shortTitle;
+  return ini.title.length > 64 ? `${ini.title.slice(0, 63).trimEnd()}…` : ini.title;
 }
 
 export function orgName(d: Dataset, id: string | null): string | null {
@@ -296,6 +308,14 @@ export function maintenanceStatements(ini: Initiative): string[] {
   return out.slice(0, 6);
 }
 
+/** Proposal sentences that name who would use or benefit from the work (quoted, rule-based selection). */
+export function beneficiaryStatements(ini: Initiative): string[] {
+  const out: string[] = [];
+  const re = /\b(benefit|benefits|beneficiar(y|ies)|end users|users|developers|auditors|signers|researchers|protocol teams|client teams|wallet teams)\b/i;
+  for (const s of ini.sections.filter((x) => ["who", "why", "in_scope"].includes(x.key))) for (const t of sentences(s.markdown)) if (re.test(t)) out.push(t);
+  return out.slice(0, 4);
+}
+
 export function dossier(d: Dataset, idOrSlug: string) {
   const ini = findInitiative(d, idOrSlug);
   if (!ini) return null;
@@ -402,11 +422,16 @@ export function compare(d: Dataset, ids: string[]) {
   row("Evidence", "existing", "Existing work with supporting evidence", sums.map((s) => (s.hasExistingWork ? "Yes" : "None found")));
   row("Evidence", "supported", "Claims with supporting evidence", sums.map((s) => `${s.supportedClaims} of ${s.claimCount}`));
   row("Evidence", "coverage", "Evidence coverage", sums.map((s) => pct(s.evidenceCoverage)));
+  row("Existing work", "products", "Reachable products and sites", inis.map((i) => d.products.filter((p) => p.initiativeIds.includes(i.id) && p.reachable).map((p) => p.title ?? p.name).join("\n") || "None found"));
   row("Technical", "repos", "Public repositories cited", sums.map((s) => String(s.publicRepos)));
+  row("Technical", "repoNames", "Repositories cited (architecture)", inis.map((i) => d.repositories.filter((r) => r.initiativeIds.includes(i.id) && r.exists).map((r) => `${r.fullName}${r.language ? ` (${r.language})` : ""}`).join("\n") || "None found"));
   row("Technical", "active", "Repositories with commits in 90 days", mets.map((m) => String(m["initiative.repos_active_90d"]?.value ?? 0)));
   row("Technical", "ci", "Repositories with CI workflows", mets.map((m) => String(m["initiative.repos_with_ci"]?.value ?? 0)));
   row("Dependencies", "standards", "Standards referenced", sums.map((s) => s.standards.join(", ") || "None found"));
   row("Dependencies", "planned", "Planned integrations stated", sums.map((s) => String(s.plannedIntegrations)));
+  row("Dependencies", "integrations", "Integrations stated by the applicant", inis.map((i) => String(d.claims.filter((c) => c.initiativeId === i.id && c.kind === "integration").length)));
+  row("Adoption", "adoptionNames", "Adoption commitments (milestones)", inis.map((i) => d.milestones.filter((m) => m.initiativeId === i.id && m.adoption).sort((a, b) => a.index - b.index).map((m) => `${m.name} (${formatUsd(m.amountCents)})`).join("\n") || "None"));
+  row("Beneficiaries", "beneficiaries", "Who benefits (quoted)", inis.map((i) => beneficiaryStatements(i).slice(0, 2).join("\n") || "No sentence naming users or beneficiaries found"));
   row("Maintenance", "maintenance", "Maintenance statements (quoted)", inis.map((i) => maintenanceStatements(i).slice(0, 2).join("\n") || "No sentence mentioning maintenance found"));
   const pairIds = new Set(inis.map((i) => i.id));
   const hyps = d.relationships.filter((r) => (r.type === "potentially_overlaps" || r.type === "potentially_complements") && pairIds.has(r.from.id) && pairIds.has(r.to.id));
@@ -603,6 +628,8 @@ export interface GraphEdge {
   type: Relationship["type"] | "has_milestone";
   confidence: Relationship["confidence"];
   reason: string;
+  evidenceIds: string[];
+  sourceUrls: string[];
 }
 
 export function entityLabel(d: Dataset, type: EntityType, id: string): { label: string; sub: string | null } {
@@ -667,13 +694,14 @@ export function graphNeighborhood(d: Dataset, root: { type: EntityType; id: stri
         if (fromK !== k && toK !== k) continue;
         const a = addNode(r.from.type, r.from.id);
         const b = addNode(r.to.type, r.to.id);
-        edges.set(r.id, { id: r.id, source: a, target: b, type: r.type, confidence: r.confidence, reason: r.reason });
+        edges.set(r.id, { id: r.id, source: a, target: b, type: r.type, confidence: r.confidence, reason: r.reason, evidenceIds: r.evidenceIds, sourceUrls: r.sourceUrls });
         next.push(a === k ? b : a);
       }
       if (opts.includeMilestones && t === "initiative") {
+        const url = d.initiatives.find((x) => x.id === id)?.url;
         for (const m of d.milestones.filter((x) => x.initiativeId === id)) {
           const mk = addNode("milestone", m.id);
-          edges.set(`ms-${m.id}`, { id: `ms-${m.id}`, source: k, target: mk, type: "has_milestone", confidence: "confirmed", reason: "Official milestone" });
+          edges.set(`ms-${m.id}`, { id: `ms-${m.id}`, source: k, target: mk, type: "has_milestone", confidence: "confirmed", reason: "Official milestone record", evidenceIds: [], sourceUrls: url ? [url] : [] });
         }
       }
     }
@@ -774,6 +802,12 @@ export const ScenarioSchema = z
     milestoneDelayMonths: z.number().int().min(0).max(36).default(0),
     treatPlannedIntegrationsAsUnavailable: z.boolean().default(false),
     extraFundingUsd: z.record(z.string(), z.number().min(0).max(1e8)).default({}),
+    /** Integrations stated by the applicant without independent support are treated as unavailable. */
+    treatUnconfirmedIntegrationsAsUnavailable: z.boolean().default(false),
+    /** Standards (e.g. ERC-7730) assumed unavailable or not yet final. */
+    unavailableStandards: z.array(z.string().max(20)).max(40).default([]),
+    /** Collaboration hypotheses (relationship ids) the user assumes will happen. */
+    assumedCollaborations: z.array(z.string().max(60)).max(60).default([]),
   })
   .strict();
 export type Scenario = z.infer<typeof ScenarioSchema>;
@@ -795,6 +829,18 @@ export function simulatePortfolio(d: Dataset, input: z.input<typeof ScenarioSche
       if (s.pledgeConversion < 1 && ini.funding.pledgedCents > 0) dependsOn.push("Outstanding pledges converting to funds");
       if (adoptionCents > 0) dependsOn.push(s.excludeAdoptionMilestones ? "Adoption milestones excluded from scope" : `Third-party adoption (${formatUsd(adoptionCents)} of milestones)`);
       if (planned.length) dependsOn.push(s.treatPlannedIntegrationsAsUnavailable ? `${planned.length} planned integration(s) treated as unavailable` : `${planned.length} planned integration(s)`);
+      const unconfirmed = d.claims.filter((c) => c.initiativeId === ini.id && c.kind === "integration" && !PRESENT_SUPPORTED.includes(c.status));
+      if (s.treatUnconfirmedIntegrationsAsUnavailable && unconfirmed.length) dependsOn.push(`${unconfirmed.length} applicant-stated integration(s) treated as unavailable`);
+      const standards = d.relationships.filter((r) => r.from.id === ini.id && r.type === "depends_on" && r.to.type === "standard").map((r) => r.to.id);
+      const missingStandards = standards.filter((x) => s.unavailableStandards.includes(x));
+      if (missingStandards.length) dependsOn.push(`Depends on ${missingStandards.join(", ")}, assumed unavailable`);
+      const collaborations = d.relationships
+        .filter((r) => s.assumedCollaborations.includes(r.id) && (r.type === "potentially_overlaps" || r.type === "potentially_complements") && (r.from.id === ini.id || r.to.id === ini.id))
+        .map((r) => {
+          const other = d.initiatives.find((x) => x.id === (r.from.id === ini.id ? r.to.id : r.from.id));
+          return { relationshipId: r.id, kind: r.type, with: other?.shortTitle ?? "another initiative" };
+        });
+      for (const c of collaborations) dependsOn.push(`Assumed collaboration with ${c.with} (hypothesis, not confirmed)`);
       const baseMonths = ini.durationMonths;
       const months = baseMonths === null ? null : baseMonths + s.milestoneDelayMonths + (adoptionCents > 0 && !s.excludeAdoptionMilestones ? s.adoptionDelayMonths : 0);
       return {
@@ -802,6 +848,9 @@ export function simulatePortfolio(d: Dataset, input: z.input<typeof ScenarioSche
         slug: ini.slug,
         shortTitle: ini.shortTitle,
         goalCents: ini.funding.goalCents,
+        pledgedCents: ini.funding.pledgedCents,
+        extraCents: extra,
+        plannedIntegrations: planned.length,
         scopeCents,
         adoptionCents,
         securedCents,
@@ -809,9 +858,28 @@ export function simulatePortfolio(d: Dataset, input: z.input<typeof ScenarioSche
         durationMonths: baseMonths,
         adjustedMonths: months,
         dependsOn,
-        affectedMilestones: s.treatPlannedIntegrationsAsUnavailable ? ms.filter((m) => m.dependencyTerms.includes("integrat")).map((m) => m.name) : [],
+        affectedMilestones:
+          s.treatPlannedIntegrationsAsUnavailable || (s.treatUnconfirmedIntegrationsAsUnavailable && unconfirmed.length > 0)
+            ? ms.filter((m) => m.dependencyTerms.includes("integrat")).map((m) => m.name)
+            : [],
+        unconfirmedIntegrations: unconfirmed.length,
+        dependsOnStandards: standards,
+        unavailableStandards: missingStandards,
+        collaborations,
       };
     });
+  const ids = (f: (r: (typeof rows)[number]) => boolean) => rows.filter(f).map((r) => r.id);
+  const assumptions = [
+    { key: "pledge_conversion", label: `Outstanding pledges convert at ${Math.round(s.pledgeConversion * 100)}%`, active: s.pledgeConversion < 1, affected: ids((r) => r.pledgedCents > 0) },
+    { key: "extra_funding", label: "Alternative funding added", active: rows.some((r) => r.extraCents > 0), affected: ids((r) => r.extraCents > 0) },
+    { key: "exclude_adoption", label: "Adoption milestones excluded from scope", active: s.excludeAdoptionMilestones, affected: ids((r) => r.adoptionCents > 0) },
+    { key: "adoption_delay", label: `Adoption delayed by ${s.adoptionDelayMonths} months`, active: s.adoptionDelayMonths > 0 && !s.excludeAdoptionMilestones, affected: ids((r) => r.adoptionCents > 0 && r.durationMonths !== null) },
+    { key: "milestone_delay", label: `All milestones delayed by ${s.milestoneDelayMonths} months`, active: s.milestoneDelayMonths > 0, affected: ids((r) => r.durationMonths !== null) },
+    { key: "planned_integrations", label: "Planned integrations unavailable", active: s.treatPlannedIntegrationsAsUnavailable, affected: ids((r) => r.plannedIntegrations > 0) },
+    { key: "unconfirmed_integrations", label: "Applicant-stated integrations unavailable", active: s.treatUnconfirmedIntegrationsAsUnavailable, affected: ids((r) => r.unconfirmedIntegrations > 0) },
+    { key: "standards", label: `Standards unavailable${s.unavailableStandards.length ? `: ${s.unavailableStandards.join(", ")}` : ""}`, active: s.unavailableStandards.length > 0, affected: ids((r) => r.unavailableStandards.length > 0) },
+    { key: "collaboration", label: "Assumed collaborations (hypotheses)", active: s.assumedCollaborations.length > 0, affected: ids((r) => r.collaborations.length > 0) },
+  ];
   let remainingBudget = s.budgetUsd === undefined ? null : Math.round(s.budgetUsd * 100);
   const allocation = rows.map((r) => {
     if (remainingBudget === null) return { id: r.id, allocatedCents: null, coversGap: null };
@@ -822,6 +890,7 @@ export function simulatePortfolio(d: Dataset, input: z.input<typeof ScenarioSche
   return {
     scenario: s,
     rows,
+    assumptions,
     allocation,
     totals: {
       scopeCents: sumCents(rows.map((r) => r.scopeCents)),
@@ -832,6 +901,72 @@ export function simulatePortfolio(d: Dataset, input: z.input<typeof ScenarioSche
     disclaimer:
       "Deterministic arithmetic over your assumptions. This is not a prediction of voting outcomes or delivery. Budget is applied to gaps in the order you listed the initiatives, which is your choice, not a recommendation.",
   };
+}
+
+// ───────────────────────────── Collaboration discovery ─────────────────────────────
+
+export interface CollaborationItem {
+  relationship: Relationship;
+  kind: "potentially_overlaps" | "potentially_complements";
+  a: { id: string; slug: string; shortTitle: string; title: string; categories: { slug: string; label: string }[] };
+  b: { id: string; slug: string; shortTitle: string; title: string; categories: { slug: string; label: string }[] };
+  signals: PairSignals | null;
+  reasons: string[];
+  questions: string[];
+  /** First official category both initiatives share, or null when they share none. */
+  sharedCategory: { slug: string; label: string } | null;
+}
+
+/**
+ * Overlap and complement hypotheses with the deterministic signals that produced them. Signals
+ * are recomputed from the published dataset with the same function the pipeline uses (the truth
+ * audit checks that the recomputation reproduces the published relationships exactly).
+ */
+/** Pair signals cached by input identity (never by version string), so a changed dataset is always recomputed. */
+const signalCache = new WeakMap<Initiative[], { milestones: Milestone[]; pledges: Dataset["pledges"]; signals: PairSignals[] }>();
+function cohortSignals(d: Dataset): PairSignals[] {
+  const hit = signalCache.get(d.initiatives);
+  if (hit && hit.milestones === d.milestones && hit.pledges === d.pledges) return hit.signals;
+  const signals = pairSignals(d.initiatives, d.milestones, d.pledges);
+  signalCache.set(d.initiatives, { milestones: d.milestones, pledges: d.pledges, signals });
+  return signals;
+}
+
+export function collaboration(d: Dataset): CollaborationItem[] {
+  const byId = new Map(d.initiatives.map((i) => [i.id, i]));
+  const hyps = hypotheses(cohortSignals(d), byId);
+  const key = (a: string, b: string) => [a, b].sort().join("|");
+  const hypByPair = new Map(hyps.map((h) => [key(h.a, h.b), h]));
+  const brief = (i: Initiative) => ({ id: i.id, slug: i.slug, shortTitle: i.shortTitle, title: i.title, categories: i.categories });
+  const out: CollaborationItem[] = [];
+  for (const r of d.relationships) {
+    if (r.type !== "potentially_overlaps" && r.type !== "potentially_complements") continue;
+    const a = byId.get(r.from.id);
+    const b = byId.get(r.to.id);
+    if (!a || !b) continue;
+    const h = hypByPair.get(key(a.id, b.id)) ?? null;
+    const shared = a.categories.find((c) => b.categories.some((x) => x.slug === c.slug)) ?? null;
+    out.push({
+      relationship: r,
+      kind: r.type,
+      a: brief(a),
+      b: brief(b),
+      signals: h,
+      reasons: h?.reasons ?? r.reason.replace(/^overlap@\d+:\s*/, "").split("; "),
+      questions: h?.questions ?? [],
+      sharedCategory: shared,
+    });
+  }
+  return out.sort((x, y) => (y.signals?.similarity ?? 0) - (x.signals?.similarity ?? 0) || x.a.shortTitle.localeCompare(y.a.shortTitle));
+}
+
+/** Deterministic signals for every pair among the given initiatives, whether or not they pass the hypothesis thresholds. */
+export function pairDetails(d: Dataset, ids: string[]) {
+  const inis = [...new Map(ids.map((x) => findInitiative(d, x)).filter((x): x is Initiative => !!x).map((i) => [i.id, i])).values()].slice(0, 8);
+  const set = new Set(inis.map((i) => i.id));
+  const all = cohortSignals(d).filter((p) => set.has(p.a) && set.has(p.b));
+  const rel = (a: string, b: string) => d.relationships.find((r) => (r.type === "potentially_overlaps" || r.type === "potentially_complements") && ((r.from.id === a && r.to.id === b) || (r.from.id === b && r.to.id === a)));
+  return all.map((p) => ({ ...p, hypothesis: rel(p.a, p.b) ?? null }));
 }
 
 // ───────────────────────────── Export ─────────────────────────────

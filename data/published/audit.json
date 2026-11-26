@@ -1,7 +1,7 @@
 {
-  "datasetVersion": "20261126T101107Z-1cb9ae37+aab45113",
-  "at": "2026-11-26T10:51:59.463Z",
-  "checked": 1971,
+  "datasetVersion": "20261126T101107Z-1cb9ae37+f4324857",
+  "at": "2026-11-26T11:27:06.697Z",
+  "checked": 2697,
   "failures": [],
   "byCheck": {
     "official_record_present": {
@@ -118,6 +118,42 @@
     },
     "status_requests": {
       "checked": 1,
+      "failed": 0
+    },
+    "milestone_share": {
+      "checked": 211,
+      "failed": 0
+    },
+    "pledge_record": {
+      "checked": 86,
+      "failed": 0
+    },
+    "backer_totals": {
+      "checked": 1,
+      "failed": 0
+    },
+    "backer_split": {
+      "checked": 65,
+      "failed": 0
+    },
+    "what_if_baseline": {
+      "checked": 55,
+      "failed": 0
+    },
+    "coverage_counts": {
+      "checked": 11,
+      "failed": 0
+    },
+    "hypotheses_reproducible": {
+      "checked": 1,
+      "failed": 0
+    },
+    "hypothesis_reason": {
+      "checked": 45,
+      "failed": 0
+    },
+    "revision_text": {
+      "checked": 251,
       "failed": 0
     }
   }

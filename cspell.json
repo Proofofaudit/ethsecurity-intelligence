@@ -3,6 +3,7 @@
   "language": "en-US",
   "ignorePaths": ["node_modules", ".next", "data", ".scratch", "package-lock.json"],
   "words": [
+    "xyflow", "eips", "colibri", "beneficiar", "collabItems", "collabAssumption", "trustblock", "walletbeat",
     "ained", "ainer", "ainers", "aining", "ains", "ations", "backtest", "backtestable", "bigram", "bigrams", "bmaint", "cmdk",
     "defi", "dprk", "enance", "ethsecurity", "fmax", "fmin", "frontends", "funder", "giveth", "gmax", "gmin", "herfindahl",
     "hirschman", "hyps", "idxs", "infraops", "inis", "integrat", "lede", "lockdown", "maint", "maxage", "mets", "msdone",

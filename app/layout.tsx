@@ -1,11 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Mono, IBM_Plex_Sans, Noto_Sans_Symbols_2 } from "next/font/google";
-import type { ReactNode } from "react";
+import { Suspense, type ReactNode } from "react";
 import { CommandPaletteProvider, type PaletteInitiative, type PaletteOrganization } from "@/components/shell/command-palette";
 import { CoiStrip, Footer } from "@/components/shell/footer";
 import { Header } from "@/components/shell/header";
 import { THEME_SCRIPT } from "@/components/shell/theme";
 import { TooltipProvider } from "@/components/ui/overlay";
+import { VisitTracker } from "@/components/workspace/tracker";
 import type { Dataset } from "@/lib/domain/schemas";
 import { loadIntelligence } from "@/lib/intelligence/load";
 import "./globals.css";
@@ -73,6 +74,9 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             <main id="main" tabIndex={-1} className="mx-auto max-w-[1320px] px-5 pt-8 focus:outline-none md:px-8">
               {children}
             </main>
+            <Suspense fallback={null}>
+              <VisitTracker />
+            </Suspense>
             <Footer meta={d ? { datasetVersion: d.meta.datasetVersion, officialGeneratedAt: d.meta.officialGeneratedAt, methodologyVersion: d.meta.methodologyVersion, sourceUrl: d.meta.officialSourceUrl } : null} />
           </CommandPaletteProvider>
         </TooltipProvider>

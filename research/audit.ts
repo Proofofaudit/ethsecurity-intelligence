@@ -16,14 +16,19 @@
  *     snapshot manifest it was published from, and the funding identity holds in raw data.
  *  9. Dossier statements: the summary and its plain-language opening line match the raw official
  *     summary verbatim, and the Reality vs. Promises budget split adds up to the raw milestones.
+ * 10. Research views: milestone shares of goal, backer pledge totals, the what-if baseline, the
+ *     lifecycle coverage counts, collaboration hypotheses (recomputed from scratch) and the
+ *     revision texts shown in the Time Machine all agree with the raw official records.
  */
 import type { DetailResponse } from "@/lib/official/schemas";
 import type { Dataset } from "@/lib/domain/schemas";
 import { cohortMetrics } from "@/lib/metrics/compute";
-import { plainExplanation, realityVsPromises } from "@/lib/intelligence/service";
+import type { RevisionResponse } from "@/lib/official/schemas";
+import { collaboration, coverage, fundingRelationships, plainExplanation, realityVsPromises, simulatePortfolio } from "@/lib/intelligence/service";
 import { formatUsd, toCents } from "@/lib/util/money";
 import { stripMarkdown } from "@/lib/util/text";
-import { readObject, type SnapshotManifest } from "./store";
+import path from "node:path";
+import { readJson, readObject, REVISIONS_DIR, type SnapshotManifest } from "./store";
 
 export interface AuditResult {
   checked: number;
@@ -169,6 +174,68 @@ export async function auditDataset(d: Dataset, manifest: SnapshotManifest): Prom
     d.meta.ingestion.requests === manifest.requests && JSON.stringify(d.meta.ingestion.failedRequests) === JSON.stringify(manifest.failedRequests),
     "meta request counts differ from the snapshot",
   );
+
+  // 10. Research views.
+  for (const ms of d.milestones) {
+    const r = raw.get(ms.initiativeId);
+    const rm = r?.initiative.milestones[ms.index];
+    const goal = r ? toCents(r.initiative.goalUsd) : 0;
+    tick(
+      "milestone_share",
+      !!rm && (goal > 0 ? Math.abs((ms.shareOfGoal ?? -1) - toCents(rm.amount) / goal) < 1e-9 : ms.shareOfGoal === null),
+      `${ms.id}: share of goal differs from raw amount / goal`,
+    );
+  }
+  const rawPledgeRows = [...raw.values()].flatMap((r) => r.pledges.map((p) => ({ initiativeId: r.initiative.id, company: p.company.trim(), cents: toCents(p.amountUsd), status: p.status })));
+  for (const p of d.pledges)
+    tick(
+      "pledge_record",
+      rawPledgeRows.some((x) => x.initiativeId === p.initiativeId && x.company === p.company.trim() && x.cents === p.amountCents && x.status === p.status),
+      `${p.id}: ${p.company} ${formatUsd(p.amountCents)} not found in raw pledges`,
+    );
+  const fr = fundingRelationships(d);
+  tick("backer_totals", fr.totalPledgedCents === rawPledgeRows.reduce((s, x) => s + x.cents, 0) && d.pledges.length === rawPledgeRows.length, "backer pledge totals differ from raw pledge rows");
+  for (const b of fr.backers) {
+    const own = d.pledges.filter((p) => p.backerId === b.backerId);
+    tick(
+      "backer_split",
+      b.totalCents === b.pledgedCents + b.receivedCents && b.totalCents === own.reduce((s, p) => s + p.amountCents, 0) && b.records === own.length,
+      `${b.backerId}: pledged + received ≠ total`,
+    );
+  }
+  const base = simulatePortfolio(d, { initiativeIds: d.initiatives.map((i) => i.id) });
+  for (const row of base.rows) {
+    const r = raw.get(row.id);
+    const goal = r ? toCents(r.initiative.goalUsd) : -1;
+    const total = r ? toCents(r.summary.total) : -1;
+    tick("what_if_baseline", row.securedCents === total && row.gapCents === Math.max(0, goal - total), `${row.slug}: what-if baseline differs from raw goal and raised`);
+  }
+  const cov = coverage(d);
+  for (const st of cov.stages) {
+    const rels = d.relationships.filter((r) => r.type === "addresses" && r.to.id === st.stage).length;
+    tick("coverage_counts", st.totalCount === rels && st.initiatives.length === st.totalCount, `${st.stage}: coverage count ${st.totalCount} vs ${rels} addresses relationships`);
+  }
+  const collabItems = collaboration(d);
+  const hypRels = d.relationships.filter((r) => r.type === "potentially_overlaps" || r.type === "potentially_complements");
+  tick("hypotheses_reproducible", collabItems.length === hypRels.length && collabItems.every((c) => c.signals !== null), "collaboration hypotheses cannot be reproduced from the published dataset");
+  for (const c of collabItems) {
+    const recomputed = c.signals ? `${c.reasons.join("; ")}` : "";
+    tick("hypothesis_reason", c.relationship.reason.endsWith(recomputed) && recomputed.length > 0, `${c.relationship.id}: recomputed reasons differ`);
+  }
+  for (const rev of d.revisions) {
+    const file = await readJson<RevisionResponse>(path.join(REVISIONS_DIR, rev.initiativeId, `${rev.n}.json`));
+    const rr = file?.revision;
+    const sections = rr ? (rr.sections ?? (rr.details ? { details: rr.details } : null)) : null;
+    tick(
+      "revision_text",
+      !!rr &&
+        (rr.title ?? null) === rev.title &&
+        (rr.summary ?? null) === rev.summary &&
+        JSON.stringify(sections) === JSON.stringify(rev.sections) &&
+        (rr.milestones ?? []).reduce((s, m) => s + toCents(m.amount), 0) === (rev.milestones ?? []).reduce((s, m) => s + m.amountCents, 0),
+      `${rev.id}: revision ${rev.n} differs from the raw official revision`,
+    );
+  }
 
   return { checked: Object.values(byCheck).reduce((s, x) => s + x.checked, 0), failures, byCheck };
 }

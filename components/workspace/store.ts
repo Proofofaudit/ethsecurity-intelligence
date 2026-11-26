@@ -2,45 +2,35 @@
 
 /**
  * Private, local-first workspace kept in localStorage (never sent to the server).
- * Versioned and validated with zod; unknown fields are preserved so later versions can extend it.
+ * Versioned and validated with zod (see ./schema); unknown fields are preserved.
  */
 import { useSyncExternalStore } from "react";
-import { z } from "zod";
+import type { EvidenceStatus } from "@/lib/domain/schemas";
+import { EMPTY_WORKSPACE, newId, WorkspaceSchema, type Fingerprint, type Priority, type Workspace } from "./schema";
+
+export { WorkspaceSchema, type SavedSearch, type Workspace } from "./schema";
 
 export const WORKSPACE_KEY = "esi.workspace";
 
-export const SavedSearch = z.object({ id: z.string(), name: z.string().max(120), query: z.string().max(2000), createdAt: z.string() });
-export type SavedSearch = z.infer<typeof SavedSearch>;
-
-export const WorkspaceSchema = z
-  .object({
-    version: z.literal(1),
-    initiatives: z.array(z.object({ id: z.string(), addedAt: z.string() })).default([]),
-    searches: z.array(SavedSearch).default([]),
-  })
-  .passthrough();
-export type Workspace = z.infer<typeof WorkspaceSchema>;
-
-const EMPTY: Workspace = { version: 1, initiatives: [], searches: [] };
 const listeners = new Set<() => void>();
 let cache: { raw: string | null; value: Workspace } | null = null;
 
 function read(): Workspace {
-  if (typeof window === "undefined") return EMPTY;
+  if (typeof window === "undefined") return EMPTY_WORKSPACE;
   let raw: string | null = null;
   try {
     raw = window.localStorage.getItem(WORKSPACE_KEY);
   } catch {
-    return EMPTY;
+    return EMPTY_WORKSPACE;
   }
   if (cache && cache.raw === raw) return cache.value;
-  let value = EMPTY;
+  let value = EMPTY_WORKSPACE;
   if (raw) {
     try {
       const parsed = WorkspaceSchema.safeParse(JSON.parse(raw));
       if (parsed.success) value = parsed.data;
     } catch {
-      value = EMPTY;
+      value = EMPTY_WORKSPACE;
     }
   }
   cache = { raw, value };
@@ -58,6 +48,14 @@ export function updateWorkspace(fn: (w: Workspace) => Workspace) {
   listeners.forEach((l) => l());
 }
 
+export function replaceWorkspace(w: Workspace) {
+  updateWorkspace(() => w);
+}
+
+export function clearWorkspace() {
+  updateWorkspace(() => EMPTY_WORKSPACE);
+}
+
 function subscribe(l: () => void) {
   listeners.add(l);
   const onStorage = (e: StorageEvent) => e.key === WORKSPACE_KEY && l();
@@ -69,19 +67,130 @@ function subscribe(l: () => void) {
 }
 
 export function useWorkspace(): Workspace {
-  return useSyncExternalStore(subscribe, read, () => EMPTY);
+  return useSyncExternalStore(subscribe, read, () => EMPTY_WORKSPACE);
 }
+
+const now = () => new Date().toISOString();
 
 export function toggleSaved(id: string) {
   updateWorkspace((w) =>
-    w.initiatives.some((x) => x.id === id) ? { ...w, initiatives: w.initiatives.filter((x) => x.id !== id) } : { ...w, initiatives: [...w.initiatives, { id, addedAt: new Date().toISOString() }] },
+    w.initiatives.some((x) => x.id === id)
+      ? { ...w, initiatives: w.initiatives.filter((x) => x.id !== id) }
+      : { ...w, initiatives: [...w.initiatives, { id, addedAt: now(), reviewedAt: null, priority: null }] },
   );
 }
 
+/** Marks an initiative reviewed (saving it if needed) or clears the mark. */
+export function setReviewed(id: string, reviewed: boolean) {
+  updateWorkspace((w) => {
+    const has = w.initiatives.some((x) => x.id === id);
+    const list = has ? w.initiatives : [...w.initiatives, { id, addedAt: now(), reviewedAt: null, priority: null }];
+    return { ...w, initiatives: list.map((x) => (x.id === id ? { ...x, reviewedAt: reviewed ? now() : null } : x)) };
+  });
+}
+
+export function setPriority(id: string, priority: Priority | null) {
+  updateWorkspace((w) => ({ ...w, initiatives: w.initiatives.map((x) => (x.id === id ? { ...x, priority } : x)) }));
+}
+
 export function saveSearch(name: string, query: string) {
-  updateWorkspace((w) => ({ ...w, searches: [{ id: `s_${Date.now().toString(36)}`, name: name.slice(0, 120), query, createdAt: new Date().toISOString() }, ...w.searches].slice(0, 50) }));
+  updateWorkspace((w) => ({ ...w, searches: [{ id: newId("s"), name: name.slice(0, 120), query, createdAt: now() }, ...w.searches].slice(0, 50) }));
 }
 
 export function removeSearch(id: string) {
   updateWorkspace((w) => ({ ...w, searches: w.searches.filter((s) => s.id !== id) }));
+}
+
+export function toggleBookmark(b: { claimId: string; initiativeId: string; assertion: string; status: EvidenceStatus }) {
+  updateWorkspace((w) =>
+    w.bookmarks.some((x) => x.claimId === b.claimId)
+      ? { ...w, bookmarks: w.bookmarks.filter((x) => x.claimId !== b.claimId) }
+      : { ...w, bookmarks: [{ id: newId("b"), ...b, assertion: b.assertion.slice(0, 400), savedAt: now() }, ...w.bookmarks] },
+  );
+}
+
+/** Accepts the current status after the reviewer has inspected a changed bookmark. */
+export function acknowledgeBookmark(claimId: string, status: EvidenceStatus) {
+  updateWorkspace((w) => ({ ...w, bookmarks: w.bookmarks.map((b) => (b.claimId === claimId ? { ...b, status, savedAt: now() } : b)) }));
+}
+
+export function removeBookmark(id: string) {
+  updateWorkspace((w) => ({ ...w, bookmarks: w.bookmarks.filter((b) => b.id !== id) }));
+}
+
+export function saveComparison(name: string, ids: string[]) {
+  updateWorkspace((w) => ({ ...w, comparisons: [{ id: newId("c"), name: name.slice(0, 160), ids: ids.slice(0, 5), createdAt: now() }, ...w.comparisons].slice(0, 100) }));
+}
+
+export function removeComparison(id: string) {
+  updateWorkspace((w) => ({ ...w, comparisons: w.comparisons.filter((c) => c.id !== id) }));
+}
+
+export function addNote(initiativeId: string | null, text: string) {
+  const t = now();
+  updateWorkspace((w) => ({ ...w, notes: [{ id: newId("n"), initiativeId, text: text.slice(0, 5000), createdAt: t, updatedAt: t }, ...w.notes] }));
+}
+
+export function updateNote(id: string, text: string) {
+  updateWorkspace((w) => ({ ...w, notes: w.notes.map((n) => (n.id === id ? { ...n, text: text.slice(0, 5000), updatedAt: now() } : n)) }));
+}
+
+export function removeNote(id: string) {
+  updateWorkspace((w) => ({ ...w, notes: w.notes.filter((n) => n.id !== id) }));
+}
+
+export function addQuestion(initiativeId: string | null, text: string) {
+  updateWorkspace((w) => ({ ...w, questions: [{ id: newId("q"), initiativeId, text: text.slice(0, 1000), createdAt: now(), resolvedAt: null }, ...w.questions] }));
+}
+
+export function setQuestionResolved(id: string, resolved: boolean) {
+  updateWorkspace((w) => ({ ...w, questions: w.questions.map((q) => (q.id === id ? { ...q, resolvedAt: resolved ? now() : null } : q)) }));
+}
+
+export function removeQuestion(id: string) {
+  updateWorkspace((w) => ({ ...w, questions: w.questions.filter((q) => q.id !== id) }));
+}
+
+export function addPriority(text: string) {
+  updateWorkspace((w) => ({ ...w, priorities: [...w.priorities, { id: newId("p"), text: text.slice(0, 500), createdAt: now(), done: false }] }));
+}
+
+export function setPriorityDone(id: string, done: boolean) {
+  updateWorkspace((w) => ({ ...w, priorities: w.priorities.map((p) => (p.id === id ? { ...p, done } : p)) }));
+}
+
+export function movePriority(id: string, dir: -1 | 1) {
+  updateWorkspace((w) => {
+    const i = w.priorities.findIndex((p) => p.id === id);
+    const j = i + dir;
+    if (i < 0 || j < 0 || j >= w.priorities.length) return w;
+    const list = [...w.priorities];
+    [list[i], list[j]] = [list[j]!, list[i]!];
+    return { ...w, priorities: list };
+  });
+}
+
+export function removePriority(id: string) {
+  updateWorkspace((w) => ({ ...w, priorities: w.priorities.filter((p) => p.id !== id) }));
+}
+
+export function saveAssessment(initiativeId: string, text: string, fingerprint: Fingerprint) {
+  updateWorkspace((w) => ({ ...w, assessments: [{ id: newId("a"), initiativeId, text: text.slice(0, 5000), savedAt: now(), fingerprint }, ...w.assessments] }));
+}
+
+/** Re-confirms an assessment against the current record (clears its expiration alert). */
+export function reconfirmAssessment(id: string, fingerprint: Fingerprint) {
+  updateWorkspace((w) => ({ ...w, assessments: w.assessments.map((a) => (a.id === id ? { ...a, savedAt: now(), fingerprint } : a)) }));
+}
+
+export function removeAssessment(id: string) {
+  updateWorkspace((w) => ({ ...w, assessments: w.assessments.filter((a) => a.id !== id) }));
+}
+
+export function setLastVisited(path: string, title: string) {
+  updateWorkspace((w) => (w.lastVisited?.path === path ? w : { ...w, lastVisited: { path: path.slice(0, 500), title: title.slice(0, 300), at: now() } }));
+}
+
+export function markChangesReviewed() {
+  updateWorkspace((w) => ({ ...w, lastReviewAt: now() }));
 }

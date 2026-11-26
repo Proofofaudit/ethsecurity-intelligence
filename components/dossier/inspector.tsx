@@ -7,6 +7,7 @@ import { Button, ExternalLink } from "@/components/ui/button";
 import { Dialog, Sheet } from "@/components/ui/overlay";
 import { formatDate, formatDateTime } from "@/components/ui/money";
 import { StatusMark } from "@/components/ui/status";
+import { toggleBookmark, useWorkspace } from "@/components/workspace/store";
 import { cn } from "@/lib/util/cn";
 
 export const ORIGIN_LABEL: Record<Claim["origin"], string> = {
@@ -296,12 +297,28 @@ function ClaimDetail({ claim }: { claim: Claim }) {
           <p className="text-xs text-ink-3">{traceError ? "The impact trace could not be loaded." : "Loading…"}</p>
         )}
       </div>
-      <div className="border-t border-rule pt-4">
+      <div className="flex flex-wrap gap-2 border-t border-rule pt-4">
+        <BookmarkButton claim={claim} />
         <Button size="sm" onClick={() => correct({ type: "claim", id: claim.id, label: claim.assertion })}>
           Suggest a correction to this statement
         </Button>
       </div>
     </div>
+  );
+}
+
+function BookmarkButton({ claim }: { claim: Claim }) {
+  const w = useWorkspace();
+  const saved = w.bookmarks.some((b) => b.claimId === claim.id);
+  return (
+    <Button
+      size="sm"
+      aria-pressed={saved}
+      title="Bookmarks are stored in this browser only"
+      onClick={() => toggleBookmark({ claimId: claim.id, initiativeId: claim.initiativeId, assertion: claim.assertion, status: claim.status })}
+    >
+      {saved ? "Bookmarked in My Workspace" : "Bookmark this evidence"}
+    </Button>
   );
 }
 
