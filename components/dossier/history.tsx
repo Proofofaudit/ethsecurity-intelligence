@@ -5,7 +5,7 @@ import { formatDateTime, Money } from "@/components/ui/money";
 export function Diff({ before, after }: { before: string; after: string }) {
   const parts = diffWords(before, after);
   return (
-    <p className="text-sm leading-[22px] whitespace-pre-wrap text-ink-2">
+    <p className="text-sm leading-[22px] whitespace-pre-wrap wrap-anywhere text-ink-2">
       {parts.map((p, i) =>
         p.added ? (
           <ins key={i} className="bg-accent-wash text-ink no-underline">

@@ -134,7 +134,7 @@ export function ClaimLine({ id, showQuote = false, text, className }: { id: stri
         </button>
         {showQuote && c.quote && c.quote !== c.assertion && <p className="mt-1 border-l-2 border-rule pl-3 text-sm text-ink-2 italic">“{c.quote}”</p>}
       </div>
-      <button type="button" onClick={() => inspect(c.id)} className="shrink-0 pt-0.5 text-2xs text-ink-3 opacity-70 group-hover:opacity-100 hover:text-accent" aria-label={`Inspect sources for: ${c.assertion.slice(0, 80)}`}>
+      <button type="button" onClick={() => inspect(c.id)} className="shrink-0 pt-0.5 text-2xs text-ink-3 hover:text-accent" aria-label={`Inspect sources for: ${c.assertion.slice(0, 80)}`}>
         Sources
       </button>
     </div>

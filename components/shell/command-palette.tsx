@@ -219,12 +219,12 @@ export function PaletteButton() {
     <button
       type="button"
       onClick={open}
-      aria-label="Search (Command or Control + K)"
+      aria-keyshortcuts="Meta+K Control+K"
       className="flex h-8 items-center gap-2 rounded-sm border border-rule-2 bg-paper px-2.5 text-sm text-ink-3 hover:border-ink-3 hover:text-ink md:w-64"
     >
       <SearchIcon />
       <span className="max-md:sr-only">Search</span>
-      <span className="ml-auto flex items-center gap-0.5 max-md:hidden">
+      <span aria-hidden="true" className="ml-auto flex items-center gap-0.5 max-md:hidden">
         <Kbd>⌘</Kbd>
         <Kbd>K</Kbd>
       </span>

@@ -12,7 +12,7 @@ export function SaveButton({ id, title, compact, className }: { id: string; titl
       type="button"
       onClick={() => toggleSaved(id)}
       aria-pressed={saved}
-      aria-label={saved ? `Remove ${title} from My Workspace` : `Add ${title} to My Workspace`}
+      aria-label={saved ? `Saved: remove ${title} from My Workspace` : `Save ${title} to My Workspace`}
       title={saved ? "In My Workspace (stored in this browser only)" : "Add to My Workspace (stored in this browser only)"}
       className={cn(
         "inline-flex h-7 items-center gap-1.5 rounded-sm border px-2 text-xs whitespace-nowrap transition-colors",

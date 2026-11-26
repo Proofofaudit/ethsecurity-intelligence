@@ -20,7 +20,7 @@ export function Header({ cohortLine }: { cohortLine: string }) {
   return (
     <header className="sticky top-0 z-30 border-b border-rule bg-paper">
       <div className="mx-auto flex h-13 max-w-[1320px] items-center gap-6 px-5 md:px-8">
-        <Link href="/" className="flex shrink-0 items-baseline gap-2" aria-label="ETHSecurity Intelligence, Overview">
+        <Link href="/" className="flex shrink-0 items-baseline gap-2">
           <span className="text-[15px] font-semibold tracking-[-0.01em]">ETHSecurity Intelligence</span>
           <span className="num hidden text-2xs text-ink-3 lg:inline">{cohortLine}</span>
         </Link>

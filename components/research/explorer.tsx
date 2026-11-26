@@ -566,7 +566,7 @@ function FilterPanel({ params, facets, onChange, onClear, active }: { params: Re
         />
       </Group>
       <Group title="Organization">
-        <select className={select} value={params.org} onChange={(e) => onChange({ org: e.target.value })}>
+        <select className={select} aria-label="Organization" value={params.org} onChange={(e) => onChange({ org: e.target.value })}>
           <option value="">Any organization</option>
           {facets.organizations.map((o) => (
             <option key={o.value} value={o.value}>

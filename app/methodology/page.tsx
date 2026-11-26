@@ -70,7 +70,7 @@ export default function MethodologyPage() {
         {groups.map((g) => (
           <div key={g.level} className="mb-8">
             <h3 className="eyebrow mb-2">{g.title}</h3>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto" tabIndex={0} role="region" aria-label={`${g.title} table, scrolls sideways`}>
               <table className="w-full min-w-[1080px] text-xs">
                 <caption className="sr-only">{g.title} with their definitions</caption>
                 <thead>
@@ -132,7 +132,7 @@ export default function MethodologyPage() {
           </>
         }
       >
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="Lifecycle stages table, scrolls sideways">
           <table className="w-full min-w-[900px] text-xs">
             <caption className="sr-only">Lifecycle stages, their terms and official category hints</caption>
             <thead>

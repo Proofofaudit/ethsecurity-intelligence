@@ -12,7 +12,7 @@ export function ReviewedButton({ id, title, className }: { id: string; title: st
       type="button"
       onClick={() => setReviewed(id, !reviewed)}
       aria-pressed={reviewed}
-      aria-label={reviewed ? `Clear the reviewed mark on ${title}` : `Mark ${title} as reviewed`}
+      aria-label={reviewed ? `Reviewed: clear the mark on ${title}` : `Mark reviewed: ${title}`}
       title="Stored in this browser only"
       className={cn(
         "inline-flex h-7 items-center gap-1.5 rounded-sm border px-2 text-xs whitespace-nowrap transition-colors",

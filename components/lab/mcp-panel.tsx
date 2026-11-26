@@ -43,7 +43,7 @@ export function McpPanel({ siteUrl }: { siteUrl: string }) {
               </p>
               <CopyButton text={cl.config} variant="ghost" />
             </div>
-            <pre className="overflow-x-auto rounded-xs border border-rule bg-paper-2 p-3 font-mono text-[12px] leading-[18px] text-ink-2">{cl.config}</pre>
+            <pre tabIndex={0} aria-label={`${cl.name} configuration`} className="overflow-x-auto rounded-xs border border-rule bg-paper-2 p-3 font-mono text-[12px] leading-[18px] text-ink-2">{cl.config}</pre>
           </div>
         ))}
       </div>
@@ -51,7 +51,7 @@ export function McpPanel({ siteUrl }: { siteUrl: string }) {
 
       <details className="mt-6 border-t border-rule pt-3">
         <summary className="cursor-pointer text-sm font-medium hover:text-accent">Tools and the capabilities they cover</summary>
-        <div className="mt-3 overflow-x-auto">
+        <div className="mt-3 overflow-x-auto" tabIndex={0} role="region" aria-label="MCP tools table, scrolls sideways">
           <table className="w-full min-w-[620px] text-left text-sm">
             <thead>
               <tr className="border-b border-ink text-xs text-ink-3">

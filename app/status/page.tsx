@@ -99,7 +99,7 @@ export default async function StatusPage() {
             )
           }
         >
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="Research jobs table, scrolls sideways">
             <table className="w-full min-w-[420px] text-sm">
               <caption className="sr-only">Research jobs by task and state</caption>
               <thead>

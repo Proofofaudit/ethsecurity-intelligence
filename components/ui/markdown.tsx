@@ -99,7 +99,7 @@ function blocks(md: string): Block[] {
 
 export function Markdown({ source, className }: { source: string; className?: string }) {
   return (
-    <div className={cn("space-y-2.5 text-base leading-[22px] text-ink-2", className)}>
+    <div className={cn("space-y-2.5 text-base leading-[22px] text-ink-2 wrap-anywhere", className)}>
       {blocks(source).map((b, i) => {
         const k = `b${i}`;
         if (b.t === "h")
