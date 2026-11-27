@@ -216,6 +216,10 @@ describe("rule 8: existing functionality without a link", () => {
     // A bare domain used as a company name is not a link.
     expect(ruleExistingClaimWithoutLink(input({ claims: [claim("c7", { quote: "It is integrated in Ambire and beel.com (formerly Tokenize.it)." })] }))).toHaveLength(1);
   });
+  it("does not ask about an AI-origin claim that would otherwise trigger the rule", () => {
+    expect(ruleExistingClaimWithoutLink(input({ claims: [claim("c1")] }))).toHaveLength(1);
+    expect(ruleExistingClaimWithoutLink(input({ claims: [claim("c1", { origin: "ai" })] }))).toEqual([]);
+  });
 });
 
 describe("all rules", () => {
