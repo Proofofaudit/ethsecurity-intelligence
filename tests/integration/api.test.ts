@@ -82,6 +82,7 @@ beforeAll(async () => {
     funding: import("@/app/api/v1/initiatives/[id]/funding/route"),
     round1: import("@/app/api/v1/initiatives/[id]/round1/route"),
     evidenceCard: import("@/app/api/v1/initiatives/[id]/evidence-card/route"),
+    similar: import("@/app/api/v1/initiatives/[id]/similar/route"),
     organization: import("@/app/api/v1/organizations/[id]/route"),
     entity: import("@/app/api/v1/entities/[type]/[id]/route"),
     claim: import("@/app/api/v1/claims/[id]/route"),
@@ -273,6 +274,24 @@ describe("read endpoints", () => {
     const funding = r.json.data.sections.find((s: { key: string }) => s.key === "funding").items;
     expect(funding.find((i: { key: string }) => i.key === "pledged").amountCents).toBe(ini.funding.pledgedCents);
     expectError(await get("evidenceCard", "/initiatives/nope/evidence-card", { id: "nope" }), 404, "not_found");
+  });
+
+  it("serves similar initiatives with signals, quotes from both proposals and the hypothesis notice", async () => {
+    const ini = d.initiatives.find((i) => i.shortTitle === "Echidna")!;
+    const r = await get("similar", `/initiatives/${ini.slug}/similar`, { id: ini.slug });
+    expect(r.status).toBe(200);
+    expectEnvelope(r.json);
+    expect(r.json.data.method).toBe("similar@1");
+    expect(r.json.data.notice).toBe("This is a research hypothesis, not a finding");
+    expect(r.json.data.items.length).toBeGreaterThan(0);
+    for (const it of r.json.data.items) {
+      expect(["Possible overlap", "Possible complement", "Same organization"]).toContain(it.label);
+      expect(it.compareHref).toBe(`/research/compare?ids=${ini.slug},${it.other.slug}`);
+      const quoted = it.signals.filter((s: { quotes: unknown }) => s.quotes);
+      expect(quoted.length).toBeGreaterThan(0);
+      for (const s of quoted) expect(s.quotes.map((q: { initiativeId: string }) => q.initiativeId)).toEqual([ini.id, it.other.id]);
+    }
+    expectError(await get("similar", "/initiatives/nope/similar", { id: "nope" }), 404, "not_found");
   });
 
   it("serves the vote manifest from the published dataset with its alignment result", async () => {

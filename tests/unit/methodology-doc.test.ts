@@ -9,6 +9,7 @@ import { describe, expect, it } from "vitest";
 import { FOCUS_MODE_TABLE, KEYWORD_ENDINGS } from "@/lib/vote/interest";
 import { MODE_BY_ID } from "@/lib/skills/modes";
 import { SHARED_HOSTS } from "@/lib/intelligence/round1";
+import { BOILERPLATE_PHRASES, GENERIC_KEYWORD_WORDS, HYPOTHESIS_NOTICE, KEYWORD_STOPWORDS, SIMILAR_THRESHOLDS, TECHNOLOGIES } from "@/lib/intelligence/similar";
 import { CONNECTING_WORDS, GENERIC_WORDS, LEADING_FREE_WORDS, OPTIONAL_WORDS, SAME_NAME_OPTIONAL_WORDS } from "@/lib/vote/affiliation";
 
 const doc = fs.readFileSync(path.join(process.cwd(), "METHODOLOGY.md"), "utf8");
@@ -60,5 +61,15 @@ describe("METHODOLOGY.md", () => {
   it("lists the Round 1 shared hosts exactly and records the retrieval method", () => {
     expect(doc).toContain(`(\`SHARED_HOSTS\`): ${SHARED_HOSTS.join(", ")}.`);
     for (const s of ["## Round 1 history", "exactly 135 rows", "not a stable public API", "Possible match: please verify", "No Round 1 funding found in the sources checked."]) expect(doc).toContain(s);
+  });
+
+  it("lists the similar-initiative word lists, technologies and thresholds exactly (Item 10)", () => {
+    expect(doc).toContain(`(\`KEYWORD_STOPWORDS\`, ${KEYWORD_STOPWORDS.length} words): ${KEYWORD_STOPWORDS.join(", ")}.`);
+    expect(doc).toContain(`(\`GENERIC_KEYWORD_WORDS\`, ${GENERIC_KEYWORD_WORDS.length} words): ${GENERIC_KEYWORD_WORDS.join(", ")}.`);
+    expect(doc).toContain(`(\`BOILERPLATE_PHRASES\`): ${BOILERPLATE_PHRASES.join(", ")}.`);
+    expect(doc).toContain(`(\`TECHNOLOGIES\`): ${TECHNOLOGIES.map((t) => t.name).join(", ")}.`);
+    expect(doc).toContain(`strong from ${SIMILAR_THRESHOLDS.keywordStrongMin} phrases`);
+    expect(doc).toContain(`used by more than ${SIMILAR_THRESHOLDS.keywordMaxInitiatives} initiatives`);
+    for (const s of ["## Similar initiatives", HYPOTHESIS_NOTICE, "Same organization", "Possible overlap", "Possible complement", "is hidden"]) expect(doc).toContain(s);
   });
 });

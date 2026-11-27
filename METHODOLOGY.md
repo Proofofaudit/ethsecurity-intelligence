@@ -272,6 +272,41 @@ Eleven stages (`lib/domain/taxonomy.ts`), informed by the Ethereum Foundation's 
 
 `lib/intelligence/overlap.ts` (`overlap@1`) computes TF-IDF cosine similarity between initiatives plus shared stages, standards, repositories and backers. Pairs above the thresholds in `OVERLAP_THRESHOLDS` become "potentially overlaps" or "potentially complements" hypotheses. They are drawn dashed, labeled as hypotheses and never state a partnership, duplication or agreement.
 
+## Similar initiatives
+
+`lib/intelligence/similar.ts` (`similar@1`) finds initiatives that may address the same problem, with the evidence for each pair. It does not replace the comparison view; "Compare these" opens `/research/compare?ids=<a>,<b>` with both initiatives selected. It is separate from the relationship hypotheses above and runs on request from the published dataset (nothing is stored). There is no model and no score: the same dataset always gives byte-identical output, whatever the order of its records.
+
+**Signals.** For every pair of the 55 initiatives:
+
+- Shared official category (weak): the initiatives share at least one official category.
+- Shared affiliation group (strong): both are in the same affiliation group of TheDAO's vote manifest (only when the manifest alignment is confirmed).
+- Shared phrases (strong from 2 phrases, weak with 1): two-word phrases that both proposals use in their official `why` and `in_scope` sections. Text is split into sentences (Markdown formatting removed), then into chunks at punctuation; a phrase is two adjacent words of at least three letters, neither a stopword nor starting with a digit. A phrase made only of generic words is dropped, as are proposal boilerplate phrases, technology names (reported once, as technologies) and phrases used by more than 5 initiatives (`SIMILAR_THRESHOLDS`). The shared phrases are listed on the pair.
+- Shared standards or technologies (strong): ERC, EIP and RIP numbers (ERC-n and EIP-n are the same number) and named technologies that both proposals name in the same two sections. Names match case-sensitively as whole words, so "safe" the adjective, "Safe Harbor" and "ZKsync" do not match "Safe" or "ZK". "Safe" at the start of a sentence counts only when the next word names the product ("Safe owners", "Safe{Wallet}").
+- Shared public backer (strong): a backer that pledged to both in the official pledge records. Anonymous backers are excluded.
+
+Team, out-of-scope, commitments and other sections are not read, so a tool a team built before or a technology that is out of scope never counts.
+
+**Visible pairs.** A pair is shown only when it has a phrase or technology signal (so it always has text evidence) and is more than one weak signal: at least one strong signal, or at least two weak signals. A pair that matches on only one weak signal, for example one shared category or one shared phrase, is hidden.
+
+**Labels.** "Same organization" when both initiatives have the same recipient organization (never shown as overlap); otherwise "Possible overlap" when they share an official category, and "Possible complement" when they do not. RFPs have no recipient organization and follow the same rules. Every pair reads "This is a research hypothesis, not a finding". The words "duplicate" and "waste" are never used (unit test).
+
+**Evidence.** Every pair lists its signals. Each phrase or technology signal quotes one sentence from each proposal, the sentence of the `why` or `in_scope` section with the most of the shared terms (the earliest one on a tie), verbatim with Markdown formatting removed, labeled "Applicant statement" and linked to the official initiative page at that section.
+
+**Order.** Dossier lists are "Alphabetical (neutral)" by the other initiative's title. No score, similarity value or percentage is computed or shown.
+
+**AI hypotheses.** None are generated; the site runs no model. If they are added later, they must cite proposal text, pass the neutral-language filter and carry the "AI interpretation" label.
+
+**Equal treatment.** The Proof of Audits initiative goes through the same function with the same rules; a unit test runs it under a neutral id and organization and gets the same pairs and signals.
+
+**Word lists.** Edit them in `lib/intelligence/similar.ts`; a unit test keeps this copy equal to the code.
+
+- Stopwords (`KEYWORD_STOPWORDS`, 243 words): a, about, above, across, after, again, against, all, almost, also, although, always, among, an, and, another, any, are, around, as, at, away, back, be, because, been, before, being, below, between, both, but, by, can, cannot, could, did, do, does, doing, done, down, during, each, either, else, even, ever, every, few, for, from, further, get, gets, getting, had, has, have, having, here, how, however, if, in, into, is, it, its, itself, just, less, like, made, make, makes, making, many, may, more, most, much, must, near, need, needs, never, new, next, no, nor, not, now, of, off, often, on, once, one, only, onto, or, other, others, our, out, over, own, per, perhaps, rather, really, same, several, shall, should, since, so, some, still, such, than, that, the, their, them, themselves, then, there, these, they, this, those, though, through, thus, to, too, two, under, until, up, upon, us, use, used, uses, using, very, via, was, way, ways, we, well, were, what, when, where, whether, which, while, who, whom, whose, why, will, with, within, without, would, yet, you, your, three, four, five, first, second, third, last, least, able, already, approve, approved, assess, based, better, billion, come, comes, companion, current, currently, dollar, dollars, etc, help, helps, helping, identify, include, includes, including, keep, keeps, kept, million, outside, potential, propose, proposed, provide, provides, providing, real, relevant, result, resulting, results, routine, run, running, runs, simple, thousand, trillion, applicant, fund, funded, funding, grant, grants, initiative, initiatives, milestone, milestones, proposal, proposals, rfp, rfps, thedao.
+- Generic words (`GENERIC_KEYWORD_WORDS`, 36 words): audit, audits, available, code, community, contract, contracts, developers, ecosystem, eth, ethereum, existing, independent, independently, mainnet, open, project, projects, protocol, protocols, public, research, review, security, smart, source, support, team, teams, tool, tools, user, users, verification, verified, work.
+- Boilerplate (`BOILERPLATE_PHRASES`): adoption work, below follow, complete freedom, ethereum foundation, final milestones, funded work, grant funds, grant pays, hard requirements, milestone reviewer, milestones below, possible approach, requirements below, rfp pays, selected team, starting point, thedao security, security fund.
+- Named technologies (`TECHNOLOGIES`): Aderyn, Besu, Blockscout, Certora, Clear Signing, Echidna, Erigon, Foundry, Geth, Gigahorse, Halmos, Hardhat, hevm, Kontrol, Lean 4, Ledger, libp2p, Lighthouse, Lodestar, Medusa, MetaMask, Mythril, Nimbus, Prysm, Rabby, Remix, Reth, Safe, Semgrep, Slither, Sourcify, TEE, Teku, Trezor, Vyper, Wake, ZK.
+
+**Limitations.** Phrases are exact two-word matches without stemming, so "hardware wallet" and "hardware wallets" are different phrases. A proposal that names a technology only as an incident example (for example a Safe incident) counts the same as one that builds on it; the quotes show which. The lists cover the technologies named in this cohort and are not complete.
+
 ## Milestone questions and blind spots
 
 Milestone rules raise questions, not failures: no or very short acceptance criterion, adoption milestones without confirmed adopters, open milestones without a target month, more than half of the budget in one milestone, completion without a linked artifact, numeric adoption targets. Missing data is a reason to ask, never an accusation.

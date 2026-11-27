@@ -9,6 +9,7 @@ import { MilestoneXRay } from "@/components/dossier/milestones";
 import { RealityVsPromises } from "@/components/dossier/reality";
 import { EvidenceCard } from "@/components/dossier/evidence-card";
 import { Round1History } from "@/components/dossier/round1";
+import { SimilarInitiatives } from "@/components/dossier/similar";
 import { ExternalLink, Tag } from "@/components/ui/button";
 import { FundingBar, FundingLegend } from "@/components/ui/charts";
 import { Note } from "@/components/ui/layout";
@@ -23,7 +24,7 @@ import { CATEGORY_LABEL, CORRECTION_NOTICE } from "@/lib/corrections";
 import { BANNER_HREF, COI_SHORT, isCoiOrganization } from "@/lib/disclosure";
 import type { Claim, Evidence } from "@/lib/domain/schemas";
 import { loadIntelligence } from "@/lib/intelligence/load";
-import { BLIND_SPOT_LABEL, dependencies, dossier, evidenceCard, PRESENT_SUPPORTED, plainExplanation, round1History, sharedGroupsOf } from "@/lib/intelligence/service";
+import { BLIND_SPOT_LABEL, dependencies, dossier, evidenceCard, PRESENT_SUPPORTED, plainExplanation, round1History, sharedGroupsOf, similarFor } from "@/lib/intelligence/service";
 import { CORE_RESEARCH_TASKS } from "@/lib/intelligence/status";
 import { THEDAO_ASK_CAP_CENTS } from "@/lib/metrics/ask";
 import { formatPct, formatUsd } from "@/lib/util/money";
@@ -97,6 +98,7 @@ export default async function InitiativePage({ params }: Params) {
   const deps = dependencies(d, ini.id)[0];
   const round1 = round1History(d, ini.id)!;
   const card = evidenceCard(d, ini.id)!;
+  const similar = similarFor(d, ini.id) ?? [];
   const higher = x.blindSpots.filter((b) => b.importance === "higher");
   const standard = x.blindSpots.filter((b) => b.importance === "standard");
   const recipient = x.organization?.name ?? ini.recipientTeam;
@@ -122,7 +124,7 @@ export default async function InitiativePage({ params }: Params) {
     "technical",
     "adoption",
     "dependencies",
-    "related",
+    "similar",
     "supporting",
     "counter",
     "questions",
@@ -207,9 +209,9 @@ export default async function InitiativePage({ params }: Params) {
               <Link href={`/research/graph?type=initiative&id=${encodeURIComponent(ini.id)}`} className="hover:text-accent">
                 Relationship map
               </Link>
-              {x.related.length > 0 && (
-                <Link href={`/research/compare?ids=${[ini.slug, ...x.related.map((r) => r.other?.slug).filter((s): s is string => !!s)].slice(0, 5).join(",")}`} className="hover:text-accent">
-                  Compare with related ({Math.min(x.related.length, 4)})
+              {similar.length > 0 && (
+                <Link href={`/research/compare?ids=${[ini.slug, ...similar.map((r) => r.other.slug)].slice(0, 5).join(",")}`} className="hover:text-accent">
+                  Compare with similar ({Math.min(similar.length, 4)})
                 </Link>
               )}
               <Link href={`/research/milestones?ini=${ini.slug}`} className="hover:text-accent">
@@ -645,29 +647,15 @@ export default async function InitiativePage({ params }: Params) {
               </div>
             </Section>
 
-            <Section id="related" n={13} title="Related initiatives" meta={`${x.related.length} hypotheses`}>
-              {x.related.length ? (
-                <ul className="max-w-[880px] divide-y divide-rule border-y border-rule text-sm">
-                  {x.related.map(({ relationship: r, other }) => (
-                    <li key={r.id} className="py-2">
-                      <div className="flex flex-wrap items-baseline gap-x-3">
-                        {other ? (
-                          <Link href={`/initiatives/${other.slug}`} className="font-medium hover:text-accent">
-                            {other.title}
-                          </Link>
-                        ) : (
-                          <span>Unknown initiative</span>
-                        )}
-                        <span className="text-2xs text-ink-3 uppercase">{r.type === "potentially_overlaps" ? "Possible overlap" : "Possible complement"} · hypothesis</span>
-                      </div>
-                      <p className="mt-0.5 text-xs text-ink-2">{r.reason.replace(/^overlap@\d+:\s*/, "")}</p>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="text-sm text-ink-3">No overlap or complement hypotheses were generated for this initiative.</p>
-              )}
-              <Note className="mt-2">Hypotheses come from text similarity and shared lifecycle stages. They are not confirmed relationships or partnerships.</Note>
+            <Section id="similar" n={13} title="Similar initiatives" meta={`${similar.length} ${similar.length === 1 ? "pair" : "pairs"} · research hypotheses`}>
+              <SimilarInitiatives items={similar} self={{ name: ini.title }} />
+              <Note className="mt-4">
+                Separate collaboration hypotheses from text similarity and shared lifecycle stages ({x.related.length}) are listed on the{" "}
+                <Link href={`/research/collaboration?focus=${ini.slug}`} className="link">
+                  collaboration page
+                </Link>
+                .
+              </Note>
             </Section>
 
             <Section id="supporting" n={14} title="Strongest supporting arguments" meta={`${supported.length} statements with supporting evidence`}>

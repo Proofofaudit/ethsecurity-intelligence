@@ -30,13 +30,14 @@ export const TOOLS: ToolInfo[] = [
     name: "get_initiative",
     title: "Get an initiative dossier",
     description:
-      "Research dossier for one initiative by id or slug. Choose sections: overview, proposal, milestones, funding, claims, evidence, team, technical, reality, related, blind_spots, changes, revisions, metrics, research_jobs, evidence_card. Default: overview, milestones, funding, reality.",
+      "Research dossier for one initiative by id or slug. Choose sections: overview, proposal, milestones, funding, claims, evidence, team, technical, reality, related, blind_spots, changes, revisions, metrics, research_jobs, evidence_card, similar. Default: overview, milestones, funding, reality.",
     covers: [
       { name: "get_initiative", how: "Default sections." },
       { name: "get_milestones", how: "sections: [\"milestones\"]" },
       { name: "get_team", how: "sections: [\"team\"] (people, organization and aliases)" },
       { name: "get_funding_breakdown", how: "sections: [\"funding\"]" },
       { name: "get_evidence_card", how: "sections: [\"evidence_card\"] (sourced facts with checked-on dates)" },
+      { name: "get_similar_initiatives", how: "sections: [\"similar\"] (similar-initiative pairs with signals and quotes)" },
     ],
   },
   {
@@ -107,7 +108,7 @@ export const TOOLS: ToolInfo[] = [
     name: "detect_overlap",
     title: "Possible overlaps and complements (hypotheses)",
     description:
-      "Rule-based overlap and complement hypotheses with the signals that produced them. Without ids: every published hypothesis (paginated). With 2 to 8 ids: deterministic signals for every pair among them. Hypotheses are prompts for investigation, not findings.",
+      "Rule-based overlap and complement hypotheses with the signals that produced them. Without ids: every published hypothesis (paginated). With 2 to 8 ids: deterministic signals for every pair among them. method \"similar\": similar-initiative pairs (signals, quotes from both proposals, label). Hypotheses are prompts for investigation, not findings.",
     covers: [{ name: "detect_overlap", how: "Direct." }],
   },
   {

@@ -201,11 +201,11 @@ export default async function CollaborationPage({ searchParams }: { searchParams
                       {c.signals && <span className="num text-2xs text-ink-3">similarity {c.signals.similarity.toFixed(3)}</span>}
                     </div>
                     <p className="mt-1.5 text-sm">
-                      <Link href={`/initiatives/${c.a.slug}#related`} className="font-medium hover:text-accent">
+                      <Link href={`/initiatives/${c.a.slug}#similar`} className="font-medium hover:text-accent">
                         {name(c.a.id)}
                       </Link>{" "}
                       <span className="text-ink-3">and</span>{" "}
-                      <Link href={`/initiatives/${c.b.slug}#related`} className="font-medium hover:text-accent">
+                      <Link href={`/initiatives/${c.b.slug}#similar`} className="font-medium hover:text-accent">
                         {name(c.b.id)}
                       </Link>
                     </p>

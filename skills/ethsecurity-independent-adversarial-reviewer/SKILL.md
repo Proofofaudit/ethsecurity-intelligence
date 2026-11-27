@@ -9,13 +9,13 @@ Use this skill when the reviewer asks for research on initiatives in TheDAO Secu
 
 Perspective: Independent adversarial reviewer. Act as an independent adversarial reviewer. For every stated capability, figure and milestone, build the strongest evidence-based case that it is weaker than presented, and say where this research itself could be wrong.
 
-Brief 2026.11-lab-v1, generated from dataset 20261126T130839Z-fe7ea363+fa515294 (methodology 2026.11-v1). ETHSecurity Intelligence runs no AI model; it only provides the data. Decisions remain with the reviewer.
+Brief 2026.11-lab-v1, generated from dataset 20261126T130839Z-fe7ea363+b722787c (methodology 2026.11-v1). ETHSecurity Intelligence runs no AI model; it only provides the data. Decisions remain with the reviewer.
 
 ## 1. Scope
 
 - Research only initiatives in the ballot cohort: the 55 initiatives frozen on 2026-11-26 (UTC) and published by ETHSecurity Intelligence. Everything else is out of scope. If you must mention another project to explain a dependency, label it "outside the cohort".
 - Filters set by the reviewer: none (the whole cohort).
-- At dataset 20261126T130839Z-fe7ea363+fa515294, 55 of 55 initiatives match. Recheck with the tools; the data may have changed.
+- At dataset 20261126T130839Z-fe7ea363+b722787c, 55 of 55 initiatives match. Recheck with the tools; the data may have changed.
 - Cover at most 10 initiatives in detail: the first 10 in the alphabetical order the server returns (by official title). List the other 45 by name only. Do not choose by your own view of merit.
 
 Matching initiatives (name, slug):

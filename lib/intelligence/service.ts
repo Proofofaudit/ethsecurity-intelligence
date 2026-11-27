@@ -18,9 +18,11 @@ import { hypotheses, pairSignals, type PairSignals } from "./overlap";
 import { buildBm25, searchBm25 } from "./similarity";
 import { ROUND1_EMPTY_TEXT, ROUND1_POSSIBLE_TEXT } from "./round1";
 import { buildEvidenceCard, evidenceCardRow, type EvidenceCard, type EvidenceCardRow } from "./evidence-card";
+import { similarPairs, type SimilarLabel, type SimilarPair, type SimilarSignal } from "./similar";
 
 export { EVIDENCE_CARD_SECTIONS, NO_LINKS_TEXT, type EvidenceCard, type EvidenceCardRow, type CardItem, type CardSection } from "./evidence-card";
 export { possibleSelfPledge, SELF_PLEDGE_LABEL } from "./self-pledge";
+export { HYPOTHESIS_NOTICE, SIMILAR_LABELS, SIMILAR_METHOD_VERSION, type SimilarLabel, type SimilarPair, type SimilarQuote, type SimilarSignal } from "./similar";
 
 export const PRESENT_SUPPORTED: EvidenceStatus[] = ["independently_verified", "partially_supported"];
 
@@ -226,6 +228,8 @@ export const FilterSchema = z
     researchComplete: z.boolean().optional(),
     standard: z.string().max(20).optional(),
     organizationId: z.string().max(120).optional(),
+    /** Initiatives with at least one similar-initiative pair: any label, or only "Possible overlap" / "Possible complement". */
+    similar: z.enum(["any", "overlap", "complement"]).optional(),
     sort: z.enum(["title", "goal", "raised", "pct", "ask", "remaining", "milestones"]).optional(),
     order: z.enum(["asc", "desc"]).optional(),
     limit: z.number().int().min(1).max(100).optional(),
@@ -284,6 +288,14 @@ export function filterInitiatives(d: Dataset, f: Filter = {}) {
   if (f.researchComplete !== undefined) rows = rows.filter((r) => r.researchComplete === f.researchComplete);
   if (f.standard) rows = rows.filter((r) => r.standards.includes((f.standard as string).toUpperCase()));
   if (f.organizationId) rows = rows.filter((r) => r.organizationId === f.organizationId);
+  if (f.similar) {
+    const labels = similarLabelsById(d);
+    const want: SimilarLabel | null = f.similar === "overlap" ? "Possible overlap" : f.similar === "complement" ? "Possible complement" : null;
+    rows = rows.filter((r) => {
+      const l = labels.get(r.id);
+      return !!l && (want ? l.has(want) : l.size > 0);
+    });
+  }
   const sort = f.sort ?? (relevance ? null : "title");
   const dir = f.order === "desc" ? -1 : 1;
   if (sort) {
@@ -1134,6 +1146,57 @@ export function evidenceCardRows(d: Dataset): Record<string, EvidenceCardRow> {
   if (hit) return hit;
   const out = Object.fromEntries(d.initiatives.map((i) => [i.id, evidenceCardRow(buildEvidenceCard(d, i, { fundingIdentity: FUNDING_IDENTITY }))]));
   cardRowCache.set(d, out);
+  return out;
+}
+
+// ───────────────────────────── Similar initiatives ─────────────────────────────
+
+const similarCache = new WeakMap<Dataset, SimilarPair[]>();
+/** Every visible similar-initiative pair in the cohort (method similar@1), ordered by title. Computed on request, never stored. */
+export function similarPairsOf(d: Dataset): SimilarPair[] {
+  const hit = similarCache.get(d);
+  if (hit) return hit;
+  const out = similarPairs({ initiatives: d.initiatives, pledges: d.pledges, organizations: d.organizations, groups: d.vote.groupsAvailable ? d.vote.initiativeGroups : null });
+  similarCache.set(d, out);
+  return out;
+}
+
+export interface SimilarItem {
+  other: { id: string; slug: string; title: string; shortTitle: string; name: string; type: Initiative["type"] };
+  label: SimilarLabel;
+  signals: SimilarSignal[];
+  notice: string;
+  /** Opens the comparison with both initiatives selected. */
+  compareHref: string;
+}
+
+/** Similar initiatives for one initiative, alphabetical by the other initiative's title. Null when the initiative is unknown. */
+export function similarFor(d: Dataset, idOrSlug: string): SimilarItem[] | null {
+  const ini = findInitiative(d, idOrSlug);
+  if (!ini) return null;
+  const byId = new Map(d.initiatives.map((i) => [i.id, i]));
+  const out: SimilarItem[] = [];
+  for (const p of similarPairsOf(d)) {
+    if (p.a !== ini.id && p.b !== ini.id) continue;
+    const o = byId.get(p.a === ini.id ? p.b : p.a);
+    if (!o) continue;
+    // The first quote of each signal is always from this initiative.
+    const signals = p.a === ini.id ? p.signals : p.signals.map((s): SimilarSignal => (s.quotes ? { ...s, quotes: [s.quotes[1], s.quotes[0]] } : s));
+    out.push({
+      other: { id: o.id, slug: o.slug, title: o.title, shortTitle: o.shortTitle, name: displayName(d, o), type: o.type },
+      label: p.label,
+      signals,
+      notice: p.notice,
+      compareHref: `/research/compare?ids=${ini.slug},${o.slug}`,
+    });
+  }
+  return out.sort((x, y) => x.other.title.localeCompare(y.other.title, "en") || (x.other.id < y.other.id ? -1 : 1));
+}
+
+/** Initiative id → labels of its visible pairs, for the Research "Possible overlaps" filter. */
+export function similarLabelsById(d: Dataset): Map<string, Set<SimilarLabel>> {
+  const out = new Map<string, Set<SimilarLabel>>();
+  for (const p of similarPairsOf(d)) for (const id of [p.a, p.b]) out.set(id, new Set([...(out.get(id) ?? []), p.label]));
   return out;
 }
 

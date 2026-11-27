@@ -41,6 +41,10 @@ import {
   voteManifest,
   metricsFor,
   pairDetails,
+  similarFor,
+  similarPairsOf,
+  HYPOTHESIS_NOTICE,
+  SIMILAR_METHOD_VERSION,
   plainExplanation,
   ScenarioSchema,
   simulatePortfolio,
@@ -78,7 +82,7 @@ const Cursor = z
   .describe("nextCursor from the previous page.");
 const Ref = IdParam.describe("Initiative id or slug.");
 
-const SECTIONS = ["overview", "proposal", "milestones", "funding", "claims", "evidence", "team", "technical", "reality", "related", "blind_spots", "changes", "revisions", "metrics", "research_jobs", "evidence_card"] as const;
+const SECTIONS = ["overview", "proposal", "milestones", "funding", "claims", "evidence", "team", "technical", "reality", "related", "blind_spots", "changes", "revisions", "metrics", "research_jobs", "evidence_card", "similar"] as const;
 const DEFAULT_SECTIONS: (typeof SECTIONS)[number][] = ["overview", "milestones", "funding", "reality"];
 const COMPARE_GROUPS = ["Overview", "Security problem", "Funding", "Milestones", "Adoption", "Evidence", "Existing work", "Technical", "Dependencies", "Beneficiaries", "Maintenance"] as const;
 const EXPORT_PARTS = ["initiatives", "milestones", "pledges", "claims", "evidence", "relationships"] as const;
@@ -298,6 +302,7 @@ export async function createServer(opts: ServerOptions = {}): Promise<McpServer>
       if (want.has("metrics")) out.metrics = x.metrics;
       if (want.has("research_jobs")) out.researchJobs = x.researchJobs;
       if (want.has("evidence_card")) out.evidenceCard = evidenceCard(d, ini.id);
+      if (want.has("similar")) out.similar = { method: SIMILAR_METHOD_VERSION, order: "Alphabetical (neutral) by the other initiative's title.", notice: HYPOTHESIS_NOTICE, items: similarFor(d, ini.id) };
       const evidenceUrls = want.has("evidence") || want.has("claims") ? x.evidence.map((e) => e.url) : [];
       return wrap(d, out, { sources: [...initiativeSources(ini), ...evidenceUrls] });
     },
@@ -456,8 +461,28 @@ export async function createServer(opts: ServerOptions = {}): Promise<McpServer>
 
   register(
     "detect_overlap",
-    z.object({ ids: z.array(Ref).min(2).max(8).optional().describe("Compute pair signals among these initiatives."), kind: z.enum(["potentially_overlaps", "potentially_complements"]).optional(), limit: Limit, cursor: Cursor }).strict(),
-    ({ ids, kind, limit, cursor }, { dataset: d }) => {
+    z
+      .object({
+        ids: z.array(Ref).min(2).max(8).optional().describe("Compute pair signals among these initiatives."),
+        kind: z.enum(["potentially_overlaps", "potentially_complements"]).optional(),
+        method: z.enum(["overlap", "similar"]).optional().describe("overlap (default): collaboration hypotheses. similar: similar-initiative pairs with signals and quotes."),
+        limit: Limit,
+        cursor: Cursor,
+      })
+      .strict(),
+    ({ ids, kind, method, limit, cursor }, { dataset: d }) => {
+      if (method === "similar") {
+        const set = ids ? new Set(ids.map((x) => requireIni(d, x).id)) : null;
+        const byId = new Map(d.initiatives.map((i) => [i.id, i]));
+        const ref = (id: string) => {
+          const i = byId.get(id);
+          return i ? { id: i.id, slug: i.slug, name: displayName(d, i) } : { id, slug: null, name: id };
+        };
+        const items = similarPairsOf(d)
+          .filter((p) => !set || (set.has(p.a) && set.has(p.b)))
+          .map((p) => ({ label: p.label, a: ref(p.a), b: ref(p.b), signals: p.signals, notice: p.notice, compareHref: `/research/compare?ids=${byId.get(p.a)?.slug},${byId.get(p.b)?.slug}` }));
+        return wrap(d, { method: SIMILAR_METHOD_VERSION, note: `${HYPOTHESIS_NOTICE}.`, order: "Alphabetical (neutral) by the first title, then the second.", ...paginate(items, page(limit, cursor)) });
+      }
       const note = "Rule-based hypotheses from text similarity, shared categories, stages and backers. They are prompts for investigation, not findings.";
       if (ids) {
         const inis = ids.map((x) => requireIni(d, x));

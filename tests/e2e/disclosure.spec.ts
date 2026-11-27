@@ -103,7 +103,7 @@ test("the banner links to the conflict-of-interest section of About", async ({ p
 });
 
 test("the Proof of Audits dossier has a disclosure note and the same sections and correction link as others", async ({ page }) => {
-  const SECTIONS = ["briefing", "problem", "exists", "requires", "team", "code", "financial", "milestones", "technical", "adoption", "dependencies", "related", "supporting", "counter", "questions", "sources", "corrections", "history"];
+  const SECTIONS = ["briefing", "problem", "exists", "requires", "team", "code", "financial", "milestones", "technical", "adoption", "dependencies", "similar", "supporting", "counter", "questions", "sources", "corrections", "history"];
   const outline = async (slug: string) => {
     await page.goto(`/initiatives/${slug}`);
     const present: string[] = [];

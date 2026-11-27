@@ -9,6 +9,8 @@ import { BLIND_SPOT_LABEL } from "@/lib/intelligence/service";
 import { ACTIVITY_NOTE, AUDIT_LINK_NOTE, CACHE_NOTE, EVIDENCE_CARD_SECTIONS, NO_LINKS_TEXT } from "@/lib/intelligence/evidence-card";
 import { OVERLAP_METHOD_VERSION, OVERLAP_THRESHOLDS } from "@/lib/intelligence/overlap";
 import { SELF_PLEDGE_LABEL } from "@/lib/intelligence/self-pledge";
+import { HYPOTHESIS_NOTICE, SIMILAR_LABELS, SIMILAR_METHOD_VERSION, SIMILAR_SECTIONS, SIMILAR_THRESHOLDS, TECHNOLOGIES } from "@/lib/intelligence/similar";
+import { NEUTRAL_SORT_LABEL } from "@/lib/neutralLanguage";
 import { CONTACT_RETENTION_DAYS } from "@/lib/corrections";
 import { METHODOLOGY_VERSION, METRICS, type MetricUnit } from "@/lib/metrics/registry";
 import { PRIVACY_LOCAL_KEYS } from "@/lib/privacy";
@@ -196,6 +198,23 @@ export default function MethodologyPage() {
               collaboration discovery
             </Link>
             .
+          </p>
+        </div>
+      </Block>
+
+      <Block id="similar" title={`Similar initiatives (${SIMILAR_METHOD_VERSION})`} note="Fixed rules over the official record. No model, no score. The same input always gives the same pairs.">
+        <div className="max-w-[860px] space-y-2 text-sm text-ink-2">
+          <p>
+            For every pair of initiatives the engine looks for five signals: a shared official category (weak); a shared affiliation group in TheDAO&apos;s vote manifest (strong); two-word phrases both proposals use in the {SIMILAR_SECTIONS.map((s) => `"${s}"`).join(" and ")} sections (strong from {SIMILAR_THRESHOLDS.keywordStrongMin} phrases, weak with one); standards (ERC, EIP and RIP numbers) and named technologies both proposals name in those sections (strong); and a public backer that pledged to both (strong, anonymous backers excluded).
+          </p>
+          <p>
+            Phrases leave out stopwords, proposal boilerplate, phrases made only of generic words such as &ldquo;ethereum security&rdquo;, and phrases that more than {SIMILAR_THRESHOLDS.keywordMaxInitiatives} initiatives use. Technology names match case-sensitively as whole words, so &ldquo;safe&rdquo; the adjective, &ldquo;Safe Harbor&rdquo; and &ldquo;ZKsync&rdquo; do not count. Named technologies: {TECHNOLOGIES.map((t) => t.name).join(", ")}.
+          </p>
+          <p>
+            A pair is shown only when it has a phrase or technology signal, quoted with one sentence from each proposal and a link to the official section, and when it is more than one weak signal. It is labeled &ldquo;{SIMILAR_LABELS[2]}&rdquo; when both initiatives have the same recipient organization, &ldquo;{SIMILAR_LABELS[0]}&rdquo; when they share an official category, and &ldquo;{SIMILAR_LABELS[1]}&rdquo; otherwise. RFPs have no recipient and follow the same rules. Every pair reads &ldquo;{HYPOTHESIS_NOTICE}&rdquo;. Lists are {NEUTRAL_SORT_LABEL.toLowerCase()} by title. No AI hypotheses are generated; the site runs no model.
+          </p>
+          <p>
+            The Research filter &ldquo;Possible overlaps&rdquo; lists initiatives with at least one such pair. &ldquo;Compare these&rdquo; opens the comparison with both initiatives selected.
           </p>
         </div>
       </Block>

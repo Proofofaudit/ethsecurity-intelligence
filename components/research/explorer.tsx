@@ -621,6 +621,15 @@ function FilterPanel({ params, facets, onChange, onClear, active }: { params: Re
           ]}
         />
       </Group>
+      <Group title="Possible overlaps">
+        <select className={select} aria-label="Possible overlaps" value={params.similar} onChange={(e) => onChange({ similar: e.target.value as ResearchParams["similar"] })}>
+          <option value="">Any initiative</option>
+          <option value="any">Has a similar initiative</option>
+          <option value="overlap">Possible overlap</option>
+          <option value="complement">Possible complement</option>
+        </select>
+        <p className="mt-1.5 text-2xs text-ink-3">Pairs found by fixed rules and listed on each dossier. Research hypotheses, not findings.</p>
+      </Group>
       <Group title="Organization">
         <select className={select} aria-label="Organization" value={params.org} onChange={(e) => onChange({ org: e.target.value })}>
           <option value="">Any organization</option>
