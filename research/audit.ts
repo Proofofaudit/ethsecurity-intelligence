@@ -24,16 +24,24 @@
  *     and affiliation groups) agrees with the raw vote manifest object.
  * 12. Round 1 history: every record figure re-parsed from the stored raw copies, 135 records,
  *     every match with a reason that holds on the raw data, and match lists reproducible.
+ * 13. Evidence card: the same six sections in the same order for every initiative; every item has
+ *     an http(s) source URL and a checked-on date; funding figures and backers equal the raw
+ *     official record; repository, product and site facts equal the stored research results;
+ *     broken-link flags follow the stored checks; self-pledge flags are recomputed independently;
+ *     no private contact detail appears; "Not found" items agree with the data.
  */
 import type { DetailResponse, ListResponse, VoteManifestResponse } from "@/lib/official/schemas";
 import type { Dataset } from "@/lib/domain/schemas";
 import { cohortMetrics } from "@/lib/metrics/compute";
 import type { RevisionResponse } from "@/lib/official/schemas";
-import { collaboration, coverage, fundingRelationships, plainExplanation, realityVsPromises, simulatePortfolio } from "@/lib/intelligence/service";
+import { collaboration, coverage, evidenceCard, fundingRelationships, plainExplanation, realityVsPromises, simulatePortfolio } from "@/lib/intelligence/service";
+import { EVIDENCE_CARD_SECTIONS, NO_LINKS_TEXT, type CardItem } from "@/lib/intelligence/evidence-card";
+import { SELF_PLEDGE_LABEL } from "@/lib/intelligence/self-pledge";
 import { formatUsd, toCents } from "@/lib/util/money";
 import { stripMarkdown } from "@/lib/util/text";
 import path from "node:path";
-import { DATA_DIR, readJson, readObject, REVISIONS_DIR, type SnapshotManifest } from "./store";
+import { DATA_DIR, readJson, readObject, RESEARCH_DIR, REVISIONS_DIR, type SnapshotManifest } from "./store";
+import type { RepoFacts } from "./github";
 import type { CuratedAlias } from "@/lib/domain/identity";
 import { computeRound1Matches, expandNames, givethProjectSlug, isSharedHost, nameKey, parseUrl, round1Slug, round1TransparencyUrl } from "@/lib/intelligence/round1";
 import {
@@ -327,6 +335,7 @@ export async function auditDataset(d: Dataset, manifest: SnapshotManifest): Prom
   }
 
   await auditRound1(d, tick);
+  await auditEvidenceCards(d, raw, tick);
 
   return { checked: Object.values(byCheck).reduce((s, x) => s + x.checked, 0), failures, byCheck };
 }
@@ -464,4 +473,113 @@ async function auditRound1(d: Dataset, tick: Tick) {
   const fresh = computeRound1Matches(parseRound1(raw, r1.checkedAt ?? "").projects, d.initiatives, d.organizations, aliases);
   tick("round1_matches_reproducible", JSON.stringify(fresh.initiativeMatches) === JSON.stringify(r1.initiativeMatches), "round1 initiative matches differ from a fresh run on the raw records");
   tick("round1_org_matches_reproducible", JSON.stringify(fresh.organizationMatches) === JSON.stringify(r1.organizationMatches), "round1 organization matches differ from a fresh run on the raw records");
+}
+
+/** Word tokens after folding case, accents and punctuation (independent of lib/intelligence/self-pledge.ts). */
+function words(s: string): string[] {
+  return s
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .split(/[^a-z0-9]+/)
+    .filter(Boolean);
+}
+function containsRun(hay: string[], needle: string[]): boolean {
+  if (!needle.length || needle.join("").length < 3) return false;
+  for (let i = 0; i + needle.length <= hay.length; i++) if (needle.every((w, j) => hay[i + j] === w)) return true;
+  return false;
+}
+
+/** Stored GitHub results (data/research/results/github), newest check per repository URL. */
+async function storedGithubRepos(d: Dataset): Promise<Map<string, RepoFacts>> {
+  const out = new Map<string, RepoFacts>();
+  for (const ini of d.initiatives) {
+    const res = await readJson<{ repos: RepoFacts[] }>(path.join(RESEARCH_DIR, "results", "github", `${ini.id}.json`));
+    for (const r of res?.repos ?? []) {
+      const k = r.url.toLowerCase();
+      const prev = out.get(k);
+      if (!prev || prev.checkedAt < r.checkedAt) out.set(k, r);
+    }
+  }
+  return out;
+}
+
+/** 13. Evidence card facts against their source records. */
+async function auditEvidenceCards(d: Dataset, raw: Map<string, DetailResponse>, tick: Tick) {
+  const keys = EVIDENCE_CARD_SECTIONS.map((s) => s.key).join(",");
+  const repos = new Map(d.repositories.map((r) => [r.id, r]));
+  const stored = await storedGithubRepos(d);
+  const products = new Map(d.products.map((p) => [p.id, p]));
+  for (const ini of d.initiatives) {
+    const card = evidenceCard(d, ini.id);
+    const r = raw.get(ini.id);
+    tick("card_present", !!card && !!r, `${ini.slug}: no evidence card or raw record`);
+    if (!card || !r) continue;
+    tick("card_layout", card.sections.map((s) => s.key).join(",") === keys, `${ini.slug}: evidence card sections differ from the shared layout`);
+    const items = card.sections.flatMap((s) => s.items);
+    const sec = (k: string): CardItem[] => card.sections.find((s) => s.key === k)?.items ?? [];
+    for (const i of items) {
+      tick("card_source", /^https?:\/\//.test(i.sourceUrl) && Number.isFinite(Date.parse(i.checkedAt)), `${ini.slug}/${i.key}: missing source URL or checked-on date`);
+      tick("card_link", i.link === null || /^https?:\/\//.test(i.link) || i.link === "#round1", `${ini.slug}/${i.key}: link ${i.link} is not http(s)`);
+      const text = `${i.value} ${i.link ?? ""}`;
+      tick("card_private_contact", !/mailto:|tel:|\bt\.me\/|wa\.me\/|[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/i.test(text), `${ini.slug}/${i.key}: private contact detail in the evidence card`);
+    }
+    // Funding: three official figures, separate, equal to the raw record.
+    const fig = (k: string) => sec("funding").find((i) => i.key === k)?.amountCents;
+    tick("card_pledged", fig("pledged") === toCents(r.summary.pledged), `${ini.slug}: card pledged ≠ raw`);
+    tick("card_received", fig("received") === toCents(r.summary.received), `${ini.slug}: card received ≠ raw`);
+    tick("card_donated", fig("donated") === toCents(r.summary.donated), `${ini.slug}: card donated ≠ raw`);
+    const backers = sec("funding").filter((i) => i.key.startsWith("pledge_"));
+    tick("card_backer_count", backers.length === r.pledges.length, `${ini.slug}: ${backers.length} backers on the card, ${r.pledges.length} raw pledges`);
+    const org = d.organizations.find((o) => o.id === ini.organizationId);
+    const names = [r.initiative.recipientTeam, org?.name, ...(org?.names ?? [])].filter((x): x is string => !!x).map(words);
+    for (const b of backers) {
+      const rp = r.pledges.find((p) => `pledge_${p.id}` === b.key);
+      tick("card_backer", !!rp && rp.company.trim() === b.value.trim() && toCents(rp.amountUsd) === b.amountCents && b.label.includes(rp.status), `${ini.slug}/${b.key}: backer differs from the raw pledge`);
+      const expect = names.some((n) => containsRun(words(b.value), n));
+      tick("card_self_pledge", expect === (b.flag?.kind === "self_pledge") && (!b.flag || b.flag.text === SELF_PLEDGE_LABEL), `${ini.slug}/${b.key}: self-pledge flag ${!!b.flag} but recomputed ${expect}`);
+    }
+    // Shipped work: official site, products and repositories equal the stored results.
+    const site = sec("shipped").find((i) => i.key === "site");
+    tick("card_site", (site?.link ?? null) === ((r.initiative.recipientUrl ?? null) && /^https?:\/\//i.test(r.initiative.recipientUrl ?? "") ? r.initiative.recipientUrl : null), `${ini.slug}: official site differs from raw recipientUrl`);
+    for (const i of sec("shipped").filter((x) => x.key.startsWith("product_"))) {
+      const p = products.get(i.key.slice("product_".length));
+      const state = p?.reachable === true ? null : p?.reachable === false ? "broken" : "inconclusive";
+      tick("card_product", !!p && p.url === i.link && i.checkedAt === (p.checkedAt ?? p.provenance.retrievedAt) && (i.flag?.kind ?? null) === state, `${ini.slug}/${i.key}: product facts differ from the stored check`);
+    }
+    const repoItems = sec("shipped").filter((x) => x.key.startsWith("repo_"));
+    tick("card_repo_count", repoItems.length === d.repositories.filter((x) => x.initiativeIds.includes(ini.id)).length, `${ini.slug}: repository count differs`);
+    for (const i of repoItems) {
+      const rp = repos.get(i.key.slice("repo_".length));
+      const ok =
+        !!rp &&
+        rp.fullName === i.value &&
+        rp.url === i.link &&
+        rp.checkedAt === i.checkedAt &&
+        (!rp.exists ||
+          (i.details.includes(rp.license ? `License ${rp.license}` : "No license file detected") &&
+            (rp.latestRelease ? i.details.some((x) => x.startsWith(`Latest release ${rp.latestRelease?.tag}`)) : i.details.includes("No release published")) &&
+            (rp.commitsLast90d === null || i.details.some((x) => x.startsWith(`${rp.commitsLast90d} commit`))))) &&
+        (rp.exists ? i.flag === null : i.flag !== null && (/\b404\b/.test(rp.error ?? "") ? i.flag.kind === "broken" && i.flag.text.startsWith("Repository not found when checked on") : i.flag.kind === "inconclusive"));
+      tick("card_repo", ok, `${ini.slug}/${i.key}: repository facts differ from the published repository record`);
+      // The published record shown on the card equals the stored GitHub API result.
+      const g = rp ? stored.get(rp.url.toLowerCase()) : undefined;
+      tick(
+        "card_repo_stored",
+        !!g && !!rp && g.exists === rp.exists && g.license === rp.license && g.pushedAt === rp.pushedAt && g.latestRelease?.tag === rp.latestRelease?.tag && g.releaseCount === rp.releaseCount && g.commitsLast90d === rp.commitsLast90d && g.archived === rp.archived && g.error === rp.error,
+        `${ini.slug}/${i.key}: repository facts differ from the stored GitHub result`,
+      );
+    }
+    // Prior funding: Round 1 record count equals the published matches.
+    const r1 = sec("prior").find((i) => i.key === "round1");
+    const n = (d.round1.initiativeMatches[ini.id] ?? []).length;
+    tick("card_round1", d.round1.status === "unavailable" || (n === 0 ? !r1 : !!r1 && r1.value.startsWith(`See Round 1 history: ${n} `)), `${ini.slug}: Round 1 item differs from ${n} published matches`);
+    // Not found agrees with the data.
+    const nf = new Set(sec("not_found").map((i) => i.value));
+    const anyLinks = ini.links.length + ini.textLinks.length > 0;
+    tick("card_no_links", nf.has(NO_LINKS_TEXT) === !anyLinks, `${ini.slug}: "${NO_LINKS_TEXT}" is ${nf.has(NO_LINKS_TEXT)} but the proposal has ${ini.links.length + ini.textLinks.length} links`);
+    tick("card_no_repo", nf.has("No public repository linked") === (repoItems.length === 0), `${ini.slug}: repository "Not found" disagrees with ${repoItems.length} repositories`);
+    tick("card_no_audit", nf.has("No public audit report linked") === (sec("audits").length === 0), `${ini.slug}: audit "Not found" disagrees with the audits section`);
+    tick("card_no_backers", nf.has("No named backers in the official record") === (r.pledges.length === 0), `${ini.slug}: backer "Not found" disagrees with the raw pledges`);
+  }
 }

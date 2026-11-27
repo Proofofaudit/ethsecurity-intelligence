@@ -9,13 +9,13 @@ Use this skill when the reviewer asks for research on initiatives in TheDAO Secu
 
 Perspective: Wallet engineer. Read as a wallet engineer. Focus on what a signer would see and do, which wallet integrations are confirmed by a public source, and which standards and third parties the work depends on.
 
-Brief 2026.11-lab-v1, generated from dataset 20261126T130839Z-fe7ea363+75740bbf (methodology 2026.11-v1). ETHSecurity Intelligence runs no AI model; it only provides the data. Decisions remain with the reviewer.
+Brief 2026.11-lab-v1, generated from dataset 20261126T130839Z-fe7ea363+fa515294 (methodology 2026.11-v1). ETHSecurity Intelligence runs no AI model; it only provides the data. Decisions remain with the reviewer.
 
 ## 1. Scope
 
 - Research only initiatives in the ballot cohort: the 55 initiatives frozen on 2026-11-26 (UTC) and published by ETHSecurity Intelligence. Everything else is out of scope. If you must mention another project to explain a dependency, label it "outside the cohort".
 - Filters set by the reviewer: Official categories (any of): Wallets & Signing, OpSec. Security lifecycle stages, rule-based tags (any of): Transaction construction, Signing & wallets.
-- At dataset 20261126T130839Z-fe7ea363+75740bbf, 19 of 55 initiatives match. Recheck with the tools; the data may have changed.
+- At dataset 20261126T130839Z-fe7ea363+fa515294, 19 of 55 initiatives match. Recheck with the tools; the data may have changed.
 - Cover at most 10 initiatives in detail: the first 10 in the alphabetical order the server returns (by official title). List the other 9 by name only. Do not choose by your own view of merit.
 
 Matching initiatives (name, slug):

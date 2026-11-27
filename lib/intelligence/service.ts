@@ -17,6 +17,10 @@ import { sentences } from "@/lib/util/text";
 import { hypotheses, pairSignals, type PairSignals } from "./overlap";
 import { buildBm25, searchBm25 } from "./similarity";
 import { ROUND1_EMPTY_TEXT, ROUND1_POSSIBLE_TEXT } from "./round1";
+import { buildEvidenceCard, evidenceCardRow, type EvidenceCard, type EvidenceCardRow } from "./evidence-card";
+
+export { EVIDENCE_CARD_SECTIONS, NO_LINKS_TEXT, type EvidenceCard, type EvidenceCardRow, type CardItem, type CardSection } from "./evidence-card";
+export { possibleSelfPledge, SELF_PLEDGE_LABEL } from "./self-pledge";
 
 export const PRESENT_SUPPORTED: EvidenceStatus[] = ["independently_verified", "partially_supported"];
 
@@ -1113,6 +1117,24 @@ export function round1ForOrganization(d: Dataset, orgId: string): Round1View | n
 
 export function round1Sources(d: Dataset): string[] {
   return [d.round1.transparencyUrl, d.round1.forumUrl];
+}
+
+// ───────────────────────────── Evidence card ─────────────────────────────
+
+/** Evidence card for one initiative: six sections, every item with a source label, URL and checked-on date. */
+export function evidenceCard(d: Dataset, idOrSlug: string): EvidenceCard | null {
+  const ini = findInitiative(d, idOrSlug);
+  return ini ? buildEvidenceCard(d, ini, { fundingIdentity: FUNDING_IDENTITY }) : null;
+}
+
+const cardRowCache = new WeakMap<Dataset, Record<string, EvidenceCardRow>>();
+/** Compact evidence-card summaries for the Research list, keyed by initiative id. */
+export function evidenceCardRows(d: Dataset): Record<string, EvidenceCardRow> {
+  const hit = cardRowCache.get(d);
+  if (hit) return hit;
+  const out = Object.fromEntries(d.initiatives.map((i) => [i.id, evidenceCardRow(buildEvidenceCard(d, i, { fundingIdentity: FUNDING_IDENTITY }))]));
+  cardRowCache.set(d, out);
+  return out;
 }
 
 export function metricsFor(d: Dataset, idOrSlug?: string): Record<string, MetricValue> | null {

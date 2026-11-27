@@ -6,7 +6,9 @@ import { StatusMark } from "@/components/ui/status";
 import { EVIDENCE_STATUS_LABEL, type EvidenceStatus } from "@/lib/domain/schemas";
 import { ONE_TS_DOMAINS, SECURITY_PROBLEMS, STAGE_ONE_TS } from "@/lib/domain/taxonomy";
 import { BLIND_SPOT_LABEL } from "@/lib/intelligence/service";
+import { ACTIVITY_NOTE, AUDIT_LINK_NOTE, CACHE_NOTE, EVIDENCE_CARD_SECTIONS, NO_LINKS_TEXT } from "@/lib/intelligence/evidence-card";
 import { OVERLAP_METHOD_VERSION, OVERLAP_THRESHOLDS } from "@/lib/intelligence/overlap";
+import { SELF_PLEDGE_LABEL } from "@/lib/intelligence/self-pledge";
 import { CONTACT_RETENTION_DAYS } from "@/lib/corrections";
 import { METHODOLOGY_VERSION, METRICS, type MetricUnit } from "@/lib/metrics/registry";
 import { PRIVACY_LOCAL_KEYS } from "@/lib/privacy";
@@ -221,6 +223,18 @@ export default function MethodologyPage() {
           <li>Similar names without such evidence are kept separate and shown as &ldquo;not confirmed as the same entity&rdquo;.</li>
           <li>Anonymous or individual pledge labels are never merged with each other or with organizations.</li>
           <li>A self-pledge is a pledge whose backer resolves to the initiative&apos;s own recipient. It is listed for transparency, not as a concern.</li>
+        </ul>
+      </Block>
+
+      <Block id="evidence-card" title="Evidence card" note="The same six sections, in the same order, for every initiative. Each item has a source label, a source link and the date it was checked.">
+        <ul className="max-w-[860px] list-disc space-y-1 pl-5 text-sm text-ink-2">
+          <li>Sections: {EVIDENCE_CARD_SECTIONS.map((s) => s.title).join(", ")}. An empty section reads &ldquo;Not found&rdquo;; the last section lists what was searched and not found, such as &ldquo;{NO_LINKS_TEXT}&rdquo;.</li>
+          <li>Shipped work lists the official site, sites and products linked in the proposal, and every repository the proposal links, with last push, latest release and license from the GitHub API. Commit counts are raw facts. {ACTIVITY_NOTE}</li>
+          <li>Funding shows pledged, received pledges and donated as three separate official figures. Received pledges are already inside donated, so the figures are never added together. Every backer is named as in the official pledge record.</li>
+          <li>&ldquo;{SELF_PLEDGE_LABEL}&rdquo; appears when the backer name, after folding case, accents and punctuation, equals the recipient team or a recorded name of the recipient organization, or contains one as whole words. &ldquo;Safe&rdquo; never matches &ldquo;SafeGuard&rdquo;.</li>
+          <li>Team and track record lists public profiles and links from the proposal&apos;s team section. Email addresses, phone numbers and messenger links are never shown.</li>
+          <li>Audits or reviews lists only proposal links whose address or link text names an audit or security review report. {AUDIT_LINK_NOTE}</li>
+          <li>A link whose check failed is flagged &ldquo;Link did not respond when checked on &hellip;&rdquo; and a repository the GitHub API did not return is flagged &ldquo;Repository not found when checked on &hellip;&rdquo;. Bot protection or rate limits (HTTP 403, 429, 503) make a check inconclusive; the cached result is shown with its age at publication. {CACHE_NOTE}</li>
         </ul>
       </Block>
 

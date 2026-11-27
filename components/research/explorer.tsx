@@ -11,12 +11,12 @@ import { Money, Pct } from "@/components/ui/money";
 import { SharedGroupLine } from "@/components/workspace/affiliations";
 import { SaveButton } from "@/components/workspace/save-button";
 import { removeSearch, saveSearch, useWorkspace } from "@/components/workspace/store";
-import type { InitiativeSummary } from "@/lib/intelligence/service";
+import type { EvidenceCardRow, InitiativeSummary } from "@/lib/intelligence/service";
 import { NEUTRAL_SORT_LABEL } from "@/lib/neutralLanguage";
 import { cn } from "@/lib/util/cn";
 import { activeFilterCount, toQuery, type ResearchParams } from "./params";
 
-type Row = InitiativeSummary & { matchedTerms: string[] };
+type Row = InitiativeSummary & { matchedTerms: string[]; evidenceCard?: EvidenceCardRow | null };
 interface Option {
   value: string;
   label: string;
@@ -329,6 +329,14 @@ function TitleCell({ r }: { r: Row }) {
         ))}
       </div>
       {r.matchedTerms.length > 0 && <div className="mt-1 text-2xs text-ink-3">Matched: {r.matchedTerms.slice(0, 6).join(", ")}</div>}
+      {r.evidenceCard && (
+        <p data-testid="evidence-row" className="mt-1 text-2xs text-ink-3">
+          <Link href={`/initiatives/${r.slug}#evidence-card-title`} className="font-medium text-ink-2 hover:text-accent">
+            Evidence card
+          </Link>
+          : <span className="num">{r.evidenceCard.parts.join(" · ")}</span>
+        </p>
+      )}
     </div>
   );
 }

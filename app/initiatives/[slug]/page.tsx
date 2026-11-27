@@ -7,6 +7,7 @@ import { ClaimList, CorrectionButton, EVIDENCE_KIND_LABEL, InspectorProvider } f
 import { ProposalHistory } from "@/components/dossier/history";
 import { MilestoneXRay } from "@/components/dossier/milestones";
 import { RealityVsPromises } from "@/components/dossier/reality";
+import { EvidenceCard } from "@/components/dossier/evidence-card";
 import { Round1History } from "@/components/dossier/round1";
 import { ExternalLink, Tag } from "@/components/ui/button";
 import { FundingBar, FundingLegend } from "@/components/ui/charts";
@@ -22,7 +23,7 @@ import { CATEGORY_LABEL, CORRECTION_NOTICE } from "@/lib/corrections";
 import { BANNER_HREF, COI_SHORT, isCoiOrganization } from "@/lib/disclosure";
 import type { Claim, Evidence } from "@/lib/domain/schemas";
 import { loadIntelligence } from "@/lib/intelligence/load";
-import { BLIND_SPOT_LABEL, dependencies, dossier, PRESENT_SUPPORTED, plainExplanation, round1History, sharedGroupsOf } from "@/lib/intelligence/service";
+import { BLIND_SPOT_LABEL, dependencies, dossier, evidenceCard, PRESENT_SUPPORTED, plainExplanation, round1History, sharedGroupsOf } from "@/lib/intelligence/service";
 import { CORE_RESEARCH_TASKS } from "@/lib/intelligence/status";
 import { THEDAO_ASK_CAP_CENTS } from "@/lib/metrics/ask";
 import { formatPct, formatUsd } from "@/lib/util/money";
@@ -95,6 +96,7 @@ export default async function InitiativePage({ params }: Params) {
   const lastJob = x.researchJobs.map((j) => j.finishedAt).filter((v): v is string => !!v).sort().pop() ?? null;
   const deps = dependencies(d, ini.id)[0];
   const round1 = round1History(d, ini.id)!;
+  const card = evidenceCard(d, ini.id)!;
   const higher = x.blindSpots.filter((b) => b.importance === "higher");
   const standard = x.blindSpots.filter((b) => b.importance === "standard");
   const recipient = x.organization?.name ?? ini.recipientTeam;
@@ -262,6 +264,8 @@ export default async function InitiativePage({ params }: Params) {
             </dl>
           </aside>
         </header>
+
+        <EvidenceCard card={card} />
 
         <div className="mt-10">
           <RealityVsPromises x={x} />

@@ -179,11 +179,12 @@ describe("MCP tool execution", () => {
   });
 
   it("keeps every dossier with all sections within the result limit", async () => {
-    const sections = ["overview", "proposal", "milestones", "funding", "claims", "evidence", "team", "technical", "reality", "related", "blind_spots", "changes", "revisions", "metrics", "research_jobs"];
+    const sections = ["overview", "proposal", "milestones", "funding", "claims", "evidence", "team", "technical", "reality", "related", "blind_spots", "changes", "revisions", "metrics", "research_jobs", "evidence_card"];
     for (const ini of d.initiatives) {
       const r = await call("get_initiative", { id: ini.id, sections });
       expect(r.isError, `${ini.slug}: ${text(r).slice(0, 120)}`).toBeFalsy();
       expect(data(r).milestones.length).toBe(d.milestones.filter((m) => m.initiativeId === ini.id).length);
+      expect(data(r).evidenceCard.sections.map((s: { key: string }) => s.key)).toEqual(["shipped", "funding", "prior", "team", "audits", "not_found"]);
     }
   });
 

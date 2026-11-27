@@ -3,7 +3,7 @@ import { PageHead } from "@/components/ui/layout";
 import { ResearchExplorer, type Facets } from "@/components/research/explorer";
 import { parseParams, toFilter, type SP } from "@/components/research/params";
 import { loadIntelligence } from "@/lib/intelligence/load";
-import { categoryDistribution, filterInitiatives, FilterSchema } from "@/lib/intelligence/service";
+import { categoryDistribution, evidenceCardRows, filterInitiatives, FilterSchema } from "@/lib/intelligence/service";
 import { SECURITY_PROBLEMS } from "@/lib/domain/taxonomy";
 
 export const metadata: Metadata = { title: "Research" };
@@ -15,6 +15,7 @@ export default async function ResearchPage({ searchParams }: { searchParams: Pro
   const parsed = FilterSchema.safeParse(toFilter(params));
   const filter = parsed.success ? parsed.data : { limit: 100 };
   const result = filterInitiatives(d, filter);
+  const cards = evidenceCardRows(d);
 
   const facets: Facets = {
     categories: categoryDistribution(d).map((c) => ({ value: c.slug, label: c.label, count: c.count })),
@@ -37,7 +38,7 @@ export default async function ResearchPage({ searchParams }: { searchParams: Pro
       <ResearchExplorer
         params={params}
         invalid={parsed.success ? null : (parsed.error.issues[0]?.message ?? "Invalid filter")}
-        items={result.items}
+        items={result.items.map((r) => ({ ...r, evidenceCard: cards[r.id] ?? null }))}
         total={result.total}
         sortNote={result.sortNote}
         facets={facets}

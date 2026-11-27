@@ -29,6 +29,7 @@ import {
   displayName,
   dossier,
   envelope,
+  evidenceCard,
   exportBundle,
   FilterSchema,
   filterInitiatives,
@@ -77,7 +78,7 @@ const Cursor = z
   .describe("nextCursor from the previous page.");
 const Ref = IdParam.describe("Initiative id or slug.");
 
-const SECTIONS = ["overview", "proposal", "milestones", "funding", "claims", "evidence", "team", "technical", "reality", "related", "blind_spots", "changes", "revisions", "metrics", "research_jobs"] as const;
+const SECTIONS = ["overview", "proposal", "milestones", "funding", "claims", "evidence", "team", "technical", "reality", "related", "blind_spots", "changes", "revisions", "metrics", "research_jobs", "evidence_card"] as const;
 const DEFAULT_SECTIONS: (typeof SECTIONS)[number][] = ["overview", "milestones", "funding", "reality"];
 const COMPARE_GROUPS = ["Overview", "Security problem", "Funding", "Milestones", "Adoption", "Evidence", "Existing work", "Technical", "Dependencies", "Beneficiaries", "Maintenance"] as const;
 const EXPORT_PARTS = ["initiatives", "milestones", "pledges", "claims", "evidence", "relationships"] as const;
@@ -296,6 +297,7 @@ export async function createServer(opts: ServerOptions = {}): Promise<McpServer>
       if (want.has("revisions")) out.revisions = x.revisions.map((r) => ({ id: r.id, n: r.n, createdAt: r.createdAt, state: r.state, archived: r.archived, title: r.title }));
       if (want.has("metrics")) out.metrics = x.metrics;
       if (want.has("research_jobs")) out.researchJobs = x.researchJobs;
+      if (want.has("evidence_card")) out.evidenceCard = evidenceCard(d, ini.id);
       const evidenceUrls = want.has("evidence") || want.has("claims") ? x.evidence.map((e) => e.url) : [];
       return wrap(d, out, { sources: [...initiativeSources(ini), ...evidenceUrls] });
     },

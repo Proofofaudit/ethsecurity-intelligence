@@ -81,6 +81,7 @@ beforeAll(async () => {
     milestones: import("@/app/api/v1/initiatives/[id]/milestones/route"),
     funding: import("@/app/api/v1/initiatives/[id]/funding/route"),
     round1: import("@/app/api/v1/initiatives/[id]/round1/route"),
+    evidenceCard: import("@/app/api/v1/initiatives/[id]/evidence-card/route"),
     organization: import("@/app/api/v1/organizations/[id]/route"),
     entity: import("@/app/api/v1/entities/[type]/[id]/route"),
     claim: import("@/app/api/v1/claims/[id]/route"),
@@ -257,6 +258,21 @@ describe("read endpoints", () => {
     expectError(await get("round1", "/initiatives/nope/round1", { id: "nope" }), 404, "not_found");
     const o = await get("organization", `/organizations/${ini.organizationId}`, { id: ini.organizationId! });
     expect(o.json.data.round1.records.length).toBe(d.round1.organizationMatches[ini.organizationId!]!.length);
+  });
+
+  it("serves the evidence card with a source URL and checked-on date on every item", async () => {
+    const ini = d.initiatives[0]!;
+    const r = await get("evidenceCard", `/initiatives/${ini.slug}/evidence-card`, { id: ini.slug });
+    expect(r.status).toBe(200);
+    expectEnvelope(r.json);
+    expect(r.json.data.sections.map((s: { key: string }) => s.key)).toEqual(["shipped", "funding", "prior", "team", "audits", "not_found"]);
+    for (const s of r.json.data.sections) for (const i of s.items) {
+      expect(i.sourceUrl).toMatch(/^https?:\/\//);
+      expect(Number.isFinite(Date.parse(i.checkedAt))).toBe(true);
+    }
+    const funding = r.json.data.sections.find((s: { key: string }) => s.key === "funding").items;
+    expect(funding.find((i: { key: string }) => i.key === "pledged").amountCents).toBe(ini.funding.pledgedCents);
+    expectError(await get("evidenceCard", "/initiatives/nope/evidence-card", { id: "nope" }), 404, "not_found");
   });
 
   it("serves the vote manifest from the published dataset with its alignment result", async () => {

@@ -1,7 +1,7 @@
 {
-  "datasetVersion": "20261126T130839Z-fe7ea363+75740bbf",
-  "at": "2026-11-27T09:25:51.206Z",
-  "checked": 3833,
+  "datasetVersion": "20261126T130839Z-fe7ea363+fa515294",
+  "at": "2026-11-27T09:51:59.532Z",
+  "checked": 7510,
   "failures": [],
   "byCheck": {
     "official_record_present": {
@@ -278,6 +278,90 @@
     },
     "round1_org_matches_reproducible": {
       "checked": 1,
+      "failed": 0
+    },
+    "card_present": {
+      "checked": 55,
+      "failed": 0
+    },
+    "card_layout": {
+      "checked": 55,
+      "failed": 0
+    },
+    "card_source": {
+      "checked": 861,
+      "failed": 0
+    },
+    "card_link": {
+      "checked": 861,
+      "failed": 0
+    },
+    "card_private_contact": {
+      "checked": 861,
+      "failed": 0
+    },
+    "card_pledged": {
+      "checked": 55,
+      "failed": 0
+    },
+    "card_received": {
+      "checked": 55,
+      "failed": 0
+    },
+    "card_donated": {
+      "checked": 55,
+      "failed": 0
+    },
+    "card_backer_count": {
+      "checked": 55,
+      "failed": 0
+    },
+    "card_backer": {
+      "checked": 86,
+      "failed": 0
+    },
+    "card_self_pledge": {
+      "checked": 86,
+      "failed": 0
+    },
+    "card_site": {
+      "checked": 55,
+      "failed": 0
+    },
+    "card_repo_count": {
+      "checked": 55,
+      "failed": 0
+    },
+    "card_repo": {
+      "checked": 88,
+      "failed": 0
+    },
+    "card_repo_stored": {
+      "checked": 88,
+      "failed": 0
+    },
+    "card_round1": {
+      "checked": 55,
+      "failed": 0
+    },
+    "card_no_links": {
+      "checked": 55,
+      "failed": 0
+    },
+    "card_no_repo": {
+      "checked": 55,
+      "failed": 0
+    },
+    "card_no_audit": {
+      "checked": 55,
+      "failed": 0
+    },
+    "card_no_backers": {
+      "checked": 55,
+      "failed": 0
+    },
+    "card_product": {
+      "checked": 31,
       "failed": 0
     }
   }

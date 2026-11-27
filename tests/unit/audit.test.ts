@@ -63,6 +63,18 @@ describe("truth audit", () => {
     expect(r.failures.some((f) => f.startsWith(`[pledge_claim_matches_source] ${c.id}`))).toBe(true);
   });
 
+  it("fails when an evidence card fact differs from its source record", async () => {
+    const t = clone(d);
+    const repo = t.repositories.find((x) => x.exists && x.license)!;
+    repo.license = "Invented-License";
+    const pledge = t.pledges[0]!;
+    pledge.amountCents += 1;
+    const r = await auditDataset(t, manifest);
+    expect(r.byCheck.card_repo_stored?.failed).toBeGreaterThan(0);
+    expect(r.failures.some((f) => f.startsWith("[card_backer]"))).toBe(true);
+    expect(r.byCheck.card_layout?.failed).toBe(0);
+  });
+
   it("fails when a claim is marked verified without successful supporting evidence", async () => {
     const t = clone(d);
     const c = t.claims.find((x) => x.status === "applicant_reported" || x.status === "not_independently_verified")!;

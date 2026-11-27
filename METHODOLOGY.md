@@ -228,6 +228,30 @@ When only a distinctive word appears in both names (or in the record's own websi
 
 **Limitations.** The CSV is read from a hashed script bundle, which is not a stable public API and may change or disappear. The sources publish no per-project payment date and no per-project donor count, so neither is shown. Displayed totals with a live stream change over time. Matching is conservative: a renamed team, or one listed under a different website, may appear only as a possible match or not at all.
 
+## Evidence card
+
+Every dossier opens with an evidence card, and every Research row carries a one-line summary of it. The card is built by `buildEvidenceCard` in [lib/intelligence/evidence-card.ts](lib/intelligence/evidence-card.ts) from the official record (`recipientTeam`, `recipientUrl`, `links`, `textLinks`, `pledges`, funding figures) and the stored research results (repositories, products, HTTP checks, GitHub profiles, people, prior-funding statements and Round 1 matches). It makes no network request when a page loads.
+
+**Layout.** The same six sections, in the same order, for all 55 initiatives: Shipped work, Funding, Prior funding, Team and track record, Audits or reviews, Not found. An empty section reads "Not found". Every item has one of the four source labels, a source link and "checked on <date>": the retrieval time of the official record for official fields and proposal links, the GitHub API check time for repositories, and the HTTP check time for sites. RFPs use the same card; their team section reads "No designated recipient".
+
+**Shipped work.** The official site (`recipientUrl`) with its reachability check, the sites and products the research pipeline found on the recipient's domain, and every repository the proposal links, with last push, latest release and release count, license and archive state from the GitHub API. A repository is marked "Owner matches the recipient's GitHub account" only when the identity rules recorded that link, otherwise "Cited in the proposal". The commit count in the 90 days before the check is a raw fact; GitHub stars and commit counts do not measure security quality, and stars are not shown.
+
+**Funding.** Pledged (outstanding), received pledges and donated (confirmed) are three separate official figures. Received pledges are already inside donated, so they are never added together. Every pledge is listed with the backer name as recorded, its amount and status.
+
+**Self-pledge rule.** "Backer name overlaps team name (possible self-pledge, unverified)" appears when the backer name, after folding case and accents and turning punctuation into spaces, equals the official recipient team or a recorded name of the recipient organization, or contains one as a whole-word sequence. Names shorter than three letters or digits are ignored. "Safe" does not match "SafeGuard", and "Nethermind" does not match a team called "Nethermind Security". The rule is one exported function (`possibleSelfPledge` in [lib/intelligence/self-pledge.ts](lib/intelligence/self-pledge.ts)). A flag is a prompt to check, not a finding.
+
+**Prior funding.** A link to the Round 1 history section with the number of records and whether they are matches or possible matches, plus the prior-funding statements found in the proposal, labeled "Applicant statement".
+
+**Team and track record.** Public profiles linked from the proposal's team section and the other links in that section, and the recipient organization's GitHub account when the pipeline checked it. Email addresses, phone numbers and messenger links (`mailto:`, `tel:`, t.me, wa.me, Signal, Discord user pages) are never shown, including when they appear in link text.
+
+**Audits or reviews.** Only proposal links whose address or link text names an audit or security review report (for example "audit-reports", "audit-summary", "security review", or an `/audits` page). Each reads "Linked in the proposal. Which work the report covers was not verified." Without such a link the section reads "Not found".
+
+**Not found.** What was searched and not found, for example "No links published in the proposal", "No official site in the official record", "No public repository linked", "No release published", "No license file detected", "No named backers in the official record", "No Round 1 funding found in the sources checked" and "No public audit report linked".
+
+**Broken links and caching.** A link whose stored check failed is flagged "Link did not respond when checked on <date>" with the HTTP status; a repository the GitHub API did not return is flagged "Repository not found when checked on <date>". Neither is hidden. HTTP 403, 429 and 503 (bot protection or rate limits) and network errors make a check inconclusive: the card then says so and shows the cached result with its age at publication. All checks are cached results of the research run (`data/research/cache`, `data/research/results`) and are not refreshed when the page loads.
+
+**Audit.** The truth audit (check 13) recomputes every card: same section keys and order, an http(s) source and a checked-on date on every item, funding figures and backers equal to the raw official record, repository facts equal to the stored GitHub results, product flags equal to the stored checks, self-pledge flags recomputed by an independent implementation, no private contact detail, and "Not found" items consistent with the data.
+
 ## Organization identity
 
 `lib/domain/identity.ts` resolves backer and recipient names into organizations:

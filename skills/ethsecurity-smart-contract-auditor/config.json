@@ -3,7 +3,7 @@
   "promptVersion": "2026.11-lab-v1",
   "skillName": "ethsecurity-smart-contract-auditor",
   "dataset": {
-    "version": "20261126T130839Z-fe7ea363+75740bbf",
+    "version": "20261126T130839Z-fe7ea363+fa515294",
     "methodologyVersion": "2026.11-v1",
     "cohortSize": 55,
     "cohortFrozenAt": "2026-11-26T09:19:49.152Z",

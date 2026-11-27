@@ -30,12 +30,13 @@ export const TOOLS: ToolInfo[] = [
     name: "get_initiative",
     title: "Get an initiative dossier",
     description:
-      "Research dossier for one initiative by id or slug. Choose sections: overview, proposal, milestones, funding, claims, evidence, team, technical, reality, related, blind_spots, changes, revisions, metrics, research_jobs. Default: overview, milestones, funding, reality.",
+      "Research dossier for one initiative by id or slug. Choose sections: overview, proposal, milestones, funding, claims, evidence, team, technical, reality, related, blind_spots, changes, revisions, metrics, research_jobs, evidence_card. Default: overview, milestones, funding, reality.",
     covers: [
       { name: "get_initiative", how: "Default sections." },
       { name: "get_milestones", how: "sections: [\"milestones\"]" },
       { name: "get_team", how: "sections: [\"team\"] (people, organization and aliases)" },
       { name: "get_funding_breakdown", how: "sections: [\"funding\"]" },
+      { name: "get_evidence_card", how: "sections: [\"evidence_card\"] (sourced facts with checked-on dates)" },
     ],
   },
   {
