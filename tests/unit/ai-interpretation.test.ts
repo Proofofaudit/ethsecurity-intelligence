@@ -9,6 +9,7 @@ import { AiInterpretation, NotYetResearched } from "@/components/ui/ai-interpret
 import { NOT_YET_RESEARCHED, prepareAiInterpretation, type AiInput } from "@/lib/ai/interpretation";
 import type { Dataset } from "@/lib/domain/schemas";
 import { blindSpotSources, blindSpots, researchCoverage } from "@/lib/intelligence/service";
+import { initiativeMetrics } from "@/lib/metrics/compute";
 import { unsupportedMaterialClaims } from "@/lib/intelligence/unsupported-material";
 import { filterAiOutput } from "@/lib/neutralLanguage";
 import type { ResearchOutput } from "@/lib/skills/schema";
@@ -287,5 +288,28 @@ describe("unsupported material statements", () => {
       ({ ...base, id, origin, status, material: true }) as Dataset["claims"][number];
     const out = unsupportedMaterialClaims([mk("ai-1", "ai", "applicant_reported"), mk("ai-2", "ai", "not_independently_verified"), mk("app-1", "applicant", "applicant_reported")]);
     expect(out.map((c) => c.id)).toEqual(["app-1"]);
+  });
+});
+
+describe("AI-origin claims in other counts", () => {
+  const d = JSON.parse(readFileSync(path.join(process.cwd(), "data/published/dataset.json"), "utf8")) as Dataset;
+  const ini = d.initiatives[0]!;
+  const ai = (id: string, kind: "quantitative"): Dataset["claims"][number] =>
+    ({ ...d.claims[0]!, id, initiativeId: ini.id, origin: "ai", kind, status: "applicant_reported", material: true }) as Dataset["claims"][number];
+
+  it("does not change evidence coverage", () => {
+    const before = initiativeMetrics(d, ini)["initiative.evidence_coverage"];
+    const after = initiativeMetrics({ ...d, claims: [...d.claims, ai("ai-x", "quantitative")] }, ini)["initiative.evidence_coverage"];
+    expect(after).toEqual(before);
+  });
+  it("does not add an open question for the figure", () => {
+    const before = blindSpots(d).length;
+    expect(blindSpots({ ...d, claims: [...d.claims, ai("ai-y", "quantitative")] }).length).toBe(before);
+  });
+  it("Methodology page lists review progress, visit record and read marks as browser data", () => {
+    const src = readFileSync("app/methodology/page.tsx", "utf8");
+    expect(src).toContain("review progress states");
+    expect(src).toContain("Since your last visit");
+    expect(src).toContain("marked as read");
   });
 });

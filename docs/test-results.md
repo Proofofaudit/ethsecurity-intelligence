@@ -1,6 +1,6 @@
 # Test results
 
-Recorded on 27 Nov 2026 (UTC), docs last updated at 12:15 UTC, on branch `feat/full-platform`, Node.js 22.23, in the development sandbox. CI reruns the same checks on every push ([.github/workflows/ci.yml](../.github/workflows/ci.yml)). The code did not change after the checks below ran; only documentation changed after them, and `npm test`, `npm run lint:language` and cspell were rerun on that documentation.
+Recorded on 27 Nov 2026 (UTC), docs last updated at 12:15 UTC, on branch `feat/full-platform`, Node.js 22.23, in the development sandbox. CI reruns the same checks on every push ([.github/workflows/ci.yml](../.github/workflows/ci.yml)). The checks below were rerun after the final code change of this review round.
 
 | Check | Command | Result |
 | --- | --- | --- |
@@ -8,7 +8,7 @@ Recorded on 27 Nov 2026 (UTC), docs last updated at 12:15 UTC, on branch `feat/f
 | Type check | `npm run typecheck` | Pass |
 | Lint | `npm run lint` | Pass |
 | Neutral-language lint | `npm run lint:language` | Pass: "no banned phrases" |
-| Unit and integration tests | `npm test` | Pass: 37 files, 561 tests (MongoDB 8.2.6 via mongodb-memory-server) |
+| Unit and integration tests | `npm test` | Pass: 37 files, 564 tests (MongoDB 8.2.6 via mongodb-memory-server) |
 | Build | `npm run build` | Pass |
 | End-to-end tests | `npm run test:e2e` | Pass: 139 passed, 1 not run, 0 failed (the internal link check is desktop-only by design) |
 | MCP smoke test | `npm run mcp:smoke` | Pass: 48/48 checks, 42 tool calls across 16 tools |
@@ -33,4 +33,4 @@ Not connected. One retry on 27 Nov 2026 at 12:13:03 UTC (finished 12:13:14 UTC),
 MongoDB ping failed after 10028 ms: MongoServerSelectionError: 80C1F372067F0000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:../deps/openssl/openssl/ssl/record/rec_layer_s3.c:918:SSL alert number 80
 ```
 
-Atlas sends TLS alert 80 when the client IP is not on the project's Network Access list. `db:setup` and `db:load` were not run against Atlas, and the site serves the published files read-only. To connect, add the server's IP (or an allowed range for the deployment) to Atlas Network Access and rerun the ping, then `db:setup` and `db:load`.
+The TLS alert 80 is consistent with the client IP not being on the project's Network Access list, but this was not tested: no attempt from an allowed address has been made, so another cause (for example a paused cluster) is not excluded. `db:setup` and `db:load` were not run against Atlas, and the site serves the published files read-only. To connect, add the server's IP (or an allowed range for the deployment) to Atlas Network Access and rerun the ping, then `db:setup` and `db:load`.

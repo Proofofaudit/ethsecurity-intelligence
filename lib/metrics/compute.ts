@@ -94,7 +94,7 @@ export function initiativeMetrics(d: Slice, ini: Initiative): Record<string, Met
   add(v("initiative.largest_milestone_share", f.goalCents > 0 && ms.length ? Math.max(...ms.map((m) => m.amountCents)) / f.goalCents : null, "Goal is zero"));
   add(v("initiative.adoption_share", f.goalCents > 0 ? sumCents(ms.filter((m) => m.adoption).map((m) => m.amountCents)) / f.goalCents : null, "Goal is zero"));
   add(v("initiative.open_questions", ms.reduce((s, m) => s + m.questions.length, 0)));
-  const cl = d.claims.filter((c) => c.initiativeId === ini.id && c.material && !["future_target", "officially_reported", "not_applicable"].includes(c.status));
+  const cl = d.claims.filter((c) => c.initiativeId === ini.id && c.origin !== "ai" && c.material && !["future_target", "officially_reported", "not_applicable"].includes(c.status));
   const supported = cl.filter((c) => c.status === "independently_verified" || c.status === "partially_supported").length;
   add(v("initiative.evidence_coverage", cl.length ? supported / cl.length : null, "No verifiable present-tense claims"));
   const repos = d.repositories.filter((r) => r.initiativeIds.includes(ini.id));

@@ -580,7 +580,7 @@ export function blindSpots(d: Dataset): BlindSpot[] {
     for (const c of d.claims.filter((x) => x.initiativeId === ini.id)) {
       if (c.kind === "integration" && c.status === "applicant_reported")
         out.push({ id: `bs_${c.id}`, initiativeId: ini.id, category: "unconfirmed_integration", importance: "higher", question: "Can the counterparty publicly confirm this integration, and where can it be observed?", basis: c.assertion, refs: [c.id] });
-      if (c.kind === "quantitative" && c.status === "applicant_reported")
+      if (c.kind === "quantitative" && c.status === "applicant_reported" && c.origin !== "ai")
         out.push({ id: `bs_${c.id}`, initiativeId: ini.id, category: "unsupported_material_claim", importance: "standard", question: "Which public source supports this figure?", basis: c.assertion, refs: [c.id] });
     }
     if (maintenanceStatements(ini).length === 0)

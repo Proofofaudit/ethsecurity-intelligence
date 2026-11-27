@@ -290,7 +290,7 @@ EntityType: `initiative`, `organization`, `backer`, `person`, `repository`, `tec
 
 ## Browser-only data
 
-Kept in the browser's local storage, never sent to the server ([components/workspace/schema.ts](components/workspace/schema.ts)).
+Kept in the browser's local storage; the stored contents are never sent to the server. Opening My Workspace requests the public claim record for each bookmarked claim id, so those ids reach the server as part of a public read, and request logging is off. Schema: [components/workspace/schema.ts](components/workspace/schema.ts).
 
 `esi.workspace` (version 1, extended only with defaulted fields):
 

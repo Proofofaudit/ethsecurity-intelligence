@@ -275,7 +275,7 @@ Review progress is a private checklist ([lib/workspace/progress.ts](lib/workspac
 
 ## AI interpretation and "Not yet researched"
 
-The site runs no AI model. The label rules apply to any generated text that is displayed: published claims with origin `ai` and text pasted into the AI Lab result reader ([lib/ai/interpretation.ts](lib/ai/interpretation.ts)).
+The site runs no AI model. The label rules apply to any generated text that is displayed: published claims with origin `ai` (none in the current dataset) and text pasted into the AI Lab result reader ([lib/ai/interpretation.ts](lib/ai/interpretation.ts)).
 
 - Every such statement carries the label "AI interpretation", its http(s) citations and its provenance (model, prompt version, number of sources examined, verification status "Not verified" or "Checked by the reviewer, not independently verified").
 - Text without a citation is not shown; the underlying evidence is listed instead, or "Not yet researched" when there is none. "Not yet researched" means no research has run, never a negative finding, and the display lists what is missing.

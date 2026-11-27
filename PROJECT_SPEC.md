@@ -32,7 +32,7 @@ ETHSecurity Intelligence is an independent research and decision-support platfor
 | Read-only MCP server (stdio and Streamable HTTP), AI Lab, generated research skills | Implemented, tested |
 | Reference pages: methodology, status, corrections, about | Implemented, tested |
 | Docs, CI, issue templates, screenshots | Implemented |
-| MongoDB Atlas production connection | Blocked: the sandbox IP is not on the Atlas Network Access list (TLS alert 80). Code paths are tested locally |
+| MongoDB Atlas production connection | Blocked: the connection fails with TLS alert 80, consistent with the sandbox IP not being on the Atlas Network Access list (not tested from an allowed address). Code paths are tested locally |
 
 ## Update items
 
@@ -102,7 +102,7 @@ Every dossier opens with the same six-section card for all 55 initiatives: Shipp
 
 ### Item 10: Similar initiatives
 
-Pairs of initiatives with shared text signals, labeled "Possible overlap", "Possible complement" or "Same organization", each with the quoted evidence from both proposals and a "research hypothesis, not a finding" notice. A pair is shown only with a text signal plus a second signal or one strong signal, so category-only, group-only and backer-only pairs stay hidden. Output is alphabetical, with no scores, and reproducible. Result: 174 of 1,485 pairs shown (141 overlap, 30 complement, 3 same organization). Proof of Audits is analyzed with the same rules. The optional AI hypotheses were not shipped. Acceptance: tests/unit/similar.test.ts. Rules: [METHODOLOGY.md](METHODOLOGY.md#similar-initiatives).
+Pairs of initiatives with shared text signals, labeled "Possible overlap", "Possible complement" or "Same organization", each with the quoted evidence from both proposals and a "research hypothesis, not a finding" notice. A pair is shown only with a text signal plus a second signal or one strong signal, so category-only, group-only and backer-only pairs stay hidden. Pairs are listed alphabetically, with no scores, and the output is reproducible. Result: 174 of 1,485 pairs shown (141 overlap, 30 complement, 3 same organization). Proof of Audits is analyzed with the same rules. The optional AI hypotheses were not shipped. Acceptance: tests/unit/similar.test.ts. Rules: [METHODOLOGY.md](METHODOLOGY.md#similar-initiatives).
 
 ### Item 11: Open questions
 
@@ -126,7 +126,7 @@ Rules: [METHODOLOGY.md](METHODOLOGY.md#review-progress-and-change-detection).
 
 ### Item 14: AI interpretation labels
 
-Every AI-generated statement carries the label "AI interpretation", its cited sources and provenance (model, prompt version, number of sources examined, verification status). Text without an http(s) citation is not shown. The Item 1 filter runs before display, and a blocked statement is replaced by the raw evidence. An initiative without research shows "Not yet researched", never generated prose and never a negative finding. Claims with origin `ai` are never counted as applicant statements, never counted as evidence and never listed under material without independent support. No confidence or score exists in any AI type. The site runs no model; the label applies to text pasted into the AI Lab result reader and to published claims with origin `ai`. Acceptance: tests/unit/ai-interpretation.test.ts. Rules: [METHODOLOGY.md](METHODOLOGY.md#ai-interpretation-and-not-yet-researched).
+Every AI-generated statement carries the label "AI interpretation", its cited sources and provenance (model, prompt version, number of sources examined, verification status). Text without an http(s) citation is not shown. The Item 1 filter runs before display, and a blocked statement is replaced by the raw evidence. An initiative without research shows "Not yet researched", never generated prose and never a negative finding. Claims with origin `ai` are never counted as applicant statements, never counted as evidence and never listed under material without independent support. No confidence or score exists in any AI type. The site runs no model; the label applies to text pasted into the AI Lab result reader and to published claims with origin `ai` (none in the current dataset). Acceptance: tests/unit/ai-interpretation.test.ts. Rules: [METHODOLOGY.md](METHODOLOGY.md#ai-interpretation-and-not-yet-researched).
 
 ## Non-goals
 
