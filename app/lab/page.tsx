@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LabConfigurator } from "@/components/lab/configurator";
+import { ResultReader } from "@/components/lab/result-reader";
 import { Block, PageHead } from "@/components/ui/layout";
 import { COI_SHORT } from "@/lib/disclosure";
 import { loadIntelligence } from "@/lib/intelligence/load";
@@ -51,6 +52,8 @@ export default async function LabPage() {
       </section>
 
       <LabConfigurator ctx={ctx} />
+
+      <ResultReader />
 
       <div className="grid gap-10 lg:grid-cols-2 [&>*]:min-w-0">
         <Block title="AI provenance">
