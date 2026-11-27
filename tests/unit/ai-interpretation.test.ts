@@ -9,6 +9,7 @@ import { AiInterpretation, NotYetResearched } from "@/components/ui/ai-interpret
 import { NOT_YET_RESEARCHED, prepareAiInterpretation, type AiInput } from "@/lib/ai/interpretation";
 import type { Dataset } from "@/lib/domain/schemas";
 import { blindSpotSources, blindSpots, researchCoverage } from "@/lib/intelligence/service";
+import { unsupportedMaterialClaims } from "@/lib/intelligence/unsupported-material";
 import { filterAiOutput } from "@/lib/neutralLanguage";
 import type { ResearchOutput } from "@/lib/skills/schema";
 import { buildPrompt, buildSkill, LabConfigSchema, MODES, modeConfig, ResearchOutputSchema } from "@/lib/skills";
@@ -275,5 +276,16 @@ describe("no confidence or score fields", () => {
       const src = readFileSync(f, "utf8").replace(/\/\*[\s\S]*?\*\//g, "").replace(/^\s*\/\/.*$/gm, "");
       expect(src.match(/\b(confidence|probability)\b/i), f).toBeNull();
     }
+  });
+});
+
+describe("unsupported material statements", () => {
+  it("excludes AI-origin claims from the applicant's own, unsupported list", () => {
+    const d = JSON.parse(readFileSync(path.join(process.cwd(), "data/published/dataset.json"), "utf8")) as Dataset;
+    const base = d.claims[0]!;
+    const mk = (id: string, origin: "ai" | "applicant", status: "applicant_reported" | "not_independently_verified") =>
+      ({ ...base, id, origin, status, material: true }) as Dataset["claims"][number];
+    const out = unsupportedMaterialClaims([mk("ai-1", "ai", "applicant_reported"), mk("ai-2", "ai", "not_independently_verified"), mk("app-1", "applicant", "applicant_reported")]);
+    expect(out.map((c) => c.id)).toEqual(["app-1"]);
   });
 });

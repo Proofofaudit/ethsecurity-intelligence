@@ -26,6 +26,7 @@ import { SaveButton } from "@/components/workspace/save-button";
 import { CATEGORY_LABEL, CORRECTION_NOTICE } from "@/lib/corrections";
 import { BANNER_HREF, COI_SHORT, isCoiOrganization } from "@/lib/disclosure";
 import type { Claim, Evidence } from "@/lib/domain/schemas";
+import { unsupportedMaterialClaims } from "@/lib/intelligence/unsupported-material";
 import { loadIntelligence } from "@/lib/intelligence/load";
 import { BLIND_SPOT_LABEL, COVERAGE_TASK_LABEL, dependencies, dossier, briefingFor, evidenceCard, OPEN_QUESTION_NOTICE, openQuestionsFor, PRESENT_SUPPORTED, plainExplanation, questionsAsText, researchCoverage, round1History, sharedGroupsOf, similarFor } from "@/lib/intelligence/service";
 import { AiSlot, CounterBody, SupportingBody } from "@/components/dossier/research-slots";
@@ -96,7 +97,7 @@ export default async function InitiativePage({ params }: Params) {
   const headings = Object.fromEntries(ini.sections.map((s) => [s.key, s.heading]));
   const byKind = (...k: Claim["kind"][]) => x.claims.filter((c) => k.includes(c.kind));
   const supported = x.claims.filter((c) => PRESENT_SUPPORTED.includes(c.status));
-  const unsupportedMaterial = x.claims.filter((c) => c.material && (c.status === "applicant_reported" || c.status === "not_independently_verified"));
+  const unsupportedMaterial = unsupportedMaterialClaims(x.claims);
   const jobs = CORE_RESEARCH_TASKS.map((t) => ({ task: t, job: x.researchJobs.find((j) => j.task === t) }));
   const jobsOk = jobs.filter((j) => j.job?.state === "succeeded").length;
   const lastJob = x.researchJobs.map((j) => j.finishedAt).filter((v): v is string => !!v).sort().pop() ?? null;

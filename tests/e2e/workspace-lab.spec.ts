@@ -10,7 +10,7 @@ test("saved initiatives persist in My Workspace across reloads", async ({ page }
   await expect(page.getByRole("button", { name: `Saved: remove ${ini.shortTitle} from My Workspace` }).first()).toHaveAttribute("aria-pressed", "true");
 
   await page.goto("/workspace");
-  const saved = page.locator("section", { has: page.getByRole("heading", { name: /Saved initiatives/ }) });
+  const saved = page.locator("section", { has: page.getByRole("heading", { name: /Saved for later/ }) });
   await expect(saved.getByRole("link", { name: ini.shortTitle, exact: true }).first()).toBeVisible();
   await page.reload();
   await expect(saved.getByRole("link", { name: ini.shortTitle, exact: true }).first()).toBeVisible();
