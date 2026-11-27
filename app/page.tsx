@@ -6,13 +6,15 @@ import { DateTime, formatDate, Money, Num, Pct } from "@/components/ui/money";
 import { Tag } from "@/components/ui/button";
 import { ADVANCED_VIEWS } from "@/components/shell/nav";
 import { loadIntelligence } from "@/lib/intelligence/load";
-import { categoryDistribution, changes, coverage, filterInitiatives, fundingRelationships } from "@/lib/intelligence/service";
+import { categoryDistribution, changes, coverage, displayName, filterInitiatives, fundingRelationships } from "@/lib/intelligence/service";
 import { ingestionStatus } from "@/lib/intelligence/status";
 import { cohortMetrics } from "@/lib/metrics/compute";
 import { METRICS } from "@/lib/metrics/registry";
 import { THEDAO_ASK_CAP_CENTS } from "@/lib/metrics/ask";
 import { formatPct, formatUsd } from "@/lib/util/money";
 import { SinceLastVisit } from "@/components/workspace/since-visit";
+import { ReviewProgressCompact } from "@/components/workspace/review-progress";
+import { visitFeed } from "@/lib/workspace/feed";
 import { VoteCalendar } from "@/components/workspace/vote-calendar";
 import { calendarView, fundingView } from "@/lib/vote/view-data";
 import { withLiveVote } from "@/lib/vote/live";
@@ -123,6 +125,8 @@ export default async function OverviewPage() {
       </section>
 
       <SinceLastVisit view={fundingView(d)} />
+
+      <ReviewProgressCompact initiatives={d.initiatives.map((i) => ({ id: i.id, slug: i.slug, label: displayName(d, i) }))} feed={visitFeed(d)} datasetVersion={d.meta.datasetVersion} />
 
       <div className="grid gap-12 lg:grid-cols-2 [&>*]:min-w-0">
         <Block

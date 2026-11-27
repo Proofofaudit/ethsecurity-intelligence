@@ -5,6 +5,7 @@
  */
 import { z } from "zod";
 import { EvidenceStatus } from "@/lib/domain/schemas";
+import { ProgressMark, VisitState } from "@/lib/workspace/progress";
 
 const Id = z.string().min(1).max(120);
 const When = z.string().max(40);
@@ -126,6 +127,10 @@ export const WorkspaceSchema = z
     interest: Interest.default({ focus: [], keywords: [], suggested: false }),
     /** Rule-based open questions the holder marked as asked or resolved: question id → when. Never sent anywhere. */
     openQuestions: OpenQuestionMarks.default({}),
+    /** Review state per initiative id (Not started, Reading, Reviewed, Revisit). Never sent anywhere. */
+    progress: z.record(Id, ProgressMark).default({}),
+    /** The published record as last seen in this browser; "Since your last visit" compares against `baseline`. */
+    visit: VisitState.default({ seen: null, baseline: null }),
   })
   .passthrough();
 export type Workspace = z.infer<typeof WorkspaceSchema>;

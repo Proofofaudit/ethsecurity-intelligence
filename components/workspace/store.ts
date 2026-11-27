@@ -8,6 +8,7 @@ import { useSyncExternalStore } from "react";
 import type { EvidenceStatus } from "@/lib/domain/schemas";
 import { addAffiliationEntry, EMPTY_WORKSPACE, newId, recordFundingView, removeAffiliationEntry, setAffiliationOverride, setOpenQuestionMark, WorkspaceSchema, type Fingerprint, type Priority, type Workspace } from "./schema";
 import type { Tier } from "@/lib/vote/ballot-rules";
+import { applyRevisits, recordVisit, seenFromEntry, snapshotFromFeed, type ProgressState, type VisitFeedEntry } from "@/lib/workspace/progress";
 
 export { WorkspaceSchema, type SavedSearch, type Workspace } from "./schema";
 
@@ -81,13 +82,59 @@ export function toggleSaved(id: string) {
   );
 }
 
+/**
+ * Sets the review state of one initiative. Reviewed also sets reviewedAt on a saved initiative and
+ * remembers the record seen at that moment (`seen`), so a later change can turn it into Revisit.
+ * Not started removes the mark and clears reviewedAt.
+ */
+export function setProgressState(id: string, state: ProgressState, entry?: VisitFeedEntry) {
+  updateWorkspace((w) => {
+    const progress = { ...w.progress };
+    if (state === "not_started") delete progress[id];
+    else progress[id] = { state, at: now(), reason: null, seen: state === "reviewed" ? (entry ? seenFromEntry(entry) : (w.progress[id]?.seen ?? null)) : null };
+    const reviewedAt = state === "reviewed" || state === "revisit" ? now() : null;
+    return { ...w, progress, initiatives: w.initiatives.map((x) => (x.id === id ? { ...x, reviewedAt: state === "revisit" ? (x.reviewedAt ?? reviewedAt) : reviewedAt } : x)) };
+  });
+}
+
 /** Marks an initiative reviewed (saving it if needed) or clears the mark. */
-export function setReviewed(id: string, reviewed: boolean) {
+export function setReviewed(id: string, reviewed: boolean, entry?: VisitFeedEntry) {
   updateWorkspace((w) => {
     const has = w.initiatives.some((x) => x.id === id);
     const list = has ? w.initiatives : [...w.initiatives, { id, addedAt: now(), reviewedAt: null, priority: null }];
-    return { ...w, initiatives: list.map((x) => (x.id === id ? { ...x, reviewedAt: reviewed ? now() : null } : x)) };
+    const progress = { ...w.progress };
+    if (reviewed) progress[id] = { state: "reviewed", at: now(), reason: null, seen: entry ? seenFromEntry(entry) : (w.progress[id]?.seen ?? null) };
+    else delete progress[id];
+    return { ...w, progress, initiatives: list.map((x) => (x.id === id ? { ...x, reviewedAt: reviewed ? now() : null } : x)) };
   });
+}
+
+/**
+ * Stores this page view of the published record (no network) and turns Reviewed initiatives with
+ * real changes into Revisit. Writes nothing when neither the record nor any mark changed.
+ */
+export function applyVisitFeed(feed: VisitFeedEntry[], datasetVersion: string) {
+  const current = read();
+  const visit = recordVisit(current.visit, snapshotFromFeed(feed, datasetVersion));
+  const progress = applyRevisits(current.progress, feed);
+  if (visit === current.visit && progress === current.progress) return;
+  updateWorkspace((w) => ({ ...w, visit, progress: applyRevisits(w.progress, feed) }));
+}
+
+/** Removes every localStorage key this site owns (all keys starting with "esi.") and resets the in-memory state. */
+export function clearAllMyData() {
+  try {
+    const keys: string[] = [];
+    for (let i = 0; i < window.localStorage.length; i++) {
+      const k = window.localStorage.key(i);
+      if (k && k.startsWith("esi.")) keys.push(k);
+    }
+    for (const k of keys) window.localStorage.removeItem(k);
+  } catch {
+    /* storage disabled: nothing to remove */
+  }
+  cache = null;
+  listeners.forEach((l) => l());
 }
 
 export function setPriority(id: string, priority: Priority | null) {

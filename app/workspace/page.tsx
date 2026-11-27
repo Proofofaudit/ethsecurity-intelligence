@@ -6,6 +6,7 @@ import { loadIntelligence } from "@/lib/intelligence/load";
 import { displayName } from "@/lib/intelligence/service";
 import { affiliationView, ballotView, calendarView, fundingView, interestView } from "@/lib/vote/view-data";
 import { withLiveVote } from "@/lib/vote/live";
+import { exportContext, visitFeed } from "@/lib/workspace/feed";
 
 export const metadata: Metadata = { title: "My Workspace" };
 // Rendered per request so pool and schedule are never older than the 12-minute live cache (an ISR page cache would add up to its own age on top).
@@ -24,7 +25,7 @@ export default async function WorkspacePage() {
         title="Your private research workspace"
         lede={<p>Vote calendar, a starting set that may interest you, your affiliations, Ballot Prep, saved initiatives, bookmarked evidence, comparisons, notes, open questions and assessments. Everything on this page is stored in this browser only. There is no account, and nothing here is sent to the server.</p>}
       />
-      <WorkspaceView initiatives={initiatives} changes={changes} datasetVersion={d.meta.datasetVersion} vote={{ calendar: calendarView(d, live), funding: fundingView(d), ballot: ballotView(d, live), affiliation: affiliationView(d), interest: interestView(d) }} />
+      <WorkspaceView initiatives={initiatives} changes={changes} datasetVersion={d.meta.datasetVersion} review={{ feed: visitFeed(d), exportContext: exportContext(d) }} vote={{ calendar: calendarView(d, live), funding: fundingView(d), ballot: ballotView(d, live), affiliation: affiliationView(d), interest: interestView(d) }} />
     </>
   );
 }

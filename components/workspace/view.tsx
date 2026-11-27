@@ -13,6 +13,9 @@ import { AffiliationsSection } from "./affiliations";
 import { BallotPrep } from "./ballot-prep";
 import { MayInterest } from "./may-interest";
 import { askDeltas, bookmarkAlerts, expirationAlerts, exportWorkspace, fingerprintFor, parseImport, type ChangeRef, type Priority } from "./schema";
+import type { ExportContext } from "@/lib/workspace/export";
+import type { VisitFeedEntry } from "@/lib/workspace/progress";
+import { progressStateOf, ReviewProgress } from "./review-progress";
 import { AskDeltaNote, useFundingBaseline } from "./since-visit";
 import { VoteCalendar } from "./vote-calendar";
 import {
@@ -81,7 +84,12 @@ export interface WorkspaceVote {
   interest: InterestView;
 }
 
-export function WorkspaceView({ initiatives, changes, datasetVersion, vote }: { initiatives: Ini[]; changes: Record<string, ChangeRef[]>; datasetVersion: string; vote: WorkspaceVote }) {
+export interface WorkspaceReview {
+  feed: VisitFeedEntry[];
+  exportContext: ExportContext;
+}
+
+export function WorkspaceView({ initiatives, changes, datasetVersion, vote, review }: { initiatives: Ini[]; changes: Record<string, ChangeRef[]>; datasetVersion: string; vote: WorkspaceVote; review?: WorkspaceReview }) {
   const w = useWorkspace();
   const baseline = useFundingBaseline(vote.funding);
   const deltas = useMemo(() => new Map(askDeltas(baseline ?? null, vote.funding.asks).map((d) => [d.id, d])), [baseline, vote.funding.asks]);
@@ -123,7 +131,8 @@ export function WorkspaceView({ initiatives, changes, datasetVersion, vote }: { 
   const expiredById = new Map(expired.map((a) => [a.assessmentId, a]));
   const bAlerts = bookmarkAlerts(w, claimStatus);
   const savedSorted = [...w.initiatives].sort((a, b) => (PRIORITY_ORDER[a.priority ?? ""] ?? 3) - (PRIORITY_ORDER[b.priority ?? ""] ?? 3) || label(a.id).localeCompare(label(b.id)));
-  const reviewedCount = w.initiatives.filter((x) => x.reviewedAt).length;
+  const reviewedCount = w.initiatives.filter((x) => progressStateOf(w, x.id) === "reviewed").length;
+  const feedById = new Map((review?.feed ?? []).map((e) => [e.id, e]));
 
   const doExport = () => {
     const blob = new Blob([JSON.stringify(exportWorkspace(w), null, 2)], { type: "application/json" });
@@ -181,6 +190,8 @@ export function WorkspaceView({ initiatives, changes, datasetVersion, vote }: { 
 
       <VoteCalendar view={vote.calendar} />
 
+      {review && <ReviewProgress initiatives={initiatives} feed={review.feed} datasetVersion={datasetVersion} exportContext={review.exportContext} />}
+
       <div className="grid gap-x-10 gap-y-4 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
         <div>
           <p className="eyebrow mb-1">Resume</p>
@@ -197,7 +208,7 @@ export function WorkspaceView({ initiatives, changes, datasetVersion, vote }: { 
         </div>
         <dl className="grid grid-cols-3 gap-4 text-sm sm:grid-cols-6">
           {[
-            ["Saved", w.initiatives.length],
+            ["Saved for later", w.initiatives.length],
             ["Reviewed", reviewedCount],
             ["Bookmarks", w.bookmarks.length],
             ["Notes", w.notes.length],
@@ -251,7 +262,7 @@ export function WorkspaceView({ initiatives, changes, datasetVersion, vote }: { 
 
       <Section
         id="saved"
-        title="Saved initiatives"
+        title="Saved for later"
         count={w.initiatives.length}
         note="Order: your own priority, then Alphabetical (neutral) within each priority. Changes are counted from the date you saved each initiative."
         action={
@@ -319,8 +330,8 @@ export function WorkspaceView({ initiatives, changes, datasetVersion, vote }: { 
                       ))}
                     </select>
                   </label>
-                  <button type="button" onClick={() => setReviewed(s.id, !s.reviewedAt)} aria-pressed={!!s.reviewedAt} className={cn("h-7 rounded-sm border px-2 text-xs", s.reviewedAt ? "border-ink bg-ink text-paper" : "border-rule-2 text-ink-2 hover:border-ink-3")}>
-                    {s.reviewedAt ? `Reviewed ${formatDate(s.reviewedAt)}` : "Mark reviewed"}
+                  <button type="button" onClick={() => setReviewed(s.id, progressStateOf(w, s.id) !== "reviewed", feedById.get(s.id))} aria-pressed={progressStateOf(w, s.id) === "reviewed"} className={cn("h-7 rounded-sm border px-2 text-xs", progressStateOf(w, s.id) === "reviewed" ? "border-ink bg-ink text-paper" : "border-rule-2 text-ink-2 hover:border-ink-3")}>
+                    {progressStateOf(w, s.id) === "reviewed" && s.reviewedAt ? `Reviewed ${formatDate(s.reviewedAt)}` : progressStateOf(w, s.id) === "revisit" ? "Revisit" : "Mark reviewed"}
                   </button>
                   <button type="button" onClick={() => toggleSaved(s.id)} className={linkBtn}>
                     Remove

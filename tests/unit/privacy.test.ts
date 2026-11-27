@@ -119,3 +119,22 @@ describe("same-origin browser", () => {
     for (const c of calls) expect(c).toMatch(/: \/api\/v1\//);
   });
 });
+
+describe("review progress (Item 13)", () => {
+  it("never sends workspace data: no fetch, XHR or beacon in the progress logic, exports or UI", async () => {
+    const targets = [...(await files("lib/workspace")), "components/workspace/review-progress.tsx", "components/workspace/store.ts", "components/workspace/schema.ts"];
+    expect(targets.length).toBeGreaterThan(4);
+    for (const f of targets) expect(await read(f), f).not.toMatch(/\bfetch\(|XMLHttpRequest|sendBeacon|WebSocket|EventSource/);
+  });
+
+  it("keeps the workspace out of AI Lab and API calls", async () => {
+    for (const f of [...(await files("components/lab")), ...(await files("app/api"))]) expect(await read(f), f).not.toMatch(/components\/workspace\/store|useWorkspace|esi\.workspace/);
+  });
+
+  it("Clear all my data removes the keys listed on the Methodology page", async () => {
+    const store = await read("components/workspace/store.ts");
+    expect(store).toContain('startsWith("esi.")');
+    for (const k of Object.values(PRIVACY_LOCAL_KEYS)) expect(k.startsWith("esi.")).toBe(true);
+  });
+});
+
