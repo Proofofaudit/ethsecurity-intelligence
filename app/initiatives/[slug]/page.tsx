@@ -25,8 +25,9 @@ import { CATEGORY_LABEL, CORRECTION_NOTICE } from "@/lib/corrections";
 import { BANNER_HREF, COI_SHORT, isCoiOrganization } from "@/lib/disclosure";
 import type { Claim, Evidence } from "@/lib/domain/schemas";
 import { loadIntelligence } from "@/lib/intelligence/load";
-import { BLIND_SPOT_LABEL, blindSpotSources, dependencies, dossier, evidenceCard, OPEN_QUESTION_NOTICE, openQuestionsFor, PRESENT_SUPPORTED, plainExplanation, questionsAsText, researchCoverage, round1History, sharedGroupsOf, similarFor } from "@/lib/intelligence/service";
-import { AiInterpretation, NotYetResearched } from "@/components/ui/ai-interpretation";
+import { BLIND_SPOT_LABEL, COVERAGE_TASK_LABEL, dependencies, dossier, evidenceCard, OPEN_QUESTION_NOTICE, openQuestionsFor, PRESENT_SUPPORTED, plainExplanation, questionsAsText, researchCoverage, round1History, sharedGroupsOf, similarFor } from "@/lib/intelligence/service";
+import { AiSlot, CounterBody, SupportingBody } from "@/components/dossier/research-slots";
+import { NotYetResearched } from "@/components/ui/ai-interpretation";
 import { CORE_RESEARCH_TASKS } from "@/lib/intelligence/status";
 import { THEDAO_ASK_CAP_CENTS } from "@/lib/metrics/ask";
 import { formatPct, formatUsd } from "@/lib/util/money";
@@ -109,12 +110,8 @@ export default async function InitiativePage({ params }: Params) {
   const higher = x.blindSpots.filter((b) => b.importance === "higher");
   const coverage = researchCoverage(d, ini.id)!;
   // The site runs no AI model; an AI slot shows "Not yet researched" unless an AI result is published.
-  const aiSlot = (what: string) => coverage.aiResearched ? null : (
-    <div className="mb-3" data-ai-slot={what}>
-      <p className="eyebrow mb-1">AI research</p>
-      <AiInterpretation text={null} citations={[]} provenance={null} missing={[`No AI research result is published for this initiative. The ${what} below come from fixed rules over the evidence record.`]} />
-    </div>
-  );
+  const aiClaims = x.claims.filter((c) => c.origin === "ai");
+  const aiSlot = (what: string) => <AiSlot what={what} coverage={coverage} aiClaims={aiClaims} />;
   const recipient = x.organization?.name ?? ini.recipientTeam;
   const quote = (key: string) => {
     const s = sec(key);
@@ -455,7 +452,7 @@ export default async function InitiativePage({ params }: Params) {
 
             <Section id="code" n={6} title="Code and product evidence" meta={`${x.repositories.filter((r) => r.exists).length} public repositories · ${x.products.filter((p) => p.reachable).length} reachable pages`}>
               <div className="space-y-5">
-                {!coverage.succeededTasks.includes("github") && <NotYetResearched missing={coverage.missing}>Repository facts appear after the GitHub checks have run.</NotYetResearched>}
+                {!coverage.succeededTasks.includes("github") && <NotYetResearched missing={[COVERAGE_TASK_LABEL.github]}>Repository facts appear after the GitHub checks have run.</NotYetResearched>}
                 {x.repositories.length ? (
                   <div className="overflow-x-auto">
                     <table className="w-full min-w-[760px] text-sm">
@@ -603,7 +600,7 @@ export default async function InitiativePage({ params }: Params) {
                   </ul>
                   <Note className="mt-1.5">A stage is assigned when the proposal text contains one of its listed terms. Read it as a prompt for investigation, not a finding.</Note>
                 </Sub>
-                {!coverage.succeededTasks.includes("github") && <NotYetResearched missing={coverage.missing}>Repository counts below are not yet researched.</NotYetResearched>}
+                {!coverage.succeededTasks.includes("github") && <NotYetResearched missing={[COVERAGE_TASK_LABEL.github]}>Repository counts below are not yet researched.</NotYetResearched>}
                 <Facts
                   rows={[
                     ["Standards referenced", ini.standards.join(", ") || "None found"],
@@ -682,7 +679,7 @@ export default async function InitiativePage({ params }: Params) {
               <div className="max-w-[880px] space-y-3">
                 {aiSlot("statements")}
                 <Note>Statements in the record that have independent or partial supporting evidence. Listed, not weighed.</Note>
-                {coverage.researched ? <ClaimList ids={supported.map((c) => c.id)} empty="No statement has independent supporting evidence yet." /> : <NotYetResearched missing={coverage.missing} />}
+                <SupportingBody coverage={coverage} list={<ClaimList ids={supported.filter((c) => c.origin !== "ai").map((c) => c.id)} empty="No statement has independent supporting evidence among the checks completed so far." />} />
               </div>
             </Section>
 
@@ -690,28 +687,7 @@ export default async function InitiativePage({ params }: Params) {
               <div className="max-w-[880px] space-y-3">
                 {aiSlot("questions")}
                 <Note>Gaps a skeptical reviewer would raise, derived from the evidence record by fixed rules. Phrased as questions, not accusations. Missing data is a reason to ask, never a finding.</Note>
-                {!coverage.researched && <NotYetResearched missing={coverage.missing}>Questions that depend on research results are not raised until the research has run.</NotYetResearched>}
-                {higher.length ? (
-                  <ul className="divide-y divide-rule border-y border-rule">
-                    {higher.map((b) => (
-                      <li key={b.id} className="py-2.5 text-sm" data-counterargument>
-                        <span className="text-2xs text-ink-3 uppercase">{BLIND_SPOT_LABEL[b.category]}</span>
-                        <p className="text-ink">{b.question}</p>
-                        <p className="mt-0.5 text-xs text-ink-3">Basis: {b.basis}</p>
-                        <p className="mt-0.5 flex flex-wrap gap-x-3 text-xs text-ink-3" data-counter-sources>
-                          <span>Source:</span>
-                          {blindSpotSources(d, b).map((s) => (
-                            <a key={s.url} href={s.url} target="_blank" rel="noopener noreferrer" className="underline decoration-rule-2 underline-offset-2 hover:text-accent">
-                              {s.label}
-                            </a>
-                          ))}
-                        </p>
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p className="text-sm text-ink-3">No higher-importance gaps were raised by the rules.</p>
-                )}
+                <CounterBody d={d} higher={higher} coverage={coverage} />
                 {unsupportedMaterial.length > 0 && (
                   <Sub title={`Material statements without independent support (${unsupportedMaterial.length})`}>
                     <ClaimList ids={unsupportedMaterial.map((c) => c.id)} empty="" />

@@ -35,3 +35,9 @@ Briefs are built from configuration only. Retrieved text never enters `buildSkil
 ## Tests
 
 `tests/unit/ai-interpretation.test.ts` covers the label and citations, text without a citation, the filter block on funding advice, unsafe URLs, HTML escaping, "Not yet researched" for an initiative without research, the injection section and the no-confidence guard.
+
+## Review follow-up
+
+- Lab reader: `uncertainty` goes through `AiInterpretation`. The initiative heading is the dataset title for the matched id (`names` prop), never the pasted name. The kind label ("Assistant classification: ...") is shown only when the statement itself is displayable. Citations must appear in `provenance.sourcesExamined`; others are dropped, so text with no examined citation is withheld. The schema has one URL list per finding, so statement, counterargument and uncertainty share it.
+- Dossier: `components/dossier/research-slots.tsx` holds `AiSlot`, `SupportingBody` and `CounterBody`. Published claims with `origin: "ai"` render through `AiInterpretation` and are excluded from the plain supporting list. The no-research notice says the questions below come from the proposal and milestone record, and that research-dependent questions wait for research. With partial research, a note says only some checks have run. The GitHub notices list only the GitHub task.
+- Tests render these components for an initiative with no research, partial research and published AI claims. The page itself is an async server page that needs the Next runtime, so it is covered through the extracted components.

@@ -53,7 +53,7 @@ export default async function LabPage() {
 
       <LabConfigurator ctx={ctx} />
 
-      <ResultReader />
+      <ResultReader names={Object.fromEntries(d.initiatives.map((i) => [i.id, i.title]))} />
 
       <div className="grid gap-10 lg:grid-cols-2 [&>*]:min-w-0">
         <Block title="AI provenance">

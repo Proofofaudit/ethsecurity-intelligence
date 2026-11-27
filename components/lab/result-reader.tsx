@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { AiInterpretation, NotYetResearched } from "@/components/ui/ai-interpretation";
-import type { AiProvenance } from "@/lib/ai/interpretation";
+import { prepareAiInterpretation, type AiProvenance } from "@/lib/ai/interpretation";
 import { ResearchOutputSchema, type ResearchOutput } from "@/lib/skills/schema";
 
 const KIND_LABEL: Record<ResearchOutput["initiatives"][number]["findings"][number]["kind"], string> = {
@@ -20,6 +20,14 @@ const host = (u: string) => {
     return u;
   }
 };
+
+const norm = (u: string) => u.replace(/\/+$/, "");
+
+/** Keeps only citations the assistant reports it examined. Others are dropped, so they are never shown as sources. */
+export function examinedCitations(urls: readonly string[], examined: readonly string[]): { url: string; label: string }[] {
+  const ok = new Set(examined.map(norm));
+  return urls.filter((u) => ok.has(norm(u))).map((u) => ({ url: u, label: host(u) }));
+}
 
 export type ReadResult = { ok: true; value: ResearchOutput } | { ok: false; error: string };
 
@@ -41,7 +49,7 @@ export function readResearchResult(raw: string): ReadResult {
 }
 
 /** Reads an AI research result locally. Nothing is fetched, stored or sent. Content is untrusted data. */
-export function ResultReader() {
+export function ResultReader({ names = {} }: { names?: Readonly<Record<string, string>> }) {
   const [raw, setRaw] = useState("");
   const parsed = useMemo(() => (raw.trim() ? readResearchResult(raw) : null), [raw]);
   return (
@@ -50,7 +58,7 @@ export function ResultReader() {
         Read an AI research result
       </h2>
       <p className="mt-1 max-w-[860px] text-sm text-ink-2">
-        Paste the structured JSON your assistant returned. Each finding is shown with the label “AI interpretation” and its cited sources. Findings pass the neutral-language filter first, and text without a citation is not shown. Nothing is sent or saved, and the pasted content is treated as data, never as instructions.
+        Paste the structured JSON your assistant returned. Each finding is shown with the label “AI interpretation” and its cited sources. Findings pass the neutral-language filter first. Text is shown only with a cited source that the assistant lists as examined. Nothing is sent or saved, and the pasted content is treated as data, never as instructions.
       </p>
       <textarea
         value={raw}
@@ -65,12 +73,13 @@ export function ResultReader() {
           {parsed.error}
         </p>
       )}
-      {parsed?.ok && <ResultView r={parsed.value} />}
+      {parsed?.ok && <ResultView r={parsed.value} names={names} />}
     </section>
   );
 }
 
-function ResultView({ r }: { r: ResearchOutput }) {
+/** `names` maps dataset initiative ids to dataset titles. Names inside the pasted JSON are never shown. */
+export function ResultView({ r, names }: { r: ResearchOutput; names: Readonly<Record<string, string>> }) {
   const prov: AiProvenance = {
     model: r.provenance.model,
     promptVersion: r.provenance.promptVersion,
@@ -82,17 +91,20 @@ function ResultView({ r }: { r: ResearchOutput }) {
       {r.initiatives.length === 0 && <NotYetResearched />}
       {r.initiatives.map((ini) => (
         <div key={ini.id}>
-          <h3 className="text-sm font-semibold">{ini.name}</h3>
+          <h3 className="text-sm font-semibold">{names[ini.id] ?? "Initiative not found in the ballot dataset"}</h3>
           {ini.findings.length === 0 && <NotYetResearched className="mt-2" />}
           <ul className="mt-2 divide-y divide-rule border-y border-rule">
             {ini.findings.map((f, i) => {
-              const citations = f.sourceUrls.map((u) => ({ url: u, label: host(u) }));
+              // Only sources the assistant reports examining count as citations. The schema has one URL list per finding, so each text shares it.
+              const citations = examinedCitations(f.sourceUrls, r.provenance.sourcesExamined);
+              // The kind label is the assistant's classification, so it is shown only together with displayable text.
+              const shown = prepareAiInterpretation({ text: f.statement, citations, provenance: prov }).state === "shown";
               return (
                 <li key={i} className="space-y-2 py-3" data-finding-kind={f.kind}>
-                  <p className="text-2xs text-ink-3 uppercase">{KIND_LABEL[f.kind]}</p>
+                  {shown && <p className="text-2xs text-ink-3 uppercase">Assistant classification: {KIND_LABEL[f.kind]}</p>}
                   <AiInterpretation text={f.statement} citations={citations} provenance={prov} />
                   {f.counterargument && <AiInterpretation text={f.counterargument} citations={citations} provenance={prov} />}
-                  {f.uncertainty && <p className="text-xs text-ink-3">Uncertainty stated by the assistant: {f.uncertainty}</p>}
+                  {f.uncertainty && <AiInterpretation text={`Uncertainty: ${f.uncertainty}`} citations={citations} provenance={prov} />}
                 </li>
               );
             })}

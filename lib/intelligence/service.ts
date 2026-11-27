@@ -1275,7 +1275,7 @@ export function metricsFor(d: Dataset, idOrSlug?: string): Record<string, Metric
 
 /** Automated research tasks whose results the research-dependent dossier sections read. */
 export const COVERAGE_TASKS = ["websites", "github", "milestone_artifacts", "donations_onchain"] as const;
-const COVERAGE_TASK_LABEL: Record<(typeof COVERAGE_TASKS)[number], string> = {
+export const COVERAGE_TASK_LABEL: Record<(typeof COVERAGE_TASKS)[number], string> = {
   websites: "Website and product page checks",
   github: "GitHub repository checks",
   milestone_artifacts: "Milestone artifact checks",
