@@ -1,6 +1,6 @@
 # Test results
 
-Recorded on 27 Nov 2026 (UTC), docs last updated at 12:40 UTC, on branch `feat/full-platform`, Node.js 22.23, in the development sandbox. CI reruns the same checks on every push ([.github/workflows/ci.yml](../.github/workflows/ci.yml)). The checks below were rerun after the final code change of this review round.
+Recorded on 27 Nov 2026 (UTC), docs last updated at 12:45 UTC, on branch `feat/full-platform`, Node.js 22.23, in the development sandbox. CI reruns the same checks on every push ([.github/workflows/ci.yml](../.github/workflows/ci.yml)). The checks below were rerun after the final code change of this review round.
 
 | Check | Command | Result |
 | --- | --- | --- |
@@ -8,7 +8,7 @@ Recorded on 27 Nov 2026 (UTC), docs last updated at 12:40 UTC, on branch `feat/f
 | Type check | `npm run typecheck` | Pass |
 | Lint | `npm run lint` | Pass |
 | Neutral-language lint | `npm run lint:language` | Pass: "no banned phrases" |
-| Unit and integration tests | `npm test` | Pass: 37 files, 565 tests (MongoDB 8.2.6 via mongodb-memory-server) |
+| Unit and integration tests | `npm test` | Pass: 37 files, 566 tests (MongoDB 8.2.6 via mongodb-memory-server) |
 | Build | `npm run build` | Pass |
 | End-to-end tests | `npm run test:e2e` | Pass: 139 passed, 1 not run, 0 failed (the internal link check is desktop-only by design) |
 | MCP smoke test | `npm run mcp:smoke` | Pass: 48/48 checks, 42 tool calls across 16 tools |

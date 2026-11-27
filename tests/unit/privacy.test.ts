@@ -145,4 +145,16 @@ describe("Methodology page Privacy text", () => {
     expect(src).toContain("Since your last visit");
     expect(src).toContain("marked as read");
   });
+
+  it("Methodology and workspace text mention the bookmark status request", async () => {
+    const src = await read("app/methodology/page.tsx");
+    expect(src).toContain("requests each bookmarked statement&apos;s public record by its id");
+    expect(src).toContain("same-origin GET");
+    expect(src).not.toContain("local storage, never sent to the server");
+    const ws = await read("app/workspace/page.tsx");
+    expect(ws).toContain("requests each bookmarked statement");
+    expect(ws).not.toContain("nothing here is sent to the server");
+    const view = await read("components/workspace/view.tsx");
+    expect(view).toContain("/api/v1/claims/");
+  });
 });

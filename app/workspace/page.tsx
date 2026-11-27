@@ -23,7 +23,7 @@ export default async function WorkspacePage() {
       <PageHead
         eyebrow="My Workspace"
         title="Your private research workspace"
-        lede={<p>Vote calendar, a starting set that may interest you, your affiliations, Ballot Prep, saved initiatives, bookmarked evidence, comparisons, notes, open questions and assessments. Everything on this page is stored in this browser only. There is no account, and nothing here is sent to the server.</p>}
+        lede={<p>Vote calendar, a starting set that may interest you, your affiliations, Ballot Prep, saved initiatives, bookmarked evidence, comparisons, notes, open questions and assessments. Everything on this page is stored in this browser only. There is no account, and the stored contents are never sent to the server. To show the current status of bookmarked evidence, this page requests each bookmarked statement&apos;s public record by its id.</p>}
       />
       <WorkspaceView initiatives={initiatives} changes={changes} datasetVersion={d.meta.datasetVersion} review={{ feed: visitFeed(d), exportContext: exportContext(d) }} vote={{ calendar: calendarView(d, live), funding: fundingView(d), ballot: ballotView(d, live), affiliation: affiliationView(d), interest: interestView(d) }} />
     </>
