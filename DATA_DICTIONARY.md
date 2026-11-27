@@ -15,6 +15,7 @@ Conventions:
 | --- | --- | --- |
 | `meta` | `dataset_meta` (document `current`) | DatasetMeta |
 | `vote` | `dataset_meta` (document `current`) | VoteSection |
+| `round1` | `dataset_meta` (document `current`) | Round1Section |
 | `initiatives` | `initiatives` | Initiative |
 | `milestones` | `milestones` | Milestone |
 | `pledges` | `pledges` | Pledge |
@@ -104,6 +105,27 @@ At request time the server may replace `poolMicroUsd`, `poolCents`, `opensAt`, `
 | `live.fields` | string[] | The fields above that came from the live read; empty for the snapshot. |
 | `live.configRevision` | string or null | Configuration revision of the live read shown; null for the snapshot. |
 | `live.revisionNote` | string or null | Set when the live read's `configRevision` differs from the published one; shown on the data-freshness page and above the Ballot Prep rule checks. |
+
+## Round1Section (TheDAO / Giveth Round 1)
+
+Sources: [thedao.fund/transparency](https://thedao.fund/transparency) and the [Giveth forum results topic](https://forum.giveth.io/t/ethereum-security-qf-round-results-april-23-may-14-2026/2201). Raw copies in `data/external/round1/` (see [METHODOLOGY.md](METHODOLOGY.md#round-1-history)). Stored in the `current` document of `dataset_meta`.
+
+| Field | Type | Meaning |
+| --- | --- | --- |
+| `status` | `available`, `unavailable` | `unavailable` when no raw copies exist; then no records are published. |
+| `transparencyUrl`, `forumUrl` | string | The two source pages. |
+| `checkedAt` | string or null | When the transparency page was retrieved. |
+| `sources[]` | object | Per raw copy: `key` (`transparency_html`, `transparency_route`, `forum_json`), `url`, `retrievedAt`, `sha256`, `method`, `stale` (last fetch failed, earlier copy kept), `error`. |
+| `round` | object | `name`, `period` (from the forum title, or null), `eligibleProjects`, `distributionAnnouncedAt` (date), `distributionPostUrl`, `distributionTxUrls[]`, `progressPostUrls[]`. |
+| `pageTotals` | object or null | `totalEth` (string), `usdAtSendingCents`, `projects`, `coFundersUsdCents`, as displayed on the page. |
+| `projects[]` | Round1Project | The 135 records. |
+| `initiativeMatches` | record | Initiative id to Round1Match[] (alphabetical by Round 1 project name). Covers every cohort initiative; an empty list means none found. |
+| `organizationMatches` | record | Organization id to Round1Match[], including records found through its initiatives. |
+| `limitations` | string[] | Known limits of the sources and the matching. |
+
+**Round1Project:** `id` (`r1_<slug>`), `name`, `slug`, `transparencyUrl` (`https://thedao.fund/transparency/<slug>`), `website` (the report's link column, or null), `totalEth` (QF round total as a decimal string), `usdWhenSentCents`, `components` (`matchingPoolEth`, `extraRoundInflowEth`, `otherDonorsEth`, `otherDonorsUsdCents`), `progressUpdateUrl` (null when none is listed), `displayed` (`totalEth`, `usdWhenSentCents` and `asOf`: the table value on the retrieval date, which includes direct grants and live streams), `directGrants[]` (`amountEth`, `amountUsdCents`, `txHash`), `liveStream` (`receiver`, `explorerUrl`, or null), `sourceUrls[]`, `checkedAt`. ETH amounts are kept as the published decimal strings. No per-project date or donor count exists in the sources.
+
+**Round1Match:** `projectId`, `round1ProjectName`, `transparencyUrl`, `website`, `level` (`project` or `organization`), `status` (`match`, or `possible` for "Possible match: please verify"), `reasons[]` (`rule`, `text`, `sourceUrls[]`), `sourceUrls[]`, `checkedAt`. Rules: `proposal_links_record`, `proposal_links_giveth_project`, `same_website_page`, `same_website`, `same_github_repo`, `same_github_owner`, `same_x_account`, `same_organization_name` (match); `shared_name_token`, `proposal_links_website` (possible only).
 
 ## Initiative
 

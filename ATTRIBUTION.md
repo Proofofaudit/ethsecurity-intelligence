@@ -17,6 +17,8 @@ The research pipeline (`research/`) observes public sources and stores short mac
 - **GitHub REST API** ([api.github.com](https://api.github.com/)): repository, profile, release, workflow and commit metadata of repositories cited in proposals. Subject to the [GitHub Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service). Repository contents keep their own licenses.
 - **Public Ethereum JSON-RPC** (eth.drpc.org, with ethereum-rpc.publicnode.com as fallback): transaction receipts for official donation records. Explorer links point to [etherscan.io](https://etherscan.io/).
 - **Websites cited in proposals:** HTTP status, final URL, page title and description only. Each site remains under its own terms.
+- **TheDAO transparency report** ([thedao.fund/transparency](https://thedao.fund/transparency)): Round 1 funding records (project name, amounts in ETH and USD, website, progress update link, direct grants and streams), read from the public page and its script bundle. Raw copies are stored in `data/external/round1/` for the truth audit. Labeled "Independent evidence".
+- **Giveth forum** ([Ethereum Security QF Round: Results](https://forum.giveth.io/t/ethereum-security-qf-round-results-april-23-may-14-2026/2201)): round period, number of eligible projects, distribution announcement and transaction links, read from the topic's public Discourse JSON. Forum posts remain under the forum's terms and their authors' rights.
 - **Taxonomy reference:** the security lifecycle taxonomy is informed by the Ethereum Foundation's [Trillion Dollar Security](https://ethereum.org/reports/trillion-dollar-security/) overview. Only the six domain names are reused.
 
 ## Our own data

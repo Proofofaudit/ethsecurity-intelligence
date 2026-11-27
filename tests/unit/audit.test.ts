@@ -90,4 +90,43 @@ describe("truth audit", () => {
     const r = await auditDataset(t, manifest);
     expect(r.failures).toContain(`[evidence_exists] ${t.claims[0]!.id} → ev_missing`);
   });
+
+  it("checks every Round 1 record and match against the stored raw copies", async () => {
+    const r = await auditDataset(d, manifest);
+    for (const check of ["round1_figures", "round1_links", "round1_displayed", "round1_grants", "round1_row_count", "round1_match_reason", "round1_reason_holds", "round1_matches_reproducible"]) {
+      expect(r.byCheck[check]?.checked, check).toBeGreaterThan(0);
+      expect(r.byCheck[check]?.failed, check).toBe(0);
+    }
+    expect(r.byCheck.round1_figures?.checked).toBe(135);
+  });
+
+  it("fails when a Round 1 amount is tampered with", async () => {
+    const t = clone(d);
+    const p = t.round1.projects.find((x) => x.name === "Revoke.cash")!;
+    p.totalEth = "99.0";
+    p.usdWhenSentCents += 1;
+    const r = await auditDataset(t, manifest);
+    expect(r.failures).toContain("[round1_figures] round1 Revoke.cash: published figures differ from the raw CSV");
+  });
+
+  it("fails when a Round 1 match has no reason, or a reason that does not hold", async () => {
+    const t = clone(d);
+    const [iniId, ms] = Object.entries(t.round1.initiativeMatches).find(([, m]) => m.some((x) => x.status === "match"))!;
+    const m = ms.find((x) => x.status === "match")!;
+    m.reasons = [];
+    const slug = t.initiatives.find((i) => i.id === iniId)!.slug;
+    const r = await auditDataset(t, manifest);
+    expect(r.failures).toContain(`[round1_match_reason] ${slug} → ${m.round1ProjectName}: no stated reason`);
+    expect(r.byCheck.round1_matches_reproducible?.failed).toBe(1);
+
+    const u = clone(d);
+    const empty = u.initiatives.find((i) => (u.round1.initiativeMatches[i.id] ?? []).length === 0)!;
+    const p = u.round1.projects.find((x) => x.name === "L2BEAT")!;
+    u.round1.initiativeMatches[empty.id] = [
+      { projectId: p.id, round1ProjectName: p.name, transparencyUrl: p.transparencyUrl, website: p.website, level: "organization", status: "match", reasons: [{ rule: "same_website", text: "Listed under the same website (l2beat.com)", sourceUrls: [p.transparencyUrl] }], sourceUrls: [p.transparencyUrl], checkedAt: p.checkedAt },
+    ];
+    const r2 = await auditDataset(u, manifest);
+    expect(r2.failures).toContain(`[round1_reason_holds] ${empty.slug} → L2BEAT: reason "Listed under the same website (l2beat.com)" does not hold on the raw data`);
+    expect(r2.byCheck.round1_matches_reproducible?.failed).toBe(1);
+  });
 });

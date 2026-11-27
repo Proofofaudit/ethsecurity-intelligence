@@ -1,7 +1,7 @@
 {
-  "datasetVersion": "20261126T130839Z-fe7ea363+03b2061d",
-  "at": "2026-11-26T13:08:55.912Z",
-  "checked": 2929,
+  "datasetVersion": "20261126T130839Z-fe7ea363+75740bbf",
+  "at": "2026-11-27T09:25:51.206Z",
+  "checked": 3833,
   "failures": [],
   "byCheck": {
     "official_record_present": {
@@ -214,6 +214,70 @@
     },
     "vote_groups": {
       "checked": 55,
+      "failed": 0
+    },
+    "round1_present": {
+      "checked": 1,
+      "failed": 0
+    },
+    "round1_sources": {
+      "checked": 1,
+      "failed": 0
+    },
+    "round1_checked_at": {
+      "checked": 1,
+      "failed": 0
+    },
+    "round1_row_count": {
+      "checked": 1,
+      "failed": 0
+    },
+    "round1_page_totals": {
+      "checked": 1,
+      "failed": 0
+    },
+    "round1_figures": {
+      "checked": 135,
+      "failed": 0
+    },
+    "round1_links": {
+      "checked": 135,
+      "failed": 0
+    },
+    "round1_displayed": {
+      "checked": 135,
+      "failed": 0
+    },
+    "round1_grants": {
+      "checked": 135,
+      "failed": 0
+    },
+    "round1_forum": {
+      "checked": 1,
+      "failed": 0
+    },
+    "round1_match_record": {
+      "checked": 84,
+      "failed": 0
+    },
+    "round1_match_reason": {
+      "checked": 84,
+      "failed": 0
+    },
+    "round1_reason_holds": {
+      "checked": 104,
+      "failed": 0
+    },
+    "round1_status": {
+      "checked": 84,
+      "failed": 0
+    },
+    "round1_matches_reproducible": {
+      "checked": 1,
+      "failed": 0
+    },
+    "round1_org_matches_reproducible": {
+      "checked": 1,
       "failed": 0
     }
   }

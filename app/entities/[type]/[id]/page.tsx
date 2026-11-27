@@ -6,6 +6,7 @@ import { ExternalLink } from "@/components/ui/button";
 import { Block, Note, PageHead } from "@/components/ui/layout";
 import { DateTime, formatDate, Money } from "@/components/ui/money";
 import { StatusMark } from "@/components/ui/status";
+import { Round1History } from "@/components/dossier/round1";
 import { entityExists } from "@/lib/api/entity";
 import { BANNER_HREF, COI_SHORT, isCoiOrganization } from "@/lib/disclosure";
 import { EntityType, type Dataset } from "@/lib/domain/schemas";
@@ -180,6 +181,11 @@ export default async function EntityPage({ params }: Params) {
                 <Block title={`Initiatives proposed (${p.proposes.length})`}>
                   <InitiativeList d={d} ids={p.proposes.map((x) => x.id)} empty="This organization is not the recipient of a cohort initiative." />
                 </Block>
+                {p.round1 && (
+                  <Block title="Round 1 history" id="round1" note="TheDAO / Giveth Round 1 records linked to this organization or its initiatives, each with its stated reason.">
+                    <Round1History view={p.round1} subject={{ label: "Organization website", href: o.website }} />
+                  </Block>
+                )}
                 <Block title={`Pledges made (${p.pledges.length})`} note="Official pledge records. Received pledges have arrived onchain and are counted inside donations.">
                   {p.pledges.length === 0 ? (
                     <Note>No pledge records.</Note>

@@ -8,6 +8,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { FOCUS_MODE_TABLE, KEYWORD_ENDINGS } from "@/lib/vote/interest";
 import { MODE_BY_ID } from "@/lib/skills/modes";
+import { SHARED_HOSTS } from "@/lib/intelligence/round1";
 import { CONNECTING_WORDS, GENERIC_WORDS, LEADING_FREE_WORDS, OPTIONAL_WORDS, SAME_NAME_OPTIONAL_WORDS } from "@/lib/vote/affiliation";
 
 const doc = fs.readFileSync(path.join(process.cwd(), "METHODOLOGY.md"), "utf8");
@@ -54,5 +55,10 @@ describe("METHODOLOGY.md", () => {
     expect(doc).toContain(`nothing but connecting words (${CONNECTING_WORDS.join(", ")})`);
     for (const s of ['"Intel" and "Intel Foundation" do not match', '"Bloom" and "Bloom Network" do not match "Sem Bloom"', '"Alliance" does not match "Security Alliance"', '"Runtime Foundation" and "Runtime Verification" do not match "Runtime Capital"', '"Argot Collective"'])
       expect(doc).toContain(s);
+  });
+
+  it("lists the Round 1 shared hosts exactly and records the retrieval method", () => {
+    expect(doc).toContain(`(\`SHARED_HOSTS\`): ${SHARED_HOSTS.join(", ")}.`);
+    for (const s of ["## Round 1 history", "exactly 135 rows", "not a stable public API", "Possible match: please verify", "No Round 1 funding found in the sources checked."]) expect(doc).toContain(s);
   });
 });

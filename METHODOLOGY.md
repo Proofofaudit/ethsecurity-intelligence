@@ -51,7 +51,7 @@ Accepted public corrections change a claim's status or assertion and add an entr
 
 ## Truth audit
 
-`npm run publish` runs `research/audit.ts` before writing `data/published/dataset.json`. The audit recomputes every published figure and quote from the raw, content-addressed official objects: funding identities, per-initiative and cohort sums, milestones, pledges, donations, quotes, the TheDAO ask and remaining gap, the vote pool, schedule, ballot rules flag, manifest arrays, alignment and affiliation groups. Publication is refused when any check fails. The result is stored in `data/published/audit.json`.
+`npm run publish` runs `research/audit.ts` before writing `data/published/dataset.json`. The audit recomputes every published figure and quote from the raw, content-addressed official objects: funding identities, per-initiative and cohort sums, milestones, pledges, donations, quotes, the TheDAO ask and remaining gap, the vote pool, schedule, ballot rules flag, manifest arrays, alignment and affiliation groups, and every Round 1 record and match (see [Round 1 history](#round-1-history)). Publication is refused when any check fails. The result is stored in `data/published/audit.json`.
 
 ## Funding identities
 
@@ -204,6 +204,30 @@ All metrics are defined in [lib/metrics/registry.ts](lib/metrics/registry.ts) an
 
 Repository activity, reachability and counts describe what exists publicly. They are not measures of security quality.
 
+## Round 1 history
+
+Every dossier (section 8) and every organization profile shows whether the team or organization received funding in TheDAO / Giveth Round 1, the Ethereum Security QF round of April 23 to May 14, 2026. The data comes from [lib/intelligence/round1.ts](lib/intelligence/round1.ts) (matching) and [research/round1.ts](research/round1.ts) (retrieval). It is labeled "Independent evidence": the TheDAO transparency report is not part of the official initiatives API.
+
+**Retrieval.** No public dataset or documented API publishes the per-project results, so only the two named pages are used, retrieved with `npm run research -- round1` (also part of `npm run research`):
+
+- [thedao.fund/transparency](https://thedao.fund/transparency): the server-rendered HTML has the "Who we funded" table (recipient, total in ETH, USD when sent, progress update link) and the page totals. The page's route module (`/assets/route-<hash>.js`, found through the import in the inline module script) embeds the report's CSV with the header `project_name,matching_pool,extra_round_inflow,other_donors,other_donors_usd,total,usd_sent,link,progress_update`. The collector requires that header and exactly 135 rows, the same check the site itself runs, and refuses to store anything else, so a partial list is never published. Every CSV row is cross-checked against the table row with the same name (website, progress link, total and USD for rows without a direct grant). The same module lists direct grants (amount, USD value, transaction hash) and live Superfluid streams for "SEAL 911" and "SEAL"; their table totals include the stream, so the displayed value is stored with the date it was read. Per-project pages are `thedao.fund/transparency/<slug>` (name normalized with NFKD, accents removed, lowercased, other characters replaced by "-").
+- [Giveth forum results topic](https://forum.giveth.io/t/ethereum-security-qf-round-results-april-23-may-14-2026/2201), read as Discourse JSON (`/t/2201.json`): round-level facts only. The round period comes from the topic title, the number of eligible projects (134) from the first post, the distribution announcement date (June 9, 2026) and its four transaction links from the second post, and the progress update posts from the posts after it.
+- Checked and not used: the full per-project results linked from the forum are in a private Google Sheet and in images. The Giveth GraphQL API (`mainnet.serve.giveth.io/graphql`, QF round 16) lists 132 projects, not 134, and its donor counts are lifetime or active-round values, not Round 1 values.
+
+Raw responses are stored content-addressed (sha256) in `data/external/round1/` with a manifest of URL, retrieval time, hash and method. The truth audit re-parses them offline: every published amount, link, displayed total, grant and forum fact must equal the raw copy, the record count must be 135, and the match lists must equal a fresh run of the matcher. When a fetch fails, the previous copy is kept and marked stale, and the page says when it was retrieved.
+
+**Matching.** One function (`computeRound1Matches`) runs for every initiative and every organization. A record is shown as a match only with one of these stated reasons:
+
+1. The official proposal links to the record's `thedao.fund/transparency/<slug>` page, or to the Giveth project page whose slug is the record's name (same project).
+2. Same website: the host (lowercase, without "www.") of the record's website equals the host of the recipient URL, the organization website or another official recipient URL of the same organization. The same non-root page means the same project; the same host means the same organization. Shared hosts never match on the host alone (`SHARED_HOSTS`): github.com, x.com, twitter.com, giveth.io, qf.giveth.io, medium.com, mirror.xyz, paragraph.com, substack.com, notion.site, docs.google.com, linktr.ee, youtube.com, youtu.be, discord.gg, discord.com, t.me, etherscan.io, huggingface.co, linkedin.com, farcaster.xyz, warpcast.com, gitlab.com, eth.limo, vercel.app, pages.dev, github.io, gitbook.io, hackmd.io, forum.giveth.io, thedao.fund. On GitHub the same owner (organization) or owner and repository (project) is required, on X or Twitter the same account.
+3. Same organization name: an official name, or a name the curated alias table (`data/curated/aliases.json`) records for the same organization, equals the record's name after normalizing case and punctuation, or the part before ":", " - " or " | ", or either side of " by ".
+
+When only a distinctive word appears in both names (or in the record's own website host), the record is shown as "Possible match: please verify" with both links. Generic words never count (`GENERIC_TOKENS` in `lib/intelligence/round1.ts`, for example security, ethereum, open, audit, safe, wallet, protocol and labs; words shorter than four letters, such as "ai", never count either). Links in the proposal text to other websites are not used for matching, because proposals also cite third-party projects; such a link is added only as a note to a possible match. Similarly named entities are never treated as the same. Records are listed alphabetically by Round 1 project name. An organization profile lists the records found for the organization and for each of its initiatives.
+
+**Display.** Per record: the project name linked to its transparency page, the amount received in ETH with the USD value when sent, its breakdown (TheDAO matching pool, community-raised matching, direct donations, direct grants), the round period and the distribution announcement as the date, the progress update link (blank when none is listed), the reason, the source label and the checked-on date. Without a record the text is "No Round 1 funding found in the sources checked." No performance judgment is made.
+
+**Limitations.** The CSV is read from a hashed script bundle, which is not a stable public API and may change or disappear. The sources publish no per-project payment date and no per-project donor count, so neither is shown. Displayed totals with a live stream change over time. Matching is conservative: a renamed team, or one listed under a different website, may appear only as a possible match or not at all.
+
 ## Organization identity
 
 `lib/domain/identity.ts` resolves backer and recipient names into organizations:
@@ -254,3 +278,4 @@ See [NEUTRAL_LANGUAGE.md](NEUTRAL_LANGUAGE.md) (version `2026.11-v1`): allowed f
 - Automated research sees only public sources. "Not found" is not a negative finding.
 - Ballot Prep and the TheDAO ask are computed from the last sync, not live onchain values.
 - Hypotheses and what-if scenarios are exploration, not predictions.
+- Round 1 records come from a hashed script bundle on thedao.fund, not from a documented API; per-project dates and donor counts are not published.

@@ -31,6 +31,9 @@ import { extractClaims, finalizeClaims, type ClaimDraft } from "./claims";
 import { evidenceId, httpEvidence, officialEvidence, profileEvidence, proposalEvidence, pullEvidence, repoEvidence, txEvidence } from "./evidence";
 import { loadJobs } from "./queue";
 import { auditDataset } from "./audit";
+import { buildRound1Section, ROUND1_EXPECTED_ROWS } from "./round1";
+import { computeRound1Matches } from "@/lib/intelligence/round1";
+import type { CuratedAlias } from "@/lib/domain/identity";
 import type { UrlCheck } from "./web";
 import type { PullFacts, RepoFacts } from "./github";
 import type { TxCheck } from "./onchain";
@@ -308,6 +311,10 @@ export async function publish(opts: { log?: (m: string) => void; dryRun?: boolea
   if (previous && previous.meta.snapshotId !== snapshotId) for (const c of snapshotChanges({ ...previous, snapshotId: previous.meta.snapshotId }, partial, now)) changes.set(c.id, c);
   for (const c of revisionChanges(layer.revisions)) changes.set(c.id, c);
 
+  // Round 1 history: records from the stored raw copies, matched by one function for everyone.
+  const curatedAliases = (await readJson<CuratedAlias[]>(path.join(DATA_DIR, "curated", "aliases.json"))) ?? [];
+  const round1 = await buildRound1Section((projects) => computeRound1Matches(projects, layer.initiatives, organizations, curatedAliases));
+
   const research = await readJson<{ startedAt: string; finishedAt: string; pipelineVersion: string; requests: number; failures: number }>(path.join(RESEARCH_DIR, "last-run.json"));
   const jobs = await loadJobs(JOBS_FILE);
 
@@ -331,6 +338,7 @@ export async function publish(opts: { log?: (m: string) => void; dryRun?: boolea
     changes: [...changes.values()].sort((a, b) => b.detectedAt.localeCompare(a.detectedAt)),
     researchJobs: jobs,
     vote: layer.vote,
+    round1,
   };
   const hash = contentHash({ ...body, researchJobs: undefined, changes: undefined });
   const dataset: Dataset = {
@@ -390,11 +398,36 @@ export function validateDataset(d: Dataset, expected = EXPECTED): string[] {
     if (i.funding.theDaoAskCents !== theDaoAskCents(i.funding.goalCents, i.funding.officialRaisedCents)) problems.push(`${i.slug}: TheDAO ask ≠ min(200000, max(0, goal − raised))`);
   }
   problems.push(...validateVote(d));
+  problems.push(...validateRound1(d));
   const ids = new Set(d.claims.map((c) => c.id));
   if (ids.size !== d.claims.length) problems.push("duplicate claim ids");
   const evIds = new Set(d.evidence.map((e) => e.id));
   for (const c of d.claims) for (const e of c.supportingEvidenceIds) if (!evIds.has(e)) problems.push(`claim ${c.id} references missing evidence ${e}`);
   return problems.slice(0, 50);
+}
+
+/** Round 1 invariants: a complete record list, and every match with a reason, sources and a date. */
+export function validateRound1(d: Pick<Dataset, "round1" | "initiatives" | "organizations">): string[] {
+  const r = d.round1;
+  const problems: string[] = [];
+  if (r.status === "unavailable") {
+    if (r.projects.length || Object.keys(r.initiativeMatches).length || Object.keys(r.organizationMatches).length) problems.push("round1: unavailable section must not carry records");
+    return problems;
+  }
+  if (r.projects.length !== ROUND1_EXPECTED_ROWS) problems.push(`round1: expected ${ROUND1_EXPECTED_ROWS} records, found ${r.projects.length}`);
+  const ids = new Set(r.projects.map((p) => p.id));
+  if (ids.size !== r.projects.length) problems.push("round1: duplicate record ids");
+  for (const p of r.projects) if (!p.sourceUrls.length || !p.checkedAt) problems.push(`round1: ${p.id} has no source URL or checked-on date`);
+  const iniIds = d.initiatives.map((i) => i.id).sort();
+  const orgIds = d.organizations.map((o) => o.id).sort();
+  if (JSON.stringify(Object.keys(r.initiativeMatches).sort()) !== JSON.stringify(iniIds)) problems.push("round1: initiativeMatches must cover exactly the cohort");
+  if (JSON.stringify(Object.keys(r.organizationMatches).sort()) !== JSON.stringify(orgIds)) problems.push("round1: organizationMatches must cover exactly the organizations");
+  for (const [id, ms] of [...Object.entries(r.initiativeMatches), ...Object.entries(r.organizationMatches)])
+    for (const m of ms) {
+      if (!ids.has(m.projectId)) problems.push(`round1: ${id} cites unknown record ${m.projectId}`);
+      if (!m.reasons.length || !m.sourceUrls.length || !m.checkedAt) problems.push(`round1: ${id} → ${m.projectId} has no reason, source URL or checked-on date`);
+    }
+  return problems;
 }
 
 /** Vote section invariants: group data is attached only to a confirmed alignment, never remapped. */

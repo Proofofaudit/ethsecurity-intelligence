@@ -22,6 +22,8 @@
  * 11. TheDAO ask per initiative and its cohort sum, recomputed from the raw ballot list; totals
  *     cover the cohort only; the vote section (pool conversion, schedule, slug/project alignment
  *     and affiliation groups) agrees with the raw vote manifest object.
+ * 12. Round 1 history: every record figure re-parsed from the stored raw copies, 135 records,
+ *     every match with a reason that holds on the raw data, and match lists reproducible.
  */
 import type { DetailResponse, ListResponse, VoteManifestResponse } from "@/lib/official/schemas";
 import type { Dataset } from "@/lib/domain/schemas";
@@ -31,7 +33,22 @@ import { collaboration, coverage, fundingRelationships, plainExplanation, realit
 import { formatUsd, toCents } from "@/lib/util/money";
 import { stripMarkdown } from "@/lib/util/text";
 import path from "node:path";
-import { readJson, readObject, REVISIONS_DIR, type SnapshotManifest } from "./store";
+import { DATA_DIR, readJson, readObject, REVISIONS_DIR, type SnapshotManifest } from "./store";
+import type { CuratedAlias } from "@/lib/domain/identity";
+import { computeRound1Matches, expandNames, givethProjectSlug, isSharedHost, nameKey, parseUrl, round1Slug, round1TransparencyUrl } from "@/lib/intelligence/round1";
+import {
+  decimalToCents,
+  extractBundleExtras,
+  extractCsvFromBundle,
+  parseForumTopic,
+  parseRound1,
+  parseRound1Csv,
+  parseTransparencyTable,
+  parseTransparencyTotals,
+  readRound1Manifest,
+  readRound1Raw,
+  ROUND1_EXPECTED_ROWS,
+} from "./round1";
 
 export interface AuditResult {
   checked: number;
@@ -309,5 +326,142 @@ export async function auditDataset(d: Dataset, manifest: SnapshotManifest): Prom
     else tick("vote_groups_withheld", Object.keys(v.initiativeGroups).length === 0, "groups published although alignment failed");
   }
 
+  await auditRound1(d, tick);
+
   return { checked: Object.values(byCheck).reduce((s, x) => s + x.checked, 0), failures, byCheck };
+}
+
+type Tick = (check: string, ok: boolean, msg: string) => void;
+
+/**
+ * 12. Round 1 history. Every published record is re-parsed from the stored raw copies (CSV in the
+ * route bundle, server-rendered table, grant object, forum JSON); every match cites a reason whose
+ * evidence holds on the raw and official data; the match lists equal a fresh recomputation, so no
+ * record was added or dropped by hand.
+ */
+async function auditRound1(d: Dataset, tick: Tick) {
+  const r1 = d.round1;
+  const manifest = await readRound1Manifest();
+  const raw = manifest ? await readRound1Raw(manifest) : null;
+  tick("round1_present", (r1.status === "available") === !!raw, `round1 status ${r1.status} but raw copies ${raw ? "present" : "absent"}`);
+  if (!raw || !manifest || r1.status !== "available") return;
+  tick("round1_sources", JSON.stringify(r1.sources) === JSON.stringify(manifest.sources), "round1 sources differ from the raw manifest");
+  const html = manifest.sources.find((s) => s.key === "transparency_html");
+  tick("round1_checked_at", r1.checkedAt === html?.retrievedAt, "round1 checkedAt differs from the retrieval time of the raw page");
+
+  const csv = parseRound1Csv(extractCsvFromBundle(raw.route));
+  const table = new Map(parseTransparencyTable(raw.html).map((x) => [x.name, x]));
+  const extras = new Map(extractBundleExtras(raw.route).map((x) => [x.name, x]));
+  tick("round1_row_count", csv.length === ROUND1_EXPECTED_ROWS && r1.projects.length === csv.length && table.size === csv.length, `round1: ${r1.projects.length} published, ${csv.length} raw CSV rows, ${table.size} table rows`);
+  const totals = parseTransparencyTotals(raw.html);
+  tick("round1_page_totals", JSON.stringify(r1.pageTotals) === JSON.stringify(totals), "round1 page totals differ from the raw page");
+  const published = new Map(r1.projects.map((p) => [p.name, p]));
+  for (const row of csv) {
+    const p = published.get(row.name);
+    const t = table.get(row.name);
+    const ex = extras.get(row.name);
+    tick(
+      "round1_figures",
+      !!p &&
+        p.totalEth === row.total &&
+        p.usdWhenSentCents === decimalToCents(row.usdSent) &&
+        p.components.matchingPoolEth === row.matchingPool &&
+        p.components.extraRoundInflowEth === row.extraRoundInflow &&
+        p.components.otherDonorsEth === row.otherDonors &&
+        p.components.otherDonorsUsdCents === decimalToCents(row.otherDonorsUsd) &&
+        // QF total = TheDAO matching pool + community-raised matching + direct donations.
+        Math.abs(Number(row.matchingPool) + Number(row.extraRoundInflow) + Number(row.otherDonors) - Number(row.total)) < 0.00051,
+      `round1 ${row.name}: published figures differ from the raw CSV`,
+    );
+    if (!p) continue;
+    tick(
+      "round1_links",
+      p.website === (row.link || null) && p.progressUpdateUrl === (row.progressUpdate || null) && p.transparencyUrl === round1TransparencyUrl(row.name) && p.sourceUrls.includes(p.transparencyUrl),
+      `round1 ${row.name}: website, progress update or record URL differs from the raw CSV`,
+    );
+    tick(
+      "round1_displayed",
+      !!t && p.displayed.totalEth === t.totalEth.replace(/,/g, "") && p.displayed.usdWhenSentCents === decimalToCents(t.usd) && p.displayed.asOf === r1.checkedAt && p.checkedAt === r1.checkedAt,
+      `round1 ${row.name}: displayed total differs from the raw table`,
+    );
+    tick(
+      "round1_grants",
+      JSON.stringify(p.directGrants) === JSON.stringify((ex?.grants ?? []).map((g) => ({ amountEth: g.amountEth, amountUsdCents: decimalToCents(g.amountUsd), txHash: g.txHash }))) &&
+        (p.liveStream?.receiver ?? null) === (ex?.receiver ?? null),
+      `round1 ${row.name}: direct grants or stream differ from the raw bundle`,
+    );
+  }
+  const round = raw.forum ? parseForumTopic(raw.forum) : null;
+  tick("round1_forum", !round || JSON.stringify(r1.round) === JSON.stringify(round), "round1 round facts differ from the raw forum topic");
+
+  // Reasons hold on the raw and official data.
+  const aliases = (await readJson<CuratedAlias[]>(path.join(DATA_DIR, "curated", "aliases.json"))) ?? [];
+  const rawByName = new Map(csv.map((x) => [round1TransparencyUrl(x.name), x]));
+  const orgs = new Map(d.organizations.map((o) => [o.id, o]));
+  const host = (u: string | null | undefined) => parseUrl(u)?.host ?? null;
+  const verify = (label: string, inis: Dataset["initiatives"], org: Dataset["organizations"][number] | undefined, ms: Dataset["round1"]["initiativeMatches"][string]) => {
+    const orgList = [org, ...inis.map((i) => (i.organizationId ? orgs.get(i.organizationId) : undefined))].filter((o): o is NonNullable<typeof o> => !!o && !o.anonymous);
+    const officialUrls = new Set(
+      [
+        ...inis.map((i) => i.recipientUrl),
+        ...orgList.flatMap((o) => [o.website, o.github ? `https://github.com/${o.github}` : null, ...d.initiatives.filter((i) => i.organizationId === o.id).map((i) => i.recipientUrl)]),
+      ].filter((u): u is string => !!u),
+    );
+    const proposalLinks = new Set(inis.flatMap((i) => [...i.links.flatMap((l) => l.split(/\s+/)), ...i.textLinks.map((l) => l.url)]).map((u) => u.replace(/\/+$/, "").toLowerCase()));
+    const names = expandNames([...inis.map((i) => i.recipientTeam), ...orgList.flatMap((o) => [o.name, ...o.names])].filter((n): n is string => !!n), aliases);
+    for (const m of ms) {
+      const row = rawByName.get(m.transparencyUrl);
+      tick("round1_match_record", !!row && row.name === m.round1ProjectName && m.checkedAt === r1.checkedAt && m.sourceUrls.includes(m.transparencyUrl), `${label} → ${m.round1ProjectName}: record, date or source URL missing`);
+      tick("round1_match_reason", m.reasons.length > 0, `${label} → ${m.round1ProjectName}: no stated reason`);
+      if (!row) continue;
+      const segs = [row.name, row.name.split(/\s*:\s*|\s+-\s+|\s+\|\s+|\s+–\s+/)[0] ?? "", ...(/^(.*?)\s+by\s+(.+)$/i.exec(row.name)?.slice(1) ?? [])].map(nameKey);
+      for (const reason of m.reasons) {
+        const cited = reason.sourceUrls.find((u) => officialUrls.has(u)) ?? null;
+        const linkHost = host(row.link);
+        let holds = false;
+        switch (reason.rule) {
+          case "proposal_links_record":
+            holds = proposalLinks.has(m.transparencyUrl.toLowerCase());
+            break;
+          case "proposal_links_giveth_project":
+            holds = reason.sourceUrls.some((u) => proposalLinks.has(u.replace(/\/+$/, "").toLowerCase()) && round1Slug(givethProjectSlug(u) ?? "") === round1Slug(row.name));
+            break;
+          case "same_website":
+          case "same_website_page":
+            holds = !!cited && !!linkHost && host(cited) === linkHost && !isSharedHost(linkHost) && (reason.rule === "same_website" || parseUrl(cited)?.path === parseUrl(row.link)?.path);
+            break;
+          case "same_github_owner":
+          case "same_github_repo": {
+            const a = parseUrl(cited);
+            const b = parseUrl(row.link);
+            holds = a?.host === "github.com" && b?.host === "github.com" && a.segments[0]?.toLowerCase() === b.segments[0]?.toLowerCase() && (reason.rule === "same_github_owner" || a.segments[1]?.toLowerCase() === b.segments[1]?.toLowerCase());
+            break;
+          }
+          case "same_x_account": {
+            const a = parseUrl(cited);
+            const b = parseUrl(row.link);
+            holds = !!a && !!b && /^(x|twitter)\.com$/.test(a.host) && /^(x|twitter)\.com$/.test(b.host) && a.segments[0]?.toLowerCase() === b.segments[0]?.toLowerCase();
+            break;
+          }
+          case "same_organization_name":
+            holds = names.some((n) => reason.text.includes(`"${n.name}"`) && segs.includes(nameKey(n.name)));
+            break;
+          case "shared_name_token":
+          case "proposal_links_website":
+            holds = m.status === "possible";
+            break;
+        }
+        tick("round1_reason_holds", holds, `${label} → ${m.round1ProjectName}: reason "${reason.text}" does not hold on the raw data`);
+      }
+      const confirming = m.reasons.filter((x) => x.rule !== "shared_name_token" && x.rule !== "proposal_links_website");
+      tick("round1_status", (m.status === "match") === confirming.length > 0, `${label} → ${m.round1ProjectName}: status ${m.status} does not follow from its reasons`);
+    }
+  };
+  for (const ini of d.initiatives) verify(ini.slug, [ini], undefined, r1.initiativeMatches[ini.id] ?? []);
+  for (const o of d.organizations) verify(o.id, d.initiatives.filter((i) => o.initiativeIds.includes(i.id)), o, r1.organizationMatches[o.id] ?? []);
+
+  // Completeness: the published lists equal a fresh run of the matcher on the raw records.
+  const fresh = computeRound1Matches(parseRound1(raw, r1.checkedAt ?? "").projects, d.initiatives, d.organizations, aliases);
+  tick("round1_matches_reproducible", JSON.stringify(fresh.initiativeMatches) === JSON.stringify(r1.initiativeMatches), "round1 initiative matches differ from a fresh run on the raw records");
+  tick("round1_org_matches_reproducible", JSON.stringify(fresh.organizationMatches) === JSON.stringify(r1.organizationMatches), "round1 organization matches differ from a fresh run on the raw records");
 }

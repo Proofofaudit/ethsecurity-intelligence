@@ -80,6 +80,7 @@ beforeAll(async () => {
     initiative: import("@/app/api/v1/initiatives/[id]/route"),
     milestones: import("@/app/api/v1/initiatives/[id]/milestones/route"),
     funding: import("@/app/api/v1/initiatives/[id]/funding/route"),
+    round1: import("@/app/api/v1/initiatives/[id]/round1/route"),
     organization: import("@/app/api/v1/organizations/[id]/route"),
     entity: import("@/app/api/v1/entities/[type]/[id]/route"),
     claim: import("@/app/api/v1/claims/[id]/route"),
@@ -239,6 +240,23 @@ describe("read endpoints", () => {
     }
     const list = await get("initiatives", "/initiatives?limit=100");
     for (const row of list.json.data.items) expect(row.theDaoAskCents).toBe(d.initiatives.find((i) => i.id === row.id)?.funding.theDaoAskCents);
+  });
+
+  it("serves Round 1 history per initiative and on organization profiles", async () => {
+    const ini = d.initiatives.find((i) => (d.round1.initiativeMatches[i.id] ?? []).some((m) => m.status === "match"))!;
+    const r = await get("round1", `/initiatives/${ini.slug}/round1`, { id: ini.slug });
+    expect(r.status).toBe(200);
+    expectEnvelope(r.json);
+    expect(r.json.data.records.map((x: { projectId: string }) => x.projectId)).toEqual(d.round1.initiativeMatches[ini.id]!.map((m) => m.projectId));
+    expect(r.json.data.sourceLabel).toBe("Independent evidence");
+    expect(r.json.meta.sources).toContain("https://thedao.fund/transparency");
+    const empty = d.initiatives.find((i) => (d.round1.initiativeMatches[i.id] ?? []).length === 0)!;
+    const e = await get("round1", `/initiatives/${empty.id}/round1`, { id: empty.id });
+    expect(e.json.data.records).toEqual([]);
+    expect(e.json.data.emptyText).toBe("No Round 1 funding found in the sources checked.");
+    expectError(await get("round1", "/initiatives/nope/round1", { id: "nope" }), 404, "not_found");
+    const o = await get("organization", `/organizations/${ini.organizationId}`, { id: ini.organizationId! });
+    expect(o.json.data.round1.records.length).toBe(d.round1.organizationMatches[ini.organizationId!]!.length);
   });
 
   it("serves the vote manifest from the published dataset with its alignment result", async () => {

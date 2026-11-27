@@ -35,6 +35,8 @@ import {
   findInitiative,
   fundingBreakdown,
   fundingRelationships,
+  round1History,
+  round1Sources,
   voteManifest,
   metricsFor,
   pairDetails,
@@ -323,8 +325,8 @@ export async function createServer(opts: ServerOptions = {}): Promise<McpServer>
     "get_funding",
     z
       .object({
-        scope: z.enum(["initiative", "backers", "relationships", "vote_manifest"]),
-        initiative: Ref.optional().describe("Required for scope \"initiative\"."),
+        scope: z.enum(["initiative", "backers", "relationships", "vote_manifest", "round1"]),
+        initiative: Ref.optional().describe("Required for scopes \"initiative\" and \"round1\"."),
         limit: Limit,
         cursor: Cursor,
       })
@@ -335,7 +337,12 @@ export async function createServer(opts: ServerOptions = {}): Promise<McpServer>
         const ini = requireIni(d, initiative);
         return wrap(d, fundingBreakdown(d, ini), { sources: initiativeSources(ini) });
       }
-      if (initiative) throw badRequest(`initiative: only allowed when scope is "initiative"`);
+      if (scope === "round1") {
+        if (!initiative) throw badRequest("initiative: required when scope is \"round1\"");
+        const ini = requireIni(d, initiative);
+        return wrap(d, round1History(d, ini.id), { sources: round1Sources(d), limitations: d.round1.limitations });
+      }
+      if (initiative) throw badRequest(`initiative: only allowed when scope is "initiative" or "round1"`);
       if (scope === "vote_manifest") {
         const v = voteManifest(d);
         return wrap(d, v, { sources: [v.source], limitations: ["Read at the last official sync, not live. The vote contract is the final authority."] });

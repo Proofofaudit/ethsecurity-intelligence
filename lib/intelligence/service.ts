@@ -4,18 +4,19 @@
  * either copied from the dataset or computed deterministically from it.
  */
 import { z } from "zod";
-import type { Claim, Dataset, EntityType, EvidenceStatus, Initiative, LifecycleStage, Milestone, Relationship } from "@/lib/domain/schemas";
+import type { Claim, Dataset, EntityType, EvidenceStatus, Initiative, LifecycleStage, Milestone, Relationship, Round1Match } from "@/lib/domain/schemas";
 import { EVIDENCE_STATUS_LABEL } from "@/lib/domain/schemas";
 import { ONE_TS_DOMAINS, SECURITY_PROBLEMS, STAGE_LABEL, STAGE_ONE_TS } from "@/lib/domain/taxonomy";
 import { backerTotals, cohortMetrics, initiativeMetrics, type MetricValue } from "@/lib/metrics/compute";
 import { METHODOLOGY_VERSION, METRIC_BY_ID } from "@/lib/metrics/registry";
-import { NEUTRAL_SORT_LABEL } from "@/lib/neutralLanguage";
+import { NEUTRAL_SORT_LABEL, SOURCE_LABELS } from "@/lib/neutralLanguage";
 import { formatUsd, sumCents } from "@/lib/util/money";
 import { sharedAffiliations, type SharedGroup } from "@/lib/vote/affiliation";
 import { voteFeatureState } from "@/lib/vote/manifest";
 import { sentences } from "@/lib/util/text";
 import { hypotheses, pairSignals, type PairSignals } from "./overlap";
 import { buildBm25, searchBm25 } from "./similarity";
+import { ROUND1_EMPTY_TEXT, ROUND1_POSSIBLE_TEXT } from "./round1";
 
 export const PRESENT_SUPPORTED: EvidenceStatus[] = ["independently_verified", "partially_supported"];
 
@@ -769,6 +770,7 @@ export function entityProfile(d: Dataset, type: EntityType, id: string) {
       pledges: d.pledges.filter((p) => p.backerId === o.id).map((p) => ({ ...p, initiative: d.initiatives.find((i) => i.id === p.initiativeId)?.shortTitle ?? p.initiativeId })),
       people: d.people.filter((p) => p.organizationId === o.id),
       repositories: d.repositories.filter((r) => d.relationships.some((x) => x.type === "maintains" && x.from.id === o.id && x.to.id === r.id)),
+      round1: round1ForOrganization(d, o.id),
     };
   }
   if (type === "repository") {
@@ -1067,6 +1069,50 @@ export function voteManifest(d: Dataset) {
       ? "Initiatives with an empty groups list are unaffiliated in the manifest. RFPs carry no affiliation."
       : "Per-initiative groups are withheld because the manifest is unavailable or its slug/project alignment was not confirmed.",
   };
+}
+
+// ───────────────────────────── Round 1 history ─────────────────────────────
+
+export const ROUND1_SOURCE_LABEL = SOURCE_LABELS.independent;
+
+/** Round 1 records attached to one initiative or organization, with round-level facts. */
+function round1View(d: Dataset, matches: readonly Round1Match[]) {
+  const r = d.round1;
+  const byId = new Map(r.projects.map((p) => [p.id, p]));
+  const stale = r.sources.filter((s) => s.stale).map((s) => ({ key: s.key, url: s.url, retrievedAt: s.retrievedAt, error: s.error }));
+  return {
+    status: r.status,
+    sourceLabel: ROUND1_SOURCE_LABEL,
+    checkedAt: r.checkedAt,
+    stale,
+    round: r.round,
+    transparencyUrl: r.transparencyUrl,
+    forumUrl: r.forumUrl,
+    emptyText: ROUND1_EMPTY_TEXT,
+    possibleText: ROUND1_POSSIBLE_TEXT,
+    /** Donor counts are not published per project in any source checked, so none are shown. */
+    donorCounts: null,
+    records: matches.flatMap((m) => {
+      const project = byId.get(m.projectId);
+      return project ? [{ ...m, project }] : [];
+    }),
+    limitations: r.limitations,
+  };
+}
+export type Round1View = ReturnType<typeof round1View>;
+
+export function round1History(d: Dataset, idOrSlug: string): Round1View | null {
+  const ini = findInitiative(d, idOrSlug);
+  return ini ? round1View(d, d.round1.initiativeMatches[ini.id] ?? []) : null;
+}
+
+export function round1ForOrganization(d: Dataset, orgId: string): Round1View | null {
+  const o = d.organizations.find((x) => x.id === orgId);
+  return o ? round1View(d, d.round1.organizationMatches[o.id] ?? []) : null;
+}
+
+export function round1Sources(d: Dataset): string[] {
+  return [d.round1.transparencyUrl, d.round1.forumUrl];
 }
 
 export function metricsFor(d: Dataset, idOrSlug?: string): Record<string, MetricValue> | null {

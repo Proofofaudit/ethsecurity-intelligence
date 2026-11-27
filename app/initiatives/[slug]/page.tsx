@@ -7,6 +7,7 @@ import { ClaimList, CorrectionButton, EVIDENCE_KIND_LABEL, InspectorProvider } f
 import { ProposalHistory } from "@/components/dossier/history";
 import { MilestoneXRay } from "@/components/dossier/milestones";
 import { RealityVsPromises } from "@/components/dossier/reality";
+import { Round1History } from "@/components/dossier/round1";
 import { ExternalLink, Tag } from "@/components/ui/button";
 import { FundingBar, FundingLegend } from "@/components/ui/charts";
 import { Note } from "@/components/ui/layout";
@@ -21,7 +22,7 @@ import { CATEGORY_LABEL, CORRECTION_NOTICE } from "@/lib/corrections";
 import { BANNER_HREF, COI_SHORT, isCoiOrganization } from "@/lib/disclosure";
 import type { Claim, Evidence } from "@/lib/domain/schemas";
 import { loadIntelligence } from "@/lib/intelligence/load";
-import { BLIND_SPOT_LABEL, dependencies, dossier, PRESENT_SUPPORTED, plainExplanation, sharedGroupsOf } from "@/lib/intelligence/service";
+import { BLIND_SPOT_LABEL, dependencies, dossier, PRESENT_SUPPORTED, plainExplanation, round1History, sharedGroupsOf } from "@/lib/intelligence/service";
 import { CORE_RESEARCH_TASKS } from "@/lib/intelligence/status";
 import { THEDAO_ASK_CAP_CENTS } from "@/lib/metrics/ask";
 import { formatPct, formatUsd } from "@/lib/util/money";
@@ -93,6 +94,7 @@ export default async function InitiativePage({ params }: Params) {
   const jobsOk = jobs.filter((j) => j.job?.state === "succeeded").length;
   const lastJob = x.researchJobs.map((j) => j.finishedAt).filter((v): v is string => !!v).sort().pop() ?? null;
   const deps = dependencies(d, ini.id)[0];
+  const round1 = round1History(d, ini.id)!;
   const higher = x.blindSpots.filter((b) => b.importance === "higher");
   const standard = x.blindSpots.filter((b) => b.importance === "standard");
   const recipient = x.organization?.name ?? ini.recipientTeam;
@@ -113,6 +115,7 @@ export default async function InitiativePage({ params }: Params) {
     "team",
     "code",
     "financial",
+    "round1",
     "milestones",
     "technical",
     "adoption",
@@ -551,11 +554,15 @@ export default async function InitiativePage({ params }: Params) {
               )}
             </Section>
 
-            <Section id="milestones" n={8} title="Milestone X-Ray" meta={`${x.milestones.length} milestones · ${x.milestones.reduce((s, ms) => s + ms.questions.length, 0)} questions`}>
+            <Section id="round1" n={8} title="Round 1 history" meta={round1.records.length ? `${round1.records.length} Round 1 records` : "None found"}>
+              <Round1History view={round1} subject={{ label: "Official proposal", href: ini.url }} />
+            </Section>
+
+            <Section id="milestones" n={9} title="Milestone X-Ray" meta={`${x.milestones.length} milestones · ${x.milestones.reduce((s, ms) => s + ms.questions.length, 0)} questions`}>
               <MilestoneXRay milestones={x.milestones} claims={x.claims} goalCents={f.goalCents} />
             </Section>
 
-            <Section id="technical" n={9} title="Technical assessment" meta="Rule-based classification and repository facts">
+            <Section id="technical" n={10} title="Technical assessment" meta="Rule-based classification and repository facts">
               <div className="max-w-[880px] space-y-5">
                 <Sub title="Security lifecycle stages (rule-based)">
                   <ul className="divide-y divide-rule border-y border-rule text-sm">
@@ -583,14 +590,14 @@ export default async function InitiativePage({ params }: Params) {
               </div>
             </Section>
 
-            <Section id="adoption" n={10} title="Adoption commitments" meta={`${formatPct(mv("initiative.adoption_share"), 0)} of goal in adoption milestones`}>
+            <Section id="adoption" n={11} title="Adoption commitments" meta={`${formatPct(mv("initiative.adoption_share"), 0)} of goal in adoption milestones`}>
               <div className="max-w-[880px] space-y-5">
                 <ClaimList ids={byKind("adoption_commitment").map((c) => c.id)} empty="No adoption milestones are recorded. Payment does not depend on third-party uptake." />
                 {quote("commitments")}
               </div>
             </Section>
 
-            <Section id="dependencies" n={11} title="Dependencies" meta={`${x.reality.dependencies.length} identified`}>
+            <Section id="dependencies" n={12} title="Dependencies" meta={`${x.reality.dependencies.length} identified`}>
               <div className="max-w-[880px] space-y-5">
                 <Facts
                   rows={[
@@ -634,7 +641,7 @@ export default async function InitiativePage({ params }: Params) {
               </div>
             </Section>
 
-            <Section id="related" n={12} title="Related initiatives" meta={`${x.related.length} hypotheses`}>
+            <Section id="related" n={13} title="Related initiatives" meta={`${x.related.length} hypotheses`}>
               {x.related.length ? (
                 <ul className="max-w-[880px] divide-y divide-rule border-y border-rule text-sm">
                   {x.related.map(({ relationship: r, other }) => (
@@ -659,14 +666,14 @@ export default async function InitiativePage({ params }: Params) {
               <Note className="mt-2">Hypotheses come from text similarity and shared lifecycle stages. They are not confirmed relationships or partnerships.</Note>
             </Section>
 
-            <Section id="supporting" n={13} title="Strongest supporting arguments" meta={`${supported.length} statements with supporting evidence`}>
+            <Section id="supporting" n={14} title="Strongest supporting arguments" meta={`${supported.length} statements with supporting evidence`}>
               <div className="max-w-[880px] space-y-3">
                 <Note>Statements in the record that have independent or partial supporting evidence. Listed, not weighed.</Note>
                 <ClaimList ids={supported.map((c) => c.id)} empty="No statement has independent supporting evidence yet." />
               </div>
             </Section>
 
-            <Section id="counter" n={14} title="Strongest counterarguments" meta={`${higher.length} higher-importance gaps`}>
+            <Section id="counter" n={15} title="Strongest counterarguments" meta={`${higher.length} higher-importance gaps`}>
               <div className="max-w-[880px] space-y-3">
                 <Note>Gaps a skeptical reviewer would raise, derived from the evidence record by fixed rules. Phrased as questions, not accusations.</Note>
                 {higher.length ? (
@@ -690,7 +697,7 @@ export default async function InitiativePage({ params }: Params) {
               </div>
             </Section>
 
-            <Section id="questions" n={15} title="Unresolved questions" meta={`${x.blindSpots.length + x.milestones.reduce((s, ms) => s + ms.questions.length, 0)} open`}>
+            <Section id="questions" n={16} title="Unresolved questions" meta={`${x.blindSpots.length + x.milestones.reduce((s, ms) => s + ms.questions.length, 0)} open`}>
               <div className="max-w-[880px] space-y-5">
                 {[...higher, ...standard].length > 0 && (
                   <ul className="divide-y divide-rule border-y border-rule">
@@ -724,7 +731,7 @@ export default async function InitiativePage({ params }: Params) {
               </div>
             </Section>
 
-            <Section id="sources" n={16} title="Evidence sources" meta={`${x.evidence.length} records`}>
+            <Section id="sources" n={17} title="Evidence sources" meta={`${x.evidence.length} records`}>
               <div className="space-y-5">
                 {[...evidenceByKind.entries()].map(([kind, list]) => (
                   <Sub key={kind} title={`${EVIDENCE_KIND_LABEL[kind]} (${list.length})`}>
@@ -750,7 +757,7 @@ export default async function InitiativePage({ params }: Params) {
               </div>
             </Section>
 
-            <Section id="corrections" n={17} title="Corrections" meta={corrections.length ? `${corrections.length} applied` : "None applied"}>
+            <Section id="corrections" n={18} title="Corrections" meta={corrections.length ? `${corrections.length} applied` : "None applied"}>
               <div className="max-w-[820px] space-y-4">
                 <p className="text-sm text-ink-2">{CORRECTION_NOTICE}</p>
                 <div className="flex flex-wrap items-center gap-4">
@@ -776,7 +783,7 @@ export default async function InitiativePage({ params }: Params) {
               </div>
             </Section>
 
-            <Section id="history" n={18} title="Proposal history" meta={`${x.revisions.length} official revisions`}>
+            <Section id="history" n={19} title="Proposal history" meta={`${x.revisions.length} official revisions`}>
               <ProposalHistory revisions={x.revisions} sectionHeadings={headings} />
             </Section>
           </Sections>

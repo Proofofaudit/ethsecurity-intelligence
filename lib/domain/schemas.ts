@@ -626,9 +626,110 @@ export const VoteSection = z.object({
 });
 export type VoteSection = z.infer<typeof VoteSection>;
 
+/**
+ * TheDAO / Giveth Round 1 (Ethereum Security QF round, April 23 to May 14, 2026). Records come
+ * from the TheDAO transparency report; ETH amounts are decimal strings exactly as published,
+ * USD amounts integer cents. No per-project dates or donor counts are published in the sources.
+ */
+export const Round1Project = z.object({
+  id: z.string(),
+  name: z.string(),
+  /** Slug of the per-project page: https://thedao.fund/transparency/<slug>. */
+  slug: z.string(),
+  transparencyUrl: z.string(),
+  /** Website listed for the project in the report ("link" column); null when empty. */
+  website: z.string().nullable(),
+  /** QF round total in ETH (TheDAO matching pool + community-raised matching + direct donations). */
+  totalEth: z.string(),
+  /** USD value when the QF round total was sent. */
+  usdWhenSentCents: z.number().int(),
+  components: z.object({
+    matchingPoolEth: z.string(),
+    extraRoundInflowEth: z.string(),
+    otherDonorsEth: z.string(),
+    otherDonorsUsdCents: z.number().int(),
+  }),
+  progressUpdateUrl: z.string().nullable(),
+  /** The total and USD value as displayed in the report table on `asOf`. */
+  displayed: z.object({ totalEth: z.string(), usdWhenSentCents: z.number().int(), asOf: z.string() }),
+  /** Direct grants outside the QF round listed in the report for this project. */
+  directGrants: z.array(z.object({ amountEth: z.string(), amountUsdCents: z.number().int(), txHash: z.string() })),
+  /** A live Superfluid stream is included in the displayed total, so it changes over time. */
+  liveStream: z.object({ receiver: z.string(), explorerUrl: z.string().nullable() }).nullable(),
+  sourceUrls: z.array(z.string()).min(1),
+  checkedAt: z.string(),
+});
+export type Round1Project = z.infer<typeof Round1Project>;
+
+export const Round1Rule = z.enum([
+  "proposal_links_record",
+  "proposal_links_giveth_project",
+  "same_website_page",
+  "same_website",
+  "same_github_repo",
+  "same_github_owner",
+  "same_x_account",
+  "same_organization_name",
+  "shared_name_token",
+  "proposal_links_website",
+]);
+export type Round1Rule = z.infer<typeof Round1Rule>;
+
+export const Round1Match = z.object({
+  projectId: z.string(),
+  round1ProjectName: z.string(),
+  transparencyUrl: z.string(),
+  website: z.string().nullable(),
+  level: z.enum(["project", "organization"]),
+  status: z.enum(["match", "possible"]),
+  reasons: z.array(z.object({ rule: Round1Rule, text: z.string(), sourceUrls: z.array(z.string()) })).min(1),
+  sourceUrls: z.array(z.string()).min(1),
+  checkedAt: z.string(),
+});
+export type Round1Match = z.infer<typeof Round1Match>;
+
+export const Round1Source = z.object({
+  key: z.enum(["transparency_html", "transparency_route", "forum_json"]),
+  url: z.string(),
+  retrievedAt: z.string(),
+  sha256: z.string(),
+  method: z.string(),
+  /** True when the last fetch failed and this earlier copy was kept. */
+  stale: z.boolean(),
+  error: z.string().nullable(),
+});
+export type Round1Source = z.infer<typeof Round1Source>;
+
+export const Round1Section = z.object({
+  status: z.enum(["available", "unavailable"]),
+  transparencyUrl: z.string(),
+  forumUrl: z.string(),
+  checkedAt: z.string().nullable(),
+  sources: z.array(Round1Source),
+  round: z.object({
+    name: z.string(),
+    /** From the forum topic title; null when the topic could not be read. */
+    period: z.string().nullable(),
+    eligibleProjects: z.number().int().nullable(),
+    distributionAnnouncedAt: z.string().nullable(),
+    distributionPostUrl: z.string().nullable(),
+    distributionTxUrls: z.array(z.string()),
+    progressPostUrls: z.array(z.string()),
+  }),
+  pageTotals: z.object({ totalEth: z.string(), usdAtSendingCents: z.number().int(), projects: z.number().int(), coFundersUsdCents: z.number().int() }).nullable(),
+  projects: z.array(Round1Project),
+  /** Initiative id → matches (alphabetical by Round 1 project name). */
+  initiativeMatches: z.record(z.string(), z.array(Round1Match)),
+  /** Organization id → matches, including those found through its initiatives. */
+  organizationMatches: z.record(z.string(), z.array(Round1Match)),
+  limitations: z.array(z.string()),
+});
+export type Round1Section = z.infer<typeof Round1Section>;
+
 export const Dataset = z.object({
   meta: DatasetMeta,
   vote: VoteSection,
+  round1: Round1Section,
   initiatives: z.array(Initiative),
   milestones: z.array(Milestone),
   pledges: z.array(Pledge),

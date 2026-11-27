@@ -168,6 +168,10 @@ describe("MCP tool execution", () => {
       expect(r.funding).toEqual(ini.funding);
       expect(r.pledges.length).toBe(d.pledges.filter((p) => p.initiativeId === ini.id).length);
     }
+    const r1Ini = d.initiatives.find((i) => (d.round1.initiativeMatches[i.id] ?? []).length > 0)!;
+    const r1 = data(await call("get_funding", { scope: "round1", initiative: r1Ini.slug }));
+    expect(r1.records.map((x: { projectId: string }) => x.projectId)).toEqual(d.round1.initiativeMatches[r1Ini.id]!.map((m) => m.projectId));
+    expect((await call("get_funding", { scope: "round1" })).isError).toBe(true);
     const vm = data(await call("get_funding", { scope: "vote_manifest" }));
     expect(vm.status).toBe(d.vote.status);
     expect(vm.poolCents).toBe(d.vote.poolCents);
