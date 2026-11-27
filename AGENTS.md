@@ -11,8 +11,10 @@ These rules persist across tasks. Read them before changing anything. When a rul
 5. **Accuracy.** Every figure and quote must be true and traceable to a source. Missing data is "Unavailable" or "Not found", never 0 and never a negative finding. Extend `research/audit.ts` for anything new the UI asserts. `npm run publish` must report 0 failures.
 6. **Evidence statuses.** Applicant text appears only as verbatim quotes with status `applicant_reported` or `future_target`. Only machine-observed evidence can produce `independently_verified` or `partially_supported`.
 7. **Money.** Integer cents (micro-USD as BigInt for manifest values). Funding total = pledged + donated; received pledges are inside donated and are never added twice. The ballot endpoint's `totals` block is never used.
-8. **Privacy.** Personal workspace data stays in the browser under `esi.workspace`, `esi.lab.templates` and `esi.theme`. Adding a key means updating `lib/privacy.ts`, the Methodology Privacy text and `tests/unit/privacy.test.ts`. No analytics, no third-party requests, no wallet connection, no logging of user input.
-9. **Disclosure.** The banner text in `lib/disclosure.ts` appears on every page. Do not remove or reword it.
+8. **Privacy.** Personal workspace data (including review progress, the visit snapshot, briefing read marks and open question marks) stays in the browser under `esi.workspace`, `esi.lab.templates` and `esi.theme`. Adding a key means updating `lib/privacy.ts`, the Methodology Privacy text and `tests/unit/privacy.test.ts`. No analytics, no third-party requests, no wallet connection, no logging of user input.
+9. **AI text.** Claims with origin `ai` are never applicant statements and never evidence, and are excluded from the material-without-independent-support list (`lib/intelligence/unsupported-material.ts`). Any AI text is shown through `AiInterpretation` with the label "AI interpretation", citations and provenance, after `filterAiOutput`. An initiative without research shows "Not yet researched".
+10. **Reproducible analysis.** Round 1 matches, Similar initiatives, Open questions and briefing reading times come from one pure function each, run for every initiative, with no special case for any organization. Output is alphabetical, has no scores, and is recomputed by the truth audit or covered by a test. Open questions never send, draft or queue messages.
+11. **Disclosure.** The banner text in `lib/disclosure.ts` appears on every page. Do not remove or reword it.
 
 ## Engineering rules
 
@@ -22,7 +24,7 @@ These rules persist across tasks. Read them before changing anything. When a rul
 - **Generated files.** `data/published/*` comes from `npm run publish`, `data/official/**` from `npm run ingest`, `skills/` from `npm run skills:build`, `docs/screenshots/` from `npm run screenshots`. Do not edit them by hand.
 - **Design.** Editorial research-report style: thin rules, one accent color, green/amber/gray reserved for evidence status, evidence marks always with a text label. No gradients, glow, glass, emoji, hero banners or icon grids.
 - **Language.** American English, no em dashes, no typos. Run `npx cspell "**/*.md" --no-progress` on docs.
-- **Scope.** Do not invent features or data. Items 8 to 14 of the update are pending specification.
+- **Scope.** Do not invent features or data. [PROJECT_SPEC.md](PROJECT_SPEC.md) records what Items 1 to 14 ship and what they do not (no AI hypotheses in Similar initiatives, no service worker).
 - **Outreach.** Never email or contact initiative teams, badge holders or TheDAO.
 
 ## Commands

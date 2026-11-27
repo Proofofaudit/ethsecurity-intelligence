@@ -252,6 +252,38 @@ Every dossier opens with an evidence card, and every Research row carries a one-
 
 **Audit.** The truth audit (check 13) recomputes every card: same section keys and order, an http(s) source and a checked-on date on every item, funding figures and backers equal to the raw official record, repository facts equal to the stored GitHub results, product flags equal to the stored checks, self-pledge flags recomputed by an independent implementation, no private contact detail, and "Not found" items consistent with the data.
 
+## Briefing and reading time
+
+Every dossier has a 10-minute briefing built by `buildBriefing` in [lib/intelligence/briefing.ts](lib/intelligence/briefing.ts) from the published dataset. It runs no model and writes no prose. The order is the same for every initiative; an item is left out when its source data is missing: summary, proposal sections quoted verbatim (`why`, `in_scope`, `out_scope`, then milestones with criteria, then `commitments` and `team` for grants or `existing`, `who` and `hard_req` for RFPs), links, Round 1 history (only with matches) and the evidence card. The official grant section `why_grant` is not in the requested order; the dossier names it under "Other official sections not in this order".
+
+**Reading time** is the number of words divided by 200 words per minute, rounded up to whole minutes, with a minimum of 1 minute per item. The total is the sum of the item times. Words are whitespace-separated tokens that contain a letter or digit, after link syntax and Markdown markers are removed; a bare URL counts as one word. An item is marked Optional when the items before it already add up to 10 minutes or more; the item that crosses minute 10 is not Optional. Across the 55 initiatives the total is 9 minutes at minimum, 21 at maximum and 12 at median.
+
+**Link types** come from the URL alone, never from link text. Precedence: audit (a path segment such as `audit`, `audits` or `audit-reports`, a PDF named for an audit, or a host starting with such a word), repo (github.com, gitlab.com, bitbucket.org or codeberg.org with owner and repository), demo, docs, website (an address with no path on a host that is not a social, chat, video, document or explorer service), then "Link". Email, phone and messenger links are left out. Every item has at least one https source.
+
+**Read marks and focus chain.** "Mark as read" is stored in the browser in `esi.workspace` under `briefingRead`. "Briefing for all in my focus" (`/workspace/briefing`) uses the same focus chips and keywords as May interest you, lists each matching initiative once, alphabetically by official title, with the total time. The server sends every briefing and the browser decides which to show, so the focus is never sent. `GET /api/v1/initiatives/:id/briefing` returns the same briefing.
+
+**Offline.** The briefing needs no request after the page loads, and read marks are local. The site has no service worker, so a page works offline only when the browser holds it in its own cache. This part of the requirement is partially met.
+
+## Review progress and change detection
+
+Review progress is a private checklist ([lib/workspace/progress.ts](lib/workspace/progress.ts)). It is not a score and not a ranking.
+
+- **States.** Not started (default), Reading, Reviewed (the published record at that moment is stored with the mark) and Revisit. Revisit is set only by the site, when the record changed after the Reviewed mark, with a reason such as "New revision 3; 2 new comments". It is never offered by hand. A counter shows "You've reviewed N of M".
+- **Since your last visit.** The server builds one feed entry per initiative from the published dataset: the latest fetched revision number, the official `commentCount` and the change records in the dataset. The browser keeps the record it saw (`visit.seen`); when the previous page view is more than 30 minutes old, it becomes `visit.baseline`. A change is reported only when the record differs: a change id not in the stored snapshot, a higher revision number or a higher comment count. Comment text is neither stored nor shown. The first visit has no baseline and lists nothing. The list is alphabetical.
+- **Export.** Markdown, CSV and JSON ([lib/workspace/export.ts](lib/workspace/export.ts)), written in the browser. Every file carries the dataset version and publication time and source URLs. CSV cells that start with `=`, `+`, `-`, `@`, tab or carriage return get a leading apostrophe. The JSON file is a normal workspace export, so Import restores it exactly after validation (`parseImport`).
+- **No network.** Edits, exports and imports make no request. "Clear all my data" removes every local storage key that starts with `esi.`.
+
+## AI interpretation and "Not yet researched"
+
+The site runs no AI model. The label rules apply to any generated text that is displayed: published claims with origin `ai` and text pasted into the AI Lab result reader ([lib/ai/interpretation.ts](lib/ai/interpretation.ts)).
+
+- Every such statement carries the label "AI interpretation", its http(s) citations and its provenance (model, prompt version, number of sources examined, verification status "Not verified" or "Checked by the reviewer, not independently verified").
+- Text without a citation is not shown; the underlying evidence is listed instead, or "Not yet researched" when there is none. "Not yet researched" means no research has run, never a negative finding, and the display lists what is missing.
+- The Item 1 filter (`filterAiOutput`) runs before display. A blocked statement, for example advice to fund an initiative, is replaced by the raw evidence and the filter notice.
+- No confidence, score or probability exists in any AI type, schema or component.
+- Claims with origin `ai` are never treated as applicant statements or evidence, and are excluded from the "material without independent support" list ([lib/intelligence/unsupported-material.ts](lib/intelligence/unsupported-material.ts)).
+- External content is untrusted data: it is rendered as plain text, never as HTML or Markdown, and never followed as instructions. Briefs for the reader's own assistant are built from configuration only, and the section "Untrusted content and prompt injection" is identical for every configuration.
+
 ## Organization identity
 
 `lib/domain/identity.ts` resolves backer and recipient names into organizations:
@@ -357,7 +389,7 @@ Proof of Audits builds this site and has an initiative on this ballot. The same 
 
 The Methodology page lists the same items, and `tests/unit/privacy.test.ts` checks them against the code.
 
-- **Stored only in your browser** (local storage): `esi.workspace` (My Workspace, including the Ballot Prep draft, the TheDAO asks you last saw, your affiliations and marks, your May interest you chips and keywords, and the open questions you marked as asked or resolved), `esi.lab.templates` (AI Lab templates), `esi.theme` (theme).
+- **Stored only in your browser** (local storage): `esi.workspace` (My Workspace, including the Ballot Prep draft, the TheDAO asks you last saw, your affiliations and marks, your May interest you chips and keywords, the open questions you marked as asked or resolved, your review progress states and reasons, the record last seen for "Since your last visit", and your briefing read marks), `esi.lab.templates` (AI Lab templates), `esi.theme` (theme).
 - **Stored on the server:** the public dataset; corrections you choose to submit; an optional private contact on a correction, encrypted with AES-256-GCM, never returned by the API or MCP, deleted 30 days after submission at the latest; an HMAC-SHA-256 of the submitting network address to limit submissions to five per hour; error logs with a fixed event name and error type only.
 - **Never stored:** votes, ballots, wallet addresses or signatures (the site never connects a wallet); search text; AI Lab prompts and briefs (built in the browser); workspace contents; analytics, tracking cookies or third-party requests.
 
@@ -371,4 +403,7 @@ See [NEUTRAL_LANGUAGE.md](NEUTRAL_LANGUAGE.md) (version `2026.11-v1`): allowed f
 - Automated research sees only public sources. "Not found" is not a negative finding.
 - Ballot Prep and the TheDAO ask are computed from the last sync, not live onchain values.
 - Hypotheses and what-if scenarios are exploration, not predictions.
+- The briefing works offline only from the browser's cache because the site has no service worker.
+- Review progress lives in one browser; clearing browser storage removes it. Comments are detected only through the official comment count.
+- Similar initiatives shows hypotheses from text signals only; optional AI hypotheses were not shipped.
 - Round 1 records come from a hashed script bundle on thedao.fund, not from a documented API; per-project dates and donor counts are not published.

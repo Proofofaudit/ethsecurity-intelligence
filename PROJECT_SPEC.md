@@ -1,6 +1,6 @@
 # Project specification
 
-Concise form of the master implementation prompt (sections 1 to 35) and the update that adds Items 1 to 14. Status as of 26 Nov 2026, branch `feat/full-platform`.
+Concise form of the master implementation prompt (sections 1 to 35) and the update that adds Items 1 to 14. Status as of 27 Nov 2026, branch `feat/full-platform`.
 
 ## Purpose and positioning
 
@@ -45,15 +45,15 @@ ETHSecurity Intelligence is an independent research and decision-support platfor
 | 5 | Ballot Prep in My Workspace | Implemented, tested |
 | 6 | Affiliation and conflict flags | Partially implemented: the optional public badge-holder lookup is off because no verifiable public source exists |
 | 7 | May interest you | Implemented, tested (limited to the behavior specified before the update message was cut off) |
-| 8 | Evidence card | Pending specification |
-| 9 | Round 1 history | Pending specification |
-| 10 | Similar initiatives | Pending specification |
-| 11 | Open questions | Pending specification |
-| 12 | 10-minute briefing | Pending specification |
-| 13 | Review progress, changes, export | Pending specification |
-| 14 | AI labelling | Pending specification. The shared source labels it needs (Official data, Applicant statement, Independent evidence, AI interpretation) are already applied through Item 1 |
+| 8 | Evidence card | Implemented, tested |
+| 9 | Round 1 history | Implemented, tested |
+| 10 | Similar initiatives | Implemented, tested. The optional AI hypotheses were not shipped |
+| 11 | Open questions | Implemented, tested |
+| 12 | 10-minute briefing | Partially met: no service worker, so offline reading works only from the browser's own cache |
+| 13 | Review progress, changes, export | Implemented, tested, with known limitations (see Item 13) |
+| 14 | AI labelling | Implemented, tested |
 
-Items 8 to 14 were cut off in the update message. Only their titles are known, and nothing beyond the Item 14 source labels has been built for them.
+Each item section below states what ships, how it is tested and its known limits. The rules are in [METHODOLOGY.md](METHODOLOGY.md).
 
 ### Item 1: Neutral language
 
@@ -91,6 +91,42 @@ A private draft in My Workspace: put any initiative in S, A or B, and see an uno
 ### Item 7: May interest you
 
 A view in My Workspace built from local inputs only: focus chips (the 10 official categories and the 8 AI Lab research modes) and typed keywords (whole words; common endings such as "attacks" for "attack" and "securing" for "secure" also match). Results are grouped by focus, alphabetical inside each group, and each item shows its reason and at least one evidence link. No score, rank or match percentage. The mode mapping table is in [METHODOLOGY.md](METHODOLOGY.md#may-interest-you).
+
+### Item 8: Evidence card
+
+Every dossier opens with the same six-section card for all 55 initiatives: Shipped work, Funding, Prior funding, Team and track record, Audits or reviews, Not found. Each fact has a source label, a source link and a "checked on" date. Broken links are flagged, not hidden. Research rows carry a one-line summary. A possible self-pledge is flagged as "unverified". Built from stored results; no request is made when a page loads. Acceptance: tests/unit/evidence-card.test.ts (same section keys for all 55, link and date on every item, a link checker that flags a 404 and not a 200, no banned phrase) and axe in tests/e2e/evidence-card.spec.ts. Rules: [METHODOLOGY.md](METHODOLOGY.md#evidence-card).
+
+### Item 9: Round 1 history
+
+135 records from the TheDAO transparency report for the Ethereum Security QF round (23 Apr to 14 May 2026), matched to initiatives and organizations by one function (`computeRound1Matches`) with three stated reasons: same project page, same website, same organization name or recorded alias. Weaker overlaps are shown as "Possible match: please verify". Result on the published dataset: 30 of 55 initiatives and 32 of 83 organizations have matches; 5 initiative matches are possible matches. Every record has a source URL and a checked-on date, and the truth audit recomputes the matches. Proof of Audits goes through the same function. Acceptance: tests/unit/round1.test.ts (exact, alias and ambiguous matches; source URL and date on all 135 records). Limitation: the records come from a hashed script bundle, not a documented API. Rules: [METHODOLOGY.md](METHODOLOGY.md#round-1-history).
+
+### Item 10: Similar initiatives
+
+Pairs of initiatives with shared text signals, labeled "Possible overlap", "Possible complement" or "Same organization", each with the quoted evidence from both proposals and a "research hypothesis, not a finding" notice. A pair is shown only with a text signal plus a second signal or one strong signal, so category-only, group-only and backer-only pairs stay hidden. Output is alphabetical, with no scores, and reproducible. Result: 174 of 1,485 pairs shown (141 overlap, 30 complement, 3 same organization). Proof of Audits is analyzed with the same rules. The optional AI hypotheses were not shipped. Acceptance: tests/unit/similar.test.ts. Rules: [METHODOLOGY.md](METHODOLOGY.md#similar-initiatives).
+
+### Item 11: Open questions
+
+Eight rule-based questions with fixed wording, shown in each dossier and on `/research/questions`. They come from gaps in official fields and extracted claims; nothing is written by a model, and a question is not an accusation. The reader can mark a question "asked or resolved" in the private workspace and copy the list as text. Counts across the 55 initiatives, rules 1 to 8: 193, 8, 6, 34, 26, 78, 54 and 3. No code in this feature sends anything anywhere. Acceptance: tests/unit/open-questions.test.ts (one test per rule, equal wording across initiatives, no outreach code). Rules: [METHODOLOGY.md](METHODOLOGY.md#open-questions).
+
+### Item 12: 10-minute briefing
+
+A fixed, ordered reading list per initiative (summary, proposal sections quoted verbatim, milestones, links, Round 1 history, evidence card), each item with a source link and a reading time of words divided by 200, rounded up, minimum 1 minute. Items after minute 10 are marked Optional. Totals across the 55 initiatives run from 9 to 21 minutes, median 12. "Briefing for all in my focus" chains the briefings of the initiatives matching the reader's May interest you inputs, alphabetically. Read marks stay in the browser. No ranking or judgment language. Offline: the page needs no request after load and read marks are local, but the site has no service worker, so offline reload works only if the browser has the page cached. This criterion is partially met. Acceptance: tests/unit/briefing.test.ts. Rules: [METHODOLOGY.md](METHODOLOGY.md#briefing-and-reading-time).
+
+### Item 13: Review progress, changes, export
+
+A private checklist in My Workspace with four states (Not started, Reading, Reviewed, Revisit), a "You've reviewed N of M" counter, a "Since your last visit" list built by comparing the published change feed with the record stored in the browser, and exports in Markdown, CSV and JSON with sources. Revisit is set only by the site. Edits make no network request, and workspace data never reaches server logs. Acceptance: tests/unit/review-progress.test.ts (JSON round trip, change detection with mocked revisions, no network on edits) and tests/unit/privacy.test.ts. Known limitations:
+
+- Comments are detected only through a higher official `commentCount`; comment text is not stored.
+- The first visit has no baseline and lists nothing.
+- Marks without a stored record get their baseline on the next visit and report no change for the time before it.
+- The export context for 55 initiatives is about 200 KB and is sent with `/workspace`, so exports need no extra request.
+- The data lives only in one browser; clearing browser storage removes it and the site cannot recover it.
+
+Rules: [METHODOLOGY.md](METHODOLOGY.md#review-progress-and-change-detection).
+
+### Item 14: AI interpretation labels
+
+Every AI-generated statement carries the label "AI interpretation", its cited sources and provenance (model, prompt version, number of sources examined, verification status). Text without an http(s) citation is not shown. The Item 1 filter runs before display, and a blocked statement is replaced by the raw evidence. An initiative without research shows "Not yet researched", never generated prose and never a negative finding. Claims with origin `ai` are never counted as applicant statements, never counted as evidence and never listed under material without independent support. No confidence or score exists in any AI type. The site runs no model; the label applies to text pasted into the AI Lab result reader and to published claims with origin `ai`. Acceptance: tests/unit/ai-interpretation.test.ts. Rules: [METHODOLOGY.md](METHODOLOGY.md#ai-interpretation-and-not-yet-researched).
 
 ## Non-goals
 
