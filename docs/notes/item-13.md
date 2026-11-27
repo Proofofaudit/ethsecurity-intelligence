@@ -1,6 +1,6 @@
 # Item 13: Review progress and export (notes for the docs merge)
 
-Review progress is a private checklist for the reader. It records which initiatives you have read, shows what changed in the published record since you last looked, and exports your notes. It is not a score, not a ranking and not a recommendation. Every initiative is treated the same way.
+Review progress is a private checklist for the reader. It records which initiatives you have read, shows what changed in the published record since you last looked, and exports your notes. It is not a score and not a ranking. Every initiative is treated the same way.
 
 Modules: `lib/workspace/progress.ts` (states, change detection), `lib/workspace/feed.ts` (server side builders `visitFeed`, `exportContext`), `lib/workspace/export.ts` (`workspaceToMarkdown`, `workspaceToCsv`, `workspaceToJson`). UI: `components/workspace/review-progress.tsx`. Store: `setProgressState`, `applyVisitFeed`, `clearAllMyData` in `components/workspace/store.ts`. Tests: `tests/unit/review-progress.test.ts`.
 
