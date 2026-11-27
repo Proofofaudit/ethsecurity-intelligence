@@ -8,7 +8,7 @@ import { AiSlot, CounterBody, SupportingBody } from "@/components/dossier/resear
 import { AiInterpretation, NotYetResearched } from "@/components/ui/ai-interpretation";
 import { NOT_YET_RESEARCHED, prepareAiInterpretation, type AiInput } from "@/lib/ai/interpretation";
 import type { Dataset } from "@/lib/domain/schemas";
-import { blindSpotSources, blindSpots, researchCoverage } from "@/lib/intelligence/service";
+import { blindSpotSources, blindSpots, realityVsPromises, researchCoverage } from "@/lib/intelligence/service";
 import { initiativeMetrics } from "@/lib/metrics/compute";
 import { unsupportedMaterialClaims } from "@/lib/intelligence/unsupported-material";
 import { filterAiOutput } from "@/lib/neutralLanguage";
@@ -302,14 +302,17 @@ describe("AI-origin claims in other counts", () => {
     const after = initiativeMetrics({ ...d, claims: [...d.claims, ai("ai-x", "quantitative")] }, ini)["initiative.evidence_coverage"];
     expect(after).toEqual(before);
   });
+  it("does not add dossier lists or open questions for AI integration claims", () => {
+    const aiInt = { ...ai("ai-z", "quantitative"), kind: "integration" } as Dataset["claims"][number];
+    const aiArt = { ...aiInt, id: "ai-w", kind: "existing_artifact", status: "independently_verified" } as Dataset["claims"][number];
+    const r = realityVsPromises(d, ini, [], [aiInt, aiArt]);
+    expect(r.statedExisting).toHaveLength(0);
+    expect(r.existing).toHaveLength(0);
+    const before = blindSpots(d).length;
+    expect(blindSpots({ ...d, claims: [...d.claims, aiInt] }).length).toBe(before);
+  });
   it("does not add an open question for the figure", () => {
     const before = blindSpots(d).length;
     expect(blindSpots({ ...d, claims: [...d.claims, ai("ai-y", "quantitative")] }).length).toBe(before);
-  });
-  it("Methodology page lists review progress, visit record and read marks as browser data", () => {
-    const src = readFileSync("app/methodology/page.tsx", "utf8");
-    expect(src).toContain("review progress states");
-    expect(src).toContain("Since your last visit");
-    expect(src).toContain("marked as read");
   });
 });

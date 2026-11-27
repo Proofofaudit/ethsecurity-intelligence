@@ -132,7 +132,7 @@ Focus questions:
 ## 5. Metrics and weights
 
 - `initiative.adoption_share`: Adoption-dependent share. Share of the goal in adoption milestones.
-- `initiative.evidence_coverage`: Evidence coverage. Share of material, present-tense claims (excluding future targets and official funding records) with independent or partial supporting evidence.
+- `initiative.evidence_coverage`: Evidence coverage. Share of material, present-tense claims (excluding future targets, official funding records and claims with origin ai) with independent or partial supporting evidence.
 - `initiative.repos_public`: Public repositories cited. Cited GitHub repositories confirmed public. Activity is descriptive and is not a proxy for security quality.
 - No weights are set. Report each metric separately with its value or its unavailable reason. Do not combine metrics into a score, rank or rating.
 - A metric value of null comes with unavailableReason. Report the reason; never replace it with zero.

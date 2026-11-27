@@ -98,7 +98,7 @@ Focus questions:
 
 ## 5. Metrics and weights
 
-- `initiative.evidence_coverage`: Evidence coverage. Share of material, present-tense claims (excluding future targets and official funding records) with independent or partial supporting evidence.
+- `initiative.evidence_coverage`: Evidence coverage. Share of material, present-tense claims (excluding future targets, official funding records and claims with origin ai) with independent or partial supporting evidence.
 - `initiative.adoption_share`: Adoption-dependent share. Share of the goal in adoption milestones.
 - `initiative.repos_public`: Public repositories cited. Cited GitHub repositories confirmed public. Activity is descriptive and is not a proxy for security quality.
 - `initiative.repos_active_90d`: Repositories with commits in 90 days. Cited public repositories with at least one commit in the last 90 days on the default branch.

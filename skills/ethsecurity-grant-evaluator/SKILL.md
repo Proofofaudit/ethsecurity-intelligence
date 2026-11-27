@@ -139,7 +139,7 @@ Focus questions:
 - `initiative.largest_milestone_share`: Largest milestone share. Share of the goal in the largest single milestone.
 - `initiative.adoption_share`: Adoption-dependent share. Share of the goal in adoption milestones.
 - `initiative.open_questions`: Milestone questions. Deterministic reviewer questions raised by milestone rules (see Milestone X-Ray). Questions, not failures.
-- `initiative.evidence_coverage`: Evidence coverage. Share of material, present-tense claims (excluding future targets and official funding records) with independent or partial supporting evidence.
+- `initiative.evidence_coverage`: Evidence coverage. Share of material, present-tense claims (excluding future targets, official funding records and claims with origin ai) with independent or partial supporting evidence.
 - No weights are set. Report each metric separately with its value or its unavailable reason. Do not combine metrics into a score, rank or rating.
 - A metric value of null comes with unavailableReason. Report the reason; never replace it with zero.
 

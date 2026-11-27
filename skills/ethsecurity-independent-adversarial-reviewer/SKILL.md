@@ -134,7 +134,7 @@ Focus questions:
 
 ## 5. Metrics and weights
 
-- `initiative.evidence_coverage`: Evidence coverage. Share of material, present-tense claims (excluding future targets and official funding records) with independent or partial supporting evidence.
+- `initiative.evidence_coverage`: Evidence coverage. Share of material, present-tense claims (excluding future targets, official funding records and claims with origin ai) with independent or partial supporting evidence.
 - `initiative.open_questions`: Milestone questions. Deterministic reviewer questions raised by milestone rules (see Milestone X-Ray). Questions, not failures.
 - `initiative.adoption_share`: Adoption-dependent share. Share of the goal in adoption milestones.
 - `initiative.top_backer_share`: Largest backer share. Largest single backer's share of pledged amounts.

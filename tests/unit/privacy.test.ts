@@ -138,3 +138,11 @@ describe("review progress (Item 13)", () => {
   });
 });
 
+describe("Methodology page Privacy text", () => {
+  it("Methodology page lists review progress, visit record and read marks as browser data", async () => {
+    const src = await read("app/methodology/page.tsx");
+    expect(src).toContain("review progress states");
+    expect(src).toContain("Since your last visit");
+    expect(src).toContain("marked as read");
+  });
+});

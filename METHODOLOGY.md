@@ -197,7 +197,7 @@ All metrics are defined in [lib/metrics/registry.ts](lib/metrics/registry.ts) an
 | `initiative.largest_milestone_share` | Largest milestone share | `max(amount) / goal` | Unavailable when goal is zero |
 | `initiative.adoption_share` | Adoption-dependent share | `sum amount where adoption / goal` | Unavailable when goal is zero |
 | `initiative.open_questions` | Milestone questions | `sum milestone.questions` | Not applicable |
-| `initiative.evidence_coverage` | Evidence coverage | `count(status in {independently_verified, partially_supported}) / count(material and status not in {future_target, officially_reported, not_applicable})` | Unavailable when there are no verifiable present-tense claims |
+| `initiative.evidence_coverage` | Evidence coverage | `count(status in {independently_verified, partially_supported}) / count(material and origin is not ai and status not in {future_target, officially_reported, not_applicable})` | Unavailable when there are no verifiable present-tense claims |
 | `initiative.repos_public` | Public repositories cited | `count(cited repos where exists)` | Zero when none are cited |
 | `initiative.repos_active_90d` | Repositories with commits in 90 days | `count(repos where commitsLast90d > 0)` | Repos with unknown activity are not counted |
 | `initiative.repos_with_ci` | Repositories with CI workflows | `count(repos where hasCiWorkflows)` | Unknown counts as not present |
@@ -281,7 +281,7 @@ The site runs no AI model. The label rules apply to any generated text that is d
 - Text without a citation is not shown; the underlying evidence is listed instead, or "Not yet researched" when there is none. "Not yet researched" means no research has run, never a negative finding, and the display lists what is missing.
 - The Item 1 filter (`filterAiOutput`) runs before display. A blocked statement, for example advice to fund an initiative, is replaced by the raw evidence and the filter notice.
 - No confidence, score or probability exists in any AI type, schema or component.
-- Claims with origin `ai` are never treated as applicant statements or evidence, and are excluded from the "material without independent support" list ([lib/intelligence/unsupported-material.ts](lib/intelligence/unsupported-material.ts)).
+- Claims with origin `ai` are never treated as applicant statements or evidence, and are excluded from the "material without independent support" list ([lib/intelligence/unsupported-material.ts](lib/intelligence/unsupported-material.ts)), from the evidence coverage metric, from the "with proof" and "stated by the applicant" lists, and from the open questions raised for unlinked integration and figure claims without a source.
 - External content is untrusted data: it is rendered as plain text, never as HTML or Markdown, and never followed as instructions. Briefs for the reader's own assistant are built from configuration only, and the section "Untrusted content and prompt injection" is identical for every configuration.
 
 ## Organization identity

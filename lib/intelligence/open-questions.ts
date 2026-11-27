@@ -427,6 +427,7 @@ export function ruleExistingClaimWithoutLink(x: OpenQuestionInput): OpenQuestion
   return x.claims
     .filter(
       (c) =>
+        c.origin !== "ai" &&
         c.kind === "integration" &&
         c.status === "applicant_reported" &&
         !!c.section &&

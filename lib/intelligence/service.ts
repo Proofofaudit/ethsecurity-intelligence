@@ -407,8 +407,8 @@ export function dossier(d: Dataset, idOrSlug: string) {
 export type Dossier = NonNullable<ReturnType<typeof dossier>>;
 
 export function realityVsPromises(d: Dataset, ini: Initiative, milestones: Milestone[], claims: Claim[]) {
-  const existing = claims.filter((c) => (c.kind === "existing_artifact" || c.kind === "milestone_completed" || c.kind === "donation") && PRESENT_SUPPORTED.includes(c.status));
-  const statedExisting = claims.filter((c) => (c.kind === "integration" || c.kind === "quantitative") && c.status === "applicant_reported");
+  const existing = claims.filter((c) => c.origin !== "ai" && (c.kind === "existing_artifact" || c.kind === "milestone_completed" || c.kind === "donation") && PRESENT_SUPPORTED.includes(c.status));
+  const statedExisting = claims.filter((c) => c.origin !== "ai" && (c.kind === "integration" || c.kind === "quantitative") && c.status === "applicant_reported");
   const proposed = milestones.filter((m) => !m.done && !m.adoption);
   const adoption = milestones.filter((m) => !m.done && m.adoption);
   const dependencies = [
@@ -578,7 +578,7 @@ export function blindSpots(d: Dataset): BlindSpot[] {
         out.push({ id: `bs_${m.id}_${q.code}`, initiativeId: ini.id, category: "unclear_criterion", importance: "standard", question: `“${m.name}”: ${q.question}`, basis: `Acceptance criterion as recorded: “${m.criteria.join(" ") || "none"}”`, refs: [m.id] });
     }
     for (const c of d.claims.filter((x) => x.initiativeId === ini.id)) {
-      if (c.kind === "integration" && c.status === "applicant_reported")
+      if (c.kind === "integration" && c.status === "applicant_reported" && c.origin !== "ai")
         out.push({ id: `bs_${c.id}`, initiativeId: ini.id, category: "unconfirmed_integration", importance: "higher", question: "Can the counterparty publicly confirm this integration, and where can it be observed?", basis: c.assertion, refs: [c.id] });
       if (c.kind === "quantitative" && c.status === "applicant_reported" && c.origin !== "ai")
         out.push({ id: `bs_${c.id}`, initiativeId: ini.id, category: "unsupported_material_claim", importance: "standard", question: "Which public source supports this figure?", basis: c.assertion, refs: [c.id] });
@@ -838,7 +838,7 @@ export function traceClaim(d: Dataset, claimId: string) {
   const ini = d.initiatives.find((i) => i.id === claim.initiativeId);
   const evidence = d.evidence.filter((e) => claim.evidenceIds.includes(e.id));
   const metrics: string[] = [];
-  if (claim.material && !["future_target", "officially_reported", "not_applicable"].includes(claim.status)) metrics.push("initiative.evidence_coverage");
+  if (claim.material && claim.origin !== "ai" && !["future_target", "officially_reported", "not_applicable"].includes(claim.status)) metrics.push("initiative.evidence_coverage");
   if (claim.kind === "funding_pledge" || claim.kind === "funding_received") metrics.push("initiative.backers", "initiative.top_backer_share", "initiative.backer_hhi", "initiative.self_pledged", "cohort.top5_backer_share");
   if (claim.kind === "donation") metrics.push("cohort.donations_verified");
   if (claim.kind === "existing_artifact") metrics.push("initiative.repos_public", "initiative.repos_active_90d", "initiative.repos_with_ci");
