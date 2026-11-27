@@ -107,6 +107,18 @@ export function setOpenQuestionMark(marks: OpenQuestionMarks, id: string, marked
   return next;
 }
 
+/** Briefing items (Item 12) the holder marked as read: stable item id (`<initiative id>:<key>`) → when. Never sent anywhere. */
+export const BriefingRead = z.record(Id, z.object({ readAt: When })).refine((r) => Object.keys(r).length <= 5000, "Too many read marks");
+export type BriefingRead = z.infer<typeof BriefingRead>;
+
+/** Sets or clears the local "Mark as read" state of one briefing item. */
+export function setBriefingReadMark(marks: BriefingRead, id: string, read: boolean, now = new Date()): BriefingRead {
+  const next = { ...marks };
+  if (read) next[id] = { readAt: now.toISOString() };
+  else delete next[id];
+  return next;
+}
+
 export const WorkspaceSchema = z
   .object({
     version: z.literal(1),
@@ -127,6 +139,8 @@ export const WorkspaceSchema = z
     interest: Interest.default({ focus: [], keywords: [], suggested: false }),
     /** Rule-based open questions the holder marked as asked or resolved: question id → when. Never sent anywhere. */
     openQuestions: OpenQuestionMarks.default({}),
+    /** Briefing items marked as read (Item 12): item id → when. Included in exports with the rest of the workspace. */
+    briefingRead: BriefingRead.default({}),
     /** Review state per initiative id (Not started, Reading, Reviewed, Revisit). Never sent anywhere. */
     progress: z.record(Id, ProgressMark).default({}),
     /** The published record as last seen in this browser; "Since your last visit" compares against `baseline`. */

@@ -8,6 +8,7 @@ import { ProposalHistory } from "@/components/dossier/history";
 import { MilestoneXRay } from "@/components/dossier/milestones";
 import { RealityVsPromises } from "@/components/dossier/reality";
 import { EvidenceCard } from "@/components/dossier/evidence-card";
+import { BriefingView } from "@/components/dossier/briefing";
 import { Round1History } from "@/components/dossier/round1";
 import { SimilarInitiatives } from "@/components/dossier/similar";
 import { OpenQuestions } from "@/components/dossier/open-questions";
@@ -25,7 +26,7 @@ import { CATEGORY_LABEL, CORRECTION_NOTICE } from "@/lib/corrections";
 import { BANNER_HREF, COI_SHORT, isCoiOrganization } from "@/lib/disclosure";
 import type { Claim, Evidence } from "@/lib/domain/schemas";
 import { loadIntelligence } from "@/lib/intelligence/load";
-import { BLIND_SPOT_LABEL, COVERAGE_TASK_LABEL, dependencies, dossier, evidenceCard, OPEN_QUESTION_NOTICE, openQuestionsFor, PRESENT_SUPPORTED, plainExplanation, questionsAsText, researchCoverage, round1History, sharedGroupsOf, similarFor } from "@/lib/intelligence/service";
+import { BLIND_SPOT_LABEL, COVERAGE_TASK_LABEL, dependencies, dossier, briefingFor, evidenceCard, OPEN_QUESTION_NOTICE, openQuestionsFor, PRESENT_SUPPORTED, plainExplanation, questionsAsText, researchCoverage, round1History, sharedGroupsOf, similarFor } from "@/lib/intelligence/service";
 import { AiSlot, CounterBody, SupportingBody } from "@/components/dossier/research-slots";
 import { NotYetResearched } from "@/components/ui/ai-interpretation";
 import { CORE_RESEARCH_TASKS } from "@/lib/intelligence/status";
@@ -101,6 +102,7 @@ export default async function InitiativePage({ params }: Params) {
   const deps = dependencies(d, ini.id)[0];
   const round1 = round1History(d, ini.id)!;
   const card = evidenceCard(d, ini.id)!;
+  const briefing = briefingFor(d, ini.id)!;
   const similar = similarFor(d, ini.id) ?? [];
   const openQs = openQuestionsFor(d, ini.id) ?? [];
   // Questions from the older evidence rules that the open-question rules already cover are not repeated.
@@ -283,6 +285,8 @@ export default async function InitiativePage({ params }: Params) {
         </header>
 
         <EvidenceCard card={card} />
+
+        <BriefingView briefing={briefing} chainHref="/workspace/briefing" />
 
         <div className="mt-10">
           <RealityVsPromises x={x} />

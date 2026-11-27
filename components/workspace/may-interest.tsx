@@ -54,6 +54,12 @@ export function MayInterest({ view, targets, shared }: { view: InterestView; tar
         .
       </p>
 
+      <p className="mb-3 text-xs">
+        <Link href="/workspace/briefing" className="link" data-briefing-chain-link>
+          Briefing for all in my focus
+        </Link>
+      </p>
+
       <div className="space-y-3">
         <div>
           <p className="eyebrow mb-1">Official categories</p>

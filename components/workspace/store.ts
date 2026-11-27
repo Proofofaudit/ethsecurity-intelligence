@@ -6,7 +6,7 @@
  */
 import { useSyncExternalStore } from "react";
 import type { EvidenceStatus } from "@/lib/domain/schemas";
-import { addAffiliationEntry, EMPTY_WORKSPACE, newId, recordFundingView, removeAffiliationEntry, setAffiliationOverride, setOpenQuestionMark, WorkspaceSchema, type Fingerprint, type Priority, type Workspace } from "./schema";
+import { addAffiliationEntry, EMPTY_WORKSPACE, newId, recordFundingView, removeAffiliationEntry, setAffiliationOverride, setBriefingReadMark, setOpenQuestionMark, WorkspaceSchema, type Fingerprint, type Priority, type Workspace } from "./schema";
 import type { Tier } from "@/lib/vote/ballot-rules";
 import { applyRevisits, recordVisit, seenFromEntry, snapshotFromFeed, type ProgressState, type VisitFeedEntry } from "@/lib/workspace/progress";
 
@@ -301,4 +301,9 @@ export function addInterestKeyword(text: string) {
 
 export function removeInterestKeyword(text: string) {
   updateWorkspace((w) => ({ ...w, interest: { ...w.interest, keywords: w.interest.keywords.filter((k) => k !== text), suggested: false } }));
+}
+
+/** "Mark as read" for one briefing item (Item 12). Local only. */
+export function markBriefingItem(id: string, read: boolean) {
+  updateWorkspace((w) => ({ ...w, briefingRead: setBriefingReadMark(w.briefingRead, id, read) }));
 }

@@ -19,6 +19,7 @@ import { buildBm25, searchBm25 } from "./similarity";
 import { ROUND1_EMPTY_TEXT, ROUND1_POSSIBLE_TEXT } from "./round1";
 import { buildEvidenceCard, evidenceCardRow, type EvidenceCard, type EvidenceCardRow } from "./evidence-card";
 import { similarPairs, type SimilarLabel, type SimilarPair, type SimilarSignal } from "./similar";
+import { buildBriefing, type Briefing } from "./briefing";
 import { cohortPartyLexicon, countByCategory, openQuestions, type CategoryCounts, type OpenQuestion } from "./open-questions";
 
 export { EVIDENCE_CARD_SECTIONS, NO_LINKS_TEXT, type EvidenceCard, type EvidenceCardRow, type CardItem, type CardSection } from "./evidence-card";
@@ -1350,4 +1351,23 @@ export function blindSpotSources(d: Dataset, b: BlindSpot): SourceLink[] {
   if (out.length === 0 && official.url) out.push(official);
   const seen = new Set<string>();
   return out.filter((s) => (seen.has(s.url) ? false : (seen.add(s.url), true)));
+}
+
+// ───────────────────────────── 10-minute briefing ─────────────────────────────
+
+export { BRIEFING_MINUTES, BRIEFING_NOTE, OPTIONAL_RULE, READING_TIME_RULE, WORDS_PER_MINUTE, chainOrder, chainTotalMinutes, classifyLink, focusInitiativeIds, type Briefing, type BriefingItem } from "./briefing";
+
+/** Ordered, timed reading list for one initiative, built only from the official proposal and the Round 1 and Evidence card data when they exist. */
+export function briefingFor(d: Dataset, idOrSlug: string): Briefing | null {
+  const ini = findInitiative(d, idOrSlug);
+  if (!ini) return null;
+  const r1 = round1History(d, ini.id);
+  const card = evidenceCard(d, ini.id);
+  return buildBriefing({
+    initiative: { id: ini.id, slug: ini.slug, title: ini.title, url: ini.url, summary: ini.summary, sections: ini.sections, links: ini.links, textLinks: ini.textLinks },
+    milestones: d.milestones.filter((m) => m.initiativeId === ini.id).map((m) => ({ index: m.index, name: m.name, criteria: m.criteria, link: m.link })),
+    round1: (r1?.records ?? []).map((r) => ({ name: r.round1ProjectName, status: r.status, totalEth: r.project.totalEth ?? null, progressUpdateUrl: r.project.progressUpdateUrl ?? null, transparencyUrl: r.transparencyUrl })),
+    card: (card?.sections ?? []).map((s) => ({ title: s.title, items: s.items.map((i) => ({ label: i.label, value: i.value, link: i.link, sourceName: i.sourceName, sourceLabel: i.sourceLabel, sourceUrl: i.sourceUrl, checkedAt: i.checkedAt })) })),
+    possibleText: ROUND1_POSSIBLE_TEXT,
+  });
 }
