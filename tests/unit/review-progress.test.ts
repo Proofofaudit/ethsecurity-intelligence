@@ -6,7 +6,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { Revision } from "@/lib/domain/schemas";
 import { revisionChanges } from "@/lib/intelligence/changes";
 import { csvCell, workspaceToCsv, workspaceToJson, workspaceToMarkdown, type ExportContext } from "@/lib/workspace/export";
-import { applyRevisits, counterText, detectChanges, filterByState, recordVisit, seenFromEntry, snapshotFromFeed, type ProgressMark, type VisitFeedEntry } from "@/lib/workspace/progress";
+import { applyRevisits, backfillSeen, counterText, detectChanges, filterByState, recordVisit, seenFromEntry, snapshotFromFeed, type ProgressMark, type VisitFeedEntry } from "@/lib/workspace/progress";
 import { exportWorkspace, parseImport, WorkspaceSchema } from "@/components/workspace/schema";
 
 const rev = (n: number, over: Partial<Revision> = {}): Revision => ({
@@ -232,5 +232,67 @@ describe("store without network", () => {
     data.set("other.key", "keep");
     store.clearAllMyData();
     expect([...data.keys()]).toEqual(["other.key"]);
+  });
+
+  it("Reviewed from the initiative page (with the feed entry) turns into Revisit after a change", async () => {
+    const store = await import("@/components/workspace/store");
+    store.setReviewed("a", true, entry("a", { commentCount: 1 }));
+    store.applyVisitFeed([entry("a", { commentCount: 3 })], "ds-1");
+    const saved = JSON.parse(data.get("esi.workspace")!);
+    expect(saved.progress.a.state).toBe("revisit");
+    expect(saved.progress.a.reason).toContain("2 new comments");
+  });
+
+  it("Reviewed without a stored record gets its baseline on the next visit and reports no change", async () => {
+    const store = await import("@/components/workspace/store");
+    store.setReviewed("a", true);
+    store.applyVisitFeed([entry("a", { commentCount: 1 })], "ds-1");
+    expect(JSON.parse(data.get("esi.workspace")!).progress.a.state).toBe("reviewed");
+    store.applyVisitFeed([entry("a", { commentCount: 2 })], "ds-1");
+    expect(JSON.parse(data.get("esi.workspace")!).progress.a.state).toBe("revisit");
+  });
+
+  it("re-reviewing without an entry does not reuse an older record", async () => {
+    const store = await import("@/components/workspace/store");
+    store.setReviewed("a", true, entry("a", { commentCount: 1 }));
+    store.setReviewed("a", true);
+    expect(JSON.parse(data.get("esi.workspace")!).progress.a.seen).toBeNull();
+  });
+
+  it("legacy reviewedAt-only marks get a baseline, then revisit on change", async () => {
+    const store = await import("@/components/workspace/store");
+    data.set("esi.workspace", JSON.stringify({ version: 1, initiatives: [{ id: "a", addedAt: "2026-11-01T00:00:00Z", reviewedAt: "2026-11-02T00:00:00Z" }] }));
+    store.applyVisitFeed([entry("a", { revision: 1 })], "ds-1");
+    expect(JSON.parse(data.get("esi.workspace")!).progress.a.state).toBe("reviewed");
+    store.applyVisitFeed([entry("a", { revision: 2 })], "ds-1");
+    expect(JSON.parse(data.get("esi.workspace")!).progress.a.reason).toContain("New revision 2");
+  });
+
+  it("Clear all my data resets the theme and notifies the templates store", async () => {
+    const store = await import("@/components/workspace/store");
+    const templates = await import("@/components/lab/templates");
+    const attrs: Record<string, string> = { theme: "dark", themeChoice: "dark" };
+    const events: string[] = [];
+    vi.stubGlobal("document", { documentElement: { dataset: attrs } });
+    vi.stubGlobal("CustomEvent", class { type: string; constructor(t: string) { this.type = t; } });
+    vi.stubGlobal("window", { localStorage, matchMedia: () => ({ matches: false }), dispatchEvent: (e: { type: string }) => void events.push(e.type), addEventListener: () => undefined, removeEventListener: () => undefined });
+    data.set("esi.theme", "dark");
+    store.clearAllMyData();
+    expect(attrs.themeChoice).toBe("system");
+    expect(attrs.theme).toBe("light");
+    expect(events).toContain("esi-theme");
+    expect(data.has("esi.theme")).toBe(false);
+    expect(typeof templates.resetTemplatesCache).toBe("function");
+  });
+});
+
+describe("backfillSeen", () => {
+  it("fills only Reviewed marks without a record and returns the same object otherwise", () => {
+    const feed = [entry("a"), entry("b")];
+    const progress = { a: { state: "reviewed", at: "t", reason: null, seen: null }, b: { state: "reading", at: "t", reason: null, seen: null } } as Record<string, ProgressMark>;
+    const out = backfillSeen(progress, {}, feed);
+    expect(out.a!.seen).not.toBeNull();
+    expect(out.b!.seen).toBeNull();
+    expect(backfillSeen(out, {}, feed)).toBe(out);
   });
 });

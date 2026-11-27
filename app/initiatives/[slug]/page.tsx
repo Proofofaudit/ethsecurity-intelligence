@@ -20,6 +20,7 @@ import { DateTime, Money, NotAvailable, Pct, formatDate } from "@/components/ui/
 import { Section, Sections } from "@/components/ui/sections";
 import { StatusLegend, StatusMark } from "@/components/ui/status";
 import { ReviewedButton } from "@/components/workspace/review-button";
+import { visitFeed } from "@/lib/workspace/feed";
 import { DossierAffiliationTag, SharedGroupLine } from "@/components/workspace/affiliations";
 import { SaveButton } from "@/components/workspace/save-button";
 import { CATEGORY_LABEL, CORRECTION_NOTICE } from "@/lib/corrections";
@@ -214,7 +215,7 @@ export default async function InitiativePage({ params }: Params) {
             <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs">
               <ExternalLink href={ini.url}>Official initiative page</ExternalLink>
               <SaveButton id={ini.id} title={ini.shortTitle} />
-              <ReviewedButton id={ini.id} title={ini.shortTitle} />
+              <ReviewedButton id={ini.id} title={ini.shortTitle} entry={visitFeed(d).find((e) => e.id === ini.id)} />
               <CorrectionButton type="initiative" id={ini.id} label={ini.title} />
             </div>
             <nav aria-label="Research this initiative" className="mt-4 flex flex-wrap gap-x-4 gap-y-1.5 border-t border-rule pt-3 text-xs text-ink-3">

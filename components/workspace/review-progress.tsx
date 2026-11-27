@@ -151,7 +151,7 @@ export function ReviewProgress({ initiatives, feed, datasetVersion, exportContex
           {counterText(counts.reviewed, initiatives.length)}
         </p>
       </div>
-      <p className="mb-3 text-xs text-ink-3">Mark each initiative Not started, Reading, Reviewed or Revisit. A Reviewed initiative becomes Revisit when the published record changes, and the reason names the change. Everything stays in this browser.</p>
+      <p className="mb-3 text-xs text-ink-3">Mark each initiative Not started, Reading or Reviewed. A Reviewed initiative becomes Revisit when the published record changes, and the reason names the change. Everything stays in this browser.</p>
 
       <div className="mb-4">
         <SinceList initiatives={initiatives} feed={feed} w={w} />
@@ -183,8 +183,8 @@ export function ReviewProgress({ initiatives, feed, datasetVersion, exportContex
                   )}
                 </div>
                 <select aria-label={`Review state for ${i.label}`} className={cn(selectClass, "h-7 w-32 text-xs")} value={s} onChange={(e) => setProgressState(i.id, e.target.value as ProgressState, feedById.get(i.id))}>
-                  {PROGRESS_STATES.map((p) => (
-                    <option key={p} value={p}>
+                  {PROGRESS_STATES.filter((p) => p !== "revisit" || s === "revisit").map((p) => (
+                    <option key={p} value={p} disabled={p === "revisit"}>
                       {PROGRESS_LABEL[p]}
                     </option>
                   ))}
@@ -203,7 +203,7 @@ export function ReviewProgress({ initiatives, feed, datasetVersion, exportContex
           Export CSV
         </Button>
         <Button size="sm" onClick={() => doExport("json")}>
-          Export JSON
+          Export JSON with sources
         </Button>
         <Button size="sm" onClick={() => fileRef.current?.click()}>
           Import from export

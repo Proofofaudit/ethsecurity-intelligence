@@ -81,6 +81,12 @@ function subscribe(l: () => void) {
   };
 }
 
+/** Drops the cached list and tells mounted lists to re-read storage (used after "Clear all my data"). */
+export function resetTemplatesCache() {
+  cache = null;
+  listeners.forEach((l) => l());
+}
+
 export function useTemplates(): Template[] {
   return useSyncExternalStore(subscribe, read, () => EMPTY);
 }

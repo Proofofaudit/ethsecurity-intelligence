@@ -7,8 +7,10 @@
 import { useSyncExternalStore } from "react";
 import type { EvidenceStatus } from "@/lib/domain/schemas";
 import { addAffiliationEntry, EMPTY_WORKSPACE, newId, recordFundingView, removeAffiliationEntry, setAffiliationOverride, setBriefingReadMark, setOpenQuestionMark, WorkspaceSchema, type Fingerprint, type Priority, type Workspace } from "./schema";
+import { resetTemplatesCache } from "@/components/lab/templates";
+import { resetTheme } from "@/components/shell/theme";
 import type { Tier } from "@/lib/vote/ballot-rules";
-import { applyRevisits, recordVisit, seenFromEntry, snapshotFromFeed, type ProgressState, type VisitFeedEntry } from "@/lib/workspace/progress";
+import { applyRevisits, backfillSeen, recordVisit, seenFromEntry, snapshotFromFeed, type ProgressState, type VisitFeedEntry } from "@/lib/workspace/progress";
 
 export { WorkspaceSchema, type SavedSearch, type Workspace } from "./schema";
 
@@ -91,7 +93,7 @@ export function setProgressState(id: string, state: ProgressState, entry?: Visit
   updateWorkspace((w) => {
     const progress = { ...w.progress };
     if (state === "not_started") delete progress[id];
-    else progress[id] = { state, at: now(), reason: null, seen: state === "reviewed" ? (entry ? seenFromEntry(entry) : (w.progress[id]?.seen ?? null)) : null };
+    else progress[id] = { state, at: now(), reason: null, seen: state === "reviewed" && entry ? seenFromEntry(entry) : null };
     const reviewedAt = state === "reviewed" || state === "revisit" ? now() : null;
     return { ...w, progress, initiatives: w.initiatives.map((x) => (x.id === id ? { ...x, reviewedAt: state === "revisit" ? (x.reviewedAt ?? reviewedAt) : reviewedAt } : x)) };
   });
@@ -103,7 +105,7 @@ export function setReviewed(id: string, reviewed: boolean, entry?: VisitFeedEntr
     const has = w.initiatives.some((x) => x.id === id);
     const list = has ? w.initiatives : [...w.initiatives, { id, addedAt: now(), reviewedAt: null, priority: null }];
     const progress = { ...w.progress };
-    if (reviewed) progress[id] = { state: "reviewed", at: now(), reason: null, seen: entry ? seenFromEntry(entry) : (w.progress[id]?.seen ?? null) };
+    if (reviewed) progress[id] = { state: "reviewed", at: now(), reason: null, seen: entry ? seenFromEntry(entry) : null };
     else delete progress[id];
     return { ...w, progress, initiatives: list.map((x) => (x.id === id ? { ...x, reviewedAt: reviewed ? now() : null } : x)) };
   });
@@ -116,9 +118,10 @@ export function setReviewed(id: string, reviewed: boolean, entry?: VisitFeedEntr
 export function applyVisitFeed(feed: VisitFeedEntry[], datasetVersion: string) {
   const current = read();
   const visit = recordVisit(current.visit, snapshotFromFeed(feed, datasetVersion));
-  const progress = applyRevisits(current.progress, feed);
+  const progressFor = (w: Workspace) => applyRevisits(backfillSeen(w.progress, Object.fromEntries(w.initiatives.filter((x) => x.reviewedAt).map((x) => [x.id, x.reviewedAt as string])), feed), feed);
+  const progress = progressFor(current);
   if (visit === current.visit && progress === current.progress) return;
-  updateWorkspace((w) => ({ ...w, visit, progress: applyRevisits(w.progress, feed) }));
+  updateWorkspace((w) => ({ ...w, visit, progress: progressFor(w) }));
 }
 
 /** Removes every localStorage key this site owns (all keys starting with "esi.") and resets the in-memory state. */
@@ -135,6 +138,8 @@ export function clearAllMyData() {
   }
   cache = null;
   listeners.forEach((l) => l());
+  resetTheme();
+  resetTemplatesCache();
 }
 
 export function setPriority(id: string, priority: Priority | null) {

@@ -1,16 +1,17 @@
 "use client";
 
 import { cn } from "@/lib/util/cn";
+import type { VisitFeedEntry } from "@/lib/workspace/progress";
 import { setReviewed, useWorkspace } from "./store";
 
 /** Marks an initiative as reviewed in the private workspace (stored only in this browser). */
-export function ReviewedButton({ id, title, className }: { id: string; title: string; className?: string }) {
+export function ReviewedButton({ id, title, className, entry }: { id: string; title: string; className?: string; entry?: VisitFeedEntry }) {
   const w = useWorkspace();
   const reviewed = !!w.initiatives.find((x) => x.id === id)?.reviewedAt;
   return (
     <button
       type="button"
-      onClick={() => setReviewed(id, !reviewed)}
+      onClick={() => setReviewed(id, !reviewed, entry)}
       aria-pressed={reviewed}
       aria-label={reviewed ? `Reviewed: clear the mark on ${title}` : `Mark reviewed: ${title}`}
       title="Stored in this browser only"

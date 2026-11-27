@@ -152,6 +152,25 @@ export function applyRevisits(progress: Record<string, ProgressMark>, feed: Visi
   return next;
 }
 
+/**
+ * Gives Reviewed marks that have no stored record (set from the initiative page without a feed entry,
+ * or older workspaces that only have `reviewedAt`) a baseline from the current feed. Reports no change:
+ * the baseline is simply the record as it stands now. Returns the same object when nothing needed one.
+ */
+export function backfillSeen(progress: Record<string, ProgressMark>, legacyReviewedAt: Record<string, string>, feed: VisitFeedEntry[], now = new Date()): Record<string, ProgressMark> {
+  let next = progress;
+  for (const e of feed) {
+    const mark = progress[e.id];
+    let fill: ProgressMark | null = null;
+    if (mark?.state === "reviewed" && !mark.seen) fill = { ...mark, seen: seenFromEntry(e) };
+    else if (!mark && legacyReviewedAt[e.id] !== undefined) fill = { state: "reviewed", at: legacyReviewedAt[e.id] || now.toISOString(), reason: null, seen: seenFromEntry(e) };
+    if (!fill) continue;
+    if (next === progress) next = { ...progress };
+    next[e.id] = fill;
+  }
+  return next;
+}
+
 export function filterByState<T extends { id: string }>(items: T[], stateOf: (id: string) => ProgressState, filter: ProgressState | "all"): T[] {
   return filter === "all" ? items : items.filter((i) => stateOf(i.id) === filter);
 }

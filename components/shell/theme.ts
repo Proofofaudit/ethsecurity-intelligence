@@ -19,3 +19,11 @@ export function setTheme(choice: ThemeChoice) {
   document.documentElement.dataset.themeChoice = choice;
   window.dispatchEvent(new CustomEvent("esi-theme", { detail: choice }));
 }
+
+/** Back to the system theme after "Clear all my data" (the stored choice is already removed). No-op outside a browser. */
+export function resetTheme() {
+  if (typeof document === "undefined") return;
+  document.documentElement.dataset.theme = resolvedTheme("system");
+  document.documentElement.dataset.themeChoice = "system";
+  window.dispatchEvent(new CustomEvent("esi-theme", { detail: "system" }));
+}

@@ -161,8 +161,8 @@ export function WorkspaceView({ initiatives, changes, datasetVersion, vote, revi
       <div className="flex flex-wrap items-center justify-between gap-3 border-y border-rule py-3">
         <p className="max-w-[720px] text-xs text-ink-2">No wallet, vote or personal voting choice is collected. Clearing this site&apos;s data in the browser deletes the workspace, so export it to keep a copy or to move it to another device.</p>
         <div className="flex flex-wrap gap-2">
-          <Button size="sm" onClick={doExport}>
-            Export JSON
+          <Button size="sm" onClick={doExport} title="The workspace only, without dataset context. Review progress below has the export with sources.">
+            Export workspace JSON
           </Button>
           <Button size="sm" onClick={() => fileRef.current?.click()}>
             Import JSON
