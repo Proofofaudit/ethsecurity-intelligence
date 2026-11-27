@@ -94,6 +94,18 @@ export const Interest = z.object({
 });
 export type Interest = z.infer<typeof Interest>;
 
+/** "Mark as asked or resolved" on dossier open questions, keyed by the stable question id. */
+export const OpenQuestionMarks = z.record(Id, z.object({ markedAt: When })).refine((r) => Object.keys(r).length <= 5000, "Too many marked questions");
+export type OpenQuestionMarks = z.infer<typeof OpenQuestionMarks>;
+
+/** Sets or clears the local mark for one open question. */
+export function setOpenQuestionMark(marks: OpenQuestionMarks, id: string, marked: boolean, now = new Date()): OpenQuestionMarks {
+  const next = { ...marks };
+  if (marked) next[id] = { markedAt: now.toISOString() };
+  else delete next[id];
+  return next;
+}
+
 export const WorkspaceSchema = z
   .object({
     version: z.literal(1),
@@ -112,6 +124,8 @@ export const WorkspaceSchema = z
     ballotDraft: BallotDraft.nullable().default(null),
     affiliations: Affiliations.default({ entries: [], overrides: {}, suggested: false }),
     interest: Interest.default({ focus: [], keywords: [], suggested: false }),
+    /** Rule-based open questions the holder marked as asked or resolved: question id → when. Never sent anywhere. */
+    openQuestions: OpenQuestionMarks.default({}),
   })
   .passthrough();
 export type Workspace = z.infer<typeof WorkspaceSchema>;

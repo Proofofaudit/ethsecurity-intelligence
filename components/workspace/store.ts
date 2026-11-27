@@ -6,7 +6,7 @@
  */
 import { useSyncExternalStore } from "react";
 import type { EvidenceStatus } from "@/lib/domain/schemas";
-import { addAffiliationEntry, EMPTY_WORKSPACE, newId, recordFundingView, removeAffiliationEntry, setAffiliationOverride, WorkspaceSchema, type Fingerprint, type Priority, type Workspace } from "./schema";
+import { addAffiliationEntry, EMPTY_WORKSPACE, newId, recordFundingView, removeAffiliationEntry, setAffiliationOverride, setOpenQuestionMark, WorkspaceSchema, type Fingerprint, type Priority, type Workspace } from "./schema";
 import type { Tier } from "@/lib/vote/ballot-rules";
 
 export { WorkspaceSchema, type SavedSearch, type Workspace } from "./schema";
@@ -236,6 +236,11 @@ export function applyPublicSuggestion(organizations: string[], expertise: string
     for (const e of expertise) if (e.trim() && !keywords.some((k) => k.toLowerCase() === e.trim().toLowerCase())) keywords.push(e.trim().slice(0, 80));
     return { ...w, affiliations: { ...a, suggested: true }, interest: { ...w.interest, keywords: keywords.slice(0, 30), suggested: true } };
   });
+}
+
+/** "Mark as asked or resolved" for one open question. Local only; the app never sends questions anywhere. */
+export function markOpenQuestion(id: string, marked: boolean) {
+  updateWorkspace((w) => ({ ...w, openQuestions: setOpenQuestionMark(w.openQuestions, id, marked) }));
 }
 
 export function toggleFocus(id: string) {

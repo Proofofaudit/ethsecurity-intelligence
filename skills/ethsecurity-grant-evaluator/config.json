@@ -3,7 +3,7 @@
   "promptVersion": "2026.11-lab-v1",
   "skillName": "ethsecurity-grant-evaluator",
   "dataset": {
-    "version": "20261126T130839Z-fe7ea363+b722787c",
+    "version": "20261126T130839Z-fe7ea363+6037f3f0",
     "methodologyVersion": "2026.11-v1",
     "cohortSize": 55,
     "cohortFrozenAt": "2026-11-26T09:19:49.152Z",

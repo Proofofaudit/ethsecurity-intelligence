@@ -42,6 +42,12 @@ import {
   metricsFor,
   pairDetails,
   similarFor,
+  OPEN_QUESTION_CATEGORIES,
+  OPEN_QUESTION_NOTICE,
+  OPEN_QUESTION_RULES,
+  OPEN_QUESTIONS_VERSION,
+  openQuestionRows,
+  openQuestionsFor,
   similarPairsOf,
   HYPOTHESIS_NOTICE,
   SIMILAR_METHOD_VERSION,
@@ -82,7 +88,7 @@ const Cursor = z
   .describe("nextCursor from the previous page.");
 const Ref = IdParam.describe("Initiative id or slug.");
 
-const SECTIONS = ["overview", "proposal", "milestones", "funding", "claims", "evidence", "team", "technical", "reality", "related", "blind_spots", "changes", "revisions", "metrics", "research_jobs", "evidence_card", "similar"] as const;
+const SECTIONS = ["overview", "proposal", "milestones", "funding", "claims", "evidence", "team", "technical", "reality", "related", "blind_spots", "changes", "revisions", "metrics", "research_jobs", "evidence_card", "similar", "open_questions"] as const;
 const DEFAULT_SECTIONS: (typeof SECTIONS)[number][] = ["overview", "milestones", "funding", "reality"];
 const COMPARE_GROUPS = ["Overview", "Security problem", "Funding", "Milestones", "Adoption", "Evidence", "Existing work", "Technical", "Dependencies", "Beneficiaries", "Maintenance"] as const;
 const EXPORT_PARTS = ["initiatives", "milestones", "pledges", "claims", "evidence", "relationships"] as const;
@@ -303,6 +309,7 @@ export async function createServer(opts: ServerOptions = {}): Promise<McpServer>
       if (want.has("research_jobs")) out.researchJobs = x.researchJobs;
       if (want.has("evidence_card")) out.evidenceCard = evidenceCard(d, ini.id);
       if (want.has("similar")) out.similar = { method: SIMILAR_METHOD_VERSION, order: "Alphabetical (neutral) by the other initiative's title.", notice: HYPOTHESIS_NOTICE, items: similarFor(d, ini.id) };
+      if (want.has("open_questions")) out.openQuestions = { method: OPEN_QUESTIONS_VERSION, notice: OPEN_QUESTION_NOTICE, order: "By category, then rule number.", items: openQuestionsFor(d, ini.id) };
       const evidenceUrls = want.has("evidence") || want.has("claims") ? x.evidence.map((e) => e.url) : [];
       return wrap(d, out, { sources: [...initiativeSources(ini), ...evidenceUrls] });
     },
@@ -517,9 +524,25 @@ export async function createServer(opts: ServerOptions = {}): Promise<McpServer>
 
   register(
     "find_evidence_gaps",
-    z.object({ initiative: Ref.optional(), categories: z.array(z.enum(BLIND_SPOT_CATEGORIES)).min(1).optional(), importance: z.enum(["higher", "standard"]).optional(), limit: Limit, cursor: Cursor }).strict(),
-    ({ initiative, categories, importance, limit, cursor }, { dataset: d }) => {
+    z
+      .object({
+        initiative: Ref.optional(),
+        method: z.enum(["blind_spots", "open_questions"]).optional().describe("blind_spots (default): evidence-record blind spots. open_questions: rule-based open questions from gaps in official fields (counts per category for all initiatives without `initiative`)."),
+        categories: z.array(z.enum(BLIND_SPOT_CATEGORIES)).min(1).optional(),
+        questionCategories: z.array(z.enum(OPEN_QUESTION_CATEGORIES)).min(1).optional().describe("With method open_questions: only these categories."),
+        importance: z.enum(["higher", "standard"]).optional(),
+        limit: Limit,
+        cursor: Cursor,
+      })
+      .strict(),
+    ({ initiative, method, categories, questionCategories, importance, limit, cursor }, { dataset: d }) => {
       const ini = initiative ? requireIni(d, initiative) : undefined;
+      if (method === "open_questions") {
+        const base = { method: OPEN_QUESTIONS_VERSION, notice: OPEN_QUESTION_NOTICE, rules: OPEN_QUESTION_RULES };
+        if (!ini) return wrap(d, { ...base, order: "Alphabetical (neutral) by title.", ...paginate(openQuestionRows(d), page(limit, cursor)) });
+        const items = (openQuestionsFor(d, ini.id) ?? []).filter((q) => !questionCategories || questionCategories.includes(q.category));
+        return wrap(d, { ...base, order: "By category, then rule number.", ...paginate(items, page(limit, cursor)) }, { sources: initiativeSources(ini) });
+      }
       const items = blindSpots(d)
         .filter((b) => (!ini || b.initiativeId === ini.id) && (!categories || categories.includes(b.category)) && (!importance || b.importance === importance))
         .map((b) => ({ ...b, categoryLabel: BLIND_SPOT_LABEL[b.category] }));

@@ -3,7 +3,7 @@
   "language": "en-US",
   "ignorePaths": ["node_modules", ".next", "data", ".scratch", "package-lock.json", "skills/ethsecurity-*"],
   "words": [
-    "Aderyn", "Besu", "Blockscout", "Certora", "Erigon", "Gigahorse", "Halmos", "hevm", "Kontrol", "Mythril", "Prysm", "Rabby", "Semgrep", "stopword", "stopwords", "Teku",
+    "Aderyn", "Codeberg", "Owney", "owney", "Besu", "Blockscout", "Certora", "Erigon", "Gigahorse", "Halmos", "hevm", "Kontrol", "Mythril", "Prysm", "Rabby", "Semgrep", "stopword", "stopwords", "Teku",
     "ained", "ainer", "ainers", "aining", "ains", "ance", "ation", "ations", "backtest", "backtestable", "beneficiar", "bigram", "bigrams", "bmaint",
     "cmdk", "colibri", "collabAssumption", "collabItems", "defi", "deserv", "doesnotexist", "dprk", "eips", "enance", "ethsecurity", "fmax", "fmin",
     "frontends", "funder", "giveth", "gmax", "gmin", "herfindahl", "hirschman", "hyps", "idxs", "infraops", "inis", "integrat", "kleros", "lede", "lockdown",

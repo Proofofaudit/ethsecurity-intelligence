@@ -10,6 +10,7 @@ import { RealityVsPromises } from "@/components/dossier/reality";
 import { EvidenceCard } from "@/components/dossier/evidence-card";
 import { Round1History } from "@/components/dossier/round1";
 import { SimilarInitiatives } from "@/components/dossier/similar";
+import { OpenQuestions } from "@/components/dossier/open-questions";
 import { ExternalLink, Tag } from "@/components/ui/button";
 import { FundingBar, FundingLegend } from "@/components/ui/charts";
 import { Note } from "@/components/ui/layout";
@@ -24,7 +25,7 @@ import { CATEGORY_LABEL, CORRECTION_NOTICE } from "@/lib/corrections";
 import { BANNER_HREF, COI_SHORT, isCoiOrganization } from "@/lib/disclosure";
 import type { Claim, Evidence } from "@/lib/domain/schemas";
 import { loadIntelligence } from "@/lib/intelligence/load";
-import { BLIND_SPOT_LABEL, dependencies, dossier, evidenceCard, PRESENT_SUPPORTED, plainExplanation, round1History, sharedGroupsOf, similarFor } from "@/lib/intelligence/service";
+import { BLIND_SPOT_LABEL, dependencies, dossier, evidenceCard, OPEN_QUESTION_NOTICE, openQuestionsFor, PRESENT_SUPPORTED, plainExplanation, questionsAsText, round1History, sharedGroupsOf, similarFor } from "@/lib/intelligence/service";
 import { CORE_RESEARCH_TASKS } from "@/lib/intelligence/status";
 import { THEDAO_ASK_CAP_CENTS } from "@/lib/metrics/ask";
 import { formatPct, formatUsd } from "@/lib/util/money";
@@ -99,8 +100,12 @@ export default async function InitiativePage({ params }: Params) {
   const round1 = round1History(d, ini.id)!;
   const card = evidenceCard(d, ini.id)!;
   const similar = similarFor(d, ini.id) ?? [];
+  const openQs = openQuestionsFor(d, ini.id) ?? [];
+  // Questions from the older evidence rules that the open-question rules already cover are not repeated.
+  const coveredRefs = new Set(openQs.filter((q) => q.ruleId === "adoption_named_party" || q.ruleId === "existing_claim_without_link").map((q) => q.ref));
+  const otherSpots = x.blindSpots.filter((b) => !((b.category === "adoption_dependency" || b.category === "unconfirmed_integration") && b.refs.some((r) => coveredRefs.has(r))));
+  const otherMilestoneQs = x.milestones.flatMap((ms) => ms.questions.filter((q) => q.code !== "no_target_month" && !(q.code === "adoption_dependency" && coveredRefs.has(ms.id))).map((q) => ({ ms, q })));
   const higher = x.blindSpots.filter((b) => b.importance === "higher");
-  const standard = x.blindSpots.filter((b) => b.importance === "standard");
   const recipient = x.organization?.name ?? ini.recipientTeam;
   const quote = (key: string) => {
     const s = sec(key);
@@ -256,7 +261,11 @@ export default async function InitiativePage({ params }: Params) {
                 {supported.length} of {x.claims.length}
               </dd>
               <dt className="text-ink-3">Open questions</dt>
-              <dd className="num text-right">{x.blindSpots.length + x.milestones.reduce((s, ms) => s + ms.questions.length, 0)}</dd>
+              <dd className="num text-right">
+                <a href="#questions" className="hover:text-accent">
+                  {openQs.length}
+                </a>
+              </dd>
               <dt className="text-ink-3">Research freshness</dt>
               <dd className="text-right">{lastJob ? <DateTime iso={lastJob} /> : <NotAvailable reason="No research job has run" />}</dd>
               <dt className="text-ink-3">Automated checks</dt>
@@ -310,7 +319,7 @@ export default async function InitiativePage({ params }: Params) {
                   </ul>
                   {higher.length > 4 && (
                     <a href="#questions" className="mt-2 inline-block text-xs text-ink-3 hover:text-accent">
-                      {higher.length - 4} more in Unresolved questions <ArrowRight />
+                      {higher.length - 4} more under Open questions <ArrowRight />
                     </a>
                   )}
                 </Sub>
@@ -689,35 +698,35 @@ export default async function InitiativePage({ params }: Params) {
               </div>
             </Section>
 
-            <Section id="questions" n={16} title="Unresolved questions" meta={`${x.blindSpots.length + x.milestones.reduce((s, ms) => s + ms.questions.length, 0)} open`}>
-              <div className="max-w-[880px] space-y-5">
-                {[...higher, ...standard].length > 0 && (
-                  <ul className="divide-y divide-rule border-y border-rule">
-                    {[...higher, ...standard].map((b) => (
-                      <li key={b.id} className="grid grid-cols-[180px_1fr] gap-4 py-2 text-sm max-sm:grid-cols-1 max-sm:gap-0.5">
-                        <span className="text-xs text-ink-3">
-                          {BLIND_SPOT_LABEL[b.category]}
-                          {b.importance === "higher" && <span className="block text-st-partial">Higher importance</span>}
-                        </span>
-                        <span>{b.question}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-                <Sub title="Milestone questions">
-                  {x.milestones.some((ms) => ms.questions.length) ? (
-                    <ul className="space-y-1 text-sm">
-                      {x.milestones.flatMap((ms) =>
-                        ms.questions.map((q) => (
-                          <li key={`${ms.id}-${q.code}`}>
-                            <span className="num mr-2 text-xs text-ink-3">M{ms.index + 1}</span>
-                            {q.question}
-                          </li>
-                        )),
-                      )}
+            <Section id="questions" n={16} title="Open questions" meta={`${openQs.length} rule-based ${openQs.length === 1 ? "question" : "questions"} · ${otherSpots.length + otherMilestoneQs.length} from the evidence rules`}>
+              <div className="space-y-6">
+                <OpenQuestions items={openQs} notice={OPEN_QUESTION_NOTICE} copyText={questionsAsText(ini.title, openQs)} quoteSource="TheDAO API milestone record" />
+                <Sub title="Other questions from the evidence rules" className="max-w-[880px]">
+                  <Note className="mb-2">Raised by the blind-spot and milestone rules. Questions the open-question rules above already ask are not repeated.</Note>
+                  {otherSpots.length > 0 && (
+                    <ul className="divide-y divide-rule border-y border-rule">
+                      {[...otherSpots.filter((b) => b.importance === "higher"), ...otherSpots.filter((b) => b.importance === "standard")].map((b) => (
+                        <li key={b.id} className="grid grid-cols-[180px_1fr] gap-4 py-2 text-sm max-sm:grid-cols-1 max-sm:gap-0.5">
+                          <span className="text-xs text-ink-3">
+                            {BLIND_SPOT_LABEL[b.category]}
+                            {b.importance === "higher" && <span className="block text-st-partial">Higher importance</span>}
+                          </span>
+                          <span>{b.question}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {otherMilestoneQs.length > 0 ? (
+                    <ul className="mt-3 space-y-1 text-sm">
+                      {otherMilestoneQs.map(({ ms, q }) => (
+                        <li key={`${ms.id}-${q.code}`}>
+                          <span className="num mr-2 text-xs text-ink-3">M{ms.index + 1}</span>
+                          {q.question}
+                        </li>
+                      ))}
                     </ul>
                   ) : (
-                    <p className="text-sm text-ink-3">The milestone rules raised no questions.</p>
+                    otherSpots.length === 0 && <p className="text-sm text-ink-3">The evidence rules raised no further questions.</p>
                   )}
                 </Sub>
               </div>

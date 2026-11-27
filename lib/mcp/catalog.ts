@@ -30,7 +30,7 @@ export const TOOLS: ToolInfo[] = [
     name: "get_initiative",
     title: "Get an initiative dossier",
     description:
-      "Research dossier for one initiative by id or slug. Choose sections: overview, proposal, milestones, funding, claims, evidence, team, technical, reality, related, blind_spots, changes, revisions, metrics, research_jobs, evidence_card, similar. Default: overview, milestones, funding, reality.",
+      "Research dossier for one initiative by id or slug. Choose sections: overview, proposal, milestones, funding, claims, evidence, team, technical, reality, related, blind_spots, changes, revisions, metrics, research_jobs, evidence_card, similar, open_questions. Default: overview, milestones, funding, reality.",
     covers: [
       { name: "get_initiative", how: "Default sections." },
       { name: "get_milestones", how: "sections: [\"milestones\"]" },
@@ -38,6 +38,7 @@ export const TOOLS: ToolInfo[] = [
       { name: "get_funding_breakdown", how: "sections: [\"funding\"]" },
       { name: "get_evidence_card", how: "sections: [\"evidence_card\"] (sourced facts with checked-on dates)" },
       { name: "get_similar_initiatives", how: "sections: [\"similar\"] (similar-initiative pairs with signals and quotes)" },
+      { name: "get_open_questions", how: "sections: [\"open_questions\"] (rule-based questions from gaps in official fields)" },
     ],
   },
   {
@@ -126,8 +127,11 @@ export const TOOLS: ToolInfo[] = [
   {
     name: "find_evidence_gaps",
     title: "Evidence gaps and open questions",
-    description: "Research blind spots: adoption dependencies, brief acceptance criteria, unconfirmed integrations, unsupported figures, missing maintenance plans and possible overlaps, each with the question to ask and its basis. Filter by initiative, category or importance. Paginated.",
-    covers: [{ name: "find_evidence_gaps", how: "Direct." }],
+    description: "Research blind spots: adoption dependencies, brief acceptance criteria, unconfirmed integrations, unsupported figures, missing maintenance plans and possible overlaps, each with the question to ask and its basis. Filter by initiative, category or importance. method \"open_questions\" returns the rule-based open questions (Timeline, Delivery, Funding, Adoption, Evidence) for one initiative, or counts per category for all initiatives. Paginated.",
+    covers: [
+      { name: "find_evidence_gaps", how: "Direct." },
+      { name: "get_open_questions", how: "method: \"open_questions\"" },
+    ],
   },
   {
     name: "simulate_portfolio",

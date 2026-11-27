@@ -17,6 +17,7 @@ export const ADVANCED_VIEWS: PageItem[] = [
   { label: "Compare initiatives", href: "/research/compare", hint: "Side by side, two to five initiatives", keywords: "comparison versus" },
   { label: "Relationship graph", href: "/research/graph", hint: "Organizations, backers, repositories and initiatives", keywords: "network entity map connections" },
   { label: "Security coverage map", href: "/research/coverage", hint: "Lifecycle stages and the initiatives addressing them", keywords: "lifecycle stages gaps" },
+  { label: "Open questions, all initiatives", href: "/research/questions", hint: "Rule-based questions per category, alphabetical", keywords: "questions gaps timeline delivery funding adoption evidence" },
   { label: "Research blind spots", href: "/research/blind-spots", hint: "Open questions raised by the evidence record", keywords: "questions gaps uncertainty" },
   { label: "Changes over time", href: "/research/changes", hint: "Funding, revisions and corrections", keywords: "time machine history diff" },
   { label: "What-if laboratory", href: "/research/what-if", hint: "Exploration only, not a prediction", keywords: "scenario simulate budget" },

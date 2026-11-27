@@ -9,6 +9,7 @@ import { describe, expect, it } from "vitest";
 import { FOCUS_MODE_TABLE, KEYWORD_ENDINGS } from "@/lib/vote/interest";
 import { MODE_BY_ID } from "@/lib/skills/modes";
 import { SHARED_HOSTS } from "@/lib/intelligence/round1";
+import { LIST_ONLY_NAMES, NOT_A_PARTY, OPEN_QUESTION_NOTICE, OPEN_QUESTION_RULES } from "@/lib/intelligence/open-questions";
 import { BOILERPLATE_PHRASES, GENERIC_KEYWORD_WORDS, HYPOTHESIS_NOTICE, KEYWORD_STOPWORDS, SIMILAR_THRESHOLDS, TECHNOLOGIES } from "@/lib/intelligence/similar";
 import { CONNECTING_WORDS, GENERIC_WORDS, LEADING_FREE_WORDS, OPTIONAL_WORDS, SAME_NAME_OPTIONAL_WORDS } from "@/lib/vote/affiliation";
 
@@ -71,5 +72,16 @@ describe("METHODOLOGY.md", () => {
     expect(doc).toContain(`strong from ${SIMILAR_THRESHOLDS.keywordStrongMin} phrases`);
     expect(doc).toContain(`used by more than ${SIMILAR_THRESHOLDS.keywordMaxInitiatives} initiatives`);
     for (const s of ["## Similar initiatives", HYPOTHESIS_NOTICE, "Same organization", "Possible overlap", "Possible complement", "is hidden"]) expect(doc).toContain(s);
+  });
+
+  it("lists the open-question rules, templates and word lists exactly (Item 11)", () => {
+    expect(doc).toContain("## Open questions");
+    expect(doc).toContain(OPEN_QUESTION_NOTICE.replace(/\.$/, ""));
+    for (const r of OPEN_QUESTION_RULES) {
+      expect(doc).toContain(`| ${r.n} | ${r.label} |`);
+      expect(doc).toContain(`| ${r.category} | ${r.template} |`);
+    }
+    expect(doc).toContain(`(\`NOT_A_PARTY\`): ${NOT_A_PARTY.join(", ")}, plus numbers, amounts and dates.`);
+    expect(doc).toContain(`(\`LIST_ONLY_NAMES\`): ${LIST_ONLY_NAMES.join(", ")}.`);
   });
 });

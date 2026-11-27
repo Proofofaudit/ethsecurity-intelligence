@@ -83,6 +83,7 @@ beforeAll(async () => {
     round1: import("@/app/api/v1/initiatives/[id]/round1/route"),
     evidenceCard: import("@/app/api/v1/initiatives/[id]/evidence-card/route"),
     similar: import("@/app/api/v1/initiatives/[id]/similar/route"),
+    openQuestions: import("@/app/api/v1/open-questions/route"),
     organization: import("@/app/api/v1/organizations/[id]/route"),
     entity: import("@/app/api/v1/entities/[type]/[id]/route"),
     claim: import("@/app/api/v1/claims/[id]/route"),
@@ -292,6 +293,23 @@ describe("read endpoints", () => {
       for (const s of quoted) expect(s.quotes.map((q: { initiativeId: string }) => q.initiativeId)).toEqual([ini.id, it.other.id]);
     }
     expectError(await get("similar", "/initiatives/nope/similar", { id: "nope" }), 404, "not_found");
+  });
+
+  it("serves open-question counts for all 55 initiatives alphabetically and the questions of one initiative", async () => {
+    const all = await get("openQuestions", "/open-questions");
+    expect(all.status).toBe(200);
+    expectEnvelope(all.json);
+    expect(all.json.data.method).toBe("open-questions@1");
+    expect(all.json.data.notice).toBe("A question is not an accusation and not a finding that something is wrong.");
+    const titles = all.json.data.rows.map((r: { title: string }) => r.title);
+    expect(titles).toHaveLength(55);
+    expect(titles).toEqual([...titles].sort((a: string, b: string) => a.localeCompare(b, "en")));
+    const rfp = d.initiatives.find((i) => i.type === "rfp")!;
+    const one = await get("openQuestions", `/open-questions?initiative=${rfp.slug}&categories=Delivery`);
+    expect(one.status).toBe(200);
+    expect(one.json.data.items.map((q: { question: string }) => q.question)).toContain("Who is expected to deliver?");
+    for (const q of one.json.data.items) expect(q.category).toBe("Delivery");
+    expectError(await get("openQuestions", "/open-questions?initiative=nope"), 404, "not_found");
   });
 
   it("serves the vote manifest from the published dataset with its alignment result", async () => {

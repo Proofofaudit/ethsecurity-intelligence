@@ -41,6 +41,7 @@ describe("Methodology Privacy section", () => {
     for (const key of Object.keys(PRIVACY_LOCAL_KEYS)) expect(src).toContain(`PRIVACY_LOCAL_KEYS.${key}`);
     expect(src).toContain("CONTACT_RETENTION_DAYS");
     expect(CONTACT_RETENTION_DAYS).toBe(30);
+    expect(src).toContain("the open questions you marked as asked or resolved");
     for (const never of ["Votes, ballots, wallet addresses", "Search text", "AI Lab prompts", "names you type"]) expect(src).toContain(never);
   });
 

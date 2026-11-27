@@ -178,6 +178,21 @@ describe("MCP tool execution", () => {
     expect(vm.alignment).toEqual(d.vote.alignment);
   });
 
+  it("returns open questions through get_initiative and find_evidence_gaps", async () => {
+    const ini = d.initiatives.find((i) => i.type === "rfp")!;
+    const sec = data(await call("get_initiative", { id: ini.slug, sections: ["open_questions"] }));
+    expect(sec.openQuestions.method).toBe("open-questions@1");
+    expect(sec.openQuestions.items.map((q: { question: string }) => q.question)).toContain("Who is expected to deliver?");
+    const rows = data(await call("find_evidence_gaps", { method: "open_questions", limit: 50 }));
+    expect(rows.items).toHaveLength(50);
+    const rest = data(await call("find_evidence_gaps", { method: "open_questions", limit: 50, cursor: rows.nextCursor }));
+    const titles = [...rows.items, ...rest.items].map((r: { title: string }) => r.title);
+    expect(titles).toHaveLength(55);
+    expect(titles).toEqual([...titles].sort((a: string, b: string) => a.localeCompare(b, "en")));
+    const items = data(await call("find_evidence_gaps", { method: "open_questions", initiative: ini.slug, questionCategories: ["Delivery"] }));
+    expect(items.items.every((q: { category: string }) => q.category === "Delivery")).toBe(true);
+  });
+
   it("keeps every dossier with all sections within the result limit", async () => {
     const sections = ["overview", "proposal", "milestones", "funding", "claims", "evidence", "team", "technical", "reality", "related", "blind_spots", "changes", "revisions", "metrics", "research_jobs", "evidence_card"];
     for (const ini of d.initiatives) {

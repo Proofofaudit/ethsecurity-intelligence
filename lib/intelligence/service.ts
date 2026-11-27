@@ -19,9 +19,20 @@ import { buildBm25, searchBm25 } from "./similarity";
 import { ROUND1_EMPTY_TEXT, ROUND1_POSSIBLE_TEXT } from "./round1";
 import { buildEvidenceCard, evidenceCardRow, type EvidenceCard, type EvidenceCardRow } from "./evidence-card";
 import { similarPairs, type SimilarLabel, type SimilarPair, type SimilarSignal } from "./similar";
+import { cohortPartyLexicon, countByCategory, openQuestions, type CategoryCounts, type OpenQuestion } from "./open-questions";
 
 export { EVIDENCE_CARD_SECTIONS, NO_LINKS_TEXT, type EvidenceCard, type EvidenceCardRow, type CardItem, type CardSection } from "./evidence-card";
 export { possibleSelfPledge, SELF_PLEDGE_LABEL } from "./self-pledge";
+export {
+  OPEN_QUESTION_CATEGORIES,
+  OPEN_QUESTION_NOTICE,
+  OPEN_QUESTION_RULES,
+  OPEN_QUESTIONS_VERSION,
+  questionsAsText,
+  type CategoryCounts,
+  type OpenQuestion,
+  type OpenQuestionCategory,
+} from "./open-questions";
 export { HYPOTHESIS_NOTICE, SIMILAR_LABELS, SIMILAR_METHOD_VERSION, type SimilarLabel, type SimilarPair, type SimilarQuote, type SimilarSignal } from "./similar";
 
 export const PRESENT_SUPPORTED: EvidenceStatus[] = ["independently_verified", "partially_supported"];
@@ -1197,6 +1208,58 @@ export function similarFor(d: Dataset, idOrSlug: string): SimilarItem[] | null {
 export function similarLabelsById(d: Dataset): Map<string, Set<SimilarLabel>> {
   const out = new Map<string, Set<SimilarLabel>>();
   for (const p of similarPairsOf(d)) for (const id of [p.a, p.b]) out.set(id, new Set([...(out.get(id) ?? []), p.label]));
+  return out;
+}
+
+// ───────────────────────────── Open questions ─────────────────────────────
+
+const lexiconCache = new WeakMap<Dataset, string[]>();
+function partyLexicon(d: Dataset): string[] {
+  const hit = lexiconCache.get(d);
+  if (hit) return hit;
+  const out = cohortPartyLexicon(d.milestones, d.organizations);
+  lexiconCache.set(d, out);
+  return out;
+}
+
+function openQuestionsOf(d: Dataset, ini: Initiative): OpenQuestion[] {
+  return openQuestions({
+    initiative: ini,
+    organization: d.organizations.find((o) => o.id === ini.organizationId) ?? null,
+    milestones: d.milestones.filter((m) => m.initiativeId === ini.id).sort((a, b) => a.index - b.index),
+    pledges: d.pledges.filter((p) => p.initiativeId === ini.id),
+    claims: d.claims.filter((c) => c.initiativeId === ini.id),
+    lexicon: partyLexicon(d),
+  });
+}
+
+/** Rule-based open questions for one initiative (open-questions@1), ordered by category and rule. Null when the initiative is unknown. */
+export function openQuestionsFor(d: Dataset, idOrSlug: string): OpenQuestion[] | null {
+  const ini = findInitiative(d, idOrSlug);
+  return ini ? openQuestionsOf(d, ini) : null;
+}
+
+export interface OpenQuestionRow {
+  id: string;
+  slug: string;
+  title: string;
+  type: Initiative["type"];
+  counts: CategoryCounts;
+  total: number;
+}
+
+const oqRowsCache = new WeakMap<Dataset, OpenQuestionRow[]>();
+/** Open-question counts per category for every initiative, in alphabetical order of titles. */
+export function openQuestionRows(d: Dataset): OpenQuestionRow[] {
+  const hit = oqRowsCache.get(d);
+  if (hit) return hit;
+  const out = [...d.initiatives]
+    .sort((a, b) => a.title.localeCompare(b.title, "en") || (a.id < b.id ? -1 : 1))
+    .map((ini) => {
+      const qs = openQuestionsOf(d, ini);
+      return { id: ini.id, slug: ini.slug, title: ini.title, type: ini.type, counts: countByCategory(qs), total: qs.length };
+    });
+  oqRowsCache.set(d, out);
   return out;
 }
 
