@@ -585,7 +585,9 @@ export function blindSpots(d: Dataset): BlindSpot[] {
     if (maintenanceStatements(ini).length === 0)
       out.push({ id: `bs_${ini.id}_maint`, initiativeId: ini.id, category: "maintenance_statement_absent", importance: "standard", question: "Who maintains the deliverables after funding ends, and how is that funded?", basis: "No sentence in the proposal text contains the word “maintain” or “maintenance”.", refs: [] });
     const s = summarize(d, ini);
-    if (ini.type === "grant" && !s.hasExistingWork)
+    // Only after the checks ran: missing research is "Not yet researched", never a gap (Item 14).
+    const checked = (["github", "websites"] as const).every((t) => d.researchJobs.some((j) => j.initiativeId === ini.id && j.task === t && j.state === "succeeded"));
+    if (ini.type === "grant" && checked && !s.hasExistingWork)
       out.push({ id: `bs_${ini.id}_existing`, initiativeId: ini.id, category: "no_linked_existing_work", importance: "higher", question: "What exists today, and where can reviewers inspect it?", basis: "The research pipeline found no cited public repository confirmed public, no completed milestone and no reachable recipient-domain page.", refs: [] });
   }
   for (const r of d.relationships.filter((x) => x.type === "potentially_overlaps")) {
@@ -1267,4 +1269,85 @@ export function metricsFor(d: Dataset, idOrSlug?: string): Record<string, Metric
   if (!idOrSlug) return cohortMetrics(d);
   const i = findInitiative(d, idOrSlug);
   return i ? initiativeMetrics(d, i) : null;
+}
+
+// ───────────────────────────── Research coverage (Item 14) ─────────────────────────────
+
+/** Automated research tasks whose results the research-dependent dossier sections read. */
+export const COVERAGE_TASKS = ["websites", "github", "milestone_artifacts", "donations_onchain"] as const;
+const COVERAGE_TASK_LABEL: Record<(typeof COVERAGE_TASKS)[number], string> = {
+  websites: "Website and product page checks",
+  github: "GitHub repository checks",
+  milestone_artifacts: "Milestone artifact checks",
+  donations_onchain: "Onchain donation checks",
+};
+
+export interface ResearchCoverage {
+  initiativeId: string;
+  /** Automated research tasks that finished successfully, in COVERAGE_TASKS order. */
+  succeededTasks: string[];
+  /** Plain-language names of the tasks that have not finished successfully. */
+  missing: string[];
+  /** Evidence records cited by this initiative's statements. */
+  evidenceRecords: number;
+  /** Statements with origin "ai". The site runs no AI model, so this is 0 unless a curated AI record is published. */
+  aiStatements: number;
+  /** True when at least one automated research task succeeded. Sections that depend on research show "Not yet researched" otherwise. */
+  researched: boolean;
+  /** True when an AI research result is published for this initiative. */
+  aiResearched: boolean;
+}
+
+/** Whether an initiative has a research dossier: automated research results and AI research. Null when unknown. */
+export function researchCoverage(d: Dataset, idOrSlug: string): ResearchCoverage | null {
+  const ini = findInitiative(d, idOrSlug);
+  if (!ini) return null;
+  const jobs = d.researchJobs.filter((j) => j.initiativeId === ini.id);
+  const ok = COVERAGE_TASKS.filter((t) => jobs.some((j) => j.task === t && j.state === "succeeded"));
+  const claims = d.claims.filter((c) => c.initiativeId === ini.id);
+  const ev = new Set(claims.flatMap((c) => c.evidenceIds));
+  const ai = claims.filter((c) => c.origin === "ai").length;
+  return {
+    initiativeId: ini.id,
+    succeededTasks: [...ok],
+    missing: COVERAGE_TASKS.filter((t) => !ok.includes(t)).map((t) => COVERAGE_TASK_LABEL[t]),
+    evidenceRecords: d.evidence.filter((e) => ev.has(e.id)).length,
+    aiStatements: ai,
+    researched: ok.length > 0,
+    aiResearched: ai > 0,
+  };
+}
+
+export interface SourceLink {
+  label: string;
+  url: string;
+}
+
+/**
+ * Where a rule-based counterargument (blind spot) comes from: the cited sources of the statement,
+ * the milestone link or the official milestone record, the other initiative in an overlap, or the
+ * official proposal when the rule searched the proposal text. Every blind spot gets at least one.
+ */
+export function blindSpotSources(d: Dataset, b: BlindSpot): SourceLink[] {
+  const ini = findInitiative(d, b.initiativeId);
+  const official: SourceLink = { label: "Official proposal", url: ini?.url ?? "" };
+  const out: SourceLink[] = [];
+  for (const ref of b.refs) {
+    const c = d.claims.find((x) => x.id === ref);
+    if (c) {
+      const heading = ini?.sections.find((s) => s.key === c.section)?.heading;
+      for (const u of c.sourceUrls) if (/^https?:\/\//.test(u)) out.push({ label: u === ini?.url ? (heading ? `Official proposal: ${heading}` : "Official proposal") : u.replace(/^https?:\/\/(www\.)?/, "").slice(0, 80), url: u });
+      continue;
+    }
+    const m = d.milestones.find((x) => x.id === ref);
+    if (m) {
+      out.push(m.link && /^https?:\/\//.test(m.link) ? { label: `Milestone ${m.index + 1} link`, url: m.link } : { label: `Milestone ${m.index + 1} in the official record`, url: official.url });
+      continue;
+    }
+    const o = d.initiatives.find((x) => x.id === ref);
+    if (o) out.push({ label: o.shortTitle, url: o.url });
+  }
+  if (out.length === 0 && official.url) out.push(official);
+  const seen = new Set<string>();
+  return out.filter((s) => (seen.has(s.url) ? false : (seen.add(s.url), true)));
 }
