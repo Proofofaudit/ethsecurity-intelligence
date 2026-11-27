@@ -17,6 +17,7 @@ import path from "node:path";
 import { chromium, type Page } from "@playwright/test";
 import type { Dataset } from "@/lib/domain/schemas";
 import { isCoiOrganization } from "@/lib/disclosure";
+import { briefingFor, openQuestionsFor, round1History, similarFor } from "@/lib/intelligence/service";
 
 const OUT = path.join(process.cwd(), "docs", "screenshots");
 const PORT = Number(process.env.SCREENSHOT_PORT ?? 3200);
@@ -32,6 +33,14 @@ const alphabetical = [...dataset.initiatives].sort((a, b) => a.title.localeCompa
 const first = alphabetical[0]!;
 /** The dossier that carries the conflict-of-interest note, captured to document that note. */
 const disclosed = dataset.initiatives.find((i) => isCoiOrganization(i.organizationId));
+/**
+ * The dossier used for the Items 8 to 14 sections: the alphabetically first initiative that has
+ * Round 1 matches, similar pairs and open questions; the first initiative if none has all three.
+ */
+const rich =
+  alphabetical.find((i) => (round1History(dataset, i.id)?.records.length ?? 0) > 0 && (similarFor(dataset, i.id)?.length ?? 0) > 0 && (openQuestionsFor(dataset, i.id)?.length ?? 0) > 0) ?? first;
+const richQuestions = openQuestionsFor(dataset, rich.id) ?? [];
+const richBriefing = briefingFor(dataset, rich.id)?.items ?? [];
 const compareIds = alphabetical.slice(0, 3).map((i) => i.slug);
 
 const now = new Date().toISOString();
@@ -44,6 +53,11 @@ const WORKSPACE = {
   initiatives: alphabetical.slice(0, 4).map((i) => ({ id: i.id, addedAt: now, reviewedAt: null, priority: null })),
   ballotDraft: { tiers, updatedAt: now },
   affiliations: { entries: ["Example Labs"], overrides: {}, suggested: false },
+  openQuestions: Object.fromEntries(richQuestions.slice(0, 1).map((q) => [q.id, { markedAt: now }])),
+  briefingRead: Object.fromEntries(richBriefing.slice(0, 2).map((b) => [b.id, { readAt: now }])),
+  progress: Object.fromEntries(
+    alphabetical.slice(0, 4).map((i, n) => [i.id, { state: (["reviewed", "reading", "revisit", "not_started"] as const)[n]!, at: now, reason: n === 2 ? "A comment was added after your review." : null, seen: null }]),
+  ),
   interest: { focus: ["cat:wallets-signing", "mode:smart-contract-auditor"], keywords: ["fuzzing"], suggested: false },
 };
 
@@ -55,6 +69,7 @@ interface Shot {
 }
 
 const scrollTo = (selector: string) => async (page: Page) => {
+  await page.waitForTimeout(300); // a #section hash opens its accordion item after hydration
   await page.locator(selector).first().evaluate((el) => el.scrollIntoView({ block: "start" }));
   await page.waitForTimeout(150);
 };
@@ -81,6 +96,14 @@ const SHOTS: Shot[] = [
   { name: "workspace-ballot-prep", path: "/workspace", prepare: scrollTo("[data-ballot-prep]") },
   { name: "workspace-affiliations", path: "/workspace", prepare: scrollTo("[data-affiliations]") },
   { name: "workspace-may-interest", path: "/workspace", prepare: scrollTo("[data-may-interest]") },
+  { name: "dossier-evidence-card", path: `/initiatives/${rich.slug}`, prepare: scrollTo("[data-testid=evidence-card]") },
+  { name: "dossier-round1", path: `/initiatives/${rich.slug}#round1`, prepare: scrollTo("#round1") },
+  { name: "dossier-similar", path: `/initiatives/${rich.slug}#similar`, prepare: scrollTo("#similar") },
+  { name: "dossier-open-questions", path: `/initiatives/${rich.slug}#questions`, prepare: scrollTo("#questions") },
+  { name: "dossier-briefing", path: `/initiatives/${rich.slug}#briefing`, prepare: scrollTo("#briefing") },
+  { name: "research-questions", path: "/research/questions" },
+  { name: "workspace-review-progress", path: "/workspace", prepare: scrollTo("[data-review-progress]") },
+  { name: "workspace-briefing", path: "/workspace/briefing" },
   { name: "lab", path: "/lab" },
   { name: "methodology-privacy", path: "/methodology", prepare: scrollTo("#privacy") },
   { name: "status", path: "/status" },

@@ -26,10 +26,13 @@ export default async function OpenQuestionsPage() {
         }
       />
 
+      <p className="text-xs text-ink-3">
+        {rows.length} initiatives · {NEUTRAL_SORT_LABEL} by title · counts of open questions per category
+      </p>
       <div className="overflow-x-auto">
-        <table data-testid="open-question-table" className="w-full min-w-[720px] text-sm">
-          <caption className="mb-2 text-left text-xs text-ink-3">
-            {rows.length} initiatives · {NEUTRAL_SORT_LABEL} by title · counts of open questions per category
+        <table data-testid="open-question-table" className="w-full min-w-[720px] max-sm:min-w-[560px] text-sm">
+          <caption className="sr-only">
+            {rows.length} initiatives, {NEUTRAL_SORT_LABEL} by title, counts of open questions per category
           </caption>
           <thead>
             <tr className="border-b border-ink text-left text-2xs tracking-wide text-ink-3 uppercase">
@@ -49,7 +52,7 @@ export default async function OpenQuestionsPage() {
           <tbody>
             {rows.map((r) => (
               <tr key={r.id} data-testid="open-question-row" className="border-b border-rule align-top">
-                <td className="py-1.5 pr-2">
+                <td className="py-1.5 pr-2 max-sm:max-w-[150px]">
                   <Link href={`/initiatives/${r.slug}#questions`} className="hover:text-accent">
                     {r.title}
                   </Link>

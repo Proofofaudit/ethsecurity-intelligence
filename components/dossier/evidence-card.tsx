@@ -60,7 +60,7 @@ function Fact({ item }: { item: CardItem }) {
  */
 export function EvidenceCard({ card }: { card: Card }) {
   return (
-    <section aria-labelledby="evidence-card-title" data-testid="evidence-card" className="mt-10 border-t border-ink pt-3">
+    <section aria-labelledby="evidence-card-title" data-testid="evidence-card" className="mt-10 scroll-mt-20 border-t border-ink pt-3">
       <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
         <h2 id="evidence-card-title" className="text-md font-semibold">
           Evidence card

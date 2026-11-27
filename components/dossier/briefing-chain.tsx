@@ -60,7 +60,7 @@ export function BriefingChain({ view, entries }: { view: InterestView; entries: 
             <a href={`#briefing-${e.slug}`} className="link">
               {e.title}
             </a>
-            <span className="num ml-2 text-xs text-ink-3">{e.totalMinutes} min</span>
+            <span className="num ml-2 whitespace-nowrap text-xs text-ink-3">{e.totalMinutes} min</span>
           </li>
         ))}
       </ol>

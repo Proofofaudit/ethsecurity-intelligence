@@ -582,7 +582,7 @@ export default async function InitiativePage({ params }: Params) {
               )}
             </Section>
 
-            <Section id="round1" n={8} title="Round 1 history" meta={round1.records.length ? `${round1.records.length} Round 1 records` : "None found"}>
+            <Section id="round1" n={8} title="Round 1 history" meta={round1.records.length ? `${round1.records.length} Round 1 ${round1.records.length === 1 ? "record" : "records"}` : "None found"}>
               <Round1History view={round1} subject={{ label: "Official proposal", href: ini.url }} />
             </Section>
 
