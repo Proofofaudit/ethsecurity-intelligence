@@ -15,6 +15,6 @@ Module: `lib/intelligence/open-questions.ts` (`openQuestions`, `OPEN_QUESTION_RU
 | 7 | no_milestone_reviewer | Delivery | Who will review the milestones? | milestoneReviewer |
 | 8 | existing_claim_without_link | Evidence | Is there a public link that shows the quoted statement? | claims |
 
-Local state: "Mark as asked or resolved" is stored in the private workspace (`localStorage` key `esi.workspace`, field `questionMarks`, keyed by stable question id, schema `OpenQuestionMarks` in `components/workspace/schema.ts`). "Copy as list" copies plain text. No code in this feature sends questions anywhere; `tests/unit/open-questions.test.ts` ("no outreach") asserts this.
+Local state: "Mark as asked or resolved" is stored in the private workspace (`localStorage` key `esi.workspace`, field `openQuestions`, keyed by stable question id, schema `OpenQuestionMarks` in `components/workspace/schema.ts`). "Copy as list" copies plain text. No code in this feature sends questions anywhere; `tests/unit/open-questions.test.ts` ("no outreach") asserts this.
 
 Live counts (published dataset, 55 initiatives): rule 1: 193, rule 2: 8, rule 3: 6, rule 4: 34, rule 5: 26 (26 initiatives), rule 6: 78, rule 7: 54, rule 8: 3. By category: Timeline 193, Delivery 62, Funding 104, Adoption 34, Evidence 9.
