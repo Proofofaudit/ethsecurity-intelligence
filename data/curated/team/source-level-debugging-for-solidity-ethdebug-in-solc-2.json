@@ -89,8 +89,8 @@
     {
       "grant": "Argot-funded milestone 1: testing and validation infrastructure (13,000 USD)",
       "funder": "Argot Collective",
-      "promised": "Automated test and validation infrastructure for ethdebug output running in public CI.",
-      "status": "Delivered",
+      "promised": "Automated test and validation infrastructure for ethdebug output running in public CI. A merged pull request with a matching title exists, but its author was not matched to Walnut and the acceptance wording was not reviewed.",
+      "status": "Partly delivered",
       "sources": [
         {
           "label": "solidity pull request 16727, merged 2026-05-28",
@@ -106,8 +106,8 @@
     {
       "grant": "Argot-funded milestone 2: internal debug data specification (19,000 USD)",
       "funder": "Argot Collective",
-      "promised": "Internal specification of how solc represents and propagates debug data, published for review.",
-      "status": "Delivered",
+      "promised": "Internal specification of how solc represents and propagates debug data, published for review. A merged pull request with a matching title exists, but its author was not matched to Walnut and the acceptance wording was not reviewed.",
+      "status": "Partly delivered",
       "sources": [
         {
           "label": "solidity pull request 16780, merged 2026-08-19",
@@ -145,7 +145,7 @@
   "claims": [
     {
       "claim": "The first milestone (test infrastructure) is complete, linked to pull request 16727.",
-      "status": "Verified",
+      "status": "Not verified",
       "sources": [
         {
           "label": "Pull request 16727",
@@ -153,11 +153,11 @@
         }
       ],
       "checkedOn": "2026-11-28",
-      "method": "GitHub API shows the pull request titled 'ethdebug: Improve current testing infra' is merged (2026-05-28). Whether the CI meets the acceptance wording was not reviewed."
+      "method": "GitHub API shows the pull request titled 'ethdebug: Improve current testing infra' is merged (2026-05-28). Whether the CI meets the acceptance wording was not reviewed. The author is not matched to Walnut in a public source."
     },
     {
       "claim": "The second milestone (internal debug data specification) is complete, linked to pull request 16780.",
-      "status": "Verified",
+      "status": "Not verified",
       "sources": [
         {
           "label": "Pull request 16780",
@@ -165,7 +165,7 @@
         }
       ],
       "checkedOn": "2026-11-28",
-      "method": "GitHub API shows the pull request titled 'feat: add internal spec for debug-info' is merged (2026-08-19). The specification text was not reviewed."
+      "method": "GitHub API shows the pull request titled 'feat: add internal spec for debug-info' is merged (2026-08-19). The specification text was not reviewed. The author is not matched to Walnut in a public source."
     },
     {
       "claim": "The ethdebug format is an open specification with a public repository, comparable in intent to DWARF.",
@@ -185,7 +185,7 @@
     },
     {
       "claim": "The implementation is underway at Walnut and lands in the official solc repository.",
-      "status": "Verified",
+      "status": "Not verified",
       "sources": [
         {
           "label": "Open ethdebug pull requests in solidity",
@@ -197,7 +197,7 @@
         }
       ],
       "checkedOn": "2026-11-28",
-      "method": "GitHub search shows more than a dozen open ethdebug pull requests in argotorg/solidity opened 2026-11-23 to 2026-11-27, plus merged 16727 and 16780. Their authors were not matched to Walnut."
+      "method": "GitHub search shows over a dozen open ethdebug pull requests in argotorg/solidity opened 2026-11-23 to 2026-11-27, plus merged 16727 and 16780. The author of 16727 and 16780 (djolertrk) states no Walnut affiliation and is not in the Walnut organization member list. Authors were not matched to Walnut."
     },
     {
       "claim": "Walnut is building soldb, the first ETHDebug consumer, a CLI debugger and tracer for Solidity.",

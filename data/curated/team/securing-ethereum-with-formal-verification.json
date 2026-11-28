@@ -120,7 +120,7 @@
       "method": "The URL returns HTTP 200 with guides including Manual Port from Solidity and a verification status page. The guide steps were not followed."
     },
     {
-      "claim": "Public case studies cover Lido V3 vault solvency, Safe owner lists, Morpho, Balancer, 1inch and Pendle.",
+      "claim": "A public case-study page covers Lido V3 vault solvency.",
       "status": "Verified",
       "sources": [
         {
@@ -133,7 +133,23 @@
         }
       ],
       "checkedOn": "2026-11-28",
-      "method": "The homepage links a case-study page for each named protocol. Only the Lido page was read. Proofs were not rerun and the protocols' own confirmation was not sought."
+      "method": "The homepage links case-study pages for Lido, Safe, Morpho, Balancer, 1inch and Pendle. Only the Lido page was read, so this claim is limited to it. The other pages were not read. Proofs were not rerun and the protocol's own confirmation was not sought."
+    },
+    {
+      "claim": "Public case studies also cover Safe owner lists, Morpho, Balancer, 1inch and Pendle.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Verity Labs research",
+          "url": "https://veritylabs.dev/research"
+        },
+        {
+          "label": "Lido V3 vault solvency page",
+          "url": "https://veritylabs.dev/research/lido-vault-solvency"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The homepage links a page for each protocol. Those pages were not read here."
     },
     {
       "claim": "Verity's public work covers 40+ protocols.",

@@ -172,7 +172,7 @@
     },
     {
       "claim": "Lido will subsidize part of the assessment cost for four early-adopter node operators.",
-      "status": "Verified",
+      "status": "Not verified",
       "sources": [
         {
           "label": "Funding request thread on Lido Research",
@@ -180,7 +180,7 @@
         }
       ],
       "checkedOn": "2026-11-28",
-      "method": "The thread holds the $60,000 request. A LEGO-side reply dated 2026-03-25 says it was disbursed in December 2025. The transaction link was not opened."
+      "method": "The thread holds the $60,000 request. A LEGO-side reply dated 2026-03-25 says it was disbursed in December 2025. That reply is a statement, and the transaction link was not opened."
     },
     {
       "claim": "Lionscraft has pledged $27,000 toward the funding goal, and $34,000 of the $78,000 request depends on verified adoption outcomes.",

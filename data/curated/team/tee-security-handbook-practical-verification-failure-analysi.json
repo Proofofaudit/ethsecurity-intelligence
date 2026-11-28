@@ -129,7 +129,7 @@
   ],
   "organization": {
     "name": "Bluethroat Labs",
-    "summary": "Research-led security firm for blockchain protocols, founded by Rahul Saxena per the proposal. Its site lists vulnerability writeups (called Reveries), a public TEE Security Handbook and an attestation section with testimonials, and states an Immunefi 90-day leaderboard ranking of #4 as of 6 November 2026. The Handbook source repository saxenism/Bluethroat-labs was created 2026-01-16. The proposal says the Handbook is self-funded. Public team size: Not found in public sources.",
+    "summary": "Research-led security firm for blockchain protocols, founded by Rahul Saxena per the proposal. Its site lists vulnerability writeups (called Reveries), a public TEE Security Handbook and an attestation section with testimonials, and has a banner that claims an Immunefi 90-day leaderboard position as of 6 November 2026 (not checked here). The Handbook source repository saxenism/Bluethroat-labs was created 2026-01-16. The proposal says the Handbook is self-funded. Public team size: Not found in public sources.",
     "website": "https://bluethroatlabs.com/",
     "previousFunding": [],
     "otherProducts": [
@@ -189,7 +189,7 @@
       "method": "GitHub API: MIT license, created 2026-01-16, last push 2026-11-25, 0 stars, no releases. The repository description is only Project."
     },
     {
-      "claim": "Bluethroat found CVE-2026-22696 in dcap-qvl.",
+      "claim": "A critical advisory for CVE-2026-22696 exists for dcap-qvl.",
       "status": "Verified",
       "sources": [
         {
@@ -202,7 +202,23 @@
         }
       ],
       "checkedOn": "2026-11-28",
-      "method": "The advisory exists, is rated critical, published 2026-01-26 and names dcap-qvl and @phala/dcap-qvl packages. The advisory lists no credits, so the finder attribution rests on the Bluethroat writeup and Phala's post."
+      "method": "The advisory exists, is rated critical, published 2026-01-26 and names dcap-qvl and @phala/dcap-qvl packages. The advisory lists no credits."
+    },
+    {
+      "claim": "Bluethroat found CVE-2026-22696 in dcap-qvl.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "GitHub advisory GHSA-796p-j2gh-9m2q",
+          "url": "https://github.com/advisories/GHSA-796p-j2gh-9m2q"
+        },
+        {
+          "label": "Bluethroat writeup",
+          "url": "https://bluethroatlabs.com/reveries/cve-2026-22696-fetching-collateral-is-not-enough"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Applicant-reported. The advisory lists no credits, and Phala's post credits Rahul Saxena (Bluethroat Labs) for issues in the attestation pipeline without naming this CVE. The finder attribution rests on the Bluethroat writeup."
     },
     {
       "claim": "Phala publicly credits Rahul and Bluethroat for attestation-pipeline research.",

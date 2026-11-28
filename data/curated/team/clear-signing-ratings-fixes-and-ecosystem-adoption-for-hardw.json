@@ -134,8 +134,8 @@
     {
       "grant": "Ethereum Foundation Pectra Proactive Grant (577.02 USD, 2025)",
       "funder": "Ethereum Foundation (ESP)",
-      "promised": "Walletbeat beta EIP-7702 tracking and wallet assessment, per the grant proposal page. No milestone list was found.",
-      "status": "Delivered",
+      "promised": "Walletbeat beta EIP-7702 tracking and wallet assessment, per the grant proposal page. No milestone list was found, so no specific promise can be compared. Walletbeat is live and tracks EIP-7702 tests, but that is not matched to a stated milestone.",
+      "status": "No public evidence",
       "sources": [
         {
           "label": "Walletbeat grant record",
@@ -256,7 +256,7 @@
       "method": "The page loads a wallet test playground with ERC20 approve, transfer, Aave supply, EIP-7702 batch and custom transaction tests, and an ERC-8213 tab. No wallet was connected, so results were not run."
     },
     {
-      "claim": "A track record of wallet impact is documented in an impact log.",
+      "claim": "An impact log file exists in the repository and lists dated wallet reactions.",
       "status": "Verified",
       "sources": [
         {
@@ -265,7 +265,7 @@
         }
       ],
       "checkedOn": "2026-11-28",
-      "method": "The file exists and lists dated wallet reactions from 2025-12 to 2026-09 with links to posts. The linked posts on X were not opened, so each reaction itself is not verified."
+      "method": "The file exists and lists dated wallet reactions from 2025-12 to 2026-09 with links to posts. The linked posts on X were not opened, so whether the wallets made the changes is not verified."
     },
     {
       "claim": "As of October 8, 2026, none of the 32 hardware and software wallets listed passes Walletbeat's transaction legibility test.",
