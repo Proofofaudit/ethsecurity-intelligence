@@ -89,8 +89,8 @@
     {
       "grant": "Argot-funded milestone 1: testing and validation infrastructure (13,000 USD)",
       "funder": "Argot Collective",
-      "promised": "Automated test and validation infrastructure for ethdebug output running in public CI. A merged pull request with a matching title exists, but its author was not matched to Walnut and the acceptance wording was not reviewed.",
-      "status": "Partly delivered",
+      "promised": "Automated test and validation infrastructure for ethdebug output running in public CI. A merged pull request with a matching title exists in the solc repository, but no public source found links its author to Walnut, and the acceptance wording was not reviewed. The pull request is shown as unmatched to the grantee.",
+      "status": "No public evidence",
       "sources": [
         {
           "label": "solidity pull request 16727, merged 2026-05-28",
@@ -106,8 +106,8 @@
     {
       "grant": "Argot-funded milestone 2: internal debug data specification (19,000 USD)",
       "funder": "Argot Collective",
-      "promised": "Internal specification of how solc represents and propagates debug data, published for review. A merged pull request with a matching title exists, but its author was not matched to Walnut and the acceptance wording was not reviewed.",
-      "status": "Partly delivered",
+      "promised": "Internal specification of how solc represents and propagates debug data, published for review. A merged pull request with a matching title exists in the solc repository, but no public source found links its author to Walnut, and the acceptance wording was not reviewed. The pull request is shown as unmatched to the grantee.",
+      "status": "No public evidence",
       "sources": [
         {
           "label": "solidity pull request 16780, merged 2026-08-19",
@@ -123,8 +123,8 @@
     {
       "grant": "Argot-funded milestone 3: Yul serialization (33,000 USD, due 2026-10)",
       "funder": "Argot Collective",
-      "promised": "Debug info survives compilation round-trips through Yul, shown by automated tests in public CI.",
-      "status": "Partly delivered",
+      "promised": "Debug info survives compilation round-trips through Yul, shown by automated tests in public CI. Two open pull requests on this topic exist, but no public source found links their author to Walnut.",
+      "status": "No public evidence",
       "sources": [
         {
           "label": "solidity pull request 17270, open",
@@ -153,7 +153,7 @@
         }
       ],
       "checkedOn": "2026-11-28",
-      "method": "GitHub API shows the pull request titled 'ethdebug: Improve current testing infra' is merged (2026-05-28). Whether the CI meets the acceptance wording was not reviewed. The author is not matched to Walnut in a public source."
+      "method": "GitHub API shows the pull request titled 'ethdebug: Improve current testing infra' is merged (2026-05-28). Whether the CI meets the acceptance wording was not reviewed. No public source found linking the author to Walnut."
     },
     {
       "claim": "The second milestone (internal debug data specification) is complete, linked to pull request 16780.",
@@ -165,7 +165,7 @@
         }
       ],
       "checkedOn": "2026-11-28",
-      "method": "GitHub API shows the pull request titled 'feat: add internal spec for debug-info' is merged (2026-08-19). The specification text was not reviewed. The author is not matched to Walnut in a public source."
+      "method": "GitHub API shows the pull request titled 'feat: add internal spec for debug-info' is merged (2026-08-19). The specification text was not reviewed. No public source found linking the author to Walnut."
     },
     {
       "claim": "The ethdebug format is an open specification with a public repository, comparable in intent to DWARF.",
@@ -197,7 +197,7 @@
         }
       ],
       "checkedOn": "2026-11-28",
-      "method": "GitHub search shows over a dozen open ethdebug pull requests in argotorg/solidity opened 2026-11-23 to 2026-11-27, plus merged 16727 and 16780. The author of 16727 and 16780 (djolertrk) states no Walnut affiliation and is not in the Walnut organization member list. Authors were not matched to Walnut."
+      "method": "GitHub search shows over a dozen open ethdebug pull requests in argotorg/solidity opened 2026-11-23 to 2026-11-27, plus merged 16727 and 16780. No public source found linking the pull request authors (for example djolertrk, author of 16727 and 16780) to Walnut. Private organization membership cannot be seen, so this is a gap in public evidence only."
     },
     {
       "claim": "Walnut is building soldb, the first ETHDebug consumer, a CLI debugger and tracer for Solidity.",
