@@ -670,7 +670,7 @@ async function auditTeamResearch(d: Dataset, file: TeamFileShape | null, tick: T
       for (const h of m.handles ?? []) {
         const url = typeof h.url === "string" ? h.url : "";
         tick("team_handle_source", HTTP_URL.test(url) && !!h.handle && url.toLowerCase().includes(h.handle.toLowerCase()), `${mt}: handle ${h.handle} lacks a matching http(s) URL`);
-        if (h.publishedBy === "proposal") tick("team_handle_in_proposal", proposal.includes(url.toLowerCase().replace(/\/$/, "")), `${mt}: handle ${url} is not in the proposal text or links`);
+        if (h.publishedBy === "proposal") tick("team_handle_in_proposal", proposal.includes(url.toLowerCase().replace(/\/$/, "").replace(/^https?:\/\/(www\.)?/, "")) /* the proposal may print a handle as github.com/name without a scheme */, `${mt}: handle ${url} is not in the proposal text or links`);
       }
       for (const w of m.pastWork ?? []) tick("team_source", typeof w.url === "string" && HTTP_URL.test(w.url) && validDate(w.checkedOn), `${mt}: past work chip lacks a URL or checked-on date`);
       const c = m.githubMonthlyCommits ?? [];

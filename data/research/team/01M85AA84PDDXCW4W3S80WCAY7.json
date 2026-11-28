@@ -1,0 +1,155 @@
+{
+  "initiativeId": "01M85AA84PDDXCW4W3S80WCAY7",
+  "collectedAt": "2026-11-28T07:49:24.324Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 13,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "disclose",
+      "type": "Organization",
+      "url": "https://github.com/disclose",
+      "source": "proposal",
+      "reposTotal": 23,
+      "repos": [
+        {
+          "fullName": "disclose/policymaker",
+          "url": "https://github.com/disclose/policymaker",
+          "fork": false,
+          "archived": false,
+          "stars": 15,
+          "forks": 8,
+          "pushedAt": "2026-11-27T06:33:31Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "disclose/website",
+          "url": "https://github.com/disclose/website",
+          "fork": false,
+          "archived": false,
+          "stars": 20,
+          "forks": 7,
+          "pushedAt": "2026-11-26T18:53:40Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "disclose/bug-bounty-platforms",
+          "url": "https://github.com/disclose/bug-bounty-platforms",
+          "fork": false,
+          "archived": false,
+          "stars": 1144,
+          "forks": 222,
+          "pushedAt": "2026-11-26T06:55:02Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "disclose/state-of-disclosure",
+          "url": "https://github.com/disclose/state-of-disclosure",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-23T23:59:43Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "disclose/diodb",
+          "url": "https://github.com/disclose/diodb",
+          "fork": false,
+          "archived": false,
+          "stars": 1084,
+          "forks": 345,
+          "pushedAt": "2026-11-09T02:52:32Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "disclose/chrome-extension-v2",
+          "url": "https://github.com/disclose/chrome-extension-v2",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-11-08T11:03:18Z",
+          "latestReleaseAt": "2026-11-04T23:09:02Z"
+        },
+        {
+          "fullName": "disclose/zap-lookup",
+          "url": "https://github.com/disclose/zap-lookup",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-11-03T12:34:54Z",
+          "latestReleaseAt": "2026-08-13T23:52:45Z"
+        },
+        {
+          "fullName": "disclose/burp-lookup",
+          "url": "https://github.com/disclose/burp-lookup",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-11-01T17:36:35Z",
+          "latestReleaseAt": "2026-08-13T23:52:42Z"
+        },
+        {
+          "fullName": "disclose/caido-lookup",
+          "url": "https://github.com/disclose/caido-lookup",
+          "fork": false,
+          "archived": false,
+          "stars": 5,
+          "forks": 0,
+          "pushedAt": "2026-11-01T09:36:45Z",
+          "latestReleaseAt": "2026-10-26T20:03:33Z"
+        },
+        {
+          "fullName": "disclose/nuclei-templates",
+          "url": "https://github.com/disclose/nuclei-templates",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-10-09T05:31:14Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "disclose/dio-lookup",
+          "url": "https://github.com/disclose/dio-lookup",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 0,
+          "pushedAt": "2026-10-09T05:31:11Z",
+          "latestReleaseAt": "2026-07-05T13:36:29Z"
+        },
+        {
+          "fullName": "disclose/history.disclose.io",
+          "url": "https://github.com/disclose/history.disclose.io",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-21T05:49:22Z",
+          "latestReleaseAt": null
+        }
+      ]
+    }
+  ],
+  "people": []
+}

@@ -1,0 +1,357 @@
+{
+  "initiativeId": "01M7NAHFQAC0VNRBMVZZN87H0Z",
+  "collectedAt": "2026-11-28T07:50:59.496Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 24,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "devhb1",
+      "type": "User",
+      "url": "https://github.com/devhb1",
+      "source": "proposal",
+      "reposTotal": 23,
+      "repos": [
+        {
+          "fullName": "devhb1/Saviour",
+          "url": "https://github.com/devhb1/Saviour",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-18T12:10:13Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "devhb1/on-shift",
+          "url": "https://github.com/devhb1/on-shift",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-07T03:48:14Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "devhb1/BlindZOPA",
+          "url": "https://github.com/devhb1/BlindZOPA",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-06T11:53:28Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "devhb1/ONSITE",
+          "url": "https://github.com/devhb1/ONSITE",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-06T11:07:06Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "devhb1/AIPREP",
+          "url": "https://github.com/devhb1/AIPREP",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-23T03:08:02Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "devhb1/Devhb-portfolio",
+          "url": "https://github.com/devhb1/Devhb-portfolio",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-19T16:22:52Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "devhb1/AB",
+          "url": "https://github.com/devhb1/AB",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-05-05T08:36:36Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "devhb1/portfolio-client1",
+          "url": "https://github.com/devhb1/portfolio-client1",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2026-03-27T14:13:21Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "devhb1/otc-frontend",
+          "url": "https://github.com/devhb1/otc-frontend",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-03-06T04:13:59Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "devhb1/otc-backend",
+          "url": "https://github.com/devhb1/otc-backend",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-03-06T03:50:38Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "devhb1/BlockIQ",
+          "url": "https://github.com/devhb1/BlockIQ",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-12-15T12:16:39Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "devhb1/FairFlip",
+          "url": "https://github.com/devhb1/FairFlip",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-10-26T15:41:49Z",
+          "latestReleaseAt": null
+        }
+      ]
+    }
+  ],
+  "people": [
+    {
+      "handle": "devhb1",
+      "url": "https://github.com/devhb1",
+      "source": "curated",
+      "repos": [
+        {
+          "fullName": "devhb1/Saviour",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            155,
+            0,
+            36
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "devhb1/on-shift",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            69
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "devhb1/BlindZOPA",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "devhb1/ONSITE",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "devhb1/AIPREP",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            30,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "devhb1/Devhb-portfolio",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            6,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "devhb1/AB",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            46,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "devhb1/portfolio-client1",
+          "monthly": [
+            0,
+            0,
+            0,
+            7,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "devhb1/otc-frontend",
+          "monthly": [
+            0,
+            0,
+            1,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "devhb1/otc-backend",
+          "monthly": [
+            0,
+            0,
+            1,
+            41,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        0,
+        0,
+        2,
+        52,
+        0,
+        46,
+        0,
+        0,
+        0,
+        191,
+        0,
+        105
+      ]
+    }
+  ]
+}

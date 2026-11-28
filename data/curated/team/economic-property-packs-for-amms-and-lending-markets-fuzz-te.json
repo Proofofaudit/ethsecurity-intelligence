@@ -1,0 +1,151 @@
+{
+  "members": [
+    {
+      "name": "Jean Rausis",
+      "role": "Co-founder (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "LinkedIn",
+          "handle": "jeanrausis",
+          "url": "https://www.linkedin.com/in/jeanrausis",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/economic-property-packs-for-amms-and-lending-markets-fuzz-te",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Eric Rabl",
+      "role": "Co-founder (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "LinkedIn",
+          "handle": "eric-rabl-6708a570",
+          "url": "https://www.linkedin.com/in/eric-rabl-6708a570",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/economic-property-packs-for-amms-and-lending-markets-fuzz-te",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "RA2 Tech",
+    "summary": "Described in the proposal as RA2 TECH SA, Montreux, Switzerland. The Everything website describes Everything as a DeFi protocol where swap, lend, borrow and leverage share one pool. The company description, size and R&D spend come from the proposal only.",
+    "previousFunding": [],
+    "otherProducts": [
+      {
+        "label": "Everything protocol website",
+        "url": "https://everything.inc"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Everything website",
+        "url": "https://everything.inc"
+      },
+      {
+        "label": "Proposal",
+        "url": "https://initiatives.thedao.fund/initiative/economic-property-packs-for-amms-and-lending-markets-fuzz-te"
+      }
+    ],
+    "checkedOn": "2026-11-28",
+    "website": "https://everything.inc"
+  },
+  "delivery": [],
+  "claims": [
+    {
+      "claim": "Public property packs cover token standards: crytic/properties and a16z/erc4626-tests.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "crytic/properties repository",
+          "url": "https://github.com/crytic/properties"
+        },
+        {
+          "label": "a16z/erc4626-tests repository",
+          "url": "https://github.com/a16z/erc4626-tests"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: both repositories are public (AGPL-3.0, last pushes 2026-03-09 and 2025-07-29). The statement that they do not cover pool and market economics was not tested."
+    },
+    {
+      "claim": "Euler lost about $197 million in March 2023.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Chainalysis article",
+          "url": "https://www.chainalysis.com/blog/euler-finance-flash-loan-attack/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Page text states a $197 million loss from the Euler flash loan attack, published March 15, 2023."
+    },
+    {
+      "claim": "Cream lost about $130 million in October 2021.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Immunefi analysis",
+          "url": "https://immunefi.com/blog/bug-fix-reviews/hack-analysis-cream-finance-oct-2021/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Page text states a loss of $130m in available liquidity on October 27, 2021."
+    },
+    {
+      "claim": "A pack of 37 properties is built, MIT licensed, with fuzz campaigns and mutant tests passing.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/economic-property-packs-for-amms-and-lending-markets-fuzz-te"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The proposal links no repository for the pack. A GitHub repository search for the team and pack terms found no match. Property counts and test results were not checked."
+    },
+    {
+      "claim": "RA2 TECH SA employs 25+ engineers and has self-funded more than $20 million of R&D.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Everything website",
+          "url": "https://everything.inc"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The website does not state these figures. The Swiss commercial register search page needs JavaScript and was not readable."
+    },
+    {
+      "claim": "The two founders' backgrounds (ethical hacking, EPFL mathematics) as listed in the proposal.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/economic-property-packs-for-amms-and-lending-markets-fuzz-te"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The LinkedIn profiles linked in the proposal return HTTP 999 to automated requests and were not read."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Public repository or release of the economic property pack: Not found in public sources",
+    "Past grants or Round 1 record: Not found in public sources (no Round 1 match in the dataset)",
+    "Employers and past work of the two named people on pages that could be read: Not found in public sources",
+    "RA2 Capital and RA2 TECH SA registry entries: Not found in public sources (register page not readable)"
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

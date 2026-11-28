@@ -1,0 +1,1605 @@
+{
+  "initiativeId": "01M5FK50JGGFSER7GE9CEPYD45",
+  "collectedAt": "2026-11-28T07:43:39.739Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 129,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "remix-project-org",
+      "type": "Organization",
+      "url": "https://github.com/remix-project-org",
+      "source": "proposal",
+      "reposTotal": 54,
+      "repos": [
+        {
+          "fullName": "remix-project-org/remix-project",
+          "url": "https://github.com/remix-project-org/remix-project",
+          "fork": false,
+          "archived": false,
+          "stars": 3113,
+          "forks": 1451,
+          "pushedAt": "2026-11-27T14:13:19Z",
+          "latestReleaseAt": "2026-11-25T10:11:20Z"
+        },
+        {
+          "fullName": "remix-project-org/remix-live-alpha",
+          "url": "https://github.com/remix-project-org/remix-live-alpha",
+          "fork": false,
+          "archived": false,
+          "stars": 15,
+          "forks": 27,
+          "pushedAt": "2026-11-24T21:44:07Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "remix-project-org/remix-ai-plugin",
+          "url": "https://github.com/remix-project-org/remix-ai-plugin",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 1,
+          "pushedAt": "2026-11-20T09:12:19Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "remix-project-org/x402",
+          "url": "https://github.com/remix-project-org/x402",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 3,
+          "pushedAt": "2026-11-15T18:24:02Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "remix-project-org/metamask-dist",
+          "url": "https://github.com/remix-project-org/metamask-dist",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2026-11-15T16:38:33Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "remix-project-org/remix-project-ci",
+          "url": "https://github.com/remix-project-org/remix-project-ci",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-15T16:37:39Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "remix-project-org/remix-emails",
+          "url": "https://github.com/remix-project-org/remix-emails",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-15T16:26:48Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "remix-project-org/remix-ide",
+          "url": "https://github.com/remix-project-org/remix-ide",
+          "fork": false,
+          "archived": false,
+          "stars": 2359,
+          "forks": 961,
+          "pushedAt": "2026-11-15T15:57:54Z",
+          "latestReleaseAt": "2023-03-15T19:10:34Z"
+        },
+        {
+          "fullName": "remix-project-org/remix-desktop",
+          "url": "https://github.com/remix-project-org/remix-desktop",
+          "fork": false,
+          "archived": false,
+          "stars": 90,
+          "forks": 23,
+          "pushedAt": "2026-11-10T14:26:00Z",
+          "latestReleaseAt": "2026-11-10T14:26:00Z"
+        },
+        {
+          "fullName": "remix-project-org/ethskills-mcp",
+          "url": "https://github.com/remix-project-org/ethskills-mcp",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 3,
+          "pushedAt": "2026-11-10T12:44:24Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "remix-project-org/remix-live-beta",
+          "url": "https://github.com/remix-project-org/remix-live-beta",
+          "fork": false,
+          "archived": false,
+          "stars": 8,
+          "forks": 9,
+          "pushedAt": "2026-10-27T10:57:14Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "remix-project-org/slither-mcp",
+          "url": "https://github.com/remix-project-org/slither-mcp",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-22T09:51:30Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "Cyfrin",
+      "type": "Organization",
+      "url": "https://github.com/Cyfrin",
+      "source": "proposal",
+      "reposTotal": 100,
+      "repos": [
+        {
+          "fullName": "Cyfrin/cyfrin-audit-reports",
+          "url": "https://github.com/Cyfrin/cyfrin-audit-reports",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 0,
+          "pushedAt": "2026-11-24T01:26:02Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Cyfrin/wise-signer",
+          "url": "https://github.com/Cyfrin/wise-signer",
+          "fork": false,
+          "archived": false,
+          "stars": 34,
+          "forks": 13,
+          "pushedAt": "2026-11-18T13:46:15Z",
+          "latestReleaseAt": "2025-05-08T06:11:49Z"
+        },
+        {
+          "fullName": "Cyfrin/localsafe.eth",
+          "url": "https://github.com/Cyfrin/localsafe.eth",
+          "fork": false,
+          "archived": false,
+          "stars": 119,
+          "forks": 25,
+          "pushedAt": "2026-11-18T13:46:10Z",
+          "latestReleaseAt": "2026-06-18T17:37:48Z"
+        },
+        {
+          "fullName": "Cyfrin/chain-tools",
+          "url": "https://github.com/Cyfrin/chain-tools",
+          "fork": false,
+          "archived": false,
+          "stars": 9,
+          "forks": 1,
+          "pushedAt": "2026-11-18T13:45:56Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Cyfrin/clearsig",
+          "url": "https://github.com/Cyfrin/clearsig",
+          "fork": false,
+          "archived": false,
+          "stars": 16,
+          "forks": 2,
+          "pushedAt": "2026-11-18T12:05:48Z",
+          "latestReleaseAt": "2026-09-04T23:41:58Z"
+        },
+        {
+          "fullName": "Cyfrin/aderyn",
+          "url": "https://github.com/Cyfrin/aderyn",
+          "fork": false,
+          "archived": true,
+          "stars": 810,
+          "forks": 126,
+          "pushedAt": "2026-11-17T12:02:18Z",
+          "latestReleaseAt": "2026-01-22T11:33:44Z"
+        },
+        {
+          "fullName": "Cyfrin/cyfrin-docs",
+          "url": "https://github.com/Cyfrin/cyfrin-docs",
+          "fork": false,
+          "archived": false,
+          "stars": 7,
+          "forks": 3,
+          "pushedAt": "2026-11-16T18:18:28Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Cyfrin/web3-dev-containers",
+          "url": "https://github.com/Cyfrin/web3-dev-containers",
+          "fork": false,
+          "archived": false,
+          "stars": 180,
+          "forks": 43,
+          "pushedAt": "2026-11-15T12:08:26Z",
+          "latestReleaseAt": "2026-06-22T18:23:06Z"
+        },
+        {
+          "fullName": "Cyfrin/vscode-aderyn",
+          "url": "https://github.com/Cyfrin/vscode-aderyn",
+          "fork": false,
+          "archived": true,
+          "stars": 12,
+          "forks": 1,
+          "pushedAt": "2026-11-14T13:14:28Z",
+          "latestReleaseAt": "2025-10-09T18:24:25Z"
+        },
+        {
+          "fullName": "Cyfrin/aderyn-ci",
+          "url": "https://github.com/Cyfrin/aderyn-ci",
+          "fork": false,
+          "archived": true,
+          "stars": 3,
+          "forks": 1,
+          "pushedAt": "2026-11-14T13:03:28Z",
+          "latestReleaseAt": "2026-01-09T17:33:10Z"
+        },
+        {
+          "fullName": "Cyfrin/homebrew-tap",
+          "url": "https://github.com/Cyfrin/homebrew-tap",
+          "fork": false,
+          "archived": false,
+          "stars": 3,
+          "forks": 0,
+          "pushedAt": "2026-11-13T16:26:07Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Cyfrin/Up",
+          "url": "https://github.com/Cyfrin/Up",
+          "fork": false,
+          "archived": false,
+          "stars": 8,
+          "forks": 1,
+          "pushedAt": "2026-11-13T16:18:11Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "yann300",
+      "type": "User",
+      "url": "https://github.com/yann300",
+      "source": "proposal",
+      "reposTotal": 92,
+      "repos": [
+        {
+          "fullName": "yann300/remix-walletconnect",
+          "url": "https://github.com/yann300/remix-walletconnect",
+          "fork": false,
+          "archived": false,
+          "stars": 7,
+          "forks": 6,
+          "pushedAt": "2026-02-03T22:18:24Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "yann300/RemixSmartAccount",
+          "url": "https://github.com/yann300/RemixSmartAccount",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-01-09T09:42:55Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "yann300/remix-reward-api",
+          "url": "https://github.com/yann300/remix-reward-api",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2025-02-03T11:12:52Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "yann300/remix-script-runner",
+          "url": "https://github.com/yann300/remix-script-runner",
+          "fork": false,
+          "archived": false,
+          "stars": 4,
+          "forks": 5,
+          "pushedAt": "2024-04-25T13:09:22Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "yann300/remix-challenges",
+          "url": "https://github.com/yann300/remix-challenges",
+          "fork": false,
+          "archived": false,
+          "stars": 11,
+          "forks": 7,
+          "pushedAt": "2024-02-22T19:11:29Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "yann300/remix-reward",
+          "url": "https://github.com/yann300/remix-reward",
+          "fork": false,
+          "archived": false,
+          "stars": 3,
+          "forks": 6,
+          "pushedAt": "2024-02-20T16:52:07Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "yann300/remix-attach-view",
+          "url": "https://github.com/yann300/remix-attach-view",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2023-01-05T20:42:22Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "yann300/remix-contract-getter",
+          "url": "https://github.com/yann300/remix-contract-getter",
+          "fork": false,
+          "archived": false,
+          "stars": 4,
+          "forks": 14,
+          "pushedAt": "2023-01-05T07:06:56Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "yann300/test_with_workers",
+          "url": "https://github.com/yann300/test_with_workers",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2022-09-05T11:08:12Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "yann300/game-day",
+          "url": "https://github.com/yann300/game-day",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 1,
+          "pushedAt": "2022-04-18T10:58:21Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "yann300/CitiesLocator",
+          "url": "https://github.com/yann300/CitiesLocator",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 2,
+          "pushedAt": "2021-10-25T20:36:53Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "yann300/gk_repository",
+          "url": "https://github.com/yann300/gk_repository",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 2,
+          "pushedAt": "2021-10-25T20:36:19Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "STetsing",
+      "type": "User",
+      "url": "https://github.com/STetsing",
+      "source": "proposal",
+      "reposTotal": 14,
+      "repos": [
+        {
+          "fullName": "STetsing/sourcify-mcp",
+          "url": "https://github.com/STetsing/sourcify-mcp",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 1,
+          "pushedAt": "2026-01-19T12:46:20Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "STetsing/IPermLossTracker-",
+          "url": "https://github.com/STetsing/IPermLossTracker-",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-05-12T07:09:34Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "STetsing/digit_test",
+          "url": "https://github.com/STetsing/digit_test",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-07-17T14:39:08Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "STetsing/sol_rag",
+          "url": "https://github.com/STetsing/sol_rag",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-04-10T10:14:08Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "STetsing/solcoder",
+          "url": "https://github.com/STetsing/solcoder",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 1,
+          "pushedAt": "2024-02-01T10:45:30Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "STetsing/solidity_parser",
+          "url": "https://github.com/STetsing/solidity_parser",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-01-24T09:47:41Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "STetsing/sol_comment_labelling",
+          "url": "https://github.com/STetsing/sol_comment_labelling",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-01-08T14:14:07Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "STetsing/InlineCompletions",
+          "url": "https://github.com/STetsing/InlineCompletions",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2023-12-08T09:03:46Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "STetsing/slither-solidity",
+          "url": "https://github.com/STetsing/slither-solidity",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2023-11-16T13:37:52Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "STetsing/Solidity-code-generation",
+          "url": "https://github.com/STetsing/Solidity-code-generation",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2023-10-05T17:25:12Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "STetsing/MattingComparison",
+          "url": "https://github.com/STetsing/MattingComparison",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2018-11-05T13:37:20Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "STetsing/Sixfab_RPi_CellularIoT_App_Shield",
+          "url": "https://github.com/STetsing/Sixfab_RPi_CellularIoT_App_Shield",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2019-11-04T14:31:14Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "Aniket-Engg",
+      "type": "User",
+      "url": "https://github.com/Aniket-Engg",
+      "source": "proposal",
+      "reposTotal": 72,
+      "repos": [
+        {
+          "fullName": "Aniket-Engg/sol-profiler",
+          "url": "https://github.com/Aniket-Engg/sol-profiler",
+          "fork": false,
+          "archived": false,
+          "stars": 30,
+          "forks": 6,
+          "pushedAt": "2026-10-18T11:17:52Z",
+          "latestReleaseAt": "2019-03-30T20:43:41Z"
+        },
+        {
+          "fullName": "Aniket-Engg/eth-forks",
+          "url": "https://github.com/Aniket-Engg/eth-forks",
+          "fork": false,
+          "archived": false,
+          "stars": 6,
+          "forks": 1,
+          "pushedAt": "2026-07-17T12:07:16Z",
+          "latestReleaseAt": "2022-06-24T13:01:07Z"
+        },
+        {
+          "fullName": "Aniket-Engg/ethereumjs-util",
+          "url": "https://github.com/Aniket-Engg/ethereumjs-util",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-01-15T09:50:30Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Aniket-Engg/ethereumjs-tx",
+          "url": "https://github.com/Aniket-Engg/ethereumjs-tx",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-01-13T15:14:21Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Aniket-Engg/solidity-school",
+          "url": "https://github.com/Aniket-Engg/solidity-school",
+          "fork": false,
+          "archived": false,
+          "stars": 382,
+          "forks": 88,
+          "pushedAt": "2025-05-15T15:34:13Z",
+          "latestReleaseAt": "2022-09-30T13:48:21Z"
+        },
+        {
+          "fullName": "Aniket-Engg/nx-demo-repo",
+          "url": "https://github.com/Aniket-Engg/nx-demo-repo",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2023-03-05T00:40:00Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Aniket-Engg/sol-verifier",
+          "url": "https://github.com/Aniket-Engg/sol-verifier",
+          "fork": false,
+          "archived": false,
+          "stars": 28,
+          "forks": 9,
+          "pushedAt": "2023-03-03T11:28:36Z",
+          "latestReleaseAt": "2019-12-31T09:48:15Z"
+        },
+        {
+          "fullName": "Aniket-Engg/Hyperledger-Medical-Network",
+          "url": "https://github.com/Aniket-Engg/Hyperledger-Medical-Network",
+          "fork": false,
+          "archived": false,
+          "stars": 10,
+          "forks": 11,
+          "pushedAt": "2023-02-01T09:51:36Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Aniket-Engg/remix-default-workspace",
+          "url": "https://github.com/Aniket-Engg/remix-default-workspace",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2023-01-18T06:53:55Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Aniket-Engg/sol-straightener",
+          "url": "https://github.com/Aniket-Engg/sol-straightener",
+          "fork": false,
+          "archived": false,
+          "stars": 5,
+          "forks": 3,
+          "pushedAt": "2022-12-30T17:36:05Z",
+          "latestReleaseAt": "2019-06-29T22:12:53Z"
+        },
+        {
+          "fullName": "Aniket-Engg/sol-profiler-vscode",
+          "url": "https://github.com/Aniket-Engg/sol-profiler-vscode",
+          "fork": false,
+          "archived": false,
+          "stars": 14,
+          "forks": 3,
+          "pushedAt": "2022-12-08T13:52:35Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Aniket-Engg/nodejs-blockchain",
+          "url": "https://github.com/Aniket-Engg/nodejs-blockchain",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 2,
+          "pushedAt": "2018-11-03T08:13:47Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "Assassin859",
+      "type": "User",
+      "url": "https://github.com/Assassin859",
+      "source": "proposal",
+      "reposTotal": 30,
+      "repos": [
+        {
+          "fullName": "Assassin859/Assassin859",
+          "url": "https://github.com/Assassin859/Assassin859",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-28T06:34:56Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Assassin859/tmp-does-not-matter",
+          "url": "https://github.com/Assassin859/tmp-does-not-matter",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-26T12:18:00Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Assassin859/spendwarden",
+          "url": "https://github.com/Assassin859/spendwarden",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-23T09:32:56Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Assassin859/executable-gap-desk",
+          "url": "https://github.com/Assassin859/executable-gap-desk",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-10T10:04:27Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Assassin859/RoverTwin",
+          "url": "https://github.com/Assassin859/RoverTwin",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-06T11:42:01Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Assassin859/wifi-geolocation-tracker",
+          "url": "https://github.com/Assassin859/wifi-geolocation-tracker",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-05T11:58:52Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Assassin859/maharashtra-weather-corridors",
+          "url": "https://github.com/Assassin859/maharashtra-weather-corridors",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-30T10:52:42Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Assassin859/ReserveProof",
+          "url": "https://github.com/Assassin859/ReserveProof",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-30T10:47:38Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Assassin859/cipher_toolkit",
+          "url": "https://github.com/Assassin859/cipher_toolkit",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-25T11:53:45Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Assassin859/cryptp",
+          "url": "https://github.com/Assassin859/cryptp",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-13T11:29:03Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Assassin859/LiFi-x-Keeperhub",
+          "url": "https://github.com/Assassin859/LiFi-x-Keeperhub",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-12T14:41:44Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Assassin859/keeperhub-kh",
+          "url": "https://github.com/Assassin859/keeperhub-kh",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-08-31T17:56:04Z",
+          "latestReleaseAt": null
+        }
+      ]
+    }
+  ],
+  "people": [
+    {
+      "handle": "yann300",
+      "url": "https://github.com/yann300",
+      "source": "curated",
+      "repos": [
+        {
+          "fullName": "yann300/remix-walletconnect",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "yann300/RemixSmartAccount",
+          "monthly": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "remix-project-org/remix-project",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            46,
+            99,
+            27,
+            28,
+            41,
+            46,
+            13
+          ],
+          "capped": true
+        },
+        {
+          "fullName": "remix-project-org/remix-live-alpha",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "remix-project-org/remix-ai-plugin",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "remix-project-org/x402",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            3,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "remix-project-org/metamask-dist",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "remix-project-org/remix-project-ci",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "remix-project-org/remix-emails",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "remix-project-org/remix-ide",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        46,
+        99,
+        30,
+        28,
+        41,
+        46,
+        13
+      ]
+    },
+    {
+      "handle": "STetsing",
+      "url": "https://github.com/STetsing",
+      "source": "curated",
+      "repos": [
+        {
+          "fullName": "STetsing/sourcify-mcp",
+          "monthly": [
+            0,
+            10,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "remix-project-org/remix-project",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            59,
+            76,
+            23,
+            44,
+            28,
+            57,
+            11
+          ],
+          "capped": true
+        },
+        {
+          "fullName": "remix-project-org/remix-live-alpha",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "remix-project-org/remix-ai-plugin",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            10
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "remix-project-org/x402",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "remix-project-org/metamask-dist",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "remix-project-org/remix-project-ci",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "remix-project-org/remix-emails",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "remix-project-org/remix-ide",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "remix-project-org/remix-desktop",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        0,
+        10,
+        0,
+        0,
+        2,
+        59,
+        76,
+        23,
+        44,
+        28,
+        57,
+        21
+      ]
+    },
+    {
+      "handle": "Aniket-Engg",
+      "url": "https://github.com/Aniket-Engg",
+      "source": "curated",
+      "repos": [
+        {
+          "fullName": "Aniket-Engg/sol-profiler",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "Aniket-Engg/eth-forks",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "Aniket-Engg/ethereumjs-util",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "Aniket-Engg/ethereumjs-tx",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "remix-project-org/remix-project",
+          "monthly": [
+            0,
+            0,
+            72,
+            57,
+            35,
+            13,
+            45,
+            11,
+            18,
+            25,
+            5,
+            19
+          ],
+          "capped": true
+        },
+        {
+          "fullName": "remix-project-org/remix-live-alpha",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "remix-project-org/remix-ai-plugin",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "remix-project-org/x402",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            18,
+            41,
+            18,
+            28,
+            5,
+            16,
+            28,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "remix-project-org/metamask-dist",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "remix-project-org/remix-project-ci",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        0,
+        0,
+        72,
+        57,
+        53,
+        54,
+        63,
+        39,
+        24,
+        41,
+        33,
+        19
+      ]
+    },
+    {
+      "handle": "Assassin859",
+      "url": "https://github.com/Assassin859",
+      "source": "curated",
+      "repos": [
+        {
+          "fullName": "Assassin859/Assassin859",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            0,
+            25,
+            0,
+            1,
+            0,
+            4
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "Assassin859/tmp-does-not-matter",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "Assassin859/spendwarden",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "Assassin859/executable-gap-desk",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "Assassin859/RoverTwin",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            19,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "Assassin859/wifi-geolocation-tracker",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "Assassin859/maharashtra-weather-corridors",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "Assassin859/ReserveProof",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "Assassin859/cipher_toolkit",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "Assassin859/cryptp",
+          "monthly": [
+            0,
+            0,
+            0,
+            3,
+            1,
+            1,
+            1,
+            3,
+            0,
+            22,
+            0,
+            0
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        0,
+        0,
+        0,
+        3,
+        1,
+        4,
+        1,
+        28,
+        0,
+        24,
+        21,
+        4
+      ]
+    }
+  ]
+}

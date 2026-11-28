@@ -1,0 +1,79 @@
+{
+  "members": [],
+  "organization": null,
+  "delivery": [],
+  "claims": [
+    {
+      "claim": "ERC-5437 (Security Contact Interface) has status Stagnant.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "ERC-5437",
+          "url": "https://eips.ethereum.org/EIPS/eip-5437"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Page header shows the Stagnant status for ERC-5437."
+    },
+    {
+      "claim": "RFC 9116 defines security.txt with fields for a contact, an encryption key and a policy.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "RFC 9116",
+          "url": "https://www.rfc-editor.org/rfc/rfc9116"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "RFC text defines Contact, Encryption and Policy fields."
+    },
+    {
+      "claim": "SEAL's vulnerability disclosure framework includes a SECURITY.md template and a sample security.txt.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "SEAL security contact page",
+          "url": "https://frameworks.securityalliance.org/vulnerability-disclosure/security-contact"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Page text includes a SECURITY.md template. A sample security.txt was not located in the text read."
+    },
+    {
+      "claim": "disclose.io's dioterms offers public-domain VDP and safe harbor templates.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "disclose/dioterms",
+          "url": "https://github.com/disclose/dioterms"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: public repository licensed CC0-1.0, described as open-source vulnerability disclosure policy templates."
+    },
+    {
+      "claim": "A count taken on November 23, 2026 of DeFiLlama-listed websites.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/rfp-no-more-lost-bug-reports-a-verified-security-contact-for"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The proposal text available here gives no counts, so there is nothing to compare."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Applicant team: Not found in public sources (this is a request for proposals and the proposal states nobody is pre-selected)",
+    "Past grants and Round 1 record: Not found in public sources (no applicant, no Round 1 match in the dataset)",
+    "Person or team who will do the outreach: Not found in public sources"
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

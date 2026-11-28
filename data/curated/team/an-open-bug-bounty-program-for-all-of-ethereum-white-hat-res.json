@@ -1,0 +1,78 @@
+{
+  "members": [
+    {
+      "name": "Griff Green",
+      "role": "Builder of the idea (per the proposal); listed as a TheDAO curator representing Giveth on thedao.fund",
+      "pseudonymous": false,
+      "handles": [],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/an-open-bug-bounty-program-for-all-of-ethereum-white-hat-res",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": null,
+  "delivery": [],
+  "claims": [
+    {
+      "claim": "SEAL Safe Harbor bounties are usually 10% capped at $1 million.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "SEAL Safe Harbor page",
+          "url": "https://securityalliance.org/safe-harbor"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Page text: bounties set at 10% of recovered assets, capped at $1M, rescued funds returned within 72 hours."
+    },
+    {
+      "claim": "DART works with a Wyoming statutory trust.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "DART website",
+          "url": "https://assetrecovery.io/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Page text lists jurisdiction Wyoming, US and a statutory trust vault. The Crypto Recovery Trust's independence and the trustee were not checked."
+    },
+    {
+      "claim": "About 70,500 ETH from TheDAO's 2016 refund contracts is unclaimed.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "thedao.fund",
+          "url": "https://thedao.fund"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The site says unclaimed ETH has sat idle for a decade. The figure 70,500 ETH was not found on the page and was not checked onchain."
+    },
+    {
+      "claim": "Anthropic measured exploitable value doubling roughly every 1.3 months.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/an-open-bug-bounty-program-for-all-of-ethereum-white-hat-res"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The linked Anthropic page was not fetched in this pass."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Applicant team: Not found in public sources (this is a request for proposals and the proposal states nobody is pre-selected)",
+    "Past grants and Round 1 record: Not found in public sources (no applicant, no Round 1 match in the dataset)",
+    "Named lawyers and entity that would run the service: Not found in public sources",
+    "Griff Green's other past work: Not found in public sources (only the thedao.fund curator listing was read)"
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}
