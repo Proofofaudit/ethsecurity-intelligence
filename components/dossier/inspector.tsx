@@ -8,6 +8,7 @@ import { Dialog, Sheet } from "@/components/ui/overlay";
 import { formatDate, formatDateTime } from "@/components/ui/money";
 import { StatusMark } from "@/components/ui/status";
 import { toggleBookmark, useWorkspace } from "@/components/workspace/store";
+import { EVIDENCE_KIND_LABEL } from "@/lib/dossier/labels";
 import { cn } from "@/lib/util/cn";
 
 export const ORIGIN_LABEL: Record<Claim["origin"], string> = {
@@ -19,16 +20,6 @@ export const ORIGIN_LABEL: Record<Claim["origin"], string> = {
   curated: "Curated research with cited sources",
 };
 
-export const EVIDENCE_KIND_LABEL: Record<Evidence["kind"], string> = {
-  official_record: "Official record",
-  http_check: "Web page check",
-  github_repository: "GitHub repository",
-  github_pull_request: "GitHub pull request",
-  github_profile: "GitHub profile",
-  onchain_transaction: "Onchain transaction",
-  proposal_text: "Proposal text",
-  curated_source: "Curated source",
-};
 
 interface Trace {
   impact: { metrics: string[]; views: string[]; comparisonsInvolving: string[]; mcpTools: string[] };

@@ -5,6 +5,7 @@ import { Block, Note, PageHead } from "@/components/ui/layout";
 import { DateTime } from "@/components/ui/money";
 import { StatusMark } from "@/components/ui/status";
 import { CATEGORY_LABEL, CHANGELOG_STATES, CORRECTION_NOTICE, STATE_LABEL, toChangelogEntry } from "@/lib/corrections";
+import { correctionsStoreNotice } from "@/lib/corrections/store-status";
 import { loadIntelligence } from "@/lib/intelligence/load";
 import { displayName } from "@/lib/intelligence/service";
 
@@ -12,7 +13,7 @@ export const metadata: Metadata = { title: "Public corrections" };
 export const dynamic = "force-dynamic";
 
 export default async function CorrectionsPage() {
-  const { dataset: d, store } = await loadIntelligence();
+  const { dataset: d, store, health } = await loadIntelligence();
   let entries: NonNullable<ReturnType<typeof toChangelogEntry>>[] = [];
   let failed = false;
   try {
@@ -23,6 +24,7 @@ export default async function CorrectionsPage() {
   } catch {
     failed = true;
   }
+  const notice = correctionsStoreNotice({ failed, degraded: health.degraded || !health.ok, backend: health.backend });
   const byId = new Map(d.initiatives.map((i) => [i.id, i]));
   const claims = new Map(d.claims.map((c) => [c.id, c]));
 
@@ -33,6 +35,13 @@ export default async function CorrectionsPage() {
         title="Corrections changelog"
         lede={<p>{CORRECTION_NOTICE}</p>}
       />
+
+      {notice && (
+        <div role="alert" className="max-w-[860px] border border-rule-2 bg-paper-2 px-4 py-3 text-sm">
+          <p className="font-medium text-st-contradicted">{notice.title}</p>
+          <p className="mt-1 text-ink-2">{notice.body}</p>
+        </div>
+      )}
 
       <Block title="How to submit a correction">
         <ol className="max-w-[860px] list-decimal space-y-1 pl-5 text-sm text-ink-2">
@@ -53,7 +62,7 @@ export default async function CorrectionsPage() {
       <Block title={`Moderated corrections (${entries.length})`} note="Only corrections a moderator has accepted, partially accepted, rejected with reasoning or resolved are listed. Rejected submissions show the category and the reasoning only.">
         {failed ? (
           <p role="alert" className="text-sm text-st-contradicted">
-            The corrections store could not be reached. Please try again later.
+            The corrections list could not be read. Please try again later.
           </p>
         ) : entries.length === 0 ? (
           <Note>No correction has been moderated yet.</Note>

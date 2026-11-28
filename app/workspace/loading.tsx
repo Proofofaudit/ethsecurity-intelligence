@@ -1,5 +1,5 @@
-import { LoadingReport } from "@/components/ui/states";
+import { WorkspaceFirstPaint } from "@/components/workspace/view";
 
 export default function Loading() {
-  return <LoadingReport label="Loading" />;
+  return <WorkspaceFirstPaint />;
 }

@@ -2,9 +2,10 @@ import Link from "next/link";
 import { ArrowRight } from "@/components/ui/icons";
 import { FundingBar, FundingLegend, HBarList } from "@/components/ui/charts";
 import { Block, Note, PageHead, Stat } from "@/components/ui/layout";
-import { DateTime, formatDate, Money, Num, Pct } from "@/components/ui/money";
+import { DateTime, formatDate, Money, Num } from "@/components/ui/money";
 import { Tag } from "@/components/ui/button";
 import { ADVANCED_VIEWS } from "@/components/shell/nav";
+import { automatedChecksLabel, teamResearchCompleteCount, teamResearchLabel } from "@/lib/team/progress";
 import { loadIntelligence } from "@/lib/intelligence/load";
 import { categoryDistribution, changes, coverage, displayName, filterInitiatives, fundingRelationships } from "@/lib/intelligence/service";
 import { ingestionStatus } from "@/lib/intelligence/status";
@@ -50,6 +51,7 @@ export default async function OverviewPage() {
   const ask = val("cohort.thedao_ask");
   const pool = val("cohort.thedao_pool");
   const capBinds = d.initiatives.some((i) => i.funding.remainingCents > THEDAO_ASK_CAP_CENTS);
+  const teamDone = teamResearchCompleteCount(d.initiatives.map((i) => i.id));
   const cov = coverage(d);
   const cats = categoryDistribution(d).filter((c) => c.primaryCount > 0);
   const list = filterInitiatives(d, { limit: 100 });
@@ -78,7 +80,7 @@ export default async function OverviewPage() {
       <VoteCalendar view={calendarView(d, live)} />
 
       <section aria-label="Cohort figures">
-        <dl className="grid grid-cols-2 gap-px border-y border-ink bg-rule sm:grid-cols-3 xl:grid-cols-6 [&>div]:bg-paper [&>div]:px-4 [&>div]:py-4">
+        <dl className="grid grid-cols-2 gap-px border-y border-ink bg-rule sm:grid-cols-3 xl:grid-cols-7 [&>div]:bg-paper [&>div]:px-4 [&>div]:py-4">
           <Stat label="Qualified initiatives" value={<Num value={val("cohort.initiatives")} />} sub={`${grants} grants · ${rfps} RFPs`} />
           <Stat label="Funding requested" value={<Money cents={goal} />} sub="Sum of all funding goals" />
           <Stat
@@ -100,9 +102,14 @@ export default async function OverviewPage() {
             }
           />
           <Stat
-            label="Research coverage"
-            value={<Pct value={val("cohort.research_coverage")} digits={0} />}
-            sub={`${status.research.initiativesFullyResearched} of ${status.research.cohortSize} with every automated check complete`}
+            label="Automated checks"
+            value={<span className="num">{`${status.research.initiativesFullyResearched} of ${status.research.cohortSize}`}</span>}
+            sub={automatedChecksLabel(status.research.initiativesFullyResearched, status.research.cohortSize)}
+          />
+          <Stat
+            label="Team research"
+            value={<span className="num">{`${teamDone} of ${d.initiatives.length}`}</span>}
+            sub={teamResearchLabel(teamDone, d.initiatives.length)}
           />
           <Stat
             label="Last successful update"

@@ -3,7 +3,8 @@ import { ArrowRight } from "@/components/ui/icons";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
-import { ClaimList, CorrectionButton, EVIDENCE_KIND_LABEL, InspectorProvider } from "@/components/dossier/inspector";
+import { ClaimList, CorrectionButton, InspectorProvider } from "@/components/dossier/inspector";
+import { evidenceGroupTitle } from "@/lib/dossier/labels";
 import { ProposalHistory } from "@/components/dossier/history";
 import { MilestoneXRay } from "@/components/dossier/milestones";
 import { RealityVsPromises } from "@/components/dossier/reality";
@@ -739,7 +740,7 @@ export default async function InitiativePage({ params }: Params) {
             <Section id="sources" n={17} title="Evidence sources" meta={`${x.evidence.length} records`}>
               <div className="space-y-5">
                 {[...evidenceByKind.entries()].map(([kind, list]) => (
-                  <Sub key={kind} title={`${EVIDENCE_KIND_LABEL[kind]} (${list.length})`}>
+                  <Sub key={kind} title={evidenceGroupTitle(kind, list.length)}>
                     <ul className="divide-y divide-rule border-y border-rule text-sm">
                       {list.map((e) => (
                         <li key={e.id} className="grid grid-cols-[1fr_auto] gap-4 py-1.5 max-sm:grid-cols-1 max-sm:gap-0">

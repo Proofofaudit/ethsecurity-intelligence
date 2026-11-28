@@ -4,7 +4,10 @@ name: Refresh dataset
 # review. It never commits, pushes or deploys, and it uses no repository secrets.
 on:
   schedule:
+    # Every 6 hours, and hourly from 1 to 11 December (the ballot window; cron has no year field,
+    # so the hourly schedule repeats each December). GitHub runs scheduled workflows on main only.
     - cron: "17 */6 * * *"
+    - cron: "17 * 1-11 12 *"
   workflow_dispatch:
     inputs:
       research:

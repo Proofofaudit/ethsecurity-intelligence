@@ -154,7 +154,7 @@ export function WorkspaceView({ initiatives, changes, datasetVersion, vote, revi
     setMessage({ tone: "ok", text: "Workspace imported." });
   };
 
-  if (!hydrated) return <p className="text-sm text-ink-3">Loading your workspace from this browser…</p>;
+  if (!hydrated) return <WorkspaceFirstPaint />;
 
   return (
     <div className="space-y-10">
@@ -708,5 +708,26 @@ function PrioritiesSection() {
         </ol>
       )}
     </Section>
+  );
+}
+
+/** Server-rendered first paint: a stated reason without JavaScript, a quiet skeleton with it. */
+export function WorkspaceFirstPaint() {
+  return (
+    <div className="space-y-4">
+      <noscript>
+        <style>{"[data-ws-loading]{display:none}"}</style>
+        <div role="alert" className="max-w-[720px] border border-rule-2 bg-paper-2 px-4 py-3 text-sm">
+          <p className="font-medium">This page needs JavaScript</p>
+          <p className="mt-1 text-ink-2">Your workspace is stored in this browser and is read with JavaScript. Turn JavaScript on to see it. The research pages do not need it.</p>
+        </div>
+      </noscript>
+      <div data-ws-loading="" role="status" aria-live="polite" className="animate-pulse space-y-3">
+        <span className="sr-only">Reading your workspace from this browser</span>
+        {Array.from({ length: 4 }, (_, i) => (
+          <div key={i} className="h-4 rounded-xs bg-paper-2" style={{ width: `${90 - i * 12}%` }} />
+        ))}
+      </div>
+    </div>
   );
 }
