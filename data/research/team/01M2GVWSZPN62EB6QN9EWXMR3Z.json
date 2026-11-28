@@ -1,0 +1,284 @@
+{
+  "initiativeId": "01M2GVWSZPN62EB6QN9EWXMR3Z",
+  "collectedAt": "2026-11-28T07:02:03.924Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 26,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "crytic",
+      "type": "Organization",
+      "url": "https://github.com/crytic",
+      "source": "proposal",
+      "reposTotal": 65,
+      "repos": [
+        {
+          "fullName": "crytic/echidna",
+          "url": "https://github.com/crytic/echidna",
+          "fork": false,
+          "archived": false,
+          "stars": 3203,
+          "forks": 441,
+          "pushedAt": "2026-11-28T01:58:37Z",
+          "latestReleaseAt": "2026-11-04T18:37:07Z"
+        },
+        {
+          "fullName": "crytic/slither",
+          "url": "https://github.com/crytic/slither",
+          "fork": false,
+          "archived": false,
+          "stars": 6424,
+          "forks": 1174,
+          "pushedAt": "2026-11-18T22:54:08Z",
+          "latestReleaseAt": "2026-07-28T21:32:01Z"
+        },
+        {
+          "fullName": "crytic/crytic-compile",
+          "url": "https://github.com/crytic/crytic-compile",
+          "fork": false,
+          "archived": false,
+          "stars": 199,
+          "forks": 98,
+          "pushedAt": "2026-11-17T23:23:29Z",
+          "latestReleaseAt": "2026-07-28T20:54:12Z"
+        },
+        {
+          "fullName": "crytic/medusa",
+          "url": "https://github.com/crytic/medusa",
+          "fork": false,
+          "archived": false,
+          "stars": 502,
+          "forks": 103,
+          "pushedAt": "2026-10-28T23:54:46Z",
+          "latestReleaseAt": "2026-03-11T13:21:11Z"
+        },
+        {
+          "fullName": "crytic/anchorx-ray",
+          "url": "https://github.com/crytic/anchorx-ray",
+          "fork": false,
+          "archived": false,
+          "stars": 39,
+          "forks": 3,
+          "pushedAt": "2026-10-23T14:30:06Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "crytic/building-secure-contracts",
+          "url": "https://github.com/crytic/building-secure-contracts",
+          "fork": false,
+          "archived": false,
+          "stars": 2488,
+          "forks": 394,
+          "pushedAt": "2026-10-22T17:49:09Z",
+          "latestReleaseAt": "2023-02-23T13:44:14Z"
+        },
+        {
+          "fullName": "crytic/fluxture",
+          "url": "https://github.com/crytic/fluxture",
+          "fork": false,
+          "archived": false,
+          "stars": 46,
+          "forks": 9,
+          "pushedAt": "2026-09-07T22:02:57Z",
+          "latestReleaseAt": "2021-10-04T01:52:55Z"
+        },
+        {
+          "fullName": "crytic/solc-select",
+          "url": "https://github.com/crytic/solc-select",
+          "fork": false,
+          "archived": false,
+          "stars": 816,
+          "forks": 108,
+          "pushedAt": "2026-06-04T08:52:29Z",
+          "latestReleaseAt": "2025-12-04T20:56:35Z"
+        },
+        {
+          "fullName": "crytic/crytic.nix",
+          "url": "https://github.com/crytic/crytic.nix",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 1,
+          "pushedAt": "2026-04-22T19:21:13Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "crytic/medusa-geth",
+          "url": "https://github.com/crytic/medusa-geth",
+          "fork": false,
+          "archived": false,
+          "stars": 13,
+          "forks": 5,
+          "pushedAt": "2026-04-20T20:25:48Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "crytic/pyevmasm",
+          "url": "https://github.com/crytic/pyevmasm",
+          "fork": false,
+          "archived": false,
+          "stars": 386,
+          "forks": 52,
+          "pushedAt": "2026-04-17T13:27:15Z",
+          "latestReleaseAt": "2020-04-17T00:16:34Z"
+        },
+        {
+          "fullName": "crytic/properties",
+          "url": "https://github.com/crytic/properties",
+          "fork": false,
+          "archived": false,
+          "stars": 371,
+          "forks": 61,
+          "pushedAt": "2026-03-09T17:36:56Z",
+          "latestReleaseAt": "2025-04-18T18:36:16Z"
+        }
+      ]
+    },
+    {
+      "login": "perimetersec",
+      "type": "Organization",
+      "url": "https://github.com/perimetersec",
+      "source": "proposal",
+      "reposTotal": 14,
+      "repos": [
+        {
+          "fullName": "perimetersec/evm-fuzzing-resources",
+          "url": "https://github.com/perimetersec/evm-fuzzing-resources",
+          "fork": false,
+          "archived": false,
+          "stars": 256,
+          "forks": 23,
+          "pushedAt": "2026-07-21T11:42:27Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "perimetersec/resources",
+          "url": "https://github.com/perimetersec/resources",
+          "fork": false,
+          "archived": false,
+          "stars": 28,
+          "forks": 2,
+          "pushedAt": "2026-07-06T14:49:03Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "perimetersec/public-fuzzing-campaigns-list",
+          "url": "https://github.com/perimetersec/public-fuzzing-campaigns-list",
+          "fork": false,
+          "archived": false,
+          "stars": 130,
+          "forks": 26,
+          "pushedAt": "2026-01-24T12:39:26Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "perimetersec/fuzzlib",
+          "url": "https://github.com/perimetersec/fuzzlib",
+          "fork": false,
+          "archived": false,
+          "stars": 60,
+          "forks": 15,
+          "pushedAt": "2026-01-18T13:53:53Z",
+          "latestReleaseAt": "2026-01-15T13:04:13Z"
+        },
+        {
+          "fullName": "perimetersec/arachne",
+          "url": "https://github.com/perimetersec/arachne",
+          "fork": false,
+          "archived": false,
+          "stars": 19,
+          "forks": 5,
+          "pushedAt": "2025-12-18T13:55:52Z",
+          "latestReleaseAt": "2025-02-21T20:31:11Z"
+        },
+        {
+          "fullName": "perimetersec/origin-woeth-fuzz",
+          "url": "https://github.com/perimetersec/origin-woeth-fuzz",
+          "fork": false,
+          "archived": false,
+          "stars": 7,
+          "forks": 2,
+          "pushedAt": "2025-10-30T20:20:30Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "perimetersec/drips-fuzzing",
+          "url": "https://github.com/perimetersec/drips-fuzzing",
+          "fork": false,
+          "archived": false,
+          "stars": 9,
+          "forks": 5,
+          "pushedAt": "2025-10-28T14:21:27Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "perimetersec/origin-oeth-fuzzing",
+          "url": "https://github.com/perimetersec/origin-oeth-fuzzing",
+          "fork": false,
+          "archived": false,
+          "stars": 3,
+          "forks": 3,
+          "pushedAt": "2024-09-02T11:03:38Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "perimetersec/.github",
+          "url": "https://github.com/perimetersec/.github",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-06-17T14:32:16Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "perimetersec/FuzzyVM",
+          "url": "https://github.com/perimetersec/FuzzyVM",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-12-10T20:40:33Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "perimetersec/tx-fuzz",
+          "url": "https://github.com/perimetersec/tx-fuzz",
+          "fork": true,
+          "archived": false,
+          "stars": 2,
+          "forks": 0,
+          "pushedAt": "2025-12-10T20:39:02Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "perimetersec/execution-specs",
+          "url": "https://github.com/perimetersec/execution-specs",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-11-25T11:05:06Z",
+          "latestReleaseAt": null
+        }
+      ]
+    }
+  ],
+  "people": []
+}

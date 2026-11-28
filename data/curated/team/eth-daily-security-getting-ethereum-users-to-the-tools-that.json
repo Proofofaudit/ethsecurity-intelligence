@@ -1,0 +1,90 @@
+{
+  "members": [
+    {
+      "name": "ETH Daily",
+      "role": "Pseudonymous solo producer of the ETH Daily newsletter, podcast and social feed (per the proposal)",
+      "pseudonymous": true,
+      "handles": [
+        {
+          "platform": "X",
+          "handle": "ethdaily",
+          "url": "https://x.com/ethdaily",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/eth-daily-security-getting-ethereum-users-to-the-tools-that",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "ETH Daily",
+    "summary": "Daily Ethereum news newsletter and podcast. Its Advertise page calls it a news briefing since 2022 and reports 4,000+ newsletter subscribers, 6,000+ audio subscribers and 26,000+ combined social followers (self-published).",
+    "website": "https://ethdaily.io",
+    "previousFunding": [],
+    "otherProducts": [
+      {
+        "label": "ETH Daily podcast on pod.link",
+        "url": "https://pod.link/eth"
+      }
+    ],
+    "sources": [
+      {
+        "label": "ETH Daily Advertise page",
+        "url": "https://ethdaily.io/ads"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [],
+  "claims": [
+    {
+      "claim": "ETH Daily has 10,000 combined newsletter and podcast subscribers and 26,000 combined followers.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "ETH Daily Advertise page",
+          "url": "https://ethdaily.io/ads"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The Advertise page states 6,000+ audio subscribers, 4,000+ newsletter subscribers and 26,000+ combined social followers. Not verified: user, request and subscriber counts come from the applicant's own pages; no independent public source was found."
+    },
+    {
+      "claim": "ETH Daily has covered Ethereum for over 4 years.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "ETH Daily Advertise page",
+          "url": "https://ethdaily.io/ads"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The Advertise page says the briefing runs 'since 2022'. Four years from 2022 reaches 2026. Continuity was not checked."
+    },
+    {
+      "claim": "A public security archive exists.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "ETH Daily security category",
+          "url": "https://ethdaily.io/category/security"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The category page returned HTTP 200. Its contents were not counted or reviewed."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "The person or people behind ETH Daily: Not found in public sources (pseudonymous by the applicant's own statement; no identity is inferred).",
+    "Past grants or other funders: the proposal states none; Not found in public sources",
+    "Delivery track: no Round 1 record matched this initiative. Not found in public sources"
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

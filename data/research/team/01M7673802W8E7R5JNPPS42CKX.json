@@ -1,0 +1,155 @@
+{
+  "initiativeId": "01M7673802W8E7R5JNPPS42CKX",
+  "collectedAt": "2026-11-28T07:01:46.839Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 14,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "Decurity",
+      "type": "Organization",
+      "url": "https://github.com/Decurity",
+      "source": "proposal",
+      "reposTotal": 21,
+      "repos": [
+        {
+          "fullName": "Decurity/tree-sitter-circom",
+          "url": "https://github.com/Decurity/tree-sitter-circom",
+          "fork": false,
+          "archived": false,
+          "stars": 10,
+          "forks": 3,
+          "pushedAt": "2026-11-26T15:00:44Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Decurity/verifyoor",
+          "url": "https://github.com/Decurity/verifyoor",
+          "fork": false,
+          "archived": false,
+          "stars": 15,
+          "forks": 5,
+          "pushedAt": "2026-08-16T12:33:34Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Decurity/audits",
+          "url": "https://github.com/Decurity/audits",
+          "fork": false,
+          "archived": false,
+          "stars": 48,
+          "forks": 4,
+          "pushedAt": "2026-07-14T18:39:03Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Decurity/anchor-constraints-analyzer",
+          "url": "https://github.com/Decurity/anchor-constraints-analyzer",
+          "fork": false,
+          "archived": false,
+          "stars": 7,
+          "forks": 0,
+          "pushedAt": "2025-12-11T06:30:38Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Decurity/semgrep-smart-contracts",
+          "url": "https://github.com/Decurity/semgrep-smart-contracts",
+          "fork": false,
+          "archived": false,
+          "stars": 715,
+          "forks": 102,
+          "pushedAt": "2025-06-02T18:15:41Z",
+          "latestReleaseAt": "2025-06-02T16:22:20Z"
+        },
+        {
+          "fullName": "Decurity/assets",
+          "url": "https://github.com/Decurity/assets",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-04-23T09:23:00Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Decurity/solana-ebpf-ida-processor",
+          "url": "https://github.com/Decurity/solana-ebpf-ida-processor",
+          "fork": false,
+          "archived": false,
+          "stars": 88,
+          "forks": 13,
+          "pushedAt": "2025-02-19T13:26:48Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Decurity/solana-ida-signatures-factory",
+          "url": "https://github.com/Decurity/solana-ida-signatures-factory",
+          "fork": false,
+          "archived": false,
+          "stars": 18,
+          "forks": 3,
+          "pushedAt": "2025-02-19T13:18:30Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Decurity/GemPad_Hack_DeepDive",
+          "url": "https://github.com/Decurity/GemPad_Hack_DeepDive",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-01-15T23:18:13Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Decurity/.github",
+          "url": "https://github.com/Decurity/.github",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-01-13T18:02:52Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Decurity/tx-coverage",
+          "url": "https://github.com/Decurity/tx-coverage",
+          "fork": false,
+          "archived": false,
+          "stars": 77,
+          "forks": 5,
+          "pushedAt": "2024-04-16T10:26:22Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Decurity/trustx-workshop",
+          "url": "https://github.com/Decurity/trustx-workshop",
+          "fork": false,
+          "archived": false,
+          "stars": 6,
+          "forks": 2,
+          "pushedAt": "2023-11-13T13:15:09Z",
+          "latestReleaseAt": null
+        }
+      ]
+    }
+  ],
+  "people": []
+}

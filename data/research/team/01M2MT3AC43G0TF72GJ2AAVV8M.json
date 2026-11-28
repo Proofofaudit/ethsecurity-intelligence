@@ -1,0 +1,155 @@
+{
+  "initiativeId": "01M2MT3AC43G0TF72GJ2AAVV8M",
+  "collectedAt": "2026-11-28T07:02:37.849Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 13,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "eez-association",
+      "type": "Organization",
+      "url": "https://github.com/eez-association",
+      "source": "proposal",
+      "reposTotal": 15,
+      "repos": [
+        {
+          "fullName": "eez-association/eez-rollupX",
+          "url": "https://github.com/eez-association/eez-rollupX",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 3,
+          "pushedAt": "2026-11-27T21:17:15Z",
+          "latestReleaseAt": "2026-11-12T09:08:19Z"
+        },
+        {
+          "fullName": "eez-association/provers",
+          "url": "https://github.com/eez-association/provers",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2026-11-27T11:46:38Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "eez-association/eez-rollup0",
+          "url": "https://github.com/eez-association/eez-rollup0",
+          "fork": false,
+          "archived": false,
+          "stars": 5,
+          "forks": 8,
+          "pushedAt": "2026-11-27T11:46:36Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "eez-association/eez-core-protocol",
+          "url": "https://github.com/eez-association/eez-core-protocol",
+          "fork": false,
+          "archived": false,
+          "stars": 30,
+          "forks": 13,
+          "pushedAt": "2026-11-27T10:41:26Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "eez-association/eez-rollupx-roadmap",
+          "url": "https://github.com/eez-association/eez-rollupx-roadmap",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-26T13:28:19Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "eez-association/eez.io",
+          "url": "https://github.com/eez-association/eez.io",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-26T10:33:02Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "eez-association/eez-protocol-docs",
+          "url": "https://github.com/eez-association/eez-protocol-docs",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-11-26T10:11:09Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "eez-association/eez-demos",
+          "url": "https://github.com/eez-association/eez-demos",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2026-11-16T13:25:50Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "eez-association/specs-draft",
+          "url": "https://github.com/eez-association/specs-draft",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2026-11-10T14:27:31Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "eez-association/eez-rollup-dashboard",
+          "url": "https://github.com/eez-association/eez-rollup-dashboard",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 4,
+          "pushedAt": "2026-11-04T09:52:13Z",
+          "latestReleaseAt": "2026-11-02T19:08:14Z"
+        },
+        {
+          "fullName": "eez-association/solidity-simplified-transient-demo",
+          "url": "https://github.com/eez-association/solidity-simplified-transient-demo",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-07-08T19:30:03Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "eez-association/zisk-patch-stateless",
+          "url": "https://github.com/eez-association/zisk-patch-stateless",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-07-01T21:28:47Z",
+          "latestReleaseAt": null
+        }
+      ]
+    }
+  ],
+  "people": []
+}

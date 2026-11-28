@@ -1,6 +1,6 @@
 {
   "initiativeId": "01M4ACNCQ61BYAQC7VZ4ABAKB2",
-  "collectedAt": "2026-11-28T06:28:25.166Z",
+  "collectedAt": "2026-11-28T06:56:46.073Z",
   "months": [
     "2025-12",
     "2026-01",
@@ -17,8 +17,8 @@
   ],
   "since": "2025-12-01T00:00:00Z",
   "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
-  "maxRequests": 120,
-  "requests": 56,
+  "maxRequests": 200,
+  "requests": 0,
   "truncated": false,
   "owners": [
     {
@@ -413,7 +413,7 @@
     {
       "handle": "sembrestels",
       "url": "https://github.com/sembrestels",
-      "source": "proposal",
+      "source": "curated",
       "repos": [
         {
           "fullName": "sembrestels/ranked-shares",

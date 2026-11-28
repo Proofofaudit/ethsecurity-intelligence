@@ -1,0 +1,130 @@
+{
+  "members": [
+    {
+      "name": "Peter Kacherginsky",
+      "role": "Editor of BlockThreat; author listed on the BlockThreat About page",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "X",
+          "handle": "iphelix",
+          "url": "https://x.com/iphelix",
+          "publishedBy": "website"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Speaker, 'The State of DeFi Security - 2026', DeFi Security Summit 2026",
+          "kind": "talk",
+          "url": "https://defisecuritysummit.org/2026/agenda",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://blockthreat.com/about/",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "BlockThreat",
+    "summary": "Independent weekly blockchain security briefing. Its About page states it is researched and written by one practitioner, with 13,000+ subscribers and weekly coverage since 2019 (self-published figures).",
+    "website": "https://blockthreat.com",
+    "previousFunding": [
+      {
+        "label": "TheDAO Security Fund Round 1 record: BlockThreat",
+        "url": "https://thedao.fund/transparency/blockthreat"
+      }
+    ],
+    "otherProducts": [],
+    "sources": [
+      {
+        "label": "BlockThreat About page",
+        "url": "https://blockthreat.com/about/"
+      },
+      {
+        "label": "BlockThreat archive",
+        "url": "https://blockthreat.com/archive/"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [],
+  "claims": [
+    {
+      "claim": "BlockThreat has published weekly editions without a gap since 2019.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "BlockThreat About page",
+          "url": "https://blockthreat.com/about/"
+        },
+        {
+          "label": "BlockThreat archive",
+          "url": "https://blockthreat.com/archive/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The About page states seven years of uninterrupted weekly coverage. The 2026 archive lists editions through Week 47 of 2026. Earlier years were not enumerated."
+    },
+    {
+      "claim": "13,000+ subscribers at 1,900+ organizations.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "BlockThreat About page",
+          "url": "https://blockthreat.com/about/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Not verified: user, request and subscriber counts come from the applicant's own pages; no independent public source was found. The About page repeats 13,000+; the 1,900+ organizations figure was not found there."
+    },
+    {
+      "claim": "Peter Kacherginsky spoke at DeFi Security Summit 2026 on 'The State of DeFi Security - 2026'.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "DeFi Security Summit 2026 agenda",
+          "url": "https://defisecuritysummit.org/2026/agenda"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Agenda lists the talk under the speaker name Peter Kacherginsky, Day 1. Whether the speaker is the BlockThreat editor was not stated on the agenda; the name matches the proposal and the BlockThreat About page author."
+    },
+    {
+      "claim": "The editor has 20+ years in security and founded Coinbase's blockchain security team.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "BlockThreat About page",
+          "url": "https://blockthreat.com/about/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The About page states 20+ years of experience. The Coinbase claim was not found on a public page checked."
+    },
+    {
+      "claim": "The Ethereum Foundation and TheDAO Security Fund each sponsored BlockThreat once before.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "TheDAO Security Fund Round 1 record: BlockThreat",
+          "url": "https://thedao.fund/transparency/blockthreat"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "A Round 1 record named BlockThreat with the same website exists. No Ethereum Foundation source was found."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Ethereum Foundation sponsorship of BlockThreat: Not found in public sources",
+    "Coinbase blockchain security team founding: Not found in public sources",
+    "Advertisers named in the proposal: independent confirmation Not found in public sources",
+    "Delivery against Round 1: deliverables per the Round 1 record Not found in public sources. The Round 1 record links a progress update on X that could not be read."
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

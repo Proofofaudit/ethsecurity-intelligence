@@ -1,0 +1,542 @@
+{
+  "initiativeId": "01M4DNFKC31D46AZVBBWKZVS52",
+  "collectedAt": "2026-11-28T06:59:26.840Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 53,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "corpus-core",
+      "type": "Organization",
+      "url": "https://github.com/corpus-core",
+      "source": "proposal",
+      "reposTotal": 14,
+      "repos": [
+        {
+          "fullName": "corpus-core/colibri-stateless",
+          "url": "https://github.com/corpus-core/colibri-stateless",
+          "fork": false,
+          "archived": false,
+          "stars": 37,
+          "forks": 7,
+          "pushedAt": "2026-11-27T14:45:46Z",
+          "latestReleaseAt": "2026-11-21T23:40:58Z"
+        },
+        {
+          "fullName": "corpus-core/homebrew-colibri",
+          "url": "https://github.com/corpus-core/homebrew-colibri",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-21T23:53:35Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "corpus-core/colibri-stateless-swift",
+          "url": "https://github.com/corpus-core/colibri-stateless-swift",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-21T23:46:07Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "corpus-core/workshop",
+          "url": "https://github.com/corpus-core/workshop",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 0,
+          "pushedAt": "2026-11-03T09:21:01Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "corpus-core/lying-rpc",
+          "url": "https://github.com/corpus-core/lying-rpc",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-01T18:19:56Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "corpus-core/tsa_crawler",
+          "url": "https://github.com/corpus-core/tsa_crawler",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-15T19:15:13Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "corpus-core/node_check",
+          "url": "https://github.com/corpus-core/node_check",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-02T09:27:43Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "corpus-core/oss-scanner",
+          "url": "https://github.com/corpus-core/oss-scanner",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-13T13:14:29Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "corpus-core/kohaku",
+          "url": "https://github.com/corpus-core/kohaku",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-19T13:39:53Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "corpus-core/kohaku-commons",
+          "url": "https://github.com/corpus-core/kohaku-commons",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-18T09:31:15Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "corpus-core/kohaku-extension",
+          "url": "https://github.com/corpus-core/kohaku-extension",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-18T09:18:50Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "corpus-core/EIPs",
+          "url": "https://github.com/corpus-core/EIPs",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-07-03T09:53:35Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "ethereum",
+      "type": "Organization",
+      "url": "https://github.com/ethereum",
+      "source": "proposal",
+      "reposTotal": 100,
+      "repos": [
+        {
+          "fullName": "ethereum/ethereum-org-website",
+          "url": "https://github.com/ethereum/ethereum-org-website",
+          "fork": false,
+          "archived": false,
+          "stars": 6005,
+          "forks": 5460,
+          "pushedAt": "2026-11-28T06:59:33Z",
+          "latestReleaseAt": "2026-11-26T14:12:47Z"
+        },
+        {
+          "fullName": "ethereum/eth-rnd-archive",
+          "url": "https://github.com/ethereum/eth-rnd-archive",
+          "fork": false,
+          "archived": false,
+          "stars": 11,
+          "forks": 10,
+          "pushedAt": "2026-11-28T06:49:33Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum/EthLib",
+          "url": "https://github.com/ethereum/EthLib",
+          "fork": false,
+          "archived": false,
+          "stars": 112,
+          "forks": 35,
+          "pushedAt": "2026-11-28T06:48:19Z",
+          "latestReleaseAt": "2026-11-06T23:49:53Z"
+        },
+        {
+          "fullName": "ethereum/forkcast",
+          "url": "https://github.com/ethereum/forkcast",
+          "fork": false,
+          "archived": false,
+          "stars": 65,
+          "forks": 58,
+          "pushedAt": "2026-11-28T06:17:58Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum/zkevm-website",
+          "url": "https://github.com/ethereum/zkevm-website",
+          "fork": false,
+          "archived": false,
+          "stars": 6,
+          "forks": 10,
+          "pushedAt": "2026-11-28T06:05:35Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum/webtor-rs",
+          "url": "https://github.com/ethereum/webtor-rs",
+          "fork": false,
+          "archived": false,
+          "stars": 30,
+          "forks": 5,
+          "pushedAt": "2026-11-28T06:00:59Z",
+          "latestReleaseAt": "2026-01-06T12:16:20Z"
+        },
+        {
+          "fullName": "ethereum/FCR-website",
+          "url": "https://github.com/ethereum/FCR-website",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 3,
+          "pushedAt": "2026-11-28T05:24:55Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum/moica-revocation-smt",
+          "url": "https://github.com/ethereum/moica-revocation-smt",
+          "fork": false,
+          "archived": false,
+          "stars": 3,
+          "forks": 0,
+          "pushedAt": "2026-11-28T04:12:45Z",
+          "latestReleaseAt": "2026-03-24T05:16:45Z"
+        },
+        {
+          "fullName": "ethereum/discv4-dns-lists",
+          "url": "https://github.com/ethereum/discv4-dns-lists",
+          "fork": false,
+          "archived": false,
+          "stars": 97,
+          "forks": 62,
+          "pushedAt": "2026-11-28T04:11:22Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum/eip-review-bot",
+          "url": "https://github.com/ethereum/eip-review-bot",
+          "fork": false,
+          "archived": false,
+          "stars": 92,
+          "forks": 74,
+          "pushedAt": "2026-11-28T03:45:51Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum/zkID",
+          "url": "https://github.com/ethereum/zkID",
+          "fork": false,
+          "archived": false,
+          "stars": 90,
+          "forks": 23,
+          "pushedAt": "2026-11-28T03:13:23Z",
+          "latestReleaseAt": "2026-08-11T13:17:13Z"
+        },
+        {
+          "fullName": "ethereum/ERCs",
+          "url": "https://github.com/ethereum/ERCs",
+          "fork": false,
+          "archived": false,
+          "stars": 778,
+          "forks": 1119,
+          "pushedAt": "2026-11-28T01:53:40Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "AmbireTech",
+      "type": "Organization",
+      "url": "https://github.com/AmbireTech",
+      "source": "proposal",
+      "reposTotal": 70,
+      "repos": [
+        {
+          "fullName": "AmbireTech/ambire-common",
+          "url": "https://github.com/AmbireTech/ambire-common",
+          "fork": false,
+          "archived": false,
+          "stars": 35,
+          "forks": 39,
+          "pushedAt": "2026-11-27T22:52:12Z",
+          "latestReleaseAt": "2026-11-26T14:49:25Z"
+        },
+        {
+          "fullName": "AmbireTech/ice",
+          "url": "https://github.com/AmbireTech/ice",
+          "fork": false,
+          "archived": false,
+          "stars": 18,
+          "forks": 0,
+          "pushedAt": "2026-11-27T18:25:53Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "AmbireTech/extension",
+          "url": "https://github.com/AmbireTech/extension",
+          "fork": false,
+          "archived": false,
+          "stars": 75,
+          "forks": 33,
+          "pushedAt": "2026-11-26T14:53:17Z",
+          "latestReleaseAt": "2026-11-26T11:23:36Z"
+        },
+        {
+          "fullName": "AmbireTech/benzin-prod-gh-pages",
+          "url": "https://github.com/AmbireTech/benzin-prod-gh-pages",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-24T10:54:40Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "AmbireTech/token-and-network-icons",
+          "url": "https://github.com/AmbireTech/token-and-network-icons",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-11-16T13:20:08Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "AmbireTech/wallet",
+          "url": "https://github.com/AmbireTech/wallet",
+          "fork": false,
+          "archived": false,
+          "stars": 245,
+          "forks": 85,
+          "pushedAt": "2026-11-02T11:54:20Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "AmbireTech/react-native-crypto",
+          "url": "https://github.com/AmbireTech/react-native-crypto",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-10-06T14:11:03Z",
+          "latestReleaseAt": "2026-10-06T13:22:31Z"
+        },
+        {
+          "fullName": "AmbireTech/legends-gh-pages",
+          "url": "https://github.com/AmbireTech/legends-gh-pages",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 2,
+          "pushedAt": "2026-07-31T13:07:18Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "AmbireTech/legends-staging-gh-pages",
+          "url": "https://github.com/AmbireTech/legends-staging-gh-pages",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 2,
+          "pushedAt": "2026-06-19T14:06:54Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "AmbireTech/ambire-brand",
+          "url": "https://github.com/AmbireTech/ambire-brand",
+          "fork": false,
+          "archived": false,
+          "stars": 7,
+          "forks": 9,
+          "pushedAt": "2026-06-01T12:13:27Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "AmbireTech/evm-sigtools",
+          "url": "https://github.com/AmbireTech/evm-sigtools",
+          "fork": false,
+          "archived": false,
+          "stars": 4,
+          "forks": 5,
+          "pushedAt": "2026-02-16T12:42:52Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "AmbireTech/signature-validator",
+          "url": "https://github.com/AmbireTech/signature-validator",
+          "fork": false,
+          "archived": false,
+          "stars": 68,
+          "forks": 23,
+          "pushedAt": "2025-09-12T12:46:29Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "solardev-xyz",
+      "type": "Organization",
+      "url": "https://github.com/solardev-xyz",
+      "source": "proposal",
+      "reposTotal": 24,
+      "repos": [
+        {
+          "fullName": "solardev-xyz/freedom-browser",
+          "url": "https://github.com/solardev-xyz/freedom-browser",
+          "fork": false,
+          "archived": false,
+          "stars": 174,
+          "forks": 35,
+          "pushedAt": "2026-11-28T06:47:09Z",
+          "latestReleaseAt": "2026-11-28T04:48:06Z"
+        },
+        {
+          "fullName": "solardev-xyz/freedom-core",
+          "url": "https://github.com/solardev-xyz/freedom-core",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-28T05:56:12Z",
+          "latestReleaseAt": "2026-11-27T09:01:59Z"
+        },
+        {
+          "fullName": "solardev-xyz/freedom-browser-android",
+          "url": "https://github.com/solardev-xyz/freedom-browser-android",
+          "fork": false,
+          "archived": false,
+          "stars": 6,
+          "forks": 0,
+          "pushedAt": "2026-11-27T14:46:08Z",
+          "latestReleaseAt": "2026-11-27T13:01:46Z"
+        },
+        {
+          "fullName": "solardev-xyz/alan-artifacts",
+          "url": "https://github.com/solardev-xyz/alan-artifacts",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-27T14:39:20Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "solardev-xyz/freedom-website",
+          "url": "https://github.com/solardev-xyz/freedom-website",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-27T08:46:16Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "solardev-xyz/freedom-ipfs",
+          "url": "https://github.com/solardev-xyz/freedom-ipfs",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-26T19:47:23Z",
+          "latestReleaseAt": "2026-10-15T17:47:50Z"
+        },
+        {
+          "fullName": "solardev-xyz/libradicle",
+          "url": "https://github.com/solardev-xyz/libradicle",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-26T19:30:15Z",
+          "latestReleaseAt": "2026-10-01T19:43:10Z"
+        },
+        {
+          "fullName": "solardev-xyz/freedom-browser-ios",
+          "url": "https://github.com/solardev-xyz/freedom-browser-ios",
+          "fork": false,
+          "archived": false,
+          "stars": 5,
+          "forks": 0,
+          "pushedAt": "2026-11-20T19:15:27Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "solardev-xyz/demo-mirror",
+          "url": "https://github.com/solardev-xyz/demo-mirror",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-14T22:07:12Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "solardev-xyz/freedom-mobile-ffi",
+          "url": "https://github.com/solardev-xyz/freedom-mobile-ffi",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 1,
+          "pushedAt": "2026-11-11T19:18:48Z",
+          "latestReleaseAt": "2026-11-11T19:51:50Z"
+        },
+        {
+          "fullName": "solardev-xyz/canopy",
+          "url": "https://github.com/solardev-xyz/canopy",
+          "fork": false,
+          "archived": false,
+          "stars": 3,
+          "forks": 0,
+          "pushedAt": "2026-11-05T16:34:34Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "solardev-xyz/railgun-kohaku-adapter",
+          "url": "https://github.com/solardev-xyz/railgun-kohaku-adapter",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-20T20:37:38Z",
+          "latestReleaseAt": null
+        }
+      ]
+    }
+  ],
+  "people": []
+}

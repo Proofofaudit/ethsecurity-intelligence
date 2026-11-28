@@ -1,0 +1,129 @@
+{
+  "members": [
+    {
+      "name": "Andres A.",
+      "role": "Lead of DappFence development (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "a-d-j-i",
+          "url": "https://github.com/a-d-j-i",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/dappfence-verifiable-frontend-security",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "Coinspect",
+    "summary": "Security research and auditing firm. Its website says it has built security since 2014, and its GitHub organization description says it protects L1 nodes, smart contract audits, wallets, dApps, exchanges and bridges.",
+    "website": "https://www.coinspect.com",
+    "founded": "2014 (per the Coinspect website)",
+    "previousFunding": [
+      {
+        "label": "TheDAO Security Fund Round 1 record: Wallet Security Ranking",
+        "url": "https://thedao.fund/transparency/wallet-security-ranking"
+      }
+    ],
+    "otherProducts": [
+      {
+        "label": "Coinspect wallet security ranking",
+        "url": "https://www.coinspect.com/wallets/"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Coinspect website",
+        "url": "https://www.coinspect.com"
+      },
+      {
+        "label": "GitHub organization coinspect",
+        "url": "https://github.com/coinspect"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [],
+  "claims": [
+    {
+      "claim": "The DappFence repository is public and has a Service Worker runtime, manifest tooling and Next.js and Vite integrations.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "GitHub repository",
+          "url": "https://github.com/coinspect/dappfence"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: MIT, created 2026-04-20, last push 2026-11-27, no published release. Top-level folders include packages (astro, dappfence, manifest-tools, netlify, next, publish.json, test-app, vite) and docs. Behavior was not run."
+    },
+    {
+      "claim": "@dappfence/core is published to npm.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "npm registry entry",
+          "url": "https://registry.npmjs.org/@dappfence%2fcore"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "npm registry returns the package with latest tag 0.1.4."
+    },
+    {
+      "claim": "Automated browser tests show modified pages and scripts are blocked.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "GitHub repository",
+          "url": "https://github.com/coinspect/dappfence"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The repository has a test-app package. The test results were not run or reviewed."
+    },
+    {
+      "claim": "Coinspect is a firm founded in 2014.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Coinspect GitHub organization",
+          "url": "https://github.com/coinspect"
+        },
+        {
+          "label": "Coinspect website",
+          "url": "https://www.coinspect.com"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The website states it has built security since 2014. The GitHub organization was created 2014-07-11."
+    },
+    {
+      "claim": "Coinspect has pledged $27,000 of the funding goal.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/dappfence-verifiable-frontend-security"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "A pledge statement in the proposal. Pledge amounts were not independently checked here."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Andres A.: full name, employer and past work beyond the GitHub profile name 'Andres' Not found in public sources",
+    "Other DappFence contributors and Coinspect team members: Not found in public sources",
+    "Delivery against Round 1: the match is at organization level (same website). Deliverables per the Round 1 record Not found in public sources. The Round 1 record links a progress update on X that could not be read.",
+    "Independent security audit of DappFence: Not found in public sources. The proposal itself says the implementation is a prototype that needs hardening."
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

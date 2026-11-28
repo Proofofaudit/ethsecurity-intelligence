@@ -1,0 +1,225 @@
+{
+  "members": [
+    {
+      "name": "Simon Jentzsch",
+      "role": "Co-Founder and CTO (corpus.core website); Chief Architect (proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "X",
+          "handle": "simon_jentzsch",
+          "url": "https://twitter.com/simon_jentzsch",
+          "publishedBy": "website"
+        },
+        {
+          "platform": "LinkedIn",
+          "handle": "simonjentzsch",
+          "url": "https://linkedin.com/in/simonjentzsch",
+          "publishedBy": "website"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Co-founder of Slock.it, per the corpus.core website",
+          "kind": "company",
+          "url": "https://www.corpuscore.tech/",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Listed author of EIP-1186 (eth_getProof)",
+          "kind": "paper",
+          "url": "https://eips.ethereum.org/EIPS/eip-1186",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://www.corpuscore.tech/",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Steffen Kux",
+      "role": "Co-Founder and Co-CEO (corpus.core website); Vision & Product (proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "X",
+          "handle": "steffenkux",
+          "url": "https://twitter.com/steffenkux",
+          "publishedBy": "website"
+        },
+        {
+          "platform": "LinkedIn",
+          "handle": "steffen-kux",
+          "url": "https://linkedin.com/in/steffen-kux",
+          "publishedBy": "website"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Co-founded corpus.ventures in 2022, per the corpus.core website",
+          "kind": "company",
+          "url": "https://www.corpuscore.tech/",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://www.corpuscore.tech/",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Jork Leonhardt",
+      "role": "Co-Founder and Co-CEO (corpus.core website); Business & Ecosystem (proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "X",
+          "handle": "jorkleonhardt",
+          "url": "https://twitter.com/jorkleonhardt",
+          "publishedBy": "website"
+        },
+        {
+          "platform": "LinkedIn",
+          "handle": "jorkleonhardt",
+          "url": "https://linkedin.com/in/jorkleonhardt",
+          "publishedBy": "website"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Co-founded corpus.ventures in 2022, per the corpus.core website",
+          "kind": "company",
+          "url": "https://www.corpuscore.tech/",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://www.corpuscore.tech/",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "corpus.core",
+    "summary": "Company behind Colibri, described on its website as a stateless Ethereum light client that checks cryptographic proofs instead of trusting an RPC provider. The proposal gives Germany as its location; its GitHub organization corpus-core was created 2025-01-13.",
+    "website": "https://corpuscore.tech",
+    "previousFunding": [
+      {
+        "label": "TheDAO Security Fund Round 1 record: Colibri: Trustless Blockchain Data for Wallets and dApp",
+        "url": "https://thedao.fund/transparency/colibri-trustless-blockchain-data-for-wallets-and-dapp"
+      }
+    ],
+    "otherProducts": [
+      {
+        "label": "corpus.core products page listing colibri.stateless, vRPC, PAP and TSA",
+        "url": "https://www.corpuscore.tech/"
+      }
+    ],
+    "sources": [
+      {
+        "label": "corpus.core website",
+        "url": "https://www.corpuscore.tech/"
+      },
+      {
+        "label": "GitHub organization corpus-core",
+        "url": "https://github.com/corpus-core"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [],
+  "claims": [
+    {
+      "claim": "The colibri-stateless repository is public, MIT licensed and maintained.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "GitHub repository",
+          "url": "https://github.com/corpus-core/colibri-stateless"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: MIT, created 2025-01-20, last push 2026-11-27, latest release v3.2.1 on 2026-11-21."
+    },
+    {
+      "claim": "The Kohaku wallet SDK references Colibri.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Kohaku provider README",
+          "url": "https://github.com/ethereum/kohaku/blob/HEAD/packages/provider/README.md"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The README on HEAD describes provider helpers that wrap Colibri and shows a colibri import. This shows code support, not usage levels."
+    },
+    {
+      "claim": "Ambire code references Colibri.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Ambire verification controller",
+          "url": "https://github.com/AmbireTech/ambire-common/blob/HEAD/src/controllers/verification/verification.ts"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The file on HEAD imports Colibri provider and prover URL helpers. This shows code support, not usage levels."
+    },
+    {
+      "claim": "Freedom browser lists Colibri as primary for a chain.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Freedom browser chains.json",
+          "url": "https://github.com/solardev-xyz/freedom-browser/blob/HEAD/src/shared/chains.json"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The file on HEAD sets 'primary': 'colibri' in a chain entry and lists colibri in the read and order lists. Which chain was not recorded."
+    },
+    {
+      "claim": "beel.com (formerly Tokenize.it) runs Colibri.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/make-dapps-verify-what-they-show-colibri-in-wallets-defi-and"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "No public source from beel.com was checked."
+    },
+    {
+      "claim": "Colibri has been in production since November 2025.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Release article named in the proposal",
+          "url": "https://medium.com/corpus-core-insights/colibri-stateless-production-release-8d5a88c116d1"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The article could not be fetched (bot check page). A production start date was not confirmed."
+    },
+    {
+      "claim": "Colibri bindings are available for JavaScript/TypeScript, Swift, Kotlin/Java, Python, Dart/Flutter and Rust.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Bindings folder",
+          "url": "https://github.com/corpus-core/colibri-stateless/tree/HEAD/bindings"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The bindings folder lists dart, kotlin, node-addon, python, rust and swift (plus emscripten and docker). Directory presence does not show a working binding. No Go binding was seen, which matches the proposal's statement that the grant pays for it."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Past work of the three people on third-party pages: only the corpus.core site and EIP-1186 were checked; employment history Not found in public sources",
+    "Roles in the proposal differ from the titles on the corpus.core website; both are recorded, neither is treated as the correct one.",
+    "Delivery against Round 1: the match is at organization level (same website). Deliverables per the Round 1 record, and any progress update, Not found in public sources.",
+    "Colibri usage numbers, requests served and number of users: Not found in public sources"
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}
