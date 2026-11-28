@@ -1,0 +1,385 @@
+{
+  "members": [
+    {
+      "name": "Matias Aereal Aeón (Matta)",
+      "role": "Initiative lead and technical review for SEAL Security Frameworks; founder of The Red Guild (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "mattaereal",
+          "url": "https://github.com/mattaereal",
+          "publishedBy": "proposal"
+        },
+        {
+          "platform": "X",
+          "handle": "mattaereal",
+          "url": "https://x.com/mattaereal",
+          "publishedBy": "profile"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Founder of The Red Guild (named in the proposal and in his GitHub profile bio)",
+          "kind": "company",
+          "url": "https://github.com/mattaereal",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "The Red Guild: security as a public good, TheDAO Security Fund Round 1 record",
+          "kind": "project",
+          "url": "https://thedao.fund/transparency/the-red-guild-security-as-a-public-good",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Author of 60 commits to security-alliance/frameworks since 2025-12-01 (GitHub commits API, author filter)",
+          "kind": "project",
+          "url": "https://github.com/security-alliance/frameworks/commits?author=mattaereal",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/seal-security-frameworks-maintaining-open-security-knowledge",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Sara (scode2277)",
+      "role": "Co-maintainer of SEAL Security Frameworks: content, reviews, contributor coordination and releases (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "scode2277",
+          "url": "https://github.com/scode2277",
+          "publishedBy": "proposal"
+        },
+        {
+          "platform": "X",
+          "handle": "emitSara",
+          "url": "https://x.com/emitSara",
+          "publishedBy": "profile"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "GitHub profile names her Sara Russo, Security Researcher and SEAL Frameworks maintainer",
+          "kind": "company",
+          "url": "https://github.com/scode2277",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Author of 91 commits to security-alliance/frameworks since 2025-12-01 (GitHub commits API, author filter)",
+          "kind": "project",
+          "url": "https://github.com/security-alliance/frameworks/commits?author=scode2277",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/seal-security-frameworks-maintaining-open-security-knowledge",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "Security Alliance (SEAL)",
+    "summary": "Security Frameworks is SEAL's open security reference (website frameworks.securityalliance.org, repository security-alliance/frameworks, created 2024-05-31, three releases v0.0.1 to v0.0.3). The proposal says SEAL is a 501(c)(3) nonprofit founded by samczsun and has an operating runway of 8.5 months. Content is under CC BY-SA 4.0 per the repository LICENSE file. Public team size: Not found in public sources.",
+    "website": "https://securityalliance.org",
+    "founded": "GitHub organization created 2023-08-04",
+    "previousFunding": [
+      {
+        "label": "TheDAO Security Fund Round 1 record: SEAL",
+        "url": "https://thedao.fund/transparency/seal"
+      },
+      {
+        "label": "TheDAO Security Fund Round 1 record: SEAL 911",
+        "url": "https://thedao.fund/transparency/seal-911"
+      },
+      {
+        "label": "TheDAO Security Fund Round 1 record: SEAL Frameworks",
+        "url": "https://thedao.fund/transparency/seal-frameworks"
+      },
+      {
+        "label": "TheDAO Security Fund Round 1 record: SEAL Intel",
+        "url": "https://thedao.fund/transparency/seal-intel"
+      },
+      {
+        "label": "TheDAO Security Fund Round 1 record: SEAL Certifications",
+        "url": "https://thedao.fund/transparency/seal-certifications"
+      },
+      {
+        "label": "TheDAO Security Fund Round 1 record: SEAL Safe Harbor",
+        "url": "https://thedao.fund/transparency/seal-safe-harbor"
+      },
+      {
+        "label": "SEAL home page states supporters have contributed over USD 2,901,000 (self-reported)",
+        "url": "https://securityalliance.org/"
+      }
+    ],
+    "otherProducts": [
+      {
+        "label": "SEAL 911 hotline",
+        "url": "https://securityalliance.org/our-work/seal-911"
+      },
+      {
+        "label": "SEAL Intel",
+        "url": "https://securityalliance.org/our-work/seal-intel"
+      },
+      {
+        "label": "SEAL Frameworks",
+        "url": "https://frameworks.securityalliance.org/"
+      },
+      {
+        "label": "SEAL Safe Harbor",
+        "url": "https://securityalliance.org/safe-harbor"
+      },
+      {
+        "label": "SEAL Radar",
+        "url": "https://radar.securityalliance.org/"
+      },
+      {
+        "label": "lazarus.group public records",
+        "url": "https://lazarus.group/"
+      }
+    ],
+    "sources": [
+      {
+        "label": "SEAL website",
+        "url": "https://securityalliance.org/"
+      },
+      {
+        "label": "GitHub organization security-alliance",
+        "url": "https://github.com/security-alliance"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [
+    {
+      "grant": "TheDAO Security Fund Round 1: SEAL",
+      "funder": "TheDAO Security Fund",
+      "promised": "The Round 1 record lists payments and no deliverables, so no specific promise can be compared with a result. SEAL's public outputs for this project are listed under claim checks.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Round 1 record",
+          "url": "https://thedao.fund/transparency/seal"
+        },
+        {
+          "label": "SEAL website",
+          "url": "https://securityalliance.org/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_seal"
+    },
+    {
+      "grant": "TheDAO Security Fund Round 1: SEAL 911",
+      "funder": "TheDAO Security Fund",
+      "promised": "The Round 1 record lists payments and no deliverables, so no specific promise can be compared with a result. SEAL's public outputs for this project are listed under claim checks.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Round 1 record",
+          "url": "https://thedao.fund/transparency/seal-911"
+        },
+        {
+          "label": "SEAL website",
+          "url": "https://securityalliance.org/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_seal-911"
+    },
+    {
+      "grant": "TheDAO Security Fund Round 1: SEAL Frameworks",
+      "funder": "TheDAO Security Fund",
+      "promised": "The Round 1 record lists payments and no deliverables, so no specific promise can be compared with a result. SEAL's public outputs for this project are listed under claim checks.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Round 1 record",
+          "url": "https://thedao.fund/transparency/seal-frameworks"
+        },
+        {
+          "label": "SEAL website",
+          "url": "https://securityalliance.org/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_seal-frameworks"
+    },
+    {
+      "grant": "TheDAO Security Fund Round 1: SEAL Intel",
+      "funder": "TheDAO Security Fund",
+      "promised": "The Round 1 record lists payments and no deliverables, so no specific promise can be compared with a result. SEAL's public outputs for this project are listed under claim checks.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Round 1 record",
+          "url": "https://thedao.fund/transparency/seal-intel"
+        },
+        {
+          "label": "SEAL website",
+          "url": "https://securityalliance.org/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_seal-intel"
+    },
+    {
+      "grant": "TheDAO Security Fund Round 1: SEAL Certifications",
+      "funder": "TheDAO Security Fund",
+      "promised": "The Round 1 record lists payments and no deliverables, so no specific promise can be compared with a result. SEAL's public outputs for this project are listed under claim checks.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Round 1 record",
+          "url": "https://thedao.fund/transparency/seal-certifications"
+        },
+        {
+          "label": "SEAL website",
+          "url": "https://securityalliance.org/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_seal-certifications"
+    },
+    {
+      "grant": "TheDAO Security Fund Round 1: SEAL Safe Harbor",
+      "funder": "TheDAO Security Fund",
+      "promised": "The Round 1 record lists payments and no deliverables, so no specific promise can be compared with a result. SEAL's public outputs for this project are listed under claim checks.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Round 1 record",
+          "url": "https://thedao.fund/transparency/seal-safe-harbor"
+        },
+        {
+          "label": "SEAL website",
+          "url": "https://securityalliance.org/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_seal-safe-harbor"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "The Frameworks repository is public and actively maintained.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "GitHub repository",
+          "url": "https://github.com/security-alliance/frameworks"
+        },
+        {
+          "label": "Releases",
+          "url": "https://github.com/security-alliance/frameworks/releases"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: created 2024-05-31, last push 2026-11-27, 99 stars, 83 forks. Releases v0.0.1 (2026-09-01), v0.0.2 (2026-10-13), v0.0.3 (2026-11-11). 308 commits since 2025-12-01 (commits API page count)."
+    },
+    {
+      "claim": "Frameworks has 30+ sections shaped by dozens of contributors.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "docs/pages folder",
+          "url": "https://github.com/security-alliance/frameworks/tree/main/docs/pages"
+        },
+        {
+          "label": "Contributors",
+          "url": "https://github.com/security-alliance/frameworks/graphs/contributors"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The docs/pages folder holds about 34 topic folders. The GitHub contributors API returned 49 contributors. Quality of sections was not assessed."
+    },
+    {
+      "claim": "Content is published under CC BY-SA 4.0.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "LICENSE file",
+          "url": "https://github.com/security-alliance/frameworks/blob/main/LICENSE"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The LICENSE file reads Security Frameworks (c) 2026 by Security Alliance, licensed under CC BY-SA 4.0. GitHub reports the license as NOASSERTION because it is not a code license."
+    },
+    {
+      "claim": "Machine-readable exports already exist.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "llms.txt",
+          "url": "https://frameworks.securityalliance.org/llms.txt"
+        },
+        {
+          "label": "llms-full.txt",
+          "url": "https://frameworks.securityalliance.org/llms-full.txt"
+        },
+        {
+          "label": "frameworks-mcp repository",
+          "url": "https://github.com/security-alliance/frameworks-mcp"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "llms.txt (about 14 KB) and llms-full.txt (about 2.4 MB) return HTTP 200 with framework content. A frameworks-mcp repository exists and was last pushed 2026-05-15. Export accuracy was not checked."
+    },
+    {
+      "claim": "Frontend and most infrastructure pages are unpublished drafts on the development site, not on the production site.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Production site",
+          "url": "https://frameworks.securityalliance.org/"
+        },
+        {
+          "label": "Development site",
+          "url": "https://frameworks.securityalliance.dev/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The production navigation lists no Front-End/Web Application, Identity and Access Management, Encryption or Threat Modeling sections. The development site navigation lists them. This matches the proposal baseline as of 2026-11-28."
+    },
+    {
+      "claim": "The proposal's three-area plan (AI security, infrastructure, frontend) will be completed within the grant.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/seal-security-frameworks-maintaining-open-security-knowledge"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "A future commitment. The funded pages could not yet be checked as complete."
+    },
+    {
+      "claim": "SEAL is a 501(c)(3) nonprofit founded by samczsun, with an operating runway of 8.5 months.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "SEAL website",
+          "url": "https://securityalliance.org/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The site footer names Open Security Alliance, 501(c)(3). The founder and runway statements appear only in the proposal and were not found elsewhere."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Matta: full employment history, audits, CVEs and bounty credits beyond what the GitHub profile and proposal state Not found in public sources.",
+    "Sara (scode2277): employer, past audits, talks, CVEs and bounty credits beyond the GitHub profile bio Not found in public sources.",
+    "External stewards named in the proposal: not yet named, Not found in public sources.",
+    "SEAL public team size and full roster: Not found in public sources.",
+    "Delivery against Round 1: the Round 1 records list no deliverables, and the linked progress update is on X and could not be read. Deliverables Not found in public sources.",
+    "Independent review of Frameworks content quality: Not found in public sources.",
+    "Onchain deployments: none are claimed, so no onchain check applies."
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

@@ -1,0 +1,301 @@
+{
+  "members": [
+    {
+      "name": "Rahul Saxena",
+      "role": "Founder of Bluethroat Labs and Handbook maintainer; leads technical research, reproduction validation and final editorial review (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "saxenism",
+          "url": "https://github.com/saxenism",
+          "publishedBy": "proposal"
+        },
+        {
+          "platform": "X",
+          "handle": "saxenism",
+          "url": "https://x.com/saxenism",
+          "publishedBy": "website"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Credited by Phala for attestation-pipeline research and remediation collaboration (dstack Security Update, 2026-02-10)",
+          "kind": "project",
+          "url": "https://phala.com/posts/dstack-security-update-attestation-pipeline-hardening",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "CVE-2026-22696: missing QE identity verification in dcap-qvl (advisory GHSA-796p-j2gh-9m2q, patched in 0.3.9)",
+          "kind": "cve",
+          "url": "https://bluethroatlabs.com/reveries/cve-2026-22696-fetching-collateral-is-not-enough",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Missing TCB status enforcement in dstack's RA-TLS attestation library (disclosed January 2026)",
+          "kind": "cve",
+          "url": "https://bluethroatlabs.com/reveries/missing-tcb-status-check",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Described as ex-ZKSync security on the Handbook contributors page",
+          "kind": "company",
+          "url": "https://bluethroatlabs.com/docs/contributors",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Secret Network disclosure work (proposal and Bluethroat site testimonial)",
+          "kind": "project",
+          "url": "https://bluethroatlabs.com/",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/tee-security-handbook-practical-verification-failure-analysi",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Wehi",
+      "role": "Bluethroat Labs research intern: evidence collection, drafts, teaching examples and contribution records (per the proposal)",
+      "pseudonymous": false,
+      "handles": [],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/tee-security-handbook-practical-verification-failure-analysi",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Tanmay Goel",
+      "role": "Existing Handbook contributor credited for past work; the proposal claims no new participation",
+      "pseudonymous": false,
+      "handles": [],
+      "pastWork": [
+        {
+          "label": "Co-founder of kokio.app and gmms.xyz, ex-NVIDIA engineer (per the contributors page)",
+          "kind": "company",
+          "url": "https://bluethroatlabs.com/docs/contributors",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://bluethroatlabs.com/docs/contributors",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Abhimanyu Gupta",
+      "role": "Existing Handbook contributor credited for past work; the proposal claims no new participation",
+      "pseudonymous": false,
+      "handles": [],
+      "pastWork": [
+        {
+          "label": "Malware analyst and consultant at Bluethroat Labs (per the contributors page)",
+          "kind": "company",
+          "url": "https://bluethroatlabs.com/docs/contributors",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://bluethroatlabs.com/docs/contributors",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Justin King-Lacroix",
+      "role": "Existing Handbook contributor credited for past work; the proposal claims no new participation",
+      "pseudonymous": false,
+      "handles": [],
+      "pastWork": [
+        {
+          "label": "TEE research at Coinbase (per the contributors page)",
+          "kind": "company",
+          "url": "https://bluethroatlabs.com/docs/contributors",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://bluethroatlabs.com/docs/contributors",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Shashank Agarwal",
+      "role": "Existing Handbook contributor credited for past work; the proposal claims no new participation",
+      "pseudonymous": false,
+      "handles": [],
+      "pastWork": [
+        {
+          "label": "Head of Security at Coinbase (per the contributors page)",
+          "kind": "company",
+          "url": "https://bluethroatlabs.com/docs/contributors",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://bluethroatlabs.com/docs/contributors",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "Bluethroat Labs",
+    "summary": "Research-led security firm for blockchain protocols, founded by Rahul Saxena per the proposal. Its site lists vulnerability writeups (called Reveries), a public TEE Security Handbook and an attestation section with testimonials, and states an Immunefi 90-day leaderboard ranking of #4 as of 6 November 2026. The Handbook source repository saxenism/Bluethroat-labs was created 2026-01-16. The proposal says the Handbook is self-funded. Public team size: Not found in public sources.",
+    "website": "https://bluethroatlabs.com/",
+    "previousFunding": [],
+    "otherProducts": [
+      {
+        "label": "Reveries vulnerability writeups",
+        "url": "https://bluethroatlabs.com/"
+      },
+      {
+        "label": "TEE Security Handbook",
+        "url": "https://bluethroatlabs.com/docs/executive-summary"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Bluethroat Labs website",
+        "url": "https://bluethroatlabs.com/"
+      },
+      {
+        "label": "Handbook contributors page",
+        "url": "https://bluethroatlabs.com/docs/contributors"
+      },
+      {
+        "label": "GitHub repository saxenism/Bluethroat-labs",
+        "url": "https://github.com/saxenism/Bluethroat-labs"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [],
+  "claims": [
+    {
+      "claim": "The public Handbook already covers platform explanations, a Nitro workflow, failure patterns and layered defenses.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Handbook executive summary",
+          "url": "https://bluethroatlabs.com/docs/executive-summary"
+        },
+        {
+          "label": "Handbook repository",
+          "url": "https://github.com/saxenism/Bluethroat-labs"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The page returns HTTP 200 and its navigation lists AWS Nitro System, AWS Nitro Enclaves, dstack, TEE attacks categorisation, Dumb ways to get rekt w/ TEEs and Layers of security for protocols building with TEEs. Content accuracy was not reviewed."
+    },
+    {
+      "claim": "The Handbook repository is public and active.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "GitHub repository",
+          "url": "https://github.com/saxenism/Bluethroat-labs"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: MIT license, created 2026-01-16, last push 2026-11-25, 0 stars, no releases. The repository description is only Project."
+    },
+    {
+      "claim": "Bluethroat found CVE-2026-22696 in dcap-qvl.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "GitHub advisory GHSA-796p-j2gh-9m2q",
+          "url": "https://github.com/advisories/GHSA-796p-j2gh-9m2q"
+        },
+        {
+          "label": "Bluethroat writeup",
+          "url": "https://bluethroatlabs.com/reveries/cve-2026-22696-fetching-collateral-is-not-enough"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The advisory exists, is rated critical, published 2026-01-26 and names dcap-qvl and @phala/dcap-qvl packages. The advisory lists no credits, so the finder attribution rests on the Bluethroat writeup and Phala's post."
+    },
+    {
+      "claim": "Phala publicly credits Rahul and Bluethroat for attestation-pipeline research.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Phala security update",
+          "url": "https://phala.com/posts/dstack-security-update-attestation-pipeline-hardening"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The post dated 2026-02-10 says independent security researcher Rahul Saxena (Bluethroat Labs) identified issues in January 2026 and that fixes were deployed."
+    },
+    {
+      "claim": "Taiko's postmortem documents a debug-policy gap.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Taiko postmortem",
+          "url": "https://paragraph.com/@taiko-labs/taiko-security-incident-a-postmortem-and-next-steps"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The post dated 2026-07-23 says an attestation check failed to reject a prover running in debug mode, alongside an exposed signing key, and describes about USD 1.75 million withdrawn."
+    },
+    {
+      "claim": "Bluethroat ranks #4 on the Immunefi 90-day leaderboard.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Bluethroat Labs website",
+          "url": "https://bluethroatlabs.com/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The site banner states the ranking as of 6 November 2026. The Immunefi leaderboard page was not checked here."
+    },
+    {
+      "claim": "Bluethroat has research involving Secret Network and Phala/dstack disclosures.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Bluethroat Labs website",
+          "url": "https://bluethroatlabs.com/"
+        },
+        {
+          "label": "Phala security update",
+          "url": "https://phala.com/posts/dstack-security-update-attestation-pipeline-hardening"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The Phala side is confirmed by Phala's post. The Secret Network work rests on Bluethroat's own writeups and testimonials. No Secret Network advisory was checked."
+    },
+    {
+      "claim": "A Docusaurus migration is planned for 2026-09-16 and the Handbook is self-funded.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/tee-security-handbook-practical-verification-failure-analysi"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The migration date has passed and the current site is labelled v0.4. Whether the migration happened was not determined. Funding status rests on the proposal statement alone."
+    },
+    {
+      "claim": "At least 4 chapters, 4 checklists and 4 runnable example collections will be delivered, with 6 independent adopting teams.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/tee-security-handbook-practical-verification-failure-analysi"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Future deliverables. No adopters are claimed as committed."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Wehi: surname, handles, profiles and past work Not found in public sources.",
+    "Rahul Saxena: audits, talks and bounty credits other than the Bluethroat writeups Not found in public sources. Bluethroat's Immunefi profile was not checked.",
+    "Bluethroat Labs founding date, public team size and incorporation: Not found in public sources.",
+    "Previous funding and prior grants for Bluethroat Labs: Not found in public sources. The proposal says the Handbook is self-funded, and no Round 1 record matches.",
+    "Delivery track record: no past grant found, so no timeline can be built. Not found in public sources.",
+    "Contributor handles for Tanmay Goel, Abhimanyu Gupta, Justin King-Lacroix and Shashank Agarwal are not recorded. The contributors page also shows private contact details, which are not reproduced.",
+    "Independent technical reviewer: not yet appointed, Not found in public sources.",
+    "Onchain deployments: none are claimed, so no onchain check applies."
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

@@ -1,0 +1,312 @@
+{
+  "members": [
+    {
+      "name": "Dickson Wu",
+      "role": "Leads the Audit Transparency project: method, tooling and review of results; helps run SEAL Safe Harbor and SEAL Certifications (per the proposal)",
+      "pseudonymous": false,
+      "handles": [],
+      "pastWork": [
+        {
+          "label": "Runs the public Ethereum Audit Register preview named in the proposal",
+          "kind": "project",
+          "url": "https://ethereum-audit-register-demo.dicksonwu.xyz/",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "SEAL Safe Harbor program (per the proposal)",
+          "kind": "project",
+          "url": "https://securityalliance.org/safe-harbor",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "SEAL Certifications program (per the proposal)",
+          "kind": "project",
+          "url": "https://securityalliance.org/our-work/certifications",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/audit-transparency-for-ethereum-every-defi-protocol-s-audits",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "Security Alliance (SEAL)",
+    "summary": "Nonprofit that shares crypto threat intelligence and security standards. Its website footer names Open Security Alliance, a 501(c)(3). The GitHub organization security-alliance was created 2023-08-04 and has 47 public repositories. SEAL describes itself as a crypto ISAC with SEAL 911, SEAL Intel, SEAL Frameworks and SEAL Certifications, plus Safe Harbor, Wargames and lazarus.group. The proposals name Dickson Wu, Matta and Sara as project leads. Public team size: Not found in public sources.",
+    "website": "https://securityalliance.org",
+    "founded": "GitHub organization created 2023-08-04",
+    "previousFunding": [
+      {
+        "label": "TheDAO Security Fund Round 1 record: SEAL",
+        "url": "https://thedao.fund/transparency/seal"
+      },
+      {
+        "label": "TheDAO Security Fund Round 1 record: SEAL 911",
+        "url": "https://thedao.fund/transparency/seal-911"
+      },
+      {
+        "label": "TheDAO Security Fund Round 1 record: SEAL Frameworks",
+        "url": "https://thedao.fund/transparency/seal-frameworks"
+      },
+      {
+        "label": "TheDAO Security Fund Round 1 record: SEAL Intel",
+        "url": "https://thedao.fund/transparency/seal-intel"
+      },
+      {
+        "label": "TheDAO Security Fund Round 1 record: SEAL Certifications",
+        "url": "https://thedao.fund/transparency/seal-certifications"
+      },
+      {
+        "label": "TheDAO Security Fund Round 1 record: SEAL Safe Harbor",
+        "url": "https://thedao.fund/transparency/seal-safe-harbor"
+      },
+      {
+        "label": "SEAL home page states supporters have contributed over USD 2,901,000 (self-reported)",
+        "url": "https://securityalliance.org/"
+      }
+    ],
+    "otherProducts": [
+      {
+        "label": "SEAL 911 hotline",
+        "url": "https://securityalliance.org/our-work/seal-911"
+      },
+      {
+        "label": "SEAL Intel",
+        "url": "https://securityalliance.org/our-work/seal-intel"
+      },
+      {
+        "label": "SEAL Frameworks",
+        "url": "https://frameworks.securityalliance.org/"
+      },
+      {
+        "label": "SEAL Safe Harbor",
+        "url": "https://securityalliance.org/safe-harbor"
+      },
+      {
+        "label": "SEAL Radar",
+        "url": "https://radar.securityalliance.org/"
+      },
+      {
+        "label": "lazarus.group public records",
+        "url": "https://lazarus.group/"
+      }
+    ],
+    "sources": [
+      {
+        "label": "SEAL website",
+        "url": "https://securityalliance.org/"
+      },
+      {
+        "label": "GitHub organization security-alliance",
+        "url": "https://github.com/security-alliance"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [
+    {
+      "grant": "TheDAO Security Fund Round 1: SEAL",
+      "funder": "TheDAO Security Fund",
+      "promised": "The Round 1 record lists payments and no deliverables, so no specific promise can be compared with a result. SEAL's public outputs for this project are listed under claim checks.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Round 1 record",
+          "url": "https://thedao.fund/transparency/seal"
+        },
+        {
+          "label": "SEAL website",
+          "url": "https://securityalliance.org/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_seal"
+    },
+    {
+      "grant": "TheDAO Security Fund Round 1: SEAL 911",
+      "funder": "TheDAO Security Fund",
+      "promised": "The Round 1 record lists payments and no deliverables, so no specific promise can be compared with a result. SEAL's public outputs for this project are listed under claim checks.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Round 1 record",
+          "url": "https://thedao.fund/transparency/seal-911"
+        },
+        {
+          "label": "SEAL website",
+          "url": "https://securityalliance.org/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_seal-911"
+    },
+    {
+      "grant": "TheDAO Security Fund Round 1: SEAL Frameworks",
+      "funder": "TheDAO Security Fund",
+      "promised": "The Round 1 record lists payments and no deliverables, so no specific promise can be compared with a result. SEAL's public outputs for this project are listed under claim checks.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Round 1 record",
+          "url": "https://thedao.fund/transparency/seal-frameworks"
+        },
+        {
+          "label": "SEAL website",
+          "url": "https://securityalliance.org/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_seal-frameworks"
+    },
+    {
+      "grant": "TheDAO Security Fund Round 1: SEAL Intel",
+      "funder": "TheDAO Security Fund",
+      "promised": "The Round 1 record lists payments and no deliverables, so no specific promise can be compared with a result. SEAL's public outputs for this project are listed under claim checks.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Round 1 record",
+          "url": "https://thedao.fund/transparency/seal-intel"
+        },
+        {
+          "label": "SEAL website",
+          "url": "https://securityalliance.org/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_seal-intel"
+    },
+    {
+      "grant": "TheDAO Security Fund Round 1: SEAL Certifications",
+      "funder": "TheDAO Security Fund",
+      "promised": "The Round 1 record lists payments and no deliverables, so no specific promise can be compared with a result. SEAL's public outputs for this project are listed under claim checks.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Round 1 record",
+          "url": "https://thedao.fund/transparency/seal-certifications"
+        },
+        {
+          "label": "SEAL website",
+          "url": "https://securityalliance.org/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_seal-certifications"
+    },
+    {
+      "grant": "TheDAO Security Fund Round 1: SEAL Safe Harbor",
+      "funder": "TheDAO Security Fund",
+      "promised": "The Round 1 record lists payments and no deliverables, so no specific promise can be compared with a result. SEAL's public outputs for this project are listed under claim checks.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Round 1 record",
+          "url": "https://thedao.fund/transparency/seal-safe-harbor"
+        },
+        {
+          "label": "SEAL website",
+          "url": "https://securityalliance.org/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_seal-safe-harbor"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "A public preview covers the 20 largest Ethereum DeFi protocols.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Ethereum Audit Register preview",
+          "url": "https://ethereum-audit-register-demo.dicksonwu.xyz/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The preview page returns HTTP 200 and its embedded data lists 20 protocol slugs (Lido, Aave, SSV Network, Spark, LayerZero, Ethena, Morpho, Maker, Uniswap, Chainlink and others). Whether they are the 20 largest by TVL was not checked."
+    },
+    {
+      "claim": "The prototype maps contracts and proxies, collects audits with stated commit and scope, rebuilds audited code and compares it to live bytecode.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Ethereum Audit Register preview",
+          "url": "https://ethereum-audit-register-demo.dicksonwu.xyz/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The page presents per-contract results with audit report links and describes its method and limits. No repository or tooling is linked, so the comparison was not reproduced. The page calls itself an early prototype with results that are incomplete and some wrong."
+    },
+    {
+      "claim": "92 of 157 protocols on the Rekt list were hacked through unaudited or out-of-scope code (Ackee, 2023).",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Ackee article, archived 2024-08-16",
+          "url": "http://web.archive.org/web/20240816111703/https://ackee.xyz/blog/why-we-need-to-start-using-erc-7512-onchain-audit-representation-right-now/"
+        },
+        {
+          "label": "Ackee article, link in the proposal",
+          "url": "https://ackee.xyz/blog/why-we-need-to-start-using-erc-7512-onchain-audit-representation-right-now"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The archived copy, dated 2023-09-19 and written by Josef Gattermayer, states 92 out of 157 protocols listed on Rekt. The live article URL returned HTTP 404 on 2026-11-28, so the archived copy was used."
+    },
+    {
+      "claim": "SEAL 911 has handled 3,300+ tickets.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "SEAL 911 page",
+          "url": "https://securityalliance.org/our-work/seal-911"
+        },
+        {
+          "label": "SEAL 911 repository",
+          "url": "https://github.com/security-alliance/seal-911"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "SEAL's own page states 3,300+ tickets handled. The count is self-reported and no independent record was found. The seal-911 repository is public and was last pushed 2026-11-22."
+    },
+    {
+      "claim": "The register will cover every Ethereum DeFi protocol over USD 1 million TVL, refreshed monthly.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/audit-transparency-for-ethereum-every-defi-protocol-s-audits"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "This is a future commitment. The preview covers 20 protocols and says it is a single snapshot. No monthly refresh could be observed yet."
+    },
+    {
+      "claim": "The dataset will be published under CC BY 4.0.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/audit-transparency-for-ethereum-every-defi-protocol-s-audits"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "A future commitment. No dataset repository or license file for the register was found."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Dickson Wu: public handles (GitHub, X, LinkedIn) published by him or the proposal, employer history, audits, CVEs and bounty credits Not found in public sources. The proposal publishes none in this initiative.",
+    "Repository for the Ethereum Audit Register tooling or dataset: Not found in public sources. The preview page links no code.",
+    "SEAL public team size and full roster: Not found in public sources.",
+    "Delivery against Round 1: the Round 1 records list no deliverables, and the progress update they link is on X and could not be read. Deliverables Not found in public sources.",
+    "Independent review of the preview's audit-coverage results: Not found in public sources.",
+    "Onchain deployments: none are claimed by this proposal, so no onchain check applies."
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

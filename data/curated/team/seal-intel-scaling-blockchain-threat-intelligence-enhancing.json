@@ -1,0 +1,413 @@
+{
+  "members": [
+    {
+      "name": "Oskar",
+      "role": "SEAL Intel Lead: intelligence priorities, technical direction, analyst workflows and delivery (per the proposal)",
+      "pseudonymous": false,
+      "handles": [],
+      "pastWork": [
+        {
+          "label": "Leads SEAL's existing threat intelligence operations (per the proposal)",
+          "kind": "project",
+          "url": "https://securityalliance.org/our-work/seal-intel",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/seal-intel-scaling-blockchain-threat-intelligence-enhancing",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Joe Dobson",
+      "role": "Security research and threat intelligence; formerly of Mandiant (per the proposal)",
+      "pseudonymous": false,
+      "handles": [],
+      "pastWork": [
+        {
+          "label": "Former Mandiant (per the proposal)",
+          "kind": "company",
+          "url": "https://initiatives.thedao.fund/initiative/seal-intel-scaling-blockchain-threat-intelligence-enhancing",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/seal-intel-scaling-blockchain-threat-intelligence-enhancing",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Peter Kacherginsky",
+      "role": "Security research and intelligence contributor, limited part-time (per the proposal)",
+      "pseudonymous": false,
+      "handles": [],
+      "pastWork": [
+        {
+          "label": "Operates BlockThreat, a blockchain security newsletter (per the proposal)",
+          "kind": "project",
+          "url": "https://blockthreat.com/",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/seal-intel-scaling-blockchain-threat-intelligence-enhancing",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Matias Aereal Aeón (Matta)",
+      "role": "Security Frameworks and technical research; leads SEAL Security Frameworks and founded The Red Guild (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "mattaereal",
+          "url": "https://github.com/mattaereal",
+          "publishedBy": "profile"
+        },
+        {
+          "platform": "X",
+          "handle": "mattaereal",
+          "url": "https://x.com/mattaereal",
+          "publishedBy": "profile"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Founder of The Red Guild (named in the proposal and in his GitHub profile bio)",
+          "kind": "company",
+          "url": "https://github.com/mattaereal",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "The Red Guild: security as a public good, TheDAO Security Fund Round 1 record",
+          "kind": "project",
+          "url": "https://thedao.fund/transparency/the-red-guild-security-as-a-public-good",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Author of 60 commits to security-alliance/frameworks since 2025-12-01 (GitHub commits API, author filter)",
+          "kind": "project",
+          "url": "https://github.com/security-alliance/frameworks/commits?author=mattaereal",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/seal-intel-scaling-blockchain-threat-intelligence-enhancing",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Dickson Wu",
+      "role": "On-chain security and incident response; contributes to SEAL Safe Harbor (per the proposal)",
+      "pseudonymous": false,
+      "handles": [],
+      "pastWork": [
+        {
+          "label": "SEAL Safe Harbor program (per the proposal)",
+          "kind": "project",
+          "url": "https://securityalliance.org/safe-harbor",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/seal-intel-scaling-blockchain-threat-intelligence-enhancing",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "Security Alliance (SEAL)",
+    "summary": "SEAL Intel is the threat intelligence arm of Security Alliance (SEAL). Its page states 300+ threat reports and 200K+ malicious domains blocked, with MetaMask, Phantom and WalletConnect named as partners (self-reported). Public outputs include the SEAL Radar publication, the lazarus.group records site and the lazarus-group-data repository. The proposal budgets USD 267,000 and says the Ethereum Foundation is only a prospective funder. Public team size: Not found in public sources.",
+    "website": "https://securityalliance.org",
+    "founded": "GitHub organization created 2023-08-04",
+    "previousFunding": [
+      {
+        "label": "TheDAO Security Fund Round 1 record: SEAL",
+        "url": "https://thedao.fund/transparency/seal"
+      },
+      {
+        "label": "TheDAO Security Fund Round 1 record: SEAL 911",
+        "url": "https://thedao.fund/transparency/seal-911"
+      },
+      {
+        "label": "TheDAO Security Fund Round 1 record: SEAL Frameworks",
+        "url": "https://thedao.fund/transparency/seal-frameworks"
+      },
+      {
+        "label": "TheDAO Security Fund Round 1 record: SEAL Intel",
+        "url": "https://thedao.fund/transparency/seal-intel"
+      },
+      {
+        "label": "TheDAO Security Fund Round 1 record: SEAL Certifications",
+        "url": "https://thedao.fund/transparency/seal-certifications"
+      },
+      {
+        "label": "TheDAO Security Fund Round 1 record: SEAL Safe Harbor",
+        "url": "https://thedao.fund/transparency/seal-safe-harbor"
+      },
+      {
+        "label": "SEAL home page states supporters have contributed over USD 2,901,000 (self-reported)",
+        "url": "https://securityalliance.org/"
+      }
+    ],
+    "otherProducts": [
+      {
+        "label": "SEAL 911 hotline",
+        "url": "https://securityalliance.org/our-work/seal-911"
+      },
+      {
+        "label": "SEAL Intel",
+        "url": "https://securityalliance.org/our-work/seal-intel"
+      },
+      {
+        "label": "SEAL Frameworks",
+        "url": "https://frameworks.securityalliance.org/"
+      },
+      {
+        "label": "SEAL Safe Harbor",
+        "url": "https://securityalliance.org/safe-harbor"
+      },
+      {
+        "label": "SEAL Radar",
+        "url": "https://radar.securityalliance.org/"
+      },
+      {
+        "label": "lazarus.group public records",
+        "url": "https://lazarus.group/"
+      }
+    ],
+    "sources": [
+      {
+        "label": "SEAL website",
+        "url": "https://securityalliance.org/"
+      },
+      {
+        "label": "GitHub organization security-alliance",
+        "url": "https://github.com/security-alliance"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [
+    {
+      "grant": "TheDAO Security Fund Round 1: SEAL",
+      "funder": "TheDAO Security Fund",
+      "promised": "The Round 1 record lists payments and no deliverables, so no specific promise can be compared with a result. SEAL's public outputs for this project are listed under claim checks.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Round 1 record",
+          "url": "https://thedao.fund/transparency/seal"
+        },
+        {
+          "label": "SEAL website",
+          "url": "https://securityalliance.org/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_seal"
+    },
+    {
+      "grant": "TheDAO Security Fund Round 1: SEAL 911",
+      "funder": "TheDAO Security Fund",
+      "promised": "The Round 1 record lists payments and no deliverables, so no specific promise can be compared with a result. SEAL's public outputs for this project are listed under claim checks.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Round 1 record",
+          "url": "https://thedao.fund/transparency/seal-911"
+        },
+        {
+          "label": "SEAL website",
+          "url": "https://securityalliance.org/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_seal-911"
+    },
+    {
+      "grant": "TheDAO Security Fund Round 1: SEAL Frameworks",
+      "funder": "TheDAO Security Fund",
+      "promised": "The Round 1 record lists payments and no deliverables, so no specific promise can be compared with a result. SEAL's public outputs for this project are listed under claim checks.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Round 1 record",
+          "url": "https://thedao.fund/transparency/seal-frameworks"
+        },
+        {
+          "label": "SEAL website",
+          "url": "https://securityalliance.org/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_seal-frameworks"
+    },
+    {
+      "grant": "TheDAO Security Fund Round 1: SEAL Intel",
+      "funder": "TheDAO Security Fund",
+      "promised": "The Round 1 record lists payments and no deliverables, so no specific promise can be compared with a result. SEAL's public outputs for this project are listed under claim checks.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Round 1 record",
+          "url": "https://thedao.fund/transparency/seal-intel"
+        },
+        {
+          "label": "SEAL website",
+          "url": "https://securityalliance.org/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_seal-intel"
+    },
+    {
+      "grant": "TheDAO Security Fund Round 1: SEAL Certifications",
+      "funder": "TheDAO Security Fund",
+      "promised": "The Round 1 record lists payments and no deliverables, so no specific promise can be compared with a result. SEAL's public outputs for this project are listed under claim checks.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Round 1 record",
+          "url": "https://thedao.fund/transparency/seal-certifications"
+        },
+        {
+          "label": "SEAL website",
+          "url": "https://securityalliance.org/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_seal-certifications"
+    },
+    {
+      "grant": "TheDAO Security Fund Round 1: SEAL Safe Harbor",
+      "funder": "TheDAO Security Fund",
+      "promised": "The Round 1 record lists payments and no deliverables, so no specific promise can be compared with a result. SEAL's public outputs for this project are listed under claim checks.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Round 1 record",
+          "url": "https://thedao.fund/transparency/seal-safe-harbor"
+        },
+        {
+          "label": "SEAL website",
+          "url": "https://securityalliance.org/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_seal-safe-harbor"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "SEAL Radar publishes threat research, incident analysis and operational statistics.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "SEAL Radar",
+          "url": "https://radar.securityalliance.org/"
+        },
+        {
+          "label": "Weekly stats, 20 to 27 Oct 2026",
+          "url": "https://radar.securityalliance.org/seal-weekly-stats-20-27-oct-2026/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Radar returns HTTP 200 and lists 55 posts. The weekly stats post dated 2026-10-27 reports 73 triaged incidents and 5,179 malicious domains collected. The figures are SEAL's own and were not rechecked."
+    },
+    {
+      "claim": "A public Lazarus intelligence dataset exists.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "lazarus-group-data repository",
+          "url": "https://github.com/security-alliance/lazarus-group-data"
+        },
+        {
+          "label": "lazarus.group",
+          "url": "https://lazarus.group/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: CC-BY-4.0 repository, created 2026-10-28, last push 2026-11-17, described as SEAL's open data behind lazarus.group. The lazarus.group site returns HTTP 200 and says it is maintained by the Security Alliance and searches 395 profiles and 974 indicators."
+    },
+    {
+      "claim": "SEAL maintains public GitHub repositories and datasets.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "GitHub organization security-alliance",
+          "url": "https://github.com/security-alliance"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "47 public repositories. blocklists was pushed 2026-11-28 and seal-911 (341 stars) on 2026-11-22."
+    },
+    {
+      "claim": "SEAL identifies about 5,000 to 10,000 malicious frontends weekly and integrates with MetaMask's eth-phishing-detect.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "SEAL blocklists repository",
+          "url": "https://github.com/security-alliance/blocklists"
+        },
+        {
+          "label": "MetaMask eth-phishing-detect",
+          "url": "https://github.com/MetaMask/eth-phishing-detect"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The weekly stats post reports thousands of malicious domains collected per week. The blocklists repository is described as a mirror of lists maintained by SEAL. The eth-phishing-detect README does not mention SEAL, and the integration was not independently confirmed."
+    },
+    {
+      "claim": "SEAL maintains more than 100 communication channels and hotlines.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/seal-intel-scaling-blockchain-threat-intelligence-enhancing"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "A statement in the proposal. No public list of channels was found."
+    },
+    {
+      "claim": "SEAL Intel has published 300+ threat reports and blocked 200K+ malicious domains.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "SEAL Intel page",
+          "url": "https://securityalliance.org/our-work/seal-intel"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The page states both figures. They are self-reported, and no independent count was found."
+    },
+    {
+      "claim": "The proposed TAXII 2.1 and REST feeds, STIX 2.1 records and ISAC workflows exist.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "SEAL Intel SDK repository",
+          "url": "https://github.com/security-alliance/seal-intel-sdk"
+        },
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/seal-intel-scaling-blockchain-threat-intelligence-enhancing"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "These are grant deliverables. The seal-intel-sdk repository is linked from the SEAL Intel page and was last pushed 2026-03-13. No public TAXII feed was found."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Oskar (@blackbigswan): surname, platform of the handle, GitHub, X and LinkedIn profiles, past work, audits and CVEs Not found in public sources. The proposal writes the handle without naming a platform.",
+    "Joe Dobson (@dobsec): platform of the handle, profile links, Mandiant role dates, talks and CVE credits Not found in public sources. A GitHub account named dobsec exists, but nothing links it to him, so it is not recorded.",
+    "Peter Kacherginsky (@iphelix): platform of the handle as published in the proposal, and the exact BlockThreat funding arrangements Not found in public sources.",
+    "Dickson Wu (@DicksonWuML): platform of the handle and profile links Not found in public sources. No GitHub account of that name exists.",
+    "Matta: employment history, audits and bounty credits beyond the GitHub profile Not found in public sources.",
+    "Additional SEAL engineering and operations contributors: not named, Not found in public sources.",
+    "SEAL public team size: Not found in public sources.",
+    "Delivery against Round 1: the Round 1 records list no deliverables, and the linked progress update is on X and could not be read. Deliverables Not found in public sources.",
+    "Independent adopters and the independent reviewer for this grant: Not found in public sources.",
+    "Onchain deployments: none are claimed, so no onchain check applies."
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}
