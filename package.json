@@ -19,6 +19,7 @@
     "test:e2e": "playwright test",
     "ingest": "tsx scripts/ingest.ts",
     "research": "tsx scripts/research.ts",
+    "research:team": "tsx scripts/research-team.ts",
     "publish": "tsx scripts/publish.ts",
     "db:setup": "tsx scripts/db-setup.ts",
     "db:load": "tsx scripts/db-load.ts",

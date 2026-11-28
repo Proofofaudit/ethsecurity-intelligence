@@ -223,3 +223,56 @@ export async function ownerFacts(login: string) {
     url: r.body.html_url,
   };
 }
+
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+/** Like gh(), but retries 202 (still computing), 429 and 5xx with backoff, bypassing the cache on retries. */
+export async function ghRetry<T = unknown>(endpoint: string, retries = 3): Promise<GhResult<T>> {
+  let r = await gh<T>(endpoint);
+  for (let n = 0; n < retries && (r.status === 202 || r.status === 429 || r.status >= 500); n++) {
+    await sleep(2000 * (n + 1));
+    r = await gh<T>(endpoint, { cache: false });
+  }
+  return r;
+}
+
+export interface OwnedRepo {
+  fullName: string;
+  url: string;
+  fork: boolean;
+  archived: boolean;
+  stars: number;
+  forks: number;
+  pushedAt: string | null;
+}
+
+/** Public repositories owned by a user or organization (first 100 by last push). Non-forks first. */
+export async function ownedRepos(login: string): Promise<OwnedRepo[] | null> {
+  const r = await ghRetry<{ full_name: string; html_url: string; fork: boolean; archived: boolean; stargazers_count: number; forks_count: number; pushed_at: string | null }[]>(
+    `users/${login}/repos?type=owner&sort=pushed&per_page=100`,
+  );
+  if (!r.body) return null;
+  return r.body
+    .map((x) => ({ fullName: x.full_name, url: x.html_url, fork: x.fork, archived: x.archived, stars: x.stargazers_count, forks: x.forks_count, pushedAt: x.pushed_at }))
+    .sort((a, b) => Number(a.fork) - Number(b.fork));
+}
+
+/** Date of the latest published (non-draft) release, or null when none. One request. */
+export async function latestReleaseDate(fullName: string): Promise<string | null> {
+  const r = await ghRetry<{ published_at: string | null; draft: boolean }[]>(`repos/${fullName}/releases?per_page=5`);
+  return (r.body ?? []).find((x) => !x.draft)?.published_at ?? null;
+}
+
+/** Commit dates by one author in one repository since `since`. Up to `maxPages` pages of 100; `capped` marks a lower bound. */
+export async function authorCommitDates(fullName: string, author: string, since: string, maxPages = 3): Promise<{ dates: string[]; capped: boolean; ok: boolean }> {
+  const dates: string[] = [];
+  for (let page = 1; page <= maxPages; page++) {
+    const r = await ghRetry<{ commit: { author: { date: string } | null } }[]>(
+      `repos/${fullName}/commits?author=${encodeURIComponent(author)}&since=${since}&per_page=100&page=${page}`,
+    );
+    if (!r.body) return { dates, capped: false, ok: r.status === 409 };
+    for (const c of r.body) if (c.commit.author?.date) dates.push(c.commit.author.date);
+    if (r.body.length < 100) return { dates, capped: false, ok: true };
+  }
+  return { dates, capped: true, ok: true };
+}

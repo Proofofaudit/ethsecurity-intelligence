@@ -29,6 +29,12 @@
  *     official record; repository, product and site facts equal the stored research results;
  *     broken-link flags follow the stored checks; self-pledge flags are recomputed independently;
  *     no private contact detail appears; "Not found" items agree with the data.
+ * 14. Team research (data/published/team-research.json): every fact (member, handle, past work,
+ *     organization source, delivery entry, claim check, question) has an http(s) source and a
+ *     checked-on date; handles published by the proposal appear in its text or links; monthly
+ *     commit counts equal the sum of the stored machine results; statuses are valid; no email or
+ *     phone pattern; "Verified" claims cite a source; coverage counts recomputed independently
+ *     equal the published meta; no banned phrase. Runs standalone via auditTeamResearchFile().
  */
 import type { DetailResponse, ListResponse, VoteManifestResponse } from "@/lib/official/schemas";
 import type { Dataset } from "@/lib/domain/schemas";
@@ -40,6 +46,10 @@ import { SELF_PLEDGE_LABEL } from "@/lib/intelligence/self-pledge";
 import { formatUsd, toCents } from "@/lib/util/money";
 import { stripMarkdown } from "@/lib/util/text";
 import path from "node:path";
+import { promises as fsp } from "node:fs";
+import { hasPrivateContact } from "@/lib/research-v2/schemas";
+import { findBannedPhrases } from "@/lib/neutralLanguage";
+import { readTeamMachineResult, type TeamMachineResult } from "./team";
 import { DATA_DIR, readJson, readObject, RESEARCH_DIR, REVISIONS_DIR, type SnapshotManifest } from "./store";
 import type { RepoFacts } from "./github";
 import type { CuratedAlias } from "@/lib/domain/identity";
@@ -336,6 +346,7 @@ export async function auditDataset(d: Dataset, manifest: SnapshotManifest): Prom
 
   await auditRound1(d, tick);
   await auditEvidenceCards(d, raw, tick);
+  await auditTeamResearch(d, await loadTeamFile(), tick);
 
   return { checked: Object.values(byCheck).reduce((s, x) => s + x.checked, 0), failures, byCheck };
 }
@@ -582,4 +593,115 @@ async function auditEvidenceCards(d: Dataset, raw: Map<string, DetailResponse>, 
     tick("card_no_audit", nf.has("No public audit report linked") === (sec("audits").length === 0), `${ini.slug}: audit "Not found" disagrees with the audits section`);
     tick("card_no_backers", nf.has("No named backers in the official record") === (r.pledges.length === 0), `${ini.slug}: backer "Not found" disagrees with the raw pledges`);
   }
+}
+
+// ───────────────────────────── 14. Team research ─────────────────────────────
+
+const HTTP_URL = /^https?:\/\/\S+$/;
+const validDate = (x: unknown) => typeof x === "string" && /^\d{4}-\d{2}-\d{2}/.test(x) && Number.isFinite(Date.parse(x));
+const DELIVERY = ["Delivered", "Partly delivered", "No public evidence"];
+const CLAIMS = ["Verified", "Not verified", "Contradicted by source"];
+const TEAM_FILE = path.join(DATA_DIR, "published", "team-research.json");
+
+type Src = { label?: unknown; url?: unknown };
+type TeamFileShape = {
+  meta?: { coverage?: Record<string, number> };
+  initiatives?: {
+    initiativeId: string;
+    members?: { name?: string; sourceUrl?: unknown; checkedOn?: unknown; githubMonthlyCommits?: number[]; handles?: { platform?: string; handle?: string; url?: unknown; publishedBy?: string }[]; pastWork?: { url?: unknown; checkedOn?: unknown }[] }[];
+    organization?: { website?: unknown; sources?: Src[]; checkedOn?: unknown } | null;
+    deliveryTimeline?: { status?: string; sources?: Src[]; checkedOn?: unknown; round1RecordId?: string }[];
+    claimChecks?: { status?: string; sources?: Src[]; checkedOn?: unknown }[];
+    questions?: unknown[];
+    passes?: { team?: boolean; delivery?: boolean; claims?: boolean };
+    notFound?: string[];
+  }[];
+};
+
+async function loadTeamFile(file = TEAM_FILE): Promise<TeamFileShape | null> {
+  try {
+    return JSON.parse(await fsp.readFile(file, "utf8")) as TeamFileShape;
+  } catch (err) {
+    if ((err as NodeJS.ErrnoException).code === "ENOENT") return null;
+    throw err;
+  }
+}
+
+/** Runs check 14 alone, without touching the published dataset. Pass `file` to audit an in-memory artifact. */
+export async function auditTeamResearchFile(d: Dataset, file?: unknown, machineDir?: string): Promise<AuditResult> {
+  const failures: string[] = [];
+  const byCheck: AuditResult["byCheck"] = {};
+  const tick: Tick = (check, ok, msg) => {
+    byCheck[check] ??= { checked: 0, failed: 0 };
+    byCheck[check].checked++;
+    if (!ok) {
+      byCheck[check].failed++;
+      failures.push(`[${check}] ${msg}`);
+    }
+  };
+  await auditTeamResearch(d, file === undefined ? await loadTeamFile() : (file as TeamFileShape | null), tick, machineDir);
+  return { checked: Object.values(byCheck).reduce((n, c) => n + c.checked, 0), failures, byCheck };
+}
+
+async function auditTeamResearch(d: Dataset, file: TeamFileShape | null, tick: Tick, machineDir?: string) {
+  if (!file) {
+    tick("team_file", true, "no team research artifact");
+    return;
+  }
+  const list = file.initiatives ?? [];
+  const byId = new Map(d.initiatives.map((i) => [i.id, i]));
+  const srcOk = (s: Src) => typeof s.url === "string" && HTTP_URL.test(s.url) && typeof s.label === "string" && s.label.trim().length > 0;
+  const seen = new Set<string>();
+  for (const t of list) {
+    const ini = byId.get(t.initiativeId);
+    const tag = ini?.slug ?? t.initiativeId;
+    tick("team_initiative", !!ini && !seen.has(t.initiativeId), `${tag}: unknown or duplicate initiative`);
+    seen.add(t.initiativeId);
+    if (!ini) continue;
+    const proposal = [...ini.links, ...ini.textLinks.map((l) => l.url), ...ini.sections.map((s) => s.markdown)].join("\n").toLowerCase();
+    const machine: TeamMachineResult | null = await readTeamMachineResult(ini.id, machineDir);
+
+    for (const [mi, m] of (t.members ?? []).entries()) {
+      const mt = `${tag}/member ${mi}`;
+      tick("team_source", typeof m.sourceUrl === "string" && HTTP_URL.test(m.sourceUrl) && validDate(m.checkedOn), `${mt}: missing source URL or checked-on date`);
+      for (const h of m.handles ?? []) {
+        const url = typeof h.url === "string" ? h.url : "";
+        tick("team_handle_source", HTTP_URL.test(url) && !!h.handle && url.toLowerCase().includes(h.handle.toLowerCase()), `${mt}: handle ${h.handle} lacks a matching http(s) URL`);
+        if (h.publishedBy === "proposal") tick("team_handle_in_proposal", proposal.includes(url.toLowerCase().replace(/\/$/, "")), `${mt}: handle ${url} is not in the proposal text or links`);
+      }
+      for (const w of m.pastWork ?? []) tick("team_source", typeof w.url === "string" && HTTP_URL.test(w.url) && validDate(w.checkedOn), `${mt}: past work chip lacks a URL or checked-on date`);
+      const c = m.githubMonthlyCommits ?? [];
+      tick("team_commits_shape", c.length === 0 || (c.length === 12 && c.every((n) => Number.isInteger(n) && n >= 0)), `${mt}: commit counts must be 12 non-negative integers or empty`);
+      if (c.length === 12) {
+        const gh = (m.handles ?? []).find((h) => h.platform?.toLowerCase() === "github");
+        const login = (typeof gh?.url === "string" ? /github\.com\/([A-Za-z0-9-]+)/i.exec(gh.url)?.[1] : undefined)?.toLowerCase();
+        const stored = machine?.people.find((p) => p.handle.toLowerCase() === login);
+        const sum = stored?.repos.length ? stored.repos[0]!.monthly.map((_, i) => stored.repos.reduce((s, r) => s + (r.monthly[i] ?? 0), 0)) : stored?.monthly;
+        tick("team_commits_rederived", !!stored && !!sum && sum.length === 12 && sum.every((n, i) => n === c[i]), `${mt}: commit counts differ from the stored machine result`);
+      }
+    }
+    const org = t.organization;
+    if (org) tick("team_source", (org.sources ?? []).length > 0 && (org.sources ?? []).every(srcOk) && validDate(org.checkedOn) && (org.website === undefined || (typeof org.website === "string" && HTTP_URL.test(org.website))), `${tag}: organization lacks sources or a checked-on date`);
+    const r1 = new Set((d.round1.initiativeMatches[ini.id] ?? []).map((m) => m.projectId));
+    for (const [di, e] of (t.deliveryTimeline ?? []).entries()) {
+      tick("team_source", (e.sources ?? []).length > 0 && (e.sources ?? []).every(srcOk) && validDate(e.checkedOn), `${tag}/delivery ${di}: missing source or checked-on date`);
+      tick("team_status", DELIVERY.includes(e.status ?? ""), `${tag}/delivery ${di}: status "${e.status}" is not allowed`);
+      if (e.round1RecordId) tick("team_round1_ref", r1.has(e.round1RecordId), `${tag}/delivery ${di}: ${e.round1RecordId} is not a published Round 1 match`);
+    }
+    for (const [ci, c] of (t.claimChecks ?? []).entries()) {
+      tick("team_source", (c.sources ?? []).length > 0 && (c.sources ?? []).every(srcOk) && validDate(c.checkedOn), `${tag}/claim ${ci}: missing source or checked-on date`);
+      tick("team_status", CLAIMS.includes(c.status ?? ""), `${tag}/claim ${ci}: status "${c.status}" is not allowed`);
+      if (c.status === "Verified") tick("team_verified_cited", (c.sources ?? []).length > 0, `${tag}/claim ${ci}: Verified without a cited source`);
+    }
+    for (const [qi, q] of (t.questions ?? []).entries()) tick("team_source", typeof q === "string" && /https?:\/\/\S+/.test(q), `${tag}/question ${qi}: no source link in the question text`);
+    const p = t.passes ?? {};
+    tick("team_pass_content", (!p.team || (t.members ?? []).length > 0 || (t.notFound ?? []).length > 0) && (!p.delivery || (t.deliveryTimeline ?? []).length > 0 || (t.notFound ?? []).length > 0) && (!p.claims || (t.claimChecks ?? []).length > 0 || (t.notFound ?? []).length > 0), `${tag}: a pass is marked done with no content and no Not found note`);
+    const body = JSON.stringify(t);
+    tick("team_private_contact", !hasPrivateContact(JSON.stringify(t, (_k, v) => v)), `${tag}: email or phone pattern in team research`);
+    tick("team_language", findBannedPhrases(body).length === 0, `${tag}: banned phrase in team research`);
+  }
+  const done = (k: "team" | "delivery" | "claims") => list.filter((t) => t.passes?.[k] === true).length;
+  const expected = { total: d.initiatives.length, teamDossier: done("team"), delivery: done("delivery"), claimChecks: done("claims"), complete: list.filter((t) => t.passes?.team && t.passes?.delivery && t.passes?.claims).length };
+  const published = file.meta?.coverage;
+  tick("team_coverage", !!published && Object.entries(expected).every(([k, v]) => published[k] === v), `coverage meta ${JSON.stringify(published)} differs from recomputed ${JSON.stringify(expected)}`);
 }

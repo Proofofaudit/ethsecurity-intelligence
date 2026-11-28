@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2026-11-28T06:29:44.933Z",
+  "meta": {
+    "coverage": {
+      "total": 55,
+      "teamDossier": 0,
+      "delivery": 0,
+      "claimChecks": 0,
+      "complete": 0
+    },
+    "sourceLabels": [
+      "Official data",
+      "Applicant statement",
+      "Independent evidence",
+      "AI interpretation",
+      "AI-assisted"
+    ]
+  },
+  "initiatives": []
+}
