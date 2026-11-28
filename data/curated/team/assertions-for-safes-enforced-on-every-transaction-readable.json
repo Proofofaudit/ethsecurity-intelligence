@@ -65,8 +65,8 @@
     {
       "grant": "TheDAO Security Fund Round 1: Assertions.eth On-chain Transaction Guards for Ethereum",
       "funder": "TheDAO Security Fund",
-      "promised": "Per the proposal, Round 1 paid for the existing Assertions contracts. The Round 1 record lists payments and no deliverables.",
-      "status": "Delivered",
+      "promised": "Per the proposal, Round 1 paid for the existing Assertions contracts. The Round 1 record lists payments and no deliverables, so no promise can be compared with a result. Existing public artifacts are the Assertions deployments page and a Sourcify record for Assertions v2.0 on Ethereum mainnet; they are not matched against a stated Round 1 deliverable.",
+      "status": "No public evidence",
       "sources": [
         {
           "label": "Round 1 record",

@@ -224,8 +224,8 @@
     {
       "grant": "TheDAO Security Fund Round 1: mab.xyz - transaction guards (organization-level match by same website and organization name)",
       "funder": "TheDAO Security Fund, Giveth",
-      "promised": "Per the mab.xyz website: open-source guards that protect users from malicious transactions. The Round 1 record states no specific deliverables. GitHub API: the public repository transaction-guard-contracts (Transaction Guard Contracts for Ethereum) was created 2026-04-08 and last pushed 2026-11-10. Whether it completes the Round 1 scope cannot be judged from the record, so only partial delivery is recorded.",
-      "status": "Partly delivered",
+      "promised": "Per the mab.xyz website: open-source guards that protect users from malicious transactions. The Round 1 record states no specific deliverables. GitHub API: the public repository transaction-guard-contracts (Transaction Guard Contracts for Ethereum) was created 2026-04-08 and last pushed 2026-11-10. Whether it completes the Round 1 scope cannot be judged from the record, so no promise can be compared with a result. The repository is an existing public artifact, not matched against a stated Round 1 deliverable.",
+      "status": "No public evidence",
       "sources": [
         {
           "label": "TheDAO Round 1 record",

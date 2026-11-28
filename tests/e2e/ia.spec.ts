@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { REDIRECTS } from "@/lib/redirects";
+import { loadTeamResearchFile } from "@/lib/team/load";
 import { dataset, expectNoHorizontalOverflow, isMobile } from "./helpers";
 
 test.describe("redirects", () => {
@@ -89,13 +90,16 @@ test("What changed hides funding changes under one dollar", async ({ page }) => 
   for (const m of moves) expect(m).toBeGreaterThanOrEqual(1);
 });
 
-test("Teams shows the people map and a card per initiative with a Not yet researched state", async ({ page }) => {
+test("Teams shows the people map and a card per initiative with a Not yet researched state for initiatives without team research", async ({ page }) => {
   await page.goto("/teams");
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
   await expect(page.getByText("Dotted lines are stated in proposal text")).toBeVisible();
   const cards = page.getByTestId("team-card");
   await expect(cards).toHaveCount(dataset.initiatives.length);
-  await expect(cards.filter({ hasText: "Not yet researched" }).first()).toBeVisible();
+  // The state shows exactly for initiatives without a published team research entry.
+  const researched = new Set(loadTeamResearchFile()?.initiatives.map((i) => i.initiativeId) ?? []);
+  const unresearched = dataset.initiatives.filter((i) => !researched.has(i.id)).length;
+  await expect(cards.filter({ hasText: "Not yet researched" })).toHaveCount(unresearched);
   await expectNoHorizontalOverflow(page);
 });
 

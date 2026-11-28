@@ -58,8 +58,8 @@
     {
       "grant": "TheDAO Security Fund Round 1: Dedaub Decompiler: From Bytecode to Solidity-Like Code",
       "funder": "TheDAO Security Fund",
-      "promised": "Per Dedaub's own post, the grant funded more accurate and readable Solidity-like decompiler output and a larger free allowance for AI-powered reconstruction. The Round 1 record lists payments and no deliverables.",
-      "status": "Delivered",
+      "promised": "Per Dedaub's own post, the grant funded more accurate and readable Solidity-like decompiler output and a larger free allowance for AI-powered reconstruction. The Round 1 record lists payments and no deliverables, so no promise can be compared with a result. The existing public artifact is the grantee's own blog post, which is self-reported and not matched against a stated Round 1 deliverable.",
+      "status": "No public evidence",
       "sources": [
         {
           "label": "Dedaub blog post (self-reported by the grantee, dated 2026-09-07)",
