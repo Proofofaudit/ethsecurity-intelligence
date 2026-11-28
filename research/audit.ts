@@ -34,7 +34,7 @@
  *     checked-on date; handles published by the proposal appear in its text or links; monthly
  *     commit counts equal the sum of the stored machine results; statuses are valid; no email or
  *     phone pattern; "Verified" claims cite a source; coverage counts recomputed independently
- *     equal the published meta; no banned phrase. Runs standalone via auditTeamResearchFile().
+ *     equal the published meta; merged questions (Item 20) recomputed equal the stored ones; no banned phrase. Runs standalone via auditTeamResearchFile().
  */
 import type { DetailResponse, ListResponse, VoteManifestResponse } from "@/lib/official/schemas";
 import type { Dataset } from "@/lib/domain/schemas";
@@ -49,6 +49,7 @@ import path from "node:path";
 import { promises as fsp } from "node:fs";
 import { hasPrivateContact } from "@/lib/research-v2/schemas";
 import { findBannedPhrases } from "@/lib/neutralLanguage";
+import { mergedQuestions, questionLine } from "@/lib/research-v2/questions";
 import { readTeamMachineResult, type TeamMachineResult } from "./team";
 import { DATA_DIR, readJson, readObject, RESEARCH_DIR, REVISIONS_DIR, type SnapshotManifest } from "./store";
 import type { RepoFacts } from "./github";
@@ -613,6 +614,7 @@ type TeamFileShape = {
     deliveryTimeline?: { status?: string; sources?: Src[]; checkedOn?: unknown; round1RecordId?: string }[];
     claimChecks?: { status?: string; sources?: Src[]; checkedOn?: unknown }[];
     questions?: unknown[];
+    structuredQuestions?: unknown[];
     passes?: { team?: boolean; delivery?: boolean; claims?: boolean };
     notFound?: string[];
   }[];
@@ -652,6 +654,7 @@ async function auditTeamResearch(d: Dataset, file: TeamFileShape | null, tick: T
   const byId = new Map(d.initiatives.map((i) => [i.id, i]));
   const srcOk = (s: Src) => typeof s.url === "string" && HTTP_URL.test(s.url) && typeof s.label === "string" && s.label.trim().length > 0;
   const seen = new Set<string>();
+  const recomputed = mergedQuestions(d, { initiatives: list as never });
   for (const t of list) {
     const ini = byId.get(t.initiativeId);
     const tag = ini?.slug ?? t.initiativeId;
@@ -694,6 +697,10 @@ async function auditTeamResearch(d: Dataset, file: TeamFileShape | null, tick: T
       if (c.status === "Verified") tick("team_verified_cited", (c.sources ?? []).length > 0, `${tag}/claim ${ci}: Verified without a cited source`);
     }
     for (const [qi, q] of (t.questions ?? []).entries()) tick("team_source", typeof q === "string" && /https?:\/\/\S+/.test(q), `${tag}/question ${qi}: no source link in the question text`);
+    if (t.structuredQuestions !== undefined) {
+      const expectedQs = recomputed[t.initiativeId] ?? [];
+      tick("team_questions_rederived", JSON.stringify(t.structuredQuestions) === JSON.stringify(expectedQs) && JSON.stringify(t.questions ?? []) === JSON.stringify(expectedQs.map(questionLine)), `${tag}: merged questions differ from the recomputed list`);
+    }
     const p = t.passes ?? {};
     tick("team_pass_content", (!p.team || (t.members ?? []).length > 0 || (t.notFound ?? []).length > 0) && (!p.delivery || (t.deliveryTimeline ?? []).length > 0 || (t.notFound ?? []).length > 0) && (!p.claims || (t.claimChecks ?? []).length > 0 || (t.notFound ?? []).length > 0), `${tag}: a pass is marked done with no content and no Not found note`);
     const body = JSON.stringify(t);

@@ -10,6 +10,7 @@ import { promises as fs } from "node:fs";
 import type { Dataset } from "@/lib/domain/schemas";
 import type { TeamResearch, TeamResearchFile, TeamMember, OrganizationProfile, DeliveryTimelineEntry, ClaimCheck } from "@/lib/team/types";
 import { parseCuratedTeam, type CuratedTeamRecord } from "@/lib/research-v2/schemas";
+import { mergedQuestions, questionLine } from "@/lib/research-v2/questions";
 import { SOURCE_LABELS } from "@/lib/neutralLanguage";
 import { DATA_DIR, PUBLISHED_DIR, writeJson } from "./store";
 import { TEAM_RESEARCH_DIR, readTeamMachineResult, type TeamMachineResult } from "./team";
@@ -70,6 +71,8 @@ export interface BuildInput {
   machineById: Map<string, TeamMachineResult>;
   /** Merged question lines (each with source link text) for an initiative id. Defaults to none. */
   questionsFor?: (initiativeId: string) => string[];
+  /** Structured merged questions (topic, sources, origins) for an initiative id. Stored as structuredQuestions. */
+  structuredQuestionsFor?: (initiativeId: string) => unknown[];
   now?: Date;
 }
 
@@ -129,6 +132,7 @@ export function buildTeamResearch(input: BuildInput): PublishedTeamFile {
       })),
       claimChecks: rec.claims.map((c) => ({ claim: c.claim, status: c.status, sources: c.sources, checkedOn: c.checkedOn, method: c.method })),
       questions: input.questionsFor?.(ini.id) ?? [],
+      ...(input.structuredQuestionsFor ? { structuredQuestions: input.structuredQuestionsFor(ini.id) } : {}),
       passes: rec.passes,
       notFound: rec.notFound,
       sourceLabel: RESEARCH_SOURCE_LABEL,
@@ -154,14 +158,26 @@ export async function readCuratedTeam(dir = CURATED_TEAM_DIR): Promise<Map<strin
   return out;
 }
 
-export async function buildTeamResearchFromDisk(dataset: Dataset, opts: { questionsFor?: BuildInput["questionsFor"]; now?: Date; write?: boolean } = {}): Promise<PublishedTeamFile> {
+export async function buildTeamResearchFromDisk(dataset: Dataset, opts: { questionsFor?: BuildInput["questionsFor"]; structuredQuestionsFor?: BuildInput["structuredQuestionsFor"]; now?: Date; write?: boolean } = {}): Promise<PublishedTeamFile> {
   const curatedBySlug = await readCuratedTeam();
   const machineById = new Map<string, TeamMachineResult>();
   for (const ini of dataset.initiatives) {
     const m = await readTeamMachineResult(ini.id, TEAM_RESEARCH_DIR);
     if (m) machineById.set(ini.id, m);
   }
-  const file = buildTeamResearch({ dataset, curatedBySlug, machineById, questionsFor: opts.questionsFor, now: opts.now });
+  let file = buildTeamResearch({ dataset, curatedBySlug, machineById, questionsFor: opts.questionsFor, structuredQuestionsFor: opts.structuredQuestionsFor, now: opts.now });
+  if (!opts.questionsFor) {
+    // Merged questions (Item 20) read the team facts of the first pass, then fill the question lists.
+    const merged = mergedQuestions(dataset, file);
+    file = buildTeamResearch({
+      dataset,
+      curatedBySlug,
+      machineById,
+      questionsFor: (id) => (merged[id] ?? []).map(questionLine),
+      structuredQuestionsFor: (id) => merged[id] ?? [],
+      now: opts.now ?? new Date(file.generatedAt),
+    });
+  }
   if (opts.write !== false) await writeJson(TEAM_RESEARCH_FILE, file);
   return file;
 }
