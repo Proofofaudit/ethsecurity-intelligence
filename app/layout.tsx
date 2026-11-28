@@ -3,7 +3,6 @@ import { IBM_Plex_Mono, IBM_Plex_Sans, Noto_Sans_Symbols_2 } from "next/font/goo
 import { Suspense, type ReactNode } from "react";
 import { CommandPaletteProvider, type PaletteInitiative, type PaletteOrganization } from "@/components/shell/command-palette";
 import { CoiStrip, Footer } from "@/components/shell/footer";
-import { StaleBanner } from "@/components/shell/stale-banner";
 import { Header } from "@/components/shell/header";
 import { THEME_SCRIPT } from "@/components/shell/theme";
 import { TooltipProvider } from "@/components/ui/overlay";
@@ -71,7 +70,6 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         <TooltipProvider>
           <CommandPaletteProvider initiatives={palette.initiatives} organizations={palette.organizations}>
             <CoiStrip />
-            <StaleBanner officialGeneratedAt={d?.meta.officialGeneratedAt ?? null} lastSyncAt={d?.meta.ingestion.startedAt ?? null} />
             <Header cohortLine={cohortLine} />
             <main id="main" tabIndex={-1} className="mx-auto max-w-[1320px] px-5 pt-8 focus:outline-none md:px-8">
               {children}

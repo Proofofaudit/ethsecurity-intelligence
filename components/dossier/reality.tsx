@@ -1,5 +1,5 @@
 import type { Dossier } from "@/lib/intelligence/service";
-import { Money, Pct, formatDate } from "@/components/ui/money";
+import { formatDate } from "@/components/ui/money";
 import { ExternalLink } from "@/components/ui/button";
 import { Mark } from "@/components/ui/status";
 import { ClaimList } from "./inspector";
@@ -12,7 +12,6 @@ import { ClaimList } from "./inspector";
  */
 export function RealityVsPromises({ x }: { x: Dossier }) {
   const r = x.reality;
-  const goal = x.initiative.funding.goalCents;
   const pages = r.products.filter((p) => p.reachable);
   return (
     <section aria-labelledby="rvp-h" className="border-y border-ink">
@@ -58,31 +57,15 @@ export function RealityVsPromises({ x }: { x: Dossier }) {
           <h3 className="flex items-center gap-2 text-sm font-semibold">
             <Mark glyph="dashed" className="text-st-future" /> Funding would build
           </h3>
-          <p className="mt-1 text-xs text-ink-2">
-            <Money cents={r.fundingForProposedCents} /> for delivery milestones and <Money cents={r.fundingForAdoptionCents} /> for adoption milestones, of a <Money cents={goal} /> goal.
-            {r.fundingForCompletedCents > 0 && (
-              <>
-                {" "}
-                <Money cents={r.fundingForCompletedCents} /> is in milestones already marked complete.
-              </>
-            )}
-          </p>
+          <p className="mt-1 text-xs text-ink-2">Milestone names from the official proposal. Amounts stay on TheDAO.</p>
           <ul className="mt-3 divide-y divide-rule border-y border-rule">
             {[...r.proposed, ...r.adoption]
               .sort((a, b) => a.index - b.index)
               .map((m) => (
-                <li key={m.id} className="grid grid-cols-[1fr_auto] gap-x-4 py-2 text-sm">
-                  <span>
-                    <span className="num mr-2 text-xs text-ink-3">M{m.index + 1}</span>
-                    {m.name}
-                    {m.adoption && <span className="ml-2 text-2xs text-st-partial">Paid on third-party adoption</span>}
-                  </span>
-                  <span className="text-right">
-                    <Money cents={m.amountCents} />
-                    <span className="block text-2xs text-ink-3">
-                      <Pct value={m.shareOfGoal} digits={0} /> of goal
-                    </span>
-                  </span>
+                <li key={m.id} className="py-2 text-sm">
+                  <span className="num mr-2 text-xs text-ink-3">M{m.index + 1}</span>
+                  {m.name}
+                  {m.adoption && <span className="ml-2 text-2xs text-st-partial">Paid on third-party adoption</span>}
                 </li>
               ))}
           </ul>

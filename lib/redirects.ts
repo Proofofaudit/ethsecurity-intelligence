@@ -11,7 +11,7 @@ export const REDIRECTS: readonly (readonly [source: string, destination: string]
   ["/research/questions", "/initiatives#questions"],
   ["/research/blind-spots", "/initiatives#questions"],
   ["/research/changes", "/initiatives#changes"],
-  ["/research/what-if", "/workspace#what-if"],
+  ["/research/what-if", "/workspace"],
   ["/research/milestones", "/initiatives#milestones"],
   ["/research/funding", "/initiatives#funding"],
   ["/research/collaboration", "/initiatives#compare"],

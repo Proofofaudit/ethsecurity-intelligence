@@ -181,7 +181,9 @@ describe("read endpoints", () => {
     expectError(await get("dependencies", "/dependencies?initiative=nope"), 404, "not_found");
     expectError(await get("changes", "/changes?initiativeIds=nope"), 404, "not_found");
     expectError(await get("export", "/export?ids=nope"), 404, "not_found");
-    expectError(await call("simulate", "POST", "/simulate", { body: { initiativeIds: ["nope"] } }), 404, "not_found");
+    const sim = await call("simulate", "POST", "/simulate", { body: { initiativeIds: ["nope"] } });
+    expect(sim.status).toBe(200);
+    expect(sim.json.data.voteApp).toBe("https://initiatives.thedao.fund/vote");
   });
 
   it("wraps every success response with sources, freshness, methodology and limitations", async () => {
@@ -223,7 +225,9 @@ describe("read endpoints", () => {
     expect(dossier!.json.data.initiative.id).toBe(ini.id);
     expect(dossier!.json.meta.sources).toContain(ini.url);
     expect(milestones!.json.data.total).toBe(d.milestones.filter((m) => m.initiativeId === ini.id).length);
-    expect(funding!.json.data.funding).toEqual(ini.funding);
+    expect(funding!.json.data.officialUrl).toBe(ini.url);
+    expect(funding!.json.data.voteApp).toBe("https://initiatives.thedao.fund/vote");
+    expect(funding!.json.data.funding).toBeUndefined();
     expect(org!.json.data.organization.id).toBe(ini.organizationId);
     expect(std!.json.data.initiatives.length).toBeGreaterThan(0);
     expect(claimRes!.json.data.claim.id).toBe(claim.id);
@@ -231,18 +235,19 @@ describe("read endpoints", () => {
     expect(cmp!.json.data.initiatives).toHaveLength(5);
   });
 
-  it("states the funding identity truthfully for every initiative", async () => {
+  it("points funding requests at TheDAO instead of copying figures", async () => {
     for (const ini of d.initiatives) {
       const r = await get("funding", `/initiatives/${ini.id}/funding`, { id: ini.id });
-      const f = r.json.data.funding;
-      expect(f.pledgedCents + f.donatedCents).toBe(f.officialRaisedCents);
-      expect(f.receivedCents).toBeLessThanOrEqual(f.donatedCents);
-      const outstanding = r.json.data.pledges.filter((p: { status: string }) => p.status === "pledged").reduce((s: number, p: { amountCents: number }) => s + p.amountCents, 0);
-      expect(outstanding).toBe(f.pledgedCents);
-      expect(f.theDaoAskCents).toBe(Math.min(20_000_000, Math.max(0, f.goalCents - f.officialRaisedCents)));
+      expect(r.json.data.officialUrl).toBe(ini.url);
+      expect(r.json.data.voteApp).toBe("https://initiatives.thedao.fund/vote");
+      expect(JSON.stringify(r.json.data)).not.toMatch(/pledgedCents|theDaoAskCents|goalCents/);
     }
     const list = await get("initiatives", "/initiatives?limit=100");
-    for (const row of list.json.data.items) expect(row.theDaoAskCents).toBe(d.initiatives.find((i) => i.id === row.id)?.funding.theDaoAskCents);
+    for (const row of list.json.data.items) {
+      expect(row.theDaoAskCents).toBeUndefined();
+      expect(row.goalCents).toBeUndefined();
+      expect(row.url).toMatch(/^https:\/\//);
+    }
   });
 
   it("serves Round 1 history per initiative and on organization profiles", async () => {
@@ -317,15 +322,10 @@ describe("read endpoints", () => {
     expect(r.status).toBe(200);
     expectEnvelope(r.json);
     const v = r.json.data;
-    expect(v.status).toBe(d.vote.status);
-    expect(v.poolMicroUsd).toBe(d.vote.poolMicroUsd);
-    expect(v.poolCents).toBe(d.vote.poolCents);
-    expect(v.alignment).toEqual(d.vote.alignment);
-    expect(v.groups).toEqual(d.vote.groups);
-    if (d.vote.groupsAvailable) {
-      expect(v.initiatives).toHaveLength(d.vote.slugs.length);
-      for (const row of v.initiatives) expect(row.groups).toEqual(d.vote.initiativeGroups[row.id] ?? []);
-    } else expect(v.initiatives).toEqual([]);
+    expect(v.voteApp).toBe("https://initiatives.thedao.fund/vote");
+    expect(v.countdown).toBeNull();
+    expect(v.pool).toBeNull();
+    expect(v.schedule).toBeNull();
   });
 
   it("serves the export as a downloadable attachment", async () => {
@@ -358,11 +358,11 @@ describe("read endpoints", () => {
     expect(jobs).toBe(d.researchJobs.length);
   });
 
-  it("validates simulate bodies strictly", async () => {
-    expectError(await call("simulate", "POST", "/simulate", { body: { initiativeIds: [] } }), 400, "bad_request");
-    expectError(await call("simulate", "POST", "/simulate", { body: { initiativeIds: [d.initiatives[0]!.id], query: { $where: "1" } } }), 400, "bad_request");
-    expectError(await call("simulate", "POST", "/simulate", { rawBody: "{not json", headers: { "content-type": "application/json" } }), 400, "bad_request");
-    expectError(await call("simulate", "POST", "/simulate", { rawBody: JSON.stringify({ initiativeIds: ["x".repeat(40_000)] }) }), 413, "payload_too_large");
+  it("does not run funding what-if arithmetic", async () => {
+    const r = await call("simulate", "POST", "/simulate", { body: { initiativeIds: [] } });
+    expect(r.status).toBe(200);
+    expect(r.json.data.fundingAndVoting).toMatch(/TheDAO/);
+    expect(r.json.data.rows).toBeUndefined();
   });
 });
 

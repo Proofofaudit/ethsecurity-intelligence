@@ -6,7 +6,6 @@ import { CorrectionsSection } from "@/components/about/corrections";
 import { FreshnessSection } from "@/components/about/status";
 import { MethodologySection } from "@/components/about/methodology";
 import { Block, PageHead } from "@/components/ui/layout";
-import { Money } from "@/components/ui/money";
 import { BANNER_TEXT, COI_SHORT, isCoiOrganization, REPO_URL } from "@/lib/disclosure";
 import { loadIntelligence } from "@/lib/intelligence/load";
 import { fundingRelationships } from "@/lib/intelligence/service";
@@ -72,18 +71,7 @@ export default async function AboutPage() {
           </p>
           {poaSelf.length > 0 && (
             <p>
-              Proof of Audits has also pledged to its own initiative (
-              {poaSelf.map((p, n) => (
-                <span key={p.pledgeId}>
-                  {n > 0 && ", "}
-                  <Money cents={p.amountCents} /> {p.status === "received" ? "received" : "outstanding"}
-                </span>
-              ))}
-              ). It is listed under{" "}
-              <Link href="/initiatives#funding" className="link">
-                self-pledges
-              </Link>{" "}
-              like every other self-pledge.
+              Proof of Audits has also pledged to its own initiative. That pledge is treated the same way as every other self-pledge: the amount and status are on TheDAO, not copied here.
             </p>
           )}
           <p>Safeguards that apply to every initiative, including Proof of Audits:</p>

@@ -38,7 +38,8 @@ test.describe("Evidence card", () => {
     const rows = page.getByTestId("evidence-row").filter({ visible: true });
     await expect(rows).toHaveCount(dataset.initiatives.length);
     await expect(rows.first()).toContainText("Evidence card");
-    await expect(rows.first()).toContainText(/pledged \/ .* received \/ .* donated/);
+    await expect(rows.first()).toContainText("Funding figures: see TheDAO");
+    await expect(rows.first()).not.toContainText(/\$[0-9]/);
     await expect(rows.first()).toContainText("Round 1:");
   });
 

@@ -4,7 +4,7 @@ Home offers a name search that runs only in the visitor's browser. It reads one 
 
 `data/badge-holders/badge-holders.csv`
 
-The file is not shipped. Until it exists, Home shows "Name search is not loaded yet" and no holders are invented. Add the file only from a public source, and keep the source link in the commit message.
+The file is shipped. Each row is a person TheDAO named in a public post, with that post's URL. Home shows "Name search is not loaded yet" only when the file is missing. Do not invent holders.
 
 ## Schema
 
@@ -18,6 +18,8 @@ Header row required. Column names are lowercase. Order does not matter.
 | `website` | no | Public website. Its host is compared with the websites listed for initiatives. |
 | `github` | no | GitHub user or organization name, or its URL. Used to find public repositories of initiatives owned by that account. |
 | `aliases` | no | Other names the holder uses, separated by semicolons. Searched like `name`. |
+| `membership_source` | no | Public URL that names this person as a badge holder. |
+| `checked_on` | no | Date that URL was checked, `YYYY-MM-DD`. |
 
 ## Rules
 

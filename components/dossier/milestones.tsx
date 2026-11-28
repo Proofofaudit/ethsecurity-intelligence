@@ -1,5 +1,4 @@
 import type { Claim, Milestone } from "@/lib/domain/schemas";
-import { Money, Pct } from "@/components/ui/money";
 import { ExternalLink } from "@/components/ui/button";
 import { ClaimLine } from "./inspector";
 
@@ -11,20 +10,13 @@ function month(v: string | null) {
 }
 
 /** Milestone X-Ray: every official milestone with budget, criteria, dependencies, evidence and questions. */
-export function MilestoneXRay({ milestones, claims, goalCents }: { milestones: Milestone[]; claims: Claim[]; goalCents: number }) {
+export function MilestoneXRay({ milestones, claims }: { milestones: Milestone[]; claims: Claim[]; goalCents?: number }) {
   if (!milestones.length) return <p className="text-sm text-ink-3">The official record lists no milestones.</p>;
-  const total = milestones.reduce((s, m) => s + m.amountCents, 0);
   return (
     <div>
       <div className="mb-3 flex flex-wrap gap-x-6 gap-y-1 text-xs text-ink-2">
         <span>
-          <span className="num">{milestones.length}</span> milestones totaling <Money cents={total} />
-          {total !== goalCents && (
-            <>
-              {" "}
-              (goal <Money cents={goalCents} />)
-            </>
-          )}
+          <span className="num">{milestones.length}</span> milestones. Amounts are on TheDAO.
         </span>
         <span>
           <span className="num">{milestones.filter((m) => m.adoption).length}</span> adoption · <span className="num">{milestones.filter((m) => m.done).length}</span> complete
@@ -88,14 +80,6 @@ export function MilestoneXRay({ milestones, claims, goalCents }: { milestones: M
                 </div>
               </div>
               <dl className="grid h-fit grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-xs md:border-l md:border-rule md:pl-4">
-                <dt className="text-ink-3">Budget</dt>
-                <dd className="text-right">
-                  <Money cents={m.amountCents} className="text-sm text-ink" />
-                </dd>
-                <dt className="text-ink-3">Share of goal</dt>
-                <dd className="text-right">
-                  <Pct value={m.shareOfGoal} />
-                </dd>
                 <dt className="text-ink-3">Type</dt>
                 <dd className="text-right">{m.adoption ? "Adoption (third-party uptake)" : "Delivery"}</dd>
                 <dt className="text-ink-3">Status</dt>

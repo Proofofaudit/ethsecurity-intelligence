@@ -23,5 +23,11 @@ export const GET = handle(async (req: Request) => {
   const { dataset } = await load();
   const result = filterInitiatives(dataset, parsed.data);
   const next = result.offset + result.items.length;
-  return ok(dataset, { ...result, nextCursor: next < result.total ? encodeCursor(next) : null });
+  const hidden = ["goalCents", "raisedCents", "pledgedCents", "donatedCents", "receivedCents", "remainingCents", "theDaoAskCents", "pct"] as const;
+  const items = result.items.map((item) => {
+    const copy = { ...item } as Record<string, unknown>;
+    for (const key of hidden) delete copy[key];
+    return copy;
+  });
+  return ok(dataset, { ...result, items, nextCursor: next < result.total ? encodeCursor(next) : null });
 });

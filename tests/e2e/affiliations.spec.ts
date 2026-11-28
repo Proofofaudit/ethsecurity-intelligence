@@ -39,15 +39,8 @@ test.describe("My affiliations", () => {
     await expect(sec.locator(`[data-affiliation-item="${sealSlug}"]`)).toContainText("You may be affiliated");
     await expect(sec.locator(`[data-affiliation-item="${sealSlug}"]`)).toContainText("matched manifest affiliation group “SEAL”");
 
-    // Ballot Prep shows the flag next to the tier choice, with the S-tier reminder; nothing is hidden.
-    const prep = page.locator("[data-ballot-prep]");
-    await expect(prep.locator("[data-ballot-item]")).toHaveCount(dataset.initiatives.length);
-    await expect(prep.locator(`[data-ballot-item="${sealSlug}"]`)).toContainText("Possibly your own or affiliated");
-    // The matched text is visible in the row, not only to screen readers.
-    await expect(prep.locator(`[data-ballot-item="${sealSlug}"] [data-affiliation-detail]`)).toBeVisible();
-    await expect(prep.locator(`[data-ballot-item="${sealSlug}"] [data-affiliation-detail]`)).toContainText("matched manifest affiliation group “SEAL”");
-    await expect(prep.locator("[data-s-tier-reminder]")).toContainText("TheDAO's ballot rules limit affiliated initiatives in S-tier");
-    await expect(prep.locator(`[data-ballot-item="${sealSlug}"] [data-affiliated-with]`)).toContainText("Affiliated with:");
+    await expect(page.locator("[data-ballot-prep]")).toHaveCount(0);
+    await expect(page.getByRole("link", { name: "Open the official vote app" }).first()).toBeVisible();
 
     // A generic entry matches nothing, and neither does an unrelated firm that shares one word.
     for (const entry of ["Ethereum Foundation", "Alliance DAO"]) {

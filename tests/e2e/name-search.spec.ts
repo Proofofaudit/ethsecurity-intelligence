@@ -137,14 +137,14 @@ test("onboarding shows four steps, dismisses, and stays dismissed in this browse
 test("Home shows one official strip, compact calendar, one what-changed line, people map and Why AI", async ({ page }) => {
   await page.goto("/");
   await page.waitForLoadState("networkidle");
-  await expect(page.getByTestId("official-strip")).toHaveCount(1);
-  await expect(page.locator("[data-vote-calendar]")).toHaveCount(1);
+  await expect(page.getByTestId("official-strip")).toHaveCount(0);
+  await expect(page.locator("[data-vote-calendar]")).toHaveCount(0);
+  await expect(page.locator("[data-thedao-status]")).toHaveCount(1);
   await expect(page.locator("[data-what-changed]")).toHaveCount(1);
   await expect(page.locator("[data-people-map-entry] a")).toHaveAttribute("href", "/teams");
   await expect(page.locator("[data-why-ai]")).toContainText("never sees your vote");
   const y = (sel: string) => page.locator(sel).first().evaluate((el) => el.getBoundingClientRect().top + window.scrollY);
-  expect(await y("[data-name-search]")).toBeLessThan(await y("[data-vote-calendar]"));
-  expect(await y("[data-vote-calendar]")).toBeLessThan(await y('[data-testid="official-strip"]'));
+  expect(await y("[data-name-search]")).toBeLessThan(await y("[data-thedao-status]"));
 });
 
 test("initiative cards: letter mark, no summary paragraph, badges with text, dossier link, alphabetical", async ({ page }) => {
@@ -154,24 +154,21 @@ test("initiative cards: letter mark, no summary paragraph, badges with text, dos
   const first = grid.locator("[data-initiative-card]").first();
   await expect(first.locator("[data-letter-mark]")).toHaveCount(1);
   await expect(first.getByRole("link", { name: "Open dossier" })).toBeVisible();
-  await expect(first.getByRole("img", { name: /Received .* still needed/ })).toBeVisible();
+  await expect(first.getByRole("link", { name: "View on TheDAO" })).toBeVisible();
   const titles = await grid.locator("[data-initiative-card] h3").allInnerTexts();
   expect(titles).toEqual([...titles].sort((a, b) => a.localeCompare(b)));
   for (const img of await page.locator("img").all()) expect(await img.getAttribute("alt")).toBeTruthy();
 });
 
-test("dossier puts unique research above the official figures and gives every chart a text alternative", async ({ page }) => {
+test("dossier puts team research above the link to TheDAO and shows no funding chart", async ({ page }) => {
   await page.goto(`/initiatives/${dataset.initiatives[0]!.slug}`);
   const research = page.locator("[data-team-research]");
   const official = page.locator("[data-official-figures]");
   await expect(research).toBeVisible();
-  await expect(official.getByRole("heading", { name: "Official figures (from TheDAO)" })).toBeVisible();
+  await expect(official.getByRole("link", { name: "View on TheDAO" })).toBeVisible();
   expect((await research.boundingBox())!.y).toBeLessThan((await official.boundingBox())!.y);
-  await expect(research).toContainText(/Not yet researched|Team/);
-  const frame = official.locator("[data-chart]");
-  await expect(frame.locator("[data-chart-alt]")).not.toBeEmpty();
-  await expect(frame.getByRole("button", { name: /What is this\? Funding/ })).toBeVisible();
-  await expect(frame.getByRole("img", { name: /Received .* still needed/ })).toBeVisible();
+  await expect(page.locator("[data-countdown]")).toHaveCount(0);
+  await expect(page.getByRole("img", { name: /still needed/ })).toHaveCount(0);
 });
 
 for (const theme of ["light", "dark"] as const) {

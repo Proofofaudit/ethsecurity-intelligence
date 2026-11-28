@@ -31,7 +31,7 @@ const holders = parseBadgeHolderCsv(CSV);
 describe("CSV reader", () => {
   it("reads public columns only and drops the email column", () => {
     expect(holders).toHaveLength(3);
-    expect(Object.keys(holders[0]!).sort()).toEqual(["aliases", "github", "name", "organisation", "website", "xHandle"]);
+    expect(Object.keys(holders[0]!).sort()).toEqual(["aliases", "checkedOn", "github", "membershipSource", "name", "organisation", "website", "xHandle"]);
     expect(JSON.stringify(holders)).not.toMatch(/@example\.invalid|email/i);
     expect(PUBLIC_COLUMNS).not.toContain("email");
   });
@@ -123,10 +123,7 @@ const card = (id: string, shortTitle: string): CardData => ({
   shortTitle,
   displayTitle: shortTitle,
   organization: null,
-  goalCents: 100,
-  pledgedCents: 10,
-  donatedCents: 20,
-  theDaoAskCents: 70,
+  officialUrl: `https://initiatives.example.invalid/${id}`,
   evidence: null,
   delivery: null,
   affiliatedWith: [],
@@ -214,7 +211,7 @@ describe("real dataset index", () => {
   });
 
   it("finds an initiative through a repository owner and an organization with public sources", () => {
-    const gh: BadgeHolder = { name: "Alex Example", organisation: "", xHandle: "", website: "", github: "https://github.com/BlossomLabs", aliases: [] };
+    const gh: BadgeHolder = { name: "Alex Example", organisation: "", xHandle: "", website: "", github: "https://github.com/BlossomLabs", aliases: [], membershipSource: "", checkedOn: "" };
     const repoGroup = connectionsFor(gh, idx).find((g) => g.key === "repos");
     expect(repoGroup?.cards.length).toBeGreaterThan(0);
     for (const c of repoGroup!.cards) expect(c.evidence[0]!.url).toContain("github.com/");

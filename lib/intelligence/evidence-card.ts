@@ -6,7 +6,6 @@
  */
 import type { Dataset, EvidenceStatus, Initiative, Organization, Product, Repository } from "@/lib/domain/schemas";
 import { SOURCE_LABELS, type SourceKind } from "@/lib/neutralLanguage";
-import { formatUsd } from "@/lib/util/money";
 import { possibleSelfPledge, SELF_PLEDGE_LABEL } from "./self-pledge";
 
 export const EVIDENCE_CARD_SECTIONS = [
@@ -534,7 +533,7 @@ export function evidenceCardRow(card: EvidenceCard) {
   const parts = [
     reposLinked === 0 ? "No repository linked" : `${reposLinked} ${reposLinked === 1 ? "repository" : "repositories"} linked${reposFound < reposLinked ? ` (${reposLinked - reposFound} not found or not checked)` : ""}`,
     SITE_TEXT[siteState],
-    `${formatUsd(pledgedCents)} pledged / ${formatUsd(receivedCents)} received / ${formatUsd(donatedCents)} donated`,
+    "Funding figures: see TheDAO",
     ROUND1_TEXT[round1State],
     auditReports ? `${auditReports} audit or review ${auditReports === 1 ? "report" : "reports"} linked` : "Audit reports: Not found",
   ];

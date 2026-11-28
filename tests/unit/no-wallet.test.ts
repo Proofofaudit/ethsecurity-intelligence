@@ -57,7 +57,7 @@ describe("no wallet libraries", () => {
   for (const entry of ["app/workspace/page.tsx", "app/page.tsx"]) {
     it(`${entry} imports no wallet library and no signing code`, async () => {
       const g = await importGraph(entry);
-      expect(g.files).toContain(entry === "app/page.tsx" ? "components/workspace/vote-calendar.tsx" : "components/workspace/ballot-prep.tsx");
+      expect(g.files).toContain("components/ui/thedao-status.tsx");
       expect(g.packages.filter((p) => WALLET_PACKAGES.test(p))).toEqual([]);
       for (const f of g.files) expect(WALLET_CODE.test(await read(f)), f).toBe(false);
     });

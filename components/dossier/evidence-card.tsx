@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ExternalLink } from "@/components/ui/button";
 import { Note } from "@/components/ui/layout";
-import { Money, formatDate } from "@/components/ui/money";
+import { formatDate } from "@/components/ui/money";
 import { SourceLabel } from "@/components/ui/official-quote";
 import { StatusMark } from "@/components/ui/status";
 import type { CardItem, EvidenceCard as Card } from "@/lib/intelligence/service";
@@ -13,7 +13,6 @@ function Fact({ item }: { item: CardItem }) {
       <dt className="border-b border-rule py-1.5 pr-3 text-ink-3 max-sm:border-0 max-sm:pb-0">{item.label}</dt>
       <dd className="min-w-0 border-b border-rule py-1.5 max-sm:pt-0">
         <div className="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-0.5 [overflow-wrap:anywhere]">
-          {item.amountCents !== null && <Money cents={item.amountCents} className="font-medium text-ink" />}
           {item.value &&
             (item.link ? (
               item.link.startsWith("#") ? (

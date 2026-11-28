@@ -7,7 +7,7 @@
  * `matchHolders` in the browser; it is never sent, stored or logged.
  */
 
-export const PUBLIC_COLUMNS = ["name", "organisation", "x_handle", "website", "github", "aliases"] as const;
+export const PUBLIC_COLUMNS = ["name", "organisation", "x_handle", "website", "github", "aliases", "membership_source", "checked_on"] as const;
 export type PublicColumn = (typeof PUBLIC_COLUMNS)[number];
 
 export interface BadgeHolder {
@@ -18,6 +18,10 @@ export interface BadgeHolder {
   website: string;
   github: string;
   aliases: string[];
+  /** Public URL that names this person as a badge holder. Empty in fixtures. */
+  membershipSource: string;
+  /** Date the source was checked, YYYY-MM-DD. */
+  checkedOn: string;
 }
 
 export const MIN_QUERY_LENGTH = 2;
@@ -105,6 +109,8 @@ export function parseBadgeHolderCsv(text: string): BadgeHolder[] {
         .split(ALIAS_SEPARATOR)
         .map((a) => a.trim())
         .filter(Boolean),
+      membershipSource: cell(r, "membership_source"),
+      checkedOn: cell(r, "checked_on"),
     });
   }
   return out;

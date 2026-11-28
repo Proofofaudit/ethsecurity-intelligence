@@ -18,10 +18,8 @@ export interface CardData {
   /** Title shown on the card: the short title, or the full title when two initiatives share a short title. */
   displayTitle: string;
   organization: string | null;
-  goalCents: number;
-  pledgedCents: number;
-  donatedCents: number;
-  theDaoAskCents: number | null;
+  /** Official initiative page on TheDAO. Funding figures are not copied onto the card. */
+  officialUrl: string;
   /** null when no team research is published for the initiative. */
   evidence: BadgeCount<EvidenceBadgeKind>[] | null;
   delivery: BadgeCount<DeliveryBadgeKind>[] | null;
@@ -51,23 +49,17 @@ export function buildCardData(d: Dataset, team: TeamResearchFile | null, logos?:
   const orgById = new Map(d.organizations.map((o) => [o.id, o.name]));
   const shared = sharedAffiliations(d);
   return d.initiatives
-    .map((i): CardData => {
-      const f = i.funding;
-      return {
+    .map((i): CardData => ({
         id: i.id,
         slug: i.slug,
         title: i.title,
         shortTitle: i.shortTitle,
         displayTitle: displayName(d, i),
         organization: (i.organizationId ? orgById.get(i.organizationId) : null) ?? i.recipientTeam,
-        goalCents: f.goalCents,
-        pledgedCents: f.pledgedCents,
-        donatedCents: f.donatedCents,
-        theDaoAskCents: f.theDaoAskCents,
+        officialUrl: i.url,
         ...badgesFor(team, i.id),
         affiliatedWith: shared[i.id] ?? [],
         logo: logoFor(i.id, logos),
-      };
-    })
+    }))
     .sort((a, b) => a.displayTitle.localeCompare(b.displayTitle) || a.id.localeCompare(b.id));
 }

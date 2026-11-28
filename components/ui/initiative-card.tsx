@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { BadgeRow } from "@/components/ui/badges";
-import { FundingBar } from "@/components/ui/charts";
+import { TheDaoStatus } from "@/components/ui/thedao-status";
 import { SharedGroupLine } from "@/components/workspace/affiliations";
 import { ExternalLink } from "@/components/ui/button";
 import { letterMark } from "@/lib/team/logos";
@@ -25,11 +25,10 @@ export function Logo({ card, className }: { card: Pick<CardData, "logo" | "organ
 
 /**
  * One initiative card: logo or letter mark, short title, organization, optional why-line,
- * evidence badge row, mini funding bar, affiliation flag and dossier link. No summary paragraph.
+ * evidence badge row, a link to live funding on TheDAO, affiliation flag and dossier link. No summary paragraph.
  */
 export function InitiativeCard({ card, why, evidence, actions, className, headingLevel = 3 }: { card: CardData; why?: string; evidence?: EvidenceLink[]; actions?: ReactNode; className?: string; headingLevel?: 3 | 4 }) {
   const Heading = headingLevel === 3 ? "h3" : "h4";
-  const f = { goalCents: card.goalCents, pledgedCents: card.pledgedCents, donatedCents: card.donatedCents };
   return (
     <article className={cn("flex h-full min-w-0 flex-col gap-2 border border-rule p-3", className)} data-initiative-card={card.slug} aria-label={card.displayTitle}>
       <div className="flex items-start gap-3">
@@ -59,7 +58,7 @@ export function InitiativeCard({ card, why, evidence, actions, className, headin
         </p>
       )}
       <BadgeRow evidence={card.evidence} delivery={card.delivery} />
-      <FundingBar f={f} height={4} className="mt-auto" />
+      <TheDaoStatus href={card.officialUrl} className="mt-auto text-xs text-ink-2" />
       <SharedGroupLine groups={card.affiliatedWith} />
       <p className="text-xs">
         <Link href={`/initiatives/${card.slug}`} className="link">

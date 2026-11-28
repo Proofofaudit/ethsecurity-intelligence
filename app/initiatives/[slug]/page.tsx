@@ -14,13 +14,12 @@ import { Round1History } from "@/components/dossier/round1";
 import { SimilarInitiatives } from "@/components/dossier/similar";
 import { OpenQuestions } from "@/components/dossier/open-questions";
 import { ExternalLink, Tag } from "@/components/ui/button";
-import { FundingBar, FundingLegend } from "@/components/ui/charts";
-import { ChartFrame } from "@/components/ui/chart-frame";
+import { TheDaoStatus } from "@/components/ui/thedao-status";
 import { TeamResearchSection } from "@/components/dossier/team-research";
 import { loadTeamResearch } from "@/lib/team/load";
 import { Note } from "@/components/ui/layout";
 import { ApplicantQuote } from "@/components/ui/markdown";
-import { DateTime, Money, NotAvailable, Pct, formatDate } from "@/components/ui/money";
+import { DateTime, NotAvailable, Pct, formatDate } from "@/components/ui/money";
 import { Section, Sections } from "@/components/ui/sections";
 import { StatusLegend, StatusMark } from "@/components/ui/status";
 import { ReviewedButton } from "@/components/workspace/review-button";
@@ -36,8 +35,6 @@ import { BLIND_SPOT_LABEL, COVERAGE_TASK_LABEL, dependencies, dossier, briefingF
 import { AiSlot, CounterBody, SupportingBody } from "@/components/dossier/research-slots";
 import { NotYetResearched } from "@/components/ui/ai-interpretation";
 import { CORE_RESEARCH_TASKS } from "@/lib/intelligence/status";
-import { THEDAO_ASK_CAP_CENTS } from "@/lib/metrics/ask";
-import { formatPct, formatUsd } from "@/lib/util/money";
 import { affiliationTargets, GROUPS_OFF_NOTE } from "@/lib/vote/affiliation";
 
 export const revalidate = 600;
@@ -128,8 +125,6 @@ export default async function InitiativePage({ params }: Params) {
   const evidenceByKind = new Map<Evidence["kind"], Evidence[]>();
   for (const e of x.evidence) evidenceByKind.set(e.kind, [...(evidenceByKind.get(e.kind) ?? []), e]);
   const corrections = x.claims.flatMap((c) => c.history.filter((h) => h.correctionId).map((h) => ({ claim: c, h })));
-  const verifiedDonations = byKind("donation").filter((c) => c.status === "independently_verified");
-
   const sectionIds = [
     "briefing",
     "problem",
@@ -278,34 +273,9 @@ export default async function InitiativePage({ params }: Params) {
             </dl>
         </section>
 
-          <section aria-labelledby="official-figures-h" className="mt-10 max-w-[560px] border-t border-ink pt-3" data-official-figures>
-            <h2 id="official-figures-h" className="text-md font-semibold">
-              Official figures (from TheDAO)
-            </h2>
-            <p className="text-2xs text-ink-3">Live on TheDAO&apos;s own site. This is a copy from the latest sync.</p>
-            <p className="mt-1 text-[24px] leading-8 font-medium">
-              <Money cents={f.officialRaisedCents} /> <span className="text-sm font-normal text-ink-3">of</span> <Money cents={f.goalCents} className="text-[17px]" />
-            </p>
-            <p className="text-xs text-ink-3">
-              <Pct value={mv("initiative.pct_funded")} reason={mr("initiative.pct_funded")} />
-              <span className="ml-1">raised · {mv("initiative.backers") ?? 0} distinct {mv("initiative.backers") === 1 ? "backer" : "backers"}</span>
-            </p>
-            <p className="mt-2 flex items-baseline justify-between gap-3 border-t border-rule pt-2 text-sm" data-thedao-ask>
-              <span className="text-ink-2" title="Goal minus official raised, floored at $0 and capped at $200,000">
-                TheDAO ask
-              </span>
-              <Money cents={mv("initiative.thedao_ask")} reason={mr("initiative.thedao_ask")} className="font-medium" />
-            </p>
-            <ChartFrame
-              className="mt-3"
-              title="Funding"
-              help={`Received is confirmed onchain donations, pledged is outstanding commitments, still needed is the goal minus both. TheDAO ask: goal minus official raised, never below $0 and never above ${formatUsd(THEDAO_ASK_CAP_CENTS)}. Here it is ${f.theDaoAskCents === null ? "unavailable" : formatUsd(f.theDaoAskCents)}.`}
-              alt="Received, pledged and still needed are listed below the bar."
-            >
-              <FundingBar f={f} height={10} />
-              <FundingLegend f={f} className="mt-2" />
-            </ChartFrame>
-          </section>
+          <div className="mt-10 max-w-[640px] border-t border-ink pt-3" data-official-figures>
+            <TheDaoStatus href={ini.url} />
+          </div>
 
         <EvidenceCard card={card} />
 
@@ -321,18 +291,9 @@ export default async function InitiativePage({ params }: Params) {
             <Section id="briefing" n={1} title="Executive briefing" meta="Computed from the official record and the research pipeline">
               <ul className="max-w-[820px] list-[square] space-y-1.5 pl-4 text-base text-ink-2 marker:text-ink-3">
                 <li>
-                  Requests <Money cents={f.goalCents} className="text-ink" /> as a {ini.type === "rfp" ? "request for proposals" : "grant"}
-                  {ini.durationMonths ? ` over ${ini.durationMonths} months` : ""}, across {x.milestones.length} {x.milestones.length === 1 ? "milestone" : "milestones"}.
+                  A {ini.type === "rfp" ? "request for proposals" : "grant"}
+                  {ini.durationMonths ? ` over ${ini.durationMonths} months` : ""}, across {x.milestones.length} {x.milestones.length === 1 ? "milestone" : "milestones"}. Funding and voting status are on TheDAO.
                 </li>
-                <li>
-                  Raised <Money cents={f.officialRaisedCents} className="text-ink" /> (<Pct value={mv("initiative.pct_funded")} />
-                  ): <Money cents={f.donatedCents} /> received and <Money cents={f.pledgedCents} /> pledged. TheDAO ask is <Money cents={mv("initiative.thedao_ask")} reason={mr("initiative.thedao_ask")} className="text-ink" /> (goal minus raised, capped at {formatUsd(THEDAO_ASK_CAP_CENTS)}); the remaining funding gap is <Money cents={mv("initiative.remaining")} />.
-                </li>
-                {(mv("initiative.adoption_share") ?? 0) > 0 && (
-                  <li>
-                    {formatPct(mv("initiative.adoption_share"), 0)} of the goal is in adoption milestones, paid only when third parties adopt the work.
-                  </li>
-                )}
                 <li>
                   {supported.length} of {x.claims.length} extracted statements have independent or partial supporting evidence. {unsupportedMaterial.length} material {unsupportedMaterial.length === 1 ? "statement is" : "statements are"} the applicant&apos;s own, without independent support.
                 </li>
@@ -385,7 +346,7 @@ export default async function InitiativePage({ params }: Params) {
               </div>
             </Section>
 
-            <Section id="requires" n={4} title="What requires funding" meta={<Money cents={x.reality.fundingForProposedCents + x.reality.fundingForAdoptionCents} />}>
+            <Section id="requires" n={4} title="What the proposal says it will build" meta={`${x.milestones.length} milestones`}>
               <div className="max-w-[880px] space-y-5">
                 <Sub title="Planned deliverables (official milestones)">
                   <ClaimList ids={byKind("milestone_deliverable").map((c) => c.id)} empty="No planned delivery milestones are recorded." />
@@ -539,63 +500,8 @@ export default async function InitiativePage({ params }: Params) {
               </div>
             </Section>
 
-            <Section id="financial" n={7} title="Financial intelligence" meta={`${x.pledges.length} pledge records · ${x.donations.length} donation transactions`}>
-              <div className="grid gap-8 xl:grid-cols-2">
-                <Facts
-                  rows={[
-                    ["Goal", <Money key="g" cents={f.goalCents} />],
-                    ["Raised (official)", <span key="r"><Money cents={f.officialRaisedCents} /> <span className="text-xs text-ink-3">= pledged + received</span></span>],
-                    ["TheDAO ask", <span key="a"><Money cents={mv("initiative.thedao_ask")} reason={mr("initiative.thedao_ask")} /> <span className="text-xs text-ink-3">goal − raised, floored at $0, capped at {formatUsd(THEDAO_ASK_CAP_CENTS)}</span></span>],
-                    ["Pledged, not yet received", <Money key="p" cents={f.pledgedCents} />],
-                    ["Received onchain", <span key="d"><Money cents={f.donatedCents} /> <span className="text-xs text-ink-3">includes <Money cents={f.receivedCents} /> of pledges marked received</span></span>],
-                    ["Remaining funding gap (uncapped)", <Money key="n" cents={mv("initiative.remaining")} />],
-                    ["Paid out to recipient", <Money key="o" cents={f.paidOutCents} />],
-                    ["Safe balance (official ledger)", f.ledgerCents === null ? <NotAvailable key="l" reason="Not reported by the API" /> : <span key="l"><Money cents={f.ledgerCents} /> {f.ledgerCheckedAt && <span className="text-xs text-ink-3">checked {formatDate(f.ledgerCheckedAt)}</span>}</span>],
-                    ["Largest backer share", <Pct key="t" value={mv("initiative.top_backer_share")} reason={mr("initiative.top_backer_share")} />],
-                    ["Self-pledged by the recipient", <Money key="s" cents={mv("initiative.self_pledged")} reason={mr("initiative.self_pledged")} />],
-                    ["Donations verified onchain", verifiedDonations.length ? "Yes, every transaction receipt checked" : x.donations.length ? "Not all transactions verified" : "No donations recorded"],
-                  ]}
-                />
-                <Sub title="Pledges">
-                  {x.pledges.length ? (
-                    <table className="w-full text-sm">
-                      <caption className="sr-only">Pledge records from the official initiative endpoint.</caption>
-                      <thead>
-                        <tr className="border-b border-ink text-left text-2xs tracking-wide text-ink-3 uppercase">
-                          <th scope="col" className="py-1.5 font-medium">
-                            Backer
-                          </th>
-                          <th scope="col" className="py-1.5 text-right font-medium">
-                            Amount
-                          </th>
-                          <th scope="col" className="py-1.5 pl-3 font-medium">
-                            Status
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {[...x.pledges]
-                          .sort((a, b) => b.amountCents - a.amountCents || a.company.localeCompare(b.company))
-                          .map((p) => (
-                            <tr key={p.id} className="border-b border-rule">
-                              <td className="py-1.5">
-                                {p.company}
-                                {p.backerId === ini.organizationId && <span className="ml-2 text-2xs text-ink-3">self-pledge</span>}
-                              </td>
-                              <td className="py-1.5 text-right">
-                                <Money cents={p.amountCents} />
-                              </td>
-                              <td className="py-1.5 pl-3 text-xs">{p.status === "received" ? "Received" : "Pledged"}</td>
-                            </tr>
-                          ))}
-                      </tbody>
-                    </table>
-                  ) : (
-                    <p className="text-sm text-ink-3">No pledges are recorded.</p>
-                  )}
-                  <Note className="mt-2">Sorted by amount. Pledge rows are entered by TheDAO Security Fund administrators.</Note>
-                </Sub>
-              </div>
+            <Section id="financial" n={7} title="Funding and voting" meta="Published by TheDAO, not copied here">
+              <TheDaoStatus href={ini.url} />
               {byKind("previous_funding").length > 0 && (
                 <Sub title="Previous funding mentioned in the proposal" className="mt-6 max-w-[880px]">
                   <ClaimList ids={byKind("previous_funding").map((c) => c.id)} empty="" />
@@ -640,7 +546,7 @@ export default async function InitiativePage({ params }: Params) {
               </div>
             </Section>
 
-            <Section id="adoption" n={11} title="Adoption commitments" meta={`${formatPct(mv("initiative.adoption_share"), 0)} of goal in adoption milestones`}>
+            <Section id="adoption" n={11} title="Adoption commitments" meta="Milestones paid only when third parties adopt the work">
               <div className="max-w-[880px] space-y-5">
                 <ClaimList ids={byKind("adoption_commitment").map((c) => c.id)} empty="No adoption milestones are recorded. Payment does not depend on third-party uptake." />
                 {quote("commitments")}

@@ -80,14 +80,11 @@ test("the compare tool renders inside Initiatives for two to five picks", async 
   await expect(page.getByText(/rows differ ·/)).toBeVisible();
 });
 
-test("What changed hides funding changes under one dollar", async ({ page }) => {
+test("What changed does not copy live funding movements", async ({ page }) => {
   await page.goto("/initiatives#changes");
   const section = page.locator("section#changes");
-  await expect(section).toContainText(/funding changes under one dollar are hidden/);
-  const text = (await section.innerText()).replace(/,/g, "");
-  const moves = [...text.matchAll(/Official raised \$(\d+\.\d\d) → \$(\d+\.\d\d)/g)].map((m) => Math.abs(Number(m[2]) - Number(m[1])));
-  expect(moves.length).toBeGreaterThan(0);
-  for (const m of moves) expect(m).toBeGreaterThanOrEqual(1);
+  await expect(section).toContainText("Funding movements are not copied");
+  await expect(section).not.toContainText(/Official raised \$/);
 });
 
 test("Teams shows the people map and a card per initiative with a Not yet researched state for initiatives without team research", async ({ page }) => {
@@ -111,22 +108,19 @@ test("About merges methodology, freshness, corrections, disclosure and Why AI is
   await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
 });
 
-test("Home has one official strip with a what-is-this tip per metric, and research above it", async ({ page }) => {
+test("Home links to TheDAO instead of copying official funding figures", async ({ page }) => {
   await page.goto("/");
-  const strip = page.getByTestId("official-strip");
-  await expect(strip.getByRole("heading", { name: "Official figures (from TheDAO)" })).toBeVisible();
-  await expect(page.getByTestId("official-strip")).toHaveCount(1);
-  const tips = strip.getByRole("button", { name: /^What is this\?/ });
-  expect(await tips.count()).toBeGreaterThanOrEqual(4);
-  await expect(strip.locator("[data-headline]")).toContainText("TheDAO ask");
-  await expect(strip.getByRole("link", { name: /Official page/ })).toHaveAttribute("href", /^https:\/\//);
-  const stripY = (await strip.boundingBox())!.y;
+  await expect(page.getByTestId("official-strip")).toHaveCount(0);
+  await expect(page.locator("[data-vote-calendar]")).toHaveCount(0);
+  const link = page.locator("[data-thedao-status]").getByRole("link", { name: "View on TheDAO" });
+  await expect(link).toHaveAttribute("href", "https://initiatives.thedao.fund/");
   const researchY = (await page.getByRole("region", { name: "Research status" }).boundingBox())!.y;
-  expect(researchY).toBeLessThan(stripY);
-  await expect(page.locator("[data-vote-calendar]")).toBeVisible();
+  const linkY = (await page.locator("[data-thedao-status]").boundingBox())!.y;
+  expect(researchY).toBeLessThan(linkY);
 });
 
-test("What-if is a panel inside My Ballot", async ({ page }) => {
-  await page.goto("/workspace#what-if");
-  await expect(page.getByRole("heading", { name: "What-if panel" })).toBeVisible();
+test("What-if is not a page on My Ballot", async ({ page }) => {
+  await page.goto("/workspace");
+  await expect(page.getByRole("heading", { name: "What-if panel" })).toHaveCount(0);
+  await expect(page.locator("[data-thedao-status]").first()).toBeVisible();
 });

@@ -10,14 +10,12 @@ import type { EvidenceStatus } from "@/lib/domain/schemas";
 import { cn } from "@/lib/util/cn";
 import type { AffiliationView, BallotView, CalendarView, FundingView, InterestView } from "@/lib/vote/view-data";
 import { AffiliationsSection } from "./affiliations";
-import { BallotPrep } from "./ballot-prep";
 import { MayInterest } from "./may-interest";
-import { askDeltas, bookmarkAlerts, expirationAlerts, exportWorkspace, fingerprintFor, parseImport, type ChangeRef, type Priority } from "./schema";
+import { TheDaoStatus, VOTE_APP_URL } from "@/components/ui/thedao-status";
+import { bookmarkAlerts, expirationAlerts, exportWorkspace, fingerprintFor, parseImport, type ChangeRef, type Priority } from "./schema";
 import type { ExportContext } from "@/lib/workspace/export";
 import type { VisitFeedEntry } from "@/lib/workspace/progress";
 import { progressStateOf, ReviewProgress } from "./review-progress";
-import { AskDeltaNote, useFundingBaseline } from "./since-visit";
-import { VoteCalendar } from "./vote-calendar";
 import {
   acknowledgeBookmark,
   addNote,
@@ -91,8 +89,6 @@ export interface WorkspaceReview {
 
 export function WorkspaceView({ initiatives, changes, datasetVersion, vote, review }: { initiatives: Ini[]; changes: Record<string, ChangeRef[]>; datasetVersion: string; vote: WorkspaceVote; review?: WorkspaceReview }) {
   const w = useWorkspace();
-  const baseline = useFundingBaseline(vote.funding);
-  const deltas = useMemo(() => new Map(askDeltas(baseline ?? null, vote.funding.asks).map((d) => [d.id, d])), [baseline, vote.funding.asks]);
   const hydrated = useSyncExternalStore(
     noop,
     () => true,
@@ -188,7 +184,7 @@ export function WorkspaceView({ initiatives, changes, datasetVersion, vote, revi
         </p>
       )}
 
-      <VoteCalendar view={vote.calendar} />
+      <TheDaoStatus href={VOTE_APP_URL} />
 
       {review && <ReviewProgress initiatives={initiatives} feed={review.feed} datasetVersion={datasetVersion} exportContext={review.exportContext} />}
 
@@ -317,7 +313,7 @@ export function WorkspaceView({ initiatives, changes, datasetVersion, vote, revi
                         </>
                       )}
                     </span>
-                    <AskDeltaNote delta={deltas.get(s.id)} className="block text-xs text-ink-2" />
+                    <span className="sr-only">Saved</span>
                   </div>
                   <label className="flex items-center gap-2 text-xs">
                     <span className="text-ink-3">Priority</span>
@@ -347,7 +343,9 @@ export function WorkspaceView({ initiatives, changes, datasetVersion, vote, revi
 
       <AffiliationsSection view={vote.affiliation} initiatives={initiatives} />
 
-      <BallotPrep view={vote.ballot} datasetVersion={datasetVersion} deltas={deltas} affiliation={vote.affiliation} />
+      <Section id="ballot" title="Your ballot" note="The three official ballot rules use live asks. Check them on TheDAO. This page does not calculate them.">
+        <TheDaoStatus href={VOTE_APP_URL} />
+      </Section>
 
       <Assessments initiatives={initiatives} changes={changes} datasetVersion={datasetVersion} expiredById={expiredById} label={label} />
 

@@ -4,10 +4,8 @@ import type { ColumnDef, SortingState } from "@tanstack/react-table";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState, useTransition, type ReactNode } from "react";
-import { Button, ButtonLink, Tag } from "@/components/ui/button";
-import { FundingBar } from "@/components/ui/charts";
+import { Button, ButtonLink, ExternalLink, Tag } from "@/components/ui/button";
 import { DataTable } from "@/components/ui/data-table";
-import { Money, Pct } from "@/components/ui/money";
 import { InitiativeCard } from "@/components/ui/initiative-card";
 import { SharedGroupLine } from "@/components/workspace/affiliations";
 import { SaveButton } from "@/components/workspace/save-button";
@@ -127,38 +125,10 @@ export function ResearchExplorer({ params, invalid, items, total, sortNote, face
         cell: ({ row }) => <span className="text-xs text-ink-2">{row.original.type === "rfp" ? "RFP" : "Grant"}</span>,
       },
       {
-        id: "goal",
-        header: "Requested",
-        cell: ({ row }) => <Money cents={row.original.goalCents} />,
-        meta: { align: "right" },
-      },
-      {
-        id: "pct",
-        header: "Funding",
-        cell: ({ row }) => (
-          <div className="w-36">
-            <FundingBar f={row.original} height={5} />
-            <div className="mt-1 flex justify-between text-2xs text-ink-3">
-              <Pct value={row.original.pct} digits={0} />
-              <span>
-                <Money cents={row.original.raisedCents} compact /> raised
-              </span>
-            </div>
-          </div>
-        ),
-        meta: { headerTitle: "Received and pledged as a share of the goal" },
-      },
-      {
-        id: "ask",
-        header: "TheDAO ask",
-        cell: ({ row }) => <Money cents={row.original.theDaoAskCents} reason="Goal or raised unavailable" />,
-        meta: { align: "right", headerTitle: "Goal minus official raised, floored at $0 and capped at $200,000" },
-      },
-      {
-        id: "remaining",
-        header: "Remaining gap",
-        cell: ({ row }) => <Money cents={row.original.remainingCents} className="text-ink-2" />,
-        meta: { align: "right", headerTitle: "Remaining funding gap: goal minus official raised, floored at $0, uncapped" },
+        id: "thedao",
+        enableSorting: false,
+        header: "On TheDAO",
+        cell: ({ row }) => <ExternalLink href={row.original.url}>View on TheDAO</ExternalLink>,
       },
       {
         id: "milestones",
@@ -374,7 +344,9 @@ function CompactRow({ r, selected, disabled, onToggle }: { r: Row; selected: boo
             <TitleCell r={r} />
             <SaveButton id={r.id} title={r.shortTitle} compact />
           </div>
-          <FundingBar f={r} height={5} className="mt-3" />
+          <p className="mt-2 text-xs">
+            <ExternalLink href={r.url}>View on TheDAO</ExternalLink>
+          </p>
           <div className="mt-2">
             <EvidenceCell r={r} />
           </div>

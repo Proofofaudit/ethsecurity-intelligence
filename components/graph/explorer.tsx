@@ -5,9 +5,8 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Button, ExternalLink, Tag } from "@/components/ui/button";
-import { FundingBar } from "@/components/ui/charts";
 import { AddPicker, Check, type PickOption } from "@/components/ui/form";
-import { formatDate, Money, Pct } from "@/components/ui/money";
+import { formatDate } from "@/components/ui/money";
 import type { EntityType } from "@/lib/domain/schemas";
 import type { entityProfile, GraphEdge, GraphNode } from "@/lib/intelligence/service";
 import { cn } from "@/lib/util/cn";
@@ -459,17 +458,10 @@ function ProfileBody({ p }: { p: Profile }) {
     return (
       <div className="space-y-3">
         <p className="text-xs text-ink-2">{i.title}</p>
-        <FundingBar f={i} height={6} />
+        <p className="text-xs">
+          <ExternalLink href={i.url}>View on TheDAO</ExternalLink>
+        </p>
         <dl className={dl}>
-          <Row k="Goal">
-            <Money cents={i.goalCents} />
-          </Row>
-          <Row k="Raised">
-            <Money cents={i.raisedCents} /> (<Pct value={i.pct} />)
-          </Row>
-          <Row k="TheDAO ask">
-            <Money cents={i.theDaoAskCents} reason="Goal or raised unavailable" />
-          </Row>
           <Row k="Recipient">{i.organization ?? i.recipientTeam ?? "No designated recipient (RFP)"}</Row>
           <Row k="Milestones">
             <span className="num">{i.milestones}</span>, of which <span className="num">{i.adoptionMilestones}</span> adoption
@@ -588,9 +580,6 @@ function ProfileBody({ p }: { p: Profile }) {
     return (
       <dl className={dl}>
         <Row k="Initiative">{p.initiative}</Row>
-        <Row k="Budget">
-          <Money cents={m.amountCents} />
-        </Row>
         <Row k="Type">{m.adoption ? "Adoption milestone" : "Delivery milestone"}</Row>
         <Row k="Status">{m.done ? "Marked complete" : "Not complete"}</Row>
         <Row k="Criteria">{m.criteria.join(" ") || "None recorded"}</Row>

@@ -4,7 +4,7 @@ import { notFound, redirect } from "next/navigation";
 import type { ReactNode } from "react";
 import { ExternalLink } from "@/components/ui/button";
 import { Block, Note, PageHead } from "@/components/ui/layout";
-import { DateTime, formatDate, Money } from "@/components/ui/money";
+import { formatDate } from "@/components/ui/money";
 import { StatusMark } from "@/components/ui/status";
 import { Round1History } from "@/components/dossier/round1";
 import { entityExists } from "@/lib/api/entity";
@@ -120,8 +120,6 @@ export default async function EntityPage({ params }: Params) {
         <>
           {(() => {
             const o = p.organization;
-            const pledged = p.pledges.filter((x) => x.status === "pledged").reduce((s, x) => s + x.amountCents, 0);
-            const received = p.pledges.filter((x) => x.status === "received").reduce((s, x) => s + x.amountCents, 0);
             return (
               <>
                 {isCoiOrganization(o.id) && (
@@ -163,8 +161,8 @@ export default async function EntityPage({ params }: Params) {
                         </span>
                       </Row>
                     )}
-                    <Row k="Pledged by this organization">
-                      <Money cents={pledged + received} /> <span className="text-xs text-ink-3">(outstanding <Money cents={pledged} />, received <Money cents={received} />)</span>
+                    <Row k="Pledges">
+                      <ExternalLink href="https://initiatives.thedao.fund/">View pledge amounts on TheDAO</ExternalLink>
                     </Row>
                   </dl>
                   {o.notes.length > 0 && (
@@ -186,61 +184,8 @@ export default async function EntityPage({ params }: Params) {
                     <Round1History view={p.round1} subject={{ label: "Organization website", href: o.website }} />
                   </Block>
                 )}
-                <Block title={`Pledges made (${p.pledges.length})`} note="Official pledge records. Received pledges have arrived onchain and are counted inside donations.">
-                  {p.pledges.length === 0 ? (
-                    <Note>No pledge records.</Note>
-                  ) : (
-                    <div className="overflow-x-auto">
-                      <table className="w-full min-w-[560px] text-sm">
-                        <caption className="sr-only">Pledges made by {label}</caption>
-                        <thead>
-                          <tr className="border-b border-ink text-left text-2xs tracking-wide text-ink-3 uppercase">
-                            <th scope="col" className="py-2 pr-3 font-medium">
-                              Initiative
-                            </th>
-                            <th scope="col" className="py-2 pr-3 font-medium">
-                              Name on record
-                            </th>
-                            <th scope="col" className="py-2 pr-3 font-medium">
-                              Status
-                            </th>
-                            <th scope="col" className="py-2 pr-3 font-medium">
-                              Recorded
-                            </th>
-                            <th scope="col" className="py-2 text-right font-medium">
-                              Amount
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {p.pledges.map((x) => {
-                            const i = findInitiative(d, x.initiativeId);
-                            return (
-                              <tr key={x.id} className="border-b border-rule">
-                                <td className="py-2 pr-3">
-                                  {i ? (
-                                    <Link href={`/initiatives/${i.slug}#financial`} className="hover:text-accent">
-                                      {displayName(d, i)}
-                                    </Link>
-                                  ) : (
-                                    x.initiative
-                                  )}
-                                </td>
-                                <td className="py-2 pr-3 text-ink-2">{x.company}</td>
-                                <td className="py-2 pr-3">{x.status === "received" ? "Received" : "Outstanding"}</td>
-                                <td className="py-2 pr-3">
-                                  <DateTime iso={x.createdAt} className="text-xs" />
-                                </td>
-                                <td className="py-2 text-right">
-                                  <Money cents={x.amountCents} />
-                                </td>
-                              </tr>
-                            );
-                          })}
-                        </tbody>
-                      </table>
-                    </div>
-                  )}
+                <Block title="Pledges" note="Pledge lists and amounts are published by TheDAO.">
+                  <ExternalLink href="https://initiatives.thedao.fund/">View on TheDAO</ExternalLink>
                 </Block>
                 {(p.aliases.length > 0 || p.people.length > 0 || p.repositories.length > 0) && (
                   <div className="grid gap-10 lg:grid-cols-2 [&>*]:min-w-0">

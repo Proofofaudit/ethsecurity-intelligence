@@ -2,14 +2,12 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { ExternalLink } from "@/components/ui/button";
 import { Block, Note, PageHead, Stat } from "@/components/ui/layout";
-import { DateTime, formatDateTime, Money } from "@/components/ui/money";
+import { DateTime, formatDateTime } from "@/components/ui/money";
+import { TheDaoStatus } from "@/components/ui/thedao-status";
 import { loadIntelligence } from "@/lib/intelligence/load";
 import { displayName } from "@/lib/intelligence/service";
 import { ingestionStatus } from "@/lib/intelligence/status";
 import { cn } from "@/lib/util/cn";
-import { FALLBACK_LABEL, FALLBACK_SETTLED_BY, FALLBACK_TALLIES, resolveSchedule } from "@/lib/vote/calendar";
-import { withLiveVote } from "@/lib/vote/live";
-
 const TASK_LABEL: Record<string, string> = {
   links: "Link extraction",
   websites: "Website checks",
@@ -26,20 +24,16 @@ function Ok({ ok, children }: { ok: boolean; children: ReactNode }) {
 
 const VOTE_STATUS_LABEL = { aligned: "Aligned", unaligned: "Not aligned: group features disabled", unavailable: "Unavailable: dependent features disabled" } as const;
 
-const UTC = new Intl.DateTimeFormat("en-US", { weekday: "short", day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit", hourCycle: "h23", timeZone: "UTC", timeZoneName: "short" });
-
 const hours = (h: number | null) => (h === null ? "unknown" : h < 48 ? `${h} hours` : `${Math.round(h / 24)} days`);
 
 export async function FreshnessSection() {
   const loaded = await loadIntelligence();
   const health = loaded.health;
-  // Pool and schedule from the cached live manifest read when valid; everything else is the published snapshot.
-  const { dataset: d, live } = await withLiveVote(loaded.dataset);
+  const d = loaded.dataset;
   const s = ingestionStatus(d, health);
   const staleCheck = s.officialSync.validation.find((v) => v.check === "details_complete");
   const byId = new Map(d.initiatives.map((i) => [i.id, i]));
   const vm = s.voteManifest;
-  const pool = d.vote.poolCents;
 
   return (
     <div className="space-y-10">
@@ -171,39 +165,14 @@ export async function FreshnessSection() {
             {vm.fetchedAt ? formatDateTime(vm.fetchedAt) : "Not fetched"}
             {vm.stale && " (stored copy reused: the latest fetch failed)"}
           </dd>
-          <dt className="text-ink-3">Live pool and schedule</dt>
-          <dd data-live-manifest={live.source}>
-            {live.source === "live" ? <span>Live manifest read {live.fetchedAt ? formatDateTime(live.fetchedAt) : ""}</span> : <span>Published snapshot</span>}
-            <span className="block text-xs text-ink-3">
-              {live.note}
-              {live.checkedAt && ` Last read attempt ${formatDateTime(live.checkedAt)}.`}
-            </span>
-            {live.error && <span className="block text-xs text-st-contradicted">{live.error}</span>}
+          <dt className="text-ink-3">Funding and voting</dt>
+          <dd>
+            <TheDaoStatus href="https://initiatives.thedao.fund/vote" />
           </dd>
           <dt className="text-ink-3">Contents</dt>
           <dd className="num">
             {vm.slugs} slugs · {vm.projects} projects · {vm.groups} affiliation groups
             {vm.configRevision !== null && ` · config revision ${vm.configRevision}`}
-          </dd>
-          <dt className="text-ink-3">Pool</dt>
-          <dd>
-            <Money cents={pool} reason="Vote manifest unavailable" />
-          </dd>
-          <dt className="text-ink-3">Tier tally starts</dt>
-          <dd className="num">
-            {d.vote.scheduleAvailable && d.vote.schedule
-              ? d.vote.schedule.firstTallyAt.map((t, i) => `${["S", "A", "B"][i] ?? i}-tier ${UTC.format(t * 1000)}`).join(" · ")
-              : "Unavailable"}
-          </dd>
-          <dt className="text-ink-3">Vote Calendar countdown</dt>
-          <dd data-calendar-fallback={resolveSchedule(d.vote).fallback ? "" : undefined}>
-            {resolveSchedule(d.vote).fallback ? (
-              <Ok ok={false}>
-                {FALLBACK_LABEL}: schedule.firstTallyAt is missing, so the documented fallbacks from TheDAO&apos;s voting post are used: {FALLBACK_TALLIES.map((t, i) => `${["S", "A", "B"][i]}-tier ${UTC.format(Date.parse(t))}`).join(" · ")}; settled after {UTC.format(Date.parse(FALLBACK_SETTLED_BY))}
-              </Ok>
-            ) : (
-              <span>From the manifest (schedule.firstTallyAt)</span>
-            )}
           </dd>
           <dt className="text-ink-3">Disabled features</dt>
           <dd>{vm.disabled.length ? vm.disabled.join(", ") : "None"}</dd>

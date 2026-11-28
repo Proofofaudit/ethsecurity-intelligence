@@ -49,7 +49,14 @@ export function NameSearch({ holders, index, total }: { holders: BadgeHolder[] |
           className="h-11 w-full min-w-0 rounded-xs border border-ink bg-paper px-3 text-md text-ink focus:outline-none disabled:cursor-not-allowed disabled:border-rule-2 disabled:text-ink-3"
         />
         <p id={`${id}-help`} className="mt-1 text-xs text-ink-3">
-          Matching runs in your browser against a public list. What you type is not sent anywhere or stored.
+          {holders ? (
+            <>
+              Matching runs in your browser across <span className="num">{holders.length}</span> public listings.
+            </>
+          ) : (
+            "Matching runs in your browser against a public list."
+          )}{" "}
+          What you type is not sent anywhere or stored.
         </p>
       </div>
 

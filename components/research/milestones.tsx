@@ -5,8 +5,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { DataTable, SortStatus } from "@/components/ui/data-table";
-import { Check, inputClass, selectClass, Segmented } from "@/components/ui/form";
-import { Money, Pct } from "@/components/ui/money";
+import { Check, selectClass, Segmented } from "@/components/ui/form";
 
 export interface XrayRow {
   id: string;
@@ -41,13 +40,7 @@ export function MilestoneTable({ rows, initiatives, initialInitiative }: { rows:
   const [criteria, setCriteria] = useState<Tri>("any");
   const [thirdParty, setThirdParty] = useState<Tri>("any");
   const [withQuestions, setWithQuestions] = useState(false);
-  const [min, setMin] = useState("");
-  const [max, setMax] = useState("");
   const [sorting, setSorting] = useState<SortingState>([]);
-
-  const num = (s: string) => (s.trim() === "" || !Number.isFinite(Number(s)) ? null : Math.round(Number(s) * 100));
-  const lo = num(min);
-  const hi = num(max);
 
   const filtered = useMemo(() => {
     const f = rows.filter(
@@ -57,9 +50,7 @@ export function MilestoneTable({ rows, initiatives, initialInitiative }: { rows:
         tri(done, r.done) &&
         tri(criteria, r.criteria.join("").trim().length > 0) &&
         tri(thirdParty, r.adoption || r.thirdParty.length > 0) &&
-        (!withQuestions || r.questions.length > 0) &&
-        (lo === null || r.amountCents >= lo) &&
-        (hi === null || r.amountCents <= hi),
+        (!withQuestions || r.questions.length > 0),
     );
     const s = sorting[0];
     if (!s) return f;
@@ -74,7 +65,7 @@ export function MilestoneTable({ rows, initiatives, initialInitiative }: { rows:
     if (!k) return f;
     const dir = s.desc ? -1 : 1;
     return [...f].sort((a, b) => (k(a) < k(b) ? -dir : k(a) > k(b) ? dir : a.initiative.localeCompare(b.initiative) || a.index - b.index));
-  }, [rows, ini, adoption, done, criteria, thirdParty, withQuestions, lo, hi, sorting]);
+  }, [rows, ini, adoption, done, criteria, thirdParty, withQuestions, sorting]);
 
   const columns = useMemo<ColumnDef<XrayRow, unknown>[]>(
     () => [
@@ -136,8 +127,6 @@ export function MilestoneTable({ rows, initiatives, initialInitiative }: { rows:
           </details>
         ),
       },
-      { id: "amount", header: "Budget", enableSorting: true, cell: ({ row: { original: r } }) => <Money cents={r.amountCents} />, meta: { align: "right" } },
-      { id: "share", header: "Share of goal", enableSorting: true, cell: ({ row: { original: r } }) => <Pct value={r.share} reason="Goal is zero" />, meta: { align: "right" } },
       {
         id: "kind",
         header: "Type",
@@ -158,8 +147,6 @@ export function MilestoneTable({ rows, initiatives, initialInitiative }: { rows:
     setCriteria("any");
     setThirdParty("any");
     setWithQuestions(false);
-    setMin("");
-    setMax("");
   };
 
   return (
@@ -176,14 +163,6 @@ export function MilestoneTable({ rows, initiatives, initialInitiative }: { rows:
             ))}
           </select>
         </label>
-        <div>
-          <span className="mb-1 block text-ink-3">Budget range (USD)</span>
-          <div className="flex items-center gap-2">
-            <input aria-label="Minimum budget in US dollars" inputMode="decimal" placeholder="Min" value={min} onChange={(e) => setMin(e.target.value)} className={inputClass} />
-            <span className="text-ink-3">–</span>
-            <input aria-label="Maximum budget in US dollars" inputMode="decimal" placeholder="Max" value={max} onChange={(e) => setMax(e.target.value)} className={inputClass} />
-          </div>
-        </div>
         <div>
           <span className="mb-1 block text-ink-3">Adoption-designated</span>
           <Segmented label="Adoption-designated" value={adoption} onChange={setAdoption} options={TRI} />

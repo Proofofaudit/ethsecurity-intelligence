@@ -5,18 +5,17 @@ import { CompareView } from "@/components/research/compare";
 import { MilestoneTable } from "@/components/research/milestones";
 import { ResearchExplorer, type Facets } from "@/components/research/explorer";
 import { parseParams, toFilter, type SP } from "@/components/research/params";
-import { HBarList, RatioBar } from "@/components/ui/charts";
+import { HBarList } from "@/components/ui/charts";
 import { Block, Note, PageHead } from "@/components/ui/layout";
-import { DateTime, Money, Pct } from "@/components/ui/money";
+import { DateTime } from "@/components/ui/money";
+import { TheDaoStatus } from "@/components/ui/thedao-status";
 import { SECURITY_PROBLEMS } from "@/lib/domain/taxonomy";
 import { loadIntelligence } from "@/lib/intelligence/load";
 import { milestoneRows } from "@/lib/intelligence/milestone-rows";
 import { QUESTIONS_NOTE, questionsToCheck } from "@/lib/intelligence/questions-to-check";
-import { categoryDistribution, changes, compare, coverage, displayName, evidenceCardRows, filterInitiatives, FilterSchema, findInitiative, fundingRelationships } from "@/lib/intelligence/service";
-import { meaningfulChanges } from "@/lib/intelligence/what-changed";
+import { categoryDistribution, changes, compare, coverage, displayName, evidenceCardRows, filterInitiatives, FilterSchema, findInitiative } from "@/lib/intelligence/service";
 import { buildCardData } from "@/lib/search/card-data";
 import { loadTeamResearchFile } from "@/lib/team/load";
-import { formatUsd } from "@/lib/util/money";
 
 export const metadata: Metadata = { title: "Initiatives" };
 export const dynamic = "force-dynamic";
@@ -68,19 +67,12 @@ export default async function InitiativesPage({ searchParams }: { searchParams: 
   const questions = questionsToCheck(d);
   const msRows = milestoneRows(d);
   const focus = one(sp.ini) ? findInitiative(d, one(sp.ini)) : undefined;
-  const fr = fundingRelationships(d);
   const cov = coverage(d);
-  const concentration = fr.concentration;
 
   const since = one(sp.since);
   const all = changes(d, { since: since || undefined, initiativeIds: focus ? [focus.id] : undefined, limit: 2000 });
-  const shown = meaningfulChanges(all);
-  const hidden = all.length - shown.length;
-  const recent = shown.slice(0, 40);
-
-  const nameOf = (id: string) => name(id);
-  const selfNames = [...new Set(fr.selfPledges.map((p) => nameOf(p.initiativeId)))].sort((a, b) => a.localeCompare(b));
-  const multiTotal = fr.multiInitiativeBackers.length;
+  const fundingKinds = new Set(["funding_changed", "donation_added", "pledge_added", "pledge_removed", "pledge_status_changed", "pledge_amount_changed", "goal_changed"]);
+  const recent = all.filter((c) => !fundingKinds.has(c.kind)).slice(0, 40);
 
   return (
     <div className="space-y-14">
@@ -144,46 +136,12 @@ export default async function InitiativesPage({ searchParams }: { searchParams: 
         <QuestionsList items={questions} initialInitiative={focus?.slug ?? ""} />
       </Block>
 
-      <Block id="milestones" title="Milestones" note="Every milestone with its budget, status, target month and acceptance criteria. Filter by adoption, completion, criteria and amount." className="scroll-mt-20">
+      <Block id="milestones" title="Milestones" note="Every milestone with its status, target month and acceptance criteria. Amounts stay on TheDAO." className="scroll-mt-20">
         <MilestoneTable rows={msRows} initialInitiative={focus?.slug ?? ""} initiatives={[...new Map(msRows.map((r) => [r.slug, r.initiative])).entries()].map(([slug, label]) => ({ slug, label }))} />
       </Block>
 
-      <Block id="funding" title="Funding at a glance" note="Who backs what, from the pledge records. Self-pledges are common and legitimate; they are listed so independent support can be seen separately." className="scroll-mt-20">
-        <dl className="grid gap-px border-y border-ink bg-rule sm:grid-cols-3 [&>div]:bg-paper [&>div]:px-4 [&>div]:py-4">
-          <div>
-            <dt className="text-xs text-ink-3">Self-pledges</dt>
-            <dd className="num mt-1 text-[22px] leading-7">{fr.selfPledges.length}</dd>
-            <dd className="mt-1 text-xs text-ink-3">Backer is the recipient. {selfNames.length > 0 ? selfNames.join(", ") : "None recorded."}</dd>
-          </div>
-          <div>
-            <dt className="text-xs text-ink-3">Backers of more than one initiative</dt>
-            <dd className="num mt-1 text-[22px] leading-7">{multiTotal}</dd>
-            <dd className="mt-1 text-xs text-ink-3">Of {fr.backers.length} distinct backers. Anonymous labels are never merged.</dd>
-          </div>
-          <div>
-            <dt className="text-xs text-ink-3">Top-5 backer share of pledges</dt>
-            <dd className="num mt-1 text-[22px] leading-7">
-              <Pct value={concentration?.value ?? null} digits={0} reason={concentration?.unavailableReason ?? undefined} />
-            </dd>
-            <dd className="mt-2">
-              <RatioBar value={concentration?.value ?? null} label="Share of all pledged amounts from the five largest backers" />
-            </dd>
-            <dd className="mt-1 text-xs text-ink-3">
-              Of <Money cents={fr.totalPledgedCents} /> pledged in total.
-            </dd>
-          </div>
-        </dl>
-        {multiTotal > 0 && (
-          <ul className="mt-3 grid gap-x-8 text-sm md:grid-cols-2">
-            {[...fr.multiInitiativeBackers]
-              .sort((a, b) => a.name.localeCompare(b.name))
-              .map((b) => (
-                <li key={b.backerId} className="border-b border-rule py-1.5">
-                  <span className="font-medium">{b.name}</span> <span className="text-xs text-ink-3">backs {b.initiatives.length} initiatives</span>
-                </li>
-              ))}
-          </ul>
-        )}
+      <Block id="funding" title="Funding and voting" note="Live figures, pledges and the vote stay on TheDAO." className="scroll-mt-20">
+        <TheDaoStatus href="https://initiatives.thedao.fund/" />
       </Block>
 
       <Block id="coverage" title="Security coverage map" note="Lifecycle stage of each initiative, from a rule-based reading of its proposal text. Dark: primary stage. Gray: also addresses. A prompt for investigation, not a finding." className="scroll-mt-20">
@@ -191,10 +149,9 @@ export default async function InitiativesPage({ searchParams }: { searchParams: 
           caption="Number of initiatives addressing each security lifecycle stage."
           rows={cov.stages.map((s) => ({ key: s.stage, label: s.label, value: s.totalCount, inner: s.primaryCount, valueLabel: `${s.totalCount}`, sub: `${s.primaryCount} primary`, href: `/initiatives?stage=${s.stage}` }))}
         />
-        <Note className="mt-2">Funding by primary category: {categoryDistribution(d).filter((c) => c.primaryCount > 0).map((c) => `${c.label} ${formatUsd(c.goalCents, { compact: true })}`).join(" · ")}.</Note>
       </Block>
 
-      <Block id="changes" title="What changed" note={`Funding, proposal revisions and corrections detected by comparing official snapshots.${hidden > 0 ? ` ${hidden} funding changes under one dollar are hidden.` : ""}${focus ? ` Showing ${displayName(d, focus)} only.` : ""}`} className="scroll-mt-20">
+      <Block id="changes" title="What changed" note={`Proposal revisions, milestone text and corrections. Funding movements are not copied from TheDAO.${focus ? ` Showing ${displayName(d, focus)} only.` : ""}`} className="scroll-mt-20">
         {recent.length === 0 ? (
           <Note>No changes recorded.</Note>
         ) : (

@@ -1,12 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { formatUsd } from "@/lib/util/money";
-import { dataset, expectNoHorizontalOverflow, isMobile, metrics, statValue } from "./helpers";
-
-const v = (id: string) => {
-  const m = metrics[id];
-  if (!m || m.value === null) throw new Error(`metric ${id} has no value`);
-  return m.value;
-};
+import { dataset, expectNoHorizontalOverflow, isMobile, statValue } from "./helpers";
 
 test("overview figures equal the values computed from the published dataset", async ({ page }) => {
   await page.goto("/");
@@ -14,20 +7,11 @@ test("overview figures equal the values computed from the published dataset", as
   expect(dataset.initiatives.length).toBe(55);
   expect(new Set(dataset.initiatives.map((i) => i.id)).size).toBe(55);
 
-  await expect(statValue(page, "Qualified initiatives")).toHaveText(String(v("cohort.initiatives")));
-  await expect(statValue(page, "Funding requested").first()).toHaveText(formatUsd(v("cohort.goal")));
-  await expect(statValue(page, "Raised so far").first()).toHaveText(formatUsd(v("cohort.raised")));
-  // TheDAO ask leads; the remaining funding gap is shown separately in the note.
-  await expect(statValue(page, "TheDAO ask").first()).toHaveText(formatUsd(v("cohort.thedao_ask")));
-  await expect(page.getByText(`The remaining funding gap, shown separately, is ${formatUsd(v("cohort.remaining"))}`)).toBeVisible();
-  // Home no longer lists every initiative; the cards live on Initiatives.
-  await expect(page.locator("[data-funding-line]")).toHaveCount(0);
   await expect(statValue(page, "Automated checks").first()).toContainText(" of 55");
+  await expect(page.locator("[data-thedao-status]")).toBeVisible();
+  await expect(page.getByText("TheDAO ask")).toHaveCount(0);
+  await expect(page.locator("[data-countdown]")).toHaveCount(0);
 
-  // Funding identity: raised = outstanding pledges + received donations.
-  expect(v("cohort.raised")).toBe(v("cohort.pledged_outstanding") + v("cohort.donated"));
-  const grants = dataset.initiatives.filter((i) => i.type === "grant").length;
-  await expect(page.getByText(`${grants} grants · ${dataset.initiatives.length - grants} RFPs`)).toBeVisible();
   await expectNoHorizontalOverflow(page);
 });
 

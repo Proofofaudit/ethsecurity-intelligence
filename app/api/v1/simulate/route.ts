@@ -1,14 +1,11 @@
-import { findInitiative, ScenarioSchema, simulatePortfolio } from "@/lib/intelligence/service";
-import { handle, load, notFound, ok, parseJsonBody } from "@/lib/api/http";
+import { handle, load, ok } from "@/lib/api/http";
+import { thedaoPointer } from "@/lib/api/thedao-pointer";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-/** POST /api/v1/simulate: deterministic portfolio scenario over the user's assumptions. Read-only. */
-export const POST = handle(async (req: Request) => {
-  const scenario = await parseJsonBody(req, ScenarioSchema);
+/** POST /api/v1/simulate: the what-if lab is not published. Funding assumptions stay on TheDAO. */
+export const POST = handle(async () => {
   const { dataset } = await load();
-  const unknown = [...scenario.initiativeIds, ...Object.keys(scenario.extraFundingUsd)].filter((id) => !findInitiative(dataset, id));
-  if (unknown.length) throw notFound(`Unknown initiative ids: ${[...new Set(unknown)].join(", ")}`);
-  return ok(dataset, simulatePortfolio(dataset, scenario), {}, { cache: "private" });
+  return ok(dataset, thedaoPointer(), {}, { cache: "private" });
 });
