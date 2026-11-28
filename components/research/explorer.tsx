@@ -27,6 +27,8 @@ export interface Facets {
   stages: Option[];
   standards: Option[];
   organizations: Option[];
+  /** Official manifest affiliation groups with the number of initiatives in each. */
+  affiliations: Option[];
   cohortSize: number;
 }
 
@@ -188,7 +190,7 @@ export function ResearchExplorer({ params, invalid, items, total, sortNote, face
       onClear={() => {
         setQ("");
         lastPushed.current = "";
-        start(() => router.replace(params.view === "cards" ? `${pathname}?view=cards` : pathname, { scroll: false }));
+        start(() => router.replace(params.view === "table" ? `${pathname}?view=table` : pathname, { scroll: false }));
       }}
       active={active}
     />
@@ -302,7 +304,7 @@ export function ResearchExplorer({ params, invalid, items, total, sortNote, face
               Clear
             </Button>
             {selected.length >= 2 ? (
-              <ButtonLink variant="primary" size="sm" href={`/research/compare?ids=${selected.map((id) => bySlug.get(id)?.slug ?? id).join(",")}`}>
+              <ButtonLink variant="primary" size="sm" href={`/initiatives?ids=${selected.map((id) => bySlug.get(id)?.slug ?? id).join(",")}#compare`}>
                 Compare {selected.length}
               </ButtonLink>
             ) : (
@@ -433,7 +435,7 @@ function SavedSearches({ searches }: { searches: { id: string; name: string; que
       <span className="text-ink-3">Saved searches:</span>
       {searches.slice(0, 8).map((s) => (
         <span key={s.id} className="inline-flex items-center rounded-xs border border-rule">
-          <Link href={`/research?${s.query}`} className="px-1.5 py-0.5 hover:text-accent">
+          <Link href={`/initiatives?${s.query}`} className="px-1.5 py-0.5 hover:text-accent">
             {s.name}
           </Link>
           <button type="button" onClick={() => removeSearch(s.id)} className="border-l border-rule px-1 text-ink-3 hover:text-ink" aria-label={`Remove saved search ${s.name}`}>
@@ -575,7 +577,7 @@ function FilterPanel({ params, facets, onChange, onClear, active }: { params: Re
         <Segmented name="Existing product or work" value={params.existing} options={YN} onChange={(existing) => onChange({ existing })} />
         <p className="mt-1.5 text-2xs text-ink-3">A cited public repository, completed milestone or reachable product page.</p>
       </Group>
-      <Group title="Independent evidence">
+      <Group title="Evidence status">
         <Segmented name="Independent evidence" value={params.evidence} options={YN} onChange={(evidence) => onChange({ evidence })} />
         <p className="mt-1.5 text-2xs text-ink-3">At least one claim verified or partly supported.</p>
       </Group>
@@ -629,6 +631,19 @@ function FilterPanel({ params, facets, onChange, onClear, active }: { params: Re
           <option value="complement">Possible complement</option>
         </select>
         <p className="mt-1.5 text-2xs text-ink-3">Pairs found by fixed rules and listed on each dossier. Research hypotheses, not findings.</p>
+      </Group>
+      <Group title="Affiliation">
+        <select className={select} aria-label="Affiliation" value={params.aff} onChange={(e) => onChange({ aff: e.target.value })}>
+          <option value="">Any initiative</option>
+          <option value="any">Shares an official affiliation group</option>
+          <option value="none">Shares no official group</option>
+          {facets.affiliations.map((a) => (
+            <option key={a.value} value={a.value}>
+              {a.label} ({a.count})
+            </option>
+          ))}
+        </select>
+        <p className="mt-1.5 text-2xs text-ink-3">Groups come from TheDAO&apos;s official vote manifest. A shared group is a fact to check, not a finding.</p>
       </Group>
       <Group title="Organization">
         <select className={select} aria-label="Organization" value={params.org} onChange={(e) => onChange({ org: e.target.value })}>

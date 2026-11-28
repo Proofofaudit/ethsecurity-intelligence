@@ -555,7 +555,7 @@ function ProfileBody({ p }: { p: Profile }) {
         <p>
           <span className="num">{p.stage.totalCount}</span> cohort initiatives map to this stage (rule-based), <span className="num">{p.stage.primaryCount}</span> as their primary stage.
         </p>
-        <Link href={`/research/coverage#${p.stage.stage}`} className="link">
+        <Link href={`/initiatives#coverage`} className="link">
           Open in the coverage map
         </Link>
       </div>

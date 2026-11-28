@@ -1,5 +1,5 @@
 /**
- * URL <-> Filter mapping for the Research directory. Pure functions shared by the server page
+ * URL <-> Filter mapping for the Initiatives grid. Pure functions shared by the server page
  * (which runs filterInitiatives) and the client controls (which write the URL).
  */
 import type { Filter } from "@/lib/intelligence/service";
@@ -24,6 +24,8 @@ export interface ResearchParams {
   research: "complete" | "incomplete" | "";
   std: string;
   org: string;
+  /** Affiliation: "any" shared official group, "none", or the name of one manifest group. */
+  aff: string;
   /** Possible overlaps filter: initiatives with a similar-initiative pair (any label, or one label). */
   similar: "any" | "overlap" | "complement" | "";
   sort: "" | "title" | "goal" | "raised" | "pct" | "ask" | "remaining" | "milestones";
@@ -58,10 +60,11 @@ export function parseParams(sp: SP): ResearchParams {
     research: oneOf(first(sp.research), ["complete", "incomplete"] as const),
     std: first(sp.std).slice(0, 20),
     org: first(sp.org).slice(0, 120),
+    aff: first(sp.aff).slice(0, 120),
     similar: oneOf(first(sp.similar), ["any", "overlap", "complement"] as const),
     sort: oneOf(first(sp.sort), ["title", "goal", "raised", "pct", "ask", "remaining", "milestones"] as const),
     order: oneOf(first(sp.order), ["asc", "desc"] as const),
-    view: first(sp.view) === "cards" ? "cards" : "table",
+    view: first(sp.view) === "table" ? "table" : "cards",
   };
 }
 
@@ -96,7 +99,7 @@ export function toFilter(p: ResearchParams): Filter {
 export function toQuery(p: ResearchParams): string {
   const u = new URLSearchParams();
   for (const [k, v] of Object.entries(p)) {
-    if (k === "view" && v === "table") continue;
+    if (k === "view" && v === "cards") continue;
     if (Array.isArray(v)) {
       if (v.length) u.set(k, v.join(","));
     } else if (v) u.set(k, String(v));
@@ -105,6 +108,6 @@ export function toQuery(p: ResearchParams): string {
 }
 
 export function activeFilterCount(p: ResearchParams): number {
-  const keys: (keyof ResearchParams)[] = ["q", "type", "gmin", "gmax", "fmin", "fmax", "existing", "evidence", "done", "integrations", "adoption", "research", "std", "org", "similar"];
+  const keys: (keyof ResearchParams)[] = ["q", "type", "gmin", "gmax", "fmin", "fmax", "existing", "evidence", "done", "integrations", "adoption", "research", "std", "org", "aff", "similar"];
   return keys.filter((k) => !!p[k]).length + p.cat.length + p.stage.length;
 }

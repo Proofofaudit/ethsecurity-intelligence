@@ -3,12 +3,12 @@ import { ArrowRight } from "./icons";
 import type { ReactNode } from "react";
 import { cn } from "@/lib/util/cn";
 
-export function PageHead({ eyebrow, title, lede, aside, className }: { eyebrow?: ReactNode; title: ReactNode; lede?: ReactNode; aside?: ReactNode; className?: string }) {
+export function PageHead({ eyebrow, title, lede, aside, className, as: H = "h1" }: { eyebrow?: ReactNode; title: ReactNode; lede?: ReactNode; aside?: ReactNode; className?: string; as?: "h1" | "h2" }) {
   return (
     <header className={cn("mb-8 flex flex-wrap items-end justify-between gap-x-10 gap-y-4", className)}>
       <div className="max-w-[760px] min-w-0">
         {eyebrow && <div className="eyebrow mb-2">{eyebrow}</div>}
-        <h1 className="text-[28px] leading-[34px] font-semibold tracking-[-0.015em] max-sm:text-[23px] max-sm:leading-[29px]">{title}</h1>
+        <H className="text-[28px] leading-[34px] font-semibold tracking-[-0.015em] max-sm:text-[23px] max-sm:leading-[29px]">{title}</H>
         {lede && <div className="mt-3 text-md text-ink-2">{lede}</div>}
       </div>
       {aside}

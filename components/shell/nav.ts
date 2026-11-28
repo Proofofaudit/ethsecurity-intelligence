@@ -7,28 +7,28 @@ export interface PageItem {
 }
 
 export const PRIMARY_NAV: PageItem[] = [
-  { label: "Overview", href: "/", hint: "Cohort figures, coverage and changes" },
-  { label: "Research", href: "/research", hint: "Search and filter all initiatives" },
-  { label: "My Workspace", href: "/workspace", hint: "Saved initiatives, searches and notes", keywords: "saved bookmarks notes" },
-  { label: "AI Lab", href: "/lab", hint: "MCP server, prompts and research skills", keywords: "mcp skill prompt agent" },
+  { label: "Home", href: "/", hint: "Research first, then the official figures" },
+  { label: "Initiatives", href: "/initiatives", hint: "All initiatives, filters, compare and questions to check", keywords: "search filter compare milestones funding changes questions" },
+  { label: "Teams", href: "/teams", hint: "People map and team research", keywords: "people graph relationships organizations" },
+  { label: "My Ballot", href: "/workspace", hint: "Saved initiatives, notes and ballot prep", keywords: "saved bookmarks notes workspace what-if scenario" },
+  { label: "About", href: "/about", hint: "Disclosure, methodology, freshness and corrections", keywords: "disclosure methodology status corrections ai" },
 ];
 
+/** Extra command palette shortcuts that point inside the five tabs. */
 export const ADVANCED_VIEWS: PageItem[] = [
-  { label: "Compare initiatives", href: "/research/compare", hint: "Side by side, two to five initiatives", keywords: "comparison versus" },
-  { label: "Relationship graph", href: "/research/graph", hint: "Organizations, backers, repositories and initiatives", keywords: "network entity map connections" },
-  { label: "Security coverage map", href: "/research/coverage", hint: "Lifecycle stages and the initiatives addressing them", keywords: "lifecycle stages gaps" },
-  { label: "Open questions, all initiatives", href: "/research/questions", hint: "Rule-based questions per category, alphabetical", keywords: "questions gaps timeline delivery funding adoption evidence" },
-  { label: "Research blind spots", href: "/research/blind-spots", hint: "Open questions raised by the evidence record", keywords: "questions gaps uncertainty" },
-  { label: "Changes over time", href: "/research/changes", hint: "Funding, revisions and corrections", keywords: "time machine history diff" },
-  { label: "What-if laboratory", href: "/research/what-if", hint: "Exploration only, not a prediction", keywords: "scenario simulate budget" },
-  { label: "Milestone X-Ray, all initiatives", href: "/research/milestones", hint: "Every milestone, budget and acceptance criterion", keywords: "milestones deliverables adoption" },
-  { label: "Funding relationships", href: "/research/funding", hint: "Backers and pledges across initiatives", keywords: "backers pledges donors" },
-  { label: "Collaboration discovery", href: "/research/collaboration", hint: "Possible overlaps and complements (hypotheses)", keywords: "overlap complement similar" },
+  { label: "Compare initiatives", href: "/initiatives#compare", hint: "Side by side, two to five initiatives", keywords: "comparison versus" },
+  { label: "Security coverage map", href: "/initiatives#coverage", hint: "Lifecycle stages and the initiatives addressing them", keywords: "lifecycle stages gaps" },
+  { label: "Questions to check", href: "/initiatives#questions", hint: "Open questions and blind spots in one list", keywords: "open questions blind spots gaps" },
+  { label: "Milestones", href: "/initiatives#milestones", hint: "Every milestone, budget and acceptance criterion", keywords: "milestones deliverables adoption" },
+  { label: "Funding relationships", href: "/initiatives#funding", hint: "Self-pledges, multi-backers and concentration", keywords: "backers pledges donors" },
+  { label: "What changed", href: "/initiatives#changes", hint: "Funding, revisions and corrections", keywords: "time machine history diff" },
 ];
 
 export const REFERENCE_PAGES: PageItem[] = [
-  { label: "Methodology", href: "/methodology", hint: "Metric definitions and evidence statuses" },
-  { label: "Public corrections", href: "/corrections", hint: "Moderated corrections changelog" },
-  { label: "Data freshness", href: "/status", hint: "Last official sync and research run", keywords: "status sync update" },
-  { label: "About and conflict-of-interest disclosure", href: "/about", hint: "Who publishes this site", keywords: "disclosure proof of audits" },
+  { label: "Methodology", href: "/about#methodology", hint: "Metric definitions and evidence statuses" },
+  { label: "Public corrections", href: "/about#corrections", hint: "Moderated corrections changelog" },
+  { label: "Data freshness", href: "/about#freshness", hint: "Last official sync and research run", keywords: "status sync update" },
+  { label: "Disclosure", href: "/about#coi", hint: "Who publishes this site", keywords: "conflict of interest proof of audits" },
+  { label: "Why AI is here", href: "/about#ai", hint: "What the AI does and does not do" },
+  { label: "Developers", href: "/dev", hint: "MCP server, brief export and paste-in reader", keywords: "mcp skill prompt agent api" },
 ];

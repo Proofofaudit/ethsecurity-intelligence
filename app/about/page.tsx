@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ExternalLink } from "@/components/ui/button";
+import { CorrectionsSection } from "@/components/about/corrections";
+import { FreshnessSection } from "@/components/about/status";
+import { MethodologySection } from "@/components/about/methodology";
 import { Block, PageHead } from "@/components/ui/layout";
 import { Money } from "@/components/ui/money";
 import { BANNER_TEXT, COI_SHORT, isCoiOrganization, REPO_URL } from "@/lib/disclosure";
 import { loadIntelligence } from "@/lib/intelligence/load";
 import { fundingRelationships } from "@/lib/intelligence/service";
 
-export const metadata: Metadata = { title: "About and conflict-of-interest disclosure" };
-export const revalidate = 600;
+export const metadata: Metadata = { title: "About" };
+export const dynamic = "force-dynamic";
 
 const BOARD_REPO = "https://github.com/BlossomLabs/thedao-initiatives";
 
@@ -26,6 +29,34 @@ export default async function AboutPage() {
         title="About this site, and a conflict of interest"
         lede={<p>ETHSecurity Intelligence is independent research on the {d.initiatives.length} initiatives on TheDAO Security Fund ballot. It helps badge holders and reviewers inspect claims, evidence, funding and milestones. It does not tell anyone how to vote.</p>}
       />
+
+      <nav aria-label="On this page" className="-mt-4 text-sm">
+        <ul className="flex flex-wrap gap-x-5 gap-y-1">
+          {[
+            ["#coi", "Disclosure"],
+            ["#ai", "Why AI is here"],
+            ["#how-research-is-made", "How research is made"],
+            ["#methodology", "Methodology"],
+            ["#freshness", "Data freshness"],
+            ["#corrections", "Corrections"],
+          ].map(([href, label]) => (
+            <li key={href}>
+              <a href={href} className="link">
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <Block id="ai" title="Why AI is here" className="scroll-mt-20">
+        <ul className="max-w-[860px] list-disc space-y-1 pl-5 text-sm text-ink-2">
+          <li>AI only matches public work to initiatives and summarizes sourced research into a short card.</li>
+          <li>It decides nothing. Scores, rankings and voting advice are never produced.</li>
+          <li>It never sees your vote. Your ballot and notes stay in this browser.</li>
+          <li>Every AI summary is labeled as AI and links to the sources it used.</li>
+        </ul>
+      </Block>
 
       <section id="coi" aria-labelledby="coi-h" className="scroll-mt-20 border-2 border-ink px-5 py-4">
         <p className="eyebrow">Conflict-of-interest disclosure</p>
@@ -53,7 +84,7 @@ export default async function AboutPage() {
                 </span>
               ))}
               ). It is listed under{" "}
-              <Link href="/research/funding" className="link">
+              <Link href="/initiatives#funding" className="link">
                 self-pledges
               </Link>{" "}
               like every other self-pledge.
@@ -71,7 +102,7 @@ export default async function AboutPage() {
             </li>
             <li>
               Anyone can challenge a statement through{" "}
-              <Link href="/corrections" className="link">
+              <Link href="#corrections" className="link">
                 public corrections
               </Link>
               .
@@ -98,14 +129,14 @@ export default async function AboutPage() {
       </div>
 
       <div className="grid gap-10 lg:grid-cols-2 [&>*]:min-w-0">
-        <Block title="How the research is produced">
+        <Block id="how-research-is-made" title="How the research is produced" className="scroll-mt-20">
           <p className="text-sm text-ink-2">
             An ingestion step reads the official API and stores content-addressed snapshots. A research step checks cited websites, GitHub repositories, milestone artifacts and onchain donations. A publication step builds the dataset, applies the truth audit and publishes only if it passes. Details are on the{" "}
-            <Link href="/methodology" className="link">
+            <Link href="#methodology" className="link">
               methodology
             </Link>{" "}
             and{" "}
-            <Link href="/status" className="link">
+            <Link href="#freshness" className="link">
               data freshness
             </Link>{" "}
             pages.
@@ -125,6 +156,16 @@ export default async function AboutPage() {
           </ul>
         </Block>
       </div>
+
+      <section id="methodology" className="scroll-mt-20 space-y-8 border-t-2 border-ink pt-6">
+        <MethodologySection />
+      </section>
+      <section id="freshness" className="scroll-mt-20 space-y-8 border-t-2 border-ink pt-6">
+        <FreshnessSection />
+      </section>
+      <section id="corrections" className="scroll-mt-20 space-y-8 border-t-2 border-ink pt-6">
+        <CorrectionsSection />
+      </section>
     </div>
   );
 }

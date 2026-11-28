@@ -4,23 +4,13 @@ import { byTitle, expectNoHorizontalOverflow } from "./helpers";
 
 const PAGES = [
   "/",
-  "/research",
+  "/initiatives",
   `/initiatives/${byTitle[0]!.slug}`,
-  "/research/compare?ids=" + byTitle.slice(0, 2).map((i) => i.slug).join(","),
-  "/research/graph",
-  "/research/coverage",
-  "/research/blind-spots",
-  "/research/changes",
-  "/research/what-if",
-  "/research/milestones",
-  "/research/funding",
-  "/research/collaboration",
+  "/initiatives?ids=" + byTitle.slice(0, 2).map((i) => i.slug).join(",") + "#compare",
+  "/teams",
   "/workspace",
-  "/lab",
-  "/methodology",
-  "/corrections",
-  "/status",
   "/about",
+  "/dev",
 ];
 
 test.describe("every key page", () => {
@@ -40,7 +30,7 @@ test.describe("every key page", () => {
 
   test("dark theme passes the same contrast checks", async ({ page }) => {
     await page.addInitScript(() => localStorage.setItem("esi.theme", "dark"));
-    for (const path of ["/", "/research", `/initiatives/${byTitle[0]!.slug}`, "/lab"]) {
+    for (const path of ["/", "/initiatives", `/initiatives/${byTitle[0]!.slug}`, "/dev"]) {
       await page.goto(path);
       await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
       const axe = await new AxeBuilder({ page }).withRules(["color-contrast"]).analyze();

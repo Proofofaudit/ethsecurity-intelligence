@@ -8,7 +8,7 @@ import { loadIntelligence } from "@/lib/intelligence/load";
 import { PROMPT_VERSION } from "@/lib/skills";
 import { buildSkillContext } from "@/lib/skills/context";
 
-export const metadata: Metadata = { title: "AI Lab" };
+export const metadata: Metadata = { title: "Developers" };
 export const revalidate = 600;
 
 const GUARANTEES = [
@@ -20,14 +20,14 @@ const GUARANTEES = [
   ["Your decision", "Counterarguments and open questions, no voting advice. Decisions remain with the reviewer."],
 ] as const;
 
-export default async function LabPage() {
+export default async function DevPage() {
   const { dataset: d } = await loadIntelligence();
   const ctx = buildSkillContext(d, process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000");
 
   return (
     <div className="space-y-12">
       <PageHead
-        eyebrow="AI Lab"
+        eyebrow="Developers"
         title="Research briefs for your own AI assistant"
         lede={
           <p>
@@ -68,14 +68,14 @@ export default async function LabPage() {
             <li>A brief instructs an assistant; it cannot force one to comply. Check every citation before you rely on an answer.</li>
             <li>
               The matching list is computed from dataset {ctx.datasetVersion}. The data can change after a new official sync or an accepted{" "}
-              <Link href="/corrections" className="link">
+              <Link href="/about#corrections" className="link">
                 correction
               </Link>
               , and briefs tell the assistant to recheck with the tools.
             </li>
             <li>
               Lifecycle stages are rule-based tags, and metrics are defined on the{" "}
-              <Link href="/methodology" className="link">
+              <Link href="/about#methodology" className="link">
                 methodology
               </Link>{" "}
               page.

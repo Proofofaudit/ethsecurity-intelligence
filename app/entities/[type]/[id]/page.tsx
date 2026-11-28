@@ -92,13 +92,13 @@ export default async function EntityPage({ params }: Params) {
   const p = entityProfile(d, type, id);
   if (!p) notFound();
   const { label, sub } = entityLabel(d, type, id);
-  const graphHref = `/research/graph?type=${type}&id=${encodeURIComponent(id)}`;
+  const graphHref = `/teams?type=${type}&id=${encodeURIComponent(id)}`;
   const dl = "grid grid-cols-[minmax(0,10rem)_1fr] gap-x-4 gap-y-2 text-sm max-sm:grid-cols-1 max-sm:[&>dt]:mt-2";
 
   return (
     <article className="space-y-10">
       <nav aria-label="Breadcrumb" className="text-xs text-ink-3">
-        <Link href="/research/graph" className="hover:text-accent">
+        <Link href="/teams" className="hover:text-accent">
           Relationship graph
         </Link>
         <span className="mx-1.5">/</span>
@@ -360,7 +360,7 @@ export default async function EntityPage({ params }: Params) {
       )}
 
       {p.type === "problem" && "stage" in p && (
-        <Block title={`${p.stage.totalCount} initiatives map to this stage`} note={p.stage.description} href={`/research/coverage#${p.stage.stage}`} hrefLabel="Coverage map">
+        <Block title={`${p.stage.totalCount} initiatives map to this stage`} note={p.stage.description} href={`/initiatives#coverage`} hrefLabel="Coverage map">
           <InitiativeList d={d} ids={p.stage.initiatives.map((x) => x.id)} empty="No cohort initiative maps to this stage. That says nothing about work outside the cohort." />
         </Block>
       )}

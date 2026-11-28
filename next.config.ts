@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { REDIRECTS } from "./lib/redirects";
 
 const dev = process.env.NODE_ENV !== "production";
 
@@ -34,6 +35,10 @@ const config: NextConfig = {
   logging: { incomingRequests: false, fetches: { fullUrl: false } },
   reactStrictMode: true,
   outputFileTracingIncludes: { "/**": ["./data/published/**"] },
+  /** Permanent redirects from the pre-rewrite routes. Query strings are passed through to the destination. */
+  async redirects() {
+    return REDIRECTS.map(([source, destination]) => ({ source, destination, permanent: true }));
+  },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },

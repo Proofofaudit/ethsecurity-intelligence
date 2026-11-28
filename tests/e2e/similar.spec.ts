@@ -37,17 +37,18 @@ test.describe("Similar initiatives", () => {
       .sort((a, b) => a.title.localeCompare(b.title, "en"))[0]!;
     await page.goto(`/initiatives/${subject.slug}#similar`);
     await page.getByTestId("similar-pair").first().getByTestId("compare-these").click();
-    await expect(page).toHaveURL(new RegExp(`/research/compare\\?ids=${subject.slug},${first.slug}$`));
+    await expect(page).toHaveURL(new RegExp(`/initiatives\\?ids=${subject.slug},${first.slug}#compare$`));
     await expect(page.getByRole("button", { name: /^Remove / })).toHaveCount(2);
   });
 
   test("the Research 'Possible overlaps' filter keeps initiatives with a pair of that label", async ({ page }) => {
-    await page.goto("/research?similar=any");
+    await page.goto("/initiatives?similar=any");
     await expect(resultCount(page)).toContainText(`${withLabel(null)} of ${N} initiatives`);
-    await page.goto("/research?similar=complement");
+    await page.goto("/initiatives?similar=complement");
     await expect(resultCount(page)).toContainText(`${withLabel("Possible complement")} of ${N} initiatives`);
-    await page.goto("/research");
+    await page.goto("/initiatives");
     const filters = isMobile(page) ? (await page.getByRole("button", { name: /^Filters/ }).click(), page.locator("#mobile-filters")) : page.getByRole("complementary", { name: "Filters" });
+    await page.waitForLoadState("networkidle"); // the filter handlers attach on hydration
     await filters.getByLabel("Possible overlaps").selectOption("overlap");
     await expect(page).toHaveURL(/similar=overlap/);
     await expect(resultCount(page)).toContainText(`${withLabel("Possible overlap")} of ${N} initiatives`);

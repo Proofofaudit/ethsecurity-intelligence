@@ -48,7 +48,7 @@ export function MayInterest({ view, targets, shared }: { view: InterestView; tar
       </div>
       <p className="mb-3 max-w-[820px] text-xs text-ink-3">
         Pick focus chips or type keywords to get a starting set from the {view.initiatives.length} initiatives. Each item says why it matched and links to evidence. Groups follow the order of the chips; inside each group the order is {NEUTRAL_SORT_LABEL}. Research modes map to categories and keywords as listed on the{" "}
-        <Link href="/methodology#interest" className="link">
+        <Link href="/about#interest" className="link">
           Methodology page
         </Link>
         .

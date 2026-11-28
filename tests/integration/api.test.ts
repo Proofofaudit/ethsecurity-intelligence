@@ -287,7 +287,7 @@ describe("read endpoints", () => {
     expect(r.json.data.items.length).toBeGreaterThan(0);
     for (const it of r.json.data.items) {
       expect(["Possible overlap", "Possible complement", "Same organization"]).toContain(it.label);
-      expect(it.compareHref).toBe(`/research/compare?ids=${ini.slug},${it.other.slug}`);
+      expect(it.compareHref).toBe(`/initiatives?ids=${ini.slug},${it.other.slug}#compare`);
       const quoted = it.signals.filter((s: { quotes: unknown }) => s.quotes);
       expect(quoted.length).toBeGreaterThan(0);
       for (const s of quoted) expect(s.quotes.map((q: { initiativeId: string }) => q.initiativeId)).toEqual([ini.id, it.other.id]);

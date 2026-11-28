@@ -1201,7 +1201,7 @@ export function similarFor(d: Dataset, idOrSlug: string): SimilarItem[] | null {
       label: p.label,
       signals,
       notice: p.notice,
-      compareHref: `/research/compare?ids=${ini.slug},${o.slug}`,
+      compareHref: `/initiatives?ids=${ini.slug},${o.slug}#compare`,
     });
   }
   return out.sort((x, y) => x.other.title.localeCompare(y.other.title, "en") || (x.other.id < y.other.id ? -1 : 1));

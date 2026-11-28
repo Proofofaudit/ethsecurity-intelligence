@@ -487,7 +487,7 @@ export async function createServer(opts: ServerOptions = {}): Promise<McpServer>
         };
         const items = similarPairsOf(d)
           .filter((p) => !set || (set.has(p.a) && set.has(p.b)))
-          .map((p) => ({ label: p.label, a: ref(p.a), b: ref(p.b), signals: p.signals, notice: p.notice, compareHref: `/research/compare?ids=${byId.get(p.a)?.slug},${byId.get(p.b)?.slug}` }));
+          .map((p) => ({ label: p.label, a: ref(p.a), b: ref(p.b), signals: p.signals, notice: p.notice, compareHref: `/initiatives?ids=${byId.get(p.a)?.slug},${byId.get(p.b)?.slug}#compare` }));
         return wrap(d, { method: SIMILAR_METHOD_VERSION, note: `${HYPOTHESIS_NOTICE}.`, order: "Alphabetical (neutral) by the first title, then the second.", ...paginate(items, page(limit, cursor)) });
       }
       const note = "Rule-based hypotheses from text similarity, shared categories, stages and backers. They are prompts for investigation, not findings.";

@@ -337,7 +337,7 @@ function readRel(rel: string) {
 }
 
 describe("no outreach", () => {
-  const FILES = ["lib/intelligence/open-questions.ts", "components/dossier/open-questions.tsx", "app/research/questions/page.tsx", "app/api/v1/open-questions/route.ts"];
+  const FILES = ["lib/intelligence/open-questions.ts", "components/dossier/open-questions.tsx", "lib/intelligence/questions-to-check.ts", "components/initiatives/questions-list.tsx", "app/api/v1/open-questions/route.ts"];
   it("has no email, messaging or POST request code in this feature's files", async () => {
     for (const f of FILES) {
       const src = await readRel(f);

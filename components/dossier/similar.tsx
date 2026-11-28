@@ -14,7 +14,7 @@ export function SimilarInitiatives({ items, self }: { items: SimilarItem[]; self
     <div data-testid="similar-initiatives" className="max-w-[880px] space-y-4">
       <Note>
         Pairs found by fixed rules: shared official categories, a shared affiliation group in TheDAO&apos;s vote manifest, shared phrases in the problem and scope sections, named standards and technologies, and shared public backers. A pair with only one weak signal is not shown. {NEUTRAL_SORT_LABEL}, by title. No score is computed.{" "}
-        <Link href="/methodology#similar" className="link">
+        <Link href="/about#similar" className="link">
           Method
         </Link>
       </Note>

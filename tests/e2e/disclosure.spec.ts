@@ -7,7 +7,7 @@ const poa = dataset.initiatives.find((i) => i.organizationId === COI_ORGANIZATIO
 const other = dataset.initiatives.find((i) => i.organizationId !== COI_ORGANIZATION_ID && i.organizationId)!;
 
 const ROUTES = [
-  ...[...PRIMARY_NAV, ...ADVANCED_VIEWS, ...REFERENCE_PAGES].map((p) => p.href),
+  ...new Set([...PRIMARY_NAV, ...ADVANCED_VIEWS, ...REFERENCE_PAGES].map((p) => p.href.split("#")[0]!)),
   `/initiatives/${firstSlug}`,
   `/initiatives/${poa.slug}`,
   `/entities/organization/${encodeURIComponent(COI_ORGANIZATION_ID)}`,
@@ -63,7 +63,7 @@ test("the banner shows on the 404 page and in dark mode", async ({ page }) => {
   await expectBanner(page);
 
   await page.addInitScript(() => localStorage.setItem("esi.theme", "dark"));
-  await page.goto("/research");
+  await page.goto("/initiatives");
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
   await expectBanner(page);
 });
@@ -95,7 +95,7 @@ test("the source inspector repeats the disclosure, because it covers the page on
 });
 
 test("the banner links to the conflict-of-interest section of About", async ({ page }) => {
-  await page.goto("/research");
+  await page.goto("/initiatives");
   await page.locator(`[data-coi-banner] a[href="${BANNER_HREF}"]`).click();
   await expect(page).toHaveURL(/\/about#coi$/);
   await expect(page.locator("#coi")).toBeVisible();
@@ -116,7 +116,7 @@ test("the Proof of Audits dossier has a disclosure note and the same sections an
       present,
       titles,
       correction: await correction.count(),
-      log: await page.locator('article [id="corrections"] a[href="/corrections"]').count(),
+      log: await page.locator('article [id="corrections"] a[href="/about#corrections"]').count(),
       header: await page.getByRole("button", { name: "Suggest a correction", exact: true }).count(),
       note: await page.getByRole("complementary", { name: "Conflict of interest" }).count(),
     };
@@ -134,12 +134,12 @@ test("the Proof of Audits dossier has a disclosure note and the same sections an
 });
 
 test("lists default to the order labeled Alphabetical (neutral)", async ({ page }) => {
-  await page.goto("/research");
+  await page.goto("/initiatives");
   await expect(page.getByLabel("Sort")).toHaveValue("title");
   await expect(page.getByLabel("Sort").locator("option:checked")).toHaveText("Alphabetical (neutral)");
   await expect(page.getByText(/^Alphabetical \(neutral\): by official title/)).toBeVisible();
-  await page.goto("/research/funding");
-  await expect(page.getByText("Order: Alphabetical (neutral).")).toBeVisible();
+  await page.goto("/initiatives#questions");
+  await expect(page.getByTestId("questions-to-check").locator("summary span:first-child").first()).toBeVisible();
 });
 
 test("a browsing session only contacts this origin", async ({ page, baseURL }) => {
@@ -152,11 +152,11 @@ test("a browsing session only contacts this origin", async ({ page, baseURL }) =
     if (/text\/(html|css)|javascript/.test(type)) bodies.push(await r.text().catch(() => ""));
   });
 
-  for (const route of ["/", "/research", `/initiatives/${poa.slug}`, `/initiatives/${firstSlug}`, "/research/graph", "/workspace", "/lab", "/methodology", "/about"]) {
+  for (const route of ["/", "/initiatives", `/initiatives/${poa.slug}`, `/initiatives/${firstSlug}`, "/teams", "/workspace", "/dev", "/about"]) {
     await page.goto(route);
     await page.waitForLoadState("networkidle");
   }
-  await page.goto("/research");
+  await page.goto("/initiatives");
   await page.getByRole("searchbox", { name: "Search initiatives" }).fill("wallet");
   await expect(page).toHaveURL(/q=wallet/);
   await page.locator("body").press("ControlOrMeta+k");

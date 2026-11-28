@@ -32,7 +32,7 @@ export function NotFoundNotice({ title, body }: { title: string; body: string })
       <h1 className="mt-1 text-[24px] leading-8 font-semibold">{title}</h1>
       <p className="mt-2 text-md text-ink-2">{body}</p>
       <p className="mt-6 flex gap-5 text-sm">
-        <Link href="/research" className="link">
+        <Link href="/initiatives" className="link">
           Browse all initiatives
         </Link>
         <Link href="/" className="link">

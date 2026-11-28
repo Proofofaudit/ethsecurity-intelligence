@@ -90,7 +90,7 @@ export function EvidenceCard({ card }: { card: Card }) {
       </div>
       <Note className="mt-4">
         {card.cacheNote} {card.activityNote} A link listed here is not an endorsement, and a flag is a prompt to check, not a finding. See{" "}
-        <Link href="/methodology#evidence-card" className="link">
+        <Link href="/about#evidence-card" className="link">
           Methodology
         </Link>{" "}
         for the rules. Raw data:{" "}

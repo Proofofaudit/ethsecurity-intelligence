@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ExternalLink } from "@/components/ui/button";
 import { Block, Note, PageHead } from "@/components/ui/layout";
@@ -9,10 +8,7 @@ import { correctionsStoreNotice } from "@/lib/corrections/store-status";
 import { loadIntelligence } from "@/lib/intelligence/load";
 import { displayName } from "@/lib/intelligence/service";
 
-export const metadata: Metadata = { title: "Public corrections" };
-export const dynamic = "force-dynamic";
-
-export default async function CorrectionsPage() {
+export async function CorrectionsSection() {
   const { dataset: d, store, health } = await loadIntelligence();
   let entries: NonNullable<ReturnType<typeof toChangelogEntry>>[] = [];
   let failed = false;
@@ -31,6 +27,7 @@ export default async function CorrectionsPage() {
   return (
     <div className="space-y-10">
       <PageHead
+        as="h2"
         eyebrow="Reference · Public corrections"
         title="Corrections changelog"
         lede={<p>{CORRECTION_NOTICE}</p>}
@@ -47,7 +44,7 @@ export default async function CorrectionsPage() {
         <ol className="max-w-[860px] list-decimal space-y-1 pl-5 text-sm text-ink-2">
           <li>
             Open the initiative in{" "}
-            <Link href="/research" className="link">
+            <Link href="/initiatives" className="link">
               Research
             </Link>{" "}
             and select the statement. Its source inspector has &ldquo;Suggest a correction to this statement&rdquo;. Each dossier header also has &ldquo;Suggest a correction&rdquo; for the initiative as a whole.

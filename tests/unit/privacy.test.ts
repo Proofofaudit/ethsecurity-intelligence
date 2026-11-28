@@ -34,7 +34,7 @@ describe("Methodology Privacy section", () => {
   });
 
   it("is linked from the page contents and states what is and is not stored", async () => {
-    const src = await read("app/methodology/page.tsx");
+    const src = await read("components/about/methodology.tsx");
     expect(src).toContain('["privacy", "Privacy"]');
     expect(src).toContain('<Block id="privacy" title="Privacy"');
     for (const heading of ["Stored only in your browser", "Stored on the server", "Never stored"]) expect(src).toContain(heading);
@@ -140,14 +140,14 @@ describe("review progress (Item 13)", () => {
 
 describe("Methodology page Privacy text", () => {
   it("Methodology page lists review progress, visit record and read marks as browser data", async () => {
-    const src = await read("app/methodology/page.tsx");
+    const src = await read("components/about/methodology.tsx");
     expect(src).toContain("review progress states");
     expect(src).toContain("Since your last visit");
     expect(src).toContain("marked as read");
   });
 
   it("Methodology and workspace text mention the bookmark status request", async () => {
-    const src = await read("app/methodology/page.tsx");
+    const src = await read("components/about/methodology.tsx");
     expect(src).toContain("requests each bookmarked statement&apos;s public record by its id");
     expect(src).toContain("same-origin GET");
     expect(src).not.toContain("local storage, never sent to the server");

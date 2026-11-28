@@ -13,7 +13,7 @@ async function openFilters(page: Page) {
 }
 
 test("filters change the result count to the dataset-derived values", async ({ page }) => {
-  await page.goto("/research");
+  await page.goto("/initiatives");
   await expect(resultCount(page)).toContainText(`${N} of ${N} initiatives`);
 
   const filters = await openFilters(page);
@@ -24,20 +24,20 @@ test("filters change the result count to the dataset-derived values", async ({ p
 
   const cat = "opsec";
   const both = dataset.initiatives.filter((i) => i.type === "rfp" && i.categories.some((c) => c.slug === cat)).length;
-  await page.goto(`/research?type=rfp&cat=${cat}`);
+  await page.goto(`/initiatives?type=rfp&cat=${cat}`);
   await expect(resultCount(page)).toContainText(`${both} of ${N} initiatives`);
 
   const onlyCat = dataset.initiatives.filter((i) => i.categories.some((c) => c.slug === cat)).length;
-  await page.goto(`/research?cat=${cat}`);
+  await page.goto(`/initiatives?cat=${cat}`);
   await expect(resultCount(page)).toContainText(`${onlyCat} of ${N} initiatives`);
 
-  await page.goto("/research?q=zzzz-no-such-term");
+  await page.goto("/initiatives?q=zzzz-no-such-term");
   await expect(page.getByText("No initiative matches these filters.")).toBeVisible();
   await expect(resultCount(page)).toContainText(`0 of ${N} initiatives`);
 });
 
 test("search box filters by text and the default order is alphabetical", async ({ page }) => {
-  await page.goto("/research");
+  await page.goto("/initiatives?view=table");
   const links = page.locator(isMobile(page) ? "ul.md\\:hidden li a[href^='/initiatives/']" : "table a[href^='/initiatives/']");
   await expect(links.first()).toHaveText(byTitle[0]!.title);
   await page.getByRole("searchbox", { name: "Search initiatives" }).fill("Blobscan");
@@ -46,25 +46,25 @@ test("search box filters by text and the default order is alphabetical", async (
 });
 
 test("table and card views switch and keep every result", async ({ page }) => {
-  await page.goto("/research");
+  await page.goto("/initiatives");
   const view = page.getByRole("group", { name: "View" });
-  await expect(view.getByRole("button", { name: "table" })).toHaveAttribute("aria-pressed", "true");
-  if (!isMobile(page)) await expect(page.locator("table tbody tr")).toHaveCount(N);
-  await view.getByRole("button", { name: "cards" }).click();
-  await expect(page).toHaveURL(/view=cards/);
+  // The grid of cards is the default view.
   await expect(view.getByRole("button", { name: "cards" })).toHaveAttribute("aria-pressed", "true");
-  await expect(page.locator("table")).toHaveCount(0);
   await expect(page.getByRole("checkbox", { name: /for comparison$/ })).toHaveCount(N);
+  await view.getByRole("button", { name: "table" }).click();
+  await expect(page).toHaveURL(/view=table/);
+  await expect(view.getByRole("button", { name: "table" })).toHaveAttribute("aria-pressed", "true");
+  if (!isMobile(page)) await expect(page.locator("table").first().locator("tbody tr")).toHaveCount(N);
   await expectNoHorizontalOverflow(page);
 });
 
 test("selecting two initiatives opens a comparison with Show only differences", async ({ page }) => {
-  await page.goto("/research?view=cards");
+  await page.goto("/initiatives");
   const boxes = page.getByRole("checkbox", { name: /for comparison$/ });
   await boxes.nth(0).check();
   await boxes.nth(1).check();
   await page.getByRole("link", { name: "Compare 2" }).click();
-  await expect(page).toHaveURL(new RegExp(`/research/compare\\?ids=${byTitle[0]!.slug},${byTitle[1]!.slug}`));
+  await expect(page).toHaveURL(new RegExp(`/initiatives\\?ids=${byTitle[0]!.slug},${byTitle[1]!.slug}`));
 
   const summary = page.getByText(/rows differ ·/);
   await expect(summary).toBeVisible();
@@ -122,7 +122,7 @@ test("a correction submitted from the inspector is accepted for moderation", asy
 });
 
 test("relationship graph renders nodes", async ({ page }) => {
-  await page.goto(`/research/graph?type=initiative&id=${firstSlug}`);
+  await page.goto(`/teams?type=initiative&id=${firstSlug}`);
   await expect(page.locator(".react-flow__node").first()).toBeVisible();
   expect(await page.locator(".react-flow__node").count()).toBeGreaterThan(3);
 });

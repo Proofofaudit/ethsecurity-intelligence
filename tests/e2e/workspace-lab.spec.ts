@@ -19,8 +19,8 @@ test("saved initiatives persist in My Workspace across reloads", async ({ page }
   await expectNoHorizontalOverflow(page);
 });
 
-test("AI Lab buttons download the skill file and the JSON configuration", async ({ page }) => {
-  await page.goto("/lab");
+test("Developer page buttons download the skill file and the JSON configuration", async ({ page }) => {
+  await page.goto("/dev");
   const skill = page.getByRole("button", { name: "Download SKILL.md" });
   await expect(skill).toBeEnabled();
   const [md] = await Promise.all([page.waitForEvent("download"), skill.click()]);

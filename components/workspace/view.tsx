@@ -268,11 +268,11 @@ export function WorkspaceView({ initiatives, changes, datasetVersion, vote, revi
         action={
           w.initiatives.length >= 2 ? (
             <Link
-              href={`/research/compare?ids=${savedSorted
+              href={`/initiatives?ids=${savedSorted
                 .slice(0, 5)
                 .map((x) => byId.get(x.id)?.slug)
                 .filter(Boolean)
-                .join(",")}`}
+                .join(",")}#compare`}
               className={linkBtn}
             >
               Compare the first {Math.min(5, w.initiatives.length)}
@@ -286,7 +286,7 @@ export function WorkspaceView({ initiatives, changes, datasetVersion, vote, revi
         {w.initiatives.length === 0 ? (
           <Empty>
             Nothing saved yet. Use Save on any dossier or in{" "}
-            <Link href="/research" className="link">
+            <Link href="/initiatives" className="link">
               Research
             </Link>
             .
@@ -311,7 +311,7 @@ export function WorkspaceView({ initiatives, changes, datasetVersion, vote, revi
                       {newer > 0 && (
                         <>
                           {" · "}
-                          <Link href={`/research/changes?ini=${ini?.slug}&since=${encodeURIComponent(s.addedAt)}`} className="text-st-partial hover:text-accent">
+                          <Link href={`/initiatives?ini=${ini?.slug}&since=${encodeURIComponent(s.addedAt)}#changes`} className="text-st-partial hover:text-accent">
                             {newer} {newer === 1 ? "change" : "changes"} since
                           </Link>
                         </>
@@ -405,7 +405,7 @@ export function WorkspaceView({ initiatives, changes, datasetVersion, vote, revi
           {w.comparisons.length === 0 ? (
             <Empty>
               Save a comparison from the{" "}
-              <Link href="/research/compare" className="link">
+              <Link href="/initiatives#compare" className="link">
                 comparison view
               </Link>
               .
@@ -414,7 +414,7 @@ export function WorkspaceView({ initiatives, changes, datasetVersion, vote, revi
             <ul className="divide-y divide-rule">
               {w.comparisons.map((c) => (
                 <li key={c.id} className="flex items-baseline justify-between gap-3 py-2 text-sm">
-                  <Link href={`/research/compare?ids=${c.ids.join(",")}`} className="min-w-0 hover:text-accent">
+                  <Link href={`/initiatives?ids=${c.ids.join(",")}#compare`} className="min-w-0 hover:text-accent">
                     {c.name}
                   </Link>
                   <span className="flex shrink-0 items-baseline gap-3">
@@ -432,7 +432,7 @@ export function WorkspaceView({ initiatives, changes, datasetVersion, vote, revi
           {w.searches.length === 0 ? (
             <Empty>
               Save a search from{" "}
-              <Link href="/research" className="link">
+              <Link href="/initiatives" className="link">
                 Research
               </Link>
               .
@@ -441,7 +441,7 @@ export function WorkspaceView({ initiatives, changes, datasetVersion, vote, revi
             <ul className="divide-y divide-rule">
               {w.searches.map((s) => (
                 <li key={s.id} className="flex items-baseline justify-between gap-3 py-2 text-sm">
-                  <Link href={`/research?${s.query}`} className="min-w-0 hover:text-accent">
+                  <Link href={`/initiatives?${s.query}`} className="min-w-0 hover:text-accent">
                     {s.name}
                   </Link>
                   <span className="flex shrink-0 items-baseline gap-3">
@@ -620,7 +620,7 @@ function QuestionsSection({ initiatives, label }: { initiatives: Ini[]; label: (
       note={
         <>
           Questions you want answered. The{" "}
-          <Link href="/research/blind-spots" className="link">
+          <Link href="/initiatives#questions" className="link">
             blind spots
           </Link>{" "}
           view suggests specific ones.

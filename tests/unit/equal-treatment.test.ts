@@ -35,10 +35,9 @@ const ENGINE = [/^lib\/intelligence\//, /^lib\/metrics\//, /^lib\/api\//, /^lib\
 const ALLOWED: Record<string, { name: number; ident: number; reason: string }> = {
   "lib/disclosure.ts": { name: 5, ident: 3, reason: "Disclosure texts, the organization id and the isCoiOrganization helper" },
   "app/about/page.tsx": { name: 5, ident: 2, reason: "About and conflict-of-interest disclosure page" },
-  "app/methodology/page.tsx": { name: 1, ident: 0, reason: "Neutrality rules state that the same rules apply to Proof of Audits" },
+  "components/about/methodology.tsx": { name: 1, ident: 0, reason: "Neutrality rules state that the same rules apply to Proof of Audits" },
   "app/initiatives/[slug]/page.tsx": { name: 0, ident: 2, reason: "Disclosure note on the Proof of Audits dossier (import + condition)" },
   "app/entities/[type]/[id]/page.tsx": { name: 0, ident: 2, reason: "Disclosure note on the Proof of Audits organization profile (import + condition)" },
-  "app/research/collaboration/page.tsx": { name: 0, ident: 2, reason: "Disclosure note when Proof of Audits pairs are listed (import + condition)" },
   "components/shell/nav.ts": { name: 1, ident: 0, reason: "Search keywords of the About and disclosure page" },
   "lib/skills/build.ts": { name: 2, ident: 0, reason: "Disclosure lines in generated research briefs" },
   "lib/skills/context.ts": { name: 0, ident: 2, reason: "Names the Proof of Audits initiative in the brief's disclosure" },
@@ -125,7 +124,7 @@ describe("static scan: no special treatment of Proof of Audits in code", () => {
     // The section list and the correction controls are unconditional and identical for every initiative.
     expect(src).toMatch(/const sectionIds = \[\s*"briefing",/);
     expect(src.match(/<CorrectionButton type="initiative" id=\{ini\.id\}/g)?.length).toBe(2);
-    expect(src).toContain('<Link href="/corrections"');
+    expect(src).toContain('<Link href="/about#corrections"');
   });
 });
 

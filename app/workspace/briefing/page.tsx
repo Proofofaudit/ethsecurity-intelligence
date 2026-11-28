@@ -18,7 +18,7 @@ export default async function FocusBriefingPage() {
   });
   return (
     <>
-      <PageHead eyebrow="My Workspace" title="Briefing for all in my focus" lede={<p>The 10-minute briefings for the initiatives that match your focus under May interest you, one after another in alphabetical order by title. Your focus is read in this browser and is not sent to the server.</p>} />
+      <PageHead eyebrow="My Ballot" title="Briefing for all in my focus" lede={<p>The 10-minute briefings for the initiatives that match your focus under May interest you, one after another in alphabetical order by title. Your focus is read in this browser and is not sent to the server.</p>} />
       <BriefingChain view={interestView(d)} entries={entries} />
     </>
   );

@@ -1,5 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
-import { OPEN_QUESTION_NOTICE, openQuestionRows, openQuestionsFor, questionsAsText } from "@/lib/intelligence/service";
+import { OPEN_QUESTION_NOTICE, openQuestionsFor, questionsAsText } from "@/lib/intelligence/service";
+import { questionsToCheck } from "@/lib/intelligence/questions-to-check";
 import { dataset, expectNoHorizontalOverflow } from "./helpers";
 
 const subject = [...dataset.initiatives].filter((i) => i.type === "rfp").sort((a, b) => a.title.localeCompare(b.title, "en"))[0]!;
@@ -73,21 +74,20 @@ test.describe("Open questions", () => {
     expect(seen).toEqual([]);
   });
 
-  test("the aggregate view lists all initiatives alphabetically with counts per category", async ({ page }) => {
-    const rows = openQuestionRows(dataset);
-    await page.goto("/research/questions");
-    const table = page.getByTestId("open-question-table");
-    await expect(table).toContainText("Alphabetical (neutral)");
-    const trs = table.getByTestId("open-question-row");
-    await expect(trs).toHaveCount(dataset.initiatives.length);
-    const titles = await trs.locator("td:first-child a").allTextContents();
-    expect(titles).toEqual(rows.map((r) => r.title));
-    expect(titles).toEqual([...titles].sort((a, b) => a.localeCompare(b, "en")));
-    const firstCells = await trs.first().locator("td.num").allTextContents();
-    const r0 = rows[0]!;
-    expect(firstCells).toEqual([r0.counts.Timeline, r0.counts.Delivery, r0.counts.Funding, r0.counts.Adoption, r0.counts.Evidence, r0.total].map(String));
-    await trs.first().locator("td:first-child a").click();
-    await expect(page).toHaveURL(new RegExp(`/initiatives/${r0.slug}#questions$`));
-    await expect(page.getByTestId("open-questions")).toBeVisible();
+  test("Questions to check merges open questions and blind spots, alphabetically, each phrased as a question", async ({ page }) => {
+    const merged = questionsToCheck(dataset);
+    await page.goto("/initiatives#questions");
+    const list = page.getByTestId("questions-to-check");
+    await expect(list).toBeVisible();
+    await expect(page.locator("#questions")).toContainText("Counts are not a quality score");
+    const names = await list.locator("summary span:first-child").allTextContents();
+    expect(names).toEqual([...new Set(merged.map((q) => q.initiative))]);
+    const total = await page.locator("#questions p[aria-live=polite]").innerText();
+    expect(total.replace(/\D/g, "")).toBe(String(merged.length));
+    // Same question never twice for one initiative; every item ends in a question mark.
+    const keys = merged.map((q) => `${q.initiativeId}|${q.question.toLowerCase()}`);
+    expect(new Set(keys).size).toBe(keys.length);
+    for (const q of merged) expect(q.question.endsWith("?")).toBe(true);
+    await expectNoHorizontalOverflow(page);
   });
 });

@@ -12,13 +12,14 @@ Independent research and decision-support platform for the initiatives on the Th
 
 | Area | Route | What you get |
 | --- | --- | --- |
-| Overview | `/` | Cohort figures (TheDAO ask first, remaining funding gap separate), the Vote Calendar with the official tally times, changes since your last visit, coverage and recent changes. |
-| Research | `/research` | Filter and search all cohort initiatives as a table or as cards; sort options are labeled, the default is alphabetical. |
+| Home | `/` | Vote Calendar, research status and changes since your last visit, then one strip titled "Official figures (from TheDAO)" with TheDAO ask first and a "what is this?" tip per metric. |
+| Initiatives | `/initiatives` | All initiatives as a grid or table, alphabetical by default, with filters (category, type, evidence status, affiliation, milestones), the compare tool for two to five, Questions to check, milestones, funding at a glance, coverage and What changed. |
 | Dossier | `/initiatives/[slug]` | Plain-language summary, Reality vs. Promises, funding bar, milestones, claims with evidence status, source inspector, history, corrections. |
-| Advanced views | `/research/*` | Compare, relationship graph, security coverage map, blind spots, changes over time, what-if laboratory, Milestone X-Ray, funding relationships, collaboration discovery. |
-| My Workspace | `/workspace` | Saved initiatives and notes, May interest you, My affiliations, Ballot Prep with the three official ballot rules. Stored only in your browser. |
-| AI Lab | `/lab` | Read-only MCP server instructions, research briefs and generated research skills. |
-| Reference | `/methodology`, `/status`, `/corrections`, `/about` | Metric registry, evidence statuses, privacy, data freshness, public corrections changelog, disclosure. |
+| Teams | `/teams` | People map (relationship graph) and one card per initiative from the team research file, or "Not yet researched". |
+| My Ballot | `/workspace` | Saved initiatives and notes, May interest you, My affiliations, Ballot Prep with the three official ballot rules, and the What-if panel. Stored only in your browser. |
+| About | `/about` | Disclosure, Why AI is here, how research is made, methodology, data freshness and public corrections, each under an anchor. |
+| Developers | `/dev` | Read-only MCP server instructions, research briefs, generated research skills and the paste-in reader. Linked from the footer only. |
+| Old routes | `/research/*`, `/lab`, `/methodology`, `/status`, `/corrections` | Permanent redirects (308) to the pages above; see `lib/redirects.ts`. |
 | API | `/api/v1/*` | Read API over the same intelligence engine, plus correction submission and moderation. |
 | MCP | `/api/mcp`, `npm run mcp` | Read-only Model Context Protocol server (Streamable HTTP and stdio). |
 
@@ -79,7 +80,7 @@ npm run pipeline      # all four in order
 - **Remote (Streamable HTTP):** `POST <site>/api/mcp`. Stateless, read-only, request bodies up to 64 KiB.
 - **Smoke test:** `npm run mcp:smoke` (stdio) or `npm run mcp:smoke -- --url http://localhost:3000/api/mcp`.
 
-The tools are listed on the AI Lab page and in `lib/mcp/catalog.ts`. Every tool result passes the neutral-language filter.
+The tools are listed on the Developers page (`/dev`) and in `lib/mcp/catalog.ts`. Every tool result passes the neutral-language filter.
 
 ## Checks
 

@@ -206,12 +206,19 @@ describe("live manifest cache", () => {
   it("pages that show the live pool are rendered per request, so page age never adds to the 12-minute cache (review v2)", () => {
     const files = (readdirSync(path.join(process.cwd(), "app"), { recursive: true }) as string[]).filter((f) => /(^|\/)(page|route)\.tsx?$/.test(f));
     const users = files.filter((f) => readFileSync(path.join(process.cwd(), "app", f), "utf8").includes("withLiveVote"));
-    expect(users.sort()).toEqual(["api/v1/vote-manifest/route.ts", "page.tsx", "status/page.tsx", "workspace/page.tsx"]);
+    expect(users.sort()).toEqual(["api/v1/vote-manifest/route.ts", "page.tsx", "workspace/page.tsx"]);
     for (const f of users) {
       const src = readFileSync(path.join(process.cwd(), "app", f), "utf8");
       expect(src, f).toContain('export const dynamic = "force-dynamic";');
       expect(src, f).not.toMatch(/export const revalidate/);
     }
+  });
+
+  it("renders the freshness section, which reads the live pool, on a per-request About page", () => {
+    expect(readFileSync(path.join(process.cwd(), "components/about/status.tsx"), "utf8")).toContain("withLiveVote");
+    const about = readFileSync(path.join(process.cwd(), "app/about/page.tsx"), "utf8");
+    expect(about).toContain('export const dynamic = "force-dynamic";');
+    expect(about).not.toMatch(/export const revalidate/);
   });
 
   it("is off when disabled, in unit tests and during next build", async () => {

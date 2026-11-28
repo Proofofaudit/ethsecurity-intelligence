@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { formatPct, formatUsd } from "@/lib/util/money";
+import { formatUsd } from "@/lib/util/money";
 import { dataset, expectNoHorizontalOverflow, isMobile, metrics, statValue } from "./helpers";
 
 const v = (id: string) => {
@@ -22,7 +22,7 @@ test("overview figures equal the values computed from the published dataset", as
   await expect(page.getByText(`The remaining funding gap, shown separately, is ${formatUsd(v("cohort.remaining"))}`)).toBeVisible();
   // Every initiative card shows TheDAO ask beside raised and goal.
   await expect(page.locator("[data-funding-line]")).toHaveCount(dataset.initiatives.length);
-  await expect(statValue(page, "Research coverage").first()).toHaveText(formatPct(v("cohort.research_coverage"), 0));
+  await expect(statValue(page, "Automated checks").first()).toContainText(" of 55");
 
   // Funding identity: raised = outstanding pledges + received donations.
   expect(v("cohort.raised")).toBe(v("cohort.pledged_outstanding") + v("cohort.donated"));
@@ -31,18 +31,19 @@ test("overview figures equal the values computed from the published dataset", as
   await expectNoHorizontalOverflow(page);
 });
 
-test("the four primary navigation items lead to their pages", async ({ page }) => {
+test("the five primary navigation items lead to their pages", async ({ page }) => {
   await page.goto("/");
   const targets = [
-    { label: "Overview", url: /\/$/ },
-    { label: "Research", url: /\/research$/ },
-    { label: "My Workspace", url: /\/workspace$/ },
-    { label: "AI Lab", url: /\/lab$/ },
+    { label: "Home", url: /\/$/ },
+    { label: "Initiatives", url: /\/initiatives$/ },
+    { label: "Teams", url: /\/teams$/ },
+    { label: "My Ballot", url: /\/workspace$/ },
+    { label: "About", url: /\/about$/ },
   ];
   for (const t of [...targets.slice(1), targets[0]!]) {
     if (isMobile(page)) await page.getByRole("button", { name: "Menu" }).click();
     const nav = page.getByRole("navigation", { name: "Primary" });
-    await expect(nav.getByRole("link")).toHaveCount(4);
+    await expect(nav.getByRole("link")).toHaveCount(5);
     await nav.getByRole("link", { name: new RegExp(`^${t.label}`) }).click();
     await expect(page).toHaveURL(t.url);
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
@@ -83,7 +84,7 @@ test("command palette opens from the keyboard and navigates", async ({ page }) =
   await page.locator("body").press("ControlOrMeta+k");
   await input.fill("coverage map");
   await page.keyboard.press("Enter");
-  await expect(page).toHaveURL(/\/research\/coverage$/);
+  await expect(page).toHaveURL(/\/initiatives#coverage$/);
   await page.locator("body").press("ControlOrMeta+k");
   await expect(input).toBeVisible();
   await page.keyboard.press("Escape");

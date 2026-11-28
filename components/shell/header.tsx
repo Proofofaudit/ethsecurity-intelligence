@@ -10,7 +10,7 @@ import { ThemeToggle } from "./theme-toggle";
 
 function isActive(path: string, href: string) {
   if (href === "/") return path === "/";
-  if (href === "/research") return path.startsWith("/research") || path.startsWith("/initiatives") || path.startsWith("/entities");
+  if (href === "/initiatives") return path.startsWith("/initiatives") || path.startsWith("/entities");
   return path.startsWith(href);
 }
 

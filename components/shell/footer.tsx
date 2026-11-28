@@ -27,10 +27,11 @@ export function CoiStrip({ href = BANNER_HREF }: { href?: string }) {
 
 export function Footer({ meta }: { meta: { datasetVersion: string; officialGeneratedAt: string; methodologyVersion: string; sourceUrl: string } | null }) {
   const links = [
-    { href: "/methodology", label: "Methodology" },
-    { href: "/corrections", label: "Public corrections" },
-    { href: "/status", label: "Data freshness" },
+    { href: "/about#methodology", label: "Methodology" },
+    { href: "/about#corrections", label: "Public corrections" },
+    { href: "/about#freshness", label: "Data freshness" },
     { href: "/about", label: "About and conflict-of-interest disclosure" },
+    { href: "/dev", label: "Developers" },
   ];
   return (
     <footer className="mt-20 border-t border-ink">

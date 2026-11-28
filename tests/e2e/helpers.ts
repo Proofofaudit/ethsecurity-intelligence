@@ -15,7 +15,7 @@ export const isMobile = (page: Page) => (page.viewportSize()?.width ?? 1440) < 7
 
 /** The value cell of a definition list entry, found by its label. */
 export function statValue(page: Page, label: string) {
-  return page.locator("dt", { hasText: new RegExp(`^${label}$`) }).locator("xpath=following-sibling::dd[1]");
+  return page.locator("dt", { hasText: new RegExp(`^${label}(\\s*what is this\\?)?$`) }).locator("xpath=following-sibling::dd[1]");
 }
 
 /**

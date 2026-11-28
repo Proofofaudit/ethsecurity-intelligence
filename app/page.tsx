@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "@/components/ui/icons";
 import { FundingBar, FundingLegend, HBarList } from "@/components/ui/charts";
+import { OfficialStrip } from "@/components/home/official-strip";
 import { Block, Note, PageHead, Stat } from "@/components/ui/layout";
 import { DateTime, formatDate, Money, Num } from "@/components/ui/money";
 import { Tag } from "@/components/ui/button";
@@ -8,6 +9,7 @@ import { ADVANCED_VIEWS } from "@/components/shell/nav";
 import { automatedChecksLabel, teamResearchCompleteCount, teamResearchLabel } from "@/lib/team/progress";
 import { loadIntelligence } from "@/lib/intelligence/load";
 import { categoryDistribution, changes, coverage, displayName, filterInitiatives, fundingRelationships } from "@/lib/intelligence/service";
+import { meaningfulChanges } from "@/lib/intelligence/what-changed";
 import { ingestionStatus } from "@/lib/intelligence/status";
 import { cohortMetrics } from "@/lib/metrics/compute";
 import { METRICS } from "@/lib/metrics/registry";
@@ -56,7 +58,8 @@ export default async function OverviewPage() {
   const cats = categoryDistribution(d).filter((c) => c.primaryCount > 0);
   const list = filterInitiatives(d, { limit: 100 });
   const funding = fundingRelationships(d);
-  const recentFunding = changes(d, { kinds: ["funding_changed", "pledge_added", "pledge_removed", "pledge_status_changed", "pledge_amount_changed", "goal_changed", "donation_added"], limit: 5 });
+  // Funding changes under one dollar are bookkeeping noise and are not listed.
+  const recentFunding = meaningfulChanges(changes(d, { kinds: ["funding_changed", "pledge_added", "pledge_removed", "pledge_status_changed", "pledge_amount_changed", "goal_changed", "donation_added"], limit: 400 })).slice(0, 5);
   const recentScope = changes(d, { kinds: ["revision_added", "milestones_changed", "milestone_completed", "text_changed", "eligibility_changed", "claim_status_changed", "correction_published"], limit: 5 });
   const iniTitle = (id: string | null) => d.initiatives.find((i) => i.id === id);
   const cohortMonth = MONTH.format(Date.parse(d.meta.cohort.frozenAt));
@@ -66,7 +69,7 @@ export default async function OverviewPage() {
       <PageHead
         eyebrow={
           <>
-            Overview · Ballot cohort frozen <DateTime iso={d.meta.cohort.frozenAt} />
+            Home · Ballot cohort frozen <DateTime iso={d.meta.cohort.frozenAt} />
           </>
         }
         title={`Research on the ${d.initiatives.length} initiatives on TheDAO Security Fund ballot, ${cohortMonth}`}
@@ -79,28 +82,8 @@ export default async function OverviewPage() {
 
       <VoteCalendar view={calendarView(d, live)} />
 
-      <section aria-label="Cohort figures">
-        <dl className="grid grid-cols-2 gap-px border-y border-ink bg-rule sm:grid-cols-3 xl:grid-cols-7 [&>div]:bg-paper [&>div]:px-4 [&>div]:py-4">
-          <Stat label="Qualified initiatives" value={<Num value={val("cohort.initiatives")} />} sub={`${grants} grants · ${rfps} RFPs`} />
-          <Stat label="Funding requested" value={<Money cents={goal} />} sub="Sum of all funding goals" />
-          <Stat
-            label="Raised so far"
-            value={<Money cents={val("cohort.raised")} />}
-            sub={
-              <>
-                Pledged <Money cents={pledged} /> + received <Money cents={donated} />
-              </>
-            }
-          />
-          <Stat
-            label="TheDAO ask"
-            value={<Money cents={ask} reason={m["cohort.thedao_ask"]?.unavailableReason ?? undefined} />}
-            sub={
-              <>
-                Sum over the {d.initiatives.length}, each capped at {formatUsd(THEDAO_ASK_CAP_CENTS)} · Pool <Money cents={pool} reason={m["cohort.thedao_pool"]?.unavailableReason ?? undefined} />
-              </>
-            }
-          />
+      <section aria-label="Research status">
+        <dl className="grid grid-cols-1 gap-px border-y border-ink bg-rule sm:grid-cols-3 [&>div]:bg-paper [&>div]:px-4 [&>div]:py-4">
           <Stat
             label="Automated checks"
             value={<span className="num">{`${status.research.initiativesFullyResearched} of ${status.research.cohortSize}`}</span>}
@@ -121,14 +104,6 @@ export default async function OverviewPage() {
             }
           />
         </dl>
-        <div className="mt-4 grid gap-3 md:grid-cols-[1fr_auto] md:items-center">
-          <FundingBar f={{ goalCents: goal, pledgedCents: pledged, donatedCents: donated, neededCents: remaining ?? undefined }} height={10} />
-          <FundingLegend f={{ goalCents: goal, pledgedCents: pledged, donatedCents: donated, neededCents: remaining ?? undefined }} />
-        </div>
-        <Note className="mt-2 max-w-[880px]">
-          TheDAO ask is each initiative&apos;s goal minus official raised, floored at $0 and capped at {formatUsd(THEDAO_ASK_CAP_CENTS)}. The remaining funding gap, shown separately, is <Money cents={remaining} /> (uncapped)
-          {ask !== null && remaining !== null && !capBinds ? "; the two are equal while no initiative needs more than the cap." : "."} Received means confirmed onchain donations to initiative Safes. It already includes <Money cents={receivedPledges} /> of pledges marked received, so those are counted once. Pledged means outstanding commitments that have not arrived yet.
-        </Note>
       </section>
 
       <SinceLastVisit view={fundingView(d)} />
@@ -138,7 +113,7 @@ export default async function OverviewPage() {
       <div className="grid gap-12 lg:grid-cols-2 [&>*]:min-w-0">
         <Block
           title="Security coverage map"
-          href="/research/coverage"
+          href="/initiatives#coverage"
           hrefLabel="Full coverage map"
           note="Lifecycle stage of each initiative, from a rule-based reading of its proposal text. Dark: primary stage. Gray: also addresses. A prompt for investigation, not a finding."
         >
@@ -151,11 +126,11 @@ export default async function OverviewPage() {
               inner: s.primaryCount,
               valueLabel: `${s.totalCount}`,
               sub: `${s.primaryCount} primary`,
-              href: `/research?stage=${s.stage}`,
+              href: `/initiatives?stage=${s.stage}`,
             }))}
           />
         </Block>
-        <Block title="Funding by category" href="/research" hrefLabel="Filter by category" note="Grouped by each initiative's first official category, so every dollar is counted once. Gray: requested. Dark: raised.">
+        <Block title="Funding by category" href="/initiatives" hrefLabel="Filter by category" note="Grouped by each initiative's first official category, so every dollar is counted once. Gray: requested. Dark: raised.">
           <HBarList
             caption="Funding requested and raised per primary official category."
             rows={cats.map((c) => ({
@@ -165,14 +140,14 @@ export default async function OverviewPage() {
               inner: c.raisedCents,
               valueLabel: formatUsd(c.goalCents, { compact: true }),
               sub: `${c.primaryCount} ${c.primaryCount === 1 ? "initiative" : "initiatives"}`,
-              href: `/research?cat=${c.slug}`,
+              href: `/initiatives?cat=${c.slug}`,
             }))}
           />
         </Block>
       </div>
 
       <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr] [&>*]:min-w-0">
-        <Block title="Recent changes" href="/research/changes" hrefLabel="All changes" note="Detected by comparing official snapshots and proposal revisions.">
+        <Block title="Recent changes" href="/initiatives#changes" hrefLabel="All changes" note="Detected by comparing official snapshots and proposal revisions.">
           <div className="grid gap-6 sm:grid-cols-2 [&>*]:min-w-0">
             {[
               { label: "Funding", rows: recentFunding },
@@ -221,7 +196,7 @@ export default async function OverviewPage() {
               ))}
             </ul>
           </Block>
-          <Block title="Funding relationships" href="/research/funding" hrefLabel="Backers and pledges">
+          <Block title="Funding relationships" href="/initiatives#funding" hrefLabel="Backers and pledges">
             <dl className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
               <div>
                 <dt className="text-xs text-ink-3">Pledge records</dt>
@@ -248,7 +223,7 @@ export default async function OverviewPage() {
       <Block
         title="All initiatives"
         id="discovery"
-        href="/research"
+        href="/initiatives"
         hrefLabel="Search and filter"
         note={`${list.sortNote} ${d.initiatives.length} initiatives.`}
       >
@@ -282,6 +257,45 @@ export default async function OverviewPage() {
           ))}
         </ul>
       </Block>
+
+      <OfficialStrip
+        officialUrl={d.meta.officialSourceUrl}
+        officialHost={new URL(d.meta.officialSourceUrl).host}
+        metrics={[
+          {
+            label: "TheDAO ask",
+            headline: true,
+            value: <Money cents={ask} reason={m["cohort.thedao_ask"]?.unavailableReason ?? undefined} />,
+            sub: (
+              <>
+                Each initiative capped at {formatUsd(THEDAO_ASK_CAP_CENTS)} · Pool <Money cents={pool} reason={m["cohort.thedao_pool"]?.unavailableReason ?? undefined} />
+              </>
+            ),
+            help: "How much the fund is asked to pay in total. For each initiative it is the goal minus what is already raised, never below $0 and never above the cap, added up over the cohort.",
+          },
+          { label: "Qualified initiatives", value: <Num value={val("cohort.initiatives")} />, sub: `${grants} grants · ${rfps} RFPs`, help: "Initiatives that qualified for the current ballot round." },
+          { label: "Funding requested", value: <Money cents={goal} />, sub: "Sum of all funding goals", help: "The total of every initiative's funding goal, as stated in the official record." },
+          {
+            label: "Raised so far",
+            value: <Money cents={val("cohort.raised")} />,
+            sub: (
+              <>
+                Pledged <Money cents={pledged} /> + received <Money cents={donated} />
+              </>
+            ),
+            help: "Outstanding pledges plus confirmed onchain donations. A pledge marked received is counted once, as a donation.",
+          },
+        ]}
+      >
+        <div className="mt-4 grid gap-3 md:grid-cols-[1fr_auto] md:items-center">
+          <FundingBar f={{ goalCents: goal, pledgedCents: pledged, donatedCents: donated, neededCents: remaining ?? undefined }} height={10} />
+          <FundingLegend f={{ goalCents: goal, pledgedCents: pledged, donatedCents: donated, neededCents: remaining ?? undefined }} />
+        </div>
+        <Note className="mt-2 max-w-[880px]">
+          TheDAO ask is each initiative&apos;s goal minus official raised, floored at $0 and capped at {formatUsd(THEDAO_ASK_CAP_CENTS)}. The remaining funding gap, shown separately, is <Money cents={remaining} /> (uncapped)
+          {ask !== null && remaining !== null && !capBinds ? "; the two are equal while no initiative needs more than the cap." : "."} Received means confirmed onchain donations to initiative Safes. It already includes <Money cents={receivedPledges} /> of pledges marked received, so those are counted once. Pledged means outstanding commitments that have not arrived yet. These figures are live on TheDAO&apos;s own site; this strip is a copy from the latest sync.
+        </Note>
+      </OfficialStrip>
 
       <details className="group border-t border-ink pt-3">
         <summary className="flex items-baseline justify-between gap-4">
@@ -320,7 +334,7 @@ export default async function OverviewPage() {
             </tbody>
           </table>
           <Note className="mt-3">
-            Methodology {d.meta.methodologyVersion}. <Link href="/methodology" className="link">Read the definitions</Link>. Categories in this round:{" "}
+            Methodology {d.meta.methodologyVersion}. <Link href="/about#methodology" className="link">Read the definitions</Link>. Categories in this round:{" "}
             {categoryDistribution(d).map((c) => (
               <Tag key={c.slug} className="mr-1 mb-1">
                 {c.label} <span className="num ml-1 text-ink-3">{c.count}</span>

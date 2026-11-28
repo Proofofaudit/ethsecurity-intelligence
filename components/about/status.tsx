@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ExternalLink } from "@/components/ui/button";
@@ -10,9 +9,6 @@ import { ingestionStatus } from "@/lib/intelligence/status";
 import { cn } from "@/lib/util/cn";
 import { FALLBACK_LABEL, FALLBACK_SETTLED_BY, FALLBACK_TALLIES, resolveSchedule } from "@/lib/vote/calendar";
 import { withLiveVote } from "@/lib/vote/live";
-
-export const metadata: Metadata = { title: "Data freshness" };
-export const dynamic = "force-dynamic";
 
 const TASK_LABEL: Record<string, string> = {
   links: "Link extraction",
@@ -34,7 +30,7 @@ const UTC = new Intl.DateTimeFormat("en-US", { weekday: "short", day: "numeric",
 
 const hours = (h: number | null) => (h === null ? "unknown" : h < 48 ? `${h} hours` : `${Math.round(h / 24)} days`);
 
-export default async function StatusPage() {
+export async function FreshnessSection() {
   const loaded = await loadIntelligence();
   const health = loaded.health;
   // Pool and schedule from the cached live manifest read when valid; everything else is the published snapshot.
@@ -48,6 +44,7 @@ export default async function StatusPage() {
   return (
     <div className="space-y-10">
       <PageHead
+        as="h2"
         eyebrow="Reference · Data freshness"
         title="Sync, research and publication status"
         lede={<p>When the official data was last read, what the research pipeline checked, and which store is serving this page. Checked {formatDateTime(s.freshness.checkedAt)}.</p>}

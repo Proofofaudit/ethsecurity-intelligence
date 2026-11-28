@@ -158,7 +158,7 @@ export default async function InitiativePage({ params }: Params) {
     >
       <article>
         <nav aria-label="Breadcrumb" className="mb-4 text-xs text-ink-3">
-          <Link href="/research" className="hover:text-accent">
+          <Link href="/initiatives" className="hover:text-accent">
             Research
           </Link>
           <span className="mx-1.5">/</span>
@@ -209,7 +209,7 @@ export default async function InitiativePage({ params }: Params) {
             </div>
             <div className="mt-4 flex flex-wrap gap-1.5">
               {ini.categories.map((c) => (
-                <Link key={c.slug} href={`/research?cat=${c.slug}`}>
+                <Link key={c.slug} href={`/initiatives?cat=${c.slug}`}>
                   <Tag className="hover:border-ink-3">{c.label}</Tag>
                 </Link>
               ))}
@@ -222,24 +222,24 @@ export default async function InitiativePage({ params }: Params) {
             </div>
             <nav aria-label="Research this initiative" className="mt-4 flex flex-wrap gap-x-4 gap-y-1.5 border-t border-rule pt-3 text-xs text-ink-3">
               <span className="eyebrow">Explore</span>
-              <Link href={`/research/graph?type=initiative&id=${encodeURIComponent(ini.id)}`} className="hover:text-accent">
+              <Link href={`/teams?type=initiative&id=${encodeURIComponent(ini.id)}`} className="hover:text-accent">
                 Relationship map
               </Link>
               {similar.length > 0 && (
-                <Link href={`/research/compare?ids=${[ini.slug, ...similar.map((r) => r.other.slug)].slice(0, 5).join(",")}`} className="hover:text-accent">
+                <Link href={`/initiatives?ids=${[ini.slug, ...similar.map((r) => r.other.slug)].slice(0, 5).join(",")}#compare`} className="hover:text-accent">
                   Compare with similar ({Math.min(similar.length, 4)})
                 </Link>
               )}
-              <Link href={`/research/milestones?ini=${ini.slug}`} className="hover:text-accent">
+              <Link href={`/initiatives?ini=${ini.slug}#milestones`} className="hover:text-accent">
                 Milestones across the cohort
               </Link>
-              <Link href={`/research/blind-spots?ini=${ini.slug}`} className="hover:text-accent">
+              <Link href={`/initiatives?ini=${ini.slug}#questions`} className="hover:text-accent">
                 Blind spots ({x.blindSpots.length})
               </Link>
-              <Link href={`/research/changes?ini=${ini.slug}`} className="hover:text-accent">
+              <Link href={`/initiatives?ini=${ini.slug}#changes`} className="hover:text-accent">
                 Changes ({x.changes.length})
               </Link>
-              <Link href={`/research/what-if?ids=${ini.slug}`} className="hover:text-accent">
+              <Link href={`/workspace?ids=${ini.slug}#what-if`} className="hover:text-accent">
                 What-if
               </Link>
             </nav>
@@ -597,7 +597,7 @@ export default async function InitiativePage({ params }: Params) {
                   <ul className="divide-y divide-rule border-y border-rule text-sm">
                     {ini.stages.map((s) => (
                       <li key={s.stage} className="grid grid-cols-[200px_1fr] gap-4 py-1.5 max-sm:grid-cols-1 max-sm:gap-0">
-                        <Link href={`/research?stage=${s.stage}`} className="font-medium hover:text-accent">
+                        <Link href={`/initiatives?stage=${s.stage}`} className="font-medium hover:text-accent">
                           {d.securityProblems.find((p) => p.id === s.stage)?.label ?? s.stage}
                           {s.primary && <span className="ml-2 text-2xs font-normal text-ink-3">primary</span>}
                         </Link>
@@ -675,7 +675,7 @@ export default async function InitiativePage({ params }: Params) {
               <SimilarInitiatives items={similar} self={{ name: ini.title }} />
               <Note className="mt-4">
                 Separate collaboration hypotheses from text similarity and shared lifecycle stages ({x.related.length}) are listed on the{" "}
-                <Link href={`/research/collaboration?focus=${ini.slug}`} className="link">
+                <Link href={`/initiatives#compare`} className="link">
                   collaboration page
                 </Link>
                 .
@@ -770,7 +770,7 @@ export default async function InitiativePage({ params }: Params) {
                   <CorrectionButton type="initiative" id={ini.id} label={ini.title} className="rounded-sm border border-rule-2 px-2.5 py-1 text-ink-2 no-underline hover:border-ink-3">
                     Suggest a correction to this dossier
                   </CorrectionButton>
-                  <Link href="/corrections" className="text-xs text-ink-3 hover:text-accent">
+                  <Link href="/about#corrections" className="text-xs text-ink-3 hover:text-accent">
                     Public corrections log <ArrowRight />
                   </Link>
                 </div>
