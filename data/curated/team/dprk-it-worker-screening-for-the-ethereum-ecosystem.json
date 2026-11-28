@@ -1,0 +1,182 @@
+{
+  "members": [
+    {
+      "name": "Heiner García Pérez",
+      "role": "Leader of NorthScan and independent cyber threat intelligence researcher (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "Website",
+          "handle": "northscan.co",
+          "url": "https://northscan.co/about",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Co-author, ANY.RUN investigation: Lazarus group IT workers (part 1)",
+          "kind": "project",
+          "url": "https://any.run/cybersecurity-blog/lazarus-group-it-workers-investigation/",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Co-author, ANY.RUN investigation: Lazarus group IT workers (part 2)",
+          "kind": "project",
+          "url": "https://any.run/cybersecurity-blog/lazarus-group-it-workers-investigation-part-two/",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "SEAL Intel report: From North Korean IT Workers to IT recruiters (Nov 07, 2025)",
+          "kind": "paper",
+          "url": "https://radar.securityalliance.org/from-north-korean-it-workers-to-it-recruiters/",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://northscan.co/about",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "NorthScan",
+    "summary": "Threat intelligence initiative, described on its own About page as mapping how North Korean IT workers operate, with research focused on GitHub and related ecosystems. The About page presents Heiner García Pérez as its founder. The proposal says the screening platform and data are private.",
+    "website": "https://northscan.co",
+    "previousFunding": [
+      {
+        "label": "TheDAO Security Fund Round 1 record: NorthScan by Heiner",
+        "url": "https://thedao.fund/transparency/northscan-by-heiner"
+      }
+    ],
+    "otherProducts": [
+      {
+        "label": "NorthScan threat research",
+        "url": "https://northscan.co/"
+      }
+    ],
+    "sources": [
+      {
+        "label": "NorthScan About page",
+        "url": "https://northscan.co/about"
+      },
+      {
+        "label": "NorthScan website",
+        "url": "https://northscan.co/"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [
+    {
+      "grant": "TheDAO Security Fund Round 1: NorthScan by Heiner (organization-level match by same name)",
+      "funder": "TheDAO Security Fund, Giveth",
+      "promised": "The Round 1 record lists no specific deliverables. The proposal says NorthScan received approximately USD 2,000 in community funding through Giveth and TheDAO Security Fund.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "TheDAO Round 1 record",
+          "url": "https://thedao.fund/transparency/northscan-by-heiner"
+        },
+        {
+          "label": "NorthScan website",
+          "url": "https://northscan.co/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_northscan-by-heiner"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "Heiner García of NorthScan co-authored published investigations with ANY.RUN and BCA LTD on DPRK IT workers.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "ANY.RUN investigation part 1",
+          "url": "https://any.run/cybersecurity-blog/lazarus-group-it-workers-investigation/"
+        },
+        {
+          "label": "ANY.RUN investigation part 2",
+          "url": "https://any.run/cybersecurity-blog/lazarus-group-it-workers-investigation-part-two/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Both ANY.RUN posts name Heiner García from NorthScan and Mauro Eldritch from BCA LTD as collaborators, and part 2 states it was written by Mauro and Heiner."
+    },
+    {
+      "claim": "A SEAL Intel report by Heiner covers the shift of DPRK IT workers to recruiters.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Security Alliance Radar report",
+          "url": "https://radar.securityalliance.org/from-north-korean-it-workers-to-it-recruiters/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The Radar page is dated Nov 07, 2025, credits SEAL Intel and Heiner Garcia, and describes Heiner as a SEAL Intel member."
+    },
+    {
+      "claim": "Heiner presented this research at Insomni'hack and DEF CON.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Insomni'hack talk page",
+          "url": "https://insomnihack.ch/talks/smile-youre-on-camera-livestreaming-from-north-koreas-it-workers-laptop-farm/"
+        },
+        {
+          "label": "NorthScan About page",
+          "url": "https://northscan.co/about"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The NorthScan About page states both presentations. The Insomni'hack talk page loaded but the fetched text did not name the speaker, and no DEF CON page was found."
+    },
+    {
+      "claim": "A working private platform stores and connects GitHub accounts, takes profile snapshots and maps follower networks.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/dprk-it-worker-screening-for-the-ethereum-ecosystem"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The platform is private by the applicant's own statement, so it cannot be inspected publicly. A supervised walkthrough is offered to curators only."
+    },
+    {
+      "claim": "More than two years of direct research into DPRK IT worker operations underlies the platform.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "NorthScan website",
+          "url": "https://northscan.co/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The site and linked articles show published research, with the NorthScan footer dated 2025. The duration claim was not independently confirmed."
+    },
+    {
+      "claim": "NorthScan has no other committed funding and previously received about USD 2,000 from Giveth and TheDAO Security Fund.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "TheDAO Round 1 record",
+          "url": "https://thedao.fund/transparency/northscan-by-heiner"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The Round 1 record exists. Round 1 amounts are tracked elsewhere. The statement about no other funding cannot be checked publicly."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Other team members: Not found in public sources (the proposal says specialist support may be contracted).",
+    "Heiner García Pérez GitHub or X handle as published in the proposal: Not found in public sources.",
+    "Round 1 deliverables: Not found in public sources.",
+    "Public code repository for the screening platform: Not found in public sources (private by the applicant's statement)."
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

@@ -1,0 +1,164 @@
+{
+  "members": [
+    {
+      "name": "Clément",
+      "role": "Co-founder and CTO (per the proposal), reviews the market mechanics",
+      "pseudonymous": false,
+      "handles": [
+        { "platform": "X", "handle": "clesaege", "url": "https://x.com/clesaege", "publishedBy": "proposal" }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/open-risk-pricing-for-defi-a-public-price-for-default-risk",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "0xAlex",
+      "role": "Integration Lead, leads this initiative (per the proposal)",
+      "pseudonymous": true,
+      "handles": [
+        { "platform": "X", "handle": "alex__eth", "url": "https://x.com/alex__eth", "publishedBy": "proposal" }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/open-risk-pricing-for-defi-a-public-price-for-default-risk",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "JuanRah",
+      "role": "Oracle Lead, point of contact for this initiative (per the proposal)",
+      "pseudonymous": true,
+      "handles": [
+        { "platform": "X", "handle": "JuanRah", "url": "https://x.com/JuanRah", "publishedBy": "proposal" }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/open-risk-pricing-for-defi-a-public-price-for-default-risk",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Minh",
+      "role": "Engineering, Seer; builds the market and its interface (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        { "platform": "GitHub", "handle": "nvm1410", "url": "https://github.com/nvm1410", "publishedBy": "proposal" }
+      ],
+      "pastWork": [
+        {
+          "label": "Contributor to the risk-pricing-ui repository",
+          "kind": "project",
+          "url": "https://github.com/seer-pm/risk-pricing-ui",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/open-risk-pricing-for-defi-a-public-price-for-default-risk",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Facundo",
+      "role": "Legal; drafts the default event rules (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        { "platform": "X", "handle": "facundo_trotz", "url": "https://x.com/facundo_trotz", "publishedBy": "proposal" }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/open-risk-pricing-for-defi-a-public-price-for-default-risk",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "Kleros Cooperative and Seer",
+    "summary": "The proposal names Kleros Cooperative as recipient and says Kleros and Seer pay the development costs. The Kleros website describes a decentralized court for dispute resolution. The seer-pm GitHub organization was created 2024-01-18 and hosts the risk-pricing-ui repository. The Gitcoin governance forum lists Clement Lesaege as an operator of the GG24 Deep Funding round that used Seer markets.",
+    "website": "https://kleros.io",
+    "previousFunding": [],
+    "otherProducts": [
+      {
+        "label": "Seer risk pricing interface",
+        "url": "https://risk.seer.pm"
+      },
+      {
+        "label": "Kleros Foresight movie experiment, season 2 write-up",
+        "url": "https://blog.kleros.io/the-market-won-this-time-season-2-of-the-foresight-movie-experiment/"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Kleros website",
+        "url": "https://kleros.io"
+      },
+      {
+        "label": "GitHub organization seer-pm",
+        "url": "https://github.com/seer-pm"
+      },
+      {
+        "label": "Gitcoin governance: Deep Funding GG24 round update",
+        "url": "https://gov.gitcoin.co/t/deep-funding-gg24-web3-tooling-and-infra-round/25040"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [],
+  "claims": [
+    {
+      "claim": "The interface is live at risk.seer.pm with its code in a public repository.",
+      "status": "Verified",
+      "sources": [
+        { "label": "Seer risk pricing interface", "url": "https://risk.seer.pm" },
+        { "label": "GitHub repository seer-pm/risk-pricing-ui", "url": "https://github.com/seer-pm/risk-pricing-ui" }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The page loads and shows a default-risk prediction interface. GitHub API: public MIT repository created 2026-08-04, last push 2026-10-25, 0 stars, contributors include nvm1410. Market behavior was not tested. Trading figures on the page are live data and are not recorded."
+    },
+    {
+      "claim": "Gitcoin's GG24 Deep Funding round used Seer's markets to help allocate USD 350,000 across 98 open-source repositories.",
+      "status": "Verified",
+      "sources": [
+        { "label": "Gitcoin governance: Deep Funding GG24 round update", "url": "https://gov.gitcoin.co/t/deep-funding-gg24-web3-tooling-and-infra-round/25040" }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The forum post states the round approved USD 350,000 for allocation via deep funding on a Seer prediction market and gives a total set of 98 repos. The post is dated 2026-01-11 and was read in part; the final allocation outcome was not checked."
+    },
+    {
+      "claim": "Seer and Kleros have run and settled markets with a similar stack (Foresight movie experiment).",
+      "status": "Verified",
+      "sources": [
+        { "label": "Kleros blog: season 2 of the Foresight movie experiment", "url": "https://blog.kleros.io/the-market-won-this-time-season-2-of-the-foresight-movie-experiment/" }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The Kleros blog post dated 31 Aug 2026 says session 2 resolved with twenty markets and redemption live. The post is by Kleros, so this is a self-published source. It does not name the same stack as the risk market."
+    },
+    {
+      "claim": "A risk-scoring platform has already asked to show the price next to its own score.",
+      "status": "Not verified",
+      "sources": [
+        { "label": "Proposal", "url": "https://initiatives.thedao.fund/initiative/open-risk-pricing-for-defi-a-public-price-for-default-risk" }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Applicant statement without a named platform. No public source found."
+    },
+    {
+      "claim": "The Credora probability of default is fetched live through its API and shown next to the market price.",
+      "status": "Not verified",
+      "sources": [
+        { "label": "Seer risk pricing interface", "url": "https://risk.seer.pm" }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The fetched page text does not name Credora or show ratings without a wallet connection. The page loading is not proof of the integration."
+    },
+    {
+      "claim": "Kleros and Seer pay the development costs and no other grant funds this work.",
+      "status": "Not verified",
+      "sources": [
+        { "label": "Proposal", "url": "https://initiatives.thedao.fund/initiative/open-risk-pricing-for-defi-a-public-price-for-default-risk" }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Applicant statement. No public source found for the funding arrangement."
+    }
+  ],
+  "passes": { "team": true, "delivery": true, "claims": true },
+  "notFound": [
+    "Full legal names and past work for Clément, 0xAlex, JuanRah, Minh and Facundo: Not found in public sources (only the first names or pseudonyms and links published in the proposal are recorded).",
+    "Past grants to this initiative or a Round 1 record: Not found in public sources.",
+    "Credora integration evidence: Not found in public sources.",
+    "Number of Kleros and Seer team members: Not found in public sources."
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

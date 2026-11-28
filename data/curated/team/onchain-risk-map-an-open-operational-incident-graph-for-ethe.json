@@ -1,0 +1,169 @@
+{
+  "members": [
+    {
+      "name": "Ida Swarczewskaja",
+      "role": "Proposer and project manager; OKcontract Labs co-founder, previously Head of UX/UI at Mirakl (per the proposal)",
+      "pseudonymous": false,
+      "handles": [],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/onchain-risk-map-an-open-operational-incident-graph-for-ethe",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Shahaf Nacson",
+      "role": "Security contributor (per the proposal)",
+      "pseudonymous": false,
+      "handles": [],
+      "pastWork": [
+        {
+          "label": "Listed author of EIP-4337 (account abstraction)",
+          "kind": "paper",
+          "url": "https://eips.ethereum.org/EIPS/eip-4337",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/onchain-risk-map-an-open-operational-incident-graph-for-ethe",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Henri Binsztok",
+      "role": "Technical lead; OKcontract Labs co-founder, previously at WALLIX (per the proposal)",
+      "pseudonymous": false,
+      "handles": [],
+      "pastWork": [
+        {
+          "label": "Named as a creator of the awless open source project at WALLIX in its README",
+          "kind": "project",
+          "url": "https://github.com/wallix/awless/blob/master/README.md",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/onchain-risk-map-an-open-operational-incident-graph-for-ethe",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Anonymous contributor",
+      "role": "Former academic researcher, 1 person-month (per the proposal)",
+      "pseudonymous": true,
+      "handles": [],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/onchain-risk-map-an-open-operational-incident-graph-for-ethe",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "OKcontract Labs",
+    "summary": "Recipient named in the proposal. The okcontract GitHub organization was created 2020-12-09 and has public repositories including graph, cells, abi2ui and uic. The proposal says the existing source package for the Onchain Risk Map is private, and a public preview is at map.okcontract.com.",
+    "website": "https://github.com/okcontract",
+    "previousFunding": [],
+    "otherProducts": [
+      {
+        "label": "Onchain Risk Map public preview",
+        "url": "https://map.okcontract.com"
+      },
+      {
+        "label": "okcontract GitHub organization",
+        "url": "https://github.com/okcontract"
+      }
+    ],
+    "sources": [
+      {
+        "label": "GitHub organization okcontract",
+        "url": "https://github.com/okcontract"
+      },
+      {
+        "label": "Proposal",
+        "url": "https://initiatives.thedao.fund/initiative/onchain-risk-map-an-open-operational-incident-graph-for-ethe"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [],
+  "claims": [
+    {
+      "claim": "A public preview exists at map.okcontract.com.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Onchain Risk Map preview",
+          "url": "https://map.okcontract.com"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The URL resolves and its page title is Onchain Attack Map. The page text fetched was only the title, because it appears to render client-side. The page loading is not proof of capability, and the contents were not reviewed."
+    },
+    {
+      "claim": "The existing source package (typed topology, incident annotations, catalog validation, deterministic generators) is private.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "GitHub organization okcontract",
+          "url": "https://github.com/okcontract"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Applicant statement. No public repository with that name was found among the organization's public repositories listed by the GitHub API (21 public repositories, none named for the risk map). A private repository cannot be seen."
+    },
+    {
+      "claim": "Shahaf Nacson is a co-author of ERC-4337 and was formerly with the Ethereum Foundation.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "EIP-4337",
+          "url": "https://eips.ethereum.org/EIPS/eip-4337"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "EIP-4337 lists Shahaf Nacson (@shahafn) among its authors, so co-authorship is confirmed. The former Ethereum Foundation role was not confirmed in a source."
+    },
+    {
+      "claim": "Henri Binsztok is an OKcontract Labs co-founder, previously at WALLIX.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "awless README",
+          "url": "https://github.com/wallix/awless/blob/master/README.md"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The awless README names him as a creator of the project at WALLIX. His OKcontract Labs co-founder role and dates were not confirmed."
+    },
+    {
+      "claim": "Ida Swarczewskaja is an OKcontract Labs co-founder, previously Head of UX/UI at Mirakl.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "O'Reilly author biography page cited in the proposal",
+          "url": "https://www.oreilly.com/library/view/opa-up-and/9781449328849/author_bios.html"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The cited O'Reilly page returned an access denied response, so the track record could not be read."
+    },
+    {
+      "claim": "No external funding for this scope has been reported.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/onchain-risk-map-an-open-operational-incident-graph-for-ethe"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Applicant statement. A negative claim that cannot be checked publicly."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "GitHub or X handles for team members as published in the proposal: Not found in public sources (the proposal links only track-record pages).",
+    "Past grants or Round 1 record for OKcontract Labs: Not found in public sources.",
+    "Public source repository for the Onchain Risk Map: Not found in public sources (private by the applicant's statement).",
+    "Company website for OKcontract Labs: Not found in public sources (only the GitHub organization was located)."
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

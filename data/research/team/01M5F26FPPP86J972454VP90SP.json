@@ -1,0 +1,486 @@
+{
+  "initiativeId": "01M5F26FPPP86J972454VP90SP",
+  "collectedAt": "2026-11-28T07:18:08.440Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 37,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "seer-pm",
+      "type": "Organization",
+      "url": "https://github.com/seer-pm",
+      "source": "proposal",
+      "reposTotal": 15,
+      "repos": [
+        {
+          "fullName": "seer-pm/ai-prediction-markets",
+          "url": "https://github.com/seer-pm/ai-prediction-markets",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2026-11-28T01:41:45Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "seer-pm/demo",
+          "url": "https://github.com/seer-pm/demo",
+          "fork": false,
+          "archived": false,
+          "stars": 10,
+          "forks": 16,
+          "pushedAt": "2026-11-27T12:31:00Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "seer-pm/opportunity-markets",
+          "url": "https://github.com/seer-pm/opportunity-markets",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2026-11-26T18:00:13Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "seer-pm/seer-indexer",
+          "url": "https://github.com/seer-pm/seer-indexer",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2026-11-19T14:54:45Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "seer-pm/landing",
+          "url": "https://github.com/seer-pm/landing",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2026-10-24T19:45:00Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "seer-pm/lens",
+          "url": "https://github.com/seer-pm/lens",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-08-28T17:14:22Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "seer-pm/circles-mini-app",
+          "url": "https://github.com/seer-pm/circles-mini-app",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-05-24T16:05:03Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "seer-pm/api-gateway",
+          "url": "https://github.com/seer-pm/api-gateway",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-04-02T12:08:26Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "seer-pm/airdrop",
+          "url": "https://github.com/seer-pm/airdrop",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 3,
+          "pushedAt": "2024-10-29T21:24:03Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "seer-pm/futarchy",
+          "url": "https://github.com/seer-pm/futarchy",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2026-11-24T05:44:59Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "seer-pm/futarchy-indexers",
+          "url": "https://github.com/seer-pm/futarchy-indexers",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-23T19:58:26Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "seer-pm/futarchy-api",
+          "url": "https://github.com/seer-pm/futarchy-api",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-16T00:03:40Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "nvm1410",
+      "type": "User",
+      "url": "https://github.com/nvm1410",
+      "source": "proposal",
+      "reposTotal": 43,
+      "repos": [
+        {
+          "fullName": "nvm1410/feedyourpig",
+          "url": "https://github.com/nvm1410/feedyourpig",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-07-30T12:34:34Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "nvm1410/risk-pricing-ui",
+          "url": "https://github.com/nvm1410/risk-pricing-ui",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2026-07-20T15:27:06Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "nvm1410/claude-skills",
+          "url": "https://github.com/nvm1410/claude-skills",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-07-03T07:09:52Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "nvm1410/risk-pricing-demo",
+          "url": "https://github.com/nvm1410/risk-pricing-demo",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-05-30T12:40:17Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "nvm1410/cfa-rag",
+          "url": "https://github.com/nvm1410/cfa-rag",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-05-26T13:29:34Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "nvm1410/audio-playback",
+          "url": "https://github.com/nvm1410/audio-playback",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-12-13T07:57:49Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "nvm1410/notevm",
+          "url": "https://github.com/nvm1410/notevm",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-10-10T08:14:17Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "nvm1410/ai-prediction-markets",
+          "url": "https://github.com/nvm1410/ai-prediction-markets",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-09-17T16:01:37Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "nvm1410/seer-bunni-position-snapshots-subgraph",
+          "url": "https://github.com/nvm1410/seer-bunni-position-snapshots-subgraph",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-07-21T04:56:45Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "nvm1410/seer-outcome-tokens-subgraph",
+          "url": "https://github.com/nvm1410/seer-outcome-tokens-subgraph",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-07-21T04:55:03Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "nvm1410/seer-futarchy-outcome-tokens-subgraph",
+          "url": "https://github.com/nvm1410/seer-futarchy-outcome-tokens-subgraph",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-07-21T04:53:47Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "nvm1410/seer-initial-airdrop-script",
+          "url": "https://github.com/nvm1410/seer-initial-airdrop-script",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-07-21T04:49:20Z",
+          "latestReleaseAt": null
+        }
+      ]
+    }
+  ],
+  "people": [
+    {
+      "handle": "nvm1410",
+      "url": "https://github.com/nvm1410",
+      "source": "curated",
+      "repos": [
+        {
+          "fullName": "nvm1410/feedyourpig",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "nvm1410/risk-pricing-ui",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            21,
+            6,
+            4,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "nvm1410/claude-skills",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            13,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "nvm1410/risk-pricing-demo",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            7,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "nvm1410/cfa-rag",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "nvm1410/audio-playback",
+          "monthly": [
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "seer-pm/ai-prediction-markets",
+          "monthly": [
+            12,
+            26,
+            10,
+            11,
+            13,
+            5,
+            16,
+            6,
+            18,
+            40,
+            12,
+            14
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "seer-pm/demo",
+          "monthly": [
+            4,
+            2,
+            11,
+            5,
+            8,
+            5,
+            1,
+            4,
+            0,
+            8,
+            1,
+            1
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "seer-pm/opportunity-markets",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "seer-pm/seer-indexer",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        20,
+        28,
+        21,
+        16,
+        21,
+        38,
+        36,
+        14,
+        18,
+        48,
+        13,
+        15
+      ]
+    }
+  ]
+}

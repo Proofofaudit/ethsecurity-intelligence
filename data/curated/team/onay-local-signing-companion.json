@@ -1,0 +1,216 @@
+{
+  "members": [
+    {
+      "name": "Manuel Wedler",
+      "role": "Full-stack developer on the Sourcify team (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "manuelwedler",
+          "url": "https://github.com/manuelwedler",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Merged pull requests by manuelwedler in argotorg/sourcify",
+          "kind": "project",
+          "url": "https://github.com/argotorg/sourcify",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/onay-local-signing-companion",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Kaan Uzdogan",
+      "role": "Full-stack developer on the Sourcify team (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "kuzdogan",
+          "url": "https://github.com/kuzdogan",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Merged pull requests by kuzdogan in argotorg/sourcify",
+          "kind": "project",
+          "url": "https://github.com/argotorg/sourcify",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/onay-local-signing-companion",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Marco Castignoli",
+      "role": "Full-stack developer on the Sourcify team (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "marcocastignoli",
+          "url": "https://github.com/marcocastignoli",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Merged pull requests by marcocastignoli in argotorg/sourcify",
+          "kind": "project",
+          "url": "https://github.com/argotorg/sourcify",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/onay-local-signing-companion",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "Sourcify (Argot Collective)",
+    "summary": "Sourcify is a contract verification service. Its main repository is in the argotorg GitHub organization, which describes itself as Argot Collective, building critical infrastructure for Ethereum applications. The proposal says Sourcify is part of the Argot Collective and maintains lib-sourcify and the clear-signing library.",
+    "website": "https://sourcify.dev",
+    "previousFunding": [
+      {
+        "label": "TheDAO Security Fund Round 1 record: Sourcify",
+        "url": "https://thedao.fund/transparency/sourcify"
+      }
+    ],
+    "otherProducts": [
+      {
+        "label": "Sourcify repository",
+        "url": "https://github.com/argotorg/sourcify"
+      },
+      {
+        "label": "clear-signing library",
+        "url": "https://github.com/sourcifyeth/clear-signing"
+      },
+      {
+        "label": "Onay prototype (project-independence)",
+        "url": "https://github.com/sourcifyeth/project-independence"
+      }
+    ],
+    "sources": [
+      {
+        "label": "GitHub organization argotorg (Argot Collective)",
+        "url": "https://github.com/argotorg"
+      },
+      {
+        "label": "Sourcify repository",
+        "url": "https://github.com/argotorg/sourcify"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [
+    {
+      "grant": "TheDAO Security Fund Round 1: Sourcify (organization-level match by same name)",
+      "funder": "TheDAO Security Fund, Giveth",
+      "promised": "The Round 1 record lists no specific deliverables, so no promise can be compared with a result.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "TheDAO Round 1 record",
+          "url": "https://thedao.fund/transparency/sourcify"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_sourcify"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "A working prototype exists as a Tauri desktop app with an embedded Helios light client and local Sourcify verification.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "GitHub repository sourcifyeth/project-independence",
+          "url": "https://github.com/sourcifyeth/project-independence"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: the repository (now named project-onay, same URL redirects) was created 2026-06-06, last push 2026-06-12, no releases. Its README describes Helios chain state, local recompilation against Sourcify sources, ERC-7730 clear signing, local EVM simulation and Ledger signing. The app was not run, so these capabilities are not confirmed."
+    },
+    {
+      "claim": "The browser build runs at explorer.sourcify.app against live contracts on mainnet.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Sourcify explorer",
+          "url": "https://explorer.sourcify.app"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The URL resolves and is titled Project Independence. Page loading alone does not show that it verifies live contracts, and the page was not exercised."
+    },
+    {
+      "claim": "The team maintains Sourcify and lib-sourcify.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "GitHub repository argotorg/sourcify",
+          "url": "https://github.com/argotorg/sourcify"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: public MIT repository created 2019-04-24, last push 2026-11-25, 966 stars, with a lib-sourcify package. The three named developers have merged pull requests there (manuelwedler 255, kuzdogan 373, marcocastignoli 275 by search count)."
+    },
+    {
+      "claim": "The team maintains the ERC-7730 clear-signing library and the ethereum/clear-signing-erc7730-registry repository.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "GitHub repository sourcifyeth/clear-signing",
+          "url": "https://github.com/sourcifyeth/clear-signing"
+        },
+        {
+          "label": "GitHub repository ethereum/clear-signing-erc7730-registry",
+          "url": "https://github.com/ethereum/clear-signing-erc7730-registry"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Both repositories exist and are active (last pushes 2026-11-25 and 2026-11-27). Maintainer status of the three named developers was not checked."
+    },
+    {
+      "claim": "Sourcify's verification service runs at a scale of millions of requests.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Sourcify website",
+          "url": "https://sourcify.dev"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The page needs JavaScript and no usage figure was readable. No independent source found."
+    },
+    {
+      "claim": "The rebuild plan, full UX mock of release 1 and transport design are done.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/onay-local-signing-companion"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "No public link to these documents was found."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Round 1 deliverables for Sourcify: Not found in public sources.",
+    "Employer history and prior work for the three developers beyond their GitHub profiles (all list @argotorg): Not found in public sources.",
+    "Usage statistics for Sourcify: Not found in public sources.",
+    "Feedback from the close circle of external stakeholders: Not found in public sources."
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

@@ -1,0 +1,295 @@
+{
+  "members": [
+    {
+      "name": "Mark Davis",
+      "role": "CEO, CrossBar (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "LinkedIn",
+          "handle": "mark-davis-16945b4",
+          "url": "https://www.linkedin.com/in/mark-davis-16945b4",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/ostros-an-open-source-hardware-wallet-on-crossbar-s-security",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Sung Hyun Jo",
+      "role": "CTO, CrossBar (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "LinkedIn",
+          "handle": "sunghyunjo",
+          "url": "https://www.linkedin.com/in/sunghyunjo",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/ostros-an-open-source-hardware-wallet-on-crossbar-s-security",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Andrew \"bunnie\" Huang",
+      "role": "Advisor; former Chief of Hardware Security at CrossBar; created IRIS chip inspection and co-created Xous (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "Website",
+          "handle": "bunniestudios.com",
+          "url": "https://www.bunniestudios.com",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Xous operating system (betrusted-io/xous-core)",
+          "kind": "project",
+          "url": "https://github.com/betrusted-io/xous-core",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/ostros-an-open-source-hardware-wallet-on-crossbar-s-security",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Miriam Neubauer",
+      "role": "Strategy, product and growth (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "LinkedIn",
+          "handle": "miriamneubauer",
+          "url": "https://www.linkedin.com/in/miriamneubauer",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/ostros-an-open-source-hardware-wallet-on-crossbar-s-security",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Nicolas Bacca",
+      "role": "Collaborator at ZKNOX; develops the Ethereum signer Ostros runs and designed the split recovery phrase method (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "LinkedIn",
+          "handle": "nbasim",
+          "url": "https://www.linkedin.com/in/nbasim",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/ostros-an-open-source-hardware-wallet-on-crossbar-s-security",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Sylvain Bellemare",
+      "role": "Collaborator at Sureshot Labs; works on firmware and bootloaders (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "LinkedIn",
+          "handle": "sylvainbellemare",
+          "url": "https://www.linkedin.com/in/sylvainbellemare",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/ostros-an-open-source-hardware-wallet-on-crossbar-s-security",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "CrossBar, Inc.",
+    "summary": "Chip company. The NIST validation listing names Crossbar, Inc. (Santa Clara, California) as vendor of the Daric PQC cryptographic library. The crossbar-inc GitHub organization was created 2021-12-30 and holds the Daric hardware, SDK and documentation repositories. The proposal says CrossBar has developed ReRAM since 2008 and the Daric chip since 2021, holds more than 200 patents and works with TSMC and Foxconn. The company website returned a bot check (HTTP 403) and could not be read.",
+    "website": "https://crossbar-inc.com",
+    "founded": "2008 (ReRAM, per the proposal)",
+    "previousFunding": [
+      {
+        "label": "TheDAO Security Fund Round 1 record: CrossBar Open Source Security Hardware Wallet",
+        "url": "https://thedao.fund/transparency/crossbar-open-source-security-hardware-wallet"
+      }
+    ],
+    "otherProducts": [
+      {
+        "label": "Daric hardware repository",
+        "url": "https://github.com/crossbar-inc/daric-hardware"
+      },
+      {
+        "label": "Daric SDK",
+        "url": "https://github.com/crossbar-inc/daric-sdk"
+      },
+      {
+        "label": "Daric documentation",
+        "url": "https://github.com/crossbar-inc/daric-doc"
+      }
+    ],
+    "sources": [
+      {
+        "label": "GitHub organization crossbar-inc",
+        "url": "https://github.com/crossbar-inc"
+      },
+      {
+        "label": "NIST CAVP validation listing",
+        "url": "https://csrc.nist.gov/projects/cryptographic-algorithm-validation-program/details?product=21968"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [
+    {
+      "grant": "TheDAO Security Fund Round 1: CrossBar Open Source Security Hardware Wallet; the proposal also reports a previous Giveth round for SDK documentation and outreach",
+      "funder": "TheDAO Security Fund, Giveth",
+      "promised": "The proposal says a previous Giveth round raised USD 20,047 from 147 contributors for SDK documentation and outreach. The Round 1 record lists no specific deliverables.",
+      "status": "Partly delivered",
+      "sources": [
+        {
+          "label": "TheDAO Round 1 record",
+          "url": "https://thedao.fund/transparency/crossbar-open-source-security-hardware-wallet"
+        },
+        {
+          "label": "GitHub repository crossbar-inc/daric-sdk",
+          "url": "https://github.com/crossbar-inc/daric-sdk"
+        },
+        {
+          "label": "GitHub repository crossbar-inc/daric-doc",
+          "url": "https://github.com/crossbar-inc/daric-doc"
+        },
+        {
+          "label": "Devcon 8 session: Latest Developments in Open Silicon",
+          "url": "https://app.devcon.org/schedule/latest-developments-in-open-silicon"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_crossbar-open-source-security-hardware-wallet"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "Daric has published RTL, SDK and documentation.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "daric-hardware",
+          "url": "https://github.com/crossbar-inc/daric-hardware"
+        },
+        {
+          "label": "daric-sdk",
+          "url": "https://github.com/crossbar-inc/daric-sdk"
+        },
+        {
+          "label": "daric-doc",
+          "url": "https://github.com/crossbar-inc/daric-doc"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: all three public repositories exist. daric-hardware (Apache-2.0, created 2026-04-23, last push 2026-08-31, 3 stars), daric-sdk (Apache-2.0, created 2026-04-23, last push 2026-10-13, 15 stars) and daric-doc (created 2026-08-16, sections Daric, EVB, RISCV Development, Download Tool, FAQ). Whether the hardware repository contains complete RTL was not checked."
+    },
+    {
+      "claim": "The post-quantum library (ML-DSA, ML-KEM) is NIST CAVP-validated on the RISC-V core.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "NIST CAVP validation listing",
+          "url": "https://csrc.nist.gov/projects/cryptographic-algorithm-validation-program/details?product=21968"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The NIST CSRC page lists the CrossBar Daric PQC Cryptographic Library, vendor Crossbar, Inc., with ML-DSA KeyGen, SigGen and SigVer and ML-KEM entries for both the Arm Cortex-M7 and RISC-V core operating environments, last updated 9/28/2026."
+    },
+    {
+      "claim": "The shared Ethereum signer runs on Ostros hardware with verifiable signing (ERC-8213), demoed at Devcon 8.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "GitHub repository ethereum/ethereum-app",
+          "url": "https://github.com/ethereum/ethereum-app"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The ethereum-app repository exists (Apache-2.0, created 2025-06-25, last push 2026-10-24). A demo on Ostros hardware or ERC-8213 support was not confirmed. Two Devcon 8 session pages exist but their text did not load."
+    },
+    {
+      "claim": "Xous runs on Ostros with a fully open bootloader, e-ink UI and deterministic firmware build.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "GitHub repository betrusted-io/xous-core",
+          "url": "https://github.com/betrusted-io/xous-core"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "xous-core exists (Apache-2.0, created 2020-03-10, last push 2026-11-22, 1022 stars). Its use on Ostros and the deterministic build were not checked."
+    },
+    {
+      "claim": "The Founders Edition ships to developers in late November 2026 and 196 developers signed up for the Dabao hackathon at Devcon 8.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/ostros-an-open-source-hardware-wallet-on-crossbar-s-security"
+        },
+        {
+          "label": "CrossBar Ostros page",
+          "url": "https://crossbar-inc.com/pages/ostros"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The Ostros page returned a bot check (HTTP 403) and no independent report was found."
+    },
+    {
+      "claim": "In October 2026, Ledger confirmed a hidden implant in a reseller device, with reported losses above USD 86 million.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/ostros-an-open-source-hardware-wallet-on-crossbar-s-security"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Background claim attributed in the proposal to BleepingComputer and Ledger without links. The cited articles were not located."
+    },
+    {
+      "claim": "A previous Giveth round raised USD 20,047 from 147 contributors.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Giveth project page",
+          "url": "https://www.giveth.io/project/CrossBar-open-source-security-hardware-wallet"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The Giveth page needs JavaScript and no figures were readable."
+    },
+    {
+      "claim": "The Baochip version of the Daric die shipped in every DEF CON 34 badge, and CrossBar has more than 200 patents and works with TSMC and Foxconn.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/ostros-an-open-source-hardware-wallet-on-crossbar-s-security"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Applicant statements. No independent source was read."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Verification of the titles and employment of Mark Davis, Sung Hyun Jo and Miriam Neubauer (LinkedIn pages were not read): Not found in public sources.",
+    "Nicolas Bacca role at Ledger and ZKNOX: Not found in public sources as read here.",
+    "Ostros product page contents (bot check): Not found in public sources as read here.",
+    "Round 1 deliverable list: Not found in public sources."
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}
