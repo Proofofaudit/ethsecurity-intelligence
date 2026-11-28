@@ -1,0 +1,214 @@
+{
+  "initiativeId": "01M2J7YH0GB72P1EXY776B0882",
+  "collectedAt": "2026-11-28T08:08:45.560Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 6,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "ethdebug",
+      "type": "Organization",
+      "url": "https://github.com/ethdebug",
+      "source": "proposal",
+      "reposTotal": 5,
+      "repos": [
+        {
+          "fullName": "ethdebug/format",
+          "url": "https://github.com/ethdebug/format",
+          "fork": false,
+          "archived": false,
+          "stars": 81,
+          "forks": 12,
+          "pushedAt": "2026-11-24T05:39:33Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethdebug/argot-post-2026-10",
+          "url": "https://github.com/ethdebug/argot-post-2026-10",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-02T23:12:46Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethdebug/bugc",
+          "url": "https://github.com/ethdebug/bugc",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-01-14T09:15:40Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethdebug/solidity-data-representation",
+          "url": "https://github.com/ethdebug/solidity-data-representation",
+          "fork": false,
+          "archived": false,
+          "stars": 62,
+          "forks": 11,
+          "pushedAt": "2023-07-11T21:03:56Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethdebug/implementations",
+          "url": "https://github.com/ethdebug/implementations",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2018-11-27T11:47:42Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "argotorg",
+      "type": "Organization",
+      "url": "https://github.com/argotorg",
+      "source": "proposal",
+      "reposTotal": 29,
+      "repos": [
+        {
+          "fullName": "argotorg/fe",
+          "url": "https://github.com/argotorg/fe",
+          "fork": false,
+          "archived": false,
+          "stars": 1739,
+          "forks": 223,
+          "pushedAt": "2026-11-28T06:26:28Z",
+          "latestReleaseAt": "2026-11-18T23:45:14Z"
+        },
+        {
+          "fullName": "argotorg/solidity",
+          "url": "https://github.com/argotorg/solidity",
+          "fork": false,
+          "archived": false,
+          "stars": 25782,
+          "forks": 6181,
+          "pushedAt": "2026-11-28T05:35:51Z",
+          "latestReleaseAt": "2026-11-26T06:13:47Z"
+        },
+        {
+          "fullName": "argotorg/solc-bin",
+          "url": "https://github.com/argotorg/solc-bin",
+          "fork": false,
+          "archived": false,
+          "stars": 433,
+          "forks": 263,
+          "pushedAt": "2026-11-28T00:50:03Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "argotorg/hevm",
+          "url": "https://github.com/argotorg/hevm",
+          "fork": false,
+          "archived": false,
+          "stars": 364,
+          "forks": 80,
+          "pushedAt": "2026-11-27T15:26:20Z",
+          "latestReleaseAt": "2026-06-29T12:37:19Z"
+        },
+        {
+          "fullName": "argotorg/solcore-lean",
+          "url": "https://github.com/argotorg/solcore-lean",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 0,
+          "pushedAt": "2026-11-27T00:06:20Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "argotorg/shuffler.lean",
+          "url": "https://github.com/argotorg/shuffler.lean",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 2,
+          "pushedAt": "2026-11-26T16:17:26Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "argotorg/solcore",
+          "url": "https://github.com/argotorg/solcore",
+          "fork": false,
+          "archived": false,
+          "stars": 115,
+          "forks": 11,
+          "pushedAt": "2026-11-26T08:08:48Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "argotorg/solcore-rs",
+          "url": "https://github.com/argotorg/solcore-rs",
+          "fork": false,
+          "archived": false,
+          "stars": 5,
+          "forks": 5,
+          "pushedAt": "2026-11-26T07:05:49Z",
+          "latestReleaseAt": "2026-10-30T08:40:16Z"
+        },
+        {
+          "fullName": "argotorg/yul-semantics-zoo",
+          "url": "https://github.com/argotorg/yul-semantics-zoo",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-25T22:49:47Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "argotorg/EquiVM",
+          "url": "https://github.com/argotorg/EquiVM",
+          "fork": false,
+          "archived": false,
+          "stars": 31,
+          "forks": 9,
+          "pushedAt": "2026-11-25T18:35:55Z",
+          "latestReleaseAt": "2026-07-30T10:52:57Z"
+        },
+        {
+          "fullName": "argotorg/sourcify",
+          "url": "https://github.com/argotorg/sourcify",
+          "fork": false,
+          "archived": false,
+          "stars": 966,
+          "forks": 552,
+          "pushedAt": "2026-11-25T14:23:11Z",
+          "latestReleaseAt": "2026-11-17T15:05:17Z"
+        },
+        {
+          "fullName": "argotorg/solidity-website",
+          "url": "https://github.com/argotorg/solidity-website",
+          "fork": false,
+          "archived": false,
+          "stars": 30,
+          "forks": 30,
+          "pushedAt": "2026-11-24T15:50:13Z",
+          "latestReleaseAt": null
+        }
+      ]
+    }
+  ],
+  "people": []
+}

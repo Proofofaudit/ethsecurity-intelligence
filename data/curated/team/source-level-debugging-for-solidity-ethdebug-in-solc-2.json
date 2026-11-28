@@ -1,0 +1,278 @@
+{
+  "members": [
+    {
+      "name": "Nicholas D'Andrea",
+      "role": "Developer of the ethdebug format at Argot Collective and named milestone reviewer for ethdebug (per the proposal)",
+      "pseudonymous": false,
+      "handles": [],
+      "pastWork": [
+        {
+          "label": "The proposal names him as developer of the ethdebug format at Argot Collective",
+          "kind": "project",
+          "url": "https://github.com/ethdebug/format",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "ethdebug format specification and reference compiler repositories under the ethdebug GitHub organization",
+          "kind": "project",
+          "url": "https://ethdebug.github.io/format/",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/source-level-debugging-for-solidity-ethdebug-in-solc-2",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Nikola Matic",
+      "role": "Named milestone reviewer for Solidity (proposal reviewer field)",
+      "pseudonymous": false,
+      "handles": [],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/source-level-debugging-for-solidity-ethdebug-in-solc-2",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "Walnut (implementation), with Argot Collective (backer and format steward)",
+    "summary": "Walnut builds developer tooling including debuggers and implements ethdebug in solc under this grant. Its site says it partners with Argot Collective and the Ethereum Foundation on this work. Argot is a non-profit that maintains solc and Fe and stewards the ethdebug format, and the proposal says it committed up to 151,000 USD of the 279,000 USD budget.",
+    "website": "https://walnut.dev/",
+    "founded": "Walnut founding date not found",
+    "previousFunding": [
+      {
+        "label": "Argot Collective funding of the first three milestones, as stated in the proposal (no Argot report found)",
+        "url": "https://initiatives.thedao.fund/initiative/source-level-debugging-for-solidity-ethdebug-in-solc-2"
+      },
+      {
+        "label": "Ethereum Foundation described as trusting Walnut with core infrastructure, per Walnut's homepage",
+        "url": "https://walnut.dev/"
+      }
+    ],
+    "otherProducts": [
+      {
+        "label": "soldb, CLI debugger for Solidity and EVM (GPL-3.0)",
+        "url": "https://github.com/walnuthq/soldb"
+      },
+      {
+        "label": "Walnut Debugger for EVM and Starknet",
+        "url": "https://docs.walnut.dev"
+      },
+      {
+        "label": "Super Scan, open-source Superchain block explorer",
+        "url": "https://github.com/walnuthq/super-scan"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Walnut website",
+        "url": "https://walnut.dev/"
+      },
+      {
+        "label": "Walnut announcement of the Argot partnership",
+        "url": "https://walnut.dev/blog/argot-announcement"
+      },
+      {
+        "label": "ethdebug format site",
+        "url": "https://ethdebug.github.io/format/"
+      },
+      {
+        "label": "GitHub organization ethdebug",
+        "url": "https://github.com/ethdebug"
+      },
+      {
+        "label": "GitHub organization argotorg",
+        "url": "https://github.com/argotorg"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [
+    {
+      "grant": "Argot-funded milestone 1: testing and validation infrastructure (13,000 USD)",
+      "funder": "Argot Collective",
+      "promised": "Automated test and validation infrastructure for ethdebug output running in public CI.",
+      "status": "Delivered",
+      "sources": [
+        {
+          "label": "solidity pull request 16727, merged 2026-05-28",
+          "url": "https://github.com/argotorg/solidity/pull/16727"
+        },
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/source-level-debugging-for-solidity-ethdebug-in-solc-2"
+        }
+      ],
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "grant": "Argot-funded milestone 2: internal debug data specification (19,000 USD)",
+      "funder": "Argot Collective",
+      "promised": "Internal specification of how solc represents and propagates debug data, published for review.",
+      "status": "Delivered",
+      "sources": [
+        {
+          "label": "solidity pull request 16780, merged 2026-08-19",
+          "url": "https://github.com/argotorg/solidity/pull/16780"
+        },
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/source-level-debugging-for-solidity-ethdebug-in-solc-2"
+        }
+      ],
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "grant": "Argot-funded milestone 3: Yul serialization (33,000 USD, due 2026-10)",
+      "funder": "Argot Collective",
+      "promised": "Debug info survives compilation round-trips through Yul, shown by automated tests in public CI.",
+      "status": "Partly delivered",
+      "sources": [
+        {
+          "label": "solidity pull request 17270, open",
+          "url": "https://github.com/argotorg/solidity/pull/17270"
+        },
+        {
+          "label": "solidity pull request 17271, open",
+          "url": "https://github.com/argotorg/solidity/pull/17271"
+        },
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/source-level-debugging-for-solidity-ethdebug-in-solc-2"
+        }
+      ],
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "The first milestone (test infrastructure) is complete, linked to pull request 16727.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Pull request 16727",
+          "url": "https://github.com/argotorg/solidity/pull/16727"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API shows the pull request titled 'ethdebug: Improve current testing infra' is merged (2026-05-28). Whether the CI meets the acceptance wording was not reviewed."
+    },
+    {
+      "claim": "The second milestone (internal debug data specification) is complete, linked to pull request 16780.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Pull request 16780",
+          "url": "https://github.com/argotorg/solidity/pull/16780"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API shows the pull request titled 'feat: add internal spec for debug-info' is merged (2026-08-19). The specification text was not reviewed."
+    },
+    {
+      "claim": "The ethdebug format is an open specification with a public repository, comparable in intent to DWARF.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "ethdebug format repository",
+          "url": "https://github.com/ethdebug/format"
+        },
+        {
+          "label": "ethdebug format site",
+          "url": "https://ethdebug.github.io/format/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The site resolves and the repository is active (last push 2026-11-24, 81 stars, 12 forks, no tagged release). The README states the DWARF comparison. The site marks the specification as Draft."
+    },
+    {
+      "claim": "The implementation is underway at Walnut and lands in the official solc repository.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Open ethdebug pull requests in solidity",
+          "url": "https://github.com/argotorg/solidity/pulls?q=is%3Apr+ethdebug"
+        },
+        {
+          "label": "Pull request 17271",
+          "url": "https://github.com/argotorg/solidity/pull/17271"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub search shows more than a dozen open ethdebug pull requests in argotorg/solidity opened 2026-11-23 to 2026-11-27, plus merged 16727 and 16780. Their authors were not matched to Walnut."
+    },
+    {
+      "claim": "Walnut is building soldb, the first ETHDebug consumer, a CLI debugger and tracer for Solidity.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "soldb repository",
+          "url": "https://github.com/walnuthq/soldb"
+        },
+        {
+          "label": "ethdebug format site",
+          "url": "https://ethdebug.github.io/format/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The repository exists (GPL-3.0, 34 stars, last push 2026-11-26). The ethdebug site says debuggers such as Walnut's soldb read the format. Debugging output quality was not tested."
+    },
+    {
+      "claim": "solc emits ethdebug data for the full unoptimized pipeline and then optimized builds, and soldb debugs optimized builds without source maps.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/source-level-debugging-for-solidity-ethdebug-in-solc-2"
+        },
+        {
+          "label": "ethdebug format site",
+          "url": "https://ethdebug.github.io/format/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "These are open milestones due 2027-03 and 2027-06. The ethdebug site calls solc support experimental and local variables and optimized code upcoming."
+    },
+    {
+      "claim": "At least 3 of 5 providers (Tenderly, Foundry, Hardhat, Medusa, Remix) will engage on adoption.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/source-level-debugging-for-solidity-ethdebug-in-solc-2"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "This is a future adoption milestone. No written provider engagement was found."
+    },
+    {
+      "claim": "The 2025 Solidity Developer Survey had 925 responses and ranked step-through debugging, variable inspection and transaction replay highest.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Walnut announcement",
+          "url": "https://walnut.dev/blog/argot-announcement"
+        },
+        {
+          "label": "Solidity blog",
+          "url": "https://blog.soliditylang.org"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Walnut's post repeats the figures. The survey report itself was not located in this check."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Nicholas D'Andrea: GitHub, X and LinkedIn handles not published by the proposal or the ethdebug site, so none were attached; past companies, audits, CVEs and bounty credits Not found in public sources",
+    "Nikola Matic: role at the Solidity team, handles and past work Not found in public sources (named only as milestone reviewer)",
+    "Walnut team members, public team size and founding date Not found in public sources",
+    "Argot funding agreement and milestone payment records for the first three milestones Not found in public sources",
+    "Walnut previous grants other than the Argot arrangement Not found in public sources",
+    "Original Solidity Developer Survey 2025 report with the 925 response count not located"
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}
