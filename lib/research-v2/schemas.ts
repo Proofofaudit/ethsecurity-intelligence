@@ -108,7 +108,20 @@ const claim = z
     status: z.enum(CLAIM_STATUSES),
     sources,
     checkedOn,
-    method: text(400),
+    method: text(500),
+    totalLabel: text(80).optional(),
+    breakdown: z
+      .array(
+        z
+          .object({
+            label: text(80),
+            count: z.number().int().nonnegative(),
+            tone: z.enum(["in_scope", "unmatched", "unchecked"]),
+          })
+          .strict(),
+      )
+      .max(6)
+      .optional(),
   })
   .strict();
 

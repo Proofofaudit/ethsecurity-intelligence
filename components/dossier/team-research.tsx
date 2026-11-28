@@ -1,4 +1,5 @@
 import { DeliveryBadge, EvidenceBadge, NOT_YET_RESEARCHED } from "@/components/ui/badges";
+import { CoverageBar } from "@/components/ui/coverage-bar";
 import { ExternalLink } from "@/components/ui/button";
 import { ChartFrame } from "@/components/ui/chart-frame";
 import { Sparkline, sparklineAlt } from "@/components/ui/charts";
@@ -144,6 +145,7 @@ export function TeamResearchSection({ research }: { research: TeamResearchResult
                   <li key={`${c.claim}-${n}`} className="grid gap-x-4 gap-y-1 py-2.5 text-sm sm:grid-cols-[minmax(0,1fr)_auto]">
                     <div className="min-w-0">
                       <p>{c.claim}</p>
+                      {c.breakdown && c.breakdown.length > 0 && <CoverageBar totalLabel={c.totalLabel} parts={c.breakdown} />}
                       <div className="mt-1">
                         <Sources sources={c.sources} />
                       </div>

@@ -86,10 +86,10 @@ export function Onboarding() {
       </div>
       <ol className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {ONBOARDING_STEPS.map((s, n) => (
-          <li key={s.icon} className="flex items-start gap-3 text-sm text-ink-2">
-            <span className="flex items-center gap-2 text-ink">
+          <li key={s.icon} className="flex items-start gap-3 rounded-xs bg-accent-wash px-2 py-2 text-sm text-ink-2">
+            <span className="flex items-center gap-2 text-accent">
               <Icon name={s.icon} />
-              <span className="num text-xs text-ink-3">{n + 1}</span>
+              <span className="num flex size-5 items-center justify-center rounded-full bg-accent text-[11px] text-accent-ink">{n + 1}</span>
             </span>
             <span>{s.text}</span>
           </li>

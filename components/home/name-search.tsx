@@ -46,7 +46,7 @@ export function NameSearch({ holders, index, total }: { holders: BadgeHolder[] |
           maxLength={80}
           aria-describedby={`${id}-help`}
           data-name-search-input
-          className="h-11 w-full min-w-0 rounded-xs border border-ink bg-paper px-3 text-md text-ink focus:outline-none disabled:cursor-not-allowed disabled:border-rule-2 disabled:text-ink-3"
+          className="h-11 w-full min-w-0 rounded-xs border-2 border-accent bg-paper px-3 text-md text-ink focus:outline-none disabled:cursor-not-allowed disabled:border-rule-2 disabled:text-ink-3"
         />
         <p id={`${id}-help`} className="mt-1 text-xs text-ink-3">
           {holders ? (
@@ -95,15 +95,17 @@ export function NameSearch({ holders, index, total }: { holders: BadgeHolder[] |
 
         {holders && typed && chosen && (
           <div data-name-search-state="results" className="space-y-6">
-            <p className="text-sm text-ink-2">
-              Showing public connections for <span className="font-medium text-ink">{chosen.name}</span>
-              {chosen.organisation && <>, {chosen.organisation}</>}
-              {chosen.xHandle && <> (@{chosen.xHandle})</>}. Every card names the public source for its reason.
-            </p>
-            {groups.length === 0 && <NoMatch total={total} />}
+            {groups.length > 0 && (
+              <p className="rounded-xs border border-accent bg-accent-wash px-3 py-2 text-sm text-ink">
+                Showing public connections for <span className="font-medium">{chosen.name}</span>
+                {chosen.organisation && <>, {chosen.organisation}</>}
+                {chosen.xHandle && <> (@{chosen.xHandle})</>}. Every card names the public source for its reason.
+              </p>
+            )}
+            {groups.length === 0 && <FoundWithoutLink name={chosen.name} total={total} />}
             {groups.map((g) => (
-              <section key={g.key} aria-labelledby={`${id}-g-${g.key}`} data-result-group={g.key}>
-                <h3 id={`${id}-g-${g.key}`} className="mb-2 text-sm font-semibold">
+              <section key={g.key} aria-labelledby={`${id}-g-${g.key}`} data-result-group={g.key} className="rounded-xs border border-rule border-l-4 border-l-accent bg-paper px-3 py-2">
+                <h3 id={`${id}-g-${g.key}`} className="mb-2 text-sm font-semibold text-accent">
                   {g.label} <span className="num font-normal text-ink-3">{g.cards.length}</span>
                 </h3>
                 <ul className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3 [&>*]:min-w-0">
@@ -122,9 +124,28 @@ export function NameSearch({ holders, index, total }: { holders: BadgeHolder[] |
   );
 }
 
+function FoundWithoutLink({ name, total }: { name: string; total: number }) {
+  return (
+    <div role="status" data-name-search-state="no-link" className="max-w-[680px] rounded-xs border border-accent bg-accent-wash px-3 py-2 text-sm text-ink">
+      <p>
+        <span className="font-medium">{name}</span> is on the public badge list. None of the {total} initiatives name them in a public team, repository or organisation record.
+      </p>
+      <p className="mt-1">
+        <Link href="/initiatives" className="link">
+          Browse all {total} initiatives
+        </Link>
+        {" · "}
+        <Link href="/workspace#affiliations" className="link">
+          My Affiliations
+        </Link>
+      </p>
+    </div>
+  );
+}
+
 function NoMatch({ total }: { total: number }) {
   return (
-    <div role="status" data-name-search-state="no-match" className="max-w-[640px] border-l-2 border-rule-2 pl-3 text-sm text-ink-2">
+    <div role="status" data-name-search-state="no-match" className="max-w-[640px] rounded-xs border border-st-partial bg-st-partial-wash px-3 py-2 text-sm text-ink">
       <p>{NO_MATCH_TEXT}</p>
       <p className="mt-1">
         <Link href="/initiatives" className="link">

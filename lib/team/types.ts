@@ -41,11 +41,23 @@ export type DeliveryTimelineEntry = {
 
 export type ClaimStatus = "Verified" | "Not verified" | "Contradicted by source";
 
+export type CoverageTone = "in_scope" | "unmatched" | "unchecked";
+
+/** A sourced count split, such as functions in or out of a cited audit scope. Not a score. */
+export type CoveragePart = {
+  label: string;
+  count: number;
+  tone: CoverageTone;
+};
+
 export type ClaimCheck = {
   claim: string;
   status: ClaimStatus;
   sources: SourceLink[];
   checkedOn: string;
+  /** Optional counted split stated by the source. Rendered as a labelled bar. */
+  breakdown?: CoveragePart[];
+  totalLabel?: string;
 };
 
 export type TeamResearch = {

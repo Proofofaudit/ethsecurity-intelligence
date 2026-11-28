@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "@/components/ui/icons";
 import { NameSearch } from "@/components/home/name-search";
+import { BadgeKey } from "@/components/ui/badges";
 import { Onboarding } from "@/components/home/onboarding";
 import { WhyAiList } from "@/components/about/why-ai";
 import { PageHead, Stat } from "@/components/ui/layout";
@@ -47,6 +48,7 @@ export default async function OverviewPage() {
       />
 
       <NameSearch holders={holders} index={index} total={d.initiatives.length} />
+      <BadgeKey />
 
       <Onboarding />
 

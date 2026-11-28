@@ -121,8 +121,8 @@
       "method": "The demo page currently reads 71 calls in audit scope, which includes the 2 byte-for-byte matches, so 26 are not matched. The proposal figures are 2 plus 74 in scope and 21 unmatched. The page data may have been updated after the proposal, so no contradiction is asserted."
     },
     {
-      "claim": "An explorer covers 656 functions across ten major Ethereum protocols.",
-      "status": "Not verified",
+      "claim": "The function explorer lists 25,695 callable functions across fourteen protocols at block 26,392,435: 14,577 in a cited audit scope (56.7%), 11,118 not matched to a report (43.3%), and 0 not checked.",
+      "status": "Verified",
       "sources": [
         {
           "label": "Function explorer",
@@ -130,7 +130,13 @@
         }
       ],
       "checkedOn": "2026-11-28",
-      "method": "The explorer page currently describes fourteen protocols and 25,695 callable functions read from block 26,392,435. The proposal figure of 656 functions across ten protocols does not match the current page, which may have grown since. No contradiction is asserted."
+      "totalLabel": "25,695 callable functions",
+      "breakdown": [
+        { "label": "In a cited audit scope", "count": 14577, "tone": "in_scope" },
+        { "label": "Not matched to a report", "count": 11118, "tone": "unmatched" },
+        { "label": "Not checked", "count": 0, "tone": "unchecked" }
+      ],
+      "method": "The explorer page states these four counts and block 26,392,435. Checked 28 Nov 2026. The functions were not re-counted here. The proposal's earlier figure of 656 functions across ten protocols is not this page."
     },
     {
       "claim": "Deployed Aave V4 code was reproduced from the reviewed commit.",
