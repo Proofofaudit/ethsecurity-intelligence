@@ -9,6 +9,7 @@ import { formatDate, formatDateTime } from "@/components/ui/money";
 import { StatusMark } from "@/components/ui/status";
 import { toggleBookmark, useWorkspace } from "@/components/workspace/store";
 import { EVIDENCE_KIND_LABEL } from "@/lib/dossier/labels";
+import { correctionsStoreNotice } from "@/lib/corrections/store-status";
 import { cn } from "@/lib/util/cn";
 
 export const ORIGIN_LABEL: Record<Claim["origin"], string> = {
@@ -317,6 +318,21 @@ function BookmarkButton({ claim }: { claim: Claim }) {
 
 function CorrectionForm({ target, categories, onDone }: { target: { type: "claim" | "initiative"; id: string; label: string }; categories: { value: string; label: string }[]; onDone: () => void }) {
   const [startedAt] = useState(() => Date.now());
+  // Pages are cached, so the store state is read when the form opens, not at build time.
+  const [storeNotice, setStoreNotice] = useState<{ title: string; body: string } | null>(null);
+  useEffect(() => {
+    let live = true;
+    fetch("/api/v1/status")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((j: { data?: { store?: { ok?: boolean; degraded?: boolean } } } | null) => {
+        const st = j?.data?.store;
+        if (live && st) setStoreNotice(correctionsStoreNotice({ failed: false, degraded: !!st.degraded || st.ok === false, backend: "mongodb" }));
+      })
+      .catch(() => {});
+    return () => {
+      live = false;
+    };
+  }, []);
   const [state, setState] = useState<{ kind: "idle" | "sending" | "ok" | "error"; message?: string }>({ kind: "idle" });
 
   const submit = async (e: FormEvent<HTMLFormElement>) => {
@@ -358,6 +374,12 @@ function CorrectionForm({ target, categories, onDone }: { target: { type: "claim
   const label = "mb-1 block text-xs font-medium text-ink-2";
   return (
     <form onSubmit={submit} className="space-y-4">
+      {storeNotice && (
+        <div role="alert" className="border border-rule-2 bg-paper-2 px-3 py-2 text-sm">
+          <p className="font-medium text-st-contradicted">{storeNotice.title}</p>
+          <p className="mt-1 text-ink-2">{storeNotice.body}</p>
+        </div>
+      )}
       <div className="border-l-2 border-rule-2 pl-3">
         <p className="eyebrow mb-0.5">{target.type === "claim" ? "Statement" : "Initiative"}</p>
         <p className="line-clamp-3 text-sm text-ink">{target.label}</p>
@@ -410,7 +432,7 @@ function CorrectionForm({ target, categories, onDone }: { target: { type: "claim
       )}
       <div className="flex items-center justify-between gap-3 border-t border-rule pt-4">
         <p className="text-2xs text-ink-3">A moderator reviews every submission. Nothing changes until it is accepted.</p>
-        <Button type="submit" variant="primary" disabled={state.kind === "sending"}>
+        <Button type="submit" variant="primary" disabled={state.kind === "sending" || !!storeNotice}>
           {state.kind === "sending" ? "Sending…" : "Submit"}
         </Button>
       </div>

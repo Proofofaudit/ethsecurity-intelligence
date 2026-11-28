@@ -162,7 +162,7 @@ export default async function InitiativePage({ params }: Params) {
       <article>
         <nav aria-label="Breadcrumb" className="mb-4 text-xs text-ink-3">
           <Link href="/initiatives" className="hover:text-accent">
-            Research
+            Initiatives
           </Link>
           <span className="mx-1.5">/</span>
           <span>{ini.shortTitle}</span>
@@ -696,7 +696,7 @@ export default async function InitiativePage({ params }: Params) {
               <Note className="mt-4">
                 Separate collaboration hypotheses from text similarity and shared lifecycle stages ({x.related.length}) are listed on the{" "}
                 <Link href={`/initiatives#compare`} className="link">
-                  collaboration page
+                  compare section on Initiatives
                 </Link>
                 .
               </Note>

@@ -42,7 +42,7 @@ export function badgesFor(team: TeamResearchFile | null, initiativeId: string): 
   if (!t) return { evidence: null, delivery: null };
   const ev = count(EVIDENCE_ORDER, t.claimChecks.map((c) => CLAIM_TO_BADGE[c.status]));
   return {
-    evidence: ev.length ? ev : [{ kind: "not_found", count: 1 }],
+    evidence: ev,
     delivery: count(DELIVERY_ORDER, t.deliveryTimeline.map((e) => DELIVERY_TO_BADGE[e.status])),
   };
 }

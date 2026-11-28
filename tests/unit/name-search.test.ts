@@ -31,7 +31,7 @@ const holders = parseBadgeHolderCsv(CSV);
 describe("CSV reader", () => {
   it("reads public columns only and drops the email column", () => {
     expect(holders).toHaveLength(3);
-    expect(Object.keys(holders[0]!).sort()).toEqual(["aliases", "github", "linkedin", "name", "organisation", "website", "xHandle"]);
+    expect(Object.keys(holders[0]!).sort()).toEqual(["aliases", "github", "name", "organisation", "website", "xHandle"]);
     expect(JSON.stringify(holders)).not.toMatch(/@example\.invalid|email/i);
     expect(PUBLIC_COLUMNS).not.toContain("email");
   });
@@ -214,7 +214,7 @@ describe("real dataset index", () => {
   });
 
   it("finds an initiative through a repository owner and an organization with public sources", () => {
-    const gh: BadgeHolder = { name: "Alex Example", organisation: "", xHandle: "", linkedin: "", website: "", github: "https://github.com/BlossomLabs", aliases: [] };
+    const gh: BadgeHolder = { name: "Alex Example", organisation: "", xHandle: "", website: "", github: "https://github.com/BlossomLabs", aliases: [] };
     const repoGroup = connectionsFor(gh, idx).find((g) => g.key === "repos");
     expect(repoGroup?.cards.length).toBeGreaterThan(0);
     for (const c of repoGroup!.cards) expect(c.evidence[0]!.url).toContain("github.com/");
@@ -241,9 +241,9 @@ describe("badges from team research", () => {
       { initiativeId: "b", members: [], organization: null, deliveryTimeline: [], claimChecks: [], questions: [] },
     ],
   };
-  it("maps statuses, says Not found when nothing was found and null when not researched", () => {
+  it("maps statuses, shows no synthetic badge when no claim check exists and null when not researched", () => {
     expect(badgesFor(file, "a")).toEqual({ evidence: [{ kind: "contradicted", count: 1 }], delivery: [{ kind: "delivered", count: 1 }, { kind: "none", count: 1 }] });
-    expect(badgesFor(file, "b")).toEqual({ evidence: [{ kind: "not_found", count: 1 }], delivery: [] });
+    expect(badgesFor(file, "b")).toEqual({ evidence: [], delivery: [] });
     expect(badgesFor(file, "c")).toEqual({ evidence: null, delivery: null });
     expect(badgesFor(null, "a")).toEqual({ evidence: null, delivery: null });
   });

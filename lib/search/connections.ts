@@ -110,7 +110,7 @@ export function connectionsFor(holder: BadgeHolder, index: SearchIndex): Connect
   if (holder.organisation || holderHost) {
     for (const ini of index.initiatives) {
       const named = holder.organisation ? ini.organizations.find((o) => sameOrganisation(holder.organisation, o)) : undefined;
-      if (named) place("organisation", ini, `Your listed organisation, ${holder.organisation}, matches ${named}, named in this initiative.`, [official(ini)]);
+      if (named) place("organisation", ini, `Your listed organisation, ${holder.organisation}, may match ${named}, named in this initiative. Check the official page.`, [official(ini)]);
       else if (holderHost && ini.hosts.includes(holderHost)) place("organisation", ini, `Your website, ${holderHost}, is the website listed for this initiative's organization.`, [official(ini)]);
     }
   }
@@ -145,7 +145,7 @@ export function connectionsFor(holder: BadgeHolder, index: SearchIndex): Connect
       continue;
     }
     const backer = holder.organisation ? ini.backers.find((b) => sameOrganisation(holder.organisation, b.company)) : undefined;
-    if (backer) place("public", ini, `An official pledge record for this initiative names ${backer.company}, matching your listed organisation.`, [{ label: "Pledge record", url: backer.sourceUrl }]);
+    if (backer) place("public", ini, `An official pledge record for this initiative names ${backer.company}, which may match your listed organisation.`, [{ label: "Pledge record", url: backer.sourceUrl }]);
   }
 
   return GROUP_ORDER.map((key) => ({

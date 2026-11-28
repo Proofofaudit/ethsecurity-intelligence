@@ -7,7 +7,7 @@
  * `matchHolders` in the browser; it is never sent, stored or logged.
  */
 
-export const PUBLIC_COLUMNS = ["name", "organisation", "x_handle", "linkedin", "website", "github", "aliases"] as const;
+export const PUBLIC_COLUMNS = ["name", "organisation", "x_handle", "website", "github", "aliases"] as const;
 export type PublicColumn = (typeof PUBLIC_COLUMNS)[number];
 
 export interface BadgeHolder {
@@ -15,7 +15,6 @@ export interface BadgeHolder {
   organisation: string;
   /** Lowercase, without a leading @. */
   xHandle: string;
-  linkedin: string;
   website: string;
   github: string;
   aliases: string[];
@@ -100,7 +99,6 @@ export function parseBadgeHolderCsv(text: string): BadgeHolder[] {
       name,
       organisation: cell(r, "organisation"),
       xHandle: normalizeHandle(cell(r, "x_handle")),
-      linkedin: cell(r, "linkedin"),
       website: cell(r, "website"),
       github: cell(r, "github"),
       aliases: cell(r, "aliases")

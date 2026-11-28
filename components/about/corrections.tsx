@@ -41,11 +41,12 @@ export async function CorrectionsSection() {
       )}
 
       <Block title="How to submit a correction">
+        {notice && <p className="mb-2 max-w-[860px] text-xs text-ink-3">The notice above applies: the correction form is switched off while the store cannot keep submissions.</p>}
         <ol className="max-w-[860px] list-decimal space-y-1 pl-5 text-sm text-ink-2">
           <li>
             Open the initiative in{" "}
             <Link href="/initiatives" className="link">
-              Research
+              Initiatives
             </Link>{" "}
             and select the statement. Its source inspector has &ldquo;Suggest a correction to this statement&rdquo;. Each dossier header also has &ldquo;Suggest a correction&rdquo; for the initiative as a whole.
           </li>

@@ -57,6 +57,13 @@ export function BadgeRow({ evidence, delivery, className }: { evidence: BadgeCou
       </p>
     );
   }
+  if (evidence.length === 0 && (delivery ?? []).length === 0) {
+    return (
+      <p className={cn("text-2xs text-ink-3", className)} data-badge-row="empty">
+        No claim checks recorded
+      </p>
+    );
+  }
   return (
     <ul className={cn("flex flex-wrap gap-1", className)} aria-label="Evidence and delivery" data-badge-row="researched">
       {evidence.map((b) => (
