@@ -1,0 +1,716 @@
+{
+  "format": "ethsecurity-intelligence/lab-config@1",
+  "promptVersion": "2026.11-lab-v1",
+  "skillName": "ethsecurity-grant-evaluator",
+  "dataset": {
+    "version": "20261126T130839Z-fe7ea363+7d84d35c",
+    "methodologyVersion": "2026.11-v1",
+    "cohortSize": 55,
+    "cohortFrozenAt": "2026-11-26T09:19:49.152Z",
+    "officialSourceUrl": "https://initiatives.thedao.fund/api/initiatives.json?status=ballot"
+  },
+  "config": {
+    "version": 1,
+    "name": "Grant evaluator",
+    "perspective": "grant-evaluator",
+    "focusQuestions": [
+      "Are the milestones specific, with acceptance criteria a reviewer can check?",
+      "What exists today with proof, and what would the funding build?",
+      "What happens to the deliverables after funding ends?",
+      "Which questions would you ask the team before deciding?"
+    ],
+    "categories": [],
+    "stages": [],
+    "initiatives": [],
+    "organizations": [],
+    "initiativeTypes": [
+      "grant",
+      "rfp"
+    ],
+    "researchMinutes": 60,
+    "depth": "standard",
+    "metrics": [
+      "initiative.pct_funded",
+      "initiative.remaining",
+      "initiative.milestones",
+      "initiative.largest_milestone_share",
+      "initiative.adoption_share",
+      "initiative.open_questions",
+      "initiative.evidence_coverage"
+    ],
+    "weights": {},
+    "evidence": {
+      "establishedAt": "partially_supported",
+      "applicantStatements": "quote_and_label",
+      "citeClaimIds": true,
+      "sources": "dataset_and_cited"
+    },
+    "funding": {
+      "goalMinUsd": null,
+      "goalMaxUsd": null,
+      "fundedMinPct": null,
+      "fundedMaxPct": null,
+      "pledgeConversionPct": 100,
+      "excludeAdoptionMilestones": false,
+      "budgetUsd": null
+    },
+    "results": 10,
+    "outputFormat": "checklist",
+    "counterarguments": "per_initiative",
+    "uncertainty": "inline",
+    "allowInference": false
+  },
+  "scope": {
+    "matching": [
+      {
+        "id": "01M4ACNCQ61BYAQC7VZ4ABAKB2",
+        "slug": "assertions-for-safes-enforced-on-every-transaction-readable",
+        "name": "Assertions.eth"
+      },
+      {
+        "id": "01M6SCYV7YW1APV08QWEKCEX69",
+        "slug": "decentralized-archive-for-ethereum-blob-data",
+        "name": "Blobscan"
+      },
+      {
+        "id": "01M4RK0Z7B8YQFYWMH43P4CGH9",
+        "slug": "address-poisoning-detection-and-public-api-for-ethereum-and",
+        "name": "Blockscout"
+      },
+      {
+        "id": "01M8232CFK0PHZHYGXD04XJDK9",
+        "slug": "blockthreat-weekly-threat-intelligence-that-keeps-ethereum-t",
+        "name": "BlockThreat"
+      },
+      {
+        "id": "01M4DNFKC31D46AZVBBWKZVS52",
+        "slug": "know-what-you-sign-verified-simulation-against-blind-signing",
+        "name": "colibri: Know What You Sign, Verified Simulation Against Blind…"
+      },
+      {
+        "id": "01M4DNCJ91H721WH88RMET73JW",
+        "slug": "make-dapps-verify-what-they-show-colibri-in-wallets-defi-and",
+        "name": "colibri: Make dApps Verify What They Show in Wallets, DeFi and…"
+      },
+      {
+        "id": "01M4DN8CG9M5000N3YK13NC88H",
+        "slug": "trustless-across-ethereum-colibri-verification-for-l2-networ",
+        "name": "colibri: Trustless Across Ethereum, Verification for L2 Network…"
+      },
+      {
+        "id": "01M3Z4WCEM2VMP0J3YFKH60DEE",
+        "slug": "dappfence-verifiable-frontend-security",
+        "name": "DappFence"
+      },
+      {
+        "id": "01M4BF7QP1AJ27GBXGYY15HJ4H",
+        "slug": "free-backtestable-onchain-monitoring-on-17-evm-chains",
+        "name": "Dedaub"
+      },
+      {
+        "id": "01M7673802W8E7R5JNPPS42CKX",
+        "slug": "defimon-rescue-agent-autonomous-whitehat-rescues-for-safe-ha",
+        "name": "Defimon Rescue Agent"
+      },
+      {
+        "id": "01M2GVWSZPN62EB6QN9EWXMR3Z",
+        "slug": "fund-echidna-development-through-2027-2",
+        "name": "Echidna"
+      },
+      {
+        "id": "01M2MT3AC43G0TF72GJ2AAVV8M",
+        "slug": "independent-security-assurance-for-the-eez-smart-contracts",
+        "name": "EEZ"
+      },
+      {
+        "id": "01M5BS1GCHNK98FGV1QVSWW3AP",
+        "slug": "eth-daily-security-getting-ethereum-users-to-the-tools-that",
+        "name": "ETH Daily Security"
+      },
+      {
+        "id": "01M7MMH5TT52AVYP26YGMH849V",
+        "slug": "ethsec-ai-security-review-of-the-ethereum-ecosystem",
+        "name": "EthSec"
+      },
+      {
+        "id": "01M29K8ZJSD5TT78Q4ZYV7EGTF",
+        "slug": "forensiq-faster-ethereum-incident-response-through-evidence",
+        "name": "ForensIQ"
+      },
+      {
+        "id": "01M4PN0TQFGMJCHHQZ68BET28K",
+        "slug": "scaling-kann-ai-for-ai-smart-contract-security-2",
+        "name": "Kann Audits"
+      },
+      {
+        "id": "01M5F26FPPP86J972454VP90SP",
+        "slug": "open-risk-pricing-for-defi-a-public-price-for-default-risk",
+        "name": "Kleros x Seer"
+      },
+      {
+        "id": "01M7FKT26WBRVS419EJG2EKJ1Q",
+        "slug": "leakdetectai-detecting-and-eliminating-side-channel-vulnerab",
+        "name": "LeakDetectAI"
+      },
+      {
+        "id": "01M761AJ5JRD2CCBH08G61762M",
+        "slug": "reproducible-ethereum-clients-official-releases-that-anyone",
+        "name": "mab.xyz: Reproducible Builds for the 12 Main Ethereum Clients"
+      },
+      {
+        "id": "01M75H5K1FSQ72K5TWQJ3Z3VMC",
+        "slug": "reusable-security-workflows-for-triage-of-vulnerability-repo",
+        "name": "mab.xyz: Reusable Security Workflows for Triage of Vulnerabilit…"
+      },
+      {
+        "id": "01M5MAKDMCM05EYB6HWDWJFDNY",
+        "slug": "formally-verified-evm-for-ethereum",
+        "name": "Nethermind"
+      },
+      {
+        "id": "01M2QFPTN1BQDS7VYA5G5QH6B3",
+        "slug": "dprk-it-worker-screening-for-the-ethereum-ecosystem",
+        "name": "NorthScan"
+      },
+      {
+        "id": "01M2K91QF23NEAFTEQ35CC0X51",
+        "slug": "onchain-risk-map-an-open-operational-incident-graph-for-ethe",
+        "name": "OKcontract"
+      },
+      {
+        "id": "01M37FFV4J021XZCFD3NRKS5PZ",
+        "slug": "onay-local-signing-companion",
+        "name": "Onay"
+      },
+      {
+        "id": "01M7G1TMPA644E14RREP7FWFS3",
+        "slug": "ostros-an-open-source-hardware-wallet-on-crossbar-s-security",
+        "name": "Ostros"
+      },
+      {
+        "id": "01M5YJ9GV0J653S0MEAY8X291D",
+        "slug": "trust-and-security-assessment-framework-for-agentic-defi",
+        "name": "Owney"
+      },
+      {
+        "id": "01M7DRVJ21PZF6F9ASRRTC5FGK",
+        "slug": "proof-of-audits-proof-before-sign-for-ethereum-wallets-and-a",
+        "name": "Proof of Audits"
+      },
+      {
+        "id": "01M23GTPYREBX59SBNC6JF3FJC",
+        "slug": "automated-eip-compliance-checks-for-ethereum-clients",
+        "name": "PRSpec"
+      },
+      {
+        "id": "01M4XZYSTKER585WFBTPDS2C3Z",
+        "slug": "economic-property-packs-for-amms-and-lending-markets-fuzz-te",
+        "name": "RA2"
+      },
+      {
+        "id": "01M5FK50JGGFSER7GE9CEPYD45",
+        "slug": "ai-guided-smart-contract-security-checks-in-remix",
+        "name": "Remix"
+      },
+      {
+        "id": "01M2K8EKQAH710WKDRANQ04TVG",
+        "slug": "exploit-exposure-layer-free-data-on-every-wallet-still-appro",
+        "name": "Revoke.cash"
+      },
+      {
+        "id": "01M85ABCFNN4GQ4022QQB0TC14",
+        "slug": "rfp-a-bug-broker-that-gets-ethereum-bugs-fixed-and-researche",
+        "name": "A Bug Broker That Gets Ethereum Bugs Fixed and Research…"
+      },
+      {
+        "id": "01M5929GJEQH8S33FQJ1E2J9CD",
+        "slug": "an-open-bug-bounty-program-for-all-of-ethereum-white-hat-res",
+        "name": "An Open Bug Bounty Program for All of Ethereum: White H…"
+      },
+      {
+        "id": "01M68T944HQTVQFH8CHAYM48NZ",
+        "slug": "independent-attestations-for-the-erc-7730-descriptors-of-eth",
+        "name": "Clear Signing: Independent Attestations for the ERC-773…"
+      },
+      {
+        "id": "01M29K8XZ44RZWGYDYY0NWB6YN",
+        "slug": "community-fuzzing-tooling-for-ethereum-ecosystem-projects",
+        "name": "Community Fuzzing Tooling for Ethereum Ecosystem Projec…"
+      },
+      {
+        "id": "01M85AA84PDDXCW4W3S80WCAY7",
+        "slug": "rfp-no-more-lost-bug-reports-a-verified-security-contact-for",
+        "name": "Hunt Down Every Ethereum Team Until It Publishes a secu…"
+      },
+      {
+        "id": "01M23GTQDENX5BPAMTFT82R795",
+        "slug": "opsec-ratings-coalition-to-build-maintain-an-l2beat-for-opse",
+        "name": "OpSec Ratings Coalition to Build & Maintain an \"L2BEAT…"
+      },
+      {
+        "id": "01M29K91G30RT7153MBM3VXDAZ",
+        "slug": "production-ready-local-first-safe-ui",
+        "name": "Production-Ready Local-First Safe UI"
+      },
+      {
+        "id": "01M85ACA7DHHYWHJQNQ9ZW70D1",
+        "slug": "rfp-stop-patches-from-becoming-exploits-coordinated-fixes-fo",
+        "name": "What Replaces Patch Tuesday? Coordinated Disclosure for…"
+      },
+      {
+        "id": "01M2T5V1CCFKH3KYYKJ193ADNY",
+        "slug": "safe-lockdown-guard-an-emergency-freeze-for-kidnapping-and-c",
+        "name": "Runtime Capital"
+      },
+      {
+        "id": "01M7NAHFQAC0VNRBMVZZN87H0Z",
+        "slug": "saviour-who-can-act-through-a-safe-at-one-pinned-block",
+        "name": "Saviour"
+      },
+      {
+        "id": "01M55FCN0S9D9AFTPQ7Z5YYV9N",
+        "slug": "scar-test-security-fixes-against-the-real-exploit-before-the",
+        "name": "SCAR"
+      },
+      {
+        "id": "01M71Z2R3ZWPWHNVGZTHHHD0Q0",
+        "slug": "audit-transparency-for-ethereum-every-defi-protocol-s-audits",
+        "name": "SEAL Audit Transparency"
+      },
+      {
+        "id": "01M5J4R6DT7MFCHD99NR9N5X0X",
+        "slug": "seal-security-frameworks-maintaining-open-security-knowledge",
+        "name": "SEAL Frameworks"
+      },
+      {
+        "id": "01M78DYTMF85EKCPVVD5DSKTQM",
+        "slug": "seal-intel-scaling-blockchain-threat-intelligence-enhancing",
+        "name": "SEAL Intel"
+      },
+      {
+        "id": "01M3P9YXBE9VX4ERF32AYBJQRT",
+        "slug": "preparing-encrypted-mempools-for-inclusion-in-the-earliest-e",
+        "name": "Shutter"
+      },
+      {
+        "id": "01M2K23TNDZTEHTXSVRGKM28X1",
+        "slug": "tee-security-handbook-practical-verification-failure-analysi",
+        "name": "TEE Security Handbook"
+      },
+      {
+        "id": "01M7HT47X99NBM0NTSZ9Z2X75E",
+        "slug": "trustblock-every-public-ethereum-and-l2-audit-tied-to-the-co",
+        "name": "Trustblock"
+      },
+      {
+        "id": "01M61HNA3RK831EKY44WCDEKMH",
+        "slug": "keep-eth-infraops-open-secure-resilient-validator-operation",
+        "name": "ValOS"
+      },
+      {
+        "id": "01M29K92BMFXAB2TQVZZRJS5YE",
+        "slug": "securing-ethereum-with-formal-verification",
+        "name": "Verity Labs"
+      },
+      {
+        "id": "01M2JQEP933CCFFVD10YF3MW6J",
+        "slug": "wake-v5-maintenance-and-ai-assisted-fuzzing",
+        "name": "Wake"
+      },
+      {
+        "id": "01M5XPS7SD7745YF5GJR7BE8F0",
+        "slug": "clear-signing-ratings-fixes-and-ecosystem-adoption-for-hardw",
+        "name": "Walletbeat"
+      },
+      {
+        "id": "01M2J7YH0GB72P1EXY776B0882",
+        "slug": "source-level-debugging-for-solidity-ethdebug-in-solc-2",
+        "name": "Walnut"
+      },
+      {
+        "id": "01M7JHY7W1HRMCKZS3R99YM7QM",
+        "slug": "zealynx-defence-paid-security-training-and-practical-help-wi",
+        "name": "Zealynx Defence"
+      },
+      {
+        "id": "01M3VHWKD6B41SZ1E7RWCKKSAX",
+        "slug": "zk-clear-signing-verifiable-transaction-display-for-hardware",
+        "name": "ZKNOX"
+      }
+    ],
+    "detailedLimit": 10
+  },
+  "mcp": {
+    "remoteUrl": "http://localhost:3000/api/mcp",
+    "stdio": {
+      "command": "npm",
+      "args": [
+        "run",
+        "--silent",
+        "--prefix",
+        "/path/to/ethsecurity-intelligence",
+        "mcp"
+      ],
+      "note": "Local stdio server from a clone of the repository (after npm ci). It reads data/published/dataset.json, or MongoDB when MONGODB_URI is set in the environment."
+    },
+    "tools": [
+      "list_initiatives",
+      "get_initiative",
+      "get_entity",
+      "get_funding",
+      "get_claim",
+      "get_evidence",
+      "get_corrections",
+      "get_changes",
+      "get_metrics",
+      "compare_initiatives",
+      "detect_overlap",
+      "get_dependencies",
+      "get_security_coverage",
+      "find_evidence_gaps",
+      "simulate_portfolio",
+      "export_research"
+    ]
+  },
+  "rules": {
+    "cohortOnly": true,
+    "citationsRequired": true,
+    "retrievedContentIsUntrusted": true,
+    "futureTargetsAreNotCapabilities": true,
+    "noRankingOrScore": true,
+    "decisionsRemainWithReviewer": true,
+    "disclosure": "Disclosure: this site and Proof of Audits, one of the initiatives on this ballot, have the same owner."
+  },
+  "outputJsonSchema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "brief": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "perspective": {
+            "type": "string",
+            "enum": [
+              "smart-contract-auditor",
+              "wallet-engineer",
+              "infrastructure-engineer",
+              "security-researcher",
+              "grant-evaluator",
+              "funding-analyst",
+              "ecosystem-researcher",
+              "adversarial-reviewer"
+            ]
+          },
+          "promptVersion": {
+            "type": "string"
+          },
+          "datasetVersion": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "perspective",
+          "promptVersion",
+          "datasetVersion"
+        ],
+        "additionalProperties": false
+      },
+      "initiatives": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "findings": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "statement": {
+                    "type": "string"
+                  },
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "established",
+                      "applicant_says",
+                      "future_plan",
+                      "open_question",
+                      "inference"
+                    ]
+                  },
+                  "evidenceStatus": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "claimIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "sourceUrls": {
+                    "minItems": 1,
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  },
+                  "counterargument": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "uncertainty": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "statement",
+                  "kind",
+                  "evidenceStatus",
+                  "claimIds",
+                  "sourceUrls",
+                  "counterargument",
+                  "uncertainty"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "metrics": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "unavailableReason": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "weight": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 10
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "value",
+                  "unavailableReason",
+                  "weight"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "openQuestions": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "findings",
+            "metrics",
+            "openQuestions"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "otherMatchingInitiatives": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "notExamined": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "injectionAttempts": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "sourceUrl": {
+              "type": "string"
+            },
+            "excerpt": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "sourceUrl",
+            "excerpt"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "provenance": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string"
+          },
+          "promptVersion": {
+            "type": "string"
+          },
+          "parameters": {
+            "type": "object",
+            "propertyNames": {
+              "type": "string"
+            },
+            "additionalProperties": {}
+          },
+          "sourcesExamined": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "startedAt": {
+            "type": "string"
+          },
+          "finishedAt": {
+            "type": "string"
+          },
+          "executionSeconds": {
+            "type": "number",
+            "minimum": 0
+          },
+          "verificationStatus": {
+            "type": "string",
+            "enum": [
+              "not_verified",
+              "checked_by_reviewer"
+            ]
+          }
+        },
+        "required": [
+          "model",
+          "promptVersion",
+          "parameters",
+          "sourcesExamined",
+          "startedAt",
+          "finishedAt",
+          "executionSeconds",
+          "verificationStatus"
+        ],
+        "additionalProperties": false
+      },
+      "decisionNote": {
+        "type": "string",
+        "const": "Decisions remain with the reviewer."
+      }
+    },
+    "required": [
+      "brief",
+      "initiatives",
+      "otherMatchingInitiatives",
+      "notExamined",
+      "injectionAttempts",
+      "provenance",
+      "decisionNote"
+    ],
+    "additionalProperties": false
+  },
+  "provenance": {
+    "note": "ETHSecurity Intelligence runs no AI model. These fields are for the reviewer's own assistant or tool to fill.",
+    "model": null,
+    "promptVersion": "2026.11-lab-v1",
+    "parameters": {
+      "version": 1,
+      "name": "Grant evaluator",
+      "perspective": "grant-evaluator",
+      "focusQuestions": [
+        "Are the milestones specific, with acceptance criteria a reviewer can check?",
+        "What exists today with proof, and what would the funding build?",
+        "What happens to the deliverables after funding ends?",
+        "Which questions would you ask the team before deciding?"
+      ],
+      "categories": [],
+      "stages": [],
+      "initiatives": [],
+      "organizations": [],
+      "initiativeTypes": [
+        "grant",
+        "rfp"
+      ],
+      "researchMinutes": 60,
+      "depth": "standard",
+      "metrics": [
+        "initiative.pct_funded",
+        "initiative.remaining",
+        "initiative.milestones",
+        "initiative.largest_milestone_share",
+        "initiative.adoption_share",
+        "initiative.open_questions",
+        "initiative.evidence_coverage"
+      ],
+      "weights": {},
+      "evidence": {
+        "establishedAt": "partially_supported",
+        "applicantStatements": "quote_and_label",
+        "citeClaimIds": true,
+        "sources": "dataset_and_cited"
+      },
+      "funding": {
+        "goalMinUsd": null,
+        "goalMaxUsd": null,
+        "fundedMinPct": null,
+        "fundedMaxPct": null,
+        "pledgeConversionPct": 100,
+        "excludeAdoptionMilestones": false,
+        "budgetUsd": null
+      },
+      "results": 10,
+      "outputFormat": "checklist",
+      "counterarguments": "per_initiative",
+      "uncertainty": "inline",
+      "allowInference": false
+    },
+    "sourcesExamined": [],
+    "startedAt": null,
+    "finishedAt": null,
+    "executionSeconds": null,
+    "structuredResults": null,
+    "verificationStatus": "not_verified"
+  }
+}

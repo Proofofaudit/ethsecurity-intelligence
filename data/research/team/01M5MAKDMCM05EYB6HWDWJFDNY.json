@@ -1,0 +1,945 @@
+{
+  "initiativeId": "01M5MAKDMCM05EYB6HWDWJFDNY",
+  "collectedAt": "2026-11-28T07:32:51.987Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 0,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "NethermindEth",
+      "type": "Organization",
+      "url": "https://github.com/NethermindEth",
+      "source": "proposal",
+      "reposTotal": 100,
+      "repos": [
+        {
+          "fullName": "NethermindEth/nethermind",
+          "url": "https://github.com/NethermindEth/nethermind",
+          "fork": false,
+          "archived": false,
+          "stars": 1633,
+          "forks": 771,
+          "pushedAt": "2026-11-28T06:57:59Z",
+          "latestReleaseAt": "2026-11-23T18:11:46Z"
+        },
+        {
+          "fullName": "NethermindEth/LeanCIL",
+          "url": "https://github.com/NethermindEth/LeanCIL",
+          "fork": false,
+          "archived": false,
+          "stars": 131,
+          "forks": 3,
+          "pushedAt": "2026-11-28T06:50:46Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "NethermindEth/eipproof",
+          "url": "https://github.com/NethermindEth/eipproof",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-11-28T06:39:26Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "NethermindEth/dotnet-libp2p",
+          "url": "https://github.com/NethermindEth/dotnet-libp2p",
+          "fork": false,
+          "archived": false,
+          "stars": 134,
+          "forks": 67,
+          "pushedAt": "2026-11-27T23:14:16Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "NethermindEth/starknet-staking-v2",
+          "url": "https://github.com/NethermindEth/starknet-staking-v2",
+          "fork": false,
+          "archived": false,
+          "stars": 15,
+          "forks": 7,
+          "pushedAt": "2026-11-27T17:54:37Z",
+          "latestReleaseAt": "2026-11-11T22:48:17Z"
+        },
+        {
+          "fullName": "NethermindEth/bflat-openvm",
+          "url": "https://github.com/NethermindEth/bflat-openvm",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2026-11-27T17:45:50Z",
+          "latestReleaseAt": "2026-11-22T19:10:37Z"
+        },
+        {
+          "fullName": "NethermindEth/stellar-private-payments",
+          "url": "https://github.com/NethermindEth/stellar-private-payments",
+          "fork": false,
+          "archived": false,
+          "stars": 60,
+          "forks": 51,
+          "pushedAt": "2026-11-27T16:40:23Z",
+          "latestReleaseAt": "2026-11-18T11:26:05Z"
+        },
+        {
+          "fullName": "NethermindEth/juno",
+          "url": "https://github.com/NethermindEth/juno",
+          "fork": false,
+          "archived": false,
+          "stars": 452,
+          "forks": 250,
+          "pushedAt": "2026-11-27T16:16:32Z",
+          "latestReleaseAt": "2026-11-25T16:43:55Z"
+        },
+        {
+          "fullName": "NethermindEth/helm-charts",
+          "url": "https://github.com/NethermindEth/helm-charts",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 2,
+          "pushedAt": "2026-11-27T11:27:44Z",
+          "latestReleaseAt": "2026-11-27T11:27:42Z"
+        },
+        {
+          "fullName": "NethermindEth/json-bench",
+          "url": "https://github.com/NethermindEth/json-bench",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 2,
+          "pushedAt": "2026-11-26T14:10:07Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "NethermindEth/nethermind-devnets",
+          "url": "https://github.com/NethermindEth/nethermind-devnets",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-11-26T14:09:28Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "NethermindEth/starknet-feeder-gateway-cache",
+          "url": "https://github.com/NethermindEth/starknet-feeder-gateway-cache",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-26T12:42:29Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "ethereum",
+      "type": "Organization",
+      "url": "https://github.com/ethereum",
+      "source": "proposal",
+      "reposTotal": 100,
+      "repos": [
+        {
+          "fullName": "ethereum/ethereum-org-website",
+          "url": "https://github.com/ethereum/ethereum-org-website",
+          "fork": false,
+          "archived": false,
+          "stars": 6005,
+          "forks": 5460,
+          "pushedAt": "2026-11-28T06:59:33Z",
+          "latestReleaseAt": "2026-11-26T14:12:47Z"
+        },
+        {
+          "fullName": "ethereum/eth-rnd-archive",
+          "url": "https://github.com/ethereum/eth-rnd-archive",
+          "fork": false,
+          "archived": false,
+          "stars": 11,
+          "forks": 10,
+          "pushedAt": "2026-11-28T06:49:33Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum/EthLib",
+          "url": "https://github.com/ethereum/EthLib",
+          "fork": false,
+          "archived": false,
+          "stars": 112,
+          "forks": 35,
+          "pushedAt": "2026-11-28T06:48:19Z",
+          "latestReleaseAt": "2026-11-06T23:49:53Z"
+        },
+        {
+          "fullName": "ethereum/forkcast",
+          "url": "https://github.com/ethereum/forkcast",
+          "fork": false,
+          "archived": false,
+          "stars": 65,
+          "forks": 58,
+          "pushedAt": "2026-11-28T06:17:58Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum/zkevm-website",
+          "url": "https://github.com/ethereum/zkevm-website",
+          "fork": false,
+          "archived": false,
+          "stars": 6,
+          "forks": 10,
+          "pushedAt": "2026-11-28T06:05:35Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum/webtor-rs",
+          "url": "https://github.com/ethereum/webtor-rs",
+          "fork": false,
+          "archived": false,
+          "stars": 30,
+          "forks": 5,
+          "pushedAt": "2026-11-28T06:00:59Z",
+          "latestReleaseAt": "2026-01-06T12:16:20Z"
+        },
+        {
+          "fullName": "ethereum/FCR-website",
+          "url": "https://github.com/ethereum/FCR-website",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 3,
+          "pushedAt": "2026-11-28T05:24:55Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum/moica-revocation-smt",
+          "url": "https://github.com/ethereum/moica-revocation-smt",
+          "fork": false,
+          "archived": false,
+          "stars": 3,
+          "forks": 0,
+          "pushedAt": "2026-11-28T04:12:45Z",
+          "latestReleaseAt": "2026-03-24T05:16:45Z"
+        },
+        {
+          "fullName": "ethereum/discv4-dns-lists",
+          "url": "https://github.com/ethereum/discv4-dns-lists",
+          "fork": false,
+          "archived": false,
+          "stars": 97,
+          "forks": 62,
+          "pushedAt": "2026-11-28T04:11:22Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum/eip-review-bot",
+          "url": "https://github.com/ethereum/eip-review-bot",
+          "fork": false,
+          "archived": false,
+          "stars": 92,
+          "forks": 74,
+          "pushedAt": "2026-11-28T03:45:51Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum/zkID",
+          "url": "https://github.com/ethereum/zkID",
+          "fork": false,
+          "archived": false,
+          "stars": 90,
+          "forks": 23,
+          "pushedAt": "2026-11-28T03:13:23Z",
+          "latestReleaseAt": "2026-08-11T13:17:13Z"
+        },
+        {
+          "fullName": "ethereum/ERCs",
+          "url": "https://github.com/ethereum/ERCs",
+          "fork": false,
+          "archived": false,
+          "stars": 778,
+          "forks": 1119,
+          "pushedAt": "2026-11-28T01:53:40Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "maximmenshikov",
+      "type": "User",
+      "url": "https://github.com/maximmenshikov",
+      "source": "proposal",
+      "reposTotal": 100,
+      "repos": [
+        {
+          "fullName": "maximmenshikov/constellation-wp7",
+          "url": "https://github.com/maximmenshikov/constellation-wp7",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 1,
+          "pushedAt": "2026-09-29T01:12:14Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "maximmenshikov/D000FF",
+          "url": "https://github.com/maximmenshikov/D000FF",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-09-29T01:11:27Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "maximmenshikov/maximmenshikov",
+          "url": "https://github.com/maximmenshikov/maximmenshikov",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-09-29T00:44:35Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "maximmenshikov/StringLoader",
+          "url": "https://github.com/maximmenshikov/StringLoader",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 1,
+          "pushedAt": "2026-09-29T00:36:59Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "maximmenshikov/uplhlp",
+          "url": "https://github.com/maximmenshikov/uplhlp",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 1,
+          "pushedAt": "2026-09-29T00:36:55Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "maximmenshikov/accman",
+          "url": "https://github.com/maximmenshikov/accman",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 1,
+          "pushedAt": "2026-09-29T00:36:51Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "maximmenshikov/upl",
+          "url": "https://github.com/maximmenshikov/upl",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 1,
+          "pushedAt": "2026-09-29T00:36:47Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "maximmenshikov/ulv",
+          "url": "https://github.com/maximmenshikov/ulv",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 1,
+          "pushedAt": "2026-09-29T00:36:44Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "maximmenshikov/clkflt",
+          "url": "https://github.com/maximmenshikov/clkflt",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 1,
+          "pushedAt": "2026-09-29T00:36:40Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "maximmenshikov/dts-rs",
+          "url": "https://github.com/maximmenshikov/dts-rs",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-01-12T21:48:16Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "maximmenshikov/acs-api-rs-client",
+          "url": "https://github.com/maximmenshikov/acs-api-rs-client",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-12-13T22:22:29Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "maximmenshikov/delta-api",
+          "url": "https://github.com/maximmenshikov/delta-api",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-10-21T15:20:43Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "LukaszRozmej",
+      "type": "User",
+      "url": "https://github.com/LukaszRozmej",
+      "source": "proposal",
+      "reposTotal": 35,
+      "repos": [
+        {
+          "fullName": "LukaszRozmej/BBTree",
+          "url": "https://github.com/LukaszRozmej/BBTree",
+          "fork": false,
+          "archived": false,
+          "stars": 50,
+          "forks": 0,
+          "pushedAt": "2026-10-28T21:30:31Z",
+          "latestReleaseAt": "2026-10-28T21:32:09Z"
+        },
+        {
+          "fullName": "LukaszRozmej/LukaszRozmej",
+          "url": "https://github.com/LukaszRozmej/LukaszRozmej",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-22T09:11:29Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "LukaszRozmej/learning_rust",
+          "url": "https://github.com/LukaszRozmej/learning_rust",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2023-01-15T14:49:22Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "LukaszRozmej/Nethermind.Plugin",
+          "url": "https://github.com/LukaszRozmej/Nethermind.Plugin",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2022-09-09T11:15:31Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "LukaszRozmej/YieldBenchmarks",
+          "url": "https://github.com/LukaszRozmej/YieldBenchmarks",
+          "fork": false,
+          "archived": false,
+          "stars": 5,
+          "forks": 0,
+          "pushedAt": "2021-12-09T00:28:11Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "LukaszRozmej/EIPs",
+          "url": "https://github.com/LukaszRozmej/EIPs",
+          "fork": true,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-11-22T02:38:29Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "LukaszRozmej/bflat-openvm",
+          "url": "https://github.com/LukaszRozmej/bflat-openvm",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-19T02:16:01Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "LukaszRozmej/bflat-sp1",
+          "url": "https://github.com/LukaszRozmej/bflat-sp1",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-18T15:14:40Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "LukaszRozmej/zisk",
+          "url": "https://github.com/LukaszRozmej/zisk",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-12T22:44:00Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "LukaszRozmej/bflat-libziskos",
+          "url": "https://github.com/LukaszRozmej/bflat-libziskos",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-10T22:25:53Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "LukaszRozmej/zkvm-abstractions",
+          "url": "https://github.com/LukaszRozmej/zkvm-abstractions",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-06T13:37:21Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "LukaszRozmej/execution-specs",
+          "url": "https://github.com/LukaszRozmej/execution-specs",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-29T18:16:15Z",
+          "latestReleaseAt": null
+        }
+      ]
+    }
+  ],
+  "people": [
+    {
+      "handle": "maximmenshikov",
+      "url": "https://github.com/maximmenshikov",
+      "source": "curated",
+      "repos": [
+        {
+          "fullName": "maximmenshikov/constellation-wp7",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "maximmenshikov/D000FF",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "maximmenshikov/maximmenshikov",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            4,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "maximmenshikov/StringLoader",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "maximmenshikov/uplhlp",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "maximmenshikov/accman",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "maximmenshikov/upl",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "maximmenshikov/ulv",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "maximmenshikov/clkflt",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "NethermindEth/nethermind",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            1,
+            2,
+            1,
+            3,
+            3,
+            11,
+            5
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        1,
+        3,
+        1,
+        3,
+        18,
+        11,
+        5
+      ]
+    },
+    {
+      "handle": "LukaszRozmej",
+      "url": "https://github.com/LukaszRozmej",
+      "source": "curated",
+      "repos": [
+        {
+          "fullName": "LukaszRozmej/BBTree",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            13,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "LukaszRozmej/LukaszRozmej",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "NethermindEth/nethermind",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            96,
+            204
+          ],
+          "capped": true
+        },
+        {
+          "fullName": "NethermindEth/LeanCIL",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "NethermindEth/eipproof",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "NethermindEth/dotnet-libp2p",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "NethermindEth/starknet-staking-v2",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "NethermindEth/bflat-openvm",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            2
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "NethermindEth/stellar-private-payments",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "NethermindEth/juno",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        113,
+        206
+      ]
+    }
+  ]
+}

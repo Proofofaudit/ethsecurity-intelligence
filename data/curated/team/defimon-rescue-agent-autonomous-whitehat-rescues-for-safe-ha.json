@@ -1,0 +1,115 @@
+{
+  "members": [
+    {
+      "name": "Arseniy Reutov",
+      "role": "CTO and Co-founder, Decurity",
+      "pseudonymous": false,
+      "handles": [],
+      "pastWork": [
+        {
+          "label": "Author of the Quicknode blog post 'How We Detect DeFi Exploits in Under One Second', byline 'CTO and Co-founder, Decurity'",
+          "kind": "project",
+          "url": "https://www.quicknode.com/blog/real-time-defi-exploit-detection",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://www.quicknode.com/blog/real-time-defi-exploit-detection",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "Decurity",
+    "summary": "Web3 security firm. Its website states a legal name of Decentralized Security LLC-FZ, a founding year of 2022 and 15 employees in structured data, and describes Defimon as its exploit detection platform.",
+    "website": "https://www.decurity.io/",
+    "founded": "2022 (per its website structured data)",
+    "publicTeamSize": 15,
+    "previousFunding": [
+      {
+        "label": "TheDAO Security Fund Round 1 record: Defimon - real-time DeFi security",
+        "url": "https://thedao.fund/transparency/defimon-real-time-defi-security"
+      }
+    ],
+    "otherProducts": [
+      {
+        "label": "Defimon",
+        "url": "https://defimon.xyz/"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Decurity website",
+        "url": "https://www.decurity.io/"
+      },
+      {
+        "label": "GitHub organization Decurity",
+        "url": "https://github.com/Decurity"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [],
+  "claims": [
+    {
+      "claim": "Arseniy Reutov is CTO and Co-founder of Decurity.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Quicknode blog post byline",
+          "url": "https://www.quicknode.com/blog/real-time-defi-exploit-detection"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The Quicknode post carries the byline 'By Arseniy Reutov, CTO and Co-founder, Decurity'. This is the author's own byline on a third-party blog."
+    },
+    {
+      "claim": "Defimon rescued $1.84M for Foom.cash on February 26, 2026.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Defimon blog post named in the proposal",
+          "url": "https://defimon.xyz/blog/foom-cash-whitehat-rescue-february-2026"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The Defimon page returned a bot check (HTTP 403) to an automated request. No independent report was checked."
+    },
+    {
+      "claim": "Defimon rescued $512K for Squid Router on April 7, 2026.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "DefimonAlerts post named in the proposal",
+          "url": "https://x.com/DefimonAlerts/status/2041530294369386806"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The post is on X and could not be read. No independent report was checked."
+    },
+    {
+      "claim": "Defimon detects attacks across several EVM chains.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Decurity website",
+          "url": "https://www.decurity.io/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The Decurity home page describes detection across 8 networks. The proposal names 5 networks for detection. Live detection was not tested."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Other Decurity team members on this grant: Not found in public sources",
+    "Arseniy Reutov: handles, past work beyond the Quicknode byline Not found in public sources",
+    "Independent reports of the Foom.cash, Squid Router and Veil.cash rescues: Not found in public sources in the sources checked.",
+    "Delivery against Round 1: the match is at organization level (same website). Deliverables per the Round 1 record Not found in public sources. The Round 1 record links a progress update on X that could not be read.",
+    "Audit of the rescue agent or runbook: Not found in public sources"
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

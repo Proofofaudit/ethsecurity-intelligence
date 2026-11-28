@@ -1,0 +1,413 @@
+{
+  "initiativeId": "01M5J4R6DT7MFCHD99NR9N5X0X",
+  "collectedAt": "2026-11-28T07:50:11.372Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 39,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "security-alliance",
+      "type": "Organization",
+      "url": "https://github.com/security-alliance",
+      "source": "proposal",
+      "reposTotal": 47,
+      "repos": [
+        {
+          "fullName": "security-alliance/blocklists",
+          "url": "https://github.com/security-alliance/blocklists",
+          "fork": false,
+          "archived": false,
+          "stars": 12,
+          "forks": 3,
+          "pushedAt": "2026-11-28T07:35:38Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "security-alliance/frameworks",
+          "url": "https://github.com/security-alliance/frameworks",
+          "fork": false,
+          "archived": false,
+          "stars": 99,
+          "forks": 83,
+          "pushedAt": "2026-11-27T11:37:03Z",
+          "latestReleaseAt": "2026-11-11T15:43:02Z"
+        },
+        {
+          "fullName": "security-alliance/frameworks-wizard",
+          "url": "https://github.com/security-alliance/frameworks-wizard",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-23T15:24:32Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "security-alliance/seal-911",
+          "url": "https://github.com/security-alliance/seal-911",
+          "fork": false,
+          "archived": false,
+          "stars": 341,
+          "forks": 13,
+          "pushedAt": "2026-11-22T09:28:05Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "security-alliance/lazarus-group-data",
+          "url": "https://github.com/security-alliance/lazarus-group-data",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-11-17T02:19:48Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "security-alliance/frameworks-books",
+          "url": "https://github.com/security-alliance/frameworks-books",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-14T17:41:07Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "security-alliance/IR_Template",
+          "url": "https://github.com/security-alliance/IR_Template",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-06-02T16:33:08Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "security-alliance/allowlists",
+          "url": "https://github.com/security-alliance/allowlists",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-05-18T19:26:26Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "security-alliance/seal-cli",
+          "url": "https://github.com/security-alliance/seal-cli",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-05-15T23:50:48Z",
+          "latestReleaseAt": "2026-05-15T23:51:39Z"
+        },
+        {
+          "fullName": "security-alliance/frameworks-mcp",
+          "url": "https://github.com/security-alliance/frameworks-mcp",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 1,
+          "pushedAt": "2026-05-15T23:41:20Z",
+          "latestReleaseAt": "2026-05-15T23:41:21Z"
+        },
+        {
+          "fullName": "security-alliance/Certifications-Template",
+          "url": "https://github.com/security-alliance/Certifications-Template",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-04-20T21:04:17Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "security-alliance/giveth",
+          "url": "https://github.com/security-alliance/giveth",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-04-10T18:10:20Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "mattaereal",
+      "type": "User",
+      "url": "https://github.com/mattaereal",
+      "source": "proposal",
+      "reposTotal": 63,
+      "repos": [
+        {
+          "fullName": "mattaereal/awesome-mpc-sample",
+          "url": "https://github.com/mattaereal/awesome-mpc-sample",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 1,
+          "pushedAt": "2026-11-26T02:12:51Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "mattaereal/hackerspace-site",
+          "url": "https://github.com/mattaereal/hackerspace-site",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-17T06:35:47Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "mattaereal/tamagotchai",
+          "url": "https://github.com/mattaereal/tamagotchai",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-02T16:38:33Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "mattaereal/mattaereal",
+          "url": "https://github.com/mattaereal/mattaereal",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-24T03:05:11Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "mattaereal/giveth-qf-calc",
+          "url": "https://github.com/mattaereal/giveth-qf-calc",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-05-16T05:27:07Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "mattaereal/latita",
+          "url": "https://github.com/mattaereal/latita",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-05-06T02:44:20Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "mattaereal/phishing-collection",
+          "url": "https://github.com/mattaereal/phishing-collection",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-07-19T15:36:14Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "mattaereal/yet-another-evm-puzzle",
+          "url": "https://github.com/mattaereal/yet-another-evm-puzzle",
+          "fork": false,
+          "archived": false,
+          "stars": 91,
+          "forks": 6,
+          "pushedAt": "2025-05-16T21:43:08Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "mattaereal/phishing_catcher",
+          "url": "https://github.com/mattaereal/phishing_catcher",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-08-13T22:18:01Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "mattaereal/awesome-flipper-order",
+          "url": "https://github.com/mattaereal/awesome-flipper-order",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-05-13T14:38:48Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "mattaereal/my-web3-security-roadmap",
+          "url": "https://github.com/mattaereal/my-web3-security-roadmap",
+          "fork": false,
+          "archived": false,
+          "stars": 66,
+          "forks": 10,
+          "pushedAt": "2023-06-14T09:54:35Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "mattaereal/catch-me-if-you-can",
+          "url": "https://github.com/mattaereal/catch-me-if-you-can",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2023-05-11T16:34:58Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "scode2277",
+      "type": "User",
+      "url": "https://github.com/scode2277",
+      "source": "proposal",
+      "reposTotal": 13,
+      "repos": [
+        {
+          "fullName": "scode2277/frameworks-sandbox",
+          "url": "https://github.com/scode2277/frameworks-sandbox",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2026-11-23T09:31:44Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "scode2277/Cake-Making-Forging-Dapp",
+          "url": "https://github.com/scode2277/Cake-Making-Forging-Dapp",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-06-16T15:16:59Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "scode2277/Ethereum-RealTime-Dashboard",
+          "url": "https://github.com/scode2277/Ethereum-RealTime-Dashboard",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-06-16T12:11:17Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "scode2277/pomodoroTimer",
+          "url": "https://github.com/scode2277/pomodoroTimer",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-06-15T18:45:34Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "scode2277/calculator",
+          "url": "https://github.com/scode2277/calculator",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-06-15T18:34:16Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "scode2277/scode2277",
+          "url": "https://github.com/scode2277/scode2277",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-01-30T21:09:03Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "scode2277/weatherAppItaly",
+          "url": "https://github.com/scode2277/weatherAppItaly",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-07-29T17:47:15Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "scode2277/todoList",
+          "url": "https://github.com/scode2277/todoList",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-07-29T17:45:45Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "scode2277/myPortfolio",
+          "url": "https://github.com/scode2277/myPortfolio",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-07-15T10:56:07Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "scode2277/frameworks",
+          "url": "https://github.com/scode2277/frameworks",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-04T13:56:00Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "scode2277/frameworks-mcp",
+          "url": "https://github.com/scode2277/frameworks-mcp",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-05-22T19:01:41Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "scode2277/vocs",
+          "url": "https://github.com/scode2277/vocs",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-03-25T19:54:07Z",
+          "latestReleaseAt": null
+        }
+      ]
+    }
+  ],
+  "people": []
+}

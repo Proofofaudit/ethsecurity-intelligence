@@ -1,0 +1,486 @@
+{
+  "initiativeId": "01M3Z4WCEM2VMP0J3YFKH60DEE",
+  "collectedAt": "2026-11-28T07:00:38.939Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 37,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "coinspect",
+      "type": "Organization",
+      "url": "https://github.com/coinspect",
+      "source": "proposal",
+      "reposTotal": 31,
+      "repos": [
+        {
+          "fullName": "coinspect/dappfence",
+          "url": "https://github.com/coinspect/dappfence",
+          "fork": false,
+          "archived": false,
+          "stars": 10,
+          "forks": 2,
+          "pushedAt": "2026-11-27T16:35:25Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "coinspect/wallet-security-testing-dapp",
+          "url": "https://github.com/coinspect/wallet-security-testing-dapp",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-17T01:34:56Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "coinspect/wallet-security-ranking",
+          "url": "https://github.com/coinspect/wallet-security-ranking",
+          "fork": false,
+          "archived": false,
+          "stars": 7,
+          "forks": 2,
+          "pushedAt": "2026-11-16T21:16:13Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "coinspect/dweb-proxy-api-dappfence-demo",
+          "url": "https://github.com/coinspect/dweb-proxy-api-dappfence-demo",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-23T20:23:12Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "coinspect/dappfence-ens-signer",
+          "url": "https://github.com/coinspect/dappfence-ens-signer",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-23T20:07:22Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "coinspect/wallet-security-framework",
+          "url": "https://github.com/coinspect/wallet-security-framework",
+          "fork": false,
+          "archived": false,
+          "stars": 16,
+          "forks": 8,
+          "pushedAt": "2026-09-28T19:59:25Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "coinspect/unlukey",
+          "url": "https://github.com/coinspect/unlukey",
+          "fork": false,
+          "archived": false,
+          "stars": 3,
+          "forks": 0,
+          "pushedAt": "2026-09-15T21:50:51Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "coinspect/.github",
+          "url": "https://github.com/coinspect/.github",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-05-19T20:51:26Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "coinspect/snippets",
+          "url": "https://github.com/coinspect/snippets",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2026-04-18T20:50:31Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "coinspect/learn-evm-attacks",
+          "url": "https://github.com/coinspect/learn-evm-attacks",
+          "fork": false,
+          "archived": false,
+          "stars": 1801,
+          "forks": 235,
+          "pushedAt": "2026-02-20T18:11:15Z",
+          "latestReleaseAt": "2024-04-11T16:52:28Z"
+        },
+        {
+          "fullName": "coinspect/publications",
+          "url": "https://github.com/coinspect/publications",
+          "fork": false,
+          "archived": false,
+          "stars": 16,
+          "forks": 7,
+          "pushedAt": "2025-08-14T16:16:13Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "coinspect/md-report-parser",
+          "url": "https://github.com/coinspect/md-report-parser",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-07-09T18:26:47Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "a-d-j-i",
+      "type": "User",
+      "url": "https://github.com/a-d-j-i",
+      "source": "proposal",
+      "reposTotal": 59,
+      "repos": [
+        {
+          "fullName": "a-d-j-i/esp32-climate-controller",
+          "url": "https://github.com/a-d-j-i/esp32-climate-controller",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-10T17:08:42Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "a-d-j-i/x11_filter",
+          "url": "https://github.com/a-d-j-i/x11_filter",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-07T23:51:00Z",
+          "latestReleaseAt": "2026-09-07T21:30:42Z"
+        },
+        {
+          "fullName": "a-d-j-i/signed-photos",
+          "url": "https://github.com/a-d-j-i/signed-photos",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-08-14T18:46:47Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "a-d-j-i/wakeword-relay",
+          "url": "https://github.com/a-d-j-i/wakeword-relay",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-08-07T16:02:51Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "a-d-j-i/videc2",
+          "url": "https://github.com/a-d-j-i/videc2",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-06-19T13:16:16Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "a-d-j-i/hipo",
+          "url": "https://github.com/a-d-j-i/hipo",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-05-26T10:51:34Z",
+          "latestReleaseAt": "2026-05-25T21:42:40Z"
+        },
+        {
+          "fullName": "a-d-j-i/demo",
+          "url": "https://github.com/a-d-j-i/demo",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-04-29T21:41:50Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "a-d-j-i/on-chain-map",
+          "url": "https://github.com/a-d-j-i/on-chain-map",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2025-09-18T11:58:33Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "a-d-j-i/hacks",
+          "url": "https://github.com/a-d-j-i/hacks",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-08-21T13:21:49Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "a-d-j-i/felieados",
+          "url": "https://github.com/a-d-j-i/felieados",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-12-17T15:49:35Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "a-d-j-i/kedpm",
+          "url": "https://github.com/a-d-j-i/kedpm",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-05-15T20:22:05Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "a-d-j-i/kioskBrowserJS",
+          "url": "https://github.com/a-d-j-i/kioskBrowserJS",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-01-31T23:20:28Z",
+          "latestReleaseAt": null
+        }
+      ]
+    }
+  ],
+  "people": [
+    {
+      "handle": "a-d-j-i",
+      "url": "https://github.com/a-d-j-i",
+      "source": "curated",
+      "repos": [
+        {
+          "fullName": "a-d-j-i/esp32-climate-controller",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "a-d-j-i/x11_filter",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            8,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "a-d-j-i/signed-photos",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "a-d-j-i/wakeword-relay",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            25,
+            8,
+            5,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "a-d-j-i/videc2",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "a-d-j-i/hipo",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            85,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "a-d-j-i/demo",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "coinspect/dappfence",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            16,
+            21,
+            1,
+            0,
+            0,
+            17,
+            38,
+            11
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "coinspect/wallet-security-testing-dapp",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "coinspect/wallet-security-ranking",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        0,
+        0,
+        0,
+        0,
+        17,
+        106,
+        27,
+        8,
+        7,
+        25,
+        40,
+        11
+      ]
+    }
+  ]
+}

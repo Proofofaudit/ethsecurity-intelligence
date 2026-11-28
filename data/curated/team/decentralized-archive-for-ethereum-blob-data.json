@@ -1,0 +1,155 @@
+{
+  "members": [
+    {
+      "name": "Paulo Colombo",
+      "role": "Web3 developer (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "PJColombo",
+          "url": "https://github.com/PJColombo",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/decentralized-archive-for-ethereum-blob-data",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Pablo Castellano",
+      "role": "Senior DevOps engineer (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "PabloCastellano",
+          "url": "https://github.com/PabloCastellano",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/decentralized-archive-for-ethereum-blob-data",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "Blobscan",
+    "summary": "Open source explorer for Ethereum blob transactions. Its GitHub organization describes it as the first explorer for shard blob transactions. Its funding page lists support from Ethereum Foundation, Ethereum Swarm, Optimism RetroPGF, Scroll, Octant and Gitcoin.",
+    "website": "https://blobscan.com",
+    "previousFunding": [
+      {
+        "label": "Blobscan funding page (self-published): Ethereum Foundation Layer 2 Community Grants 2022, USD 100,000",
+        "url": "https://docs.blobscan.com/docs/funding"
+      },
+      {
+        "label": "Blobscan funding page: Optimism RetroPGF 2 and 3, Scroll, Ethereum Swarm, Octant, Gitcoin",
+        "url": "https://docs.blobscan.com/docs/funding"
+      },
+      {
+        "label": "TheDAO Security Fund Round 1 record: Blobscan",
+        "url": "https://thedao.fund/transparency/blobscan"
+      }
+    ],
+    "otherProducts": [],
+    "sources": [
+      {
+        "label": "Blobscan website",
+        "url": "https://blobscan.com"
+      },
+      {
+        "label": "GitHub organization Blobscan",
+        "url": "https://github.com/Blobscan"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [],
+  "claims": [
+    {
+      "claim": "The Blobscan explorer and API are live.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Blobscan website",
+          "url": "https://blobscan.com"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The site returned HTTP 200. An HTTP response does not show the explorer works."
+    },
+    {
+      "claim": "About 6.5M API requests a month and about 1.2 TB served.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/decentralized-archive-for-ethereum-blob-data"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Not verified: user, request and subscriber counts come from the applicant's own pages; no independent public source was found."
+    },
+    {
+      "claim": "The Blobscan repository is public and maintained.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "GitHub repository",
+          "url": "https://github.com/Blobscan/blobscan"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: AGPL-3.0, created 2022-10-08, last push 2026-11-27, latest release v1.52.0 on 2026-11-15."
+    },
+    {
+      "claim": "The IPLD generator repository exists (Blobscan/blobscan-ipld).",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "GitHub repository",
+          "url": "https://github.com/Blobscan/blobscan-ipld"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: repository exists, created 2026-03-10, last push 2026-11-06. Whether the generator produces CAR v2 archives was not tested."
+    },
+    {
+      "claim": "An IPFS (Kubo) node runs in production and holds all mainnet blobs.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/decentralized-archive-for-ethereum-blob-data"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "No independent public source states this. The node's contents were not queried."
+    },
+    {
+      "claim": "EF funded the analytics workstream of the same Blobscan project.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Blobscan funding page",
+          "url": "https://docs.blobscan.com/docs/funding"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The Blobscan funding page (self-published) lists an Ethereum Foundation grant of USD 100,000 in 2022. The page does not name an analytics workstream, and no Ethereum Foundation source was found."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Paulo Colombo and Pablo Castellano: employers and past roles beyond the GitHub profile fields Not found in public sources",
+    "Other Blobscan contributors or core team members: Not found in public sources",
+    "Delivery against Round 1, Ethereum Foundation, Optimism, Scroll, Swarm, Octant and Gitcoin funding: scope and deliverables per grant Not found in public sources. Delivery status was not assessed.",
+    "Legal entity, founding date and team size: Not found in public sources"
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

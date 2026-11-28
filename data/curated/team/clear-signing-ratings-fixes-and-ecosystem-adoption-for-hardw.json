@@ -1,0 +1,342 @@
+{
+  "members": [
+    {
+      "name": "polymutex",
+      "role": "Walletbeat lead and core contributor (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "X",
+          "handle": "polymutex",
+          "url": "https://x.com/polymutex",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Named in the 2025 EF grant proposal as Walletbeat developer, attribute designer and project steward; the page says he kicked off the beta revamp in 2024-11",
+          "kind": "project",
+          "url": "https://beta.walletbeat.eth.limo/governance/grants/2025-07-ethereum-foundation-esp-grant-proposal/",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Walletbeat impact log credits polymutex with pointing out that flagging IPFS gateways such as eth.limo discourages apps from moving to IPFS; Ambire then unflagged them (2026-08)",
+          "kind": "project",
+          "url": "https://github.com/walletbeat/walletbeat/blob/beta/resources/docs/impact/impact.md",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/clear-signing-ratings-fixes-and-ecosystem-adoption-for-hardw",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "0xMattmatt",
+      "role": "Walletbeat core contributor (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "X",
+          "handle": "0xmattmatt",
+          "url": "https://x.com/0xmattmatt",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Impact log lists his research on wallet handling of a malicious transaction (2026-07), address poisoning (2026-08) and unlimited approvals (2026-08), each followed by wallet fixes",
+          "kind": "project",
+          "url": "https://github.com/walletbeat/walletbeat/blob/beta/resources/docs/impact/impact.md",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/clear-signing-ratings-fixes-and-ecosystem-adoption-for-hardw",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "REN2140",
+      "role": "Walletbeat contributor (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "X",
+          "handle": "REN2140_eth",
+          "url": "https://x.com/REN2140_eth",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/clear-signing-ratings-fixes-and-ecosystem-adoption-for-hardw",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "Walletbeat",
+    "summary": "Open-source (MIT) project that rates software and hardware Ethereum wallets on security, privacy, self-sovereignty, transparency and ecosystem attributes. Its about page says it was created and is hosted by Fluidkey, a Swiss company with a wallet offering, that Fluidkey wallets are not rated, and that it refuses funding from wallet-related entities. The goal stated there is to become an independent DAO or foundation.",
+    "website": "https://walletbeat.eth.limo",
+    "founded": "GitHub org created 2024-12-06",
+    "previousFunding": [
+      {
+        "label": "Ethereum Foundation Pectra Proactive Grant Round: 577.02 USD received 2025-03, per Walletbeat's about page",
+        "url": "https://beta.walletbeat.eth.limo/about/"
+      },
+      {
+        "label": "Ethereum Foundation Trillion Dollar Security project: 106,100 USD received 2025-07, per the about page",
+        "url": "https://beta.walletbeat.eth.limo/governance/grants/2025-07-ethereum-foundation-esp-grant-proposal/"
+      },
+      {
+        "label": "Giveth Ethereum Security Round (with TheDAO and public donations): 5,585 USD and 9.2302 ETH received 2026-05, per the about page",
+        "url": "https://qf.giveth.io/project/walletbeat"
+      },
+      {
+        "label": "Ethereum Foundation: 50,000 USD awarded 2026-10, paid in ETH per milestone through January 2027, per the about page",
+        "url": "https://beta.walletbeat.eth.limo/about/"
+      },
+      {
+        "label": "TheDAO Security Fund round 1: 11.7838 ETH (21,944 USD when sent)",
+        "url": "https://thedao.fund/transparency/walletbeat"
+      }
+    ],
+    "otherProducts": [
+      {
+        "label": "Wallet test playground for connecting, sending and signing",
+        "url": "https://beta.walletbeat.eth.limo/test/"
+      },
+      {
+        "label": "Walletbeat impact log",
+        "url": "https://github.com/walletbeat/walletbeat/blob/beta/resources/docs/impact/impact.md"
+      },
+      {
+        "label": "Treasury transparency report",
+        "url": "https://beta.walletbeat.eth.limo/governance/treasury/"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Walletbeat about page",
+        "url": "https://beta.walletbeat.eth.limo/about/"
+      },
+      {
+        "label": "Walletbeat GitHub repository",
+        "url": "https://github.com/walletbeat/walletbeat"
+      },
+      {
+        "label": "GitHub organization walletbeat",
+        "url": "https://github.com/walletbeat"
+      },
+      {
+        "label": "Walletbeat 2025 EF grant proposal page",
+        "url": "https://beta.walletbeat.eth.limo/governance/grants/2025-07-ethereum-foundation-esp-grant-proposal/"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [
+    {
+      "grant": "Ethereum Foundation Pectra Proactive Grant (577.02 USD, 2025)",
+      "funder": "Ethereum Foundation (ESP)",
+      "promised": "Walletbeat beta EIP-7702 tracking and wallet assessment, per the grant proposal page. No milestone list was found, so no specific promise can be compared. Walletbeat is live and tracks EIP-7702 tests, but that is not matched to a stated milestone.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Walletbeat grant record",
+          "url": "https://beta.walletbeat.eth.limo/governance/grants/2025-02-ethereum-foundation-pectra-proactive-grant-round/"
+        },
+        {
+          "label": "Walletbeat EIP-7702 wallet page",
+          "url": "https://beta.walletbeat.eth.limo/wallet/7702/"
+        },
+        {
+          "label": "EF Pectra PGR page",
+          "url": "https://esp.ethereum.foundation/pectra-pgr"
+        }
+      ],
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "grant": "Ethereum Foundation Trillion Dollar Security grant (106,100 USD, 2025-07)",
+      "funder": "Ethereum Foundation (ESP)",
+      "promised": "Finalize the wallet attribute set, define the stage system and rate at least 10 software and 3 hardware wallets above 90% (Rabby, Daimo, Ambire already rated), per the grant proposal.",
+      "status": "Partly delivered",
+      "sources": [
+        {
+          "label": "Grant proposal page",
+          "url": "https://beta.walletbeat.eth.limo/governance/grants/2025-07-ethereum-foundation-esp-grant-proposal/"
+        },
+        {
+          "label": "Walletbeat stages page",
+          "url": "https://beta.walletbeat.eth.limo/stages/"
+        },
+        {
+          "label": "Walletbeat home page with wallet lists",
+          "url": "https://beta.walletbeat.eth.limo/"
+        }
+      ],
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "grant": "Giveth Ethereum Security Round (5,585 USD and 9.2302 ETH, 2026)",
+      "funder": "Giveth, TheDAO and donors",
+      "promised": "Continued evaluation work: fill data gaps, onboard wallets, expand hardware and embedded wallet coverage. No itemized milestones were found.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Walletbeat Giveth project",
+          "url": "https://qf.giveth.io/project/walletbeat"
+        },
+        {
+          "label": "Walletbeat about page, funding list",
+          "url": "https://beta.walletbeat.eth.limo/about/"
+        }
+      ],
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "grant": "TheDAO Security Fund round 1 (11.7838 ETH, 21,944 USD when sent)",
+      "funder": "TheDAO Security Fund",
+      "promised": "The round 1 terms and milestones were not found. A progress update is linked from TheDAO record, on a site that could not be read.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "TheDAO transparency record",
+          "url": "https://thedao.fund/transparency/walletbeat"
+        },
+        {
+          "label": "Linked progress update on X",
+          "url": "https://x.com/walletbeat/status/2082196398234329348"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_walletbeat"
+    },
+    {
+      "grant": "Ethereum Foundation grant (50,000 USD awarded 2026-10, paid per milestone to January 2027)",
+      "funder": "Ethereum Foundation (ESP)",
+      "promised": "Grant proposal listed on Walletbeat's governance pages. The milestone list was not read here and the payment schedule runs past the checked date.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Walletbeat about page, funding list",
+          "url": "https://beta.walletbeat.eth.limo/about/"
+        },
+        {
+          "label": "Grant proposal page",
+          "url": "https://beta.walletbeat.eth.limo/governance/grants/2026-08-ethereum-foundation-esp-grant-proposal/"
+        }
+      ],
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "Walletbeat is a live rating site at walletbeat.eth.limo with a public repository under the MIT license.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Walletbeat site",
+          "url": "https://walletbeat.eth.limo"
+        },
+        {
+          "label": "GitHub repository",
+          "url": "https://github.com/walletbeat/walletbeat"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Site returns HTTP 200. GitHub API shows MIT license, 137 stars, 106 forks, last push 2026-11-28 and about 3,411 commits on the default branch since 2025-11-28."
+    },
+    {
+      "claim": "A public test page applies the benchmark transactions to any wallet.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Test page",
+          "url": "https://beta.walletbeat.eth.limo/test/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The page loads a wallet test playground with ERC20 approve, transfer, Aave supply, EIP-7702 batch and custom transaction tests, and an ERC-8213 tab. No wallet was connected, so results were not run."
+    },
+    {
+      "claim": "An impact log file exists in the repository and lists dated wallet reactions.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Impact log",
+          "url": "https://github.com/walletbeat/walletbeat/blob/beta/resources/docs/impact/impact.md"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The file exists and lists dated wallet reactions from 2025-12 to 2026-09 with links to posts. The linked posts on X were not opened, so whether the wallets made the changes is not verified."
+    },
+    {
+      "claim": "As of October 8, 2026, none of the 32 hardware and software wallets listed passes Walletbeat's transaction legibility test.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/clear-signing-ratings-fixes-and-ecosystem-adoption-for-hardw"
+        },
+        {
+          "label": "Walletbeat home page",
+          "url": "https://beta.walletbeat.eth.limo/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Walletbeat's menu now lists 24 software and 11 hardware wallets, not 32, and the per-wallet ratings were not read. The statement is dated and was not re-tested."
+    },
+    {
+      "claim": "Six software wallets are already tested for clear signing.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/clear-signing-ratings-fixes-and-ecosystem-adoption-for-hardw"
+        },
+        {
+          "label": "Walletbeat ERC-7730 tracker",
+          "url": "https://beta.walletbeat.eth.limo/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Per-wallet clear signing ratings were not read, so the count of six was not confirmed."
+    },
+    {
+      "claim": "At least 11 hardware and 16 software wallets will be rated on clear signing and at least 4 software and 3 hardware vendors will release fixes.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/clear-signing-ratings-fixes-and-ecosystem-adoption-for-hardw"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "These are future milestones. The proposal marks none as done and no completed retest was found."
+    },
+    {
+      "claim": "Walletbeat accepts no payment from wallet teams and no team member is affiliated with a rated wallet.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Walletbeat about page",
+          "url": "https://beta.walletbeat.eth.limo/about/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The about page states the funding policy and that Fluidkey wallets are not rated. The statement is Walletbeat's own and no independent check was possible."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "polymutex, 0xMattmatt and REN2140: real names, employers, audits, CVEs and bounty credits Not found in public sources (only the X handles in the proposal were used)",
+    "GitHub handles for the three named people: not published by the proposal or the about page, so none were attached and no per-person commit counts were collected",
+    "Walletbeat public team size and founding company beyond the Fluidkey statement Not found in public sources",
+    "Round 1 milestones and completion report for TheDAO funding Not found in public sources",
+    "Milestone lists and completion reports for the 2026 Giveth round and the 2026-10 EF grant Not found in public sources",
+    "Per-wallet clear signing ratings and retest results Not found in public sources at the time of checking"
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

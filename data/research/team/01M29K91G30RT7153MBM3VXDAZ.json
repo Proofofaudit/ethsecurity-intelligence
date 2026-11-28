@@ -1,0 +1,571 @@
+{
+  "initiativeId": "01M29K91G30RT7153MBM3VXDAZ",
+  "collectedAt": "2026-11-28T07:50:53.457Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 2,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "Cyfrin",
+      "type": "Organization",
+      "url": "https://github.com/Cyfrin",
+      "source": "proposal",
+      "reposTotal": 100,
+      "repos": [
+        {
+          "fullName": "Cyfrin/cyfrin-audit-reports",
+          "url": "https://github.com/Cyfrin/cyfrin-audit-reports",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 0,
+          "pushedAt": "2026-11-24T01:26:02Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Cyfrin/wise-signer",
+          "url": "https://github.com/Cyfrin/wise-signer",
+          "fork": false,
+          "archived": false,
+          "stars": 34,
+          "forks": 13,
+          "pushedAt": "2026-11-18T13:46:15Z",
+          "latestReleaseAt": "2025-05-08T06:11:49Z"
+        },
+        {
+          "fullName": "Cyfrin/localsafe.eth",
+          "url": "https://github.com/Cyfrin/localsafe.eth",
+          "fork": false,
+          "archived": false,
+          "stars": 119,
+          "forks": 25,
+          "pushedAt": "2026-11-18T13:46:10Z",
+          "latestReleaseAt": "2026-06-18T17:37:48Z"
+        },
+        {
+          "fullName": "Cyfrin/chain-tools",
+          "url": "https://github.com/Cyfrin/chain-tools",
+          "fork": false,
+          "archived": false,
+          "stars": 9,
+          "forks": 1,
+          "pushedAt": "2026-11-18T13:45:56Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Cyfrin/clearsig",
+          "url": "https://github.com/Cyfrin/clearsig",
+          "fork": false,
+          "archived": false,
+          "stars": 16,
+          "forks": 2,
+          "pushedAt": "2026-11-18T12:05:48Z",
+          "latestReleaseAt": "2026-09-04T23:41:58Z"
+        },
+        {
+          "fullName": "Cyfrin/aderyn",
+          "url": "https://github.com/Cyfrin/aderyn",
+          "fork": false,
+          "archived": true,
+          "stars": 810,
+          "forks": 126,
+          "pushedAt": "2026-11-17T12:02:18Z",
+          "latestReleaseAt": "2026-01-22T11:33:44Z"
+        },
+        {
+          "fullName": "Cyfrin/cyfrin-docs",
+          "url": "https://github.com/Cyfrin/cyfrin-docs",
+          "fork": false,
+          "archived": false,
+          "stars": 7,
+          "forks": 3,
+          "pushedAt": "2026-11-16T18:18:28Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Cyfrin/web3-dev-containers",
+          "url": "https://github.com/Cyfrin/web3-dev-containers",
+          "fork": false,
+          "archived": false,
+          "stars": 180,
+          "forks": 43,
+          "pushedAt": "2026-11-15T12:08:26Z",
+          "latestReleaseAt": "2026-06-22T18:23:06Z"
+        },
+        {
+          "fullName": "Cyfrin/vscode-aderyn",
+          "url": "https://github.com/Cyfrin/vscode-aderyn",
+          "fork": false,
+          "archived": true,
+          "stars": 12,
+          "forks": 1,
+          "pushedAt": "2026-11-14T13:14:28Z",
+          "latestReleaseAt": "2025-10-09T18:24:25Z"
+        },
+        {
+          "fullName": "Cyfrin/aderyn-ci",
+          "url": "https://github.com/Cyfrin/aderyn-ci",
+          "fork": false,
+          "archived": true,
+          "stars": 3,
+          "forks": 1,
+          "pushedAt": "2026-11-14T13:03:28Z",
+          "latestReleaseAt": "2026-01-09T17:33:10Z"
+        },
+        {
+          "fullName": "Cyfrin/homebrew-tap",
+          "url": "https://github.com/Cyfrin/homebrew-tap",
+          "fork": false,
+          "archived": false,
+          "stars": 3,
+          "forks": 0,
+          "pushedAt": "2026-11-13T16:26:07Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Cyfrin/Up",
+          "url": "https://github.com/Cyfrin/Up",
+          "fork": false,
+          "archived": false,
+          "stars": 8,
+          "forks": 1,
+          "pushedAt": "2026-11-13T16:18:11Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "eternalsafe",
+      "type": "Organization",
+      "url": "https://github.com/eternalsafe",
+      "source": "proposal",
+      "reposTotal": 2,
+      "repos": [
+        {
+          "fullName": "eternalsafe/wallet",
+          "url": "https://github.com/eternalsafe/wallet",
+          "fork": false,
+          "archived": false,
+          "stars": 161,
+          "forks": 50,
+          "pushedAt": "2026-06-18T08:10:53Z",
+          "latestReleaseAt": "2025-02-25T19:09:46Z"
+        },
+        {
+          "fullName": "eternalsafe/safe-subgraph",
+          "url": "https://github.com/eternalsafe/safe-subgraph",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 2,
+          "pushedAt": "2025-01-27T07:05:13Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "pcaversaccio",
+      "type": "User",
+      "url": "https://github.com/pcaversaccio",
+      "source": "proposal",
+      "reposTotal": 60,
+      "repos": [
+        {
+          "fullName": "pcaversaccio/createx",
+          "url": "https://github.com/pcaversaccio/createx",
+          "fork": false,
+          "archived": false,
+          "stars": 579,
+          "forks": 85,
+          "pushedAt": "2026-11-24T07:19:35Z",
+          "latestReleaseAt": "2023-12-19T10:32:51Z"
+        },
+        {
+          "fullName": "pcaversaccio/xdeployer",
+          "url": "https://github.com/pcaversaccio/xdeployer",
+          "fork": false,
+          "archived": false,
+          "stars": 442,
+          "forks": 43,
+          "pushedAt": "2026-11-24T07:10:19Z",
+          "latestReleaseAt": "2026-10-15T12:18:55Z"
+        },
+        {
+          "fullName": "pcaversaccio/raw-tx",
+          "url": "https://github.com/pcaversaccio/raw-tx",
+          "fork": false,
+          "archived": false,
+          "stars": 41,
+          "forks": 7,
+          "pushedAt": "2026-11-23T19:21:57Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "pcaversaccio/torn-detector",
+          "url": "https://github.com/pcaversaccio/torn-detector",
+          "fork": false,
+          "archived": false,
+          "stars": 30,
+          "forks": 7,
+          "pushedAt": "2026-11-23T19:20:51Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "pcaversaccio/create-util",
+          "url": "https://github.com/pcaversaccio/create-util",
+          "fork": false,
+          "archived": false,
+          "stars": 19,
+          "forks": 1,
+          "pushedAt": "2026-11-23T19:13:15Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "pcaversaccio/create2deployer",
+          "url": "https://github.com/pcaversaccio/create2deployer",
+          "fork": false,
+          "archived": false,
+          "stars": 306,
+          "forks": 44,
+          "pushedAt": "2026-11-23T19:11:54Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "pcaversaccio/escrow-contract",
+          "url": "https://github.com/pcaversaccio/escrow-contract",
+          "fork": false,
+          "archived": false,
+          "stars": 43,
+          "forks": 5,
+          "pushedAt": "2026-11-23T19:09:17Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "pcaversaccio/hardhat-project-template-ts",
+          "url": "https://github.com/pcaversaccio/hardhat-project-template-ts",
+          "fork": false,
+          "archived": false,
+          "stars": 224,
+          "forks": 49,
+          "pushedAt": "2026-11-23T19:09:04Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "pcaversaccio/batch-distributor",
+          "url": "https://github.com/pcaversaccio/batch-distributor",
+          "fork": false,
+          "archived": false,
+          "stars": 26,
+          "forks": 5,
+          "pushedAt": "2026-11-23T19:08:12Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "pcaversaccio/snekmate",
+          "url": "https://github.com/pcaversaccio/snekmate",
+          "fork": false,
+          "archived": false,
+          "stars": 607,
+          "forks": 83,
+          "pushedAt": "2026-11-23T09:54:48Z",
+          "latestReleaseAt": "2025-06-25T07:57:55Z"
+        },
+        {
+          "fullName": "pcaversaccio/tornado-governance-lock",
+          "url": "https://github.com/pcaversaccio/tornado-governance-lock",
+          "fork": false,
+          "archived": false,
+          "stars": 5,
+          "forks": 1,
+          "pushedAt": "2026-11-20T14:25:41Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "pcaversaccio/fork-testing-evm-compatibility",
+          "url": "https://github.com/pcaversaccio/fork-testing-evm-compatibility",
+          "fork": false,
+          "archived": false,
+          "stars": 15,
+          "forks": 2,
+          "pushedAt": "2026-11-20T14:21:33Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "safe-global",
+      "type": "Organization",
+      "url": "https://github.com/safe-global",
+      "source": "proposal",
+      "reposTotal": 48,
+      "repos": [
+        {
+          "fullName": "safe-global/safe-wallet-monorepo",
+          "url": "https://github.com/safe-global/safe-wallet-monorepo",
+          "fork": false,
+          "archived": false,
+          "stars": 602,
+          "forks": 685,
+          "pushedAt": "2026-11-28T07:01:29Z",
+          "latestReleaseAt": "2026-11-27T12:06:58Z"
+        },
+        {
+          "fullName": "safe-global/safe-transaction-service",
+          "url": "https://github.com/safe-global/safe-transaction-service",
+          "fork": false,
+          "archived": false,
+          "stars": 239,
+          "forks": 344,
+          "pushedAt": "2026-11-27T16:27:38Z",
+          "latestReleaseAt": "2026-11-27T10:17:02Z"
+        },
+        {
+          "fullName": "safe-global/safe-eth-py",
+          "url": "https://github.com/safe-global/safe-eth-py",
+          "fork": false,
+          "archived": false,
+          "stars": 195,
+          "forks": 233,
+          "pushedAt": "2026-11-27T15:40:13Z",
+          "latestReleaseAt": "2026-11-26T11:23:42Z"
+        },
+        {
+          "fullName": "safe-global/safe-client-gateway",
+          "url": "https://github.com/safe-global/safe-client-gateway",
+          "fork": false,
+          "archived": false,
+          "stars": 50,
+          "forks": 105,
+          "pushedAt": "2026-11-27T14:34:47Z",
+          "latestReleaseAt": "2026-11-26T15:36:45Z"
+        },
+        {
+          "fullName": "safe-global/.github",
+          "url": "https://github.com/safe-global/.github",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-27T13:10:47Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "safe-global/safe-decoder-service",
+          "url": "https://github.com/safe-global/safe-decoder-service",
+          "fork": false,
+          "archived": false,
+          "stars": 14,
+          "forks": 18,
+          "pushedAt": "2026-11-27T11:18:51Z",
+          "latestReleaseAt": "2026-11-11T08:42:46Z"
+        },
+        {
+          "fullName": "safe-global/safe-config-service",
+          "url": "https://github.com/safe-global/safe-config-service",
+          "fork": false,
+          "archived": false,
+          "stars": 38,
+          "forks": 121,
+          "pushedAt": "2026-11-27T11:12:03Z",
+          "latestReleaseAt": "2026-11-26T11:20:01Z"
+        },
+        {
+          "fullName": "safe-global/safe-dao-governance-app",
+          "url": "https://github.com/safe-global/safe-dao-governance-app",
+          "fork": false,
+          "archived": false,
+          "stars": 8,
+          "forks": 11,
+          "pushedAt": "2026-11-27T10:46:01Z",
+          "latestReleaseAt": "2024-12-09T12:34:42Z"
+        },
+        {
+          "fullName": "safe-global/safe-docs",
+          "url": "https://github.com/safe-global/safe-docs",
+          "fork": false,
+          "archived": false,
+          "stars": 66,
+          "forks": 96,
+          "pushedAt": "2026-11-27T10:30:51Z",
+          "latestReleaseAt": "2026-11-27T10:30:51Z"
+        },
+        {
+          "fullName": "safe-global/safe-modules-deployments",
+          "url": "https://github.com/safe-global/safe-modules-deployments",
+          "fork": false,
+          "archived": false,
+          "stars": 16,
+          "forks": 36,
+          "pushedAt": "2026-11-26T17:18:45Z",
+          "latestReleaseAt": "2026-11-05T09:14:35Z"
+        },
+        {
+          "fullName": "safe-global/safe-deployments",
+          "url": "https://github.com/safe-global/safe-deployments",
+          "fork": false,
+          "archived": false,
+          "stars": 181,
+          "forks": 418,
+          "pushedAt": "2026-11-26T17:18:39Z",
+          "latestReleaseAt": "2026-11-05T09:15:01Z"
+        },
+        {
+          "fullName": "safe-global/safe-agent-skills",
+          "url": "https://github.com/safe-global/safe-agent-skills",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 0,
+          "pushedAt": "2026-11-26T16:33:44Z",
+          "latestReleaseAt": "2026-11-26T10:42:48Z"
+        }
+      ]
+    },
+    {
+      "login": "OpenZeppelin",
+      "type": "Organization",
+      "url": "https://github.com/OpenZeppelin",
+      "source": "proposal",
+      "reposTotal": 100,
+      "repos": [
+        {
+          "fullName": "OpenZeppelin/ethernaut-leaderboard",
+          "url": "https://github.com/OpenZeppelin/ethernaut-leaderboard",
+          "fork": false,
+          "archived": false,
+          "stars": 14,
+          "forks": 13,
+          "pushedAt": "2026-11-28T07:40:27Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "OpenZeppelin/openzeppelin-contracts",
+          "url": "https://github.com/OpenZeppelin/openzeppelin-contracts",
+          "fork": false,
+          "archived": false,
+          "stars": 27372,
+          "forks": 12415,
+          "pushedAt": "2026-11-28T03:10:10Z",
+          "latestReleaseAt": "2026-07-29T16:43:07Z"
+        },
+        {
+          "fullName": "OpenZeppelin/contracts-wizard",
+          "url": "https://github.com/OpenZeppelin/contracts-wizard",
+          "fork": false,
+          "archived": false,
+          "stars": 296,
+          "forks": 189,
+          "pushedAt": "2026-11-28T01:26:51Z",
+          "latestReleaseAt": "2026-10-23T17:44:48Z"
+        },
+        {
+          "fullName": "OpenZeppelin/ethernaut",
+          "url": "https://github.com/OpenZeppelin/ethernaut",
+          "fork": false,
+          "archived": false,
+          "stars": 2348,
+          "forks": 787,
+          "pushedAt": "2026-11-28T00:49:16Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "OpenZeppelin/compact-tools",
+          "url": "https://github.com/OpenZeppelin/compact-tools",
+          "fork": false,
+          "archived": false,
+          "stars": 5,
+          "forks": 7,
+          "pushedAt": "2026-11-27T22:08:07Z",
+          "latestReleaseAt": "2026-11-26T11:49:13Z"
+        },
+        {
+          "fullName": "OpenZeppelin/openzeppelin-transpiler",
+          "url": "https://github.com/OpenZeppelin/openzeppelin-transpiler",
+          "fork": false,
+          "archived": false,
+          "stars": 23,
+          "forks": 11,
+          "pushedAt": "2026-11-27T19:46:18Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "OpenZeppelin/openzeppelin-upgrades",
+          "url": "https://github.com/OpenZeppelin/openzeppelin-upgrades",
+          "fork": false,
+          "archived": false,
+          "stars": 661,
+          "forks": 291,
+          "pushedAt": "2026-11-27T16:55:46Z",
+          "latestReleaseAt": "2026-11-04T22:37:50Z"
+        },
+        {
+          "fullName": "OpenZeppelin/stellar-contracts",
+          "url": "https://github.com/OpenZeppelin/stellar-contracts",
+          "fork": false,
+          "archived": false,
+          "stars": 97,
+          "forks": 76,
+          "pushedAt": "2026-11-27T15:45:30Z",
+          "latestReleaseAt": "2026-10-20T16:58:32Z"
+        },
+        {
+          "fullName": "OpenZeppelin/canton-contracts",
+          "url": "https://github.com/OpenZeppelin/canton-contracts",
+          "fork": false,
+          "archived": false,
+          "stars": 10,
+          "forks": 0,
+          "pushedAt": "2026-11-27T14:57:54Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "OpenZeppelin/openzeppelin-monitor",
+          "url": "https://github.com/OpenZeppelin/openzeppelin-monitor",
+          "fork": false,
+          "archived": false,
+          "stars": 148,
+          "forks": 70,
+          "pushedAt": "2026-11-27T12:06:40Z",
+          "latestReleaseAt": "2026-10-22T12:06:31Z"
+        },
+        {
+          "fullName": "OpenZeppelin/openzeppelin-contracts-upgradeable",
+          "url": "https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable",
+          "fork": false,
+          "archived": false,
+          "stars": 1177,
+          "forks": 514,
+          "pushedAt": "2026-11-27T10:56:54Z",
+          "latestReleaseAt": "2026-07-29T16:48:28Z"
+        },
+        {
+          "fullName": "OpenZeppelin/Event-Scanner",
+          "url": "https://github.com/OpenZeppelin/Event-Scanner",
+          "fork": false,
+          "archived": false,
+          "stars": 19,
+          "forks": 7,
+          "pushedAt": "2026-11-27T10:22:03Z",
+          "latestReleaseAt": "2026-11-12T12:11:13Z"
+        }
+      ]
+    }
+  ],
+  "people": []
+}

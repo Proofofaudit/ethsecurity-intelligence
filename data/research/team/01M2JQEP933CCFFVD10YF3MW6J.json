@@ -1,0 +1,1110 @@
+{
+  "initiativeId": "01M2JQEP933CCFFVD10YF3MW6J",
+  "collectedAt": "2026-11-28T08:00:31.426Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 24,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "ack3-ai",
+      "type": "Organization",
+      "url": "https://github.com/ack3-ai",
+      "source": "proposal",
+      "reposTotal": 14,
+      "repos": [
+        {
+          "fullName": "ack3-ai/.github",
+          "url": "https://github.com/ack3-ai/.github",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-20T13:02:15Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ack3-ai/swarm",
+          "url": "https://github.com/ack3-ai/swarm",
+          "fork": false,
+          "archived": false,
+          "stars": 12,
+          "forks": 0,
+          "pushedAt": "2026-11-17T06:42:29Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ack3-ai/wake.sol",
+          "url": "https://github.com/ack3-ai/wake.sol",
+          "fork": false,
+          "archived": false,
+          "stars": 5,
+          "forks": 0,
+          "pushedAt": "2026-11-13T02:29:07Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ack3-ai/public-audit-reports",
+          "url": "https://github.com/ack3-ai/public-audit-reports",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-09-23T17:09:06Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ack3-ai/daedaluzz-benchmark",
+          "url": "https://github.com/ack3-ai/daedaluzz-benchmark",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 1,
+          "pushedAt": "2026-08-28T16:48:44Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ack3-ai/ack3-brand-assets",
+          "url": "https://github.com/ack3-ai/ack3-brand-assets",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-08-18T14:47:38Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ack3-ai/tests-lido-nest",
+          "url": "https://github.com/ack3-ai/tests-lido-nest",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-08-12T13:26:11Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ack3-ai/solana-fuzzing-talk",
+          "url": "https://github.com/ack3-ai/solana-fuzzing-talk",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-08-12T13:26:08Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ack3-ai/wake",
+          "url": "https://github.com/ack3-ai/wake",
+          "fork": true,
+          "archived": false,
+          "stars": 22,
+          "forks": 2,
+          "pushedAt": "2026-11-23T22:23:34Z",
+          "latestReleaseAt": "2026-11-16T14:27:32Z"
+        },
+        {
+          "fullName": "ack3-ai/composable-cow",
+          "url": "https://github.com/ack3-ai/composable-cow",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-09T13:05:59Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ack3-ai/gh-action-copy-file",
+          "url": "https://github.com/ack3-ai/gh-action-copy-file",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-08-12T13:26:04Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ack3-ai/solidity-for-vscode",
+          "url": "https://github.com/ack3-ai/solidity-for-vscode",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-04-13T16:59:42Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "michprev",
+      "type": "User",
+      "url": "https://github.com/michprev",
+      "source": "proposal",
+      "reposTotal": 38,
+      "repos": [
+        {
+          "fullName": "michprev/ethprague-2026-fuzz-workshop",
+          "url": "https://github.com/michprev/ethprague-2026-fuzz-workshop",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-05-07T15:44:47Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "michprev/anvil-low-gas-debugTT-crash",
+          "url": "https://github.com/michprev/anvil-low-gas-debugTT-crash",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2023-10-01T14:00:07Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "michprev/anvil-forking-issue",
+          "url": "https://github.com/michprev/anvil-forking-issue",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2023-06-05T18:55:09Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "michprev/solc-ast-import-alias-inconsistency",
+          "url": "https://github.com/michprev/solc-ast-import-alias-inconsistency",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2023-05-08T08:29:52Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "michprev/hermez-call-revert-example",
+          "url": "https://github.com/michprev/hermez-call-revert-example",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2023-04-19T13:24:57Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "michprev/anvil-tx-dropped-issue",
+          "url": "https://github.com/michprev/anvil-tx-dropped-issue",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2023-02-10T16:45:04Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "michprev/woke-coverage-testing",
+          "url": "https://github.com/michprev/woke-coverage-testing",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2022-12-15T16:32:00Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "michprev/hh-tx-drop-issue",
+          "url": "https://github.com/michprev/hh-tx-drop-issue",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2022-12-09T15:16:02Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "michprev/flyhero_datagram_loss",
+          "url": "https://github.com/michprev/flyhero_datagram_loss",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2019-02-19T12:09:25Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "michprev/flyhero-esp32",
+          "url": "https://github.com/michprev/flyhero-esp32",
+          "fork": false,
+          "archived": false,
+          "stars": 50,
+          "forks": 9,
+          "pushedAt": "2018-12-06T22:14:47Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "michprev/flyhero-stm32",
+          "url": "https://github.com/michprev/flyhero-stm32",
+          "fork": false,
+          "archived": false,
+          "stars": 3,
+          "forks": 1,
+          "pushedAt": "2018-12-06T22:14:16Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "michprev/idf_performance",
+          "url": "https://github.com/michprev/idf_performance",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2018-07-29T08:46:25Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "meditationduck",
+      "type": "User",
+      "url": "https://github.com/meditationduck",
+      "source": "proposal",
+      "reposTotal": 15,
+      "repos": [
+        {
+          "fullName": "meditationduck/meditationduck",
+          "url": "https://github.com/meditationduck/meditationduck",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-04-16T11:52:42Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "meditationduck/BomberDuck",
+          "url": "https://github.com/meditationduck/BomberDuck",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2023-06-26T19:48:27Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "meditationduck/Strader",
+          "url": "https://github.com/meditationduck/Strader",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 0,
+          "pushedAt": "2022-03-26T06:05:20Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "meditationduck/packet_visualizer",
+          "url": "https://github.com/meditationduck/packet_visualizer",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2021-07-28T20:22:48Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "meditationduck/VRcameraAndroid",
+          "url": "https://github.com/meditationduck/VRcameraAndroid",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2021-07-28T20:09:39Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "meditationduck/wake-ai",
+          "url": "https://github.com/meditationduck/wake-ai",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-22T09:04:02Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "meditationduck/wake",
+          "url": "https://github.com/meditationduck/wake",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-13T11:04:26Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "meditationduck/zed",
+          "url": "https://github.com/meditationduck/zed",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-07T08:03:37Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "meditationduck/wake-nvim",
+          "url": "https://github.com/meditationduck/wake-nvim",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-06-30T22:44:37Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "meditationduck/solidity",
+          "url": "https://github.com/meditationduck/solidity",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-12-07T16:12:57Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "meditationduck/shrink-tests-pwn-protocol",
+          "url": "https://github.com/meditationduck/shrink-tests-pwn-protocol",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-05-08T16:49:33Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "meditationduck/shrink-tests-lido-csm",
+          "url": "https://github.com/meditationduck/shrink-tests-lido-csm",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-05-08T16:44:05Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "jaczkal",
+      "type": "User",
+      "url": "https://github.com/jaczkal",
+      "source": "proposal",
+      "reposTotal": 13,
+      "repos": [
+        {
+          "fullName": "jaczkal/audit-portfolio",
+          "url": "https://github.com/jaczkal/audit-portfolio",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-12-31T19:19:56Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "jaczkal/.github",
+          "url": "https://github.com/jaczkal/.github",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-12-29T16:21:55Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "jaczkal/jaczkal.nvim",
+          "url": "https://github.com/jaczkal/jaczkal.nvim",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-12-29T14:47:03Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "jaczkal/wake-nvim",
+          "url": "https://github.com/jaczkal/wake-nvim",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2025-12-29T13:21:33Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "jaczkal/chainlink-price-getter-minimal",
+          "url": "https://github.com/jaczkal/chainlink-price-getter-minimal",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-05-01T10:12:18Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "jaczkal/pivo",
+          "url": "https://github.com/jaczkal/pivo",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2022-07-15T21:46:46Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "jaczkal/Security-Roadmap-for-Solana-applications",
+          "url": "https://github.com/jaczkal/Security-Roadmap-for-Solana-applications",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-08-03T10:26:56Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "jaczkal/video2x-qt6",
+          "url": "https://github.com/jaczkal/video2x-qt6",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-06-17T21:19:02Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "jaczkal/video2x",
+          "url": "https://github.com/jaczkal/video2x",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-06-17T21:15:10Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "jaczkal/vscode-omni-viewer",
+          "url": "https://github.com/jaczkal/vscode-omni-viewer",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-06-16T16:56:40Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "jaczkal/terraform-provider-linux",
+          "url": "https://github.com/jaczkal/terraform-provider-linux",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2023-08-10T07:01:05Z",
+          "latestReleaseAt": "2023-08-09T15:08:23Z"
+        },
+        {
+          "fullName": "jaczkal/adoc-math",
+          "url": "https://github.com/jaczkal/adoc-math",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2022-12-18T17:54:27Z",
+          "latestReleaseAt": null
+        }
+      ]
+    }
+  ],
+  "people": [
+    {
+      "handle": "jaczkal",
+      "url": "https://github.com/jaczkal",
+      "source": "proposal",
+      "repos": [
+        {
+          "fullName": "jaczkal/audit-portfolio",
+          "monthly": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "jaczkal/.github",
+          "monthly": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "jaczkal/jaczkal.nvim",
+          "monthly": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "jaczkal/wake-nvim",
+          "monthly": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "ack3-ai/.github",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "ack3-ai/swarm",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "ack3-ai/wake.sol",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "ack3-ai/public-audit-reports",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "ack3-ai/daedaluzz-benchmark",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "ack3-ai/ack3-brand-assets",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "handle": "michprev",
+      "url": "https://github.com/michprev",
+      "source": "proposal",
+      "repos": [
+        {
+          "fullName": "michprev/ethprague-2026-fuzz-workshop",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "ack3-ai/.github",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "ack3-ai/swarm",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "ack3-ai/wake.sol",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            29,
+            0,
+            7,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "ack3-ai/public-audit-reports",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "ack3-ai/daedaluzz-benchmark",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "ack3-ai/ack3-brand-assets",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "ack3-ai/tests-lido-nest",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "ack3-ai/solana-fuzzing-talk",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        32,
+        1,
+        7,
+        0,
+        0
+      ]
+    },
+    {
+      "handle": "meditationduck",
+      "url": "https://github.com/meditationduck",
+      "source": "proposal",
+      "repos": [
+        {
+          "fullName": "meditationduck/meditationduck",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "ack3-ai/.github",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "ack3-ai/swarm",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "ack3-ai/wake.sol",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "ack3-ai/public-audit-reports",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "ack3-ai/daedaluzz-benchmark",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "ack3-ai/ack3-brand-assets",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "ack3-ai/tests-lido-nest",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "ack3-ai/solana-fuzzing-talk",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

@@ -1,0 +1,615 @@
+{
+  "initiativeId": "01M4ACNCQ61BYAQC7VZ4ABAKB2",
+  "collectedAt": "2026-11-28T06:56:46.073Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 0,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "BlossomLabs",
+      "type": "Organization",
+      "url": "https://github.com/BlossomLabs",
+      "source": "proposal",
+      "reposTotal": 56,
+      "repos": [
+        {
+          "fullName": "BlossomLabs/thedao-initiatives",
+          "url": "https://github.com/BlossomLabs/thedao-initiatives",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 2,
+          "pushedAt": "2026-11-26T15:00:20Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "BlossomLabs/Assertions",
+          "url": "https://github.com/BlossomLabs/Assertions",
+          "fork": false,
+          "archived": false,
+          "stars": 4,
+          "forks": 1,
+          "pushedAt": "2026-11-11T21:00:30Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "BlossomLabs/Assertions-FormalVerification",
+          "url": "https://github.com/BlossomLabs/Assertions-FormalVerification",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-15T17:47:54Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "BlossomLabs/blossomlabs.eth",
+          "url": "https://github.com/BlossomLabs/blossomlabs.eth",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-09T16:42:30Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "BlossomLabs/blocksplit-unhackathon",
+          "url": "https://github.com/BlossomLabs/blocksplit-unhackathon",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-07-10T17:25:21Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "BlossomLabs/auditpad",
+          "url": "https://github.com/BlossomLabs/auditpad",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-04-25T23:00:30Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "BlossomLabs/sneaky",
+          "url": "https://github.com/BlossomLabs/sneaky",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 1,
+          "pushedAt": "2026-04-05T06:13:17Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "BlossomLabs/deforms.eth",
+          "url": "https://github.com/BlossomLabs/deforms.eth",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-11-23T10:43:59Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "BlossomLabs/GovernorHaus",
+          "url": "https://github.com/BlossomLabs/GovernorHaus",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 1,
+          "pushedAt": "2025-06-11T09:07:14Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "BlossomLabs/Airstreams",
+          "url": "https://github.com/BlossomLabs/Airstreams",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2025-01-26T16:06:47Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "BlossomLabs/CouncilHaus",
+          "url": "https://github.com/BlossomLabs/CouncilHaus",
+          "fork": false,
+          "archived": false,
+          "stars": 3,
+          "forks": 6,
+          "pushedAt": "2025-01-23T12:51:54Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "BlossomLabs/EVMcrispr",
+          "url": "https://github.com/BlossomLabs/EVMcrispr",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-11-22T15:11:40Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "ethereum-optimism",
+      "type": "Organization",
+      "url": "https://github.com/ethereum-optimism",
+      "source": "proposal",
+      "reposTotal": 100,
+      "repos": [
+        {
+          "fullName": "ethereum-optimism/actions",
+          "url": "https://github.com/ethereum-optimism/actions",
+          "fork": false,
+          "archived": false,
+          "stars": 31,
+          "forks": 27,
+          "pushedAt": "2026-11-28T05:23:27Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum-optimism/op-analytics",
+          "url": "https://github.com/ethereum-optimism/op-analytics",
+          "fork": false,
+          "archived": false,
+          "stars": 156,
+          "forks": 91,
+          "pushedAt": "2026-11-28T02:07:44Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum-optimism/optimism",
+          "url": "https://github.com/ethereum-optimism/optimism",
+          "fork": false,
+          "archived": false,
+          "stars": 6499,
+          "forks": 4081,
+          "pushedAt": "2026-11-27T20:28:46Z",
+          "latestReleaseAt": "2026-11-25T13:20:14Z"
+        },
+        {
+          "fullName": "ethereum-optimism/factory",
+          "url": "https://github.com/ethereum-optimism/factory",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 8,
+          "pushedAt": "2026-11-27T16:46:27Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum-optimism/infra",
+          "url": "https://github.com/ethereum-optimism/infra",
+          "fork": false,
+          "archived": false,
+          "stars": 45,
+          "forks": 134,
+          "pushedAt": "2026-11-27T14:44:25Z",
+          "latestReleaseAt": "2026-11-26T18:31:08Z"
+        },
+        {
+          "fullName": "ethereum-optimism/superchain-registry",
+          "url": "https://github.com/ethereum-optimism/superchain-registry",
+          "fork": false,
+          "archived": false,
+          "stars": 223,
+          "forks": 224,
+          "pushedAt": "2026-11-27T14:24:52Z",
+          "latestReleaseAt": "2024-07-17T19:45:57Z"
+        },
+        {
+          "fullName": "ethereum-optimism/superchain-ops",
+          "url": "https://github.com/ethereum-optimism/superchain-ops",
+          "fork": false,
+          "archived": false,
+          "stars": 100,
+          "forks": 127,
+          "pushedAt": "2026-11-25T22:05:41Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum-optimism/op-txverify",
+          "url": "https://github.com/ethereum-optimism/op-txverify",
+          "fork": false,
+          "archived": false,
+          "stars": 7,
+          "forks": 2,
+          "pushedAt": "2026-11-25T21:19:31Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum-optimism/circleci-utils",
+          "url": "https://github.com/ethereum-optimism/circleci-utils",
+          "fork": false,
+          "archived": false,
+          "stars": 5,
+          "forks": 7,
+          "pushedAt": "2026-11-24T14:03:02Z",
+          "latestReleaseAt": "2025-03-10T21:21:49Z"
+        },
+        {
+          "fullName": "ethereum-optimism/specs",
+          "url": "https://github.com/ethereum-optimism/specs",
+          "fork": false,
+          "archived": false,
+          "stars": 180,
+          "forks": 206,
+          "pushedAt": "2026-11-23T16:00:00Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum-optimism/ecosystem",
+          "url": "https://github.com/ethereum-optimism/ecosystem",
+          "fork": false,
+          "archived": false,
+          "stars": 140,
+          "forks": 83,
+          "pushedAt": "2026-11-23T12:54:24Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum-optimism/op-geth",
+          "url": "https://github.com/ethereum-optimism/op-geth",
+          "fork": false,
+          "archived": false,
+          "stars": 399,
+          "forks": 977,
+          "pushedAt": "2026-11-20T12:47:29Z",
+          "latestReleaseAt": "2026-08-31T12:30:36Z"
+        }
+      ]
+    },
+    {
+      "login": "sembrestels",
+      "type": "User",
+      "url": "https://github.com/sembrestels",
+      "source": "proposal",
+      "reposTotal": 100,
+      "repos": [
+        {
+          "fullName": "sembrestels/ranked-shares",
+          "url": "https://github.com/sembrestels/ranked-shares",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-15T01:33:57Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "sembrestels/w3pn-hackathon",
+          "url": "https://github.com/sembrestels/w3pn-hackathon",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-06-15T09:15:22Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "sembrestels/zkStealth",
+          "url": "https://github.com/sembrestels/zkStealth",
+          "fork": false,
+          "archived": false,
+          "stars": 4,
+          "forks": 0,
+          "pushedAt": "2024-05-26T09:21:43Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "sembrestels/dappnode-surgery",
+          "url": "https://github.com/sembrestels/dappnode-surgery",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-01-25T02:20:44Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "sembrestels/lazuline",
+          "url": "https://github.com/sembrestels/lazuline",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-01-01T18:31:51Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "sembrestels/translator-ui",
+          "url": "https://github.com/sembrestels/translator-ui",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2023-03-28T19:17:23Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "sembrestels/wagmi",
+          "url": "https://github.com/sembrestels/wagmi",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2022-05-20T18:57:42Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "sembrestels/conviction-voting",
+          "url": "https://github.com/sembrestels/conviction-voting",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2020-08-26T23:03:27Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "sembrestels/aragon-toolkit-examples",
+          "url": "https://github.com/sembrestels/aragon-toolkit-examples",
+          "fork": false,
+          "archived": false,
+          "stars": 7,
+          "forks": 5,
+          "pushedAt": "2020-08-22T14:45:17Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "sembrestels/aracred-cli",
+          "url": "https://github.com/sembrestels/aracred-cli",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2020-03-20T19:43:59Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "sembrestels/csvToCustomLabels",
+          "url": "https://github.com/sembrestels/csvToCustomLabels",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2020-03-11T23:34:14Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "sembrestels/proposals-app",
+          "url": "https://github.com/sembrestels/proposals-app",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2019-12-28T20:19:48Z",
+          "latestReleaseAt": null
+        }
+      ]
+    }
+  ],
+  "people": [
+    {
+      "handle": "sembrestels",
+      "url": "https://github.com/sembrestels",
+      "source": "curated",
+      "repos": [
+        {
+          "fullName": "sembrestels/ranked-shares",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            261,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "BlossomLabs/thedao-initiatives",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            300
+          ],
+          "capped": true
+        },
+        {
+          "fullName": "BlossomLabs/Assertions",
+          "monthly": [
+            0,
+            2,
+            0,
+            0,
+            2,
+            0,
+            0,
+            4,
+            97,
+            44,
+            43,
+            13
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "BlossomLabs/Assertions-FormalVerification",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "BlossomLabs/blossomlabs.eth",
+          "monthly": [
+            0,
+            0,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            8,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "BlossomLabs/blocksplit-unhackathon",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "BlossomLabs/auditpad",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "BlossomLabs/sneaky",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            18,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "ethereum-optimism/actions",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "ethereum-optimism/op-analytics",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        0,
+        2,
+        4,
+        0,
+        22,
+        0,
+        0,
+        7,
+        97,
+        306,
+        54,
+        313
+      ]
+    }
+  ]
+}

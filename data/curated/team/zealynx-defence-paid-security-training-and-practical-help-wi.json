@@ -1,0 +1,284 @@
+{
+  "members": [
+    {
+      "name": "Carlos Vendrell",
+      "role": "Leads Zealynx's security work and Academy; founder of Zealynx (per the proposal and the Zealynx site)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "X",
+          "handle": "TheBlockChainer",
+          "url": "https://x.com/TheBlockChainer",
+          "publishedBy": "website"
+        },
+        {
+          "platform": "GitHub",
+          "handle": "vendrell46",
+          "url": "https://github.com/vendrell46",
+          "publishedBy": "website"
+        },
+        {
+          "platform": "LinkedIn",
+          "handle": "carlos-vendrell-felici",
+          "url": "https://www.linkedin.com/in/carlos-vendrell-felici/",
+          "publishedBy": "website"
+        },
+        {
+          "platform": "Medium",
+          "handle": "bloqarl",
+          "url": "https://medium.com/@bloqarl",
+          "publishedBy": "website"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Founded Zealynx Security (Wroclaw, Poland, 2024); the site says it has published 52 audit reports for 45 clients since 2024, which was not recounted",
+          "kind": "company",
+          "url": "https://www.zealynx.io/about-us",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Zealynx's site says he acted as auditor contractor for Pashov Audit Group, Cyfrin and Sherlock and lists contractor audits for Shieldify, AuditOne and Sherlock",
+          "kind": "audit",
+          "url": "https://www.zealynx.io/",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Uniswap v4 documentation contributor (page linked from the Zealynx site)",
+          "kind": "project",
+          "url": "https://docs.uniswap.org/contracts/v4/guides/read-pool-state",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Interview on Immunefi's YouTube channel in 2023, as listed on the Zealynx site",
+          "kind": "talk",
+          "url": "https://youtu.be/sy2aUAK5itE",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Cyfrin blog profile: From QA Engineer to Web3 Security Expert",
+          "kind": "talk",
+          "url": "https://www.cyfrin.io/blog/from-qa-engineer-to-web3-security-expert",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/zealynx-defence-paid-security-training-and-practical-help-wi",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Fernando (first name shown only)",
+      "role": "Senior auditor leading Zealynx's Web2, pentest and AI security practice (per the Zealynx site; not named in the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "X",
+          "handle": "0xMrjory",
+          "url": "https://x.com/0xMrjory",
+          "publishedBy": "website"
+        },
+        {
+          "platform": "GitHub",
+          "handle": "fvelazquez-X",
+          "url": "https://github.com/fvelazquez-X",
+          "publishedBy": "website"
+        },
+        {
+          "platform": "Sherlock",
+          "handle": "MrjoryStewartBaxter",
+          "url": "https://audits.sherlock.xyz/watson/MrjoryStewartBaxter",
+          "publishedBy": "website"
+        },
+        {
+          "platform": "LinkedIn",
+          "handle": "jos%C3%A9-fernando-v-90861838",
+          "url": "https://www.linkedin.com/in/jos%C3%A9-fernando-v-90861838/",
+          "publishedBy": "website"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Credentials listed on the Zealynx site: HTB CWEE, OSCP, CRTP and a stated 10+ years of red team work (the site links verification pages, not read here)",
+          "kind": "project",
+          "url": "https://www.zealynx.io/about-us",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://www.zealynx.io/about-us",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "Zealynx Security",
+    "summary": "Security firm headquartered in Wroclaw, Poland, founded in 2024 by Carlos Vendrell, per its website. It sells smart contract audits, application security audits, AI red-teaming and MCP reviews, and runs Zealynx Academy with a Defence drill range. It also publishes Krait, an open-source AI auditing tool. The proposal says Zealynx owns the platform and excludes work TheDAO already funded.",
+    "website": "https://www.zealynx.io/",
+    "founded": "2024 (GitHub org created 2024-03-07)",
+    "previousFunding": [
+      {
+        "label": "TheDAO Security Fund round 1 for Zealynx Academy: 6.4466 ETH (12,008 USD when sent)",
+        "url": "https://thedao.fund/transparency/zealynx-academy"
+      }
+    ],
+    "otherProducts": [
+      {
+        "label": "Krait, open-source AI auditing tool (MIT)",
+        "url": "https://github.com/ZealynxSecurity/krait"
+      },
+      {
+        "label": "Zealynx Academy",
+        "url": "https://academy.zealynx.io/"
+      },
+      {
+        "label": "Zealynx audit report library",
+        "url": "https://www.zealynx.io/about-us"
+      },
+      {
+        "label": "Zealynx grants program page",
+        "url": "https://grants.zealynx.io"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Zealynx website",
+        "url": "https://www.zealynx.io/"
+      },
+      {
+        "label": "Zealynx about page",
+        "url": "https://www.zealynx.io/about-us"
+      },
+      {
+        "label": "Zealynx Academy Defence",
+        "url": "https://academy.zealynx.io/defense"
+      },
+      {
+        "label": "GitHub organization ZealynxSecurity",
+        "url": "https://github.com/ZealynxSecurity"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [
+    {
+      "grant": "TheDAO Security Fund round 1, Zealynx Academy (6.4466 ETH, 12,008 USD when sent)",
+      "funder": "TheDAO Security Fund",
+      "promised": "The round 1 terms and milestones were not found. The record links a progress update on X, which could not be read. The Academy Defence page now lists 21 drills, 5 of them free.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "TheDAO transparency record",
+          "url": "https://thedao.fund/transparency/zealynx-academy"
+        },
+        {
+          "label": "Academy Defence page",
+          "url": "https://academy.zealynx.io/defense"
+        },
+        {
+          "label": "Linked progress update on X",
+          "url": "https://x.com/ZealynxSecurity/status/2080208845540937811"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_zealynx-academy"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "Academy Defence already provides simulated security drills.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Academy Defence page",
+          "url": "https://academy.zealynx.io/defense"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The URL returns HTTP 200 and the page lists drills by channel (LinkedIn, Telegram, wallet, browser, terminal). It says 21 live drills with 5 free. Drills were not played and the count was not verified."
+    },
+    {
+      "claim": "Zealynx has sourced research on scams and attacks to inform the programme.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/zealynx-defence-paid-security-training-and-practical-help-wi"
+        },
+        {
+          "label": "Zealynx website",
+          "url": "https://www.zealynx.io/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "No dated research collection matching the 30 case records was located. The Academy page cites Chainalysis and FBI IC3 figures for context only."
+    },
+    {
+      "claim": "Earlier Academy support was 6.4466 ETH valued at 12,008 USD when sent.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "TheDAO transparency record",
+          "url": "https://thedao.fund/transparency/zealynx-academy"
+        },
+        {
+          "label": "TheDAO transparency list",
+          "url": "https://thedao.fund/transparency"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The TheDAO transparency list shows Zealynx Academy at 6.4466 ETH and 12,008 USD. Onchain transfers were not traced."
+    },
+    {
+      "claim": "Six courses, 30 case records, 12 exercises and a case assistant with three free checks will be delivered.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/zealynx-defence-paid-security-training-and-practical-help-wi"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "These are future deliverables and no milestone is marked done. The checked pages show drills, not the courses or the case assistant described."
+    },
+    {
+      "claim": "500 paying learners and 10 paying Ethereum organizations will be reached with three months of operating profitability.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/zealynx-defence-paid-security-training-and-practical-help-wi"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "This is a future adoption milestone. No public customer, learner or revenue figures were found."
+    },
+    {
+      "claim": "Carlos Vendrell has worked as an auditor contractor for Pashov Audit Group, Cyfrin and Sherlock, and Zealynx has published 52 audit reports.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Zealynx website",
+          "url": "https://www.zealynx.io/"
+        },
+        {
+          "label": "Zealynx about page",
+          "url": "https://www.zealynx.io/about-us"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The statements are on Zealynx's own pages. No report from the named firms crediting him was checked and the 52 reports were not recounted."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Carlos Vendrell: CVEs, Immunefi, Code4rena, Sherlock or Cantina leaderboard entries Not found in public sources (no profile link published)",
+    "Fernando's full name as stated by Zealynx and his role on this initiative Not found in public sources (not named in the proposal; the GitHub and LinkedIn handles shown were published by the Zealynx site and contain surname-like text, which is not repeated or interpreted here)",
+    "Zealynx public team size beyond the two practice leads on the about page Not found in public sources",
+    "Zealynx funding other than TheDAO round 1 Not found in public sources",
+    "TheDAO round 1 milestones and completion report for Zealynx Academy Not found in public sources",
+    "GitHub collector: the proposal links no GitHub profile or organization, so no collector file was written; Krait repository facts were read with the GitHub API directly (MIT, 30 stars, 5 forks, last push 2026-11-09, no releases)"
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

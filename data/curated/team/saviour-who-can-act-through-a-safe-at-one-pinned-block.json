@@ -1,0 +1,155 @@
+{
+  "members": [
+    {
+      "name": "Harshit Bainsla",
+      "role": "Builds and maintains Saviour; solo (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "devhb1",
+          "url": "https://github.com/devhb1",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Author of the Saviour repository, MIT license copyright Harshit Bainsla",
+          "kind": "project",
+          "url": "https://github.com/devhb1/Saviour",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Publisher of the @saviours/audit npm package",
+          "kind": "project",
+          "url": "https://www.npmjs.com/package/@saviours/audit",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/saviour-who-can-act-through-a-safe-at-one-pinned-block",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "Saviour",
+    "summary": "Control-path auditor for Safe treasuries at saviours.xyz. The proposal describes it as a solo project.",
+    "previousFunding": [],
+    "otherProducts": [
+      {
+        "label": "npm package @saviours/audit",
+        "url": "https://www.npmjs.com/package/@saviours/audit"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Saviour website",
+        "url": "https://www.saviours.xyz"
+      },
+      {
+        "label": "Saviour repository",
+        "url": "https://github.com/devhb1/Saviour"
+      }
+    ],
+    "checkedOn": "2026-11-28",
+    "website": "https://www.saviours.xyz"
+  },
+  "delivery": [],
+  "claims": [
+    {
+      "claim": "The Saviour repository is public, MIT licensed, with commit 89f3902 on main.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Saviour repository",
+          "url": "https://github.com/devhb1/Saviour"
+        },
+        {
+          "label": "Commit 89f3902",
+          "url": "https://github.com/devhb1/Saviour/commit/89f3902"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: MIT, created 2026-09-06, commit 89f39028 dated 2026-11-18 ('feat(audit): enhance audit status handling and update report schema')."
+    },
+    {
+      "claim": "@saviours/audit is published on npm.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "npm package",
+          "url": "https://www.npmjs.com/package/@saviours/audit"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "npm registry: latest version 0.1.0, MIT, published 2026-11-18. Package behavior was not run."
+    },
+    {
+      "claim": "www.saviours.xyz/audit and a pilots page are live.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Audit page",
+          "url": "https://www.saviours.xyz/audit"
+        },
+        {
+          "label": "Pilots page",
+          "url": "https://www.saviours.xyz/pilots"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Both pages return HTTP 200 with the described content (Safe address form; a team proof, Term Safe at block 26435999). No audit was run and the digest was not recomputed."
+    },
+    {
+      "claim": "No outside team has run a pilot yet.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Pilots page",
+          "url": "https://www.saviours.xyz/pilots"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The pilots page lists only the team proof run on 17 Nov 2026 and states that it does not count. This is the applicant's own page. A negative statement cannot be confirmed from the applicant's own page, so it is not marked Verified."
+    },
+    {
+      "claim": "A Safe lost about $6.45 million on 16 Nov 2026 through a Zodiac Roles modifier.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Cointelegraph",
+          "url": "https://cointelegraph.com/news/safe-wallet-reportedly-loses-millions-after-key-compromise"
+        },
+        {
+          "label": "CoinMarketCap Academy",
+          "url": "https://coinmarketcap.com/academy/article/safe-multisig-zodiac-roles-key-compromise"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Cointelegraph (Nov 16, 2026) reports about $6.45 million and Zodiac's co-founder saying a likely compromised key was involved. CoinMarketCap Academy reports Safe said no owner signed and cites 4.39 million USDC and 1.72 million syrupUSDC."
+    },
+    {
+      "claim": "Kesavi Web Solutions has committed $2,500, 25% of the goal.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Kesavi Web Solutions website",
+          "url": "https://kesaviwebsolutions.com/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The company website loads but does not mention Saviour or any commitment."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Past grants and Round 1 record: Not found in public sources (no Round 1 match in the dataset)",
+    "Harshit Bainsla's employers and past projects beyond the Saviour repository: Not found in public sources",
+    "Any outside user of Saviour: Not found in public sources"
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

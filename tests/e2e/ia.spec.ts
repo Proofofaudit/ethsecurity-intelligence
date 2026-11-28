@@ -1,0 +1,126 @@
+import { expect, test } from "@playwright/test";
+import { REDIRECTS } from "@/lib/redirects";
+import { loadTeamResearchFile } from "@/lib/team/load";
+import { dataset, expectNoHorizontalOverflow, isMobile } from "./helpers";
+
+test.describe("redirects", () => {
+  for (const [source, destination] of REDIRECTS) {
+    test(`${source} redirects permanently to ${destination}`, async ({ request }) => {
+      const res = await request.get(source, { maxRedirects: 0 });
+      expect(res.status()).toBe(308);
+      expect(new URL(res.headers().location!, "http://x").pathname + new URL(res.headers().location!, "http://x").hash).toBe(destination);
+      const live = await request.get(destination.split("#")[0]!);
+      expect(live.status()).toBe(200);
+    });
+  }
+
+  test("query strings survive the redirect", async ({ request }) => {
+    const res = await request.get("/research/compare?ids=a,b", { maxRedirects: 0 });
+    expect(decodeURIComponent(res.headers().location!)).toContain("ids=a,b");
+    const graph = await request.get("/research/graph?type=person&id=x", { maxRedirects: 0 });
+    expect(graph.headers().location).toContain("type=person");
+  });
+
+  test("/workspace/briefing stays where it is", async ({ request }) => {
+    const res = await request.get("/workspace/briefing", { maxRedirects: 0 });
+    expect(res.status()).toBe(200);
+  });
+});
+
+test("the header has the five tabs and no What-if or developer link", async ({ page }) => {
+  await page.goto("/");
+  if (isMobile(page)) await page.getByRole("button", { name: "Menu" }).click();
+  const nav = page.getByRole("navigation", { name: "Primary" });
+  await expect(nav.getByRole("link")).toHaveCount(5);
+  await expect(nav).not.toContainText(/what-if|lab|developer/i);
+  const footer = page.getByRole("contentinfo");
+  await expect(footer.getByRole("link", { name: "Developers" })).toHaveAttribute("href", "/dev");
+});
+
+test("the developer page is reachable from the footer and holds the MCP, export and reader tools", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("contentinfo").getByRole("link", { name: "Developers" }).click();
+  await expect(page).toHaveURL(/\/dev$/);
+  await expect(page.getByRole("button", { name: "Download SKILL.md" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Export evidence bundle" })).toBeVisible();
+});
+
+test("Initiatives shows all initiatives alphabetically with the required filters and sections", async ({ page }) => {
+  await page.goto("/initiatives");
+  const cards = page.getByRole("checkbox", { name: /for comparison$/ });
+  await expect(cards).toHaveCount(dataset.initiatives.length);
+  // Cards are alphabetical by the title shown on each card.
+  const titles = await page.locator("[data-initiative-grid] [data-initiative-card] h3").allInnerTexts();
+  expect(titles).toHaveLength(dataset.initiatives.length);
+  expect(titles).toEqual([...titles].sort((a, b) => a.localeCompare(b)));
+  if (!isMobile(page)) {
+    const filters = page.getByRole("complementary", { name: "Filters" });
+    for (const g of ["Grant or RFP", "Official category", "Evidence status", "Affiliation", "Milestones"]) await expect(filters.getByText(g, { exact: true }).first()).toBeVisible();
+  }
+  for (const id of ["compare", "questions", "milestones", "funding", "changes"]) await expect(page.locator(`section#${id}`)).toBeAttached();
+  await expect(page.getByRole("link", { name: "What changed" })).toHaveCount(1);
+  await expectNoHorizontalOverflow(page);
+});
+
+test("the affiliation filter keeps only initiatives that share an official group", async ({ page }) => {
+  test.skip(isMobile(page), "Filters live in a sheet on small screens.");
+  const boxes = page.getByRole("checkbox", { name: /for comparison$/ });
+  await page.goto("/initiatives?aff=none");
+  await expect.poll(() => boxes.count()).toBeGreaterThan(0);
+  const none = await boxes.count();
+  await page.goto("/initiatives?aff=any");
+  await expect.poll(() => boxes.count()).toBeGreaterThan(0);
+  const any = await boxes.count();
+  expect(none + any).toBe(dataset.initiatives.length);
+});
+
+test("the compare tool renders inside Initiatives for two to five picks", async ({ page }) => {
+  const [a, b] = [...dataset.initiatives].sort((x, y) => x.title.localeCompare(y.title, "en"));
+  await page.goto(`/initiatives?ids=${a!.slug},${b!.slug}#compare`);
+  await expect(page.getByText(/rows differ ·/)).toBeVisible();
+});
+
+test("What changed does not copy live funding movements", async ({ page }) => {
+  await page.goto("/initiatives#changes");
+  const section = page.locator("section#changes");
+  await expect(section).toContainText("Funding movements are not copied");
+  await expect(section).not.toContainText(/Official raised \$/);
+});
+
+test("Teams shows the people map and a card per initiative with a Not yet researched state for initiatives without team research", async ({ page }) => {
+  await page.goto("/teams");
+  await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+  await expect(page.getByText("Dotted lines are stated in proposal text")).toBeVisible();
+  const cards = page.getByTestId("team-card");
+  await expect(cards).toHaveCount(dataset.initiatives.length);
+  // The state shows exactly for initiatives without a published team research entry.
+  const researched = new Set(loadTeamResearchFile()?.initiatives.map((i) => i.initiativeId) ?? []);
+  const unresearched = dataset.initiatives.filter((i) => !researched.has(i.id)).length;
+  await expect(cards.filter({ hasText: "Not yet researched" })).toHaveCount(unresearched);
+  await expectNoHorizontalOverflow(page);
+});
+
+test("About merges methodology, freshness, corrections, disclosure and Why AI is here under anchors", async ({ page }) => {
+  await page.goto("/about");
+  for (const id of ["coi", "ai", "how-research-is-made", "methodology", "freshness", "corrections"]) await expect(page.locator(`#${id}`)).toBeAttached();
+  await expect(page.locator("#ai")).toContainText("It decides nothing");
+  await expect(page.locator("#ai")).toContainText("never sees your vote");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
+});
+
+test("Home links to TheDAO instead of copying official funding figures", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.getByTestId("official-strip")).toHaveCount(0);
+  await expect(page.locator("[data-vote-calendar]")).toHaveCount(0);
+  const link = page.locator("[data-thedao-status]").getByRole("link", { name: "View on TheDAO" });
+  await expect(link).toHaveAttribute("href", "https://initiatives.thedao.fund/");
+  const researchY = (await page.getByRole("region", { name: "Research status" }).boundingBox())!.y;
+  const linkY = (await page.locator("[data-thedao-status]").boundingBox())!.y;
+  expect(researchY).toBeLessThan(linkY);
+});
+
+test("What-if is not a page on My Ballot", async ({ page }) => {
+  await page.goto("/workspace");
+  await expect(page.getByRole("heading", { name: "What-if panel" })).toHaveCount(0);
+  await expect(page.locator("[data-thedao-status]").first()).toBeVisible();
+});

@@ -1,0 +1,155 @@
+{
+  "initiativeId": "01M2K23TNDZTEHTXSVRGKM28X1",
+  "collectedAt": "2026-11-28T07:51:03.994Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 13,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "saxenism",
+      "type": "User",
+      "url": "https://github.com/saxenism",
+      "source": "proposal",
+      "reposTotal": 100,
+      "repos": [
+        {
+          "fullName": "saxenism/Bluethroat-labs",
+          "url": "https://github.com/saxenism/Bluethroat-labs",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-25T16:50:03Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "saxenism/bluegate-frontend",
+          "url": "https://github.com/saxenism/bluegate-frontend",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-26T03:46:29Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "saxenism/siwc-isolated-broker",
+          "url": "https://github.com/saxenism/siwc-isolated-broker",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-21T10:09:25Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "saxenism/react_portfolio",
+          "url": "https://github.com/saxenism/react_portfolio",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-07-14T19:46:32Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "saxenism/ccs-2026-resources",
+          "url": "https://github.com/saxenism/ccs-2026-resources",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-06-06T06:48:27Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "saxenism/Bluethroat-docs",
+          "url": "https://github.com/saxenism/Bluethroat-docs",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-04-22T05:25:43Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "saxenism/bluethroat-labs.github.io",
+          "url": "https://github.com/saxenism/bluethroat-labs.github.io",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-03-02T07:50:17Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "saxenism/saxenism-wallet",
+          "url": "https://github.com/saxenism/saxenism-wallet",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-09-27T08:21:40Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "saxenism/zksync-telemetry-js",
+          "url": "https://github.com/saxenism/zksync-telemetry-js",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2024-12-18T18:18:37Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "saxenism/zksync-telemetry",
+          "url": "https://github.com/saxenism/zksync-telemetry",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-12-13T11:43:20Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "saxenism/telemetry-research-script",
+          "url": "https://github.com/saxenism/telemetry-research-script",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-11-21T12:34:41Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "saxenism/boojum-mentorship-program",
+          "url": "https://github.com/saxenism/boojum-mentorship-program",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-08-21T05:02:48Z",
+          "latestReleaseAt": null
+        }
+      ]
+    }
+  ],
+  "people": []
+}

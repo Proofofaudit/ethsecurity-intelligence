@@ -1,0 +1,396 @@
+{
+  "initiativeId": "01M55FCN0S9D9AFTPQ7Z5YYV9N",
+  "collectedAt": "2026-11-28T07:51:29.688Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 30,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "scarai-xyz",
+      "type": "Organization",
+      "url": "https://github.com/scarai-xyz",
+      "source": "proposal",
+      "reposTotal": 3,
+      "repos": [
+        {
+          "fullName": "scarai-xyz/evmpatch-env",
+          "url": "https://github.com/scarai-xyz/evmpatch-env",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 0,
+          "pushedAt": "2026-11-20T22:18:04Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "scarai-xyz/.github",
+          "url": "https://github.com/scarai-xyz/.github",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-14T16:22:28Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "scarai-xyz/scar-retrieval",
+          "url": "https://github.com/scarai-xyz/scar-retrieval",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 2,
+          "pushedAt": "2026-09-15T10:23:25Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "FarseenSh",
+      "type": "User",
+      "url": "https://github.com/FarseenSh",
+      "source": "curated",
+      "reposTotal": 40,
+      "repos": [
+        {
+          "fullName": "FarseenSh/riskbeat",
+          "url": "https://github.com/FarseenSh/riskbeat",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-27T12:35:14Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "FarseenSh/contract-extraction",
+          "url": "https://github.com/FarseenSh/contract-extraction",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-11T12:06:15Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "FarseenSh/boundline",
+          "url": "https://github.com/FarseenSh/boundline",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2026-10-13T06:36:34Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "FarseenSh/scar",
+          "url": "https://github.com/FarseenSh/scar",
+          "fork": false,
+          "archived": true,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-10-08T06:29:08Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "FarseenSh/authpilot",
+          "url": "https://github.com/FarseenSh/authpilot",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-10-04T15:27:37Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "FarseenSh/web3ctx",
+          "url": "https://github.com/FarseenSh/web3ctx",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-21T20:21:10Z",
+          "latestReleaseAt": "2026-09-09T14:55:29Z"
+        },
+        {
+          "fullName": "FarseenSh/earnforge",
+          "url": "https://github.com/FarseenSh/earnforge",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 0,
+          "pushedAt": "2026-09-07T09:52:04Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "FarseenSh/redrob-ranker",
+          "url": "https://github.com/FarseenSh/redrob-ranker",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-07-02T16:46:17Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "FarseenSh/Inside-Tiny-Aya",
+          "url": "https://github.com/FarseenSh/Inside-Tiny-Aya",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2026-06-27T00:51:46Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "FarseenSh/loopvault",
+          "url": "https://github.com/FarseenSh/loopvault",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-06-21T23:58:03Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "FarseenSh/conduitcredit",
+          "url": "https://github.com/FarseenSh/conduitcredit",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-06-21T23:48:42Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "FarseenSh/surfacevault",
+          "url": "https://github.com/FarseenSh/surfacevault",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-06-21T20:46:13Z",
+          "latestReleaseAt": null
+        }
+      ]
+    }
+  ],
+  "people": [
+    {
+      "handle": "FarseenSh",
+      "url": "https://github.com/FarseenSh",
+      "source": "curated",
+      "repos": [
+        {
+          "fullName": "FarseenSh/riskbeat",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            27,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "FarseenSh/contract-extraction",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "FarseenSh/boundline",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            124,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "FarseenSh/scar",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "FarseenSh/authpilot",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            25,
+            17,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "FarseenSh/web3ctx",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            32,
+            7,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "FarseenSh/earnforge",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            36,
+            0,
+            0,
+            19,
+            52,
+            31,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "FarseenSh/redrob-ranker",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            25,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "FarseenSh/Inside-Tiny-Aya",
+          "monthly": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            7,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "FarseenSh/loopvault",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            31,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        0,
+        0,
+        0,
+        1,
+        37,
+        0,
+        90,
+        20,
+        84,
+        63,
+        143,
+        1
+      ]
+    }
+  ]
+}

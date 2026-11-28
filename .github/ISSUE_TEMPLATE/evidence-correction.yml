@@ -1,0 +1,70 @@
+name: Evidence correction
+description: Report a statement, figure or evidence status that is wrong, outdated or missing context.
+title: "[Correction] "
+labels: ["correction"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping keep the research accurate. Corrections are public. Do not include private contact details or vulnerability details here; see SECURITY.md for security reports.
+
+        You can also use "Suggest a correction" on the dossier page, which records the correction in the public changelog.
+  - type: input
+    id: page
+    attributes:
+      label: Page or API URL
+      description: The dossier, page or API response that shows the statement.
+      placeholder: https://.../initiatives/<slug>
+    validations:
+      required: true
+  - type: input
+    id: claim
+    attributes:
+      label: Claim or record id (if shown)
+      description: Shown in the source inspector, for example a claim id.
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Incorrect
+        - Outdated
+        - Missing context
+        - Missing evidence
+        - Misattributed
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: What the site says now
+      description: Quote the statement or figure.
+    validations:
+      required: true
+  - type: textarea
+    id: proposed
+    attributes:
+      label: Proposed correction
+    validations:
+      required: true
+  - type: input
+    id: evidence
+    attributes:
+      label: Evidence link
+      description: A public https link that supports the correction.
+      placeholder: https://
+    validations:
+      required: true
+  - type: textarea
+    id: explanation
+    attributes:
+      label: Explanation
+      description: How the evidence supports the correction.
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation
+      options:
+        - label: The evidence is public and the issue contains no private or security-sensitive information.
+          required: true

@@ -7,7 +7,7 @@ out/
 .env.*
 !.env.example
 *.log
-coverage/
+/coverage/
 playwright-report/
 test-results/
 next-env.d.ts

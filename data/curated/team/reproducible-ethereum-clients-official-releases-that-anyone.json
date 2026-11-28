@@ -1,0 +1,359 @@
+{
+  "members": [
+    {
+      "name": "Vivi Andersson",
+      "role": "Engineer; PhD student at KTH (per the proposal). Built Geth Rebuild",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "vivi365",
+          "url": "https://github.com/vivi365",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Geth Rebuild repository (contributor)",
+          "kind": "project",
+          "url": "https://github.com/chains-project/geth-rebuild",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Commented on go-ethereum issue 28987 about reproducible builds",
+          "kind": "project",
+          "url": "https://github.com/ethereum/go-ethereum/issues/28987",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Co-author: PoCo, agentic proof-of-concept exploit generation (arXiv 2511.02780)",
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2511.02780",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/reproducible-ethereum-clients-official-releases-that-anyone",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Sofia Bobadilla",
+      "role": "Coordinator and engineer; PhD student at KTH and member of mab.xyz (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "Website",
+          "handle": "sofiabobadilla.github.io",
+          "url": "https://sofiabobadilla.github.io/",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Co-author: PoCo (arXiv 2511.02780)",
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2511.02780",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/reproducible-ethereum-clients-official-releases-that-anyone",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Raphina Liu",
+      "role": "Engineer; PhD student at KTH (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "Stamp9",
+          "url": "https://github.com/Stamp9",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/reproducible-ethereum-clients-official-releases-that-anyone",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Julien Malka",
+      "role": "Engineer; postdoc at KTH (per the proposal). His own website says PhD student at the Polytechnic Institute of Paris",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "Website",
+          "handle": "luj.fr",
+          "url": "https://luj.fr/",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Co-author: Trusting-Trust Attack against an Entire Linux Distribution through Binary Manipulation (arXiv 2607.24888)",
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2607.24888",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/reproducible-ethereum-clients-official-releases-that-anyone",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Martin Monperrus",
+      "role": "Advisor; Professor of Software Technology at KTH (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "Website",
+          "handle": "monperrus.net",
+          "url": "https://www.monperrus.net/martin",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Co-author of the Java unreproducible builds paper (arXiv 2504.21679)",
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2504.21679",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Ethereum Foundation 2024 academic grant: Sound Foundations for Client Diversity (with Javier Ron)",
+          "kind": "project",
+          "url": "https://blog.ethereum.org/2025/01/17/academic-grants-recipients",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/reproducible-ethereum-clients-official-releases-that-anyone",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Javier Ron",
+      "role": "Advisor; postdoc at KTH (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "javierron",
+          "url": "https://github.com/javierron",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Lead author: Proving and Rewarding Client Diversity to Strengthen Resilience of Blockchain Networks (arXiv 2411.18401)",
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2411.18401",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Ethereum Foundation 2024 academic grant: Sound Foundations for Client Diversity",
+          "kind": "project",
+          "url": "https://blog.ethereum.org/2025/01/17/academic-grants-recipients",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/reproducible-ethereum-clients-official-releases-that-anyone",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Aman Sharma",
+      "role": "Engineer; PhD student at KTH (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "algomaster99",
+          "url": "https://github.com/algomaster99",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Lead author: Causes and Canonicalization of Unreproducible Builds in Java (arXiv 2504.21679)",
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2504.21679",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/reproducible-ethereum-clients-official-releases-that-anyone",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "mab.xyz",
+    "summary": "Web3 security firm in Stockholm, described on its own website as a spin-off from Prof. Martin Monperrus' research group at KTH Royal Institute of Technology. The site lists work funded by the Ethereum Foundation, Vinnova and WASP, and a mab-xyz GitHub organization created 2025-02-14.",
+    "website": "https://mab.xyz",
+    "founded": "GitHub organization created 2025-02-14",
+    "previousFunding": [
+      {
+        "label": "Ethereum Foundation 2024 Academic Grants (Sound Foundations for Client Diversity, Javier Ron and Martin Monperrus, KTH)",
+        "url": "https://blog.ethereum.org/2025/01/17/academic-grants-recipients"
+      },
+      {
+        "label": "TheDAO Security Fund Round 1 record: mab.xyz - transaction guards",
+        "url": "https://thedao.fund/transparency/mab-xyz-transaction-guards"
+      }
+    ],
+    "otherProducts": [
+      {
+        "label": "Crystal-Clear transaction security analysis API",
+        "url": "https://mab.xyz/transaction-security-analysis.html"
+      },
+      {
+        "label": "transaction-guard-contracts repository",
+        "url": "https://github.com/mab-xyz/transaction-guard-contracts"
+      },
+      {
+        "label": "erc-7936-versioned-proxy repository",
+        "url": "https://github.com/mab-xyz/erc-7936-versioned-proxy"
+      }
+    ],
+    "sources": [
+      {
+        "label": "mab.xyz website",
+        "url": "https://mab.xyz"
+      },
+      {
+        "label": "GitHub organization mab-xyz",
+        "url": "https://github.com/mab-xyz"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [
+    {
+      "grant": "TheDAO Security Fund Round 1: mab.xyz - transaction guards (organization-level match by same website and organization name)",
+      "funder": "TheDAO Security Fund, Giveth",
+      "promised": "Per the mab.xyz website: open-source guards that protect users from malicious transactions. The Round 1 record states no specific deliverables. GitHub API: the public repository transaction-guard-contracts (Transaction Guard Contracts for Ethereum) was created 2026-04-08 and last pushed 2026-11-10. Whether it completes the Round 1 scope cannot be judged from the record, so no promise can be compared with a result. The repository is an existing public artifact, not matched against a stated Round 1 deliverable.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "TheDAO Round 1 record",
+          "url": "https://thedao.fund/transparency/mab-xyz-transaction-guards"
+        },
+        {
+          "label": "mab.xyz website, ongoing projects",
+          "url": "https://mab.xyz"
+        },
+        {
+          "label": "GitHub repository mab-xyz/transaction-guard-contracts",
+          "url": "https://github.com/mab-xyz/transaction-guard-contracts"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_mab-xyz-transaction-guards"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "Geth Rebuild, a tool that checks whether official Geth releases match their source code, exists.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "GitHub repository chains-project/geth-rebuild",
+          "url": "https://github.com/chains-project/geth-rebuild"
+        },
+        {
+          "label": "Geth Rebuild thesis record (DiVA)",
+          "url": "https://www.diva-portal.org/smash/record.jsf?pid=diva2%3A1908608"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: public repository created 2024-05-06, last push 2024-11-12, 3 stars, contributors monperrus and vivi365. The DiVA page was behind a bot check and was not read. The tool was not run."
+    },
+    {
+      "claim": "Vivi Andersson reported to the Geth team that build-machine file paths were left in the release and that a different compiler version was used, and the Geth team fixed its builds in 2024 and tagged her.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "go-ethereum issue 28987",
+          "url": "https://github.com/ethereum/go-ethereum/issues/28987"
+        },
+        {
+          "label": "go-ethereum pull request 30321",
+          "url": "https://github.com/ethereum/go-ethereum/pull/30321"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: vivi365 commented on issue 28987 on 2024-04-30 listing /home/travis paths in the release binary and on 2024-05-13 on the Ubuntu focal versus noble compiler. Pull request 30321 (build: attempt at reproducible builds) was merged 2024-08-20 by holiman and its text says cc @vivi365."
+    },
+    {
+      "claim": "Reth and Lighthouse have started reproducible builds work on their own.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Reth pull request 10459",
+          "url": "https://github.com/paradigmxyz/reth/pull/10459"
+        },
+        {
+          "label": "Lighthouse pull request 6799",
+          "url": "https://github.com/sigp/lighthouse/pull/6799"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: Reth PR 10459 (reproducible build profile) merged 2024-10-22; Lighthouse PR 6799 (reproducible builds) merged 2025-05-19. Whether official releases are checkable by outsiders was not checked."
+    },
+    {
+      "claim": "No client's official releases are checked by anyone outside its own team, and none of the other 11 clients has reached an externally checkable official release.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/reproducible-ethereum-clients-official-releases-that-anyone"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "A survey finding stated by the applicant. It would require rebuilding each client release and was not checked."
+    },
+    {
+      "claim": "A single tampered build tool can silently spread to nearly all software of a Linux distribution (Julien Malka and co-authors).",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "arXiv 2607.24888",
+          "url": "https://arxiv.org/abs/2607.24888"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The arXiv abstract page confirms the paper title and authors (Julien Malka, Aman Sharma, Martin Monperrus and others). The finding itself was not independently reproduced."
+    },
+    {
+      "claim": "The Ethereum Foundation funded the team's earlier research on client diversity.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Ethereum Foundation 2024 Academic Grants recipients",
+          "url": "https://blog.ethereum.org/2025/01/17/academic-grants-recipients"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The EF blog lists the project Sound Foundations for Client Diversity by Javier Ron and Prof. Martin Monperrus, KTH Royal Institute of Technology."
+    },
+    {
+      "claim": "CHAINS, a KTH research project financed by the Swedish Foundation for Strategic Research, funds the four KTH students' PhD research.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "CHAINS project page",
+          "url": "https://chains.proj.kth.se/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The CHAINS page is linked in the proposal. Which students it funds was not checked."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Handles for Sofia Bobadilla beyond her website and for Martin Monperrus beyond his website: Not found in public sources as published in the proposal.",
+    "Raphina Liu past work and Ethereum Protocol Fellowship cohort 7 participation: Not found in public sources.",
+    "Julien Malka current affiliation: the proposal says postdoc at KTH and his own website says PhD student at the Polytechnic Institute of Paris; not resolved.",
+    "Round 1 deliverable list for mab.xyz transaction guards: Not found in public sources.",
+    "Independent verification of the claim that no client has externally checkable releases: Not found in public sources."
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

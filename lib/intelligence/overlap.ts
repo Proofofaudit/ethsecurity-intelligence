@@ -7,7 +7,7 @@
  *  - shared standards (ERC/EIP numbers in text),
  *  - shared cited repositories,
  *  - shared backers (official pledges).
- * A pair becomes a hypothesis when signals pass documented thresholds. Hypotheses are labelled
+ * A pair becomes a hypothesis when signals pass documented thresholds. Hypotheses are labeled
  * "potentially overlaps" (textual similarity ≥ 0.075 and a shared primary lifecycle stage) or "potentially
  * complements" (different primary stage, shared standards/repos/terms). They are never
  * presented as confirmed partnerships or duplicates.
@@ -105,7 +105,7 @@ export function hypotheses(signals: PairSignals[], byId: Map<string, Initiative>
     if (s.sharedRepos.length) reasons.push(`Both cite ${s.sharedRepos.join(", ")}`);
     if (s.sharedStages.length) reasons.push(`Shared lifecycle stages: ${s.sharedStages.join(", ")}`);
     if (s.sharedBackers.length) reasons.push(`Shared public backers (${s.sharedBackers.length})`);
-    if (s.sameOrganization) reasons.push("Same recipient organisation");
+    if (s.sameOrganization) reasons.push("Same recipient organization");
     const strong = s.similarity >= OVERLAP_THRESHOLDS.overlapSimilarity;
     const signalCount = [s.similarity >= OVERLAP_THRESHOLDS.complementSimilarity, s.sharedStandards.length > 0, s.sharedRepos.length > 0, s.sharedStages.length > 0].filter(Boolean).length;
     if (!(strong || (signalCount >= OVERLAP_THRESHOLDS.minSignals && (s.sharedStandards.length > 0 || s.sharedRepos.length > 0 || s.similarity >= OVERLAP_THRESHOLDS.complementSimilarity)))) continue;

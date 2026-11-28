@@ -1,0 +1,155 @@
+{
+  "initiativeId": "01M4BF7QP1AJ27GBXGYY15HJ4H",
+  "collectedAt": "2026-11-28T07:01:29.291Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 14,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "Dedaub",
+      "type": "Organization",
+      "url": "https://github.com/Dedaub",
+      "source": "proposal",
+      "reposTotal": 19,
+      "repos": [
+        {
+          "fullName": "Dedaub/monitoring-cli",
+          "url": "https://github.com/Dedaub/monitoring-cli",
+          "fork": false,
+          "archived": false,
+          "stars": 5,
+          "forks": 2,
+          "pushedAt": "2026-11-25T13:14:21Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Dedaub/manifold",
+          "url": "https://github.com/Dedaub/manifold",
+          "fork": false,
+          "archived": false,
+          "stars": 23,
+          "forks": 5,
+          "pushedAt": "2026-11-10T18:50:36Z",
+          "latestReleaseAt": "2024-06-20T18:09:34Z"
+        },
+        {
+          "fullName": "Dedaub/srcup-ci-action",
+          "url": "https://github.com/Dedaub/srcup-ci-action",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-15T09:06:42Z",
+          "latestReleaseAt": "2024-05-28T18:37:40Z"
+        },
+        {
+          "fullName": "Dedaub/srcwarnings-ci-action",
+          "url": "https://github.com/Dedaub/srcwarnings-ci-action",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-15T09:02:10Z",
+          "latestReleaseAt": "2023-12-18T08:07:20Z"
+        },
+        {
+          "fullName": "Dedaub/srcup",
+          "url": "https://github.com/Dedaub/srcup",
+          "fork": false,
+          "archived": false,
+          "stars": 13,
+          "forks": 7,
+          "pushedAt": "2026-05-13T13:51:00Z",
+          "latestReleaseAt": "2024-09-30T10:28:17Z"
+        },
+        {
+          "fullName": "Dedaub/pySAD",
+          "url": "https://github.com/Dedaub/pySAD",
+          "fork": false,
+          "archived": false,
+          "stars": 6,
+          "forks": 2,
+          "pushedAt": "2026-04-29T13:54:29Z",
+          "latestReleaseAt": "2023-07-10T14:40:17Z"
+        },
+        {
+          "fullName": "Dedaub/report-og-image-service",
+          "url": "https://github.com/Dedaub/report-og-image-service",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-06-07T15:16:32Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Dedaub/metamask-snap",
+          "url": "https://github.com/Dedaub/metamask-snap",
+          "fork": false,
+          "archived": false,
+          "stars": 6,
+          "forks": 5,
+          "pushedAt": "2024-05-21T23:05:17Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Dedaub/storage-extractor",
+          "url": "https://github.com/Dedaub/storage-extractor",
+          "fork": false,
+          "archived": false,
+          "stars": 32,
+          "forks": 3,
+          "pushedAt": "2024-05-19T14:23:52Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Dedaub/srcwarnings",
+          "url": "https://github.com/Dedaub/srcwarnings",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-02-26T09:19:48Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Dedaub/audits",
+          "url": "https://github.com/Dedaub/audits",
+          "fork": false,
+          "archived": false,
+          "stars": 55,
+          "forks": 5,
+          "pushedAt": "2023-11-27T13:17:42Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Dedaub/verkle-integration-impact-study",
+          "url": "https://github.com/Dedaub/verkle-integration-impact-study",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2021-08-08T12:11:39Z",
+          "latestReleaseAt": null
+        }
+      ]
+    }
+  ],
+  "people": []
+}

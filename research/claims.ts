@@ -29,6 +29,8 @@ export interface ClaimContext {
   pulls: Map<string, PullFacts>;
   txChecks: Map<string, TxCheck>;
   owners: Map<string, { login: string; createdAt: string | null; publicRepos: number | null }>;
+  /** Organization names from official records, used for literal counterparty matching only. */
+  knownNames: string[];
   now: string;
 }
 
@@ -185,7 +187,7 @@ export function extractClaims(ctx: ClaimContext): { claims: Draft[]; integration
       ...base,
       key: "donations",
       kind: "donation",
-      assertion: `The official ledger lists ${ctx.donations.length} confirmed donation transaction${ctx.donations.length === 1 ? "" : "s"} to the initiative's Safe, totalling ${formatUsd(ini.funding.donatedCents, { precise: true })}.`,
+      assertion: `The official ledger lists ${ctx.donations.length} confirmed donation transaction${ctx.donations.length === 1 ? "" : "s"} to the initiative's Safe, totaling ${formatUsd(ini.funding.donatedCents, { precise: true })}.`,
       origin: "official",
       section: "funding",
       quote: null,
@@ -199,7 +201,7 @@ export function extractClaims(ctx: ClaimContext): { claims: Draft[]; integration
     });
   }
 
-  // 3. Proposal text: cited artefacts, quantitative statements, integrations, prior funding.
+  // 3. Proposal text: cited artifacts, quantitative statements, integrations, prior funding.
   const allLinks = ini.textLinks.map((l) => ({ url: l.url, text: l.text }));
   const seenRepos = new Set<string>();
   for (const l of ini.textLinks) {
@@ -226,7 +228,7 @@ export function extractClaims(ctx: ClaimContext): { claims: Draft[]; integration
       supportingEvidenceIds: exists && r ? [evidenceId.repo(r.fullName)] : [],
       status: exists ? "independently_verified" : "not_independently_verified",
       verificationMethod: exists
-        ? `GitHub API confirms the repository is public${r?.pushedAt ? `; last push ${r.pushedAt.slice(0, 10)}` : ""}${r?.license ? `; licence ${r.license}` : "; no licence detected"}.`
+        ? `GitHub API confirms the repository is public${r?.pushedAt ? `; last push ${r.pushedAt.slice(0, 10)}` : ""}${r?.license ? `; license ${r.license}` : "; no license detected"}.`
         : "The repository could not be retrieved (it may be private, renamed or removed).",
       limitations: exists ? lim : ["Not finding a repository is not evidence that the work does not exist."],
       material: PRIOR_WORK_SECTIONS.has(l.section),
@@ -239,32 +241,32 @@ export function extractClaims(ctx: ClaimContext): { claims: Draft[]; integration
     for (const s of sents) {
       const urls = linksIn(s, allLinks);
       const st = urlStatus(urls, ctx);
-      if (PRIOR_WORK_SECTIONS.has(section.key) && QUANT_RE.test(s) && quantCount < 8 && s.length < 500) {
+      if (PRIOR_WORK_SECTIONS.has(section.key) && QUANT_RE.test(s) && !s.includes("|") && quantCount < 8 && s.length < 500) {
         quantCount++;
         drafts.push({
           ...base,
           key: `quant:${section.key}:${s.slice(0, 80)}`,
           kind: "quantitative",
-          assertion: truncate(s, 400),
+          assertion: `The proposal states: “${truncate(s, 380)}”`,
           origin: "applicant",
           section: section.key,
           quote: truncate(s, 600),
           sourceUrls: [ini.url, ...urls],
           evidenceIds: [evidenceId.proposal(ini.id, section.key), ...st.supported, ...st.inconclusive, ...st.unreachable],
           supportingEvidenceIds: [],
-          status: st.supported.length ? "partially_supported" : "applicant_reported",
+          status: "applicant_reported",
           verificationMethod: st.supported.length
-            ? "Quantitative statement from the proposal. A cited source is reachable, but the figure itself was not independently recomputed."
-            : "Quantitative statement from the proposal. No independent source for the figure was examined.",
+            ? `Quoted from the proposal. ${st.supported.length} cited source(s) are publicly reachable; their content was not checked against the figure.`
+            : "Quoted from the proposal. The figure was not independently checked.",
           limitations: ["Figures are as stated by the applicant unless a supporting source is listed."],
           material: true,
         });
       }
-      if (INTEGRATION_RE.test(s) && s.length < 500) {
+      if (INTEGRATION_RE.test(s) && !s.includes("|") && s.length < 500) {
         const planned = /\b(will|plan|planned|aim|target|intend|going to|expected to)\b/i.test(s);
-        const status: EvidenceStatus = planned ? "future_target" : st.supported.length ? "partially_supported" : "applicant_reported";
-        const counterparty =
-          /\b(?:with|into|in|by|at|on|across|powers)\s+(?:the\s+)?((?:[A-Z][\w.'’-]*(?:\s+|,\s*|\s+and\s+)?){1,5})/.exec(s)?.[1]?.trim().replace(/[,\s]+$/, "").replace(/(\s+and)$/, "") ?? "unspecified";
+        const status: EvidenceStatus = planned ? "future_target" : "applicant_reported";
+        // Only names that literally appear in the sentence are recorded; nothing is inferred.
+        const counterparty = ctx.knownNames.filter((n) => n.length >= 4 && new RegExp(`(?<![A-Za-z0-9])${n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?![A-Za-z0-9])`).test(s)).join(", ") || "Not identified";
         const id = stableId("int", ini.id, s.slice(0, 120));
         integrations.push({
           id,
@@ -281,7 +283,7 @@ export function extractClaims(ctx: ClaimContext): { claims: Draft[]; integration
           ...base,
           key: `int:${section.key}:${s.slice(0, 80)}`,
           kind: "integration",
-          assertion: truncate(s, 400),
+          assertion: `The proposal states: “${truncate(s, 380)}”`,
           origin: "applicant",
           section: section.key,
           quote: truncate(s, 600),
@@ -292,16 +294,18 @@ export function extractClaims(ctx: ClaimContext): { claims: Draft[]; integration
           verificationMethod: planned
             ? "Planned integration stated in the proposal."
             : st.supported.length
-              ? "Integration stated in the proposal; a cited source is reachable but the integration itself was not tested."
-              : "Integration stated in the proposal; no independent confirmation from the counterparty was examined.",
+              ? `Quoted from the proposal. ${st.supported.length} cited source(s) are publicly reachable; the integration itself was not tested or confirmed by the counterparty.`
+              : "Quoted from the proposal. The integration was not tested or confirmed by the counterparty.",
           limitations: ["Counterparty confirmation was not obtained; we do not contact teams."],
           material: true,
         });
       }
       const prose = s.replace(/https?:\/\/\S+/g, "").trim();
-      const negated = /^(no|none|not)\b|\bno (previous|prior|other)\b|\bnot (been |yet )?(funded|received)\b/i.test(prose);
+      const negated =
+        /^(no|none|not)\b|\bno (previous|prior|other)\b|\bnot (been |yet )?(funded|received|included)\b|\bexcluded\b|\bwill be disclosed\b/i.test(prose) || prose.includes("|");
       if (PRIOR_WORK_SECTIONS.has(section.key) && FUNDING_RE.test(prose) && !negated && prose.length >= 30 && s.length < 500) {
-        const funder = /\b(Ethereum Foundation|ESP|Gitcoin|Optimism|Octant|Protocol Guild|Arbitrum|Uniswap|Aave|Compound|Lido|Safe|Polygon|Starknet|zkSync|Scroll|Base|Coinbase|a16z|Paradigm)\b/.exec(s)?.[1] ?? "unspecified";
+        const funder =
+          /\b(Ethereum Foundation|Ecosystem Support Program|Gitcoin|Optimism RetroPGF|Optimism|Octant|Protocol Guild|Giveth|Arbitrum Foundation|TheDAO Security Fund|Argot Collective|Argot)\b/.exec(prose)?.[1] ?? "Not identified";
         const amount = /\$\s?(\d[\d,.]*)\s?(k|m|million)?/i.exec(s);
         let amountCents: number | null = null;
         if (amount?.[1]) {
@@ -315,7 +319,7 @@ export function extractClaims(ctx: ClaimContext): { claims: Draft[]; integration
           funder,
           statement: truncate(s, 400),
           amountCents,
-          status: st.supported.length ? "partially_supported" : "applicant_reported",
+          status: "applicant_reported",
           sourceUrls: [ini.url, ...urls],
           provenance: { origin: "applicant", sourceUrls: [ini.url], retrievedAt: ctx.now, method: "Pattern-matched funding statement in proposal text", version: CLAIMS_VERSION },
         });
@@ -323,15 +327,15 @@ export function extractClaims(ctx: ClaimContext): { claims: Draft[]; integration
           ...base,
           key: `fund:${section.key}:${s.slice(0, 80)}`,
           kind: "previous_funding",
-          assertion: truncate(s, 400),
+          assertion: `The proposal states: “${truncate(s, 380)}”`,
           origin: "applicant",
           section: section.key,
           quote: truncate(s, 600),
           sourceUrls: [ini.url, ...urls],
           evidenceIds: [evidenceId.proposal(ini.id, section.key), ...st.supported],
           supportingEvidenceIds: [],
-          status: st.supported.length ? "partially_supported" : "applicant_reported",
-          verificationMethod: "Funding history stated in the proposal; funder records were not independently retrieved.",
+          status: "applicant_reported",
+          verificationMethod: "Quoted from the proposal. Funder records were not independently retrieved.",
           limitations: ["Check for deliverables that overlap with previously funded work."],
           material: true,
         });
@@ -393,7 +397,7 @@ export type { Draft as ClaimDraft };
 export const CLAIM_KIND_LABEL: Record<ClaimKind, string> = {
   milestone_deliverable: "Planned deliverable",
   milestone_completed: "Completed milestone",
-  existing_artifact: "Existing artefact",
+  existing_artifact: "Existing artifact",
   quantitative: "Quantitative statement",
   integration: "Integration",
   previous_funding: "Previous funding",

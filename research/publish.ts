@@ -22,12 +22,18 @@ import { slugify } from "@/lib/util/text";
 import { hypotheses, pairSignals, OVERLAP_METHOD_VERSION } from "@/lib/intelligence/overlap";
 import { revisionChanges, snapshotChanges } from "@/lib/intelligence/changes";
 import { METHODOLOGY_VERSION } from "@/lib/metrics/registry";
+import { remainingGapCents, theDaoAskCents } from "@/lib/metrics/ask";
+import { centsToMicroUsd, microUsdToCents } from "@/lib/vote/manifest";
 import { normalize } from "./normalize";
 import { latestValidSnapshot, PUBLISHED_DIR, DATA_DIR, RESEARCH_DIR, readJson, writeJson } from "./store";
 import { JOBS_FILE, PIPELINE_VERSION, initiativeUrls, parseGithub, readResult, type ArtifactResult, type DonationResult, type GithubResult, type WebsiteResult } from "./collect";
 import { extractClaims, finalizeClaims, type ClaimDraft } from "./claims";
 import { evidenceId, httpEvidence, officialEvidence, profileEvidence, proposalEvidence, pullEvidence, repoEvidence, txEvidence } from "./evidence";
 import { loadJobs } from "./queue";
+import { auditDataset } from "./audit";
+import { buildRound1Section, ROUND1_EXPECTED_ROWS } from "./round1";
+import { computeRound1Matches } from "@/lib/intelligence/round1";
+import type { CuratedAlias } from "@/lib/domain/identity";
 import type { UrlCheck } from "./web";
 import type { PullFacts, RepoFacts } from "./github";
 import type { TxCheck } from "./onchain";
@@ -124,6 +130,7 @@ export async function publish(opts: { log?: (m: string) => void; dryRun?: boolea
       pulls,
       txChecks,
       owners,
+      knownNames: [...new Set(layer.organizations.filter((o) => !o.anonymous).flatMap((o) => o.names))].filter((n) => n.toLowerCase() !== ini.recipientTeam?.toLowerCase()),
       now,
     });
     drafts.push(...r.claims);
@@ -192,7 +199,7 @@ export async function publish(opts: { log?: (m: string) => void; dryRun?: boolea
   }
   repositories.sort((a, b) => a.fullName.localeCompare(b.fullName));
 
-  // Organisations: attach website + GitHub profile observations.
+  // Organizations: attach website + GitHub profile observations.
   const organizations: Organization[] = layer.organizations.map((o) => {
     const site = o.website ? urlChecks.get(o.website) : undefined;
     const ghLogin = (o.github ?? (o.website ? parseGithub(o.website)?.owner : null))?.toLowerCase() ?? null;
@@ -232,13 +239,8 @@ export async function publish(opts: { log?: (m: string) => void; dryRun?: boolea
           return "";
         }
       })();
-      const kind: Product["kind"] = /^docs?\.|\/docs?\b/.test(host + new URL(url).pathname)
-        ? "docs"
-        : /^app\.|dashboard|scan\./.test(host)
-          ? "app"
-          : /arxiv|paper|\.pdf$/.test(url)
-            ? "paper"
-            : "website";
+      // Kind comes only from literal URL structure; no guessing from content.
+      const kind: Product["kind"] = /^docs?\./.test(host) || /^\/docs?(\/|$)/.test(new URL(url).pathname) ? "docs" : /^app\./.test(host) ? "app" : "website";
       const id = stableId("prod", url);
       const existing = products.find((p) => p.id === id);
       if (existing) {
@@ -309,6 +311,10 @@ export async function publish(opts: { log?: (m: string) => void; dryRun?: boolea
   if (previous && previous.meta.snapshotId !== snapshotId) for (const c of snapshotChanges({ ...previous, snapshotId: previous.meta.snapshotId }, partial, now)) changes.set(c.id, c);
   for (const c of revisionChanges(layer.revisions)) changes.set(c.id, c);
 
+  // Round 1 history: records from the stored raw copies, matched by one function for everyone.
+  const curatedAliases = (await readJson<CuratedAlias[]>(path.join(DATA_DIR, "curated", "aliases.json"))) ?? [];
+  const round1 = await buildRound1Section((projects) => computeRound1Matches(projects, layer.initiatives, organizations, curatedAliases));
+
   const research = await readJson<{ startedAt: string; finishedAt: string; pipelineVersion: string; requests: number; failures: number }>(path.join(RESEARCH_DIR, "last-run.json"));
   const jobs = await loadJobs(JOBS_FILE);
 
@@ -331,6 +337,8 @@ export async function publish(opts: { log?: (m: string) => void; dryRun?: boolea
     revisions: layer.revisions,
     changes: [...changes.values()].sort((a, b) => b.detectedAt.localeCompare(a.detectedAt)),
     researchJobs: jobs,
+    vote: layer.vote,
+    round1,
   };
   const hash = contentHash({ ...body, researchJobs: undefined, changes: undefined });
   const dataset: Dataset = {
@@ -356,6 +364,10 @@ export async function publish(opts: { log?: (m: string) => void; dryRun?: boolea
   };
 
   const problems = validateDataset(dataset);
+  const audit = await auditDataset(dataset, manifest);
+  problems.push(...audit.failures.slice(0, 50));
+  log(`Truth audit: ${audit.checked} checks, ${audit.failures.length} failures`);
+  if (!opts.dryRun) await writeJson(path.join(PUBLISHED_DIR, "audit.json"), { datasetVersion: dataset.meta.datasetVersion, at: now, ...audit });
   if (problems.length) {
     log(`Publish refused: ${problems.length} problem(s)`);
     for (const p of problems) log(`  - ${p}`);
@@ -363,7 +375,7 @@ export async function publish(opts: { log?: (m: string) => void; dryRun?: boolea
   }
   if (!opts.dryRun) await writeJson(DATASET_FILE, dataset, false);
   log(
-    `Published ${dataset.meta.datasetVersion}: ${dataset.initiatives.length} initiatives, ${claims.length} claims, ${dataset.evidence.length} evidence, ${repositories.length} repos, ${organizations.length} organisations, ${dataset.relationships.length} relationships, ${dataset.changes.length} changes`,
+    `Published ${dataset.meta.datasetVersion}: ${dataset.initiatives.length} initiatives, ${claims.length} claims, ${dataset.evidence.length} evidence, ${repositories.length} repos, ${organizations.length} organizations, ${dataset.relationships.length} relationships, ${dataset.changes.length} changes`,
   );
   return { dataset, problems };
 }
@@ -382,10 +394,64 @@ export function validateDataset(d: Dataset, expected = EXPECTED): string[] {
     const sum = ms.reduce((s, m) => s + m.amountCents, 0);
     if (sum !== i.funding.goalCents) problems.push(`${i.slug}: milestone sum ${sum} ≠ goal ${i.funding.goalCents}`);
     if (i.funding.pledgedCents + i.funding.donatedCents !== i.funding.officialRaisedCents) problems.push(`${i.slug}: pledged + donated ≠ official raised`);
+    if (i.funding.remainingCents !== remainingGapCents(i.funding.goalCents, i.funding.officialRaisedCents)) problems.push(`${i.slug}: remaining funding gap ≠ max(0, goal − raised)`);
+    if (i.funding.theDaoAskCents !== theDaoAskCents(i.funding.goalCents, i.funding.officialRaisedCents)) problems.push(`${i.slug}: TheDAO ask ≠ min(200000, max(0, goal − raised))`);
   }
+  problems.push(...validateVote(d));
+  problems.push(...validateRound1(d));
   const ids = new Set(d.claims.map((c) => c.id));
   if (ids.size !== d.claims.length) problems.push("duplicate claim ids");
   const evIds = new Set(d.evidence.map((e) => e.id));
   for (const c of d.claims) for (const e of c.supportingEvidenceIds) if (!evIds.has(e)) problems.push(`claim ${c.id} references missing evidence ${e}`);
   return problems.slice(0, 50);
+}
+
+/** Round 1 invariants: a complete record list, and every match with a reason, sources and a date. */
+export function validateRound1(d: Pick<Dataset, "round1" | "initiatives" | "organizations">): string[] {
+  const r = d.round1;
+  const problems: string[] = [];
+  if (r.status === "unavailable") {
+    if (r.projects.length || Object.keys(r.initiativeMatches).length || Object.keys(r.organizationMatches).length) problems.push("round1: unavailable section must not carry records");
+    return problems;
+  }
+  if (r.projects.length !== ROUND1_EXPECTED_ROWS) problems.push(`round1: expected ${ROUND1_EXPECTED_ROWS} records, found ${r.projects.length}`);
+  const ids = new Set(r.projects.map((p) => p.id));
+  if (ids.size !== r.projects.length) problems.push("round1: duplicate record ids");
+  for (const p of r.projects) if (!p.sourceUrls.length || !p.checkedAt) problems.push(`round1: ${p.id} has no source URL or checked-on date`);
+  const iniIds = d.initiatives.map((i) => i.id).sort();
+  const orgIds = d.organizations.map((o) => o.id).sort();
+  if (JSON.stringify(Object.keys(r.initiativeMatches).sort()) !== JSON.stringify(iniIds)) problems.push("round1: initiativeMatches must cover exactly the cohort");
+  if (JSON.stringify(Object.keys(r.organizationMatches).sort()) !== JSON.stringify(orgIds)) problems.push("round1: organizationMatches must cover exactly the organizations");
+  for (const [id, ms] of [...Object.entries(r.initiativeMatches), ...Object.entries(r.organizationMatches)])
+    for (const m of ms) {
+      if (!ids.has(m.projectId)) problems.push(`round1: ${id} cites unknown record ${m.projectId}`);
+      if (!m.reasons.length || !m.sourceUrls.length || !m.checkedAt) problems.push(`round1: ${id} → ${m.projectId} has no reason, source URL or checked-on date`);
+    }
+  return problems;
+}
+
+/** Vote section invariants: group data is attached only to a confirmed alignment, never remapped. */
+export function validateVote(d: Pick<Dataset, "vote" | "initiatives">): string[] {
+  const v = d.vote;
+  const problems: string[] = [];
+  const ids = new Set(d.initiatives.map((i) => i.id));
+  const groupKeys = Object.keys(v.initiativeGroups);
+  if (v.groupsAvailable !== (v.status === "aligned")) problems.push("vote: groupsAvailable must equal status === aligned");
+  if (v.status === "aligned") {
+    if (!v.alignment.ok || v.alignment.checks.some((c) => !c.ok)) problems.push("vote: aligned without passing alignment checks");
+    if (v.slugs.length !== v.projects.length) problems.push("vote: slugs and projects differ in length");
+    if (groupKeys.length !== ids.size || groupKeys.some((k) => !ids.has(k))) problems.push("vote: initiativeGroups must cover exactly the cohort");
+    const bySlug = new Map(d.initiatives.map((i) => [i.slug, i]));
+    v.slugs.forEach((slug, i) => {
+      const ini = bySlug.get(slug);
+      const p = v.projects[i];
+      if (!ini || !p) return void problems.push(`vote: slugs[${i}] ${slug} is not a cohort initiative`);
+      if (BigInt(p.goalMicroUsd) !== centsToMicroUsd(ini.funding.goalCents)) problems.push(`vote: projects[${i}] goal differs from ${slug}`);
+      const names = p.groups.map((g) => v.groups[g]);
+      if (JSON.stringify(names) !== JSON.stringify(v.initiativeGroups[ini.id])) problems.push(`vote: groups of ${slug} differ from projects[${i}]`);
+    });
+  } else if (groupKeys.length) problems.push(`vote: initiativeGroups must be empty when status is ${v.status}`);
+  if (v.status === "unavailable" && (v.poolCents !== null || v.scheduleAvailable)) problems.push("vote: unavailable manifest cannot expose pool or schedule");
+  if (v.poolMicroUsd !== null && v.poolCents !== microUsdToCents(v.poolMicroUsd)) problems.push("vote: poolCents differs from poolMicroUsd");
+  return problems;
 }

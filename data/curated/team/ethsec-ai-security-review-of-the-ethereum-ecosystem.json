@@ -1,0 +1,119 @@
+{
+  "members": [
+    {
+      "name": "David Theodore",
+      "role": "Executive director and board member, proposer and lead (per the proposal); author of the Argus article on ethsecurity.org",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "X",
+          "handle": "infosecual",
+          "url": "https://x.com/infosecual",
+          "publishedBy": "website"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Author of 'Argus', published on ethsecurity.org, 2026-11-16",
+          "kind": "paper",
+          "url": "https://ethsecurity.org/content/argus/",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://ethsecurity.org/content/argus/",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "Eth Security",
+    "summary": "Describes itself on ethsecurity.org as an independent nonprofit exploit research organization. The proposal says the legal entity is Eth Security Inc, a Delaware nonprofit being formed. The site publishes one article, 'Argus', about its AI-assisted bug-hunting system.",
+    "website": "https://ethsecurity.org",
+    "previousFunding": [],
+    "otherProducts": [
+      {
+        "label": "Argus article",
+        "url": "https://ethsecurity.org/content/argus/"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Eth Security website",
+        "url": "https://ethsecurity.org"
+      },
+      {
+        "label": "Argus article",
+        "url": "https://ethsecurity.org/content/argus/"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [],
+  "claims": [
+    {
+      "claim": "EthSec's public site is ethsecurity.org and describes Argus.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Eth Security website",
+          "url": "https://ethsecurity.org"
+        },
+        {
+          "label": "Argus article",
+          "url": "https://ethsecurity.org/content/argus/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Both pages load. The Argus article, by David Theodore, dated 2026-11-16, describes a continuous AI bug-hunting engine. The site's contents are the applicant's own statements."
+    },
+    {
+      "claim": "Argus is already in use internally for AI-driven security review.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Argus article",
+          "url": "https://ethsecurity.org/content/argus/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The article states the system runs as a live system and has surfaced high and critical severity issues. No finding is named or linked, so the claim cannot be checked."
+    },
+    {
+      "claim": "Eth Security Inc is a Delaware nonprofit being formed.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Eth Security website",
+          "url": "https://ethsecurity.org"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The site footer says 'Independent Nonprofit Public-Benefit Exploit Research'. No registry record was checked."
+    },
+    {
+      "claim": "David Theodore was a founding member of the Ethereum Foundation Protocol Security Team and a founding board member of SEAL.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/ethsec-ai-security-review-of-the-ethereum-ecosystem"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "No public page confirming these roles was fetched."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "David Theodore: roles at the Ethereum Foundation, SEAL, Cantina/Spearbit and Sherlock, and earlier employers Not found in public sources in the pages checked. No handle on those platforms is recorded because none is linked in the proposal.",
+    "Public findings, CVEs or disclosures produced by Argus: Not found in public sources",
+    "Other staff of Eth Security: Not found in public sources (the proposal says no candidate is pre-assigned).",
+    "Past grants: Not found in public sources",
+    "Delivery track: no Round 1 record matched this initiative. Not found in public sources"
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

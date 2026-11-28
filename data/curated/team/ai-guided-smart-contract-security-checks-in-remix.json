@@ -1,0 +1,235 @@
+{
+  "members": [
+    {
+      "name": "Yann Levreau",
+      "role": "Lead Dev, Remix (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "yann300",
+          "url": "https://github.com/yann300",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Top contributor to remix-project",
+          "kind": "project",
+          "url": "https://github.com/remix-project-org/remix-project",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/ai-guided-smart-contract-security-checks-in-remix",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Stephané Tetsing",
+      "role": "AI Dev, Remix (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "STetsing",
+          "url": "https://github.com/STetsing",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Contributor to remix-project",
+          "kind": "project",
+          "url": "https://github.com/remix-project-org/remix-project",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/ai-guided-smart-contract-security-checks-in-remix",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Aniket",
+      "role": "x402 Dev, Remix (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "Aniket-Engg",
+          "url": "https://github.com/Aniket-Engg",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Contributor to remix-project and top contributor to the x402 repository",
+          "kind": "project",
+          "url": "https://github.com/remix-project-org/x402",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/ai-guided-smart-contract-security-checks-in-remix",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Maitreya Gaikwad",
+      "role": "Security Researcher, Remix (per the proposal); the GitHub profile bio reads Security Researcher (Remix Labs, TheDAO)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "Assassin859",
+          "url": "https://github.com/Assassin859",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/ai-guided-smart-contract-security-checks-in-remix",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "Remix",
+    "summary": "Remix is a browser-based IDE for Ethereum development. The remix-project repository is Apache-2.0 and the organization remix-project-org owns it.",
+    "previousFunding": [
+      {
+        "label": "TheDAO Security Fund Round 1 record: Remix Project",
+        "url": "https://thedao.fund/transparency/remix-project"
+      }
+    ],
+    "otherProducts": [
+      {
+        "label": "Remix x402 server repository",
+        "url": "https://github.com/remix-project-org/x402"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Remix website",
+        "url": "https://remix.live/"
+      },
+      {
+        "label": "GitHub organization remix-project-org",
+        "url": "https://github.com/remix-project-org"
+      }
+    ],
+    "checkedOn": "2026-11-28",
+    "website": "https://remix.live/"
+  },
+  "delivery": [
+    {
+      "grant": "TheDAO Security Fund Round 1",
+      "funder": "TheDAO Security Fund",
+      "promised": "Not found in public sources: the Round 1 record lists no deliverables",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "TheDAO Round 1 record",
+          "url": "https://thedao.fund/transparency/remix-project"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_remix-project"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "The Remix repository is public, Apache-2.0 and actively maintained.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "remix-project repository",
+          "url": "https://github.com/remix-project-org/remix-project"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: Apache-2.0, last push 2026-11-27, latest release v2.6.17 on 2026-11-25."
+    },
+    {
+      "claim": "Remix already reads the Cyfrin audit checklist in RemixAI code.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "ChecklistFilter.ts",
+          "url": "https://github.com/remix-project-org/remix-project/blob/HEAD/libs/remix-ai-core/src/remix-mcp-server/handlers/helpers/ChecklistFilter.ts"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The file on HEAD maps Slither detectors to Cyfrin checklist items and fetches the checklist from the Cyfrin/audit-checklist repository. Whether it has the tags the proposal plans was not checked."
+    },
+    {
+      "claim": "An x402 repository exists, MIT licensed.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "remix-project-org/x402",
+          "url": "https://github.com/remix-project-org/x402"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: public, MIT, last push 2026-11-15. The README describes paid tools via the x402 protocol. Payments were not tested."
+    },
+    {
+      "claim": "Cyfrin audit checklist and audit reports repositories are public.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Cyfrin/audit-checklist",
+          "url": "https://github.com/Cyfrin/audit-checklist"
+        },
+        {
+          "label": "Cyfrin/cyfrin-audit-reports",
+          "url": "https://github.com/Cyfrin/cyfrin-audit-reports"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: both public. Cyfrin's agreement to maintain tagged checklists was not checked."
+    },
+    {
+      "claim": "The proposal links https://github.com/remix-project-org/remix-api.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/ai-guided-smart-contract-security-checks-in-remix"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API returns 404 for remix-project-org/remix-api, so the repository is private or does not exist."
+    },
+    {
+      "claim": "Remix has delivered initial scoping under a $15,000 internal commitment.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/ai-guided-smart-contract-security-checks-in-remix"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "No public source for the commitment or the scoping work was found."
+    },
+    {
+      "claim": "Over $8 billion in user funds lost to smart contract execution flaws, per a ScienceDirect study.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/ai-guided-smart-contract-security-checks-in-remix"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The proposal gives no link for the study. It was not located."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Round 1 deliverables for Remix Project: Not found in public sources (the record lists none and the progress update on X could not be read)",
+    "Past work of the four people beyond the Remix repositories: Not found in public sources",
+    "Usage numbers for RemixAI and the 5,000-user target baseline: Not found in public sources"
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

@@ -1,0 +1,164 @@
+{
+  "members": [
+    {
+      "name": "Sem",
+      "role": "Lead engineer (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "sembrestels",
+          "url": "https://github.com/sembrestels",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/assertions-for-safes-enforced-on-every-transaction-readable",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Rodrigo Castillo",
+      "role": "Designer at Giveth (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "LinkedIn",
+          "handle": "rodrigo-castillo",
+          "url": "https://www.linkedin.com/in/rodrigo-castillo",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/assertions-for-safes-enforced-on-every-transaction-readable",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "Blossom Labs",
+    "summary": "Developer team that, per its website, builds blockchain-based tools and infrastructure for DAOs and online communities. Its listed products include EVMcrispr (2021 to present) and ENS Wayback Machine (2022 to present).",
+    "website": "https://blossom.software",
+    "previousFunding": [
+      {
+        "label": "TheDAO Security Fund Round 1 record: Assertions.eth On-chain Transaction Guards for Ethereum",
+        "url": "https://thedao.fund/transparency/assertions-eth-on-chain-transaction-guards-for-ethereum"
+      }
+    ],
+    "otherProducts": [
+      {
+        "label": "EVMcrispr and ENS Wayback Machine, listed on the Blossom Labs website",
+        "url": "https://blossom.software"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Blossom Labs website",
+        "url": "https://blossom.software"
+      },
+      {
+        "label": "GitHub organization BlossomLabs",
+        "url": "https://github.com/BlossomLabs"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [
+    {
+      "grant": "TheDAO Security Fund Round 1: Assertions.eth On-chain Transaction Guards for Ethereum",
+      "funder": "TheDAO Security Fund",
+      "promised": "Per the proposal, Round 1 paid for the existing Assertions contracts. The Round 1 record lists payments and no deliverables, so no promise can be compared with a result. Existing public artifacts are the Assertions deployments page and a Sourcify record for Assertions v2.0 on Ethereum mainnet; they are not matched against a stated Round 1 deliverable.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Round 1 record",
+          "url": "https://thedao.fund/transparency/assertions-eth-on-chain-transaction-guards-for-ethereum"
+        },
+        {
+          "label": "Assertions deployments page",
+          "url": "https://assertions.eth.limo/docs/contracts/deployments/"
+        },
+        {
+          "label": "Sourcify record, Assertions v2.0 on Ethereum mainnet",
+          "url": "https://sourcify.dev/server/v2/contract/1/0xa55e47C835ACD377da79D57162117D9B5Ecf3496"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_assertions-eth-on-chain-transaction-guards-for-ethereum"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "Four contracts are live on Ethereum mainnet.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Sourcify, Assertions",
+          "url": "https://sourcify.dev/server/v2/contract/1/0xa55e47C835ACD377da79D57162117D9B5Ecf3496"
+        },
+        {
+          "label": "Sourcify, Operations",
+          "url": "https://sourcify.dev/server/v2/contract/1/0x09e4a7eF82674BaDD27a02E19f3D3e5a1903eA1f"
+        },
+        {
+          "label": "Sourcify, Collections",
+          "url": "https://sourcify.dev/server/v2/contract/1/0xc011ec7f6fAAaa37DE5923D2c6206C9597D16bc7"
+        },
+        {
+          "label": "Sourcify, Expressions",
+          "url": "https://sourcify.dev/server/v2/contract/1/0xe5594e55aCa44ac271209612FA57866130edC9e5"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Addresses taken from the deployments page the proposal links. Sourcify reports an exact match (creation and runtime) for all four on chain 1. Tests and symbolic proofs named in the proposal were not checked."
+    },
+    {
+      "claim": "Repository BlossomLabs/Assertions is public and maintained.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "GitHub repository",
+          "url": "https://github.com/BlossomLabs/Assertions"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: MIT license, created 2026-01-27, last push 2026-11-11, no published release."
+    },
+    {
+      "claim": "The Assertion Builder and docs build protected batches for a Safe, a DAO proposal and a wallet.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Safe guide",
+          "url": "https://assertions.eth.limo/docs/guides/safe/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The guide page exists. Page availability does not show the Builder works, and no run was performed."
+    },
+    {
+      "claim": "A Notations prototype exists in its spec.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Notations issue",
+          "url": "https://github.com/BlossomLabs/Assertions/issues/10"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The issue URL is named in the proposal. Its content was not reviewed."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Sem: public profile name only; employer, location and past roles Not found in public sources",
+    "Rodrigo Castillo: the LinkedIn profile linked in the proposal was not opened; employer and past roles Not found in public sources",
+    "Blossom Labs: legal entity, founding date and team size Not found in public sources",
+    "Other grants or funders for this scope: Not found in public sources",
+    "Round 1 outcome beyond the transparency record and the linked progress update (an X post that could not be read): Not found in public sources"
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

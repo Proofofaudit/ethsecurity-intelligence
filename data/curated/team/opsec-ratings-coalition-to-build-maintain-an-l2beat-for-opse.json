@@ -1,0 +1,102 @@
+{
+  "members": [
+    {
+      "name": "Griff Green",
+      "role": "Drafter of the RFP and TheDAO Security Fund curator (per the proposal; the proposal states he will not bid)",
+      "pseudonymous": false,
+      "handles": [],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/opsec-ratings-coalition-to-build-maintain-an-l2beat-for-opse",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": null,
+  "delivery": [],
+  "claims": [
+    {
+      "claim": "Bybit lost nearly $1.5B in ETH in February 2025 after attackers took over one Safe developer's computer.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Chainalysis analysis",
+          "url": "https://www.chainalysis.com/blog/bybit-exchange-hack-february-2025-crypto-security-dprk/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Page text: nearly $1.5 billion lost on February 21, 2025, hackers gained access to a Safe developer's computer."
+    },
+    {
+      "claim": "KelpDAO lost about $292M in April 2026 and it was not a smart contract hack.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Chainalysis analysis",
+          "url": "https://www.chainalysis.com/blog/kelpdao-bridge-exploit-april-2026/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Page text: about $292 million stolen on April 18, 2026; 'not a smart contract hack'; attackers compromised internal RPC nodes."
+    },
+    {
+      "claim": "SEAL Certifications are assessed by accredited auditors and recorded as onchain attestations.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "SEAL Certifications",
+          "url": "https://securityalliance.org/our-work/certifications"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Page text states this and lists 18 firms undergoing accreditation."
+    },
+    {
+      "claim": "L2BEAT Stages is a public maturity rating for rollups.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "L2BEAT Stages",
+          "url": "https://l2beat.com/stages"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The page explains the Stages Framework for Layer 2s."
+    },
+    {
+      "claim": "Coinspect publishes a quarterly public security score for Ethereum wallets.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Coinspect Wallet Security Ranking",
+          "url": "https://wallets.coinspect.com/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The page shows a ranking last updated Sep 1, 2026. The quarterly cadence was not found."
+    },
+    {
+      "claim": "OpSec audit firms back this RFP.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/opsec-ratings-coalition-to-build-maintain-an-l2beat-for-opse"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "No named firms or public statements were found."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Applicant team: Not found in public sources (this is a request for proposals and the proposal states nobody is pre-selected)",
+    "Past grants and Round 1 record: Not found in public sources (no applicant, no Round 1 match in the dataset)",
+    "Coordinator who will run the coalition: Not found in public sources",
+    "Firms that back the RFP: Not found in public sources"
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

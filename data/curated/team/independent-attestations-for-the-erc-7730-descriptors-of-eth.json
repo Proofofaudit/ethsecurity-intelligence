@@ -1,0 +1,84 @@
+{
+  "members": [],
+  "organization": null,
+  "delivery": [],
+  "claims": [
+    {
+      "claim": "The registry has a reviewing guide for auditors and a dropped-attestations list.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "auditors/README.md",
+          "url": "https://github.com/ethereum/clear-signing-erc7730-registry/blob/HEAD/auditors/README.md"
+        },
+        {
+          "label": "dropped-attestations.md",
+          "url": "https://github.com/ethereum/clear-signing-erc7730-registry/blob/HEAD/auditors/dropped-attestations.md"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Both files exist on HEAD. The guide describes ERC-8176 hashing, EAS offchain attestations and PR submission to a sigs folder."
+    },
+    {
+      "claim": "All attestations in the registry are signed by one firm.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "clear-signing-erc7730-registry",
+          "url": "https://github.com/ethereum/clear-signing-erc7730-registry"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "On 2026-11-28 the repository tree has 169 sig files under registry/*/sigs, and all 169 file names carry the same signer address 0x3846c3A30E62075Fa916216b35EF04B8F53931f6. The dropped-attestations list names Cyfrin as auditor in each row. The proposal counted 166 on 2026-10-31."
+    },
+    {
+      "claim": "The registry had 739 descriptors on 2026-10-31.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "clear-signing-erc7730-registry",
+          "url": "https://github.com/ethereum/clear-signing-erc7730-registry"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The repository tree on 2026-11-28 holds 1,937 calldata and EIP-712 descriptor files, a different unit than the proposal's count. The 2026-10-31 snapshot was not rebuilt."
+    },
+    {
+      "claim": "Sourcify's dashboard shows the top 100 contracts carry 75% of non-transfer calls, 20 with a descriptor and 0 attested.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Sourcify ERC-7730 dashboard",
+          "url": "https://erc7730.sourcify.dev"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The dashboard is a JavaScript app and returned only its page shell."
+    },
+    {
+      "claim": "Bybit lost about $1.5 billion in February 2025 after signers approved a Safe transaction whose displayed contents differed from what they signed.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "NCC Group analysis",
+          "url": "https://www.nccgroup.com/research/in-depth-technical-analysis-of-the-bybit-hack/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "NCC Group text describes malicious JavaScript injected into the Safe{Wallet} UI through a compromised developer machine, causing signers to authorize a different transaction. The Bybit timeline page returned no content to automated requests."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Applicant team: Not found in public sources (this is a request for proposals and the proposal states nobody is pre-selected)",
+    "Past grants and Round 1 record: Not found in public sources (no applicant, no Round 1 match in the dataset)",
+    "The submitter's name: Not found in public sources (the proposal calls them a listed co-author of ERC-7730 without naming them, so no person was matched)",
+    "Firm that will bid and wallet backing statement: Not found in public sources"
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

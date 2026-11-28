@@ -80,7 +80,10 @@ export const InitiativeSection = z.object({ key: z.string(), heading: z.string()
 
 export const Funding = z.object({
   goalCents: z.number().int(),
-  /** Official "raised": pledged + received + donated as returned by the initiative endpoint. */
+  /**
+   * Official "raised" (summary.total) as returned by the initiative endpoint. It equals
+   * pledged + donated; received pledges are already inside donated.
+   */
   officialRaisedCents: z.number().int(),
   pledgedCents: z.number().int(),
   receivedCents: z.number().int(),
@@ -90,7 +93,10 @@ export const Funding = z.object({
   ledgerCents: z.number().int().nullable(),
   live: z.boolean().nullable(),
   officialPct: z.number().nullable(),
+  /** Remaining funding gap: max(0, goal − raised). A separate, secondary metric. */
   remainingCents: z.number().int(),
+  /** TheDAO ask: min(200,000 USD, max(0, goal − raised)). Null when an input is unavailable. */
+  theDaoAskCents: z.number().int().nullable(),
   ledgerCheckedAt: z.string().nullable(),
 });
 export type Funding = z.infer<typeof Funding>;
@@ -529,6 +535,8 @@ export const Correction = z.object({
   attribution: z.string().nullable(),
   /** AES-GCM ciphertext of the optional private contact; never returned publicly. */
   contactCiphertext: z.string().nullable(),
+  /** When the contact ciphertext is deleted (submission + 30 days). Absent on records saved before this field existed. */
+  contactExpiresAt: z.string().nullable().optional(),
   state: CorrectionState,
   resolution: z.string().nullable(),
   /** If accepted, the claim status/assertion applied. */
@@ -542,7 +550,7 @@ export const Correction = z.object({
 });
 export type Correction = z.infer<typeof Correction>;
 
-export const PublicCorrection = Correction.omit({ contactCiphertext: true, submitterKey: true });
+export const PublicCorrection = Correction.omit({ contactCiphertext: true, contactExpiresAt: true, submitterKey: true });
 export type PublicCorrection = z.infer<typeof PublicCorrection>;
 
 export const DatasetMeta = z.object({
@@ -574,8 +582,154 @@ export const DatasetMeta = z.object({
 });
 export type DatasetMeta = z.infer<typeof DatasetMeta>;
 
+/**
+ * Official vote round manifest as published. `status`:
+ *  - aligned: the manifest parsed and `slugs[i]` / `projects[i]` were confirmed to belong together
+ *    for every index (same cohort slugs, same registered goal, same RFP flag as the ballot record).
+ *  - unaligned: the manifest parsed but the alignment check failed. Raw arrays are kept as
+ *    published by TheDAO (never remapped) and `initiativeGroups` stays empty.
+ *  - unavailable: no manifest (missing, HTTP error, or the response shape changed).
+ * Group-dependent features use `initiativeGroups` only when `groupsAvailable` is true.
+ */
+export const VoteAlignmentCheck = z.object({ check: z.string(), ok: z.boolean(), detail: z.string() });
+export const VoteSection = z.object({
+  status: z.enum(["aligned", "unaligned", "unavailable"]),
+  statusReason: z.string(),
+  groupsAvailable: z.boolean(),
+  scheduleAvailable: z.boolean(),
+  sourceUrl: z.string(),
+  fetchedAt: z.string().nullable(),
+  /** True when the live fetch failed and the last stored manifest was reused. */
+  stale: z.boolean(),
+  objectHash: z.string().nullable(),
+  kind: z.string().nullable(),
+  chainId: z.number().int().nullable(),
+  contract: z.string().nullable(),
+  configRevision: z.string().nullable(),
+  readAt: z.object({ block: z.number().int(), timestamp: z.number().int() }).nullable(),
+  opensAt: z.number().int().nullable(),
+  closesAt: z.number().int().nullable(),
+  schedule: z.object({ opensAt: z.number().int(), firstTallyAt: z.array(z.number().int()), initialWindow: z.number().int(), maxWindows: z.number().int() }).nullable(),
+  /** Six-decimal USD string exactly as published (micro-USD). */
+  poolMicroUsd: z.string().nullable(),
+  /** Pool in integer cents; null if the micro-USD value has sub-cent digits (shown as unavailable rather than rounded). */
+  poolCents: z.number().int().nullable(),
+  ballotRules: z.boolean().nullable(),
+  independentTiers: z.number().int().nullable(),
+  slugs: z.array(z.string()),
+  /** Per index, as published: projects[i] belongs to slugs[i] only when status is aligned. */
+  projects: z.array(z.object({ goalMicroUsd: z.string(), rfp: z.boolean(), groups: z.array(z.number().int()) })),
+  groups: z.array(z.string()),
+  /** Initiative id → affiliation group names. Empty unless status is aligned. */
+  initiativeGroups: z.record(z.string(), z.array(z.string())),
+  alignment: z.object({ ok: z.boolean(), checks: z.array(VoteAlignmentCheck) }),
+});
+export type VoteSection = z.infer<typeof VoteSection>;
+
+/**
+ * TheDAO / Giveth Round 1 (Ethereum Security QF round, April 23 to May 14, 2026). Records come
+ * from the TheDAO transparency report; ETH amounts are decimal strings exactly as published,
+ * USD amounts integer cents. No per-project dates or donor counts are published in the sources.
+ */
+export const Round1Project = z.object({
+  id: z.string(),
+  name: z.string(),
+  /** Slug of the per-project page: https://thedao.fund/transparency/<slug>. */
+  slug: z.string(),
+  transparencyUrl: z.string(),
+  /** Website listed for the project in the report ("link" column); null when empty. */
+  website: z.string().nullable(),
+  /** QF round total in ETH (TheDAO matching pool + community-raised matching + direct donations). */
+  totalEth: z.string(),
+  /** USD value when the QF round total was sent. */
+  usdWhenSentCents: z.number().int(),
+  components: z.object({
+    matchingPoolEth: z.string(),
+    extraRoundInflowEth: z.string(),
+    otherDonorsEth: z.string(),
+    otherDonorsUsdCents: z.number().int(),
+  }),
+  progressUpdateUrl: z.string().nullable(),
+  /** The total and USD value as displayed in the report table on `asOf`. */
+  displayed: z.object({ totalEth: z.string(), usdWhenSentCents: z.number().int(), asOf: z.string() }),
+  /** Direct grants outside the QF round listed in the report for this project. */
+  directGrants: z.array(z.object({ amountEth: z.string(), amountUsdCents: z.number().int(), txHash: z.string() })),
+  /** A live Superfluid stream is included in the displayed total, so it changes over time. */
+  liveStream: z.object({ receiver: z.string(), explorerUrl: z.string().nullable() }).nullable(),
+  sourceUrls: z.array(z.string()).min(1),
+  checkedAt: z.string(),
+});
+export type Round1Project = z.infer<typeof Round1Project>;
+
+export const Round1Rule = z.enum([
+  "proposal_links_record",
+  "proposal_links_giveth_project",
+  "same_website_page",
+  "same_website",
+  "same_github_repo",
+  "same_github_owner",
+  "same_x_account",
+  "same_organization_name",
+  "shared_name_token",
+  "proposal_links_website",
+]);
+export type Round1Rule = z.infer<typeof Round1Rule>;
+
+export const Round1Match = z.object({
+  projectId: z.string(),
+  round1ProjectName: z.string(),
+  transparencyUrl: z.string(),
+  website: z.string().nullable(),
+  level: z.enum(["project", "organization"]),
+  status: z.enum(["match", "possible"]),
+  reasons: z.array(z.object({ rule: Round1Rule, text: z.string(), sourceUrls: z.array(z.string()) })).min(1),
+  sourceUrls: z.array(z.string()).min(1),
+  checkedAt: z.string(),
+});
+export type Round1Match = z.infer<typeof Round1Match>;
+
+export const Round1Source = z.object({
+  key: z.enum(["transparency_html", "transparency_route", "forum_json"]),
+  url: z.string(),
+  retrievedAt: z.string(),
+  sha256: z.string(),
+  method: z.string(),
+  /** True when the last fetch failed and this earlier copy was kept. */
+  stale: z.boolean(),
+  error: z.string().nullable(),
+});
+export type Round1Source = z.infer<typeof Round1Source>;
+
+export const Round1Section = z.object({
+  status: z.enum(["available", "unavailable"]),
+  transparencyUrl: z.string(),
+  forumUrl: z.string(),
+  checkedAt: z.string().nullable(),
+  sources: z.array(Round1Source),
+  round: z.object({
+    name: z.string(),
+    /** From the forum topic title; null when the topic could not be read. */
+    period: z.string().nullable(),
+    eligibleProjects: z.number().int().nullable(),
+    distributionAnnouncedAt: z.string().nullable(),
+    distributionPostUrl: z.string().nullable(),
+    distributionTxUrls: z.array(z.string()),
+    progressPostUrls: z.array(z.string()),
+  }),
+  pageTotals: z.object({ totalEth: z.string(), usdAtSendingCents: z.number().int(), projects: z.number().int(), coFundersUsdCents: z.number().int() }).nullable(),
+  projects: z.array(Round1Project),
+  /** Initiative id → matches (alphabetical by Round 1 project name). */
+  initiativeMatches: z.record(z.string(), z.array(Round1Match)),
+  /** Organization id → matches, including those found through its initiatives. */
+  organizationMatches: z.record(z.string(), z.array(Round1Match)),
+  limitations: z.array(z.string()),
+});
+export type Round1Section = z.infer<typeof Round1Section>;
+
 export const Dataset = z.object({
   meta: DatasetMeta,
+  vote: VoteSection,
+  round1: Round1Section,
   initiatives: z.array(Initiative),
   milestones: z.array(Milestone),
   pledges: z.array(Pledge),

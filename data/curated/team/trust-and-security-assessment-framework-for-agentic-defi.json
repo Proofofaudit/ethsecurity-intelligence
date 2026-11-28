@@ -1,0 +1,168 @@
+{
+  "members": [
+    {
+      "name": "Wiebe Hendriks",
+      "role": "Founder and CEO of Owney (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "LinkedIn",
+          "handle": "wiebe-hendriks",
+          "url": "https://www.linkedin.com/in/wiebe-hendriks",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/trust-and-security-assessment-framework-for-agentic-defi",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Jeevesh Kuril",
+      "role": "DeFi Researcher at AtlasYield (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "LinkedIn",
+          "handle": "jeeveshkuril",
+          "url": "https://www.linkedin.com/in/jeeveshkuril",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/trust-and-security-assessment-framework-for-agentic-defi",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Maciej Poszywak",
+      "role": "Security Researcher at CODESPECT (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "LinkedIn",
+          "handle": "maciejcodespect",
+          "url": "https://www.linkedin.com/in/maciejcodespect",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/trust-and-security-assessment-framework-for-agentic-defi",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "Owney",
+    "summary": "Recipient named in the proposal. The Owney site risk.owney.app currently shows a pool monitoring board covering the pools that agents can allocate to, and a Zyfai post on X says Zyfai powers yield inside Owney products through the Zyfai SDK. AtlasYield, where one team member works, publishes independent risk ratings of DeFi vaults.",
+    "website": "https://owney.app",
+    "previousFunding": [],
+    "otherProducts": [
+      {
+        "label": "Owney pool monitoring board",
+        "url": "https://risk.owney.app/"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Owney website",
+        "url": "https://owney.app"
+      },
+      {
+        "label": "Owney pool monitoring board",
+        "url": "https://risk.owney.app/"
+      },
+      {
+        "label": "Zyfai post on X about the Owney integration",
+        "url": "https://x.com/Zyfai_/status/2048750943001567380"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [],
+  "claims": [
+    {
+      "claim": "Results for Zyfai, SurfLiquid and Yield Seeker are shown at risk.owney.app.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Owney pool monitoring board",
+          "url": "https://risk.owney.app/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The page loads and its text mentions Zyfai and Yield Seeker many times, but it presents a pool monitoring board scored on 16 factors on a 0 to 100 scale. The proposal describes a framework with 13 subcategories scored 0 to 10 on three agents. SurfLiquid was not found in the page source. The page's live figures are not recorded."
+    },
+    {
+      "claim": "Framework v1 is finished with Security, Risk and Robustness categories, 13 subcategories and a 0 to 10 score.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/trust-and-security-assessment-framework-for-agentic-defi"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The methodology is private by the applicant's statement. The risk.owney.app/methodology address returned HTTP 404."
+    },
+    {
+      "claim": "Zyfai, SurfLiquid and Yield Seeker endorsed the framework publicly.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Zyfai post on X",
+          "url": "https://x.com/Zyfai_/status/2048750943001567380"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The linked Zyfai post says Zyfai powers yield inside Owney products through the Zyfai SDK. It does not mention the framework. No post from SurfLiquid or Yield Seeker was found."
+    },
+    {
+      "claim": "During the KelpDAO rsETH exploit and the Resolv USR depeg, Zyfai's agents exited early while depositors sat frozen in Aave.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Bankless: Agents and x402 make DeFi safer",
+          "url": "https://www.bankless.com/read/agents-and-x402-make-defi-safer"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The Bankless article says the team reported its agents flagged the Aave and KelpDAO conditions early and rebalanced into safer pools. This is a self-reported account relayed by the article, not an independent record of the exits."
+    },
+    {
+      "claim": "The framework was co-developed with CODESPECT, Hacken and CORE3.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/trust-and-security-assessment-framework-for-agentic-defi"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "No public statement from CODESPECT, Hacken or CORE3 about this framework was found."
+    },
+    {
+      "claim": "AtlasYield publishes independent risk ratings of DeFi vaults.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "AtlasYield website",
+          "url": "https://atlasyield.club/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The AtlasYield homepage describes independent risk ratings on 16 factors for onchain vaults. It does not mention Owney. Score figures are not recorded."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "GitHub or X handles for team members as published in the proposal: Not found in public sources (LinkedIn links only; the LinkedIn pages were not readable without sign-in).",
+    "Past work and employment of the three team members: Not found in public sources as read here.",
+    "Past grants or Round 1 record for Owney: Not found in public sources.",
+    "Public methodology for the assessment framework: Not found in public sources (private by the applicant's statement).",
+    "Owney company founding date and team size: Not found in public sources."
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

@@ -1,0 +1,17 @@
+{
+  "version": "0.2",
+  "language": "en-US",
+  "ignorePaths": ["node_modules", ".next", "data", ".scratch", "package-lock.json", "skills/ethsecurity-*"],
+  "words": [
+    "Aderyn", "Codeberg", "Owney", "owney", "Besu", "Blockscout", "Certora", "Erigon", "Gigahorse", "Halmos", "hevm", "Kontrol", "Mythril", "Prysm", "Rabby", "Semgrep", "stopword", "stopwords", "Teku",
+    "ained", "ainer", "ainers", "aining", "ains", "ance", "ation", "ations", "backtest", "backtestable", "beneficiar", "bigram", "bigrams", "bmaint",
+    "cmdk", "colibri", "collabAssumption", "collabItems", "defi", "deserv", "doesnotexist", "dprk", "eips", "enance", "ethsecurity", "fmax", "fmin",
+    "frontends", "funder", "giveth", "gmax", "gmin", "herfindahl", "hirschman", "hyps", "idxs", "infraops", "inis", "integrat", "kleros", "lede", "lockdown",
+    "maint", "maxage", "mets", "modelcontextprotocol", "msdone", "mult", "mustfund", "nums", "opsec", "organi", "pable", "rels", "rfps", "sents",
+    "shouldn", "statelessly", "streamable", "substack", "thedao", "tlds", "toks", "topup", "trustblock", "turbopack", "unigrams", "upserted",
+    "upserts", "upskip", "walletbeat", "whitehat", "winnerless", "xyflow", "zknox", "bpriorit", "bscor", "ciphertexts", "googletagmanager", "gstatic", "hotjar", "nethermind", "networkidle", "nosniff", "posthog", "Proofofaudit", "unclipped", "unreviewed",
+    "drpc", "geleeroyale", "HMAC", "Kolkata", "publicnode", "stoplist", "tlsv", "VIEWPORTS",
+    "Hassanine", "Kann", "Libp", "Lionscraft", "Safi", "SEETA", "Sourcify",
+    "farcaster", "funders", "gitbook", "hackmd", "huggingface", "linktr", "NFKD", "warpcast", "youtu"
+  ]
+}

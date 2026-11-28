@@ -1,0 +1,1863 @@
+{
+  "initiativeId": "01M761AJ5JRD2CCBH08G61762M",
+  "collectedAt": "2026-11-28T07:20:30.471Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 135,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "chains-project",
+      "type": "Organization",
+      "url": "https://github.com/chains-project",
+      "source": "proposal",
+      "reposTotal": 82,
+      "repos": [
+        {
+          "fullName": "chains-project/sbom-files",
+          "url": "https://github.com/chains-project/sbom-files",
+          "fork": false,
+          "archived": false,
+          "stars": 7,
+          "forks": 2,
+          "pushedAt": "2026-11-28T03:15:36Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "chains-project/maven-lockfile",
+          "url": "https://github.com/chains-project/maven-lockfile",
+          "fork": false,
+          "archived": false,
+          "stars": 72,
+          "forks": 29,
+          "pushedAt": "2026-11-27T18:56:52Z",
+          "latestReleaseAt": "2026-11-27T18:19:15Z"
+        },
+        {
+          "fullName": "chains-project/chains-project.github.io",
+          "url": "https://github.com/chains-project/chains-project.github.io",
+          "fork": false,
+          "archived": false,
+          "stars": 8,
+          "forks": 14,
+          "pushedAt": "2026-11-27T14:09:41Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "chains-project/rnpm",
+          "url": "https://github.com/chains-project/rnpm",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-27T13:36:36Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "chains-project/hintguard",
+          "url": "https://github.com/chains-project/hintguard",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-27T09:12:23Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "chains-project/ghasum",
+          "url": "https://github.com/chains-project/ghasum",
+          "fork": false,
+          "archived": false,
+          "stars": 21,
+          "forks": 1,
+          "pushedAt": "2026-11-27T06:58:18Z",
+          "latestReleaseAt": "2026-08-01T21:42:46Z"
+        },
+        {
+          "fullName": "chains-project/deps.dev_stats",
+          "url": "https://github.com/chains-project/deps.dev_stats",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-11-27T00:01:02Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "chains-project/javascript-bundling-reproducible-builds",
+          "url": "https://github.com/chains-project/javascript-bundling-reproducible-builds",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-25T18:02:42Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "chains-project/sbom.exe",
+          "url": "https://github.com/chains-project/sbom.exe",
+          "fork": false,
+          "archived": false,
+          "stars": 10,
+          "forks": 1,
+          "pushedAt": "2026-11-24T21:16:52Z",
+          "latestReleaseAt": "2026-11-22T09:23:19Z"
+        },
+        {
+          "fullName": "chains-project/exploits-for-sbom.exe",
+          "url": "https://github.com/chains-project/exploits-for-sbom.exe",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-24T13:06:52Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "chains-project/curl-pipe-bash",
+          "url": "https://github.com/chains-project/curl-pipe-bash",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-23T11:15:16Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "chains-project/python-with-capabilities",
+          "url": "https://github.com/chains-project/python-with-capabilities",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-21T07:10:14Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "vivi365",
+      "type": "User",
+      "url": "https://github.com/vivi365",
+      "source": "proposal",
+      "reposTotal": 25,
+      "repos": [
+        {
+          "fullName": "vivi365/zobs",
+          "url": "https://github.com/vivi365/zobs",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-27T13:30:27Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "vivi365/vivi365.github.io",
+          "url": "https://github.com/vivi365/vivi365.github.io",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-26T19:06:54Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "vivi365/rss-reader",
+          "url": "https://github.com/vivi365/rss-reader",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-03T21:05:24Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "vivi365/master-thesis-starter-pack",
+          "url": "https://github.com/vivi365/master-thesis-starter-pack",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-08-31T16:22:20Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "vivi365/vivi365",
+          "url": "https://github.com/vivi365/vivi365",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-02-26T11:10:16Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "vivi365/viviandersson.github.io",
+          "url": "https://github.com/vivi365/viviandersson.github.io",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-01-09T22:45:35Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "vivi365/trustingtrust-go",
+          "url": "https://github.com/vivi365/trustingtrust-go",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-10-28T10:35:59Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "vivi365/vd-explore",
+          "url": "https://github.com/vivi365/vd-explore",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-09-25T10:21:09Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "vivi365/reproducible-go-ethereum",
+          "url": "https://github.com/vivi365/reproducible-go-ethereum",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2024-07-05T10:22:26Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "vivi365/gpt-vision",
+          "url": "https://github.com/vivi365/gpt-vision",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-05-06T13:31:33Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "vivi365/tipsyApp",
+          "url": "https://github.com/vivi365/tipsyApp",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2023-10-01T09:56:38Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "vivi365/reproducible-trajectories",
+          "url": "https://github.com/vivi365/reproducible-trajectories",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-04-01T06:47:14Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "Stamp9",
+      "type": "User",
+      "url": "https://github.com/Stamp9",
+      "source": "proposal",
+      "reposTotal": 25,
+      "repos": [
+        {
+          "fullName": "Stamp9/stamp9.github.io",
+          "url": "https://github.com/Stamp9/stamp9.github.io",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-17T12:17:06Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Stamp9/crystal-clear",
+          "url": "https://github.com/Stamp9/crystal-clear",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-09-09T08:58:27Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Stamp9/DeFiHackLabs-Incident-Explorer",
+          "url": "https://github.com/Stamp9/DeFiHackLabs-Incident-Explorer",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-23T12:03:00Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Stamp9/lodestar",
+          "url": "https://github.com/Stamp9/lodestar",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-28T10:13:15Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Stamp9/cohort-seven",
+          "url": "https://github.com/Stamp9/cohort-seven",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-07-20T09:30:03Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Stamp9/erigon",
+          "url": "https://github.com/Stamp9/erigon",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-02-18T12:27:12Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Stamp9/ctf-blockchain",
+          "url": "https://github.com/Stamp9/ctf-blockchain",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-10-09T22:51:54Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Stamp9/DeFiHackLabs",
+          "url": "https://github.com/Stamp9/DeFiHackLabs",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-05-28T16:52:39Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Stamp9/DeFi-Security-Breach-RCA",
+          "url": "https://github.com/Stamp9/DeFi-Security-Breach-RCA",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-05-02T13:54:35Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Stamp9/node-precinct-for-test",
+          "url": "https://github.com/Stamp9/node-precinct-for-test",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-04-25T12:47:38Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Stamp9/CryptoWars-zh-hant",
+          "url": "https://github.com/Stamp9/CryptoWars-zh-hant",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-02-20T08:27:39Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Stamp9/spoon",
+          "url": "https://github.com/Stamp9/spoon",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-02-04T23:09:59Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "javierron",
+      "type": "User",
+      "url": "https://github.com/javierron",
+      "source": "proposal",
+      "reposTotal": 85,
+      "repos": [
+        {
+          "fullName": "javierron/javierron.github.io",
+          "url": "https://github.com/javierron/javierron.github.io",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-23T09:48:27Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "javierron/STAPR",
+          "url": "https://github.com/javierron/STAPR",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 1,
+          "pushedAt": "2024-06-02T08:10:48Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "javierron/EL5-monitor",
+          "url": "https://github.com/javierron/EL5-monitor",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-05-24T12:12:24Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "javierron/.config",
+          "url": "https://github.com/javierron/.config",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-04-30T10:49:26Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "javierron/broken-package",
+          "url": "https://github.com/javierron/broken-package",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-03-06T13:54:52Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "javierron/c-envy",
+          "url": "https://github.com/javierron/c-envy",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2023-07-07T13:33:52Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "javierron/dshackle-workload",
+          "url": "https://github.com/javierron/dshackle-workload",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2022-07-26T13:59:09Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "javierron/np_server",
+          "url": "https://github.com/javierron/np_server",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2022-05-20T21:18:03Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "javierron/animated-waffle",
+          "url": "https://github.com/javierron/animated-waffle",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2021-09-07T10:08:29Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "javierron/Overload",
+          "url": "https://github.com/javierron/Overload",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2021-08-09T17:07:12Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "javierron/kth-scalabe-ml-project",
+          "url": "https://github.com/javierron/kth-scalabe-ml-project",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2020-12-17T14:39:46Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "javierron/githooks",
+          "url": "https://github.com/javierron/githooks",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2020-05-17T10:28:41Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "algomaster99",
+      "type": "User",
+      "url": "https://github.com/algomaster99",
+      "source": "proposal",
+      "reposTotal": 100,
+      "repos": [
+        {
+          "fullName": "algomaster99/maven-lockfile-renovate-sandbox",
+          "url": "https://github.com/algomaster99/maven-lockfile-renovate-sandbox",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-27T18:16:49Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "algomaster99/algomaster99.github.io",
+          "url": "https://github.com/algomaster99/algomaster99.github.io",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-23T13:56:19Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "algomaster99/lagom-lens",
+          "url": "https://github.com/algomaster99/lagom-lens",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-25T21:12:55Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "algomaster99/maven-hermeto-demo",
+          "url": "https://github.com/algomaster99/maven-hermeto-demo",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-08T08:26:31Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "algomaster99/mcp-drift",
+          "url": "https://github.com/algomaster99/mcp-drift",
+          "fork": false,
+          "archived": false,
+          "stars": 4,
+          "forks": 0,
+          "pushedAt": "2026-06-27T13:54:43Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "algomaster99/merge-aot-experiments",
+          "url": "https://github.com/algomaster99/merge-aot-experiments",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-06-22T21:54:26Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "algomaster99/dotfiles",
+          "url": "https://github.com/algomaster99/dotfiles",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-03-04T09:22:28Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "algomaster99/category-inventor",
+          "url": "https://github.com/algomaster99/category-inventor",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-10-24T22:23:50Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "algomaster99/hello-world-composite-action",
+          "url": "https://github.com/algomaster99/hello-world-composite-action",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-06-24T15:42:04Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "algomaster99/git-history-manipluation",
+          "url": "https://github.com/algomaster99/git-history-manipluation",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-11-15T09:59:34Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "algomaster99/tbd-devops",
+          "url": "https://github.com/algomaster99/tbd-devops",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-11-07T08:35:56Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "algomaster99/FEP3370-exploit-development-log4shell",
+          "url": "https://github.com/algomaster99/FEP3370-exploit-development-log4shell",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-11-05T09:26:54Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "ethereum",
+      "type": "Organization",
+      "url": "https://github.com/ethereum",
+      "source": "proposal",
+      "reposTotal": 100,
+      "repos": [
+        {
+          "fullName": "ethereum/ethereum-org-website",
+          "url": "https://github.com/ethereum/ethereum-org-website",
+          "fork": false,
+          "archived": false,
+          "stars": 6005,
+          "forks": 5460,
+          "pushedAt": "2026-11-28T06:59:33Z",
+          "latestReleaseAt": "2026-11-26T14:12:47Z"
+        },
+        {
+          "fullName": "ethereum/eth-rnd-archive",
+          "url": "https://github.com/ethereum/eth-rnd-archive",
+          "fork": false,
+          "archived": false,
+          "stars": 11,
+          "forks": 10,
+          "pushedAt": "2026-11-28T06:49:33Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum/EthLib",
+          "url": "https://github.com/ethereum/EthLib",
+          "fork": false,
+          "archived": false,
+          "stars": 112,
+          "forks": 35,
+          "pushedAt": "2026-11-28T06:48:19Z",
+          "latestReleaseAt": "2026-11-06T23:49:53Z"
+        },
+        {
+          "fullName": "ethereum/forkcast",
+          "url": "https://github.com/ethereum/forkcast",
+          "fork": false,
+          "archived": false,
+          "stars": 65,
+          "forks": 58,
+          "pushedAt": "2026-11-28T06:17:58Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum/zkevm-website",
+          "url": "https://github.com/ethereum/zkevm-website",
+          "fork": false,
+          "archived": false,
+          "stars": 6,
+          "forks": 10,
+          "pushedAt": "2026-11-28T06:05:35Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum/webtor-rs",
+          "url": "https://github.com/ethereum/webtor-rs",
+          "fork": false,
+          "archived": false,
+          "stars": 30,
+          "forks": 5,
+          "pushedAt": "2026-11-28T06:00:59Z",
+          "latestReleaseAt": "2026-01-06T12:16:20Z"
+        },
+        {
+          "fullName": "ethereum/FCR-website",
+          "url": "https://github.com/ethereum/FCR-website",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 3,
+          "pushedAt": "2026-11-28T05:24:55Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum/moica-revocation-smt",
+          "url": "https://github.com/ethereum/moica-revocation-smt",
+          "fork": false,
+          "archived": false,
+          "stars": 3,
+          "forks": 0,
+          "pushedAt": "2026-11-28T04:12:45Z",
+          "latestReleaseAt": "2026-03-24T05:16:45Z"
+        },
+        {
+          "fullName": "ethereum/discv4-dns-lists",
+          "url": "https://github.com/ethereum/discv4-dns-lists",
+          "fork": false,
+          "archived": false,
+          "stars": 97,
+          "forks": 62,
+          "pushedAt": "2026-11-28T04:11:22Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum/eip-review-bot",
+          "url": "https://github.com/ethereum/eip-review-bot",
+          "fork": false,
+          "archived": false,
+          "stars": 92,
+          "forks": 74,
+          "pushedAt": "2026-11-28T03:45:51Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum/zkID",
+          "url": "https://github.com/ethereum/zkID",
+          "fork": false,
+          "archived": false,
+          "stars": 90,
+          "forks": 23,
+          "pushedAt": "2026-11-28T03:13:23Z",
+          "latestReleaseAt": "2026-08-11T13:17:13Z"
+        },
+        {
+          "fullName": "ethereum/ERCs",
+          "url": "https://github.com/ethereum/ERCs",
+          "fork": false,
+          "archived": false,
+          "stars": 778,
+          "forks": 1119,
+          "pushedAt": "2026-11-28T01:53:40Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "paradigmxyz",
+      "type": "Organization",
+      "url": "https://github.com/paradigmxyz",
+      "source": "proposal",
+      "reposTotal": 72,
+      "repos": [
+        {
+          "fullName": "paradigmxyz/reth",
+          "url": "https://github.com/paradigmxyz/reth",
+          "fork": false,
+          "archived": false,
+          "stars": 5868,
+          "forks": 2615,
+          "pushedAt": "2026-11-28T06:37:09Z",
+          "latestReleaseAt": "2026-11-11T10:47:00Z"
+        },
+        {
+          "fullName": "paradigmxyz/solar",
+          "url": "https://github.com/paradigmxyz/solar",
+          "fork": false,
+          "archived": false,
+          "stars": 625,
+          "forks": 137,
+          "pushedAt": "2026-11-28T02:59:41Z",
+          "latestReleaseAt": "2026-11-24T14:10:21Z"
+        },
+        {
+          "fullName": "paradigmxyz/centaur",
+          "url": "https://github.com/paradigmxyz/centaur",
+          "fork": false,
+          "archived": false,
+          "stars": 1460,
+          "forks": 299,
+          "pushedAt": "2026-11-28T00:39:26Z",
+          "latestReleaseAt": "2026-11-25T18:27:36Z"
+        },
+        {
+          "fullName": "paradigmxyz/solidity-lean",
+          "url": "https://github.com/paradigmxyz/solidity-lean",
+          "fork": false,
+          "archived": false,
+          "stars": 37,
+          "forks": 2,
+          "pushedAt": "2026-11-27T17:48:12Z",
+          "latestReleaseAt": "2026-11-17T02:59:44Z"
+        },
+        {
+          "fullName": "paradigmxyz/reth-core",
+          "url": "https://github.com/paradigmxyz/reth-core",
+          "fork": false,
+          "archived": false,
+          "stars": 18,
+          "forks": 19,
+          "pushedAt": "2026-11-26T02:11:25Z",
+          "latestReleaseAt": "2026-09-29T12:54:39Z"
+        },
+        {
+          "fullName": "paradigmxyz/iron-proxy",
+          "url": "https://github.com/paradigmxyz/iron-proxy",
+          "fork": false,
+          "archived": false,
+          "stars": 884,
+          "forks": 74,
+          "pushedAt": "2026-11-25T19:58:24Z",
+          "latestReleaseAt": "2026-11-25T17:23:25Z"
+        },
+        {
+          "fullName": "paradigmxyz/revm-inspectors",
+          "url": "https://github.com/paradigmxyz/revm-inspectors",
+          "fork": false,
+          "archived": false,
+          "stars": 259,
+          "forks": 152,
+          "pushedAt": "2026-11-25T06:23:58Z",
+          "latestReleaseAt": "2026-10-14T05:05:59Z"
+        },
+        {
+          "fullName": "paradigmxyz/.github",
+          "url": "https://github.com/paradigmxyz/.github",
+          "fork": false,
+          "archived": false,
+          "stars": 8,
+          "forks": 5,
+          "pushedAt": "2026-11-23T23:45:29Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "paradigmxyz/stateless",
+          "url": "https://github.com/paradigmxyz/stateless",
+          "fork": false,
+          "archived": false,
+          "stars": 32,
+          "forks": 22,
+          "pushedAt": "2026-11-18T05:01:03Z",
+          "latestReleaseAt": "2026-11-18T05:21:52Z"
+        },
+        {
+          "fullName": "paradigmxyz/homebrew-brew",
+          "url": "https://github.com/paradigmxyz/homebrew-brew",
+          "fork": false,
+          "archived": false,
+          "stars": 16,
+          "forks": 6,
+          "pushedAt": "2026-10-23T13:02:15Z",
+          "latestReleaseAt": "2026-02-16T17:56:24Z"
+        },
+        {
+          "fullName": "paradigmxyz/evmbench",
+          "url": "https://github.com/paradigmxyz/evmbench",
+          "fork": false,
+          "archived": false,
+          "stars": 471,
+          "forks": 80,
+          "pushedAt": "2026-10-22T13:27:56Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "paradigmxyz/paradigm-ctf-2023",
+          "url": "https://github.com/paradigmxyz/paradigm-ctf-2023",
+          "fork": false,
+          "archived": false,
+          "stars": 98,
+          "forks": 21,
+          "pushedAt": "2026-10-20T19:07:58Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "sigp",
+      "type": "Organization",
+      "url": "https://github.com/sigp",
+      "source": "proposal",
+      "reposTotal": 100,
+      "repos": [
+        {
+          "fullName": "sigp/lighthouse",
+          "url": "https://github.com/sigp/lighthouse",
+          "fork": false,
+          "archived": false,
+          "stars": 3501,
+          "forks": 1108,
+          "pushedAt": "2026-11-28T02:13:22Z",
+          "latestReleaseAt": "2026-11-09T07:12:58Z"
+        },
+        {
+          "fullName": "sigp/ssz_types",
+          "url": "https://github.com/sigp/ssz_types",
+          "fork": false,
+          "archived": false,
+          "stars": 6,
+          "forks": 33,
+          "pushedAt": "2026-11-23T06:47:17Z",
+          "latestReleaseAt": "2026-03-31T09:23:08Z"
+        },
+        {
+          "fullName": "sigp/anchor",
+          "url": "https://github.com/sigp/anchor",
+          "fork": false,
+          "archived": false,
+          "stars": 71,
+          "forks": 37,
+          "pushedAt": "2026-10-27T18:42:58Z",
+          "latestReleaseAt": "2026-10-27T19:38:48Z"
+        },
+        {
+          "fullName": "sigp/milhouse",
+          "url": "https://github.com/sigp/milhouse",
+          "fork": false,
+          "archived": false,
+          "stars": 26,
+          "forks": 23,
+          "pushedAt": "2026-10-21T00:02:15Z",
+          "latestReleaseAt": "2025-11-27T11:08:56Z"
+        },
+        {
+          "fullName": "sigp/lighthouse-metrics",
+          "url": "https://github.com/sigp/lighthouse-metrics",
+          "fork": false,
+          "archived": false,
+          "stars": 167,
+          "forks": 51,
+          "pushedAt": "2026-10-01T05:47:30Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "sigp/discv5",
+          "url": "https://github.com/sigp/discv5",
+          "fork": false,
+          "archived": false,
+          "stars": 194,
+          "forks": 85,
+          "pushedAt": "2026-09-23T15:16:56Z",
+          "latestReleaseAt": "2026-09-23T15:21:52Z"
+        },
+        {
+          "fullName": "sigp/enr",
+          "url": "https://github.com/sigp/enr",
+          "fork": false,
+          "archived": false,
+          "stars": 65,
+          "forks": 32,
+          "pushedAt": "2026-09-22T23:35:38Z",
+          "latestReleaseAt": "2024-10-29T05:02:45Z"
+        },
+        {
+          "fullName": "sigp/ethereum_ssz",
+          "url": "https://github.com/sigp/ethereum_ssz",
+          "fork": false,
+          "archived": false,
+          "stars": 30,
+          "forks": 28,
+          "pushedAt": "2026-09-22T01:16:33Z",
+          "latestReleaseAt": "2026-05-19T06:45:11Z"
+        },
+        {
+          "fullName": "sigp/tree_hash",
+          "url": "https://github.com/sigp/tree_hash",
+          "fork": false,
+          "archived": false,
+          "stars": 23,
+          "forks": 23,
+          "pushedAt": "2026-09-01T13:51:51Z",
+          "latestReleaseAt": "2026-01-15T02:14:45Z"
+        },
+        {
+          "fullName": "sigp/public-audits",
+          "url": "https://github.com/sigp/public-audits",
+          "fork": false,
+          "archived": false,
+          "stars": 243,
+          "forks": 38,
+          "pushedAt": "2026-08-31T09:16:42Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "sigp/waggle",
+          "url": "https://github.com/sigp/waggle",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 2,
+          "pushedAt": "2026-08-28T20:59:36Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "sigp/sensitive_url",
+          "url": "https://github.com/sigp/sensitive_url",
+          "fork": false,
+          "archived": false,
+          "stars": 4,
+          "forks": 1,
+          "pushedAt": "2026-07-23T09:49:29Z",
+          "latestReleaseAt": "2025-11-05T16:42:35Z"
+        }
+      ]
+    }
+  ],
+  "people": [
+    {
+      "handle": "vivi365",
+      "url": "https://github.com/vivi365",
+      "source": "curated",
+      "repos": [
+        {
+          "fullName": "vivi365/zobs",
+          "monthly": [
+            0,
+            0,
+            2,
+            2,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "vivi365/vivi365.github.io",
+          "monthly": [
+            14,
+            0,
+            0,
+            1,
+            4,
+            14,
+            6,
+            0,
+            1,
+            23,
+            0,
+            4
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "vivi365/rss-reader",
+          "monthly": [
+            0,
+            0,
+            0,
+            4,
+            0,
+            0,
+            1,
+            0,
+            0,
+            8,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "vivi365/master-thesis-starter-pack",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "vivi365/vivi365",
+          "monthly": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "chains-project/sbom-files",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "chains-project/maven-lockfile",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "chains-project/chains-project.github.io",
+          "monthly": [
+            0,
+            0,
+            1,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "chains-project/rnpm",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "chains-project/hintguard",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        14,
+        0,
+        4,
+        7,
+        6,
+        14,
+        7,
+        0,
+        6,
+        31,
+        0,
+        4
+      ]
+    },
+    {
+      "handle": "Stamp9",
+      "url": "https://github.com/Stamp9",
+      "source": "curated",
+      "repos": [
+        {
+          "fullName": "Stamp9/stamp9.github.io",
+          "monthly": [
+            0,
+            6,
+            0,
+            1,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            1
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "chains-project/sbom-files",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "chains-project/maven-lockfile",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "chains-project/chains-project.github.io",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "chains-project/rnpm",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "chains-project/hintguard",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "chains-project/ghasum",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "chains-project/deps.dev_stats",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "chains-project/javascript-bundling-reproducible-builds",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "chains-project/sbom.exe",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        0,
+        6,
+        0,
+        1,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        1
+      ]
+    },
+    {
+      "handle": "javierron",
+      "url": "https://github.com/javierron",
+      "source": "curated",
+      "repos": [
+        {
+          "fullName": "javierron/javierron.github.io",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            10,
+            5,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "chains-project/sbom-files",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "chains-project/maven-lockfile",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "chains-project/chains-project.github.io",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "chains-project/rnpm",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "chains-project/hintguard",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "chains-project/ghasum",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "chains-project/deps.dev_stats",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "chains-project/javascript-bundling-reproducible-builds",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "chains-project/sbom.exe",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        5,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "handle": "algomaster99",
+      "url": "https://github.com/algomaster99",
+      "source": "curated",
+      "repos": [
+        {
+          "fullName": "algomaster99/maven-lockfile-renovate-sandbox",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            16
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "algomaster99/algomaster99.github.io",
+          "monthly": [
+            5,
+            2,
+            2,
+            0,
+            0,
+            3,
+            0,
+            5,
+            3,
+            3,
+            6,
+            6
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "algomaster99/lagom-lens",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            34,
+            4,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "algomaster99/maven-hermeto-demo",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            12,
+            10,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "algomaster99/mcp-drift",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            28,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "algomaster99/merge-aot-experiments",
+          "monthly": [
+            0,
+            11,
+            9,
+            78,
+            56,
+            85,
+            26,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "algomaster99/dotfiles",
+          "monthly": [
+            10,
+            3,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "chains-project/sbom-files",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "chains-project/maven-lockfile",
+          "monthly": [
+            0,
+            1,
+            0,
+            3,
+            2,
+            12,
+            3,
+            10,
+            11,
+            11,
+            24,
+            28
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "chains-project/chains-project.github.io",
+          "monthly": [
+            1,
+            2,
+            13,
+            1,
+            10,
+            3,
+            3,
+            3,
+            1,
+            0,
+            5,
+            5
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        16,
+        19,
+        24,
+        83,
+        68,
+        131,
+        32,
+        18,
+        15,
+        60,
+        49,
+        55
+      ]
+    }
+  ]
+}

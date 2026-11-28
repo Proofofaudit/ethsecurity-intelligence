@@ -1,0 +1,31 @@
+{
+  "sources": [
+    {
+      "key": "transparency_html",
+      "url": "https://thedao.fund/transparency",
+      "retrievedAt": "2026-11-27T09:22:43.946Z",
+      "sha256": "1de67d667c003f712c73dda3f19d427d1f45bab6a896e0d289f1faa9b0801afe",
+      "method": "HTTP GET, server-rendered HTML table and totals",
+      "stale": false,
+      "error": null
+    },
+    {
+      "key": "transparency_route",
+      "url": "https://thedao.fund/assets/route-khsHVYWS.js",
+      "retrievedAt": "2026-11-27T09:22:43.946Z",
+      "sha256": "63a3278b7890b346717b042d216ef7c5476001a87ba851c68611393cb3c7daf7",
+      "method": "HTTP GET of the route module imported by the page; CSV template literal and grant/stream object",
+      "stale": false,
+      "error": null
+    },
+    {
+      "key": "forum_json",
+      "url": "https://forum.giveth.io/t/2201.json",
+      "retrievedAt": "2026-11-27T09:22:43.946Z",
+      "sha256": "f809a097748343370071cdd4f7e478c721232c3cf8b3ca285232afa4b7bee343",
+      "method": "HTTP GET, Discourse topic JSON",
+      "stale": false,
+      "error": null
+    }
+  ]
+}

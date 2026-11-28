@@ -1,0 +1,418 @@
+{
+  "members": [
+    {
+      "name": "Michal Převrátil",
+      "role": "Author of Wake and lead of its tooling work (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "michprev",
+          "url": "https://github.com/michprev",
+          "publishedBy": "proposal"
+        },
+        {
+          "platform": "X",
+          "handle": "michprev",
+          "url": "https://x.com/michprev",
+          "publishedBy": "website"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Wake, Python Solidity testing and fuzzing framework (top contributor with 2,303 contributions)",
+          "kind": "project",
+          "url": "https://github.com/ack3-ai/wake",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Wake 5: A Python Framework for Solidity Testing, Fuzzing, and Static Analysis (preprint, with Josef Gattermayer)",
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2611.09307",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Lido NEST audit, review lead",
+          "kind": "audit",
+          "url": "https://ack3.ai/research/lido-nest-audit-summary/",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Benchmarking EVM Fuzzers Against an Agent-Written Harness, talk at Web3 Security Summit Belgrade 2026-08-26",
+          "kind": "talk",
+          "url": "https://ack3.ai/research/benchmarking-evm-fuzzers-against-an-agent-written-harness/",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Led tooling at Ackee Blockchain, as stated on the ack3 website",
+          "kind": "company",
+          "url": "https://ack3.ai",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/wake-v5-maintenance-and-ai-assisted-fuzzing",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Naoki Yoshida",
+      "role": "Fuzz testing and reproducible complex failures (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "meditationduck",
+          "url": "https://github.com/meditationduck",
+          "publishedBy": "proposal"
+        },
+        {
+          "platform": "X",
+          "handle": "meditationduck",
+          "url": "https://x.com/meditationduck",
+          "publishedBy": "website"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Lido NEST audit, auditor",
+          "kind": "audit",
+          "url": "https://ack3.ai/research/lido-nest-audit-summary/",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Three 31-Byte EVM Smart Contracts Inspired by Assembly Tanka (ack3 research article)",
+          "kind": "project",
+          "url": "https://ack3.ai/research/evm-assembly-tanka/",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Do Not Trust VS Code Extension Install Counts (ack3 research article)",
+          "kind": "project",
+          "url": "https://ack3.ai/research/do-not-trust-vscode-extension-install-counts/",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/wake-v5-maintenance-and-ai-assisted-fuzzing",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Jan Kalivoda",
+      "role": "Smart-contract security research and review methodology (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "jaczkal",
+          "url": "https://github.com/jaczkal",
+          "publishedBy": "proposal"
+        },
+        {
+          "platform": "X",
+          "handle": "jaczkal",
+          "url": "https://x.com/jaczkal",
+          "publishedBy": "website"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "ERC-7512 Onchain Representation for Audits, co-author listed as Jan Kalivoda - Ackee Blockchain (@jaczkal)",
+          "kind": "paper",
+          "url": "https://eips.ethereum.org/EIPS/eip-7512",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "The ack3 H1 2026 DeFi Incident Dataset (arXiv, with Gattermayer and Basovic)",
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2608.13792",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Lido NEST audit, auditor",
+          "kind": "audit",
+          "url": "https://ack3.ai/research/lido-nest-audit-summary/",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "The Art of Manually Guided Fuzzing, DeFi Security Summit 2025 (listed on the ack3 website)",
+          "kind": "talk",
+          "url": "https://ack3.ai",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/wake-v5-maintenance-and-ai-assisted-fuzzing",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Josef Gattermayer",
+      "role": "Project oversight (per the proposal); ack3 founder",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "X",
+          "handle": "jgattermayer",
+          "url": "https://x.com/jgattermayer",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Wake 5 preprint, co-author",
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2611.09307",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "The ack3 H1 2026 DeFi Incident Dataset (arXiv, first author)",
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2608.13792",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Lido NEST audit, audit supervisor",
+          "kind": "audit",
+          "url": "https://ack3.ai/research/lido-nest-audit-summary/",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Led Ackee Blockchain as CEO, as stated on the ack3 website",
+          "kind": "company",
+          "url": "https://ack3.ai",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Benchmarking AI for Smart Contract Security, ETHPrague 2026 (listed on the ack3 website)",
+          "kind": "talk",
+          "url": "https://ack3.ai",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/wake-v5-maintenance-and-ai-assisted-fuzzing",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Tomas Bayer",
+      "role": "ack3 founder, business and relationships (named on the ack3 website, not in the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "X",
+          "handle": "0xTomass",
+          "url": "https://x.com/0xTomass",
+          "publishedBy": "website"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Led Ackee Blockchain's business as COO, as stated on the ack3 website",
+          "kind": "company",
+          "url": "https://ack3.ai",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://ack3.ai/legal/",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "ack3 (ACK3 LTD)",
+    "summary": "Cyprus private limited company (HE 495782) running an AI-native web3 security practice. Its legal page names Josef Gattermayer, Tomas Bayer and Jan Kalivoda as founders. The site says the team built Ackee Blockchain and has audited Ethereum and Solana protocols since 2021, with Lido, Safe and Axelar named as clients. The GitHub organization ack3-ai was created 2025-07-17.",
+    "website": "https://ack3.ai",
+    "publicTeamSize": 5,
+    "previousFunding": [
+      {
+        "label": "TheDAO Security Fund Round 1: Wake, Solidity static analysis and fuzzing framework (1.8303 ETH, $3,339 when sent)",
+        "url": "https://thedao.fund/transparency/wake-solidity-static-analysis-and-fuzzing-framework"
+      },
+      {
+        "label": "Wake development backed by a Coinbase grant in 2022, as stated on the ack3 website",
+        "url": "https://ack3.ai"
+      }
+    ],
+    "otherProducts": [
+      {
+        "label": "ack3 AI scan",
+        "url": "https://ack3.ai"
+      },
+      {
+        "label": "Swarm, shared research for audit agents",
+        "url": "https://github.com/ack3-ai/swarm"
+      },
+      {
+        "label": "Daedaluzz benchmark repository",
+        "url": "https://github.com/ack3-ai/daedaluzz-benchmark"
+      }
+    ],
+    "sources": [
+      {
+        "label": "ack3 website",
+        "url": "https://ack3.ai"
+      },
+      {
+        "label": "ack3 legal and company information",
+        "url": "https://ack3.ai/legal/"
+      },
+      {
+        "label": "GitHub organization ack3-ai",
+        "url": "https://github.com/ack3-ai"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [
+    {
+      "grant": "TheDAO Security Fund Round 1: Wake, Solidity static analysis and fuzzing framework",
+      "funder": "TheDAO Security Fund (Giveth quadratic funding round 16)",
+      "promised": "The Round 1 record lists payments and links a progress update on X, but no deliverables, so no specific promise can be compared. The match rests on the Giveth project page linked in the proposal.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Round 1 record",
+          "url": "https://thedao.fund/transparency/wake-solidity-static-analysis-and-fuzzing-framework"
+        },
+        {
+          "label": "Giveth project page linked in the proposal",
+          "url": "https://qf.giveth.io/project/wake:-solidity-static-analysis-and-fuzzing-framework?roundId=16"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_wake-solidity-static-analysis-and-fuzzing-framework"
+    },
+    {
+      "grant": "Coinbase grant for Wake development (2022), per the ack3 website",
+      "funder": "Coinbase",
+      "promised": "Grant scope, amount and milestones were not found in a public funder report.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "ack3 website",
+          "url": "https://ack3.ai"
+        }
+      ],
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "The Wake repository is public and active, with a v5 release.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "ack3-ai/wake",
+          "url": "https://github.com/ack3-ai/wake"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: ISC, 22 stars, 2 forks, a fork of michprev/wake, last push 2026-11-23, release v5.0.0 on 2026-11-16, 100 commits since 2025-11-28 (API page cap). Top contributor michprev. Code was not run."
+    },
+    {
+      "claim": "Wake 5 is published as the eth-wake package.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "PyPI eth-wake",
+          "url": "https://pypi.org/project/eth-wake/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The PyPI JSON API lists eth-wake 5.0.0 uploaded 2026-11-16 under the ISC license, and 51 releases in total, the earliest listed 4.0.0 on 2023-11-20."
+    },
+    {
+      "claim": "Wake v5 provides Python testing, property-based fuzzing, static-analysis detectors, coverage, call tracing and an EVM execution backend.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Wake documentation",
+          "url": "https://ack3.ai/wake/docs/latest/"
+        },
+        {
+          "label": "Introducing Wake 5",
+          "url": "https://ack3.ai/research/introducing-wake-5/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The docs resolve and describe these features, and the preprint reports measurements. A reachable page is not proof of capability, and the tool was not installed or run here."
+    },
+    {
+      "claim": "Wake fuzzing was used in the public Lido NEST security work.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Lido NEST audit summary",
+          "url": "https://ack3.ai/research/lido-nest-audit-summary/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The ack3 report says the review (2026-06-22 to 2026-07-07) prepared a differential manually guided fuzz test with Wake, and names the four team members. Lido's own confirmation was not checked."
+    },
+    {
+      "claim": "ack3 works with clients including Lido and Safe.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "ack3 website",
+          "url": "https://ack3.ai"
+        },
+        {
+          "label": "Lido NEST audit summary",
+          "url": "https://ack3.ai/research/lido-nest-audit-summary/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The Lido NEST report says Lido engaged ack3. No public engagement record for Safe was found, and the clients' own confirmation was not sought."
+    },
+    {
+      "claim": "A linked benchmark records an agent-written harness experiment on EVM fuzzers.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Benchmarking EVM Fuzzers Against an Agent-Written Harness",
+          "url": "https://ack3.ai/research/benchmarking-evm-fuzzers-against-an-agent-written-harness/"
+        },
+        {
+          "label": "ack3-ai/daedaluzz-benchmark",
+          "url": "https://github.com/ack3-ai/daedaluzz-benchmark"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The article (2026-08-26, updated 2026-11-06) reports 45 eight-hour campaigns and an agent harness reaching 153 reachable assertions. The numbers were not reproduced."
+    },
+    {
+      "claim": "ack3 has had 0 hacks across its 237 audits, and 48% of audits find a critical or high issue.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "ack3 website",
+          "url": "https://ack3.ai"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Figures on the ack3 site, sourced to the rekt.news leaderboard. They are not in the proposal and were not recounted."
+    },
+    {
+      "claim": "No other funder currently pays for this scope.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/wake-v5-maintenance-and-ai-assisted-fuzzing"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "An absence claim. No public funding record for Wake v5 beyond the items above was found."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Past work for the four named members before ack3 beyond ack3 website statements and public profiles: CVEs, Immunefi, Code4rena, Sherlock and Cantina credits Not found in public sources",
+    "Talk recordings or slides for the conference talks listed on the ack3 website Not found in public sources",
+    "ack3 founding date: only the GitHub organization creation date (2025-07-17) and the site's 2021 audit history were found",
+    "Coinbase grant report, amount and milestones Not found in public sources",
+    "Round 1 deliverables: the progress update on X could not be read. A second Round 1 record, Solidity-Wake VS Code extension, is not linked by the proposal and was not attached",
+    "Public engagement records for Safe Not found in public sources"
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

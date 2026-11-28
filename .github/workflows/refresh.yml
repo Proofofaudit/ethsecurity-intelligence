@@ -1,0 +1,56 @@
+name: Refresh dataset
+
+# Re-reads the official initiative list and proposal text, runs the truth audit and uploads the
+# result as an artifact for review. It does not publish live funding figures. It never commits,
+# pushes or deploys, and it uses no repository secrets.
+on:
+  schedule:
+    # Once a day. GitHub runs scheduled workflows on main only.
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+    inputs:
+      research:
+        description: "Also run the research jobs (websites, GitHub, onchain)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Ingest official data and vote manifest
+        run: npm run ingest
+
+      - name: Research
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.research }}
+        run: npm run research
+
+      - name: Publish (validation and truth audit)
+        run: npm run publish
+
+      - name: Upload published dataset
+        uses: actions/upload-artifact@v4
+        with:
+          name: published-dataset-${{ github.run_id }}
+          path: |
+            data/published/dataset.json
+            data/published/audit.json
+          retention-days: 14

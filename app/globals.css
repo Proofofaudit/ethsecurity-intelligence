@@ -1,0 +1,202 @@
+@import "tailwindcss";
+
+/*
+ * ETHSecurity Intelligence design tokens.
+ * Editorial "printed research report": warm paper, near-black ink, 1px rules instead of cards,
+ * one accent (links, focus, selection). Green, amber and gray are reserved for evidence status.
+ * Dark mode is the same system inverted. Theme is set with data-theme on <html>.
+ */
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  color-scheme: light;
+  --paper: #f7f5f0;
+  --paper-2: #efece5;
+  --paper-3: #e6e2d8;
+  --ink: #191917;
+  --ink-2: #45443f;
+  --ink-3: #66645d;
+  --rule: #dcd8ce;
+  --rule-2: #c3beb2;
+  --accent: #1d47b8;
+  --accent-ink: #ffffff;
+  --accent-wash: #e3e8f6;
+  --st-verified: #24653a;
+  --st-verified-wash: #e1ede2;
+  --st-partial: #8a5300;
+  --st-partial-wash: #f4e8d2;
+  --st-applicant: #5c5a54;
+  --st-future: #6b6962;
+  --st-official: #191917;
+  --st-contradicted: #a12c24;
+  --bar-received: #191917;
+  --bar-pledged: #8f8a7e;
+  --bar-needed: #e6e2d8;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #141412;
+  --paper-2: #1c1b19;
+  --paper-3: #26251f;
+  --ink: #ebe8e0;
+  --ink-2: #c0bcb1;
+  --ink-3: #9a968c;
+  --rule: #2f2e29;
+  --rule-2: #46443d;
+  --accent: #93abff;
+  --accent-ink: #10131c;
+  --accent-wash: #1d2338;
+  --st-verified: #7fc493;
+  --st-verified-wash: #1a2a1f;
+  --st-partial: #e2b25e;
+  --st-partial-wash: #2d2416;
+  --st-applicant: #b1ada3;
+  --st-future: #a29e94;
+  --st-official: #ebe8e0;
+  --st-contradicted: #f08a7f;
+  --bar-received: #ebe8e0;
+  --bar-pledged: #7d796f;
+  --bar-needed: #2b2a25;
+}
+
+@theme inline {
+  --font-sans: var(--font-plex-sans), var(--font-symbols), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), var(--font-symbols), ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-paper-3: var(--paper-3);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-rule: var(--rule);
+  --color-rule-2: var(--rule-2);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-wash: var(--accent-wash);
+  --color-st-verified: var(--st-verified);
+  --color-st-verified-wash: var(--st-verified-wash);
+  --color-st-partial: var(--st-partial);
+  --color-st-partial-wash: var(--st-partial-wash);
+  --color-st-applicant: var(--st-applicant);
+  --color-st-future: var(--st-future);
+  --color-st-official: var(--st-official);
+  --color-st-contradicted: var(--st-contradicted);
+  --color-bar-received: var(--bar-received);
+  --color-bar-pledged: var(--bar-pledged);
+  --color-bar-needed: var(--bar-needed);
+
+  --radius-xs: 2px;
+  --radius-sm: 3px;
+  --radius-md: 4px;
+
+  --text-2xs: 11px;
+  --text-2xs--line-height: 16px;
+  --text-xs: 12px;
+  --text-xs--line-height: 17px;
+  --text-sm: 13px;
+  --text-sm--line-height: 19px;
+  --text-base: 14px;
+  --text-base--line-height: 21px;
+  --text-md: 15px;
+  --text-md--line-height: 23px;
+}
+
+@layer base {
+  html {
+    background: var(--paper);
+    color: var(--ink);
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 21px;
+    font-feature-settings: "ss02" on;
+    min-height: 100dvh;
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: var(--accent-wash);
+    color: var(--ink);
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  table {
+    border-collapse: collapse;
+  }
+  summary {
+    list-style: none;
+    cursor: pointer;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+/* Tabular, slashed-zero figures for every number. */
+@utility num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums slashed-zero;
+  font-feature-settings: "tnum" on, "zero" on;
+  letter-spacing: -0.01em;
+}
+@utility link {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  &:hover {
+    text-decoration-color: var(--accent);
+  }
+}
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes sheet-in {
+  from {
+    transform: translateX(16px);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

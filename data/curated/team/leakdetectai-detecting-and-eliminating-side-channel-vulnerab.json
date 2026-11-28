@@ -1,0 +1,208 @@
+{
+  "members": [
+    {
+      "name": "Manu Gupta",
+      "role": "Project Lead (per the proposal); the project page and GitHub profile give the name Manu Sheel Gupta",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "seetadev",
+          "url": "https://github.com/seetadev",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "GitHub profile lists affiliation with Libp2p, SEETA and Leak Detect AI",
+          "kind": "project",
+          "url": "https://github.com/seetadev",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/leakdetectai-detecting-and-eliminating-side-channel-vulnerab",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Dr. Pritha Gupta",
+      "role": "Research Lead (per the proposal)",
+      "pseudonymous": false,
+      "handles": [],
+      "pastWork": [
+        {
+          "label": "Co-author: Automated Detection of Side Channels in Cryptographic Protocols (ACM AISec 2021)",
+          "kind": "paper",
+          "url": "https://doi.org/10.1145/3474369.3486868",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Own research profile: Dr. rer. nat. at Paderborn University (Software Innovation Campus Paderborn), later postdoctoral researcher at Ruhr University Bochum",
+          "kind": "paper",
+          "url": "https://sec4ai-ai4sec.github.io/",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://sec4ai-ai4sec.github.io/",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "SEETA with libp2p (LeakDetectAI)",
+    "summary": "The proposal names SEETA as recipient, with the project hosted on a libp2p community page. The SEC4AI-AI4SEC GitHub organization holds the research repositories listed in the proposal. The libp2p project page lists Manu Sheel Gupta as project lead and Dr. Pritha Gupta as research lead.",
+    "website": "https://libp2p.tech/leakdetectai",
+    "previousFunding": [
+      {
+        "label": "TheDAO Security Fund Round 1 record: Leak Detect: Protecting Ethereum from Hidden Leakages",
+        "url": "https://thedao.fund/transparency/leak-detect-protecting-ethereum-from-hidden-leakages"
+      }
+    ],
+    "otherProducts": [
+      {
+        "label": "autosca-hw-wallet-tester repository",
+        "url": "https://github.com/SEC4AI-AI4SEC/autosca-hw-wallet-tester"
+      },
+      {
+        "label": "AutoMLQuantILDetect repository",
+        "url": "https://github.com/SEC4AI-AI4SEC/AutoMLQuantILDetect"
+      },
+      {
+        "label": "deep-learning-sca repository",
+        "url": "https://github.com/SEC4AI-AI4SEC/deep-learning-sca"
+      }
+    ],
+    "sources": [
+      {
+        "label": "LeakDetectAI project page",
+        "url": "https://libp2p.tech/leakdetectai"
+      },
+      {
+        "label": "GitHub organization SEC4AI-AI4SEC",
+        "url": "https://github.com/SEC4AI-AI4SEC"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [
+    {
+      "grant": "TheDAO Security Fund Round 1 (Ethereum Security Quadratic Funding): Leak Detect: Protecting Ethereum from Hidden Leakages",
+      "funder": "TheDAO Security Fund, Giveth",
+      "promised": "Per the Round 1 project description and the team's announcement: hidden information leakage detection, wallet safety analysis and tooling for AI agents interacting with Web3 systems. The Round 1 record lists no specific deliverables.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "TheDAO Round 1 record",
+          "url": "https://thedao.fund/transparency/leak-detect-protecting-ethereum-from-hidden-leakages"
+        },
+        {
+          "label": "Team announcement of selection (GitHub discussion)",
+          "url": "https://github.com/SEC4AI-AI4SEC/deep-learning-sca/discussions/3"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_leak-detect-protecting-ethereum-from-hidden-leakages"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "Public research repositories exist: autosca-hw-wallet-tester, deep-learning-sca and AutoMLQuantILDetect.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "autosca-hw-wallet-tester",
+          "url": "https://github.com/SEC4AI-AI4SEC/autosca-hw-wallet-tester"
+        },
+        {
+          "label": "deep-learning-sca",
+          "url": "https://github.com/SEC4AI-AI4SEC/deep-learning-sca"
+        },
+        {
+          "label": "AutoMLQuantILDetect",
+          "url": "https://github.com/SEC4AI-AI4SEC/AutoMLQuantILDetect"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: all three are public Apache-2.0 repositories. Created 2026-05-06 (hw-wallet-tester), 2022-08-26 (deep-learning-sca) and 2024-06-17 (AutoMLQuantILDetect). Last pushes 2026-07-06, 2026-06-07 and 2026-09-04. Stars 1, 3 and 5. Code behavior was not run."
+    },
+    {
+      "claim": "The research direction is documented in the ACM AISec paper Automated Detection of Side Channels in Cryptographic Protocols (DROWN the ROBOTs).",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Crossref record, DOI 10.1145/3474369.3486868",
+          "url": "https://doi.org/10.1145/3474369.3486868"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Crossref lists the paper in the Proceedings of the 14th ACM Workshop on Artificial Intelligence and Security (2021-11-15). Authors include Pritha Gupta, Eyke Hullermeier and Juraj Somorovsky."
+    },
+    {
+      "claim": "AutoSCA was developed in the context of Achelos.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal link to github.com/achelos/AutoSCA",
+          "url": "https://github.com/achelos/AutoSCA"
+        },
+        {
+          "label": "Achelos website",
+          "url": "https://www.achelos.de/en"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The GitHub API returned 404 for achelos/AutoSCA, so the linked repository was not found. The Achelos relationship was not confirmed by a public source."
+    },
+    {
+      "claim": "LeakDetectAI was selected for the Ethereum Security Quadratic Funding round with support from Giveth and TheDAO Security Fund.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "TheDAO Round 1 record",
+          "url": "https://thedao.fund/transparency/leak-detect-protecting-ethereum-from-hidden-leakages"
+        },
+        {
+          "label": "Team announcement (GitHub discussion)",
+          "url": "https://github.com/SEC4AI-AI4SEC/deep-learning-sca/discussions/3"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The Round 1 record exists on thedao.fund transparency pages and the team discussion dated 2026-05-12 announces the selection. Round 1 amounts are not recorded here."
+    },
+    {
+      "claim": "Manu Gupta is a Technical Lead and Maintainer in the libp2p ecosystem with 20 or more years of open-source experience.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "GitHub profile seetadev",
+          "url": "https://github.com/seetadev"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The GitHub profile (created 2013-07-06) lists Libp2p among its affiliations. Maintainer role and years of experience were not confirmed in a source."
+    },
+    {
+      "claim": "Existing hardware-wallet testing has found vulnerabilities in Ethereum wallets.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "autosca-hw-wallet-tester",
+          "url": "https://github.com/SEC4AI-AI4SEC/autosca-hw-wallet-tester"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The proposal does not claim a specific finding. No public vulnerability report from this work was found."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Dr. Pritha Gupta GitHub or X handle: Not found in public sources as published in the proposal (only the research website is linked).",
+    "Manu Gupta X handle: Not found in public sources as published in the proposal.",
+    "Round 1 deliverables beyond the project description: Not found in public sources (progress update on X was not readable).",
+    "Employer or other affiliation for Achelos link: Not found in public sources."
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

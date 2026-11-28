@@ -1,0 +1,45 @@
+{
+  "initiativeId": "01M5XPS7SD7745YF5GJR7BE8F0",
+  "collectedAt": "2026-11-28T08:08:42.027Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 2,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "walletbeat",
+      "type": "Organization",
+      "url": "https://github.com/walletbeat",
+      "source": "proposal",
+      "reposTotal": 1,
+      "repos": [
+        {
+          "fullName": "walletbeat/walletbeat",
+          "url": "https://github.com/walletbeat/walletbeat",
+          "fork": false,
+          "archived": false,
+          "stars": 137,
+          "forks": 106,
+          "pushedAt": "2026-11-28T06:00:53Z",
+          "latestReleaseAt": null
+        }
+      ]
+    }
+  ],
+  "people": []
+}

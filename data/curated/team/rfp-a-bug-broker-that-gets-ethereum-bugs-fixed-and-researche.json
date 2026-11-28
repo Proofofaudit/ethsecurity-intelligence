@@ -1,0 +1,67 @@
+{
+  "members": [],
+  "organization": null,
+  "delivery": [],
+  "claims": [
+    {
+      "claim": "Immunefi has paid researchers over $140M.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Immunefi home page",
+          "url": "https://immunefi.com/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Page text states '$140M+ paid in bounties across 650+ protocols'. This is Immunefi's own figure. The figure is the organisation's own statement and no independent source was found, so it is not marked Verified."
+    },
+    {
+      "claim": "Zero Day Initiative gives vendors 120 days to fix after notification.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "ZDI disclosure policy",
+          "url": "https://www.zerodayinitiative.com/advisories/disclosure_policy/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Policy text: the vendor is allowed four months (120 days) to address the vulnerability, when it responds in time."
+    },
+    {
+      "claim": "Zero Day Initiative has operated since 2005.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "ZDI about page",
+          "url": "https://www.zerodayinitiative.com/about/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Page text: established in 2005."
+    },
+    {
+      "claim": "SEAL 911 has coordinated over 200 war rooms.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "SEAL 911 page",
+          "url": "https://securityalliance.org/seal-911"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Page text lists 200+ war rooms coordinated. This is SEAL's own figure. The figure is the organisation's own statement and no independent source was found, so it is not marked Verified."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Applicant team: Not found in public sources (this is a request for proposals and the proposal states nobody is pre-selected)",
+    "Past grants and Round 1 record: Not found in public sources (no applicant, no Round 1 match in the dataset)",
+    "Researchers who will do the work: Not found in public sources"
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

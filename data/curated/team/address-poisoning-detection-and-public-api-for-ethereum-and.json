@@ -1,0 +1,158 @@
+{
+  "members": [
+    {
+      "name": "Victor Baranov",
+      "role": "Lead engineer (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "vbaranov",
+          "url": "https://github.com/vbaranov",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/address-poisoning-detection-and-public-api-for-ethereum-and",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Nikita Savik",
+      "role": "Product and API manager (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "NikitaSavik",
+          "url": "https://github.com/NikitaSavik",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/address-poisoning-detection-and-public-api-for-ethereum-and",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Nick Zenchick",
+      "role": "DevOps (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "nzenchik",
+          "url": "https://github.com/nzenchik",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/address-poisoning-detection-and-public-api-for-ethereum-and",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Tom Goriunov",
+      "role": "Front end (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "tom2drum",
+          "url": "https://github.com/tom2drum",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/address-poisoning-detection-and-public-api-for-ethereum-and",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Yan Yaskov",
+      "role": "Lead QA (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "yvaskov",
+          "url": "https://github.com/yvaskov",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/address-poisoning-detection-and-public-api-for-ethereum-and",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "Blockscout",
+    "summary": "Open source block explorer for EVM chains. Its GitHub organization describes it as an open-source tool for exploring, confirming and inspecting transactions on any EVM blockchain.",
+    "website": "https://www.blockscout.com/",
+    "previousFunding": [
+      {
+        "label": "TheDAO Security Fund Round 1 record: Blockscout Open-Source Block Explorer",
+        "url": "https://thedao.fund/transparency/blockscout-open-source-block-explorer"
+      }
+    ],
+    "otherProducts": [],
+    "sources": [
+      {
+        "label": "GitHub organization blockscout",
+        "url": "https://github.com/blockscout"
+      },
+      {
+        "label": "Blockscout website",
+        "url": "https://www.blockscout.com/"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [],
+  "claims": [
+    {
+      "claim": "Pull request #14931 is a working draft of the address poisoning detection.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Pull request",
+          "url": "https://github.com/blockscout/blockscout/pull/14931"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: open, not merged, author vbaranov, title 'feat: Detect address poisoning token transfers in the indexer', 14 commits, 52 changed files including poisoning_attack modules and tests, last update 2026-11-20. The GitHub draft flag is false. Behavior was not run."
+    },
+    {
+      "claim": "The Blockscout repository is public and maintained.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "GitHub repository",
+          "url": "https://github.com/blockscout/blockscout"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: created 2018-01-12, last push 2026-11-28, latest release v12.1.0 on 2026-11-24."
+    },
+    {
+      "claim": "Victor Baranov, Nikita Savik, Nick Zenchick, Tom Goriunov and Yan Yaskov work at Blockscout.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/address-poisoning-detection-and-public-api-for-ethereum-and"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Public GitHub profiles of vbaranov (company field '@blockscout') and tom2drum (company field 'Blockscout Technologies Ltd') name Blockscout. The other three profiles do not. Spelling of the fifth name differs between the proposal ('Yaskov') and the GitHub profile name ('Vaskov'); identity is taken only from the link in the proposal."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Roles of the five people on their own pages: Not found in public sources",
+    "Blockscout legal entity, founding date and team size: Not found in public sources",
+    "Delivery against Round 1: deliverables per the Round 1 record Not found in public sources. The match to Round 1 is at organization level (same website), so it is not asserted as the same scope."
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

@@ -1,0 +1,321 @@
+{
+  "initiativeId": "01M23GTPYREBX59SBNC6JF3FJC",
+  "collectedAt": "2026-11-28T07:30:14.111Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 22,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "Fosurero",
+      "type": "User",
+      "url": "https://github.com/Fosurero",
+      "source": "proposal",
+      "reposTotal": 14,
+      "repos": [
+        {
+          "fullName": "Fosurero/PRSpec",
+          "url": "https://github.com/Fosurero/PRSpec",
+          "fork": false,
+          "archived": false,
+          "stars": 16,
+          "forks": 1,
+          "pushedAt": "2026-11-12T02:09:56Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Fosurero/AlexHash",
+          "url": "https://github.com/Fosurero/AlexHash",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-24T00:04:04Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Fosurero/Vnish",
+          "url": "https://github.com/Fosurero/Vnish",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-23T23:40:59Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Fosurero/Blevora",
+          "url": "https://github.com/Fosurero/Blevora",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-05-24T03:21:04Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Fosurero/StylusArena",
+          "url": "https://github.com/Fosurero/StylusArena",
+          "fork": false,
+          "archived": false,
+          "stars": 9,
+          "forks": 0,
+          "pushedAt": "2026-04-12T23:18:38Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Fosurero/styluspg",
+          "url": "https://github.com/Fosurero/styluspg",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-02-25T20:23:23Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Fosurero/DriftGuard",
+          "url": "https://github.com/Fosurero/DriftGuard",
+          "fork": false,
+          "archived": false,
+          "stars": 8,
+          "forks": 0,
+          "pushedAt": "2026-02-21T06:31:03Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Fosurero/ShardLake-Toolkit",
+          "url": "https://github.com/Fosurero/ShardLake-Toolkit",
+          "fork": false,
+          "archived": false,
+          "stars": 10,
+          "forks": 0,
+          "pushedAt": "2026-02-20T10:24:00Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Fosurero/go-ethereum",
+          "url": "https://github.com/Fosurero/go-ethereum",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-02-14T00:02:11Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Fosurero/ethers.js",
+          "url": "https://github.com/Fosurero/ethers.js",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-02-13T23:23:54Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Fosurero/EIPs",
+          "url": "https://github.com/Fosurero/EIPs",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-02-13T22:32:21Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Fosurero/consensus-specs",
+          "url": "https://github.com/Fosurero/consensus-specs",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-02-13T17:26:46Z",
+          "latestReleaseAt": null
+        }
+      ]
+    }
+  ],
+  "people": [
+    {
+      "handle": "Fosurero",
+      "url": "https://github.com/Fosurero",
+      "source": "curated",
+      "repos": [
+        {
+          "fullName": "Fosurero/PRSpec",
+          "monthly": [
+            0,
+            0,
+            44,
+            0,
+            0,
+            0,
+            19,
+            0,
+            3,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "Fosurero/AlexHash",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "Fosurero/Vnish",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            8,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "Fosurero/Blevora",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "Fosurero/StylusArena",
+          "monthly": [
+            0,
+            0,
+            5,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "Fosurero/styluspg",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "Fosurero/DriftGuard",
+          "monthly": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "Fosurero/ShardLake-Toolkit",
+          "monthly": [
+            0,
+            0,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        0,
+        0,
+        53,
+        0,
+        0,
+        2,
+        19,
+        0,
+        3,
+        12,
+        0,
+        0
+      ]
+    }
+  ]
+}

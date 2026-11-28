@@ -1,5 +1,5 @@
 /**
- * Organisation identity resolution.
+ * Organization identity resolution.
  *
  * Merge rules (in order). Two official name spellings refer to the same entity only when:
  *  1. strict key equal: identical after case folding and removing punctuation/whitespace
@@ -104,7 +104,7 @@ export function resolveIdentities(records: NameRecord[], curated: CuratedAlias[]
     if (anonymous[i]) return;
     const k = strictKey(r.name);
     const prev = byStrict.get(k);
-    if (prev !== undefined) union(prev, i, { resolution: "exact_normalized", reason: `Same name after case/punctuation normalisation ("${records[prev]?.name}" = "${r.name}")`, sourceUrls: [] });
+    if (prev !== undefined) union(prev, i, { resolution: "exact_normalized", reason: `Same name after case/punctuation normalization ("${records[prev]?.name}" = "${r.name}")`, sourceUrls: [] });
     else byStrict.set(k, i);
   });
   records.forEach((r, i) => {

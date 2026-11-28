@@ -5,8 +5,10 @@
  */
 import path from "node:path";
 import { promises as fs } from "node:fs";
-import type { DetailResponse, ListResponse, RevisionResponse } from "@/lib/official/schemas";
-import type { Donation, Initiative, Milestone, Organization, OrganizationAlias, Person, Pledge, Provenance, Revision } from "@/lib/domain/schemas";
+import type { DetailResponse, ListResponse, RevisionResponse, VoteManifestResponse } from "@/lib/official/schemas";
+import type { Donation, Initiative, Milestone, Organization, OrganizationAlias, Person, Pledge, Provenance, Revision, VoteSection } from "@/lib/domain/schemas";
+import { theDaoAskCents } from "@/lib/metrics/ask";
+import { buildVoteSection, unavailableVote } from "@/lib/vote/manifest";
 import { classifyStages, extractStandards } from "@/lib/domain/taxonomy";
 import { resolveIdentities, type CuratedAlias, type NameRecord } from "@/lib/domain/identity";
 import { toCents } from "@/lib/util/money";
@@ -14,9 +16,42 @@ import { contentHash, stableId } from "@/lib/util/hash";
 import { extractLinks, slugify } from "@/lib/util/text";
 import { officialUrls } from "@/lib/official/client";
 import { DATA_DIR, REVISIONS_DIR, readJson, readObject, type SnapshotManifest } from "./store";
-import { loadCohort } from "./ingest";
+import { ballotRecords, loadCohort, type Cohort } from "./ingest";
 
 export const NORMALIZER_VERSION = "normalize@1";
+
+const NAME_TOKEN = "(?:\\p{Lu}[\\p{L}'.-]*)";
+const ROLE_LIST = ["co-?founder", "founder", "ceo", "cto", "coo", "lead", "head", "director", "engineer", "developer", "researcher", "auditor", "architect", "designer", "manager", "maintainer", "security researcher", "product lead"];
+/** Case-insensitive alternation built from character classes, so names elsewhere in the pattern stay case-sensitive. */
+const ROLE_WORDS = `(?:${ROLE_LIST.map((w) => w.replace(/[a-z]/g, (c) => `[${c}${c.toUpperCase()}]`)).join("|")})`;
+const PROFILE_URL_RE =
+  /^https:\/\/(?:github\.com|x\.com|twitter\.com|www\.linkedin\.com\/in|linkedin\.com\/in|audits\.sherlock\.xyz\/watson|code4rena\.com\/@|app\.immunefi\.com\/profile)\/?[A-Za-z0-9_.-]+\/?$/;
+const LEAD_PATTERNS: RegExp[] = [
+  // "I'm Name, founder of ..." / "I am Name, a security researcher"
+  new RegExp(`\\bI(?:'|\u2019)?m\\s+(${NAME_TOKEN}(?:\\s+${NAME_TOKEN}){0,4}),\\s+(?:the\\s+|a\\s+|an\\s+)?(${ROLE_WORDS})\\b`, "u"),
+  new RegExp(`\\bI\\s+am\\s+(${NAME_TOKEN}(?:\\s+${NAME_TOKEN}){0,4}),\\s+(?:the\\s+|a\\s+|an\\s+)?(${ROLE_WORDS})\\b`, "u"),
+  // "Name, role" at the start of a line, optionally bulleted or bold.
+  new RegExp(`^[\\s*_>-]*(${NAME_TOKEN}(?:\\s+${NAME_TOKEN}){1,4})[*_]*,\\s+(${ROLE_WORDS})\\b`, "mu"),
+];
+
+/** Name and role of the person the team text introduces, or null. Data-driven: no organization literals. */
+export function extractNamedLead(teamMarkdown: string): { name: string; role: string } | null {
+  const plain = teamMarkdown.replace(/[*`]/g, "");
+  for (const re of LEAD_PATTERNS) {
+    const m = re.exec(plain);
+    if (!m) continue;
+    const name = m[1]!.replace(/\s+/g, " ").trim();
+    const role = m[2]!.toLowerCase();
+    if (name.length < 3 || /^(We|Our|The|This|Team)\b/.test(name)) continue;
+    return { name, role: role.length <= 3 ? role.toUpperCase() : role.charAt(0).toUpperCase() + role.slice(1) };
+  }
+  return null;
+}
+
+/** Public profile URLs linked in the team section itself (never guessed). */
+export function teamProfileLinks(teamMarkdown: string): string[] {
+  return [...new Set(extractLinks(teamMarkdown).map((l) => l.url).filter((u) => PROFILE_URL_RE.test(u)))];
+}
 
 export interface OfficialLayer {
   manifest: SnapshotManifest;
@@ -30,6 +65,7 @@ export interface OfficialLayer {
   people: Person[];
   revisions: Revision[];
   details: Map<string, DetailResponse>;
+  vote: VoteSection;
 }
 
 const tsToIso = (t: number | null | undefined): string | null => (t ? new Date(t * 1000).toISOString() : null);
@@ -193,6 +229,7 @@ export async function normalize(manifest: SnapshotManifest): Promise<OfficialLay
         live: d.summary.live ?? null,
         officialPct: d.pct ?? list?.pctFunded ?? null,
         remainingCents: Math.max(0, goalCents - officialRaisedCents),
+        theDaoAskCents: theDaoAskCents(goalCents, officialRaisedCents),
         ledgerCheckedAt: tsToIso(d.ledger?.checkedAt ?? null),
       },
       stages: classifyStages(fullText, categorySlugs),
@@ -285,6 +322,25 @@ export async function normalize(manifest: SnapshotManifest): Promise<OfficialLay
         provenance: prov("Linked public profile in the proposal's team section (applicant-provided)", [officialUrls.page(i.slug), l.url], retrievedAt, "applicant"),
       });
     }
+    // A named lead in the team text ("I'm <Name>, founder of ...") with profile links in the same section.
+    const lead = extractNamedLead(team);
+    if (lead) {
+      const profiles = teamProfileLinks(team);
+      if (profiles.length) {
+        const pid = stableId("person", lead.name.toLowerCase());
+        const prev = people.get(pid);
+        people.set(pid, {
+          id: pid,
+          name: lead.name,
+          role: prev?.role ?? lead.role,
+          initiativeIds: [...new Set([...(prev?.initiativeIds ?? []), i.id])],
+          organizationId: null,
+          publicProfiles: [...new Set([...(prev?.publicProfiles ?? []), ...profiles])],
+          mentionedIn: [...new Set([...(prev?.mentionedIn ?? []), `${i.id}:team`])],
+          provenance: prov("Name and role stated in the proposal's team section, profile links from the same section (applicant-provided)", [officialUrls.page(i.slug), ...profiles], retrievedAt, "applicant"),
+        });
+      }
+    }
     if (base.milestoneReviewer) {
       const pid = stableId("reviewer", base.milestoneReviewer.toLowerCase());
       const prev = people.get(pid);
@@ -301,7 +357,7 @@ export async function normalize(manifest: SnapshotManifest): Promise<OfficialLay
     }
   }
 
-  // Organisations via identity resolution.
+  // Organizations via identity resolution.
   const curated = (await readJson<CuratedAlias[]>(path.join(DATA_DIR, "curated", "aliases.json"))) ?? [];
   const { entities, candidates } = resolveIdentities(nameRecords, curated, (name) => `org_${slugify(name) || "unnamed"}`);
   const organizations: Organization[] = [];
@@ -343,7 +399,7 @@ export async function normalize(manifest: SnapshotManifest): Promise<OfficialLay
         organizationId: e.id,
         resolution: res?.resolution ?? "exact_normalized",
         candidateOrganizationId: null,
-        reason: res?.reason ?? "Same name after case/punctuation normalisation",
+        reason: res?.reason ?? "Same name after case/punctuation normalization",
         sourceUrls: res?.sourceUrls ?? [],
       });
     }
@@ -406,9 +462,11 @@ export async function normalize(manifest: SnapshotManifest): Promise<OfficialLay
   }
 
   initiatives.sort((a, b) => a.title.localeCompare(b.title));
+  const vote = await loadVoteSection(manifest, cohort, ballot);
   return {
     manifest,
     ballot,
+    vote,
     initiatives,
     milestones,
     pledges,
@@ -419,6 +477,14 @@ export async function normalize(manifest: SnapshotManifest): Promise<OfficialLay
     revisions,
     details,
   };
+}
+
+/** Vote section from the snapshot's manifest object, re-checked against the snapshot's ballot. */
+export async function loadVoteSection(manifest: SnapshotManifest, cohort: Cohort, ballot: ListResponse): Promise<VoteSection> {
+  if (!manifest.vote) return unavailableVote("This snapshot was taken before vote manifest ingestion.");
+  const v = manifest.vote;
+  const body = v.object ? await readObject<VoteManifestResponse>(v.object) : null;
+  return buildVoteSection(body?.manifest ?? null, { objectHash: v.object, fetchedAt: v.fetchedAt, stale: v.stale, error: v.error }, new Map(cohort.members.map((m) => [m.slug, m.id])), ballotRecords(ballot));
 }
 
 export async function fileExists(p: string): Promise<boolean> {

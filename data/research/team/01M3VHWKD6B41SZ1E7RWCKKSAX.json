@@ -1,0 +1,542 @@
+{
+  "initiativeId": "01M3VHWKD6B41SZ1E7RWCKKSAX",
+  "collectedAt": "2026-11-28T08:08:55.409Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 40,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "ZKNoxHQ",
+      "type": "Organization",
+      "url": "https://github.com/ZKNoxHQ",
+      "source": "proposal",
+      "reposTotal": 50,
+      "repos": [
+        {
+          "fullName": "ZKNoxHQ/NVMpy",
+          "url": "https://github.com/ZKNoxHQ/NVMpy",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-28T07:54:07Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ZKNoxHQ/ZKNOX-HW-PRIVACY",
+          "url": "https://github.com/ZKNoxHQ/ZKNOX-HW-PRIVACY",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 0,
+          "pushedAt": "2026-11-28T07:06:25Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ZKNoxHQ/ZKNOX-LibC",
+          "url": "https://github.com/ZKNoxHQ/ZKNOX-LibC",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2026-11-28T07:06:05Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ZKNoxHQ/ZKNOX-Poseidons",
+          "url": "https://github.com/ZKNoxHQ/ZKNOX-Poseidons",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-11-25T14:28:41Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ZKNoxHQ/ETHFALCON",
+          "url": "https://github.com/ZKNoxHQ/ETHFALCON",
+          "fork": false,
+          "archived": false,
+          "stars": 44,
+          "forks": 14,
+          "pushedAt": "2026-11-23T09:08:14Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ZKNoxHQ/keycard-sim",
+          "url": "https://github.com/ZKNoxHQ/keycard-sim",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 1,
+          "pushedAt": "2026-11-19T00:34:20Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ZKNoxHQ/website",
+          "url": "https://github.com/ZKNoxHQ/website",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-11-18T11:42:06Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ZKNoxHQ/rsgun-wallet",
+          "url": "https://github.com/ZKNoxHQ/rsgun-wallet",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2026-11-18T09:36:06Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ZKNoxHQ/blog",
+          "url": "https://github.com/ZKNoxHQ/blog",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-11-17T09:37:02Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ZKNoxHQ/Communications",
+          "url": "https://github.com/ZKNoxHQ/Communications",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-11-05T10:53:56Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ZKNoxHQ/ETHDILITHIUM",
+          "url": "https://github.com/ZKNoxHQ/ETHDILITHIUM",
+          "fork": false,
+          "archived": false,
+          "stars": 24,
+          "forks": 9,
+          "pushedAt": "2026-10-30T14:46:16Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ZKNoxHQ/pq-wallet",
+          "url": "https://github.com/ZKNoxHQ/pq-wallet",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-28T11:36:57Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "rdubois-crypto",
+      "type": "User",
+      "url": "https://github.com/rdubois-crypto",
+      "source": "proposal",
+      "reposTotal": 47,
+      "repos": [
+        {
+          "fullName": "rdubois-crypto/FreshCryptoLib",
+          "url": "https://github.com/rdubois-crypto/FreshCryptoLib",
+          "fork": false,
+          "archived": false,
+          "stars": 165,
+          "forks": 32,
+          "pushedAt": "2026-11-17T07:56:35Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "rdubois-crypto/rdubois-crypto",
+          "url": "https://github.com/rdubois-crypto/rdubois-crypto",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-03-29T13:59:25Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "rdubois-crypto/Passkeys25519",
+          "url": "https://github.com/rdubois-crypto/Passkeys25519",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2025-12-26T11:46:09Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "rdubois-crypto/gnarkTermux",
+          "url": "https://github.com/rdubois-crypto/gnarkTermux",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-06-26T09:03:43Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "rdubois-crypto/Resume-CV-",
+          "url": "https://github.com/rdubois-crypto/Resume-CV-",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2025-04-02T18:31:03Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "rdubois-crypto/UnruggableWallet",
+          "url": "https://github.com/rdubois-crypto/UnruggableWallet",
+          "fork": false,
+          "archived": false,
+          "stars": 6,
+          "forks": 0,
+          "pushedAt": "2024-11-27T15:21:40Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "rdubois-crypto/Stark-Bridge-n-Frog",
+          "url": "https://github.com/rdubois-crypto/Stark-Bridge-n-Frog",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2023-12-01T13:09:20Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "rdubois-crypto/Stark4337",
+          "url": "https://github.com/rdubois-crypto/Stark4337",
+          "fork": false,
+          "archived": false,
+          "stars": 3,
+          "forks": 0,
+          "pushedAt": "2023-11-14T16:34:37Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "rdubois-crypto/ZKP-Playground",
+          "url": "https://github.com/rdubois-crypto/ZKP-Playground",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2023-08-08T07:30:35Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "rdubois-crypto/EthStone",
+          "url": "https://github.com/rdubois-crypto/EthStone",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2023-04-14T16:22:13Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "rdubois-crypto/MyCairoPlayground",
+          "url": "https://github.com/rdubois-crypto/MyCairoPlayground",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 2,
+          "pushedAt": "2023-01-30T15:27:58Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "rdubois-crypto/light_ledger-c-api",
+          "url": "https://github.com/rdubois-crypto/light_ledger-c-api",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2022-10-27T17:35:48Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "btchip",
+      "type": "User",
+      "url": "https://github.com/btchip",
+      "source": "proposal",
+      "reposTotal": 79,
+      "repos": [
+        {
+          "fullName": "btchip/devcon8",
+          "url": "https://github.com/btchip/devcon8",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 1,
+          "pushedAt": "2026-11-10T12:35:34Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "btchip/RailBao",
+          "url": "https://github.com/btchip/RailBao",
+          "fork": false,
+          "archived": false,
+          "stars": 3,
+          "forks": 0,
+          "pushedAt": "2026-11-07T07:31:39Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "btchip/ethcc9",
+          "url": "https://github.com/btchip/ethcc9",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-04-09T08:04:11Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "btchip/CryptoXR2026",
+          "url": "https://github.com/btchip/CryptoXR2026",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 0,
+          "pushedAt": "2026-01-25T10:20:47Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "btchip/passkeys-devcon7",
+          "url": "https://github.com/btchip/passkeys-devcon7",
+          "fork": false,
+          "archived": false,
+          "stars": 5,
+          "forks": 1,
+          "pushedAt": "2025-12-29T10:24:51Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "btchip/ethereum-app-poc",
+          "url": "https://github.com/btchip/ethereum-app-poc",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 0,
+          "pushedAt": "2025-11-17T21:11:39Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "btchip/ClubBitcoinPro051125",
+          "url": "https://github.com/btchip/ClubBitcoinPro051125",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2025-11-06T10:58:08Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "btchip/web3check-tools",
+          "url": "https://github.com/btchip/web3check-tools",
+          "fork": false,
+          "archived": false,
+          "stars": 3,
+          "forks": 2,
+          "pushedAt": "2025-05-30T07:48:52Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "btchip/CryptoXR2025",
+          "url": "https://github.com/btchip/CryptoXR2025",
+          "fork": false,
+          "archived": false,
+          "stars": 7,
+          "forks": 1,
+          "pushedAt": "2025-02-02T21:15:55Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "btchip/ethc21-vax",
+          "url": "https://github.com/btchip/ethc21-vax",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 0,
+          "pushedAt": "2024-07-06T22:04:00Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "btchip/Webauthn.sol",
+          "url": "https://github.com/btchip/Webauthn.sol",
+          "fork": false,
+          "archived": false,
+          "stars": 10,
+          "forks": 5,
+          "pushedAt": "2023-03-17T14:32:24Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "btchip/webauthn-test",
+          "url": "https://github.com/btchip/webauthn-test",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2022-10-19T14:00:43Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "simonmasson",
+      "type": "User",
+      "url": "https://github.com/simonmasson",
+      "source": "proposal",
+      "reposTotal": 27,
+      "repos": [
+        {
+          "fullName": "simonmasson/simonmasson.github.io",
+          "url": "https://github.com/simonmasson/simonmasson.github.io",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-09-17T14:34:43Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "simonmasson/BroadBandSeabed",
+          "url": "https://github.com/simonmasson/BroadBandSeabed",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-08-20T17:14:33Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "simonmasson/zkcrypto-bandersnatch",
+          "url": "https://github.com/simonmasson/zkcrypto-bandersnatch",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2022-10-13T14:07:55Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "simonmasson/efficient-GLV-curves-generation",
+          "url": "https://github.com/simonmasson/efficient-GLV-curves-generation",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 1,
+          "pushedAt": "2018-03-27T16:28:10Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "simonmasson/GLV",
+          "url": "https://github.com/simonmasson/GLV",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2017-02-22T13:27:31Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "simonmasson/kohaku-artifacts",
+          "url": "https://github.com/simonmasson/kohaku-artifacts",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-12T12:00:56Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "simonmasson/privacy-protocol-artifacts",
+          "url": "https://github.com/simonmasson/privacy-protocol-artifacts",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-07T10:06:33Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "simonmasson/derive-railgun-keys",
+          "url": "https://github.com/simonmasson/derive-railgun-keys",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-14T11:42:43Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "simonmasson/engine",
+          "url": "https://github.com/simonmasson/engine",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-06-29T16:39:27Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "simonmasson/circomlibjs",
+          "url": "https://github.com/simonmasson/circomlibjs",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-05-12T09:52:03Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "simonmasson/cairo-lang",
+          "url": "https://github.com/simonmasson/cairo-lang",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-07-27T09:55:59Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "simonmasson/security-estimates",
+          "url": "https://github.com/simonmasson/security-estimates",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-05-23T13:23:12Z",
+          "latestReleaseAt": null
+        }
+      ]
+    }
+  ],
+  "people": []
+}

@@ -1,0 +1,203 @@
+{
+  "members": [
+    {
+      "name": "Bilel Seddik",
+      "role": "CEO of Trustblock: product, data and partnerships (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "X",
+          "handle": "0xBilel",
+          "url": "https://x.com/0xBilel",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Trustblock, open data layer for web3 security (company named in the proposal; X profile bio lists @TrustblockHQ)",
+          "kind": "company",
+          "url": "https://trustblock.run",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/trustblock-every-public-ethereum-and-l2-audit-tied-to-the-co",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "Trustblock",
+    "summary": "Publishes audit reports from security firms as open records. Its website shows 7,677 projects, 12,691 audit reports and 81 security firms, and its llms.txt says it does not rate or endorse the audits. The proposal says firms publish through verified accounts and Trustblock also indexes public reports. The platform code is not part of the grant.",
+    "website": "https://trustblock.run",
+    "previousFunding": [
+      {
+        "label": "Starknet Foundation grant of 25,000 USDC in 2024, as stated in the proposal (no funder report found)",
+        "url": "https://initiatives.thedao.fund/initiative/trustblock-every-public-ethereum-and-l2-audit-tied-to-the-co"
+      },
+      {
+        "label": "AngelHack x Polygon grant of 80,000 POL in 2025, as stated in the proposal (no funder report found)",
+        "url": "https://initiatives.thedao.fund/initiative/trustblock-every-public-ethereum-and-l2-audit-tied-to-the-co"
+      }
+    ],
+    "otherProducts": [
+      {
+        "label": "Trustblock explorer with project and security firm records",
+        "url": "https://app.trustblock.run"
+      },
+      {
+        "label": "Trustblock API and playground",
+        "url": "https://app.trustblock.run/playground"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Trustblock website",
+        "url": "https://trustblock.run"
+      },
+      {
+        "label": "Trustblock record explorer",
+        "url": "https://app.trustblock.run"
+      },
+      {
+        "label": "Trustblock llms.txt",
+        "url": "https://app.trustblock.run/llms.txt"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [
+    {
+      "grant": "Starknet Foundation grant (25,000 USDC, 2024), per the proposal",
+      "funder": "Starknet Foundation",
+      "promised": "The proposal says Starknet support shipped in January 2025 under this grant. The grant terms and milestones were not found in a funder report.",
+      "status": "Partly delivered",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/trustblock-every-public-ethereum-and-l2-audit-tied-to-the-co"
+        },
+        {
+          "label": "Trustblock Starknet chain page",
+          "url": "https://app.trustblock.run/chain/starknet"
+        }
+      ],
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "grant": "AngelHack x Polygon grant (80,000 POL, 2025), per the proposal",
+      "funder": "AngelHack and Polygon",
+      "promised": "The proposal says three milestones were reported complete in December 2025. The milestone list and the completion report were not found.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/trustblock-every-public-ethereum-and-l2-audit-tied-to-the-co"
+        },
+        {
+          "label": "Trustblock website, partner logos",
+          "url": "https://trustblock.run"
+        }
+      ],
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "The Trustblock app at app.trustblock.run is live and holds public audit records.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Trustblock app",
+          "url": "https://app.trustblock.run"
+        },
+        {
+          "label": "Uniswap record on Trustblock",
+          "url": "https://app.trustblock.run/project/uniswap"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The URL returns HTTP 200. The Uniswap record lists 24 reports by firm and date, each opening a firm report. Only this one record was read."
+    },
+    {
+      "claim": "Trustblock holds over 10,800 public audit reports from 60 firms on more than 7,200 projects.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Trustblock website",
+          "url": "https://trustblock.run"
+        },
+        {
+          "label": "Trustblock firm list",
+          "url": "https://app.trustblock.run/llms-full.txt"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Trustblock's own pages now show 12,691 reports, 7,677 projects and 81 firms, which are larger than the proposal figures. No independent count exists, and the figures were not recounted."
+    },
+    {
+      "claim": "Only 18.4% of protocol audits (1,225 of 6,644) name a deployed contract address.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/trustblock-every-public-ethereum-and-l2-audit-tied-to-the-co"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "A figure from Trustblock's own data. It was not recomputed, and no public export of the dataset was found."
+    },
+    {
+      "claim": "About 22,000 deployed contract addresses are tied to reports and an audit card shows on 26 block explorers, including Etherscan.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/trustblock-every-public-ethereum-and-l2-audit-tied-to-the-co"
+        },
+        {
+          "label": "Trustblock playground",
+          "url": "https://app.trustblock.run/playground"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Explorer pages load the card in the browser and could not be read here. The address count was not recounted."
+    },
+    {
+      "claim": "The H1 2026 incident dataset by Gattermayer, Kalivoda and Basovic covers 135 DeFi incidents, with 46 of 68 audited incidents outside every audit scope and 94.4% of their losses out of scope.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "arXiv 2608.13792",
+          "url": "https://arxiv.org/abs/2608.13792"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The arXiv abstract (submitted 13 Aug 2026) gives 135 incidents, 68 with audit history, 46 outside scope and 94.4% of reported loss. The data itself was not re-analyzed."
+    },
+    {
+      "claim": "Repository, commit and address data is published with a documented field format and a weekly log.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Trustblock API docs",
+          "url": "https://app.trustblock.run/playground"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "This is a future deliverable of the grant. No weekly log was found at the time of checking."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Bilel Seddik: past work before Trustblock, audits, CVEs and bounty credits Not found in public sources",
+    "Other Trustblock team members and public team size Not found in public sources",
+    "Trustblock founding date and prior funding rounds beyond the two grants in the proposal Not found in public sources",
+    "Starknet Foundation and AngelHack x Polygon grant reports and milestone lists Not found in public sources",
+    "GitHub organization for Trustblock: none linked by the proposal, so no GitHub collector run"
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

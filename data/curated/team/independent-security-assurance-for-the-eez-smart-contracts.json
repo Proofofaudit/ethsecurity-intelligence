@@ -1,0 +1,189 @@
+{
+  "members": [
+    {
+      "name": "Jordi Baylina",
+      "role": "Core contributor (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "X",
+          "handle": "jbaylina",
+          "url": "https://x.com/jbaylina",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/independent-security-assurance-for-the-eez-smart-contracts",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Friederike Ernst",
+      "role": "Co-initiator (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "X",
+          "handle": "tw_tter",
+          "url": "https://x.com/tw_tter",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/independent-security-assurance-for-the-eez-smart-contracts",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Eduardo Antuña",
+      "role": "Core contributor (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "X",
+          "handle": "eduadiez",
+          "url": "https://x.com/eduadiez",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/independent-security-assurance-for-the-eez-smart-contracts",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Jesús Ligero",
+      "role": "Core contributor (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "X",
+          "handle": "JesusLigero3",
+          "url": "https://x.com/JesusLigero3",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/independent-security-assurance-for-the-eez-smart-contracts",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Armagan Ercan",
+      "role": "Coordinator (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "X",
+          "handle": "epochzer0",
+          "url": "https://x.com/epochzer0",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/independent-security-assurance-for-the-eez-smart-contracts",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "EEZ Association",
+    "summary": "Association named in the proposal as doing the work. Its public repository is in the GitHub organization eez-association. Legal form and registration were not found.",
+    "previousFunding": [],
+    "otherProducts": [],
+    "sources": [
+      {
+        "label": "GitHub organization eez-association",
+        "url": "https://github.com/eez-association"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [],
+  "claims": [
+    {
+      "claim": "The protocol is public at eez-core-protocol.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "GitHub repository",
+          "url": "https://github.com/eez-association/eez-core-protocol"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: created 2026-01-28, last push 2026-11-27, no license field and no releases. Top-level folders include src, test, docs, script and deployment."
+    },
+    {
+      "claim": "GnosisDAO approved GIP-153.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Snapshot proposal GIP-153",
+          "url": "https://snapshot.org/#/s:gnosis.eth/proposal/0x5522f4cbd034c966a08d6901b05c7ad7300041b3e0d75a0ad3da868af1a98b98"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Snapshot hub API: space gnosis.eth, status closed, scores For about 123,158, Against about 115, Abstain about 151. The GIP body states it asks for alignment on direction and requests no funds. Quorum rules were not checked."
+    },
+    {
+      "claim": "Gnosis Chain is the first governance-backed adopter.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Snapshot proposal GIP-153",
+          "url": "https://snapshot.org/#/s:gnosis.eth/proposal/0x5522f4cbd034c966a08d6901b05c7ad7300041b3e0d75a0ad3da868af1a98b98"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Only the opening part of the GIP text was read. No source was found that confirms or contradicts the ordering."
+    },
+    {
+      "claim": "Gnosis commits $30,000 to this goal and hosts the testnet nodes.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Snapshot proposal GIP-153",
+          "url": "https://snapshot.org/#/s:gnosis.eth/proposal/0x5522f4cbd034c966a08d6901b05c7ad7300041b3e0d75a0ad3da868af1a98b98"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GIP-153 does not state a $30,000 commitment in the text searched (it says no funds are requested). No other public source was found."
+    },
+    {
+      "claim": "Vitalik Buterin stress-tested the design with Jordi Baylina at ETHPrague 2026 and called EEZ 'a quite helpful effort' at Dappcon Berlin.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Fireside video",
+          "url": "https://www.youtube.com/watch?v=prgWmgUbSVQ"
+        },
+        {
+          "label": "Dappcon Berlin panel video",
+          "url": "https://www.youtube.com/watch?v=gfG-R8AOu0E"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "YouTube oEmbed confirms the videos exist: 'Vitalik & Jordi Baylina Fireside chat' (Duct Tape) and 'Vitalik Buterin and Friederike Ernst. Ethereum Economic Zone' (Dappcon Berlin). The spoken words were not checked."
+    },
+    {
+      "claim": "Celo, Polygon and Linea agreed in discussions to test the audited contracts.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/independent-security-assurance-for-the-eez-smart-contracts"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "A statement about private discussions. No public source was found."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "The five people's own pages: X profiles were not opened, so roles and past work beyond the proposal text Not found in public sources",
+    "EEZ Association legal form, registration and founding date: Not found in public sources",
+    "Past grants: the proposal names no previous grant and none was found for EEZ Association: Not found in public sources",
+    "Independent audit of the contracts: Not found in public sources. The proposal says the contracts are ready for audit and this grant funds it."
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

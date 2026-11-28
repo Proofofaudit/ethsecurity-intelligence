@@ -1,0 +1,143 @@
+{
+  "members": [
+    {
+      "name": "Gustavo Grieco",
+      "role": "Maintainer of Echidna (per the proposal)",
+      "pseudonymous": false,
+      "handles": [],
+      "pastWork": [
+        {
+          "label": "Author, 'Echidna: effective, usable, and fast fuzzing for smart contracts', ISSTA 2020",
+          "kind": "paper",
+          "url": "https://dl.acm.org/doi/10.1145/3395363.3404366",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Author, 'QuickFuzz: an automatic random fuzzer for common file formats', 2016",
+          "kind": "paper",
+          "url": "https://dl.acm.org/doi/10.1145/2976002.2976017",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Candidate in the Arbitrum Audit Committee Technical Expert election (Snapshot)",
+          "kind": "project",
+          "url": "https://snapshot.box/#/s:arbitrumfoundation.eth/proposal/0x131574819442cb6da293795ee9faeec4754a5af664b535b654b3d9d3d53f47e1",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/fund-echidna-development-through-2027-2",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "Echidna (crytic GitHub organization, run by Trail of Bits per the proposal)",
+    "summary": "Echidna is an Ethereum smart contract fuzzer. The recipient of this grant is an individual, not an organization. The repository lives in the crytic GitHub organization.",
+    "website": "https://github.com/crytic/echidna",
+    "previousFunding": [
+      {
+        "label": "TheDAO Security Fund Round 1 record: Echidna: A Fast Smart Contract Fuzzer (possible match, please verify)",
+        "url": "https://thedao.fund/transparency/echidna-a-fast-smart-contract-fuzzer"
+      }
+    ],
+    "otherProducts": [],
+    "sources": [
+      {
+        "label": "Echidna repository",
+        "url": "https://github.com/crytic/echidna"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [],
+  "claims": [
+    {
+      "claim": "Gustavo Grieco is an author of the Echidna ISSTA 2020 paper.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Crossref record for the ISSTA 2020 paper",
+          "url": "https://api.crossref.org/works/10.1145/3395363.3404366"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Crossref lists authors Gustavo Grieco, Will Song, Artur Cygan, Josselin Feist and Alex Groce. The 'lead author' wording was not tested; Grieco is listed first."
+    },
+    {
+      "claim": "Gustavo Grieco authored QuickFuzz.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Crossref record",
+          "url": "https://api.crossref.org/works/10.1145/2976002.2976017"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Crossref lists authors Gustavo Grieco, Martín Ceresa and Pablo Buiras."
+    },
+    {
+      "claim": "Gustavo Grieco was elected Arbitrum DAO Audit Committee Technical Expert.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Snapshot election proposal",
+          "url": "https://snapshot.box/#/s:arbitrumfoundation.eth/proposal/0x131574819442cb6da293795ee9faeec4754a5af664b535b654b3d9d3d53f47e1"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Snapshot hub API: proposal 'Audit Committee Technical Expert Elections' in space arbitrumfoundation.eth is closed, with choices Gustavo Grieco (about 114.3M votes) and Andrei Andonov (about 30.4M votes). The July 2025 date was not checked."
+    },
+    {
+      "claim": "He was a security engineer at Trail of Bits from September 2017 to April 2025.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/fund-echidna-development-through-2027-2"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "No public employment record was fetched."
+    },
+    {
+      "claim": "The Echidna repository is public and maintained, and the 2.3 releases added symbolic verification and an experimental MCP interface.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "GitHub repository crytic/echidna",
+          "url": "https://github.com/crytic/echidna"
+        },
+        {
+          "label": "Roadmap discussion 1612",
+          "url": "https://github.com/crytic/echidna/issues/1612"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: AGPL-3.0, created 2017-08-27, last push 2026-11-28, latest release v2.4.0 on 2026-11-04, 30 releases. The repository facts are verified. The 2.3 feature list was not checked against release notes. Issue 1612 is open and titled 'Roadmap discussion for 2026 and 2027'."
+    },
+    {
+      "claim": "The public fuzzing campaigns list shows Echidna in real audit work.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Public fuzzing campaigns list",
+          "url": "https://github.com/perimetersec/public-fuzzing-campaigns-list"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The list was not reviewed."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Gustavo Grieco's GitHub handle: not linked in the proposal, so none is recorded. Commit history for him is therefore not collected.",
+    "Trail of Bits employment dates: Not found in public sources",
+    "Round 1 match to the Echidna record is marked 'possible' by the Round 1 matcher (different recipient name). Possible match: please verify. Deliverables per the Round 1 record Not found in public sources.",
+    "Other funders for this scope: the proposal states none; Not found in public sources otherwise."
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

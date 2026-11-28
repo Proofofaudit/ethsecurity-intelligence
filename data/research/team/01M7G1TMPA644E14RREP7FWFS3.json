@@ -1,0 +1,452 @@
+{
+  "initiativeId": "01M7G1TMPA644E14RREP7FWFS3",
+  "collectedAt": "2026-11-28T07:28:52.176Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 30,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "crossbar-inc",
+      "type": "Organization",
+      "url": "https://github.com/crossbar-inc",
+      "source": "proposal",
+      "reposTotal": 3,
+      "repos": [
+        {
+          "fullName": "crossbar-inc/daric-hardware",
+          "url": "https://github.com/crossbar-inc/daric-hardware",
+          "fork": false,
+          "archived": false,
+          "stars": 3,
+          "forks": 0,
+          "pushedAt": "2026-08-31T17:44:19Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "crossbar-inc/daric-doc",
+          "url": "https://github.com/crossbar-inc/daric-doc",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-08-17T11:05:59Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "crossbar-inc/daric-sdk",
+          "url": "https://github.com/crossbar-inc/daric-sdk",
+          "fork": true,
+          "archived": false,
+          "stars": 15,
+          "forks": 0,
+          "pushedAt": "2026-10-13T03:07:08Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "ethereum",
+      "type": "Organization",
+      "url": "https://github.com/ethereum",
+      "source": "proposal",
+      "reposTotal": 100,
+      "repos": [
+        {
+          "fullName": "ethereum/ethereum-org-website",
+          "url": "https://github.com/ethereum/ethereum-org-website",
+          "fork": false,
+          "archived": false,
+          "stars": 6005,
+          "forks": 5460,
+          "pushedAt": "2026-11-28T06:59:33Z",
+          "latestReleaseAt": "2026-11-26T14:12:47Z"
+        },
+        {
+          "fullName": "ethereum/eth-rnd-archive",
+          "url": "https://github.com/ethereum/eth-rnd-archive",
+          "fork": false,
+          "archived": false,
+          "stars": 11,
+          "forks": 10,
+          "pushedAt": "2026-11-28T06:49:33Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum/EthLib",
+          "url": "https://github.com/ethereum/EthLib",
+          "fork": false,
+          "archived": false,
+          "stars": 112,
+          "forks": 35,
+          "pushedAt": "2026-11-28T06:48:19Z",
+          "latestReleaseAt": "2026-11-06T23:49:53Z"
+        },
+        {
+          "fullName": "ethereum/forkcast",
+          "url": "https://github.com/ethereum/forkcast",
+          "fork": false,
+          "archived": false,
+          "stars": 65,
+          "forks": 58,
+          "pushedAt": "2026-11-28T06:17:58Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum/zkevm-website",
+          "url": "https://github.com/ethereum/zkevm-website",
+          "fork": false,
+          "archived": false,
+          "stars": 6,
+          "forks": 10,
+          "pushedAt": "2026-11-28T06:05:35Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum/webtor-rs",
+          "url": "https://github.com/ethereum/webtor-rs",
+          "fork": false,
+          "archived": false,
+          "stars": 30,
+          "forks": 5,
+          "pushedAt": "2026-11-28T06:00:59Z",
+          "latestReleaseAt": "2026-01-06T12:16:20Z"
+        },
+        {
+          "fullName": "ethereum/FCR-website",
+          "url": "https://github.com/ethereum/FCR-website",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 3,
+          "pushedAt": "2026-11-28T05:24:55Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum/moica-revocation-smt",
+          "url": "https://github.com/ethereum/moica-revocation-smt",
+          "fork": false,
+          "archived": false,
+          "stars": 3,
+          "forks": 0,
+          "pushedAt": "2026-11-28T04:12:45Z",
+          "latestReleaseAt": "2026-03-24T05:16:45Z"
+        },
+        {
+          "fullName": "ethereum/discv4-dns-lists",
+          "url": "https://github.com/ethereum/discv4-dns-lists",
+          "fork": false,
+          "archived": false,
+          "stars": 97,
+          "forks": 62,
+          "pushedAt": "2026-11-28T04:11:22Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum/eip-review-bot",
+          "url": "https://github.com/ethereum/eip-review-bot",
+          "fork": false,
+          "archived": false,
+          "stars": 92,
+          "forks": 74,
+          "pushedAt": "2026-11-28T03:45:51Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ethereum/zkID",
+          "url": "https://github.com/ethereum/zkID",
+          "fork": false,
+          "archived": false,
+          "stars": 90,
+          "forks": 23,
+          "pushedAt": "2026-11-28T03:13:23Z",
+          "latestReleaseAt": "2026-08-11T13:17:13Z"
+        },
+        {
+          "fullName": "ethereum/ERCs",
+          "url": "https://github.com/ethereum/ERCs",
+          "fork": false,
+          "archived": false,
+          "stars": 778,
+          "forks": 1119,
+          "pushedAt": "2026-11-28T01:53:40Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "betrusted-io",
+      "type": "Organization",
+      "url": "https://github.com/betrusted-io",
+      "source": "proposal",
+      "reposTotal": 95,
+      "repos": [
+        {
+          "fullName": "betrusted-io/xous-core",
+          "url": "https://github.com/betrusted-io/xous-core",
+          "fork": false,
+          "archived": false,
+          "stars": 1022,
+          "forks": 160,
+          "pushedAt": "2026-11-22T20:23:15Z",
+          "latestReleaseAt": "2026-08-28T07:32:22Z"
+        },
+        {
+          "fullName": "betrusted-io/rust-nightly",
+          "url": "https://github.com/betrusted-io/rust-nightly",
+          "fork": false,
+          "archived": false,
+          "stars": 3,
+          "forks": 0,
+          "pushedAt": "2026-10-26T08:31:39Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "betrusted-io/crate-scraper",
+          "url": "https://github.com/betrusted-io/crate-scraper",
+          "fork": false,
+          "archived": false,
+          "stars": 18,
+          "forks": 0,
+          "pushedAt": "2026-09-14T08:41:58Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "betrusted-io/xous-book",
+          "url": "https://github.com/betrusted-io/xous-book",
+          "fork": false,
+          "archived": false,
+          "stars": 48,
+          "forks": 8,
+          "pushedAt": "2026-09-09T17:27:08Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "betrusted-io/sigchat",
+          "url": "https://github.com/betrusted-io/sigchat",
+          "fork": false,
+          "archived": false,
+          "stars": 18,
+          "forks": 3,
+          "pushedAt": "2026-08-12T20:33:01Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "betrusted-io/xous-semver",
+          "url": "https://github.com/betrusted-io/xous-semver",
+          "fork": false,
+          "archived": false,
+          "stars": 4,
+          "forks": 0,
+          "pushedAt": "2026-07-23T14:35:47Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "betrusted-io/dabao-testjig",
+          "url": "https://github.com/betrusted-io/dabao-testjig",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2026-06-11T03:55:04Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "betrusted-io/dabao-base-app",
+          "url": "https://github.com/betrusted-io/dabao-base-app",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-06-02T11:02:05Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "betrusted-io/betrusted-io.github.io",
+          "url": "https://github.com/betrusted-io/betrusted-io.github.io",
+          "fork": false,
+          "archived": false,
+          "stars": 24,
+          "forks": 1,
+          "pushedAt": "2026-03-24T01:49:59Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "betrusted-io/factory-newify",
+          "url": "https://github.com/betrusted-io/factory-newify",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-02-15T19:29:11Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "betrusted-io/betrusted-scripts",
+          "url": "https://github.com/betrusted-io/betrusted-scripts",
+          "fork": false,
+          "archived": false,
+          "stars": 4,
+          "forks": 8,
+          "pushedAt": "2026-02-12T04:53:04Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "betrusted-io/bootstrap-mainboard",
+          "url": "https://github.com/betrusted-io/bootstrap-mainboard",
+          "fork": false,
+          "archived": false,
+          "stars": 9,
+          "forks": 0,
+          "pushedAt": "2026-02-08T20:59:44Z",
+          "latestReleaseAt": "2022-02-05T20:32:20Z"
+        }
+      ]
+    },
+    {
+      "login": "btchip",
+      "type": "User",
+      "url": "https://github.com/btchip",
+      "source": "proposal",
+      "reposTotal": 79,
+      "repos": [
+        {
+          "fullName": "btchip/devcon8",
+          "url": "https://github.com/btchip/devcon8",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 1,
+          "pushedAt": "2026-11-10T12:35:34Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "btchip/RailBao",
+          "url": "https://github.com/btchip/RailBao",
+          "fork": false,
+          "archived": false,
+          "stars": 3,
+          "forks": 0,
+          "pushedAt": "2026-11-07T07:31:39Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "btchip/ethcc9",
+          "url": "https://github.com/btchip/ethcc9",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-04-09T08:04:11Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "btchip/CryptoXR2026",
+          "url": "https://github.com/btchip/CryptoXR2026",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 0,
+          "pushedAt": "2026-01-25T10:20:47Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "btchip/passkeys-devcon7",
+          "url": "https://github.com/btchip/passkeys-devcon7",
+          "fork": false,
+          "archived": false,
+          "stars": 5,
+          "forks": 1,
+          "pushedAt": "2025-12-29T10:24:51Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "btchip/ethereum-app-poc",
+          "url": "https://github.com/btchip/ethereum-app-poc",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 0,
+          "pushedAt": "2025-11-17T21:11:39Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "btchip/ClubBitcoinPro051125",
+          "url": "https://github.com/btchip/ClubBitcoinPro051125",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2025-11-06T10:58:08Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "btchip/web3check-tools",
+          "url": "https://github.com/btchip/web3check-tools",
+          "fork": false,
+          "archived": false,
+          "stars": 3,
+          "forks": 2,
+          "pushedAt": "2025-05-30T07:48:52Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "btchip/CryptoXR2025",
+          "url": "https://github.com/btchip/CryptoXR2025",
+          "fork": false,
+          "archived": false,
+          "stars": 7,
+          "forks": 1,
+          "pushedAt": "2025-02-02T21:15:55Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "btchip/ethc21-vax",
+          "url": "https://github.com/btchip/ethc21-vax",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 0,
+          "pushedAt": "2024-07-06T22:04:00Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "btchip/Webauthn.sol",
+          "url": "https://github.com/btchip/Webauthn.sol",
+          "fork": false,
+          "archived": false,
+          "stars": 10,
+          "forks": 5,
+          "pushedAt": "2023-03-17T14:32:24Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "btchip/webauthn-test",
+          "url": "https://github.com/btchip/webauthn-test",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2022-10-19T14:00:43Z",
+          "latestReleaseAt": null
+        }
+      ]
+    }
+  ],
+  "people": []
+}

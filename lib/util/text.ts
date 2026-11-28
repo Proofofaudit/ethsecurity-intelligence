@@ -88,7 +88,7 @@ export function slugify(s: string): string {
     .slice(0, 80);
 }
 
-/** Canonical key for organisation name comparison: case, punctuation and common suffixes removed. */
+/** Canonical key for organization name comparison: case, punctuation and common suffixes removed. */
 export function orgKey(name: string): string {
   return name
     .toLowerCase()

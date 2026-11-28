@@ -8,7 +8,7 @@
  *
  * Mapping is rule-based and transparent: an initiative maps to a stage when its proposal text
  * contains one of the listed terms (word-boundary match). Official category slugs act as hints
- * that add a stage even without term hits. Mappings are labelled "rule-based classification"
+ * that add a stage even without term hits. Mappings are labeled "rule-based classification"
  * everywhere they are shown and are never presented as verified facts.
  */
 import type { LifecycleStage, SecurityProblem } from "./schemas";

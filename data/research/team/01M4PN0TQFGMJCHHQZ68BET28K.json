@@ -1,0 +1,65 @@
+{
+  "initiativeId": "01M4PN0TQFGMJCHHQZ68BET28K",
+  "collectedAt": "2026-11-28T07:18:01.598Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 5,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "Kann-Audits",
+      "type": "Organization",
+      "url": "https://github.com/Kann-Audits",
+      "source": "proposal",
+      "reposTotal": 3,
+      "repos": [
+        {
+          "fullName": "Kann-Audits/Kann-Audits",
+          "url": "https://github.com/Kann-Audits/Kann-Audits",
+          "fork": false,
+          "archived": false,
+          "stars": 65,
+          "forks": 3,
+          "pushedAt": "2026-11-22T01:04:33Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Kann-Audits/.github",
+          "url": "https://github.com/Kann-Audits/.github",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-01T16:57:36Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "Kann-Audits/model-alpha",
+          "url": "https://github.com/Kann-Audits/model-alpha",
+          "fork": false,
+          "archived": false,
+          "stars": 10,
+          "forks": 2,
+          "pushedAt": "2026-08-24T12:45:54Z",
+          "latestReleaseAt": null
+        }
+      ]
+    }
+  ],
+  "people": []
+}

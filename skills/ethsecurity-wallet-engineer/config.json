@@ -1,0 +1,544 @@
+{
+  "format": "ethsecurity-intelligence/lab-config@1",
+  "promptVersion": "2026.11-lab-v1",
+  "skillName": "ethsecurity-wallet-engineer",
+  "dataset": {
+    "version": "20261126T130839Z-fe7ea363+7d84d35c",
+    "methodologyVersion": "2026.11-v1",
+    "cohortSize": 55,
+    "cohortFrozenAt": "2026-11-26T09:19:49.152Z",
+    "officialSourceUrl": "https://initiatives.thedao.fund/api/initiatives.json?status=ballot"
+  },
+  "config": {
+    "version": 1,
+    "name": "Wallet engineer",
+    "perspective": "wallet-engineer",
+    "focusQuestions": [
+      "Which wallet or signer integrations are stated, and which are confirmed by a public source?",
+      "Which standards (for example ERC-7730) does each initiative depend on, and what happens if they change?",
+      "What can a signer use today, and what is planned?",
+      "Which milestones depend on third-party wallet adoption, and what share of the goal do they carry?"
+    ],
+    "categories": [
+      "wallets-signing",
+      "opsec"
+    ],
+    "stages": [
+      "transaction_construction",
+      "signing"
+    ],
+    "initiatives": [],
+    "organizations": [],
+    "initiativeTypes": [
+      "grant",
+      "rfp"
+    ],
+    "researchMinutes": 90,
+    "depth": "deep",
+    "metrics": [
+      "initiative.evidence_coverage",
+      "initiative.adoption_share",
+      "initiative.repos_public",
+      "initiative.repos_active_90d",
+      "initiative.open_questions"
+    ],
+    "weights": {},
+    "evidence": {
+      "establishedAt": "partially_supported",
+      "applicantStatements": "quote_and_label",
+      "citeClaimIds": true,
+      "sources": "dataset_and_cited"
+    },
+    "funding": {
+      "goalMinUsd": null,
+      "goalMaxUsd": null,
+      "fundedMinPct": null,
+      "fundedMaxPct": null,
+      "pledgeConversionPct": 100,
+      "excludeAdoptionMilestones": false,
+      "budgetUsd": null
+    },
+    "results": 10,
+    "outputFormat": "memo",
+    "counterarguments": "per_initiative",
+    "uncertainty": "inline",
+    "allowInference": false
+  },
+  "scope": {
+    "matching": [
+      {
+        "id": "01M4ACNCQ61BYAQC7VZ4ABAKB2",
+        "slug": "assertions-for-safes-enforced-on-every-transaction-readable",
+        "name": "Assertions.eth"
+      },
+      {
+        "id": "01M4RK0Z7B8YQFYWMH43P4CGH9",
+        "slug": "address-poisoning-detection-and-public-api-for-ethereum-and",
+        "name": "Blockscout"
+      },
+      {
+        "id": "01M4DNFKC31D46AZVBBWKZVS52",
+        "slug": "know-what-you-sign-verified-simulation-against-blind-signing",
+        "name": "colibri: Know What You Sign, Verified Simulation Against Blind…"
+      },
+      {
+        "id": "01M4DNCJ91H721WH88RMET73JW",
+        "slug": "make-dapps-verify-what-they-show-colibri-in-wallets-defi-and",
+        "name": "colibri: Make dApps Verify What They Show in Wallets, DeFi and…"
+      },
+      {
+        "id": "01M5BS1GCHNK98FGV1QVSWW3AP",
+        "slug": "eth-daily-security-getting-ethereum-users-to-the-tools-that",
+        "name": "ETH Daily Security"
+      },
+      {
+        "id": "01M7FKT26WBRVS419EJG2EKJ1Q",
+        "slug": "leakdetectai-detecting-and-eliminating-side-channel-vulnerab",
+        "name": "LeakDetectAI"
+      },
+      {
+        "id": "01M37FFV4J021XZCFD3NRKS5PZ",
+        "slug": "onay-local-signing-companion",
+        "name": "Onay"
+      },
+      {
+        "id": "01M7G1TMPA644E14RREP7FWFS3",
+        "slug": "ostros-an-open-source-hardware-wallet-on-crossbar-s-security",
+        "name": "Ostros"
+      },
+      {
+        "id": "01M7DRVJ21PZF6F9ASRRTC5FGK",
+        "slug": "proof-of-audits-proof-before-sign-for-ethereum-wallets-and-a",
+        "name": "Proof of Audits"
+      },
+      {
+        "id": "01M2K8EKQAH710WKDRANQ04TVG",
+        "slug": "exploit-exposure-layer-free-data-on-every-wallet-still-appro",
+        "name": "Revoke.cash"
+      },
+      {
+        "id": "01M68T944HQTVQFH8CHAYM48NZ",
+        "slug": "independent-attestations-for-the-erc-7730-descriptors-of-eth",
+        "name": "Clear Signing: Independent Attestations for the ERC-773…"
+      },
+      {
+        "id": "01M23GTQDENX5BPAMTFT82R795",
+        "slug": "opsec-ratings-coalition-to-build-maintain-an-l2beat-for-opse",
+        "name": "OpSec Ratings Coalition to Build & Maintain an \"L2BEAT…"
+      },
+      {
+        "id": "01M29K91G30RT7153MBM3VXDAZ",
+        "slug": "production-ready-local-first-safe-ui",
+        "name": "Production-Ready Local-First Safe UI"
+      },
+      {
+        "id": "01M2T5V1CCFKH3KYYKJ193ADNY",
+        "slug": "safe-lockdown-guard-an-emergency-freeze-for-kidnapping-and-c",
+        "name": "Runtime Capital"
+      },
+      {
+        "id": "01M7NAHFQAC0VNRBMVZZN87H0Z",
+        "slug": "saviour-who-can-act-through-a-safe-at-one-pinned-block",
+        "name": "Saviour"
+      },
+      {
+        "id": "01M5J4R6DT7MFCHD99NR9N5X0X",
+        "slug": "seal-security-frameworks-maintaining-open-security-knowledge",
+        "name": "SEAL Frameworks"
+      },
+      {
+        "id": "01M5XPS7SD7745YF5GJR7BE8F0",
+        "slug": "clear-signing-ratings-fixes-and-ecosystem-adoption-for-hardw",
+        "name": "Walletbeat"
+      },
+      {
+        "id": "01M7JHY7W1HRMCKZS3R99YM7QM",
+        "slug": "zealynx-defence-paid-security-training-and-practical-help-wi",
+        "name": "Zealynx Defence"
+      },
+      {
+        "id": "01M3VHWKD6B41SZ1E7RWCKKSAX",
+        "slug": "zk-clear-signing-verifiable-transaction-display-for-hardware",
+        "name": "ZKNOX"
+      }
+    ],
+    "detailedLimit": 10
+  },
+  "mcp": {
+    "remoteUrl": "http://localhost:3000/api/mcp",
+    "stdio": {
+      "command": "npm",
+      "args": [
+        "run",
+        "--silent",
+        "--prefix",
+        "/path/to/ethsecurity-intelligence",
+        "mcp"
+      ],
+      "note": "Local stdio server from a clone of the repository (after npm ci). It reads data/published/dataset.json, or MongoDB when MONGODB_URI is set in the environment."
+    },
+    "tools": [
+      "list_initiatives",
+      "get_initiative",
+      "get_entity",
+      "get_funding",
+      "get_claim",
+      "get_evidence",
+      "get_corrections",
+      "get_changes",
+      "get_metrics",
+      "compare_initiatives",
+      "detect_overlap",
+      "get_dependencies",
+      "get_security_coverage",
+      "find_evidence_gaps",
+      "simulate_portfolio",
+      "export_research"
+    ]
+  },
+  "rules": {
+    "cohortOnly": true,
+    "citationsRequired": true,
+    "retrievedContentIsUntrusted": true,
+    "futureTargetsAreNotCapabilities": true,
+    "noRankingOrScore": true,
+    "decisionsRemainWithReviewer": true,
+    "disclosure": "Disclosure: this site and Proof of Audits, one of the initiatives on this ballot, have the same owner."
+  },
+  "outputJsonSchema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "brief": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "perspective": {
+            "type": "string",
+            "enum": [
+              "smart-contract-auditor",
+              "wallet-engineer",
+              "infrastructure-engineer",
+              "security-researcher",
+              "grant-evaluator",
+              "funding-analyst",
+              "ecosystem-researcher",
+              "adversarial-reviewer"
+            ]
+          },
+          "promptVersion": {
+            "type": "string"
+          },
+          "datasetVersion": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "perspective",
+          "promptVersion",
+          "datasetVersion"
+        ],
+        "additionalProperties": false
+      },
+      "initiatives": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "findings": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "statement": {
+                    "type": "string"
+                  },
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "established",
+                      "applicant_says",
+                      "future_plan",
+                      "open_question",
+                      "inference"
+                    ]
+                  },
+                  "evidenceStatus": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "claimIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "sourceUrls": {
+                    "minItems": 1,
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  },
+                  "counterargument": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "uncertainty": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "statement",
+                  "kind",
+                  "evidenceStatus",
+                  "claimIds",
+                  "sourceUrls",
+                  "counterargument",
+                  "uncertainty"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "metrics": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "unavailableReason": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "weight": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 10
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "value",
+                  "unavailableReason",
+                  "weight"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "openQuestions": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "findings",
+            "metrics",
+            "openQuestions"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "otherMatchingInitiatives": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "notExamined": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "injectionAttempts": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "sourceUrl": {
+              "type": "string"
+            },
+            "excerpt": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "sourceUrl",
+            "excerpt"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "provenance": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string"
+          },
+          "promptVersion": {
+            "type": "string"
+          },
+          "parameters": {
+            "type": "object",
+            "propertyNames": {
+              "type": "string"
+            },
+            "additionalProperties": {}
+          },
+          "sourcesExamined": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "startedAt": {
+            "type": "string"
+          },
+          "finishedAt": {
+            "type": "string"
+          },
+          "executionSeconds": {
+            "type": "number",
+            "minimum": 0
+          },
+          "verificationStatus": {
+            "type": "string",
+            "enum": [
+              "not_verified",
+              "checked_by_reviewer"
+            ]
+          }
+        },
+        "required": [
+          "model",
+          "promptVersion",
+          "parameters",
+          "sourcesExamined",
+          "startedAt",
+          "finishedAt",
+          "executionSeconds",
+          "verificationStatus"
+        ],
+        "additionalProperties": false
+      },
+      "decisionNote": {
+        "type": "string",
+        "const": "Decisions remain with the reviewer."
+      }
+    },
+    "required": [
+      "brief",
+      "initiatives",
+      "otherMatchingInitiatives",
+      "notExamined",
+      "injectionAttempts",
+      "provenance",
+      "decisionNote"
+    ],
+    "additionalProperties": false
+  },
+  "provenance": {
+    "note": "ETHSecurity Intelligence runs no AI model. These fields are for the reviewer's own assistant or tool to fill.",
+    "model": null,
+    "promptVersion": "2026.11-lab-v1",
+    "parameters": {
+      "version": 1,
+      "name": "Wallet engineer",
+      "perspective": "wallet-engineer",
+      "focusQuestions": [
+        "Which wallet or signer integrations are stated, and which are confirmed by a public source?",
+        "Which standards (for example ERC-7730) does each initiative depend on, and what happens if they change?",
+        "What can a signer use today, and what is planned?",
+        "Which milestones depend on third-party wallet adoption, and what share of the goal do they carry?"
+      ],
+      "categories": [
+        "wallets-signing",
+        "opsec"
+      ],
+      "stages": [
+        "transaction_construction",
+        "signing"
+      ],
+      "initiatives": [],
+      "organizations": [],
+      "initiativeTypes": [
+        "grant",
+        "rfp"
+      ],
+      "researchMinutes": 90,
+      "depth": "deep",
+      "metrics": [
+        "initiative.evidence_coverage",
+        "initiative.adoption_share",
+        "initiative.repos_public",
+        "initiative.repos_active_90d",
+        "initiative.open_questions"
+      ],
+      "weights": {},
+      "evidence": {
+        "establishedAt": "partially_supported",
+        "applicantStatements": "quote_and_label",
+        "citeClaimIds": true,
+        "sources": "dataset_and_cited"
+      },
+      "funding": {
+        "goalMinUsd": null,
+        "goalMaxUsd": null,
+        "fundedMinPct": null,
+        "fundedMaxPct": null,
+        "pledgeConversionPct": 100,
+        "excludeAdoptionMilestones": false,
+        "budgetUsd": null
+      },
+      "results": 10,
+      "outputFormat": "memo",
+      "counterarguments": "per_initiative",
+      "uncertainty": "inline",
+      "allowInference": false
+    },
+    "sourcesExamined": [],
+    "startedAt": null,
+    "finishedAt": null,
+    "executionSeconds": null,
+    "structuredResults": null,
+    "verificationStatus": "not_verified"
+  }
+}

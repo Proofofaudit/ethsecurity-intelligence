@@ -1,0 +1,1616 @@
+{
+  "initiativeId": "01M4RK0Z7B8YQFYWMH43P4CGH9",
+  "collectedAt": "2026-11-28T06:56:46.172Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 117,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "blockscout",
+      "type": "Organization",
+      "url": "https://github.com/blockscout",
+      "source": "proposal",
+      "reposTotal": 54,
+      "repos": [
+        {
+          "fullName": "blockscout/blockscout",
+          "url": "https://github.com/blockscout/blockscout",
+          "fork": false,
+          "archived": false,
+          "stars": 4782,
+          "forks": 3223,
+          "pushedAt": "2026-11-28T00:39:12Z",
+          "latestReleaseAt": "2026-11-24T15:17:40Z"
+        },
+        {
+          "fullName": "blockscout/frontend",
+          "url": "https://github.com/blockscout/frontend",
+          "fork": false,
+          "archived": false,
+          "stars": 308,
+          "forks": 746,
+          "pushedAt": "2026-11-27T19:18:32Z",
+          "latestReleaseAt": "2026-11-04T18:05:29Z"
+        },
+        {
+          "fullName": "blockscout/frontend-configs",
+          "url": "https://github.com/blockscout/frontend-configs",
+          "fork": false,
+          "archived": false,
+          "stars": 11,
+          "forks": 62,
+          "pushedAt": "2026-11-27T19:18:25Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "blockscout/frontend-home",
+          "url": "https://github.com/blockscout/frontend-home",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-27T18:39:20Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "blockscout/swaggers",
+          "url": "https://github.com/blockscout/swaggers",
+          "fork": false,
+          "archived": false,
+          "stars": 5,
+          "forks": 8,
+          "pushedAt": "2026-11-27T16:50:33Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "blockscout/blockscout-rs",
+          "url": "https://github.com/blockscout/blockscout-rs",
+          "fork": false,
+          "archived": false,
+          "stars": 234,
+          "forks": 215,
+          "pushedAt": "2026-11-27T13:35:09Z",
+          "latestReleaseAt": "2026-11-25T11:58:57Z"
+        },
+        {
+          "fullName": "blockscout/backend-configs",
+          "url": "https://github.com/blockscout/backend-configs",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 8,
+          "pushedAt": "2026-11-26T18:03:01Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "blockscout/docs",
+          "url": "https://github.com/blockscout/docs",
+          "fork": false,
+          "archived": false,
+          "stars": 18,
+          "forks": 17,
+          "pushedAt": "2026-11-26T12:24:49Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "blockscout/helm-charts",
+          "url": "https://github.com/blockscout/helm-charts",
+          "fork": false,
+          "archived": false,
+          "stars": 29,
+          "forks": 33,
+          "pushedAt": "2026-11-26T11:30:17Z",
+          "latestReleaseAt": "2026-11-26T11:30:15Z"
+        },
+        {
+          "fullName": "blockscout/solc-bin",
+          "url": "https://github.com/blockscout/solc-bin",
+          "fork": false,
+          "archived": false,
+          "stars": 5,
+          "forks": 7,
+          "pushedAt": "2026-11-24T23:35:41Z",
+          "latestReleaseAt": "2026-11-24T23:35:35Z"
+        },
+        {
+          "fullName": "blockscout/app-sdk",
+          "url": "https://github.com/blockscout/app-sdk",
+          "fork": false,
+          "archived": false,
+          "stars": 7,
+          "forks": 3,
+          "pushedAt": "2026-11-24T17:51:39Z",
+          "latestReleaseAt": "2026-10-20T18:12:01Z"
+        },
+        {
+          "fullName": "blockscout/actix-prost",
+          "url": "https://github.com/blockscout/actix-prost",
+          "fork": false,
+          "archived": false,
+          "stars": 8,
+          "forks": 6,
+          "pushedAt": "2026-11-20T12:45:55Z",
+          "latestReleaseAt": "2025-01-21T10:21:14Z"
+        }
+      ]
+    },
+    {
+      "login": "vbaranov",
+      "type": "User",
+      "url": "https://github.com/vbaranov",
+      "source": "proposal",
+      "reposTotal": 95,
+      "repos": [
+        {
+          "fullName": "vbaranov/postgres-parquet-extensions",
+          "url": "https://github.com/vbaranov/postgres-parquet-extensions",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2025-09-29T09:17:45Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "vbaranov/antiscam-action",
+          "url": "https://github.com/vbaranov/antiscam-action",
+          "fork": false,
+          "archived": false,
+          "stars": 5,
+          "forks": 1,
+          "pushedAt": "2025-07-25T07:02:35Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "vbaranov/reth-perf-issue-reproduction",
+          "url": "https://github.com/vbaranov/reth-perf-issue-reproduction",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2023-07-24T20:44:12Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "vbaranov/json-rpc-latest-block-response-delay",
+          "url": "https://github.com/vbaranov/json-rpc-latest-block-response-delay",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2022-07-05T15:53:56Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "vbaranov/blockscout-update-transactions-timestamp",
+          "url": "https://github.com/vbaranov/blockscout-update-transactions-timestamp",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 0,
+          "pushedAt": "2022-03-17T18:17:44Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "vbaranov/subscibe-block-headers",
+          "url": "https://github.com/vbaranov/subscibe-block-headers",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2020-02-05T14:08:42Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "vbaranov/event-listener-dapp",
+          "url": "https://github.com/vbaranov/event-listener-dapp",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2018-11-20T18:26:00Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "vbaranov/ethsf-poa-dapp-example",
+          "url": "https://github.com/vbaranov/ethsf-poa-dapp-example",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2018-10-03T11:42:40Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "vbaranov/antispam-action",
+          "url": "https://github.com/vbaranov/antispam-action",
+          "fork": true,
+          "archived": false,
+          "stars": 2,
+          "forks": 1,
+          "pushedAt": "2026-11-10T16:33:16Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "vbaranov/documentation",
+          "url": "https://github.com/vbaranov/documentation",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-10-22T13:21:05Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "vbaranov/pg_parquet",
+          "url": "https://github.com/vbaranov/pg_parquet",
+          "fork": true,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2025-09-12T17:46:33Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "vbaranov/absorb",
+          "url": "https://github.com/vbaranov/absorb",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-08-11T09:58:51Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "NikitaSavik",
+      "type": "User",
+      "url": "https://github.com/NikitaSavik",
+      "source": "proposal",
+      "reposTotal": 14,
+      "repos": [
+        {
+          "fullName": "NikitaSavik/docs",
+          "url": "https://github.com/NikitaSavik/docs",
+          "fork": false,
+          "archived": true,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-06-04T11:31:48Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "NikitaSavik/DFDX",
+          "url": "https://github.com/NikitaSavik/DFDX",
+          "fork": false,
+          "archived": true,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2018-08-27T10:18:56Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "NikitaSavik/backend-configs",
+          "url": "https://github.com/NikitaSavik/backend-configs",
+          "fork": true,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-10-20T14:54:05Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "NikitaSavik/enstierlist",
+          "url": "https://github.com/NikitaSavik/enstierlist",
+          "fork": true,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-06-11T08:37:30Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "NikitaSavik/n8n-blockscout-node",
+          "url": "https://github.com/NikitaSavik/n8n-blockscout-node",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-04-15T18:58:43Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "NikitaSavik/chainscout",
+          "url": "https://github.com/NikitaSavik/chainscout",
+          "fork": true,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2024-11-14T13:26:27Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "NikitaSavik/holesky",
+          "url": "https://github.com/NikitaSavik/holesky",
+          "fork": true,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2024-04-03T15:45:07Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "NikitaSavik/sepolia",
+          "url": "https://github.com/NikitaSavik/sepolia",
+          "fork": true,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2024-04-03T15:26:39Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "NikitaSavik/awesome-account-abstraction",
+          "url": "https://github.com/NikitaSavik/awesome-account-abstraction",
+          "fork": true,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2024-04-01T09:08:19Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "NikitaSavik/frontend-configs",
+          "url": "https://github.com/NikitaSavik/frontend-configs",
+          "fork": true,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2023-10-24T07:46:28Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "NikitaSavik/blockscout-api-v2-swagger",
+          "url": "https://github.com/NikitaSavik/blockscout-api-v2-swagger",
+          "fork": true,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2023-10-18T09:41:07Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "NikitaSavik/l2beat",
+          "url": "https://github.com/NikitaSavik/l2beat",
+          "fork": true,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2023-08-15T06:53:08Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "nzenchik",
+      "type": "User",
+      "url": "https://github.com/nzenchik",
+      "source": "proposal",
+      "reposTotal": 4,
+      "repos": [
+        {
+          "fullName": "nzenchik/helpers",
+          "url": "https://github.com/nzenchik/helpers",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-01-07T11:37:18Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "nzenchik/charts",
+          "url": "https://github.com/nzenchik/charts",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2022-10-31T06:47:01Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "nzenchik/celo-blockchain",
+          "url": "https://github.com/nzenchik/celo-blockchain",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-04-11T13:29:07Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "nzenchik/php",
+          "url": "https://github.com/nzenchik/php",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2021-02-05T16:46:26Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "tom2drum",
+      "type": "User",
+      "url": "https://github.com/tom2drum",
+      "source": "proposal",
+      "reposTotal": 39,
+      "repos": [
+        {
+          "fullName": "tom2drum/glitch_v1",
+          "url": "https://github.com/tom2drum/glitch_v1",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-03-21T17:29:32Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "tom2drum/dotfiles",
+          "url": "https://github.com/tom2drum/dotfiles",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-03-21T12:04:58Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "tom2drum/label-released-issues",
+          "url": "https://github.com/tom2drum/label-released-issues",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2023-10-19T06:33:35Z",
+          "latestReleaseAt": "2023-06-23T20:59:40Z"
+        },
+        {
+          "fullName": "tom2drum/gh-workflows",
+          "url": "https://github.com/tom2drum/gh-workflows",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2023-09-26T18:17:31Z",
+          "latestReleaseAt": "2023-09-26T18:17:31Z"
+        },
+        {
+          "fullName": "tom2drum/f1_hero",
+          "url": "https://github.com/tom2drum/f1_hero",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2023-06-19T17:44:31Z",
+          "latestReleaseAt": "2018-03-05T18:58:05Z"
+        },
+        {
+          "fullName": "tom2drum/dendogram",
+          "url": "https://github.com/tom2drum/dendogram",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2023-01-25T10:51:32Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "tom2drum/swell_home",
+          "url": "https://github.com/tom2drum/swell_home",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2022-12-07T17:16:19Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "tom2drum/dividends_dapp",
+          "url": "https://github.com/tom2drum/dividends_dapp",
+          "fork": false,
+          "archived": false,
+          "stars": 4,
+          "forks": 2,
+          "pushedAt": "2022-05-03T11:26:36Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "tom2drum/r3gXXX",
+          "url": "https://github.com/tom2drum/r3gXXX",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2018-07-01T07:30:11Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "tom2drum/p0-t--p1-nn3r",
+          "url": "https://github.com/tom2drum/p0-t--p1-nn3r",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2018-05-25T08:37:54Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "tom2drum/image-append",
+          "url": "https://github.com/tom2drum/image-append",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2018-05-07T11:48:30Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "tom2drum/spidy",
+          "url": "https://github.com/tom2drum/spidy",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2018-05-04T08:35:17Z",
+          "latestReleaseAt": "2018-05-04T08:05:41Z"
+        }
+      ]
+    },
+    {
+      "login": "yvaskov",
+      "type": "User",
+      "url": "https://github.com/yvaskov",
+      "source": "proposal",
+      "reposTotal": 1,
+      "repos": [
+        {
+          "fullName": "yvaskov/nft-test-metadata",
+          "url": "https://github.com/yvaskov/nft-test-metadata",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-08-25T13:57:30Z",
+          "latestReleaseAt": null
+        }
+      ]
+    }
+  ],
+  "people": [
+    {
+      "handle": "vbaranov",
+      "url": "https://github.com/vbaranov",
+      "source": "curated",
+      "repos": [
+        {
+          "fullName": "blockscout/blockscout",
+          "monthly": [
+            0,
+            0,
+            0,
+            2,
+            72,
+            31,
+            23,
+            27,
+            30,
+            33,
+            36,
+            46
+          ],
+          "capped": true
+        },
+        {
+          "fullName": "blockscout/frontend",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/frontend-configs",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/frontend-home",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/swaggers",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            1
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/blockscout-rs",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/backend-configs",
+          "monthly": [
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/docs",
+          "monthly": [
+            12,
+            11,
+            10,
+            19,
+            30,
+            25,
+            11,
+            13,
+            26,
+            38,
+            21,
+            26
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/helm-charts",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/solc-bin",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        12,
+        11,
+        12,
+        21,
+        103,
+        56,
+        34,
+        41,
+        56,
+        71,
+        61,
+        76
+      ]
+    },
+    {
+      "handle": "NikitaSavik",
+      "url": "https://github.com/NikitaSavik",
+      "source": "curated",
+      "repos": [
+        {
+          "fullName": "NikitaSavik/docs",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/blockscout",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/frontend",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/frontend-configs",
+          "monthly": [
+            0,
+            0,
+            15,
+            2,
+            15,
+            7,
+            1,
+            2,
+            0,
+            0,
+            1,
+            2
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/frontend-home",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/swaggers",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/blockscout-rs",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/backend-configs",
+          "monthly": [
+            0,
+            1,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/docs",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/helm-charts",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        0,
+        1,
+        18,
+        2,
+        15,
+        7,
+        2,
+        2,
+        0,
+        0,
+        3,
+        2
+      ]
+    },
+    {
+      "handle": "nzenchik",
+      "url": "https://github.com/nzenchik",
+      "source": "curated",
+      "repos": [
+        {
+          "fullName": "blockscout/blockscout",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/frontend",
+          "monthly": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/frontend-configs",
+          "monthly": [
+            3,
+            1,
+            1,
+            3,
+            3,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/frontend-home",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/swaggers",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/blockscout-rs",
+          "monthly": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/backend-configs",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            3,
+            3,
+            7,
+            9,
+            11,
+            2,
+            10
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/docs",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/helm-charts",
+          "monthly": [
+            3,
+            0,
+            1,
+            3,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/solc-bin",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        6,
+        3,
+        2,
+        6,
+        6,
+        5,
+        3,
+        7,
+        12,
+        12,
+        2,
+        11
+      ]
+    },
+    {
+      "handle": "tom2drum",
+      "url": "https://github.com/tom2drum",
+      "source": "curated",
+      "repos": [
+        {
+          "fullName": "blockscout/blockscout",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/frontend",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            29,
+            74,
+            58,
+            60,
+            79
+          ],
+          "capped": true
+        },
+        {
+          "fullName": "blockscout/frontend-configs",
+          "monthly": [
+            12,
+            4,
+            7,
+            6,
+            4,
+            7,
+            7,
+            5,
+            11,
+            28,
+            6,
+            23
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/frontend-home",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            20
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/swaggers",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/blockscout-rs",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/backend-configs",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/docs",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/helm-charts",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/solc-bin",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        12,
+        4,
+        7,
+        6,
+        4,
+        8,
+        9,
+        34,
+        86,
+        86,
+        66,
+        123
+      ]
+    },
+    {
+      "handle": "yvaskov",
+      "url": "https://github.com/yvaskov",
+      "source": "curated",
+      "repos": [
+        {
+          "fullName": "yvaskov/nft-test-metadata",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/blockscout",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/frontend",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/frontend-configs",
+          "monthly": [
+            0,
+            0,
+            3,
+            2,
+            0,
+            2,
+            0,
+            0,
+            0,
+            7,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/frontend-home",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/swaggers",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/blockscout-rs",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/backend-configs",
+          "monthly": [
+            0,
+            0,
+            0,
+            2,
+            0,
+            2,
+            2,
+            0,
+            1,
+            8,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/docs",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "blockscout/helm-charts",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        0,
+        0,
+        3,
+        4,
+        2,
+        5,
+        2,
+        0,
+        2,
+        15,
+        0,
+        0
+      ]
+    }
+  ]
+}

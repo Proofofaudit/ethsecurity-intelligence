@@ -1,0 +1,222 @@
+{
+  "members": [],
+  "organization": {
+    "name": "Verity Labs (LFG Labs AG)",
+    "summary": "Formal verification services and tooling. Its site footer reads LFG Labs AG, Verity Labs, and the GitHub organization lfglabs-dev was created 2022-07-04. The site says it has worked with 40+ teams and takes 4 protocols per quarter. Its portfolio lists work for Lido, Unlink, Pareto, Starknet and the Ethereum Foundation.",
+    "website": "https://veritylabs.dev",
+    "founded": "GitHub org created 2022-07-04",
+    "previousFunding": [
+      {
+        "label": "Ethereum Foundation grant for the Verity framework, as stated on the Verity Labs work page",
+        "url": "https://veritylabs.dev/our-work"
+      },
+      {
+        "label": "TheDAO Security Fund Round 1 record: Verity (same website)",
+        "url": "https://thedao.fund/transparency/verity-formal-verification-for-smart-contracts"
+      }
+    ],
+    "otherProducts": [
+      {
+        "label": "Verity compiler and framework docs",
+        "url": "https://veritylang.com"
+      },
+      {
+        "label": "verity-benchmark (Ethereum Verification Benchmark)",
+        "url": "https://github.com/lfglabs-dev/verity-benchmark"
+      },
+      {
+        "label": "SafeLens and Starknet Agent, listed in the Verity Labs llms.txt",
+        "url": "https://veritylabs.dev/llms.txt"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Verity Labs website",
+        "url": "https://veritylabs.dev"
+      },
+      {
+        "label": "Verity Labs work page",
+        "url": "https://veritylabs.dev/our-work"
+      },
+      {
+        "label": "GitHub organization lfglabs-dev",
+        "url": "https://github.com/lfglabs-dev"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [
+    {
+      "grant": "TheDAO Security Fund Round 1: Verity, Formal Verification for Smart Contracts (10.217 ETH, $19,292 when sent)",
+      "funder": "TheDAO Security Fund",
+      "promised": "The Round 1 record lists payments and links a progress update on X, but no deliverables, so no specific promise can be compared. The match is by the shared website veritylang.com.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Round 1 record",
+          "url": "https://thedao.fund/transparency/verity-formal-verification-for-smart-contracts"
+        },
+        {
+          "label": "Verity documentation site",
+          "url": "https://veritylang.com"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_verity-formal-verification-for-smart-contracts"
+    },
+    {
+      "grant": "Ethereum Foundation grant for the Verity framework, per the proposal and the Verity Labs site",
+      "funder": "Ethereum Foundation",
+      "promised": "The proposal says the EF funded part of the Verity product roadmap. The grant scope, amount and milestones were not found in an EF report.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/securing-ethereum-with-formal-verification"
+        },
+        {
+          "label": "Verity Labs work page",
+          "url": "https://veritylabs.dev/our-work"
+        }
+      ],
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "The Verity compiler is public and MIT licensed.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "lfglabs-dev/verity",
+          "url": "https://github.com/lfglabs-dev/verity"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: MIT, created 2026-02-08, 172 stars, 25 forks, last push 2026-11-28, 100 commits since 2025-11-28 (API page cap), release v1.0.0 on 2026-10-03. Behavior was not run."
+    },
+    {
+      "claim": "verity-benchmark, an AI proof-generation benchmark, is public.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "lfglabs-dev/verity-benchmark",
+          "url": "https://github.com/lfglabs-dev/verity-benchmark"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: the repository is named ethereum-verification-benchmark and redirects. Created 2026-03-09, last push 2026-10-29, release v0.3 on 2026-10-14. Results were not reproduced."
+    },
+    {
+      "claim": "Technical docs and a Solidity-to-Verity porting guide exist at veritylang.com.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Verity docs",
+          "url": "https://veritylang.com"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The URL returns HTTP 200 with guides including Manual Port from Solidity and a verification status page. The guide steps were not followed."
+    },
+    {
+      "claim": "A public case-study page covers Lido V3 vault solvency.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Verity Labs research",
+          "url": "https://veritylabs.dev/research"
+        },
+        {
+          "label": "Lido V3 vault solvency page",
+          "url": "https://veritylabs.dev/research/lido-vault-solvency"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The homepage links case-study pages for Lido, Safe, Morpho, Balancer, 1inch and Pendle. Only the Lido page was read, so this claim is limited to it. The other pages were not read. Proofs were not rerun and the protocol's own confirmation was not sought."
+    },
+    {
+      "claim": "Public case studies also cover Safe owner lists, Morpho, Balancer, 1inch and Pendle.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Verity Labs research",
+          "url": "https://veritylabs.dev/research"
+        },
+        {
+          "label": "Lido V3 vault solvency page",
+          "url": "https://veritylabs.dev/research/lido-vault-solvency"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The homepage links a page for each protocol. Those pages were not read here."
+    },
+    {
+      "claim": "Verity's public work covers 40+ protocols.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Verity Labs website",
+          "url": "https://veritylabs.dev"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The site says 45 protocols and 40+ teams. About 16 case-study pages are linked from the homepage. No full list was found."
+    },
+    {
+      "claim": "The paper A Formally Verified Smart Contract Compiler in Lean 4 was accepted at ETHReS 2026.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Verity paper page",
+          "url": "https://veritylabs.dev/research/verity"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Only the Verity Labs page states the acceptance. No ETHReS program or proceedings entry was found."
+    },
+    {
+      "claim": "The team has done unbounded formal-verification work with leading protocols such as Lido, Morpho and Safe.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/securing-ethereum-with-formal-verification"
+        },
+        {
+          "label": "lfglabs-dev/lido-srv3-proof-closure",
+          "url": "https://github.com/lfglabs-dev/lido-srv3-proof-closure"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "A public proof repository for Lido SRv3 exists, pushed 2026-11-27. Whether the protocol teams adopted or confirmed the proofs was not found."
+    },
+    {
+      "claim": "A white hat operation rescued 82.8 ETH from 12,000+ wallets.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Verity Labs website",
+          "url": "https://veritylabs.dev"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "A statement on the Verity Labs site. No onchain transaction set or third-party report was checked."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Named team members: the proposal and the Verity Labs site name no individuals. GitHub shows contributors under the handles Th0rgal and fricoben, but neither the proposal nor the site links them, so no person card or handle was added",
+    "Verity Labs public team size and founders Not found in public sources",
+    "Company founding date: only the GitHub organization creation date (2022-07-04) was found",
+    "Ethereum Foundation grant report, amount and milestones Not found in public sources",
+    "Round 1 deliverables: the progress update on X could not be read",
+    "Independent confirmation of the ETHReS 2026 paper acceptance Not found in public sources"
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Vote on the official platform
+    url: https://initiatives.thedao.fund/vote
+    about: This project is research only. Ballots are cast on TheDAO's official platform.
+  - name: Security report
+    url: https://github.com/Proofofaudit/ethsecurity-intelligence/blob/main/SECURITY.md
+    about: How to report a vulnerability privately.

@@ -1,0 +1,94 @@
+{
+  "members": [],
+  "organization": {
+    "name": "HackenProof",
+    "summary": "The proposal names the ForensIQ team as the recipient and says it is backed by HackenProof. The HackenProof website describes bug bounty, penetration testing, vulnerability triage, vulnerability disclosure, CTF and security audit services. The relationship to ForensIQ is stated only in the proposal.",
+    "website": "https://hackenproof.com",
+    "previousFunding": [],
+    "otherProducts": [
+      {
+        "label": "HackenProof security services",
+        "url": "https://hackenproof.com"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Proposal (applicant statement naming HackenProof)",
+        "url": "https://initiatives.thedao.fund/initiative/forensiq-faster-ethereum-incident-response-through-evidence"
+      },
+      {
+        "label": "HackenProof website",
+        "url": "https://hackenproof.com"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [],
+  "claims": [
+    {
+      "claim": "The ForensIQ team is backed by HackenProof.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/forensiq-faster-ethereum-incident-response-through-evidence"
+        },
+        {
+          "label": "HackenProof website",
+          "url": "https://hackenproof.com"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Applicant statement. The HackenProof homepage lists its services and does not mention ForensIQ. No public page from HackenProof naming ForensIQ was found."
+    },
+    {
+      "claim": "An MVP exists with user and role management, case creation, file uploads, AI file analysis, and Crystal and Etherscan integrations.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/forensiq-faster-ethereum-incident-response-through-evidence"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The proposal gives no product link or repository. No public product page or repository for ForensIQ was found by the checks made here, so the MVP could not be inspected."
+    },
+    {
+      "claim": "Law-enforcement partners in Ukraine and the Netherlands are the intended first testers.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/forensiq-faster-ethereum-incident-response-through-evidence"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "An intention stated in the proposal. No public source about these partners was found."
+    },
+    {
+      "claim": "Crystal provides blockchain investigation capabilities, including fund tracing and case organization.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Crystal Intelligence: Crystal Expert for law enforcement",
+          "url": "https://crystalintelligence.com/crystal-expert-for-law-enforcement/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The page loads (HTTP 200) and is Crystal's own product page for law-enforcement investigations. It describes the vendor's capabilities. It says nothing about ForensIQ."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Team members: the proposal names no individuals. Not found in public sources.",
+    "Past grants or Round 1 record for this initiative: Not found in public sources.",
+    "ForensIQ product website or repository: Not found in public sources.",
+    "Any public statement from HackenProof about ForensIQ: Not found in public sources."
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

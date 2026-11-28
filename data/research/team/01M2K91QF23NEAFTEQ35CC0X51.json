@@ -1,0 +1,284 @@
+{
+  "initiativeId": "01M2K91QF23NEAFTEQ35CC0X51",
+  "collectedAt": "2026-11-28T07:26:02.068Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 26,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "okcontract",
+      "type": "Organization",
+      "url": "https://github.com/okcontract",
+      "source": "proposal",
+      "reposTotal": 21,
+      "repos": [
+        {
+          "fullName": "okcontract/zean",
+          "url": "https://github.com/okcontract/zean",
+          "fork": false,
+          "archived": false,
+          "stars": 44,
+          "forks": 2,
+          "pushedAt": "2026-11-28T05:58:46Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "okcontract/oksolc",
+          "url": "https://github.com/okcontract/oksolc",
+          "fork": false,
+          "archived": false,
+          "stars": 122,
+          "forks": 9,
+          "pushedAt": "2026-11-24T23:41:48Z",
+          "latestReleaseAt": "2026-11-23T09:23:53Z"
+        },
+        {
+          "fullName": "okcontract/chainwall-cli-arbitrum",
+          "url": "https://github.com/okcontract/chainwall-cli-arbitrum",
+          "fork": false,
+          "archived": false,
+          "stars": 39,
+          "forks": 1,
+          "pushedAt": "2026-11-24T01:32:12Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "okcontract/solidity-spec",
+          "url": "https://github.com/okcontract/solidity-spec",
+          "fork": false,
+          "archived": false,
+          "stars": 6,
+          "forks": 0,
+          "pushedAt": "2026-11-12T12:36:54Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "okcontract/chainwall",
+          "url": "https://github.com/okcontract/chainwall",
+          "fork": false,
+          "archived": false,
+          "stars": 49,
+          "forks": 0,
+          "pushedAt": "2026-11-02T05:45:24Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "okcontract/okcontracts",
+          "url": "https://github.com/okcontract/okcontracts",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-20T11:16:31Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "okcontract/lambdascript",
+          "url": "https://github.com/okcontract/lambdascript",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 0,
+          "pushedAt": "2026-10-17T04:00:55Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "okcontract/entropy-mixer",
+          "url": "https://github.com/okcontract/entropy-mixer",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 0,
+          "pushedAt": "2026-10-14T16:15:41Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "okcontract/cells",
+          "url": "https://github.com/okcontract/cells",
+          "fork": false,
+          "archived": false,
+          "stars": 82,
+          "forks": 0,
+          "pushedAt": "2026-07-11T03:53:01Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "okcontract/graph",
+          "url": "https://github.com/okcontract/graph",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2026-07-11T03:34:28Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "okcontract/abi2ui",
+          "url": "https://github.com/okcontract/abi2ui",
+          "fork": false,
+          "archived": false,
+          "stars": 3,
+          "forks": 0,
+          "pushedAt": "2025-06-16T09:34:38Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "okcontract/uic",
+          "url": "https://github.com/okcontract/uic",
+          "fork": false,
+          "archived": false,
+          "stars": 6,
+          "forks": 0,
+          "pushedAt": "2025-06-05T11:51:09Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "wallix",
+      "type": "Organization",
+      "url": "https://github.com/wallix",
+      "source": "proposal",
+      "reposTotal": 53,
+      "repos": [
+        {
+          "fullName": "wallix/task-rs",
+          "url": "https://github.com/wallix/task-rs",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-24T00:33:19Z",
+          "latestReleaseAt": "2026-11-24T00:33:23Z"
+        },
+        {
+          "fullName": "wallix/git-remote-enc",
+          "url": "https://github.com/wallix/git-remote-enc",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-18T05:16:26Z",
+          "latestReleaseAt": "2026-10-03T22:15:43Z"
+        },
+        {
+          "fullName": "wallix/terraform-provider-wallix-bastion",
+          "url": "https://github.com/wallix/terraform-provider-wallix-bastion",
+          "fork": false,
+          "archived": false,
+          "stars": 7,
+          "forks": 4,
+          "pushedAt": "2026-11-02T09:13:25Z",
+          "latestReleaseAt": "2026-10-30T08:47:53Z"
+        },
+        {
+          "fullName": "wallix/debbuild-rs",
+          "url": "https://github.com/wallix/debbuild-rs",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-20T13:23:55Z",
+          "latestReleaseAt": "2026-10-20T13:23:59Z"
+        },
+        {
+          "fullName": "wallix/ansible-collection-wallix-bastion",
+          "url": "https://github.com/wallix/ansible-collection-wallix-bastion",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-10-02T07:26:49Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "wallix/Automation_Showroom",
+          "url": "https://github.com/wallix/Automation_Showroom",
+          "fork": false,
+          "archived": false,
+          "stars": 17,
+          "forks": 7,
+          "pushedAt": "2026-10-02T07:24:23Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "wallix/task",
+          "url": "https://github.com/wallix/task",
+          "fork": false,
+          "archived": false,
+          "stars": 4,
+          "forks": 0,
+          "pushedAt": "2026-09-17T18:05:58Z",
+          "latestReleaseAt": "2026-07-23T10:51:12Z"
+        },
+        {
+          "fullName": "wallix/WALLIX-PuTTY",
+          "url": "https://github.com/wallix/WALLIX-PuTTY",
+          "fork": false,
+          "archived": false,
+          "stars": 7,
+          "forks": 3,
+          "pushedAt": "2026-08-13T16:57:19Z",
+          "latestReleaseAt": "2020-01-16T13:23:28Z"
+        },
+        {
+          "fullName": "wallix/redemption",
+          "url": "https://github.com/wallix/redemption",
+          "fork": false,
+          "archived": false,
+          "stars": 246,
+          "forks": 92,
+          "pushedAt": "2026-04-21T07:35:43Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "wallix/notes",
+          "url": "https://github.com/wallix/notes",
+          "fork": false,
+          "archived": false,
+          "stars": 21,
+          "forks": 2,
+          "pushedAt": "2026-02-04T21:04:25Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "wallix/Splunk-add-on",
+          "url": "https://github.com/wallix/Splunk-add-on",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 0,
+          "pushedAt": "2025-10-15T07:35:40Z",
+          "latestReleaseAt": "2025-10-14T12:18:45Z"
+        },
+        {
+          "fullName": "wallix/terraform-provider-waapm",
+          "url": "https://github.com/wallix/terraform-provider-waapm",
+          "fork": false,
+          "archived": false,
+          "stars": 3,
+          "forks": 3,
+          "pushedAt": "2025-05-05T16:43:38Z",
+          "latestReleaseAt": "2024-12-17T14:57:15Z"
+        }
+      ]
+    }
+  ],
+  "people": []
+}

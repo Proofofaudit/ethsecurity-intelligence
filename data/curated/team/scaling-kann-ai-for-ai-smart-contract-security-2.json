@@ -1,0 +1,167 @@
+{
+  "members": [
+    {
+      "name": "Erkan Alaydinov",
+      "role": "Founder and CEO, Kann Audits",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "LinkedIn",
+          "handle": "erkan-erolov",
+          "url": "https://www.linkedin.com/in/erkan-erolov",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Founder of Kann Audits (published audit reports)",
+          "kind": "company",
+          "url": "https://kannaudits.com/audits",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://kannaudits.com/about",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "Kann Audits",
+    "summary": "Web3 security company. Its About page says it was founded in 2024, lists audits, AI scans, formal verification and incident response, and lists 30 public audit reports (January 22, 2025 to November 21, 2026). It also states company-reported totals of 71 audits completed, USD 2 billion or more in TVL secured and 440 or more vulnerabilities found across all engagements, including private ones. The Kann-Audits GitHub organization was created 2025-01-22.",
+    "website": "https://kannaudits.com",
+    "founded": "2024 (per the Kann Audits website)",
+    "previousFunding": [],
+    "otherProducts": [
+      {
+        "label": "Kann AI scanner (Model Alpha)",
+        "url": "https://scan.kannaudits.com"
+      },
+      {
+        "label": "Kann AI Labs website",
+        "url": "https://kannailabs.com"
+      },
+      {
+        "label": "Expert security audits and published reports",
+        "url": "https://kannaudits.com/audits"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Kann Audits About page",
+        "url": "https://kannaudits.com/about"
+      },
+      {
+        "label": "Kann Audits published audit reports",
+        "url": "https://kannaudits.com/audits"
+      },
+      {
+        "label": "GitHub organization Kann-Audits",
+        "url": "https://github.com/Kann-Audits"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [],
+  "claims": [
+    {
+      "claim": "An Alpha version of Kann AI is deployed and publicly accessible at scan.kannaudits.com.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Kann AI scanner",
+          "url": "https://scan.kannaudits.com"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The page loads and describes a free Solidity scanner (Model Alpha, up to 25 functions per scan). A scan was not run, so detection quality was not assessed."
+    },
+    {
+      "claim": "Kann Audits has completed 71 security audits (the proposal also says 61 in another paragraph).",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Kann Audits About page",
+          "url": "https://kannaudits.com/about"
+        },
+        {
+          "label": "Kann Audits published audit reports",
+          "url": "https://kannaudits.com/audits"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The About page repeats 71 audits as company-reported, including private engagements. Only 30 public reports are listed, so the total cannot be checked. The proposal gives 71 in the team section and 61 in the why-grant section."
+    },
+    {
+      "claim": "Kann Audits secured more than USD 2 billion in TVL.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Kann Audits About page",
+          "url": "https://kannaudits.com/about"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "A company-reported figure on its own site. No independent source was found."
+    },
+    {
+      "claim": "Public audit reports from Kann Audits exist, including reviews for HyperLend and Mystic Finance.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Kann Audits published audit reports",
+          "url": "https://kannaudits.com/audits"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The reports page lists 30 security reviews, including a HyperLend review dated 26 May 2026 and a Mystic Finance review dated 11 May 2026. Report contents were not reviewed. This confirms audit reports exist, not that the AI tool was used by these projects."
+    },
+    {
+      "claim": "Kann AI tooling has been used by Manifest Finance, HyperLend and Mystic Finance.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/scaling-kann-ai-for-ai-smart-contract-security-2"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Applicant statement. Usage of the AI tool by these projects was not found in an independent source."
+    },
+    {
+      "claim": "The GitHub repository Kann-Audits/Kann-Audits is public and active.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "GitHub repository",
+          "url": "https://github.com/Kann-Audits/Kann-Audits"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: public, not archived, created 2025-01-22, last push 2026-11-22, top-level folders assets and reports plus README. It holds audit reports, not Kann AI model code."
+    },
+    {
+      "claim": "Kann Audits commits USD 12,500 toward the initiative.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/scaling-kann-ai-for-ai-smart-contract-security-2"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "A commitment stated in the proposal. Not checked independently."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Past grants or Round 1 record for this initiative: Not found in public sources.",
+    "Erkan Alaydinov personal GitHub or X handle: Not found in public sources (only the LinkedIn link in the proposal; the LinkedIn page itself could not be read, and its address spells the surname differently from the name on the proposal and the company site).",
+    "Other team members: Not found in public sources. The company site lists only the founder as leadership.",
+    "Independent source for the 71 audits, USD 2 billion TVL and AI tool usage claims: Not found in public sources."
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

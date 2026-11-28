@@ -1,0 +1,155 @@
+{
+  "initiativeId": "01M78DYTMF85EKCPVVD5DSKTQM",
+  "collectedAt": "2026-11-28T07:51:02.448Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 0,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "security-alliance",
+      "type": "Organization",
+      "url": "https://github.com/security-alliance",
+      "source": "proposal",
+      "reposTotal": 47,
+      "repos": [
+        {
+          "fullName": "security-alliance/blocklists",
+          "url": "https://github.com/security-alliance/blocklists",
+          "fork": false,
+          "archived": false,
+          "stars": 12,
+          "forks": 3,
+          "pushedAt": "2026-11-28T07:35:38Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "security-alliance/frameworks",
+          "url": "https://github.com/security-alliance/frameworks",
+          "fork": false,
+          "archived": false,
+          "stars": 99,
+          "forks": 83,
+          "pushedAt": "2026-11-27T11:37:03Z",
+          "latestReleaseAt": "2026-11-11T15:43:02Z"
+        },
+        {
+          "fullName": "security-alliance/frameworks-wizard",
+          "url": "https://github.com/security-alliance/frameworks-wizard",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-23T15:24:32Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "security-alliance/seal-911",
+          "url": "https://github.com/security-alliance/seal-911",
+          "fork": false,
+          "archived": false,
+          "stars": 341,
+          "forks": 13,
+          "pushedAt": "2026-11-22T09:28:05Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "security-alliance/lazarus-group-data",
+          "url": "https://github.com/security-alliance/lazarus-group-data",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-11-17T02:19:48Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "security-alliance/frameworks-books",
+          "url": "https://github.com/security-alliance/frameworks-books",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-14T17:41:07Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "security-alliance/IR_Template",
+          "url": "https://github.com/security-alliance/IR_Template",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-06-02T16:33:08Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "security-alliance/allowlists",
+          "url": "https://github.com/security-alliance/allowlists",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-05-18T19:26:26Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "security-alliance/seal-cli",
+          "url": "https://github.com/security-alliance/seal-cli",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-05-15T23:50:48Z",
+          "latestReleaseAt": "2026-05-15T23:51:39Z"
+        },
+        {
+          "fullName": "security-alliance/frameworks-mcp",
+          "url": "https://github.com/security-alliance/frameworks-mcp",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 1,
+          "pushedAt": "2026-05-15T23:41:20Z",
+          "latestReleaseAt": "2026-05-15T23:41:21Z"
+        },
+        {
+          "fullName": "security-alliance/Certifications-Template",
+          "url": "https://github.com/security-alliance/Certifications-Template",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-04-20T21:04:17Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "security-alliance/giveth",
+          "url": "https://github.com/security-alliance/giveth",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-04-10T18:10:20Z",
+          "latestReleaseAt": null
+        }
+      ]
+    }
+  ],
+  "people": []
+}

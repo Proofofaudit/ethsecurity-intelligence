@@ -1,0 +1,55 @@
+name: Bug report
+description: Something in the app, API, MCP server or pipeline does not work as documented.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For a wrong figure or statement, use the Evidence correction template instead. For security issues, follow SECURITY.md and do not open a public issue with details.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Web app
+        - REST API (/api/v1)
+        - MCP server
+        - My Workspace (Ballot Prep, affiliations, May interest you)
+        - Research pipeline (ingest, research, publish)
+        - Documentation
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: URL or command
+      placeholder: https://.../research or npm run publish
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Go to ...
+        2. Click ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include error messages. Remove any tokens or connection strings first.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Browser or Node.js version
+      placeholder: Chrome 140, Firefox 145, Node 22

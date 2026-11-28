@@ -1,0 +1,170 @@
+{
+  "members": [
+    {
+      "name": "Safi El-Hassanine",
+      "role": "Founder and Lead Developer of PRSpec (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "Fosurero",
+          "url": "https://github.com/Fosurero",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "PRSpec repository (owner account Fosurero, 66 of 74 contributions by the owner account)",
+          "kind": "project",
+          "url": "https://github.com/Fosurero/PRSpec",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/automated-eip-compliance-checks-for-ethereum-clients",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "PRSpec (independent project)",
+    "summary": "Independent open-source project. The proposal recipient is Safi El-Hassanine, with the PRSpec repository as the recipient link. The repository is under the GitHub account Fosurero, created 2026-01-27, which lists the name Eng/ Safi Elhassanin. The repository has a few contributors besides the owner account.",
+    "website": "https://github.com/Fosurero/PRSpec",
+    "previousFunding": [
+      {
+        "label": "TheDAO Round 1 record: PRSpec Automated EIP Compliance Checker for Ethereum (possible match)",
+        "url": "https://thedao.fund/transparency/prspec-automated-eip-compliance-checker-for-ethereum"
+      }
+    ],
+    "otherProducts": [],
+    "sources": [
+      {
+        "label": "GitHub repository Fosurero/PRSpec",
+        "url": "https://github.com/Fosurero/PRSpec"
+      },
+      {
+        "label": "GitHub profile Fosurero",
+        "url": "https://github.com/Fosurero"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [
+    {
+      "grant": "TheDAO Security Fund Round 1: PRSpec Automated EIP Compliance Checker for Ethereum. Possible match: please verify (organization-level, shared project name)",
+      "funder": "TheDAO Security Fund, Giveth",
+      "promised": "The Round 1 record lists no specific deliverables, and the proposal does not mention Round 1 funding.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "TheDAO Round 1 record",
+          "url": "https://thedao.fund/transparency/prspec-automated-eip-compliance-checker-for-ethereum"
+        },
+        {
+          "label": "GitHub repository Fosurero/PRSpec",
+          "url": "https://github.com/Fosurero/PRSpec"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_prspec-automated-eip-compliance-checker-for-ethereum"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "PRSpec is a working open-source project with a public repository.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "GitHub repository Fosurero/PRSpec",
+          "url": "https://github.com/Fosurero/PRSpec"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: public MIT repository created 2026-02-03, last push 2026-11-12, 16 stars, 1 fork, not archived, contributors Fosurero (66), Hardisky (6) and abolukaa9 (2). The tool was not run."
+    },
+    {
+      "claim": "The witness engine runs 34 cross-client checks (EIP-1559 and EIP-4844): 34 matched, 0 mismatched, 0 incomplete, with two combinations lacking code anchors.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "PRSpec VERIFICATION.md",
+          "url": "https://github.com/Fosurero/PRSpec/blob/main/VERIFICATION.md"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The applicant's verification record lists 9 results for EIP-1559 and 25 results with 2 without anchor for EIP-4844 at pinned client commits (9 plus 25 equals 34). These are the applicant's own results and the commands were not rerun."
+    },
+    {
+      "claim": "A historical EIP-4844 replay identifies three constants changed by a real specification commit.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "PRSpec VERIFICATION.md",
+          "url": "https://github.com/Fosurero/PRSpec/blob/main/VERIFICATION.md"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The verification record reports three changed constants (UPDATE_FRACTION, TARGET, MAX) for the replay. Not rerun."
+    },
+    {
+      "claim": "A published mutation experiment tested 10 deviations: 6 confirmed, 1 flagged, 3 inconclusive, 0 missed, 0 errors.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "PRSpec VERIFICATION.md",
+          "url": "https://github.com/Fosurero/PRSpec/blob/main/VERIFICATION.md"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The verification record gives the same counts for a run dated 2026-11-10 and the baseline of 33 raw issues all refuted. These are the applicant's results and were not rerun."
+    },
+    {
+      "claim": "A GitHub Actions pilot completed end to end on a Besu fork on November 12, 2026, with a report artifact and evidence.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Besu pilot evidence folder",
+          "url": "https://github.com/Fosurero/PRSpec/tree/main/docs/evidence/2026-11-12/besu-fork-e2e"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The evidence folder exists with README.md, compare.txt and pilot-pr-report.md. The pilot run itself and the fork were not inspected."
+    },
+    {
+      "claim": "The codebase has 210 passing automated tests and 2 more that need an API key and did not run.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "PRSpec VERIFICATION.md",
+          "url": "https://github.com/Fosurero/PRSpec/blob/main/VERIFICATION.md"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The verification record states 210 passed and 2 not run (they need an API key). The test suite was not run here."
+    },
+    {
+      "claim": "PRSpec's development history includes technical discussions with Nethermind, EF execution-specs contributors, Besu and go-ethereum.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/automated-eip-compliance-checks-for-ethereum-clients"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The proposal gives no links. The GitHub issue searches for such discussions returned errors and were not completed."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Other team members and employer of Safi El-Hassanine: Not found in public sources.",
+    "Past grants other than the possible Round 1 match: Not found in public sources.",
+    "Public discussions with client teams: Not found in public sources as checked.",
+    "Round 1 deliverables: Not found in public sources.",
+    "Confirmation that the Round 1 record and this proposal are the same project: Not found in public sources (possible match only)."
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

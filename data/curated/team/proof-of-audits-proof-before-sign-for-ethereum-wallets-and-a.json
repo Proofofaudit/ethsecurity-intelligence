@@ -1,0 +1,212 @@
+{
+  "members": [
+    {
+      "name": "M K Veerendra Vamshi",
+      "role": "Founder of Proof of Audits and smart-contract security researcher; leads product, security research and engineering (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "MKVEERENDRA",
+          "url": "https://github.com/MKVEERENDRA",
+          "publishedBy": "proposal"
+        },
+        {
+          "platform": "Sherlock",
+          "handle": "veerendravamshi",
+          "url": "https://audits.sherlock.xyz/watson/veerendravamshi",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Sherlock Watson profile: one 1st place, one top 10 and two top 25 finishes; entries include Allbridge Core Yield (Jul 2025), GTE Perps and Launchpad (Aug 2025) and Ammplify (Sep 2025)",
+          "kind": "audit",
+          "url": "https://audits.sherlock.xyz/watson/veerendravamshi",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/proof-of-audits-proof-before-sign-for-ethereum-wallets-and-a",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "Proof of Audits",
+    "summary": "Product and platform founded by M K Veerendra Vamshi, per the proposal. The ProofOfAudits GitHub organization was created 2026-07-06. Its website describes Proof Before Sign, a MetaMask Snap that shows audit evidence before a user signs, a function explorer, a firm API and audit contests. The platform monorepo is private; the Snap repository is public.",
+    "website": "https://proofofaudits.com",
+    "founded": "GitHub organization created 2026-07-06",
+    "previousFunding": [],
+    "otherProducts": [
+      {
+        "label": "Proof Before Sign demo",
+        "url": "https://proofofaudits.com/demos/proof-before-sign"
+      },
+      {
+        "label": "Function explorer",
+        "url": "https://proofofaudits.com/explorer/functions"
+      },
+      {
+        "label": "Proof Before Sign MetaMask Snap repository",
+        "url": "https://github.com/ProofOfAudits/proof-before-sign-snap"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Proof of Audits website",
+        "url": "https://proofofaudits.com"
+      },
+      {
+        "label": "GitHub organization ProofOfAudits",
+        "url": "https://github.com/ProofOfAudits"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [],
+  "claims": [
+    {
+      "claim": "A MetaMask Snap that displays audit evidence before signing exists, and the code is public.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "GitHub repository ProofOfAudits/proof-before-sign-snap",
+          "url": "https://github.com/ProofOfAudits/proof-before-sign-snap"
+        },
+        {
+          "label": "npm package @proofofaudits/proof-before-sign-snap",
+          "url": "https://registry.npmjs.org/@proofofaudits%2fproof-before-sign-snap"
+        },
+        {
+          "label": "Install page",
+          "url": "https://proofofaudits.com/install"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: public Apache-2.0 repository created 2026-10-08, last push 2026-11-14, 0 stars, no GitHub releases. The npm registry lists the package with latest tag 0.7.1. The install page says release 0.12.0 is built but not on npm yet. The Snap was not installed or run."
+    },
+    {
+      "claim": "The live analyzer checked 12 real Ethereum transactions involving 97 contract calls.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Proof Before Sign demo",
+          "url": "https://proofofaudits.com/demos/proof-before-sign"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The demo page records 12 signed simulations, 9 protocols and 97 simulated contract calls at blocks 26,403,765 to 26,404,864. These are the applicant's own recorded data, and the simulations were not rerun."
+    },
+    {
+      "claim": "Only 2 of the 97 calls had a recorded byte-for-byte match to a reviewed build.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Proof Before Sign demo",
+          "url": "https://proofofaudits.com/demos/proof-before-sign"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The per-transaction table on the demo page shows one byte-for-byte match each for the Aave V4 supply and the Uniswap V2 LP approval, two in total. This is the applicant's own record and was not rederived."
+    },
+    {
+      "claim": "Another 74 calls ran code in files named in audit reports and 21 had no matching public audit.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proof Before Sign demo",
+          "url": "https://proofofaudits.com/demos/proof-before-sign"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The demo page currently reads 71 calls in audit scope, which includes the 2 byte-for-byte matches, so 26 are not matched. The proposal figures are 2 plus 74 in scope and 21 unmatched. The page data may have been updated after the proposal, so no contradiction is asserted."
+    },
+    {
+      "claim": "The function explorer lists 25,695 callable functions across fourteen protocols at block 26,392,435: 14,577 in a cited audit scope (56.7%), 11,118 not matched to a report (43.3%), and 0 not checked.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Function explorer",
+          "url": "https://proofofaudits.com/explorer/functions"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "totalLabel": "25,695 callable functions",
+      "breakdown": [
+        { "label": "In a cited audit scope", "count": 14577, "tone": "in_scope" },
+        { "label": "Not matched to a report", "count": 11118, "tone": "unmatched" },
+        { "label": "Not checked", "count": 0, "tone": "unchecked" }
+      ],
+      "method": "The explorer page states these four counts and block 26,392,435. Checked 28 Nov 2026. The functions were not re-counted here. The proposal's earlier figure of 656 functions across ten protocols is not this page."
+    },
+    {
+      "claim": "Deployed Aave V4 code was reproduced from the reviewed commit.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Aave V4 evidence record",
+          "url": "https://proofofaudits.com/deployed/evidence/aave-v4"
+        },
+        {
+          "label": "Aave V4 repository commit cdacec509e4f",
+          "url": "https://github.com/aave/aave-v4/commit/cdacec509e4f848bff1a5556f503afa83eee3b79"
+        },
+        {
+          "label": "ChainSecurity public audit report list",
+          "url": "https://www.chainsecurity.com/smart-contract-audit-reports"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The evidence page claims the deployed SpokeInstance is byte for byte the build of a commit ChainSecurity reviewed, citing a report dated 23 March 2026. The commit exists in aave/aave-v4 (2026-03-20). The ChainSecurity list shows Aave V4 reports dated 2026-02-19 and 2026-02-24 but no 23 March 2026 entry was seen. The bytecode comparison was not rerun."
+    },
+    {
+      "claim": "Auditors have already joined the platform and an API exists for audit firms.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proof of Audits website",
+          "url": "https://proofofaudits.com"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The site menu lists a firm API page. Participating auditors were not identified in a public source."
+    },
+    {
+      "claim": "The founder placed first in Sherlock's Allbridge Core Yield audit contest in 2025.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Sherlock Watson profile",
+          "url": "https://audits.sherlock.xyz/watson/veerendravamshi"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The profile shows one first place in total and a July 2025 Allbridge Core Yield entry with 699.73 USDC and two findings. The page text does not state the rank for that contest, so the link between the first place and Allbridge is not confirmed."
+    },
+    {
+      "claim": "Relationships with Sigma Prime, ChainSecurity, corpus.core and others were developed at Devcon and DSS Mumbai.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/proof-of-audits-proof-before-sign-for-ethereum-wallets-and-a"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The proposal itself says these are conversations and not signed partnerships. No public statement from these teams was found."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Other team members: Not found in public sources (the proposal describes one founder).",
+    "Past grants or Round 1 record for Proof of Audits: Not found in public sources.",
+    "Founder X or LinkedIn handle: Not found in public sources as published in the proposal.",
+    "Public identification of the auditors on the platform: Not found in public sources.",
+    "Sherlock contest rank for Allbridge Core Yield: Not found in public sources as read."
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

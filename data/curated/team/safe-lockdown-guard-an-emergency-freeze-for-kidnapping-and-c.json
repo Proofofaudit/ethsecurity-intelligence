@@ -1,0 +1,117 @@
+{
+  "members": [],
+  "organization": {
+    "name": "Runtime Capital",
+    "summary": "Described on its GitHub organization as a digital asset investment firm and open-source Ethereum security contributor, created 2026-01-01. Its website lists Luxembourg. The proposal names no individual team members.",
+    "previousFunding": [],
+    "otherProducts": [
+      {
+        "label": "Runtime Guard Kidnapping Guard product page",
+        "url": "https://www.runtime-guard.io/kidnapping-guard/"
+      }
+    ],
+    "sources": [
+      {
+        "label": "GitHub organization Runtime-Capital",
+        "url": "https://github.com/Runtime-Capital"
+      },
+      {
+        "label": "Runtime Capital website",
+        "url": "https://runtime.capital"
+      }
+    ],
+    "checkedOn": "2026-11-28",
+    "website": "https://runtime.capital"
+  },
+  "delivery": [],
+  "claims": [
+    {
+      "claim": "The safe-lockdown-guard repository is public and MIT licensed, with the tag v1.0.0-audit-candidate.3.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "safe-lockdown-guard repository",
+          "url": "https://github.com/Runtime-Capital/safe-lockdown-guard"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: MIT, created 2026-08-26, last push 2026-11-12, tags v1.0.0-audit-candidate.3 and v1.0.0-audit-nethermind."
+    },
+    {
+      "claim": "The audit brief records 1,118 non-comment source lines, 483 passing tests and 15 stateful invariant properties.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "AUDIT_BRIEF.md at the candidate tag",
+          "url": "https://github.com/Runtime-Capital/safe-lockdown-guard/blob/v1.0.0-audit-candidate.3/AUDIT_BRIEF.md"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The brief states 1118 nSLOC across 10 files, 483 tests passed, and 15 Echidna stateful invariants passing. The tests were not rerun."
+    },
+    {
+      "claim": "The candidate is not yet externally audited.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Repository README",
+          "url": "https://github.com/Runtime-Capital/safe-lockdown-guard"
+        },
+        {
+          "label": "Runtime Guard page",
+          "url": "https://www.runtime-guard.io/kidnapping-guard/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The README on HEAD (commit of 2026-11-12) says 'Audited by Nethermind Security (NM-1060)' and that the report will be published in the repository. The Runtime Guard page repeats it with 'report publication pending'. The proposal text may describe an earlier state; the proposal date was not compared with the README commit. A tag v1.0.0-audit-nethermind exists, dated 2026-11-01."
+    },
+    {
+      "claim": "A public Nethermind audit report exists.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Nethermind public audit reports",
+          "url": "https://github.com/NethermindEth/PublicAuditReports"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The repository listing was searched for 1060, lockdown and runtime and returned no match. The Runtime-Capital README says the report will be published."
+    },
+    {
+      "claim": "The project was awarded a subsidy of up to $6,500 through the Ethereum Security Subsidy Program.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Subsidy program info page",
+          "url": "https://app.notion.com/p/valiant-polo-a06/Ethereum-Security-Subsidy-Program-Info-Page-32d2019bf073817dbfe6de2056c7d81f"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The page describes the program (up to 30% off audits, committee of Ethereum Foundation, Chainlink Labs and Nethermind Security with Areta). It does not name Runtime Capital or an award."
+    },
+    {
+      "claim": "The guard has been deployed on Ethereum mainnet and used on an operational Safe.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Repository README",
+          "url": "https://github.com/Runtime-Capital/safe-lockdown-guard"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The README states 'Ethereum mainnet deployment in progress'. No deployment address is named in the proposal, so no onchain lookup was made."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Named team members, their roles and past work: Not found in public sources (the proposal names none and the GitHub organization member list is empty to the public API)",
+    "Past grants and Round 1 record: Not found in public sources (no Round 1 match in the dataset)",
+    "Runtime Capital's other open-source security work beyond this repository: Not found in public sources"
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

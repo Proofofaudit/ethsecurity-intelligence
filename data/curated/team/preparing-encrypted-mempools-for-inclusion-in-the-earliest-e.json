@@ -1,0 +1,221 @@
+{
+  "members": [
+    {
+      "name": "Jannik Luhn",
+      "role": "Developer; author of EIP-8105 and contributor to LUCID development (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "jannikluhn",
+          "url": "https://github.com/jannikluhn",
+          "publishedBy": "website"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Author of EIP-8105, Universal Enshrined Encrypted Mempool (Draft, created 2025-12-17)",
+          "kind": "paper",
+          "url": "https://eips.ethereum.org/EIPS/eip-8105",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Shutter blog post introducing EIP-8105",
+          "kind": "project",
+          "url": "https://blog.shutter.network/introducing-the-universal-enshrined-encrypted-mempool-eip/",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/preparing-encrypted-mempools-for-inclusion-in-the-earliest-e",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Luis Bezzenberger",
+      "role": "Project Manager; coordinates encrypted mempool development and ecosystem work (per the proposal)",
+      "pseudonymous": false,
+      "handles": [],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/preparing-encrypted-mempools-for-inclusion-in-the-earliest-e",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "brainbot (Shutter Network)",
+    "summary": "brainbot is a core contributor to Shutter Network, a threshold-encryption protocol for fair and private blockchain use (Shielded Trading, Shielded Voting, Shutter API), governed by Shutter DAO. The brainbot-com GitHub organization (brainbot gmbh) was created 2013-05-07 and the shutter-network organization 2021-06-24. Shutter ran an encrypted mempool on Gnosis Chain for over two years and decommissioned it on 2026-11-25. Public team size: Not found in public sources.",
+    "website": "https://shutter.network/",
+    "founded": "brainbot-com GitHub org: 2013-05-07",
+    "previousFunding": [
+      {
+        "label": "Shutter DAO 0x36 monthly funding to brainbot (per the proposal)",
+        "url": "https://initiatives.thedao.fund/initiative/preparing-encrypted-mempools-for-inclusion-in-the-earliest-e"
+      },
+      {
+        "label": "Possible TheDAO Security Fund Round 1 match, not confirmed: Encrypt the Mempool!",
+        "url": "https://thedao.fund/transparency/encrypt-the-mempool-stopping-toxic-mev-censorship"
+      }
+    ],
+    "otherProducts": [
+      {
+        "label": "Shielded Trading and Shielded Voting",
+        "url": "https://shutter.network/"
+      },
+      {
+        "label": "Shutter blog",
+        "url": "https://blog.shutter.network/"
+      },
+      {
+        "label": "Encrypt the Mempool coalition",
+        "url": "https://encryptedmempool.org/"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Shutter website",
+        "url": "https://shutter.network/"
+      },
+      {
+        "label": "GitHub organization shutter-network",
+        "url": "https://github.com/shutter-network"
+      },
+      {
+        "label": "GitHub organization brainbot-com",
+        "url": "https://github.com/brainbot-com"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [
+    {
+      "grant": "TheDAO Security Fund Round 1: Encrypt the Mempool! Stopping Toxic MEV & Censorship (possible match)",
+      "funder": "TheDAO Security Fund",
+      "promised": "The Round 1 record lists no deliverables. It is listed under shutter.network. The match to brainbot is only on the name Shutter, so it is not confirmed.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Round 1 record",
+          "url": "https://thedao.fund/transparency/encrypt-the-mempool-stopping-toxic-mev-censorship"
+        },
+        {
+          "label": "Shutter website",
+          "url": "https://shutter.network/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_encrypt-the-mempool-stopping-toxic-mev-censorship"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "Jannik authored EIP-8105.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "EIP-8105",
+          "url": "https://eips.ethereum.org/EIPS/eip-8105"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The EIP page lists Jannik Luhn (@jannikluhn) as author. Status Draft, created 2025-12-17."
+    },
+    {
+      "claim": "The team is actively contributing to EIP-8184 (LUCID).",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "EIP-8184",
+          "url": "https://eips.ethereum.org/EIPS/eip-8184"
+        },
+        {
+          "label": "Shutter blog: Hegota update",
+          "url": "https://blog.shutter.network/hegota-update-eip-8105-team-giving-full-support-to-lucid-eip/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "EIP-8184 (Draft) lists Anders Elowsson, Justin Florentine and Julian Ma as authors, not brainbot staff. Shutter's blog says it aims to contribute to LUCID. Contributions to the text were not checked."
+    },
+    {
+      "claim": "Shutter deployed encrypted mempool technology on Gnosis Chain.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Shutter blog: decommissioning post",
+          "url": "https://blog.shutter.network/decommissioning-the-encrypted-mempool-on-gnosis-chain/"
+        },
+        {
+          "label": "Shutter website",
+          "url": "https://shutter.network/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Shutter's blog says Gnosis Chain was the first mainnet to run a Shutter encrypted mempool, for over two years, and that it would be decommissioned on 2026-11-25. The deployment is therefore past, not live. These are Shutter's own statements."
+    },
+    {
+      "claim": "A Shutterized OP Stack testnet was launched on Sepolia.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "GitHub organization shutter-network",
+          "url": "https://github.com/shutter-network"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "No public post or repository confirming the OP Stack testnet on Sepolia was found."
+    },
+    {
+      "claim": "More than USD 1.8 billion was extracted through MEV since 2020.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Encrypt the Mempool coalition",
+          "url": "https://encryptedmempool.org/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The coalition site and Shutter's post repeat the figure. No primary data source was linked, and the figure was not recomputed."
+    },
+    {
+      "claim": "brainbot coordinates the Encrypt the Mempool coalition.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Encrypt the Mempool coalition",
+          "url": "https://encryptedmempool.org/"
+        },
+        {
+          "label": "Shutter blog: coalition post",
+          "url": "https://blog.shutter.network/shutter-joins-the-encrypt-the-mempool-coalition/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The site lists Shutter among its members. Which organization coordinates the coalition is not stated on the pages checked."
+    },
+    {
+      "claim": "EIP-8184 is proposed for inclusion in I*.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "EIP-8184",
+          "url": "https://eips.ethereum.org/EIPS/eip-8184"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The EIP is a Draft. The proposal itself says inclusion is outside the grant and depends on Ethereum's upgrade process."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Jannik Luhn: employer, previous projects, talks, audits and CVEs beyond the EIP authorship Not found in public sources. His GitHub profile has no bio. The handle is recorded because the EIP page publishes it.",
+    "Luis Bezzenberger: handles, profiles, past work and talks Not found in public sources.",
+    "brainbot public team size and full roster: Not found in public sources.",
+    "Shutter DAO 0x36 grant amounts and dates for brainbot: Not found in public sources beyond the proposal statement.",
+    "Round 1 match for brainbot: only a possible match on the name Shutter. Deliverables Not found in public sources.",
+    "Independent security review of the optionality design: not yet named, Not found in public sources.",
+    "Onchain deployments for this grant: none are claimed beyond the past Gnosis Chain deployment, whose contract addresses were not located."
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

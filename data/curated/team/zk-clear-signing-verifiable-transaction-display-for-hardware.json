@@ -1,0 +1,343 @@
+{
+  "members": [
+    {
+      "name": "Renaud Dubois",
+      "role": "CTO of ZKNOX (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "rdubois-crypto",
+          "url": "https://github.com/rdubois-crypto",
+          "publishedBy": "proposal"
+        },
+        {
+          "platform": "dblp",
+          "handle": "26/211",
+          "url": "https://dblp.org/pid/26/211.html",
+          "publishedBy": "proposal"
+        },
+        {
+          "platform": "X",
+          "handle": "RenaudDUBOIS10",
+          "url": "https://x.com/RenaudDUBOIS10",
+          "publishedBy": "profile"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "ZKNOX team page: cryptologist with 20 years of experience (Thales Defense, Ledger), including fast generic ECC implementations and passkeys integrated in Coinbase Smart Wallet",
+          "kind": "company",
+          "url": "https://zknox.com/team.html",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Listed publications and author record on dblp",
+          "kind": "paper",
+          "url": "https://dblp.org/pid/26/211.html",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "EIP-8051 (ML-DSA precompile) and EIP-8052 (Falcon precompile) listed on the ZKNOX EIPs page; the proposal also cites EIP-7885",
+          "kind": "project",
+          "url": "https://zknox.com/eips.html",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/zk-clear-signing-verifiable-transaction-display-for-hardware",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Nicolas Bacca",
+      "role": "CEO of ZKNOX (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "btchip",
+          "url": "https://github.com/btchip",
+          "publishedBy": "proposal"
+        },
+        {
+          "platform": "X",
+          "handle": "btchip",
+          "url": "https://x.com/btchip",
+          "publishedBy": "profile"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "ZKNOX team page: co-founder and former CTO of Ledger, 25+ years of experience, credited with the Nano line",
+          "kind": "company",
+          "url": "https://zknox.com/team.html",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/zk-clear-signing-verifiable-transaction-display-for-hardware",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Simon Masson",
+      "role": "CSO of ZKNOX (per the proposal)",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "simonmasson",
+          "url": "https://github.com/simonmasson",
+          "publishedBy": "proposal"
+        },
+        {
+          "platform": "dblp",
+          "handle": "218/7096",
+          "url": "https://dblp.org/pid/218/7096.html",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "ZKNOX team page: cryptologist with 8 years of experience (Thales, Anoma), co-author of the Bandersnatch curve",
+          "kind": "paper",
+          "url": "https://zknox.com/team.html",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Listed publications and author record on dblp",
+          "kind": "paper",
+          "url": "https://dblp.org/pid/218/7096.html",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/zk-clear-signing-verifiable-transaction-display-for-hardware",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "ZKNOX",
+    "summary": "Paris-based hardware security and cryptography company working on hardware wallet applications, post-quantum signature EIPs and zero-knowledge circuits. Its website lists three people and partners including Railgun and the Ethereum Foundation. The GitHub organization holds 50 public repositories (12 sampled, none forks or archived) with pushes through 2026-11-28.",
+    "website": "https://zknox.com",
+    "founded": "GitHub org created 2024-12-14",
+    "publicTeamSize": 3,
+    "previousFunding": [
+      {
+        "label": "Ethereum Foundation grants, as stated in the proposal (no grant record found)",
+        "url": "https://initiatives.thedao.fund/initiative/zk-clear-signing-verifiable-transaction-display-for-hardware"
+      },
+      {
+        "label": "The proposal states other funding for this work: none",
+        "url": "https://initiatives.thedao.fund/initiative/zk-clear-signing-verifiable-transaction-display-for-hardware"
+      }
+    ],
+    "otherProducts": [
+      {
+        "label": "ZKlarity, Aave v3 clear signing circuit and Ledger Nano S+ Groth16 verifier",
+        "url": "https://github.com/ZKNoxHQ/ZKlarity"
+      },
+      {
+        "label": "ETHFALCON, Falcon verification (44 stars)",
+        "url": "https://github.com/ZKNoxHQ/ETHFALCON"
+      },
+      {
+        "label": "ETHDILITHIUM, ML-DSA verification (24 stars)",
+        "url": "https://github.com/ZKNoxHQ/ETHDILITHIUM"
+      },
+      {
+        "label": "PQBeat post-quantum readiness tracker",
+        "url": "https://zknox.com/eips.html"
+      }
+    ],
+    "sources": [
+      {
+        "label": "ZKNOX website",
+        "url": "https://zknox.com"
+      },
+      {
+        "label": "ZKNOX team page",
+        "url": "https://zknox.com/team.html"
+      },
+      {
+        "label": "ZKNOX hackathons page",
+        "url": "https://zknox.com/hackathons.html"
+      },
+      {
+        "label": "GitHub organization ZKNoxHQ",
+        "url": "https://github.com/ZKNoxHQ"
+      },
+      {
+        "label": "ZK clear signing blog post",
+        "url": "https://zknox.eth.limo/posts/2026/03/13/zk_clear_signing_160326.html"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [
+    {
+      "grant": "Ethereum Foundation grants (amounts and dates not given), per the proposal",
+      "funder": "Ethereum Foundation",
+      "promised": "The proposal says ZKNOX received Ethereum Foundation grants. The grants, milestones and reports were not found.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/zk-clear-signing-verifiable-transaction-display-for-hardware"
+        },
+        {
+          "label": "ZKNOX website, partner list",
+          "url": "https://zknox.com"
+        }
+      ],
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "grant": "ETHGlobal hackathon prizes (four in two years, including ZKLARITY at Cannes 2026)",
+      "funder": "ETHGlobal and sponsors",
+      "promised": "The proposal says four prizes, two of them first prizes, the latest for the proof of concept this grant starts from. ZKNOX lists the ZKLARITY, FROSTGUN, PQKINGS, ZKIPPER and RailBao projects.",
+      "status": "Partly delivered",
+      "sources": [
+        {
+          "label": "ZKNOX hackathons page",
+          "url": "https://zknox.com/hackathons.html"
+        },
+        {
+          "label": "ZKlarity repository",
+          "url": "https://github.com/ZKNoxHQ/ZKlarity"
+        }
+      ],
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "ZKlarity: a clear-signing circuit for 13 Aave v3 actions and a Groth16 verifier running natively in a Ledger Nano S+, 2.8 s per verification.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "ZKlarity repository",
+          "url": "https://github.com/ZKNoxHQ/ZKlarity"
+        },
+        {
+          "label": "ZKNOX blog post",
+          "url": "https://zknox.eth.limo/posts/2026/03/13/zk_clear_signing_160326.html"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The repository exists (created 2026-02-27, last push 2026-03-23, 5 stars) and the blog post describes the work. The README lists four Aave actions, not 13, and no device run or timing was reproduced."
+    },
+    {
+      "claim": "ZKNOX has 30+ open-source repositories.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "GitHub organization ZKNoxHQ",
+          "url": "https://github.com/ZKNoxHQ"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API shows 50 public repositories in the organization, with pushes as recent as 2026-11-28."
+    },
+    {
+      "claim": "ZKNOX holds three EIPs.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "EIP-7885",
+          "url": "https://eips.ethereum.org/EIPS/eip-7885"
+        },
+        {
+          "label": "EIP-8051",
+          "url": "https://eips.ethereum.org/EIPS/eip-8051"
+        },
+        {
+          "label": "EIP-8052",
+          "url": "https://eips.ethereum.org/EIPS/eip-8052"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "All three EIP pages resolve. Their author fields were not extracted, so authorship by ZKNOX members was not confirmed. The ZKNOX EIPs page names EIP-8051 and EIP-8052 as its own."
+    },
+    {
+      "claim": "ZKNOX won first prize in the Ledger track at ETHGlobal Cannes 2026 with ZKlarity.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "ZKNOX hackathons page",
+          "url": "https://zknox.com/hackathons.html"
+        },
+        {
+          "label": "ETHGlobal showcase",
+          "url": "https://ethglobal.com/showcase/zklarity"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "ZKNOX lists ZKLARITY (ETHGlobal Cannes 2026) but does not name a prize. The ETHGlobal showcase returned a browser challenge page and could not be read."
+    },
+    {
+      "claim": "Founders include a Ledger co-founder and former CTO.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "ZKNOX team page",
+          "url": "https://zknox.com/team.html"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The team page states it for Nicolas Bacca. No independent Ledger source was checked."
+    },
+    {
+      "claim": "Verifier v1.0 runs on Nano S+, Nano X, Stax and Flex within 3.0 s (BLS12-381) and 2.5 s (BN254); the Ledger app ships in its catalog; the Kohaku integration is merged.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/zk-clear-signing-verifiable-transaction-display-for-hardware"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "These are future milestones and none is marked done. No Ledger app listing or merged Kohaku pull request for this work was found."
+    },
+    {
+      "claim": "Independent review report with 0 open high or critical findings, and 5 protocols publishing rules on-chain, will be delivered.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/zk-clear-signing-verifiable-transaction-display-for-hardware"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "These are future milestones. No review report or onchain rules record was found."
+    },
+    {
+      "claim": "ZKNOX audited Railgun PPOI and Privacy Pools deposits and contributed to Railgun's curve library.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/zk-clear-signing-verifiable-transaction-display-for-hardware"
+        },
+        {
+          "label": "GitHub organization ZKNoxHQ",
+          "url": "https://github.com/ZKNoxHQ"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "No public audit report for either was located. ZKNoxHQ has Railgun-related repositories (for example rsgun-wallet), which do not show an audit."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Nicolas Bacca: Ledger roles, audits, CVEs and bounty credits checked only on ZKNOX's own page Not found in an independent public source",
+    "Renaud Dubois and Simon Masson: CVEs and bug-bounty credits (Immunefi, Code4rena, Sherlock, Cantina) Not found in public sources",
+    "Simon Masson: X or LinkedIn handle Not found in public sources (GitHub profile lists none)",
+    "Ethereum Foundation grant records for ZKNOX Not found in public sources",
+    "ETHGlobal prize records for ZKNOX projects Not found in public sources (ETHGlobal pages could not be read)",
+    "Public audit reports for Railgun PPOI and Privacy Pools work Not found in public sources",
+    "ZKNOX public team size beyond the three people on the team page, and any company registration Not found in public sources"
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

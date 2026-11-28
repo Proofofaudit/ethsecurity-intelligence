@@ -1,0 +1,19 @@
+{
+  "members": [],
+  "organization": null,
+  "delivery": [],
+  "claims": [],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Applicant team: Not found in public sources (this is a request for proposals and the proposal states nobody is pre-selected)",
+    "Past grants and Round 1 record: Not found in public sources (no applicant, no Round 1 match in the dataset)",
+    "Claims: the proposal makes no product, usage, audit or deployment claims to check, only general statements about fuzzing practice. No claim was assessed.",
+    "Researchers who will do the work: Not found in public sources"
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

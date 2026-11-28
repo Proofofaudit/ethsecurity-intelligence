@@ -1,0 +1,752 @@
+{
+  "initiativeId": "01M7FKT26WBRVS419EJG2EKJ1Q",
+  "collectedAt": "2026-11-28T07:18:59.897Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 64,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "SEC4AI-AI4SEC",
+      "type": "Organization",
+      "url": "https://github.com/SEC4AI-AI4SEC",
+      "source": "proposal",
+      "reposTotal": 15,
+      "repos": [
+        {
+          "fullName": "SEC4AI-AI4SEC/sec4ai-ai4sec.github.io",
+          "url": "https://github.com/SEC4AI-AI4SEC/sec4ai-ai4sec.github.io",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-23T10:25:28Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "SEC4AI-AI4SEC/leakdetect-giveth-qf",
+          "url": "https://github.com/SEC4AI-AI4SEC/leakdetect-giveth-qf",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-23T16:46:18Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "SEC4AI-AI4SEC/AutoMLQuantILDetect",
+          "url": "https://github.com/SEC4AI-AI4SEC/AutoMLQuantILDetect",
+          "fork": false,
+          "archived": false,
+          "stars": 5,
+          "forks": 1,
+          "pushedAt": "2026-09-04T16:29:20Z",
+          "latestReleaseAt": "2024-08-20T09:57:44Z"
+        },
+        {
+          "fullName": "SEC4AI-AI4SEC/IterativeDager",
+          "url": "https://github.com/SEC4AI-AI4SEC/IterativeDager",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-07-26T15:59:37Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "SEC4AI-AI4SEC/autosca-hw-wallet-tester",
+          "url": "https://github.com/SEC4AI-AI4SEC/autosca-hw-wallet-tester",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 1,
+          "pushedAt": "2026-07-06T16:16:57Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "SEC4AI-AI4SEC/PPT-Invoice-IPFS-Meshkit",
+          "url": "https://github.com/SEC4AI-AI4SEC/PPT-Invoice-IPFS-Meshkit",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-06-17T20:05:29Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "SEC4AI-AI4SEC/automl-qild-experiments",
+          "url": "https://github.com/SEC4AI-AI4SEC/automl-qild-experiments",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-06-07T17:25:58Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "SEC4AI-AI4SEC/deep-learning-sca",
+          "url": "https://github.com/SEC4AI-AI4SEC/deep-learning-sca",
+          "fork": false,
+          "archived": false,
+          "stars": 3,
+          "forks": 3,
+          "pushedAt": "2026-06-07T17:24:48Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "SEC4AI-AI4SEC/ContinuousBenchEval",
+          "url": "https://github.com/SEC4AI-AI4SEC/ContinuousBenchEval",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-23T15:20:44Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "SEC4AI-AI4SEC/uqlm",
+          "url": "https://github.com/SEC4AI-AI4SEC/uqlm",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-21T16:36:22Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "SEC4AI-AI4SEC/claude-code",
+          "url": "https://github.com/SEC4AI-AI4SEC/claude-code",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-03-31T19:28:27Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "SEC4AI-AI4SEC/nlg_metric_usage",
+          "url": "https://github.com/SEC4AI-AI4SEC/nlg_metric_usage",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-09-26T02:36:10Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "seetadev",
+      "type": "User",
+      "url": "https://github.com/seetadev",
+      "source": "proposal",
+      "reposTotal": 100,
+      "repos": [
+        {
+          "fullName": "seetadev/foundry-setup-contracts-Storacha",
+          "url": "https://github.com/seetadev/foundry-setup-contracts-Storacha",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2026-11-15T09:18:11Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "seetadev/kubo-connection-metrics-poc",
+          "url": "https://github.com/seetadev/kubo-connection-metrics-poc",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-11-02T20:05:04Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "seetadev/IPFS-Fil-One-SDK",
+          "url": "https://github.com/seetadev/IPFS-Fil-One-SDK",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 5,
+          "pushedAt": "2026-10-22T23:12:09Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "seetadev/go-backend-touch-calc",
+          "url": "https://github.com/seetadev/go-backend-touch-calc",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 6,
+          "pushedAt": "2026-10-14T19:29:10Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "seetadev/IPFS-Solana-SDK",
+          "url": "https://github.com/seetadev/IPFS-Solana-SDK",
+          "fork": false,
+          "archived": false,
+          "stars": 14,
+          "forks": 18,
+          "pushedAt": "2026-10-09T20:10:25Z",
+          "latestReleaseAt": "2026-03-21T16:40:02Z"
+        },
+        {
+          "fullName": "seetadev/agntcy-libp2p",
+          "url": "https://github.com/seetadev/agntcy-libp2p",
+          "fork": false,
+          "archived": false,
+          "stars": 4,
+          "forks": 2,
+          "pushedAt": "2026-10-08T20:20:34Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "seetadev/ANP-libp2p-IPFS",
+          "url": "https://github.com/seetadev/ANP-libp2p-IPFS",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-10-06T17:36:46Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "seetadev/ZKMedical-Billing",
+          "url": "https://github.com/seetadev/ZKMedical-Billing",
+          "fork": false,
+          "archived": false,
+          "stars": 9,
+          "forks": 29,
+          "pushedAt": "2026-10-04T10:20:53Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "seetadev/libp2p-2035",
+          "url": "https://github.com/seetadev/libp2p-2035",
+          "fork": false,
+          "archived": false,
+          "stars": 4,
+          "forks": 4,
+          "pushedAt": "2026-10-02T17:53:45Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "seetadev/libp2p-vto-spec",
+          "url": "https://github.com/seetadev/libp2p-vto-spec",
+          "fork": false,
+          "archived": false,
+          "stars": 4,
+          "forks": 0,
+          "pushedAt": "2026-10-01T22:24:28Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "seetadev/libp2p-privacy-specs",
+          "url": "https://github.com/seetadev/libp2p-privacy-specs",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-02T12:01:24Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "seetadev/composable-trust-specs",
+          "url": "https://github.com/seetadev/composable-trust-specs",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-08-07T22:30:41Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "Achelos",
+      "type": "User",
+      "url": "https://github.com/Achelos",
+      "source": "proposal",
+      "reposTotal": 0,
+      "repos": []
+    },
+    {
+      "login": "multiformats",
+      "type": "Organization",
+      "url": "https://github.com/multiformats",
+      "source": "proposal",
+      "reposTotal": 79,
+      "repos": [
+        {
+          "fullName": "multiformats/js-multiformats",
+          "url": "https://github.com/multiformats/js-multiformats",
+          "fork": false,
+          "archived": false,
+          "stars": 271,
+          "forks": 59,
+          "pushedAt": "2026-11-25T04:33:11Z",
+          "latestReleaseAt": "2026-11-25T04:33:00Z"
+        },
+        {
+          "fullName": "multiformats/multicodec",
+          "url": "https://github.com/multiformats/multicodec",
+          "fork": false,
+          "archived": false,
+          "stars": 385,
+          "forks": 223,
+          "pushedAt": "2026-11-25T03:42:05Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "multiformats/js-murmur3",
+          "url": "https://github.com/multiformats/js-murmur3",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 0,
+          "pushedAt": "2026-11-25T01:08:10Z",
+          "latestReleaseAt": "2026-07-09T12:05:59Z"
+        },
+        {
+          "fullName": "multiformats/go-multihash",
+          "url": "https://github.com/multiformats/go-multihash",
+          "fork": false,
+          "archived": false,
+          "stars": 246,
+          "forks": 62,
+          "pushedAt": "2026-11-23T04:45:00Z",
+          "latestReleaseAt": "2026-11-23T04:45:01Z"
+        },
+        {
+          "fullName": "multiformats/py-multiaddr",
+          "url": "https://github.com/multiformats/py-multiaddr",
+          "fork": false,
+          "archived": false,
+          "stars": 36,
+          "forks": 33,
+          "pushedAt": "2026-11-22T04:22:41Z",
+          "latestReleaseAt": "2025-06-18T13:44:35Z"
+        },
+        {
+          "fullName": "multiformats/py-multicodec",
+          "url": "https://github.com/multiformats/py-multicodec",
+          "fork": false,
+          "archived": false,
+          "stars": 19,
+          "forks": 16,
+          "pushedAt": "2026-11-22T03:47:57Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "multiformats/py-multibase",
+          "url": "https://github.com/multiformats/py-multibase",
+          "fork": false,
+          "archived": false,
+          "stars": 24,
+          "forks": 9,
+          "pushedAt": "2026-11-22T03:47:29Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "multiformats/py-multihash",
+          "url": "https://github.com/multiformats/py-multihash",
+          "fork": false,
+          "archived": false,
+          "stars": 17,
+          "forks": 17,
+          "pushedAt": "2026-11-22T03:46:44Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "multiformats/java-multiaddr",
+          "url": "https://github.com/multiformats/java-multiaddr",
+          "fork": false,
+          "archived": false,
+          "stars": 20,
+          "forks": 19,
+          "pushedAt": "2026-11-03T18:52:52Z",
+          "latestReleaseAt": "2023-03-27T09:43:27Z"
+        },
+        {
+          "fullName": "multiformats/java-multihash",
+          "url": "https://github.com/multiformats/java-multihash",
+          "fork": false,
+          "archived": false,
+          "stars": 53,
+          "forks": 28,
+          "pushedAt": "2026-11-03T14:32:48Z",
+          "latestReleaseAt": "2023-01-31T22:19:17Z"
+        },
+        {
+          "fullName": "multiformats/java-multibase",
+          "url": "https://github.com/multiformats/java-multibase",
+          "fork": false,
+          "archived": false,
+          "stars": 42,
+          "forks": 27,
+          "pushedAt": "2026-11-03T09:52:36Z",
+          "latestReleaseAt": "2022-09-06T12:40:48Z"
+        },
+        {
+          "fullName": "multiformats/rust-multiaddr",
+          "url": "https://github.com/multiformats/rust-multiaddr",
+          "fork": false,
+          "archived": false,
+          "stars": 101,
+          "forks": 55,
+          "pushedAt": "2026-09-29T17:44:52Z",
+          "latestReleaseAt": "2026-09-29T17:45:26Z"
+        }
+      ]
+    },
+    {
+      "login": "ipld",
+      "type": "Organization",
+      "url": "https://github.com/ipld",
+      "source": "proposal",
+      "reposTotal": 100,
+      "repos": [
+        {
+          "fullName": "ipld/codec-fixtures",
+          "url": "https://github.com/ipld/codec-fixtures",
+          "fork": false,
+          "archived": false,
+          "stars": 12,
+          "forks": 10,
+          "pushedAt": "2026-11-27T05:09:30Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ipld/go-car",
+          "url": "https://github.com/ipld/go-car",
+          "fork": false,
+          "archived": false,
+          "stars": 178,
+          "forks": 55,
+          "pushedAt": "2026-11-25T03:15:05Z",
+          "latestReleaseAt": "2026-06-01T11:24:18Z"
+        },
+        {
+          "fullName": "ipld/js-car",
+          "url": "https://github.com/ipld/js-car",
+          "fork": false,
+          "archived": false,
+          "stars": 53,
+          "forks": 10,
+          "pushedAt": "2026-11-25T01:16:14Z",
+          "latestReleaseAt": "2026-11-25T01:10:26Z"
+        },
+        {
+          "fullName": "ipld/serde_ipld_dagcbor",
+          "url": "https://github.com/ipld/serde_ipld_dagcbor",
+          "fork": false,
+          "archived": false,
+          "stars": 29,
+          "forks": 14,
+          "pushedAt": "2026-11-24T12:02:08Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ipld/py-ipld-dag",
+          "url": "https://github.com/ipld/py-ipld-dag",
+          "fork": false,
+          "archived": false,
+          "stars": 13,
+          "forks": 9,
+          "pushedAt": "2026-11-22T03:52:18Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ipld/py-cid",
+          "url": "https://github.com/ipld/py-cid",
+          "fork": false,
+          "archived": false,
+          "stars": 43,
+          "forks": 24,
+          "pushedAt": "2026-11-22T03:50:11Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "ipld/js-dag-cbor",
+          "url": "https://github.com/ipld/js-dag-cbor",
+          "fork": false,
+          "archived": false,
+          "stars": 36,
+          "forks": 16,
+          "pushedAt": "2026-11-18T06:08:09Z",
+          "latestReleaseAt": "2026-11-18T06:08:01Z"
+        },
+        {
+          "fullName": "ipld/js-dag-json",
+          "url": "https://github.com/ipld/js-dag-json",
+          "fork": false,
+          "archived": false,
+          "stars": 23,
+          "forks": 7,
+          "pushedAt": "2026-11-18T05:26:25Z",
+          "latestReleaseAt": "2026-11-18T05:26:19Z"
+        },
+        {
+          "fullName": "ipld/go-ipld-prime",
+          "url": "https://github.com/ipld/go-ipld-prime",
+          "fork": false,
+          "archived": false,
+          "stars": 152,
+          "forks": 51,
+          "pushedAt": "2026-11-15T23:27:46Z",
+          "latestReleaseAt": "2026-06-02T00:50:14Z"
+        },
+        {
+          "fullName": "ipld/java-cid",
+          "url": "https://github.com/ipld/java-cid",
+          "fork": false,
+          "archived": false,
+          "stars": 53,
+          "forks": 22,
+          "pushedAt": "2026-11-03T03:02:45Z",
+          "latestReleaseAt": "2023-06-08T09:31:48Z"
+        },
+        {
+          "fullName": "ipld/js-ipld-schema",
+          "url": "https://github.com/ipld/js-ipld-schema",
+          "fork": false,
+          "archived": false,
+          "stars": 17,
+          "forks": 5,
+          "pushedAt": "2026-11-02T03:09:55Z",
+          "latestReleaseAt": "2026-03-30T22:54:54Z"
+        },
+        {
+          "fullName": "ipld/frisbii",
+          "url": "https://github.com/ipld/frisbii",
+          "fork": false,
+          "archived": false,
+          "stars": 21,
+          "forks": 7,
+          "pushedAt": "2026-11-02T01:18:08Z",
+          "latestReleaseAt": "2026-06-02T03:08:18Z"
+        }
+      ]
+    }
+  ],
+  "people": [
+    {
+      "handle": "seetadev",
+      "url": "https://github.com/seetadev",
+      "source": "curated",
+      "repos": [
+        {
+          "fullName": "seetadev/foundry-setup-contracts-Storacha",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "seetadev/kubo-connection-metrics-poc",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "seetadev/IPFS-Fil-One-SDK",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "seetadev/go-backend-touch-calc",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "seetadev/IPFS-Solana-SDK",
+          "monthly": [
+            2,
+            4,
+            6,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            7,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "seetadev/agntcy-libp2p",
+          "monthly": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            8,
+            16,
+            44,
+            6,
+            3,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "seetadev/ANP-libp2p-IPFS",
+          "monthly": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "seetadev/ZKMedical-Billing",
+          "monthly": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "seetadev/libp2p-2035",
+          "monthly": [
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "seetadev/libp2p-vto-spec",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            10,
+            3,
+            0
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        2,
+        5,
+        7,
+        3,
+        0,
+        1,
+        8,
+        18,
+        45,
+        16,
+        21,
+        4
+      ]
+    }
+  ]
+}

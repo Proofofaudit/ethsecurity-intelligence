@@ -1,0 +1,130 @@
+{
+  "members": [
+    {
+      "name": "Griff Green",
+      "role": "Co-drafter of the RFP (per the proposal); listed as a TheDAO curator representing Giveth on thedao.fund",
+      "pseudonymous": false,
+      "handles": [],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/production-ready-local-first-safe-ui",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "pcaversaccio",
+      "role": "Co-drafter of the RFP (per the proposal); listed as a TheDAO curator representing SEAL 911 on thedao.fund; maintains safe-tx-hashes-util per the proposal",
+      "pseudonymous": true,
+      "handles": [],
+      "pastWork": [
+        {
+          "label": "safe-tx-hashes-util repository owned by the pcaversaccio account",
+          "kind": "project",
+          "url": "https://github.com/pcaversaccio/safe-tx-hashes-util",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/production-ready-local-first-safe-ui",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": null,
+  "delivery": [],
+  "claims": [
+    {
+      "claim": "localsafe.eth (Cyfrin, MIT) calls itself early development, supports Safe v1.4.1 only, has no history, last release v0.3.1 on June 18, 2026.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "localsafe.eth repository",
+          "url": "https://github.com/Cyfrin/localsafe.eth"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: MIT, releases v0.3.1 on 2026-06-18, 0.3.0, 0.2.10. README disclaimer says still in early development; checklist items list transaction history and other contract versions as not yet done."
+    },
+    {
+      "claim": "localsafe.eth is live at localsafe.eth.limo.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "localsafe.eth.limo",
+          "url": "https://localsafe.eth.limo/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The page returns HTTP 200 with a small page. Capability was not exercised."
+    },
+    {
+      "claim": "Eternal Safe is a GPL-3.0 fork of Safe{Wallet} v1.26.2 that needs only an RPC URL, funded by the Safe Grants Program, with encoded not encrypted smart links.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "eternalsafe/wallet README",
+          "url": "https://github.com/eternalsafe/wallet"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "README states fork at v1.26.2, funded by the Safe Grants Program, no backend services beyond an RPC URL, smart links encoded not encrypted. GitHub API license GPL-3.0. devanoneth is the third contributor listed; the proposal's statement that Devan Non maintains it was not matched to a profile."
+    },
+    {
+      "claim": "safe-tx-hashes-util is maintained by pcaversaccio.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "safe-tx-hashes-util repository",
+          "url": "https://github.com/pcaversaccio/safe-tx-hashes-util"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: repository owner pcaversaccio, AGPL-3.0, last push 2026-11-16."
+    },
+    {
+      "claim": "Griff Green and pcaversaccio are Curators of TheDAO Security Fund.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "TheDAO curators list",
+          "url": "https://thedao.fund"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "thedao.fund lists Griff Green (Giveth) and pcaversaccio (SEAL 911) among TheDAO Curators."
+    },
+    {
+      "claim": "WazirX lost about $235M in July 2024, Radiant about $50M in October 2024.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/production-ready-local-first-safe-ui"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The proposal gives no links for these figures and they were not checked in this pass."
+    },
+    {
+      "claim": "Bybit's Safe{Wallet} frontend was compromised in February 2025 (about $1.5B).",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "Chainalysis analysis",
+          "url": "https://www.chainalysis.com/blog/bybit-exchange-hack-february-2025-crypto-security-dprk/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Chainalysis text: nearly $1.5 billion lost, attackers added malicious JavaScript to the Safe UI frontend code after taking control of a Safe developer's computer."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Applicant team: Not found in public sources (this is a request for proposals and the proposal states nobody is pre-selected)",
+    "Past grants and Round 1 record: Not found in public sources (no applicant, no Round 1 match in the dataset)",
+    "Team who will build or harden the UI: Not found in public sources",
+    "Whether pcaversaccio's GitHub account is operated by a named person: Not found in public sources (only the published pseudonym is recorded)"
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

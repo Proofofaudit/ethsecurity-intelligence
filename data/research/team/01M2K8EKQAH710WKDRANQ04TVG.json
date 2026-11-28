@@ -1,0 +1,430 @@
+{
+  "initiativeId": "01M2K8EKQAH710WKDRANQ04TVG",
+  "collectedAt": "2026-11-28T07:48:53.454Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 22,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "RevokeCash",
+      "type": "Organization",
+      "url": "https://github.com/RevokeCash",
+      "source": "proposal",
+      "reposTotal": 10,
+      "repos": [
+        {
+          "fullName": "RevokeCash/revoke.cash",
+          "url": "https://github.com/RevokeCash/revoke.cash",
+          "fork": false,
+          "archived": false,
+          "stars": 783,
+          "forks": 289,
+          "pushedAt": "2026-11-20T03:16:30Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "RevokeCash/whois",
+          "url": "https://github.com/RevokeCash/whois",
+          "fork": false,
+          "archived": true,
+          "stars": 7,
+          "forks": 10,
+          "pushedAt": "2026-11-08T06:54:27Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "RevokeCash/approval-exploit-list",
+          "url": "https://github.com/RevokeCash/approval-exploit-list",
+          "fork": false,
+          "archived": false,
+          "stars": 18,
+          "forks": 5,
+          "pushedAt": "2026-11-05T23:44:19Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "RevokeCash/brand-assets",
+          "url": "https://github.com/RevokeCash/brand-assets",
+          "fork": false,
+          "archived": false,
+          "stars": 23,
+          "forks": 19,
+          "pushedAt": "2026-07-16T19:48:54Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "RevokeCash/browser-extension",
+          "url": "https://github.com/RevokeCash/browser-extension",
+          "fork": false,
+          "archived": true,
+          "stars": 73,
+          "forks": 27,
+          "pushedAt": "2026-03-14T06:56:08Z",
+          "latestReleaseAt": "2026-03-14T06:56:08Z"
+        },
+        {
+          "fullName": "RevokeCash/browser-extension-kitchen-sink",
+          "url": "https://github.com/RevokeCash/browser-extension-kitchen-sink",
+          "fork": false,
+          "archived": false,
+          "stars": 7,
+          "forks": 2,
+          "pushedAt": "2026-01-18T18:29:25Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "RevokeCash/mini-app",
+          "url": "https://github.com/RevokeCash/mini-app",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-07-28T09:50:38Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "RevokeCash/vercel-reproduction",
+          "url": "https://github.com/RevokeCash/vercel-reproduction",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-01-31T17:50:21Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "RevokeCash/chains",
+          "url": "https://github.com/RevokeCash/chains",
+          "fork": true,
+          "archived": false,
+          "stars": 5,
+          "forks": 2,
+          "pushedAt": "2026-11-23T05:59:07Z",
+          "latestReleaseAt": "2026-09-21T15:32:12Z"
+        },
+        {
+          "fullName": "RevokeCash/demo-scam-website",
+          "url": "https://github.com/RevokeCash/demo-scam-website",
+          "fork": true,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2023-07-03T14:46:16Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "rkalis",
+      "type": "User",
+      "url": "https://github.com/rkalis",
+      "source": "proposal",
+      "reposTotal": 47,
+      "repos": [
+        {
+          "fullName": "rkalis/worth.cash",
+          "url": "https://github.com/rkalis/worth.cash",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-20T01:19:30Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "rkalis/allbastards.com",
+          "url": "https://github.com/rkalis/allbastards.com",
+          "fork": false,
+          "archived": false,
+          "stars": 18,
+          "forks": 4,
+          "pushedAt": "2026-10-28T00:28:44Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "rkalis/truffle-plugin-verify",
+          "url": "https://github.com/rkalis/truffle-plugin-verify",
+          "fork": false,
+          "archived": true,
+          "stars": 501,
+          "forks": 130,
+          "pushedAt": "2023-11-20T14:08:58Z",
+          "latestReleaseAt": "2023-11-20T14:08:58Z"
+        },
+        {
+          "fullName": "rkalis/truffle-assertions",
+          "url": "https://github.com/rkalis/truffle-assertions",
+          "fork": false,
+          "archived": true,
+          "stars": 151,
+          "forks": 16,
+          "pushedAt": "2023-10-26T14:49:51Z",
+          "latestReleaseAt": "2019-10-22T00:04:27Z"
+        },
+        {
+          "fullName": "rkalis/nft-swaps-data",
+          "url": "https://github.com/rkalis/nft-swaps-data",
+          "fork": false,
+          "archived": true,
+          "stars": 6,
+          "forks": 1,
+          "pushedAt": "2023-03-28T16:38:09Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "rkalis/safestats.xyz",
+          "url": "https://github.com/rkalis/safestats.xyz",
+          "fork": false,
+          "archived": false,
+          "stars": 11,
+          "forks": 4,
+          "pushedAt": "2023-03-10T23:41:22Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "rkalis/p5-typescript-starter",
+          "url": "https://github.com/rkalis/p5-typescript-starter",
+          "fork": false,
+          "archived": false,
+          "stars": 4,
+          "forks": 0,
+          "pushedAt": "2022-09-28T13:03:08Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "rkalis/dotfiles",
+          "url": "https://github.com/rkalis/dotfiles",
+          "fork": false,
+          "archived": false,
+          "stars": 259,
+          "forks": 53,
+          "pushedAt": "2022-06-01T16:13:34Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "rkalis/bastards-volume-incentives",
+          "url": "https://github.com/rkalis/bastards-volume-incentives",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2022-03-14T16:13:59Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "rkalis/AppiePy",
+          "url": "https://github.com/rkalis/AppiePy",
+          "fork": false,
+          "archived": true,
+          "stars": 29,
+          "forks": 8,
+          "pushedAt": "2021-08-31T09:17:40Z",
+          "latestReleaseAt": "2021-05-28T08:56:17Z"
+        },
+        {
+          "fullName": "rkalis/liquidefi",
+          "url": "https://github.com/rkalis/liquidefi",
+          "fork": false,
+          "archived": false,
+          "stars": 12,
+          "forks": 2,
+          "pushedAt": "2021-05-11T18:03:17Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "rkalis/radical.domains",
+          "url": "https://github.com/rkalis/radical.domains",
+          "fork": false,
+          "archived": false,
+          "stars": 17,
+          "forks": 3,
+          "pushedAt": "2021-05-11T13:10:34Z",
+          "latestReleaseAt": null
+        }
+      ]
+    }
+  ],
+  "people": [
+    {
+      "handle": "rkalis",
+      "url": "https://github.com/rkalis",
+      "source": "curated",
+      "repos": [
+        {
+          "fullName": "rkalis/worth.cash",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            11,
+            4,
+            0,
+            1
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "rkalis/allbastards.com",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "RevokeCash/revoke.cash",
+          "monthly": [
+            0,
+            0,
+            0,
+            3,
+            27,
+            27,
+            17,
+            115,
+            30,
+            41,
+            21,
+            19
+          ],
+          "capped": true
+        },
+        {
+          "fullName": "RevokeCash/whois",
+          "monthly": [
+            1,
+            4,
+            0,
+            3,
+            1,
+            2,
+            0,
+            2,
+            2,
+            3,
+            2,
+            1
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "RevokeCash/approval-exploit-list",
+          "monthly": [
+            1,
+            4,
+            0,
+            1,
+            1,
+            2,
+            0,
+            2,
+            1,
+            6,
+            2,
+            1
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "RevokeCash/brand-assets",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "RevokeCash/browser-extension",
+          "monthly": [
+            2,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "RevokeCash/browser-extension-kitchen-sink",
+          "monthly": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        5,
+        9,
+        0,
+        9,
+        29,
+        31,
+        17,
+        120,
+        44,
+        54,
+        26,
+        22
+      ]
+    }
+  ]
+}

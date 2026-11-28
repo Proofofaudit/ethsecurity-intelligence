@@ -1,0 +1,139 @@
+{
+  "members": [
+    {
+      "name": "Giorgio Bonuccelli",
+      "role": "Drafted the proposal with the Dedaub engineering team (per the proposal); author of a Dedaub blog post",
+      "pseudonymous": false,
+      "handles": [],
+      "pastWork": [
+        {
+          "label": "Author of the Dedaub blog post 'How TheDAO Security Grant Improved Dedaub's Bytecode Decompiler', 2026-09-07",
+          "kind": "project",
+          "url": "https://dedaub.com/blog/decompile-bytecode-ai-reconstruction/",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/free-backtestable-onchain-monitoring-on-17-evm-chains",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Yannis Bollanos",
+      "role": "Dedaub team member who holds an ETHSecurity Badge and abstains from ranking this initiative (per the proposal)",
+      "pseudonymous": false,
+      "handles": [],
+      "pastWork": [],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/free-backtestable-onchain-monitoring-on-17-evm-chains",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "Dedaub",
+    "summary": "Smart contract security company. Its GitHub organization Dedaub was created 2019-10-28. Its products named in the proposal are a monitoring platform, a CLI and the Gigahorse-based decompiler.",
+    "website": "https://dedaub.com",
+    "previousFunding": [
+      {
+        "label": "TheDAO Security Fund Round 1 record: Dedaub Decompiler: From Bytecode to Solidity-Like Code",
+        "url": "https://thedao.fund/transparency/dedaub-decompiler-from-bytecode-to-solidity-like-code"
+      }
+    ],
+    "otherProducts": [
+      {
+        "label": "Dedaub monitoring CLI",
+        "url": "https://github.com/Dedaub/monitoring-cli"
+      }
+    ],
+    "sources": [
+      {
+        "label": "GitHub organization Dedaub",
+        "url": "https://github.com/Dedaub"
+      },
+      {
+        "label": "Dedaub blog post",
+        "url": "https://dedaub.com/blog/decompile-bytecode-ai-reconstruction/"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [
+    {
+      "grant": "TheDAO Security Fund Round 1: Dedaub Decompiler: From Bytecode to Solidity-Like Code",
+      "funder": "TheDAO Security Fund",
+      "promised": "Per Dedaub's own post, the grant funded more accurate and readable Solidity-like decompiler output and a larger free allowance for AI-powered reconstruction. The Round 1 record lists payments and no deliverables, so no promise can be compared with a result. The existing public artifact is the grantee's own blog post, which is self-reported and not matched against a stated Round 1 deliverable.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Dedaub blog post (self-reported by the grantee, dated 2026-09-07)",
+          "url": "https://dedaub.com/blog/decompile-bytecode-ai-reconstruction/"
+        },
+        {
+          "label": "Round 1 record",
+          "url": "https://thedao.fund/transparency/dedaub-decompiler-from-bytecode-to-solidity-like-code"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "round1RecordId": "r1_dedaub-decompiler-from-bytecode-to-solidity-like-code"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "The CLI and agent skill are MIT licensed with reference notes for 95 protocols.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "GitHub repository Dedaub/monitoring-cli",
+          "url": "https://github.com/Dedaub/monitoring-cli"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: MIT, created 2026-05-25, last push 2026-11-25. The references/protocols folder holds 164 subfolders, not 95, so the count differs from the proposal. The counting basis of the proposal is unknown, and no contradiction is asserted."
+    },
+    {
+      "claim": "The monitoring platform at app.dedaub.com is live on 8 EVM chains.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Dedaub app",
+          "url": "https://app.dedaub.com"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The app URL returned HTTP 403 to an automated request. Live status and chain count could not be confirmed."
+    },
+    {
+      "claim": "The Gigahorse decompiler has been free since 2018 with more than 16,000 registered users across ten EVM chains.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Dedaub blog post, 2026-09-07",
+          "url": "https://dedaub.com/blog/decompile-bytecode-ai-reconstruction/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The Dedaub post states the engine has run since September 2018 with more than 12,000 registered users across nine EVM chains. The proposal figures are higher and may be later. Not verified: user, request and subscriber counts come from the applicant's own pages; no independent public source was found."
+    },
+    {
+      "claim": "Dedaub published audit reports.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Dedaub audits page named in the proposal",
+          "url": "https://dedaub.com/audits"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The page returned a bot check or error to an automated request, so contents were not read."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Giorgio Bonuccelli and Yannis Bollanos: handles and past work Not found in public sources. No handle is recorded because none is linked in the proposal.",
+    "Dedaub founders, legal entity and team size: Not found in public sources (the About page returned a not found response).",
+    "Whether the Round 1 post covers every deliverable in the Round 1 application: Round 1 application text Not found in public sources"
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

@@ -1,0 +1,368 @@
+{
+  "datasetVersion": "20261126T130839Z-fe7ea363+7d84d35c",
+  "at": "2026-11-27T11:39:48.880Z",
+  "checked": 7510,
+  "failures": [],
+  "byCheck": {
+    "official_record_present": {
+      "checked": 55,
+      "failed": 0
+    },
+    "goal": {
+      "checked": 55,
+      "failed": 0
+    },
+    "raised": {
+      "checked": 55,
+      "failed": 0
+    },
+    "pledged": {
+      "checked": 55,
+      "failed": 0
+    },
+    "received": {
+      "checked": 55,
+      "failed": 0
+    },
+    "donated": {
+      "checked": 55,
+      "failed": 0
+    },
+    "funding_identity": {
+      "checked": 55,
+      "failed": 0
+    },
+    "milestone_count": {
+      "checked": 55,
+      "failed": 0
+    },
+    "milestone_fields": {
+      "checked": 211,
+      "failed": 0
+    },
+    "title": {
+      "checked": 55,
+      "failed": 0
+    },
+    "summary": {
+      "checked": 55,
+      "failed": 0
+    },
+    "plain_explanation": {
+      "checked": 55,
+      "failed": 0
+    },
+    "reality_split": {
+      "checked": 55,
+      "failed": 0
+    },
+    "pledge_claim_matches_source": {
+      "checked": 86,
+      "failed": 0
+    },
+    "verified_has_support": {
+      "checked": 88,
+      "failed": 0
+    },
+    "donations_onchain": {
+      "checked": 23,
+      "failed": 0
+    },
+    "repo_exists": {
+      "checked": 61,
+      "failed": 0
+    },
+    "quote_verbatim": {
+      "checked": 118,
+      "failed": 0
+    },
+    "milestone_artifact": {
+      "checked": 4,
+      "failed": 0
+    },
+    "milestone_done_flag": {
+      "checked": 4,
+      "failed": 0
+    },
+    "alias_domain": {
+      "checked": 3,
+      "failed": 0
+    },
+    "alias_curated_sources": {
+      "checked": 5,
+      "failed": 0
+    },
+    "cohort_goal": {
+      "checked": 1,
+      "failed": 0
+    },
+    "cohort_raised": {
+      "checked": 1,
+      "failed": 0
+    },
+    "cohort_size": {
+      "checked": 1,
+      "failed": 0
+    },
+    "evidence_exists": {
+      "checked": 702,
+      "failed": 0
+    },
+    "status_snapshot": {
+      "checked": 1,
+      "failed": 0
+    },
+    "status_validation": {
+      "checked": 1,
+      "failed": 0
+    },
+    "status_requests": {
+      "checked": 1,
+      "failed": 0
+    },
+    "milestone_share": {
+      "checked": 211,
+      "failed": 0
+    },
+    "pledge_record": {
+      "checked": 86,
+      "failed": 0
+    },
+    "backer_totals": {
+      "checked": 1,
+      "failed": 0
+    },
+    "backer_split": {
+      "checked": 65,
+      "failed": 0
+    },
+    "what_if_baseline": {
+      "checked": 55,
+      "failed": 0
+    },
+    "coverage_counts": {
+      "checked": 11,
+      "failed": 0
+    },
+    "hypotheses_reproducible": {
+      "checked": 1,
+      "failed": 0
+    },
+    "hypothesis_reason": {
+      "checked": 45,
+      "failed": 0
+    },
+    "revision_text": {
+      "checked": 252,
+      "failed": 0
+    },
+    "ballot_record_present": {
+      "checked": 55,
+      "failed": 0
+    },
+    "thedao_ask": {
+      "checked": 55,
+      "failed": 0
+    },
+    "remaining_gap": {
+      "checked": 55,
+      "failed": 0
+    },
+    "cohort_thedao_ask": {
+      "checked": 1,
+      "failed": 0
+    },
+    "cohort_remaining_gap": {
+      "checked": 1,
+      "failed": 0
+    },
+    "cohort_only_totals": {
+      "checked": 1,
+      "failed": 0
+    },
+    "vote_present": {
+      "checked": 1,
+      "failed": 0
+    },
+    "vote_pool_raw": {
+      "checked": 1,
+      "failed": 0
+    },
+    "vote_pool_cents": {
+      "checked": 1,
+      "failed": 0
+    },
+    "vote_pool_metric": {
+      "checked": 1,
+      "failed": 0
+    },
+    "vote_schedule": {
+      "checked": 1,
+      "failed": 0
+    },
+    "vote_ballot_rules": {
+      "checked": 1,
+      "failed": 0
+    },
+    "vote_arrays": {
+      "checked": 1,
+      "failed": 0
+    },
+    "vote_alignment": {
+      "checked": 1,
+      "failed": 0
+    },
+    "vote_groups": {
+      "checked": 55,
+      "failed": 0
+    },
+    "round1_present": {
+      "checked": 1,
+      "failed": 0
+    },
+    "round1_sources": {
+      "checked": 1,
+      "failed": 0
+    },
+    "round1_checked_at": {
+      "checked": 1,
+      "failed": 0
+    },
+    "round1_row_count": {
+      "checked": 1,
+      "failed": 0
+    },
+    "round1_page_totals": {
+      "checked": 1,
+      "failed": 0
+    },
+    "round1_figures": {
+      "checked": 135,
+      "failed": 0
+    },
+    "round1_links": {
+      "checked": 135,
+      "failed": 0
+    },
+    "round1_displayed": {
+      "checked": 135,
+      "failed": 0
+    },
+    "round1_grants": {
+      "checked": 135,
+      "failed": 0
+    },
+    "round1_forum": {
+      "checked": 1,
+      "failed": 0
+    },
+    "round1_match_record": {
+      "checked": 84,
+      "failed": 0
+    },
+    "round1_match_reason": {
+      "checked": 84,
+      "failed": 0
+    },
+    "round1_reason_holds": {
+      "checked": 104,
+      "failed": 0
+    },
+    "round1_status": {
+      "checked": 84,
+      "failed": 0
+    },
+    "round1_matches_reproducible": {
+      "checked": 1,
+      "failed": 0
+    },
+    "round1_org_matches_reproducible": {
+      "checked": 1,
+      "failed": 0
+    },
+    "card_present": {
+      "checked": 55,
+      "failed": 0
+    },
+    "card_layout": {
+      "checked": 55,
+      "failed": 0
+    },
+    "card_source": {
+      "checked": 861,
+      "failed": 0
+    },
+    "card_link": {
+      "checked": 861,
+      "failed": 0
+    },
+    "card_private_contact": {
+      "checked": 861,
+      "failed": 0
+    },
+    "card_pledged": {
+      "checked": 55,
+      "failed": 0
+    },
+    "card_received": {
+      "checked": 55,
+      "failed": 0
+    },
+    "card_donated": {
+      "checked": 55,
+      "failed": 0
+    },
+    "card_backer_count": {
+      "checked": 55,
+      "failed": 0
+    },
+    "card_backer": {
+      "checked": 86,
+      "failed": 0
+    },
+    "card_self_pledge": {
+      "checked": 86,
+      "failed": 0
+    },
+    "card_site": {
+      "checked": 55,
+      "failed": 0
+    },
+    "card_repo_count": {
+      "checked": 55,
+      "failed": 0
+    },
+    "card_repo": {
+      "checked": 88,
+      "failed": 0
+    },
+    "card_repo_stored": {
+      "checked": 88,
+      "failed": 0
+    },
+    "card_round1": {
+      "checked": 55,
+      "failed": 0
+    },
+    "card_no_links": {
+      "checked": 55,
+      "failed": 0
+    },
+    "card_no_repo": {
+      "checked": 55,
+      "failed": 0
+    },
+    "card_no_audit": {
+      "checked": 55,
+      "failed": 0
+    },
+    "card_no_backers": {
+      "checked": 55,
+      "failed": 0
+    },
+    "card_product": {
+      "checked": 31,
+      "failed": 0
+    }
+  }
+}

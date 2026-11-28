@@ -1,0 +1,213 @@
+{
+  "members": [],
+  "organization": {
+    "name": "Lionscraft",
+    "summary": "Technology consultancy for blockchain, digital assets and AI automation. Per the proposal it has coordinated D.U.C.K. and ValOS since 2023 with contributions from 20 organizations. Its site lists case studies for stc Bahrain, Munich Re, Vodafone and Lido. ValOS is hosted under the Lido Labs Foundation per the ValOS site.",
+    "website": "https://www.lionscraft.io/",
+    "previousFunding": [
+      {
+        "label": "Lido LEGO grant for D.U.C.K. Alpha Release, $77,600 in DAI (forum proposal)",
+        "url": "https://research.lido.fi/t/d-u-c-k-distributed-utilization-of-configurations-and-knowledge-proposal/5848"
+      },
+      {
+        "label": "Lido LEGO grant Strengthen D.U.C.K., $75,200 in DAI (forum proposal)",
+        "url": "https://research.lido.fi/t/strengthen-d-u-c-k-governance-assurance-and-real-world-adoption/9849"
+      },
+      {
+        "label": "Lido LEGO grant for ValOS early-adopter assessment subsidies, $60,000 (forum proposal)",
+        "url": "https://research.lido.fi/t/proposal-funding-request-for-valos-early-adopter-assessment-subsidies/10657"
+      }
+    ],
+    "otherProducts": [
+      {
+        "label": "Lionscraft risk site, linked from its website",
+        "url": "https://risk.lionscraft.io"
+      },
+      {
+        "label": "Lionscraft protect site, linked from its website",
+        "url": "https://protect.lionscraft.io"
+      },
+      {
+        "label": "D.U.C.K. Knowledge Base, predecessor of ValOS",
+        "url": "https://duck-initiative.gitbook.io/d.u.c.k.-knowledge-base"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Lionscraft website",
+        "url": "https://www.lionscraft.io/"
+      },
+      {
+        "label": "ValOS website",
+        "url": "https://www.valos.global/"
+      },
+      {
+        "label": "ValOS GitHub repository",
+        "url": "https://github.com/lidofinance/valos"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [
+    {
+      "grant": "Lido LEGO: D.U.C.K. Alpha Release ($77,600 in DAI)",
+      "funder": "Lido DAO LEGO council and NOM workstream",
+      "promised": "Three open-source components within four months: a Risk Framework, a Mitigations and Controls Library, and a Communications Toolkit, under Apache 2.0.",
+      "status": "Delivered",
+      "sources": [
+        {
+          "label": "Original proposal on Lido Research",
+          "url": "https://research.lido.fi/t/d-u-c-k-distributed-utilization-of-configurations-and-knowledge-proposal/5848"
+        },
+        {
+          "label": "D.U.C.K. Knowledge Base",
+          "url": "https://duck-initiative.gitbook.io/d.u.c.k.-knowledge-base"
+        },
+        {
+          "label": "Follow-up proposal recap of the April 2024 launch",
+          "url": "https://research.lido.fi/t/strengthen-d-u-c-k-governance-assurance-and-real-world-adoption/9849"
+        }
+      ],
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "grant": "Lido LEGO: Strengthen D.U.C.K. ($75,200 in DAI, 6 months)",
+      "funder": "Lido DAO LEGO council and NOM workstream",
+      "promised": "Governance model and foundation, expanded content aligned to ISO and SOC, defined roles, a public assurance register in place of an NFT badge, rebranding to ValOS, and partner outreach.",
+      "status": "Delivered",
+      "sources": [
+        {
+          "label": "Proposal and delivery report thread",
+          "url": "https://research.lido.fi/t/strengthen-d-u-c-k-governance-assurance-and-real-world-adoption/9849"
+        },
+        {
+          "label": "ValOS GitHub repository",
+          "url": "https://github.com/lidofinance/valos"
+        }
+      ],
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "grant": "Lido LEGO: ValOS early-adopter assessment subsidies ($60,000)",
+      "funder": "Lido DAO LEGO council",
+      "promised": "Subsidize enterprise-grade ValOS assessments for four early-adopter node operators. A LEGO-side forum post says the grant was disbursed in December 2025. The 2026 ValOS site lists no reviewed operators yet.",
+      "status": "No public evidence",
+      "sources": [
+        {
+          "label": "Funding request and disbursement note",
+          "url": "https://research.lido.fi/t/proposal-funding-request-for-valos-early-adopter-assessment-subsidies/10657"
+        },
+        {
+          "label": "ValOS website, reviewed operators section",
+          "url": "https://www.valos.global/"
+        }
+      ],
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "The ValOS website is live and presents the Validator Operations Standard.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "ValOS website",
+          "url": "https://www.valos.global/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The URL returns HTTP 200 and shows the standard, contributor logos, a self-assessment path and a Lido Labs Foundation credit."
+    },
+    {
+      "claim": "The ValOS standard is open source on GitHub.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "lidofinance/valos",
+          "url": "https://github.com/lidofinance/valos"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: Apache-2.0, created 2025-07-08, 8 stars, 8 forks, repository pushed 2026-09-13, last default-branch commit 2026-07-10, no release or tag. Top contributors are chaals (86), cnupy (33), Sven-NOM (27)."
+    },
+    {
+      "claim": "The full ValOS standard launched in September 2026.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "lidofinance/valos",
+          "url": "https://github.com/lidofinance/valos"
+        },
+        {
+          "label": "ValOS website",
+          "url": "https://www.valos.global/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "No dated release, tag or announcement was found. The default branch's last commit is 2026-07-10 and the repository was pushed on 2026-09-13."
+    },
+    {
+      "claim": "Contributions came from 20 organizations across staking, security, risk and assurance.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "ValOS website, contributors",
+          "url": "https://www.valos.global/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The ValOS site links 18 contributor organizations, including Lionscraft. The figure of 20 was not matched exactly, and each contribution was not checked."
+    },
+    {
+      "claim": "Qualified third-party assessors can evaluate operators against ValOS.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "ValOS website, assurance",
+          "url": "https://www.valos.global/"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The site says the network of independent assessors is being established. No approved assessor is listed."
+    },
+    {
+      "claim": "Lido will subsidize part of the assessment cost for four early-adopter node operators.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Funding request thread on Lido Research",
+          "url": "https://research.lido.fi/t/proposal-funding-request-for-valos-early-adopter-assessment-subsidies/10657"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The thread holds the $60,000 request. A LEGO-side reply dated 2026-03-25 says it was disbursed in December 2025. That reply is a statement, and the transaction link was not opened."
+    },
+    {
+      "claim": "Lionscraft has pledged $27,000 toward the funding goal, and $34,000 of the $78,000 request depends on verified adoption outcomes.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/keep-eth-infraops-open-secure-resilient-validator-operation"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Pledge and milestone terms come from the proposal. Neither was independently checked."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Individual team members: the proposal names none. The linked Lido forum posts use the username JulianU with no stated affiliation, so no person card was added",
+    "Lionscraft founding date, public team size and founders Not found in public sources",
+    "Lionscraft audits, CVEs and bounty credits Not found in public sources",
+    "Reviewed node operators or completed ValOS assessments Not found in public sources",
+    "Disbursement of the second 50% of the Strengthen D.U.C.K. grant Not found in public sources",
+    "Lionscraft GitHub organization: none linked. The collector read lidofinance, which hosts the ValOS repository but is not Lionscraft"
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

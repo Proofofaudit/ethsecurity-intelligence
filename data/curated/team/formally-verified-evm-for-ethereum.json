@@ -1,0 +1,267 @@
+{
+  "members": [
+    {
+      "name": "Ben Adams",
+      "role": "Principal Engineer (LeanCIL and Nethermind), per the proposal; leads compiled CIL proofs",
+      "pseudonymous": false,
+      "handles": [],
+      "pastWork": [
+        {
+          "label": "Author of LeanCIL repository work (Nethermind)",
+          "kind": "project",
+          "url": "https://github.com/NethermindEth/LeanCIL",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "Merged pull requests by benaadams in NethermindEth/nethermind",
+          "kind": "project",
+          "url": "https://github.com/NethermindEth/nethermind/pulls?q=is%3Apr+is%3Amerged+author%3Abenaadams",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/formally-verified-evm-for-ethereum",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Maxim Menshikov",
+      "role": "Senior Engineer (il2rv64), per the proposal; leads machine-code refinement proofs",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "maximmenshikov",
+          "url": "https://github.com/maximmenshikov",
+          "publishedBy": "proposal"
+        },
+        {
+          "platform": "Google Scholar",
+          "handle": "pSDXCfIAAAAJ",
+          "url": "https://scholar.google.com/citations?user=pSDXCfIAAAAJ&hl=en",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "bflat-riscv64 compiler (Nethermind)",
+          "kind": "project",
+          "url": "https://github.com/NethermindEth/bflat-riscv64",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/formally-verified-evm-for-ethereum",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Julian Sutherland",
+      "role": "Head of Formal Verification (EVMYulLean), per the proposal. His Imperial College page says Formal Verification Engineer at Nethermind",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "Website",
+          "handle": "vtss.doc.ic.ac.uk/people/sutherland",
+          "url": "https://vtss.doc.ic.ac.uk/people/sutherland.html",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "PhD thesis defended 2022 at Imperial College London: Compositional termination verification for fine-grained concurrency",
+          "kind": "paper",
+          "url": "https://vtss.doc.ic.ac.uk/people/sutherland.html",
+          "checkedOn": "2026-11-28"
+        },
+        {
+          "label": "EF 2024 academic grant: Towards an Executable Formal Model of EVM and Yul in Lean (named researcher)",
+          "kind": "project",
+          "url": "https://blog.ethereum.org/2025/01/17/academic-grants-recipients",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/formally-verified-evm-for-ethereum",
+      "checkedOn": "2026-11-28"
+    },
+    {
+      "name": "Łukasz Rozmej",
+      "role": "Ethereum Core Developer, per the proposal; reviews Amsterdam requirements and shared EVM integration",
+      "pseudonymous": false,
+      "handles": [
+        {
+          "platform": "GitHub",
+          "handle": "LukaszRozmej",
+          "url": "https://github.com/LukaszRozmej",
+          "publishedBy": "proposal"
+        }
+      ],
+      "pastWork": [
+        {
+          "label": "Merged pull requests by LukaszRozmej in NethermindEth/nethermind",
+          "kind": "project",
+          "url": "https://github.com/NethermindEth/nethermind/pulls?q=is%3Apr+is%3Amerged+author%3ALukaszRozmej",
+          "checkedOn": "2026-11-28"
+        }
+      ],
+      "sourceUrl": "https://initiatives.thedao.fund/initiative/formally-verified-evm-for-ethereum",
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "organization": {
+    "name": "Nethermind",
+    "summary": "Company building Ethereum infrastructure. Its website lists core protocol development, execution node engineering, EVM research, applied cryptography, ZK systems and formal methods. The Nethermind execution client repository on GitHub was created 2017-08-23.",
+    "website": "https://www.nethermind.io",
+    "founded": "Not found in public sources",
+    "previousFunding": [
+      {
+        "label": "Ethereum Foundation 2024 Academic Grants (EVM and Yul in Lean)",
+        "url": "https://blog.ethereum.org/2025/01/17/academic-grants-recipients"
+      }
+    ],
+    "otherProducts": [
+      {
+        "label": "Nethermind execution client",
+        "url": "https://github.com/NethermindEth/nethermind"
+      },
+      {
+        "label": "EVMYulLean",
+        "url": "https://github.com/NethermindEth/EVMYulLean"
+      },
+      {
+        "label": "LeanCIL",
+        "url": "https://github.com/NethermindEth/LeanCIL"
+      },
+      {
+        "label": "bflat-riscv64",
+        "url": "https://github.com/NethermindEth/bflat-riscv64"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Nethermind website",
+        "url": "https://www.nethermind.io"
+      },
+      {
+        "label": "GitHub organization NethermindEth",
+        "url": "https://github.com/NethermindEth"
+      }
+    ],
+    "checkedOn": "2026-11-28"
+  },
+  "delivery": [
+    {
+      "grant": "Ethereum Foundation 2024 Academic Grants: Towards an Executable Formal Model of EVM and Yul in Lean",
+      "funder": "Ethereum Foundation",
+      "promised": "Per the EF recipients page: a project that formalizes the EVM in Lean, providing tools for reasoning about smart contracts and execution environments. The proposal says previous EF funding supported Cancun formalisation. The EF page does not mention Cancun, so the link between the two statements is not confirmed.",
+      "status": "Partly delivered",
+      "sources": [
+        {
+          "label": "Ethereum Foundation 2024 Academic Grants recipients",
+          "url": "https://blog.ethereum.org/2025/01/17/academic-grants-recipients"
+        },
+        {
+          "label": "GitHub repository NethermindEth/EVMYulLean",
+          "url": "https://github.com/NethermindEth/EVMYulLean"
+        }
+      ],
+      "checkedOn": "2026-11-28"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "LeanCIL is a public repository for formal verification of compiled .NET code in Lean 4.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "GitHub repository NethermindEth/LeanCIL",
+          "url": "https://github.com/NethermindEth/LeanCIL"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: public repository created 2026-10-14, last push 2026-11-28, 131 stars, license reported as NOASSERTION. The README describes extracting CIL from .NET assemblies and checking proofs in Lean 4, with example proofs. Proofs were not rerun. The proposal itself says LeanCIL does not yet cover the full EVM."
+    },
+    {
+      "claim": "bflat-riscv64 is a compiler supporting ZisK, SP1 and OpenVM.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "GitHub repository NethermindEth/bflat-riscv64",
+          "url": "https://github.com/NethermindEth/bflat-riscv64"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: public AGPL-3.0 repository created 2025-04-16, last push 2026-11-24. The README target table lists zisk, sp1 and openvm targets. Compilation was not run."
+    },
+    {
+      "claim": "EVMYulLean is an executable formal model of the EVM and Yul in Lean 4.",
+      "status": "Verified",
+      "sources": [
+        {
+          "label": "GitHub repository NethermindEth/EVMYulLean",
+          "url": "https://github.com/NethermindEth/EVMYulLean"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "GitHub API: public Apache-2.0 repository created 2024-07-18, last push 2025-11-19, 102 stars. The README describes the model and states everything is work in progress."
+    },
+    {
+      "claim": "EthLib defines and proves EVM rules in Lean, with some Amsterdam gaps.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "GitHub repository ethereum/EthLib",
+          "url": "https://github.com/ethereum/EthLib"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The repository exists (public, CC0-1.0, last push 2026-11-28, 112 stars). The Amsterdam coverage was not reviewed."
+    },
+    {
+      "claim": "Ben Adams is co-author of 15 Core EIPs and a twelve-time Microsoft MVP.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Proposal",
+          "url": "https://initiatives.thedao.fund/initiative/formally-verified-evm-for-ethereum"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "Not checked against the EIP repository or a Microsoft MVP profile. The GitHub profile exists (login benaadams, created 2011-10-21)."
+    },
+    {
+      "claim": "Julian Sutherland holds an Imperial College London PhD with publications at ECOOP, ESOP and ACM TOPLAS.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Imperial College VTSS profile",
+          "url": "https://vtss.doc.ic.ac.uk/people/sutherland.html"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The profile confirms he defended a PhD thesis in 2022 and is a Formal Verification Engineer at Nethermind. The listed venues were not checked, and his title there differs from the proposal's Head of Formal Verification."
+    },
+    {
+      "claim": "Previous Ethereum Foundation funding supported Cancun formalisation.",
+      "status": "Not verified",
+      "sources": [
+        {
+          "label": "Ethereum Foundation 2024 Academic Grants recipients",
+          "url": "https://blog.ethereum.org/2025/01/17/academic-grants-recipients"
+        }
+      ],
+      "checkedOn": "2026-11-28",
+      "method": "The EF page lists an EVM and Yul in Lean grant to Nethermind researchers including Julian Sutherland. It does not mention Cancun."
+    }
+  ],
+  "passes": {
+    "team": true,
+    "delivery": true,
+    "claims": true
+  },
+  "notFound": [
+    "Number of contributors or team size at Nethermind: Not found in public sources.",
+    "Round 1 record for Nethermind: Not found in public sources.",
+    "Independent source for Ben Adams EIP co-authorship and MVP status: Not found in public sources.",
+    "Link between the EF grant and Cancun formalisation: Not found in public sources.",
+    "Ben Adams GitHub handle as a linked profile: Not found in public sources as published in the proposal (the proposal links only a pull-request search, not a profile)."
+  ],
+  "researcher": "agent",
+  "checkedOn": "2026-11-28"
+}

@@ -1,0 +1,284 @@
+{
+  "initiativeId": "01M4XZYSTKER585WFBTPDS2C3Z",
+  "collectedAt": "2026-11-28T07:43:21.211Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 13,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "crytic",
+      "type": "Organization",
+      "url": "https://github.com/crytic",
+      "source": "proposal",
+      "reposTotal": 65,
+      "repos": [
+        {
+          "fullName": "crytic/echidna",
+          "url": "https://github.com/crytic/echidna",
+          "fork": false,
+          "archived": false,
+          "stars": 3203,
+          "forks": 441,
+          "pushedAt": "2026-11-28T01:58:37Z",
+          "latestReleaseAt": "2026-11-04T18:37:07Z"
+        },
+        {
+          "fullName": "crytic/slither",
+          "url": "https://github.com/crytic/slither",
+          "fork": false,
+          "archived": false,
+          "stars": 6424,
+          "forks": 1174,
+          "pushedAt": "2026-11-18T22:54:08Z",
+          "latestReleaseAt": "2026-07-28T21:32:01Z"
+        },
+        {
+          "fullName": "crytic/crytic-compile",
+          "url": "https://github.com/crytic/crytic-compile",
+          "fork": false,
+          "archived": false,
+          "stars": 199,
+          "forks": 98,
+          "pushedAt": "2026-11-17T23:23:29Z",
+          "latestReleaseAt": "2026-07-28T20:54:12Z"
+        },
+        {
+          "fullName": "crytic/medusa",
+          "url": "https://github.com/crytic/medusa",
+          "fork": false,
+          "archived": false,
+          "stars": 502,
+          "forks": 103,
+          "pushedAt": "2026-10-28T23:54:46Z",
+          "latestReleaseAt": "2026-03-11T13:21:11Z"
+        },
+        {
+          "fullName": "crytic/anchorx-ray",
+          "url": "https://github.com/crytic/anchorx-ray",
+          "fork": false,
+          "archived": false,
+          "stars": 39,
+          "forks": 3,
+          "pushedAt": "2026-10-23T14:30:06Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "crytic/building-secure-contracts",
+          "url": "https://github.com/crytic/building-secure-contracts",
+          "fork": false,
+          "archived": false,
+          "stars": 2488,
+          "forks": 394,
+          "pushedAt": "2026-10-22T17:49:09Z",
+          "latestReleaseAt": "2023-02-23T13:44:14Z"
+        },
+        {
+          "fullName": "crytic/fluxture",
+          "url": "https://github.com/crytic/fluxture",
+          "fork": false,
+          "archived": false,
+          "stars": 46,
+          "forks": 9,
+          "pushedAt": "2026-09-07T22:02:57Z",
+          "latestReleaseAt": "2021-10-04T01:52:55Z"
+        },
+        {
+          "fullName": "crytic/solc-select",
+          "url": "https://github.com/crytic/solc-select",
+          "fork": false,
+          "archived": false,
+          "stars": 816,
+          "forks": 108,
+          "pushedAt": "2026-06-04T08:52:29Z",
+          "latestReleaseAt": "2025-12-04T20:56:35Z"
+        },
+        {
+          "fullName": "crytic/crytic.nix",
+          "url": "https://github.com/crytic/crytic.nix",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 1,
+          "pushedAt": "2026-04-22T19:21:13Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "crytic/medusa-geth",
+          "url": "https://github.com/crytic/medusa-geth",
+          "fork": false,
+          "archived": false,
+          "stars": 13,
+          "forks": 5,
+          "pushedAt": "2026-04-20T20:25:48Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "crytic/pyevmasm",
+          "url": "https://github.com/crytic/pyevmasm",
+          "fork": false,
+          "archived": false,
+          "stars": 386,
+          "forks": 52,
+          "pushedAt": "2026-04-17T13:27:15Z",
+          "latestReleaseAt": "2020-04-17T00:16:34Z"
+        },
+        {
+          "fullName": "crytic/properties",
+          "url": "https://github.com/crytic/properties",
+          "fork": false,
+          "archived": false,
+          "stars": 371,
+          "forks": 61,
+          "pushedAt": "2026-03-09T17:36:56Z",
+          "latestReleaseAt": "2025-04-18T18:36:16Z"
+        }
+      ]
+    },
+    {
+      "login": "a16z",
+      "type": "Organization",
+      "url": "https://github.com/a16z",
+      "source": "proposal",
+      "reposTotal": 35,
+      "repos": [
+        {
+          "fullName": "a16z/jolt",
+          "url": "https://github.com/a16z/jolt",
+          "fork": false,
+          "archived": false,
+          "stars": 1067,
+          "forks": 349,
+          "pushedAt": "2026-11-27T16:29:27Z",
+          "latestReleaseAt": "2025-10-01T03:04:20Z"
+        },
+        {
+          "fullName": "a16z/helios",
+          "url": "https://github.com/a16z/helios",
+          "fork": false,
+          "archived": false,
+          "stars": 2202,
+          "forks": 478,
+          "pushedAt": "2026-11-25T20:13:01Z",
+          "latestReleaseAt": "2026-11-25T20:03:10Z"
+        },
+        {
+          "fullName": "a16z/aerie",
+          "url": "https://github.com/a16z/aerie",
+          "fork": false,
+          "archived": false,
+          "stars": 14,
+          "forks": 3,
+          "pushedAt": "2026-11-24T14:46:11Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "a16z/pretzel",
+          "url": "https://github.com/a16z/pretzel",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-21T23:42:44Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "a16z/jeth",
+          "url": "https://github.com/a16z/jeth",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-17T19:38:26Z",
+          "latestReleaseAt": "2026-11-17T18:36:16Z"
+        },
+        {
+          "fullName": "a16z/dory",
+          "url": "https://github.com/a16z/dory",
+          "fork": false,
+          "archived": false,
+          "stars": 11,
+          "forks": 11,
+          "pushedAt": "2026-11-02T05:37:24Z",
+          "latestReleaseAt": "2026-11-02T05:37:43Z"
+        },
+        {
+          "fullName": "a16z/zkdocs",
+          "url": "https://github.com/a16z/zkdocs",
+          "fork": false,
+          "archived": false,
+          "stars": 307,
+          "forks": 27,
+          "pushedAt": "2026-04-01T19:06:07Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "a16z/hachi",
+          "url": "https://github.com/a16z/hachi",
+          "fork": false,
+          "archived": false,
+          "stars": 10,
+          "forks": 14,
+          "pushedAt": "2026-04-01T00:27:05Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "a16z/auction-zoo",
+          "url": "https://github.com/a16z/auction-zoo",
+          "fork": false,
+          "archived": true,
+          "stars": 353,
+          "forks": 34,
+          "pushedAt": "2026-03-27T22:22:53Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "a16z/a16z-contracts",
+          "url": "https://github.com/a16z/a16z-contracts",
+          "fork": false,
+          "archived": false,
+          "stars": 289,
+          "forks": 52,
+          "pushedAt": "2026-03-27T19:49:05Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "a16z/zkdrops",
+          "url": "https://github.com/a16z/zkdrops",
+          "fork": false,
+          "archived": false,
+          "stars": 762,
+          "forks": 123,
+          "pushedAt": "2026-03-12T19:11:19Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "a16z/rust",
+          "url": "https://github.com/a16z/rust",
+          "fork": false,
+          "archived": true,
+          "stars": 7,
+          "forks": 4,
+          "pushedAt": "2026-02-23T18:02:57Z",
+          "latestReleaseAt": "2025-09-08T20:29:55Z"
+        }
+      ]
+    }
+  ],
+  "people": []
+}

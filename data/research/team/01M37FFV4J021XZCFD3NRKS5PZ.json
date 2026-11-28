@@ -1,0 +1,1275 @@
+{
+  "initiativeId": "01M37FFV4J021XZCFD3NRKS5PZ",
+  "collectedAt": "2026-11-28T07:26:37.453Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 97,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "sourcifyeth",
+      "type": "Organization",
+      "url": "https://github.com/sourcifyeth",
+      "source": "proposal",
+      "reposTotal": 55,
+      "repos": [
+        {
+          "fullName": "sourcifyeth/sourcify-stats",
+          "url": "https://github.com/sourcifyeth/sourcify-stats",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 1,
+          "pushedAt": "2026-11-28T05:25:35Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "sourcifyeth/sourcify-chains",
+          "url": "https://github.com/sourcifyeth/sourcify-chains",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 26,
+          "pushedAt": "2026-11-27T22:30:18Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "sourcifyeth/repo.sourcify.dev",
+          "url": "https://github.com/sourcifyeth/repo.sourcify.dev",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 6,
+          "pushedAt": "2026-11-27T15:52:00Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "sourcifyeth/onay",
+          "url": "https://github.com/sourcifyeth/onay",
+          "fork": false,
+          "archived": false,
+          "stars": 3,
+          "forks": 1,
+          "pushedAt": "2026-11-26T07:53:15Z",
+          "latestReleaseAt": "2026-11-02T11:21:25Z"
+        },
+        {
+          "fullName": "sourcifyeth/clear-signing",
+          "url": "https://github.com/sourcifyeth/clear-signing",
+          "fork": false,
+          "archived": false,
+          "stars": 6,
+          "forks": 7,
+          "pushedAt": "2026-11-25T17:08:11Z",
+          "latestReleaseAt": "2026-11-19T13:53:24Z"
+        },
+        {
+          "fullName": "sourcifyeth/docs",
+          "url": "https://github.com/sourcifyeth/docs",
+          "fork": false,
+          "archived": false,
+          "stars": 16,
+          "forks": 16,
+          "pushedAt": "2026-11-25T14:14:06Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "sourcifyeth/ui",
+          "url": "https://github.com/sourcifyeth/ui",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 4,
+          "pushedAt": "2026-11-24T10:05:55Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "sourcifyeth/ipfs-pinner",
+          "url": "https://github.com/sourcifyeth/ipfs-pinner",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-16T13:58:43Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "sourcifyeth/verify.sourcify.dev",
+          "url": "https://github.com/sourcifyeth/verify.sourcify.dev",
+          "fork": false,
+          "archived": false,
+          "stars": 16,
+          "forks": 16,
+          "pushedAt": "2026-11-16T10:58:33Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "sourcifyeth/erc7730-spec-tests",
+          "url": "https://github.com/sourcifyeth/erc7730-spec-tests",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-11T14:02:39Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "sourcifyeth/solc-zk-proof",
+          "url": "https://github.com/sourcifyeth/solc-zk-proof",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-04T19:01:41Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "sourcifyeth/clear-signing-coverage-dashboard",
+          "url": "https://github.com/sourcifyeth/clear-signing-coverage-dashboard",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-02T08:17:30Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "argotorg",
+      "type": "Organization",
+      "url": "https://github.com/argotorg",
+      "source": "proposal",
+      "reposTotal": 29,
+      "repos": [
+        {
+          "fullName": "argotorg/fe",
+          "url": "https://github.com/argotorg/fe",
+          "fork": false,
+          "archived": false,
+          "stars": 1739,
+          "forks": 223,
+          "pushedAt": "2026-11-28T06:26:28Z",
+          "latestReleaseAt": "2026-11-18T23:45:14Z"
+        },
+        {
+          "fullName": "argotorg/solidity",
+          "url": "https://github.com/argotorg/solidity",
+          "fork": false,
+          "archived": false,
+          "stars": 25782,
+          "forks": 6181,
+          "pushedAt": "2026-11-28T05:35:51Z",
+          "latestReleaseAt": "2026-11-26T06:13:47Z"
+        },
+        {
+          "fullName": "argotorg/solc-bin",
+          "url": "https://github.com/argotorg/solc-bin",
+          "fork": false,
+          "archived": false,
+          "stars": 433,
+          "forks": 263,
+          "pushedAt": "2026-11-28T00:50:03Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "argotorg/hevm",
+          "url": "https://github.com/argotorg/hevm",
+          "fork": false,
+          "archived": false,
+          "stars": 364,
+          "forks": 80,
+          "pushedAt": "2026-11-27T15:26:20Z",
+          "latestReleaseAt": "2026-06-29T12:37:19Z"
+        },
+        {
+          "fullName": "argotorg/solcore-lean",
+          "url": "https://github.com/argotorg/solcore-lean",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 0,
+          "pushedAt": "2026-11-27T00:06:20Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "argotorg/shuffler.lean",
+          "url": "https://github.com/argotorg/shuffler.lean",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 2,
+          "pushedAt": "2026-11-26T16:17:26Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "argotorg/solcore",
+          "url": "https://github.com/argotorg/solcore",
+          "fork": false,
+          "archived": false,
+          "stars": 115,
+          "forks": 11,
+          "pushedAt": "2026-11-26T08:08:48Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "argotorg/solcore-rs",
+          "url": "https://github.com/argotorg/solcore-rs",
+          "fork": false,
+          "archived": false,
+          "stars": 5,
+          "forks": 5,
+          "pushedAt": "2026-11-26T07:05:49Z",
+          "latestReleaseAt": "2026-10-30T08:40:16Z"
+        },
+        {
+          "fullName": "argotorg/yul-semantics-zoo",
+          "url": "https://github.com/argotorg/yul-semantics-zoo",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-25T22:49:47Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "argotorg/EquiVM",
+          "url": "https://github.com/argotorg/EquiVM",
+          "fork": false,
+          "archived": false,
+          "stars": 31,
+          "forks": 9,
+          "pushedAt": "2026-11-25T18:35:55Z",
+          "latestReleaseAt": "2026-07-30T10:52:57Z"
+        },
+        {
+          "fullName": "argotorg/sourcify",
+          "url": "https://github.com/argotorg/sourcify",
+          "fork": false,
+          "archived": false,
+          "stars": 966,
+          "forks": 552,
+          "pushedAt": "2026-11-25T14:23:11Z",
+          "latestReleaseAt": "2026-11-17T15:05:17Z"
+        },
+        {
+          "fullName": "argotorg/solidity-website",
+          "url": "https://github.com/argotorg/solidity-website",
+          "fork": false,
+          "archived": false,
+          "stars": 30,
+          "forks": 30,
+          "pushedAt": "2026-11-24T15:50:13Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "manuelwedler",
+      "type": "User",
+      "url": "https://github.com/manuelwedler",
+      "source": "proposal",
+      "reposTotal": 24,
+      "repos": [
+        {
+          "fullName": "manuelwedler/clear-signing-erc7730-registry",
+          "url": "https://github.com/manuelwedler/clear-signing-erc7730-registry",
+          "fork": true,
+          "archived": false,
+          "stars": 2,
+          "forks": 1,
+          "pushedAt": "2026-11-27T16:03:05Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "manuelwedler/llbartekll-clear-signing",
+          "url": "https://github.com/manuelwedler/llbartekll-clear-signing",
+          "fork": true,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-11-26T09:22:44Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "manuelwedler/ERCs",
+          "url": "https://github.com/manuelwedler/ERCs",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-29T12:33:53Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "manuelwedler/python-erc7730",
+          "url": "https://github.com/manuelwedler/python-erc7730",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2026-09-07T16:38:35Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "manuelwedler/foundry",
+          "url": "https://github.com/manuelwedler/foundry",
+          "fork": true,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-06-18T08:32:45Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "manuelwedler/vyper",
+          "url": "https://github.com/manuelwedler/vyper",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-05-15T08:22:13Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "manuelwedler/hardhat-website",
+          "url": "https://github.com/manuelwedler/hardhat-website",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-03-24T08:27:52Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "manuelwedler/hardhat",
+          "url": "https://github.com/manuelwedler/hardhat",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-03-16T16:47:43Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "manuelwedler/blockscout-docs",
+          "url": "https://github.com/manuelwedler/blockscout-docs",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-12-30T10:12:21Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "manuelwedler/solidity",
+          "url": "https://github.com/manuelwedler/solidity",
+          "fork": true,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2025-12-23T01:36:40Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "manuelwedler/blockscout-frontend",
+          "url": "https://github.com/manuelwedler/blockscout-frontend",
+          "fork": true,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-11-04T10:31:26Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "manuelwedler/remix-ide",
+          "url": "https://github.com/manuelwedler/remix-ide",
+          "fork": true,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2025-01-07T12:04:57Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "kuzdogan",
+      "type": "User",
+      "url": "https://github.com/kuzdogan",
+      "source": "proposal",
+      "reposTotal": 90,
+      "repos": [
+        {
+          "fullName": "kuzdogan/kuzdogan-personal-site",
+          "url": "https://github.com/kuzdogan/kuzdogan-personal-site",
+          "fork": false,
+          "archived": false,
+          "stars": 3,
+          "forks": 1,
+          "pushedAt": "2026-11-13T15:19:33Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "kuzdogan/twitter-trends-bot",
+          "url": "https://github.com/kuzdogan/twitter-trends-bot",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-08-10T14:09:16Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "kuzdogan/eof.wtf",
+          "url": "https://github.com/kuzdogan/eof.wtf",
+          "fork": false,
+          "archived": false,
+          "stars": 3,
+          "forks": 0,
+          "pushedAt": "2025-04-07T09:03:19Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "kuzdogan/powdr-website",
+          "url": "https://github.com/kuzdogan/powdr-website",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2024-09-29T13:10:32Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "kuzdogan/nock-14-bug-example",
+          "url": "https://github.com/kuzdogan/nock-14-bug-example",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-07-23T10:45:19Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "kuzdogan/solidity-in-browser",
+          "url": "https://github.com/kuzdogan/solidity-in-browser",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 0,
+          "pushedAt": "2024-02-07T07:59:39Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "kuzdogan/cbor-x-debug",
+          "url": "https://github.com/kuzdogan/cbor-x-debug",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2023-12-29T14:48:04Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "kuzdogan/usecompiler-consistency",
+          "url": "https://github.com/kuzdogan/usecompiler-consistency",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2023-07-11T16:03:15Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "kuzdogan/Flags-With-Names",
+          "url": "https://github.com/kuzdogan/Flags-With-Names",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2023-05-07T22:58:18Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "kuzdogan/simple-eth-server",
+          "url": "https://github.com/kuzdogan/simple-eth-server",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2023-01-23T23:34:13Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "kuzdogan/blogletter",
+          "url": "https://github.com/kuzdogan/blogletter",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2022-12-12T13:56:30Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "kuzdogan/twitterbot",
+          "url": "https://github.com/kuzdogan/twitterbot",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2022-12-10T18:37:31Z",
+          "latestReleaseAt": null
+        }
+      ]
+    },
+    {
+      "login": "marcocastignoli",
+      "type": "User",
+      "url": "https://github.com/marcocastignoli",
+      "source": "proposal",
+      "reposTotal": 100,
+      "repos": [
+        {
+          "fullName": "marcocastignoli/blog",
+          "url": "https://github.com/marcocastignoli/blog",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-21T12:08:48Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "marcocastignoli/proxy-clear-signing",
+          "url": "https://github.com/marcocastignoli/proxy-clear-signing",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-09-24T11:34:48Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "marcocastignoli/wow-mobile",
+          "url": "https://github.com/marcocastignoli/wow-mobile",
+          "fork": false,
+          "archived": false,
+          "stars": 75,
+          "forks": 7,
+          "pushedAt": "2026-08-16T12:35:30Z",
+          "latestReleaseAt": "2026-08-16T12:36:20Z"
+        },
+        {
+          "fullName": "marcocastignoli/gamelator-db",
+          "url": "https://github.com/marcocastignoli/gamelator-db",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-08-15T13:03:29Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "marcocastignoli/ulysses",
+          "url": "https://github.com/marcocastignoli/ulysses",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-08-09T19:25:44Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "marcocastignoli/vouch-pitch",
+          "url": "https://github.com/marcocastignoli/vouch-pitch",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-06-02T06:41:25Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "marcocastignoli/talaria",
+          "url": "https://github.com/marcocastignoli/talaria",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-05-28T15:24:20Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "marcocastignoli/automated-repo",
+          "url": "https://github.com/marcocastignoli/automated-repo",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 1,
+          "pushedAt": "2026-05-04T11:57:44Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "marcocastignoli/boardgame",
+          "url": "https://github.com/marcocastignoli/boardgame",
+          "fork": false,
+          "archived": false,
+          "stars": 12,
+          "forks": 0,
+          "pushedAt": "2026-03-14T14:07:24Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "marcocastignoli/circleci-cache-tests",
+          "url": "https://github.com/marcocastignoli/circleci-cache-tests",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-01-06T08:38:32Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "marcocastignoli/gh-docker-migration",
+          "url": "https://github.com/marcocastignoli/gh-docker-migration",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2025-08-25T07:33:26Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "marcocastignoli/fftcg-print",
+          "url": "https://github.com/marcocastignoli/fftcg-print",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2024-10-26T10:00:23Z",
+          "latestReleaseAt": null
+        }
+      ]
+    }
+  ],
+  "people": [
+    {
+      "handle": "manuelwedler",
+      "url": "https://github.com/manuelwedler",
+      "source": "curated",
+      "repos": [
+        {
+          "fullName": "sourcifyeth/sourcify-stats",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "sourcifyeth/sourcify-chains",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            5,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "sourcifyeth/repo.sourcify.dev",
+          "monthly": [
+            2,
+            0,
+            0,
+            2,
+            4,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "sourcifyeth/onay",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            20,
+            4
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "sourcifyeth/clear-signing",
+          "monthly": [
+            0,
+            0,
+            7,
+            45,
+            20,
+            41,
+            16,
+            4,
+            0,
+            1,
+            5,
+            3
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "sourcifyeth/docs",
+          "monthly": [
+            4,
+            2,
+            3,
+            2,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            1
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "sourcifyeth/ui",
+          "monthly": [
+            2,
+            2,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "sourcifyeth/ipfs-pinner",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "sourcifyeth/verify.sourcify.dev",
+          "monthly": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "sourcifyeth/erc7730-spec-tests",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        9,
+        4,
+        10,
+        51,
+        26,
+        43,
+        17,
+        6,
+        0,
+        5,
+        33,
+        9
+      ]
+    },
+    {
+      "handle": "kuzdogan",
+      "url": "https://github.com/kuzdogan",
+      "source": "curated",
+      "repos": [
+        {
+          "fullName": "kuzdogan/kuzdogan-personal-site",
+          "monthly": [
+            0,
+            1,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "sourcifyeth/sourcify-stats",
+          "monthly": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "sourcifyeth/sourcify-chains",
+          "monthly": [
+            0,
+            0,
+            33,
+            30,
+            5,
+            11,
+            10,
+            4,
+            3,
+            4,
+            1,
+            1
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "sourcifyeth/repo.sourcify.dev",
+          "monthly": [
+            3,
+            0,
+            0,
+            5,
+            3,
+            1,
+            8,
+            5,
+            2,
+            4,
+            48,
+            3
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "sourcifyeth/onay",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            6,
+            3,
+            3
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "sourcifyeth/clear-signing",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "sourcifyeth/docs",
+          "monthly": [
+            2,
+            0,
+            1,
+            2,
+            4,
+            5,
+            1,
+            9,
+            7,
+            7,
+            12,
+            2
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "sourcifyeth/ui",
+          "monthly": [
+            0,
+            0,
+            2,
+            5,
+            3,
+            9,
+            5,
+            3,
+            1,
+            3,
+            19,
+            1
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "sourcifyeth/ipfs-pinner",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "sourcifyeth/verify.sourcify.dev",
+          "monthly": [
+            0,
+            1,
+            1,
+            4,
+            0,
+            0,
+            5,
+            0,
+            1,
+            0,
+            2,
+            0
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        5,
+        2,
+        41,
+        46,
+        15,
+        26,
+        29,
+        21,
+        16,
+        24,
+        86,
+        12
+      ]
+    },
+    {
+      "handle": "marcocastignoli",
+      "url": "https://github.com/marcocastignoli",
+      "source": "curated",
+      "repos": [
+        {
+          "fullName": "marcocastignoli/blog",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            16,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "marcocastignoli/proxy-clear-signing",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "marcocastignoli/wow-mobile",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            16,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "marcocastignoli/gamelator-db",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            15,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "marcocastignoli/ulysses",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            36,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "marcocastignoli/vouch-pitch",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "marcocastignoli/talaria",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "marcocastignoli/automated-repo",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            6,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "marcocastignoli/boardgame",
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        },
+        {
+          "fullName": "marcocastignoli/circleci-cache-tests",
+          "monthly": [
+            8,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "capped": false
+        }
+      ],
+      "monthly": [
+        8,
+        1,
+        0,
+        0,
+        6,
+        7,
+        3,
+        0,
+        67,
+        3,
+        16,
+        0
+      ]
+    }
+  ]
+}

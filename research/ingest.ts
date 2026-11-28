@@ -10,9 +10,11 @@
  *    object exists the snapshot is marked invalid and is never published.
  */
 import path from "node:path";
-import { fetchBallot, fetchComments, fetchDetail, fetchRevision, officialUrls } from "@/lib/official/client";
-import type { DetailResponse, ListResponse } from "@/lib/official/schemas";
-import { mapLimit } from "@/lib/util/http";
+import { ValidationFailure, fetchBallot, fetchComments, fetchDetail, fetchRevision, fetchVoteManifest, officialUrls } from "@/lib/official/client";
+import type { DetailResponse, ListResponse, VoteManifestResponse } from "@/lib/official/schemas";
+import { HttpError, mapLimit } from "@/lib/util/http";
+import { toCents } from "@/lib/util/money";
+import { buildVoteSection, type BallotRecord } from "@/lib/vote/manifest";
 import { contentHash } from "@/lib/util/hash";
 import {
   DATA_DIR,
@@ -69,6 +71,12 @@ export async function ingest(opts: IngestOptions = {}): Promise<SnapshotManifest
   requests++;
   const { data: ballot } = await fetchBallot();
   validation.push({ check: "ballot_schema", ok: true, detail: `schemaVersion ${ballot.schemaVersion}, count ${ballot.count}` });
+
+  // Vote manifest, fetched alongside the ballot. Never critical for the snapshot: a missing or
+  // changed manifest disables group-dependent features instead of blocking ballot data.
+  log("Fetching vote manifest…");
+  requests++;
+  const vote = await fetchManifestObject(previous, failedRequests);
 
   // 3. Unique identifiers.
   const slugs = ballot.initiatives.map((i) => i.slug);
@@ -198,6 +206,19 @@ export async function ingest(opts: IngestOptions = {}): Promise<SnapshotManifest
     detail: inconsistencies.length ? inconsistencies.slice(0, 10).join("; ") : "goal, raised, milestone sums and pledge sums reconcile",
   });
 
+  // Vote manifest alignment: slugs[i] ↔ projects[i] re-checked against the ballot on every sync.
+  const voteSection = buildVoteSection(
+    vote.object ? (await readObject<VoteManifestResponse>(vote.object)).manifest : null,
+    { objectHash: vote.object, fetchedAt: vote.fetchedAt, stale: vote.stale, error: vote.error },
+    new Map(cohort.members.map((m) => [m.slug, m.id])),
+    ballotRecords(ballot),
+  );
+  validation.push({
+    check: "vote_manifest_alignment",
+    ok: voteSection.status === "aligned",
+    detail: `${voteSection.status}: ${voteSection.statusReason}`,
+  });
+
   // Revisions: immutable, fetched once per (slug, n).
   log("Fetching revisions not yet stored…");
   const revTasks: { slug: string; n: number }[] = [];
@@ -240,11 +261,39 @@ export async function ingest(opts: IngestOptions = {}): Promise<SnapshotManifest
     failedRequests,
     validation,
     status: criticalOk && complete ? "valid" : "invalid",
+    vote,
   };
   await writeJson(path.join(SNAPSHOTS_DIR, `${snapshotId}.json`), manifest);
   log(`Snapshot ${snapshotId}: ${manifest.status} (${requests} requests, ${failedRequests.length} failed)`);
   for (const v of validation) log(`  [${v.ok ? "ok" : "!!"}] ${v.check}: ${v.detail}`);
   return manifest;
+}
+
+export function ballotRecords(ballot: Pick<ListResponse, "initiatives">): Map<string, BallotRecord> {
+  return new Map(ballot.initiatives.map((i) => [i.slug, { slug: i.slug, goalCents: toCents(i.goalUsd), type: i.type }]));
+}
+
+type VoteRef = NonNullable<SnapshotManifest["vote"]>;
+
+/**
+ * Fetch and content-address the vote manifest. HTTP 4xx (e.g. 404) and schema failures mean the
+ * manifest is missing or changed shape: no object, features disabled. A transport failure
+ * (timeout, 5xx after retries) reuses the previous snapshot's object, marked stale.
+ */
+export async function fetchManifestObject(previous: SnapshotManifest | null, failedRequests: { url: string; error: string }[], fetcher = fetchVoteManifest): Promise<VoteRef> {
+  const sourceUrl = officialUrls.manifest();
+  try {
+    const body = await fetcher();
+    return { object: await writeObject(body), fetchedAt: new Date().toISOString(), stale: false, error: null, sourceUrl };
+  } catch (err) {
+    const detail = err instanceof ValidationFailure ? `${err.message}: ${err.issues.slice(0, 5).join("; ")}` : String(err instanceof Error ? err.message : err);
+    failedRequests.push({ url: sourceUrl, error: detail });
+    const transport = err instanceof HttpError && (err.status === null || err.status >= 500 || err.status === 429);
+    const prev = previous?.vote;
+    if (transport && prev?.object) return { object: prev.object, fetchedAt: prev.fetchedAt, stale: true, error: detail, sourceUrl };
+    const why = err instanceof ValidationFailure ? "The vote manifest response no longer matches the expected shape" : err instanceof HttpError && err.status !== null ? `The vote manifest returned HTTP ${err.status}` : "The vote manifest could not be fetched";
+    return { object: null, fetchedAt: null, stale: false, error: `${why} (${detail.slice(0, 300)})`, sourceUrl };
+  }
 }
 
 /** The ballot `totals` block covers all approved initiatives, not the cohort. Keep it but mark it. */
