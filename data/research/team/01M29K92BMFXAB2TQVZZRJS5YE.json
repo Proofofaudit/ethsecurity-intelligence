@@ -1,0 +1,155 @@
+{
+  "initiativeId": "01M29K92BMFXAB2TQVZZRJS5YE",
+  "collectedAt": "2026-11-28T07:58:49.534Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 13,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "lfglabs-dev",
+      "type": "Organization",
+      "url": "https://github.com/lfglabs-dev",
+      "source": "proposal",
+      "reposTotal": 100,
+      "repos": [
+        {
+          "fullName": "lfglabs-dev/verity",
+          "url": "https://github.com/lfglabs-dev/verity",
+          "fork": false,
+          "archived": false,
+          "stars": 172,
+          "forks": 25,
+          "pushedAt": "2026-11-28T06:45:27Z",
+          "latestReleaseAt": "2026-10-03T12:53:41Z"
+        },
+        {
+          "fullName": "lfglabs-dev/lido-srv3-proof-closure",
+          "url": "https://github.com/lfglabs-dev/lido-srv3-proof-closure",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-11-27T17:16:28Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "lfglabs-dev/starknet.id",
+          "url": "https://github.com/lfglabs-dev/starknet.id",
+          "fork": false,
+          "archived": false,
+          "stars": 7,
+          "forks": 38,
+          "pushedAt": "2026-11-24T21:38:34Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "lfglabs-dev/glamsterdam-proof-closure",
+          "url": "https://github.com/lfglabs-dev/glamsterdam-proof-closure",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-22T17:53:27Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "lfglabs-dev/watchtower.starknet.id",
+          "url": "https://github.com/lfglabs-dev/watchtower.starknet.id",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-21T13:58:28Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "lfglabs-dev/unbound.md",
+          "url": "https://github.com/lfglabs-dev/unbound.md",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-11-20T10:54:30Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "lfglabs-dev/lfglabs-md-domains",
+          "url": "https://github.com/lfglabs-dev/lfglabs-md-domains",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-16T09:32:10Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "lfglabs-dev/TrustlessInference",
+          "url": "https://github.com/lfglabs-dev/TrustlessInference",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-06T06:54:20Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "lfglabs-dev/boost-ci-shader",
+          "url": "https://github.com/lfglabs-dev/boost-ci-shader",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-10-29T11:55:37Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "lfglabs-dev/ethereum-verification-benchmark",
+          "url": "https://github.com/lfglabs-dev/ethereum-verification-benchmark",
+          "fork": false,
+          "archived": false,
+          "stars": 4,
+          "forks": 2,
+          "pushedAt": "2026-10-29T06:03:48Z",
+          "latestReleaseAt": "2026-10-14T09:18:51Z"
+        },
+        {
+          "fullName": "lfglabs-dev/api.sales.starknet.id",
+          "url": "https://github.com/lfglabs-dev/api.sales.starknet.id",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 10,
+          "pushedAt": "2026-10-24T21:01:54Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "lfglabs-dev/auto_renew_bot",
+          "url": "https://github.com/lfglabs-dev/auto_renew_bot",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 0,
+          "pushedAt": "2026-10-24T21:01:42Z",
+          "latestReleaseAt": null
+        }
+      ]
+    }
+  ],
+  "people": []
+}

@@ -1,0 +1,155 @@
+{
+  "initiativeId": "01M61HNA3RK831EKY44WCDEKMH",
+  "collectedAt": "2026-11-28T07:58:30.637Z",
+  "months": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "since": "2025-12-01T00:00:00Z",
+  "method": "Commits authored by the GitHub login (commits API, author filter), counted per UTC month over the person's own non-fork repositories and the linked organization's non-fork repositories pushed in the window. Up to 10 repositories per person and 3 pages of 100 commits per repository; capped repositories are lower bounds.",
+  "maxRequests": 200,
+  "requests": 13,
+  "truncated": false,
+  "owners": [
+    {
+      "login": "lidofinance",
+      "type": "Organization",
+      "url": "https://github.com/lidofinance",
+      "source": "proposal",
+      "reposTotal": 100,
+      "repos": [
+        {
+          "fullName": "lidofinance/ethereum-staking-widget",
+          "url": "https://github.com/lidofinance/ethereum-staking-widget",
+          "fork": false,
+          "archived": false,
+          "stars": 35,
+          "forks": 30,
+          "pushedAt": "2026-11-27T20:15:08Z",
+          "latestReleaseAt": "2026-11-26T10:04:19Z"
+        },
+        {
+          "fullName": "lidofinance/keys-api-versioned",
+          "url": "https://github.com/lidofinance/keys-api-versioned",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-27T18:57:51Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "lidofinance/docs",
+          "url": "https://github.com/lidofinance/docs",
+          "fork": false,
+          "archived": false,
+          "stars": 61,
+          "forks": 82,
+          "pushedAt": "2026-11-27T18:15:04Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "lidofinance/lend-markets",
+          "url": "https://github.com/lidofinance/lend-markets",
+          "fork": false,
+          "archived": false,
+          "stars": 2,
+          "forks": 1,
+          "pushedAt": "2026-11-27T17:28:30Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "lidofinance/ui",
+          "url": "https://github.com/lidofinance/ui",
+          "fork": false,
+          "archived": false,
+          "stars": 24,
+          "forks": 19,
+          "pushedAt": "2026-11-27T16:13:49Z",
+          "latestReleaseAt": "2026-11-25T11:57:50Z"
+        },
+        {
+          "fullName": "lidofinance/lido-improvement-proposals",
+          "url": "https://github.com/lidofinance/lido-improvement-proposals",
+          "fork": false,
+          "archived": false,
+          "stars": 31,
+          "forks": 25,
+          "pushedAt": "2026-11-27T15:51:12Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "lidofinance/cm-v2-rewards",
+          "url": "https://github.com/lidofinance/cm-v2-rewards",
+          "fork": false,
+          "archived": false,
+          "stars": 0,
+          "forks": 0,
+          "pushedAt": "2026-11-27T15:09:07Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "lidofinance/actions",
+          "url": "https://github.com/lidofinance/actions",
+          "fork": false,
+          "archived": false,
+          "stars": 1,
+          "forks": 4,
+          "pushedAt": "2026-11-27T14:57:33Z",
+          "latestReleaseAt": null
+        },
+        {
+          "fullName": "lidofinance/lido-oracle",
+          "url": "https://github.com/lidofinance/lido-oracle",
+          "fork": false,
+          "archived": false,
+          "stars": 82,
+          "forks": 52,
+          "pushedAt": "2026-11-27T14:39:22Z",
+          "latestReleaseAt": "2026-11-18T09:58:43Z"
+        },
+        {
+          "fullName": "lidofinance/staking-modules",
+          "url": "https://github.com/lidofinance/staking-modules",
+          "fork": false,
+          "archived": false,
+          "stars": 120,
+          "forks": 37,
+          "pushedAt": "2026-11-27T14:05:34Z",
+          "latestReleaseAt": "2026-03-12T08:43:52Z"
+        },
+        {
+          "fullName": "lidofinance/lido-keys-api",
+          "url": "https://github.com/lidofinance/lido-keys-api",
+          "fork": false,
+          "archived": false,
+          "stars": 27,
+          "forks": 20,
+          "pushedAt": "2026-11-27T13:38:24Z",
+          "latestReleaseAt": "2026-11-24T11:13:06Z"
+        },
+        {
+          "fullName": "lidofinance/tee-signer",
+          "url": "https://github.com/lidofinance/tee-signer",
+          "fork": false,
+          "archived": false,
+          "stars": 11,
+          "forks": 5,
+          "pushedAt": "2026-11-27T12:36:10Z",
+          "latestReleaseAt": "2026-11-27T12:36:24Z"
+        }
+      ]
+    }
+  ],
+  "people": []
+}
