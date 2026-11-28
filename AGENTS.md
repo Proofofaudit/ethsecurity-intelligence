@@ -23,6 +23,7 @@ These rules persist across tasks. Read them before changing anything. When a rul
 - **Single engine.** UI, API, MCP and exports read through `lib/intelligence/service.ts`. Do not compute figures in components.
 - **Generated files.** `data/published/*` comes from `npm run publish`, `data/official/**` from `npm run ingest`, `skills/` from `npm run skills:build`, `docs/screenshots/` from `npm run screenshots`. Do not edit them by hand.
 - **Design.** Editorial research-report style: thin rules, one accent color, green/amber/gray reserved for evidence status, evidence marks always with a text label. No gradients, glow, glass, emoji, hero banners or icon grids.
+- **Information architecture.** Five tabs only: Home, Initiatives, Teams, My Ballot, About. Developers (`/dev`) is footer-linked. Add pages inside a tab (anchor or section), never a sixth tab; keep old routes as 308 redirects in `lib/redirects.ts`. Name search stays client-side: no form, no URL, request, storage or log of the query. One `InitiativeCard` for every initiative. New files under `app/`, `components/`, `lib/team` and `lib/search` are covered by `lint:language` and the equal-treatment scan.
 - **Language.** American English, no em dashes, no typos. Run `npx cspell "**/*.md" --no-progress` on docs.
 - **Scope.** Do not invent features or data. [PROJECT_SPEC.md](PROJECT_SPEC.md) records what Items 1 to 14 ship and what they do not (no AI hypotheses in Similar initiatives, no service worker).
 - **Outreach.** Never email or contact initiative teams, badge holders or TheDAO.

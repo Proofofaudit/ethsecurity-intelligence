@@ -2,7 +2,7 @@ import { promises as fs } from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import { formatHit, LINT_EXEMPT_FILES, lintPaths, lintSource } from "@/lib/neutralLanguageLint";
+import { formatHit, LINT_EXEMPT_FILES, LINT_TARGETS, lintPaths, lintSource } from "@/lib/neutralLanguageLint";
 
 const root = path.resolve(import.meta.dirname, "../..");
 
@@ -10,6 +10,10 @@ describe("neutral-language lint on the repository", () => {
   it("finds no banned phrase in app/, components/, lib, mcp/, scripts and generated skills", async () => {
     const hits = await lintPaths(root);
     expect(hits.map(formatHit)).toEqual([]);
+  });
+
+  it("scans the new interface: Home, name search, card, dossier team sections, Teams, About, Developers", () => {
+    for (const t of ["app", "components", "lib/team", "lib/search", "lib/redirects.ts", "docs"]) expect(LINT_TARGETS).toContain(t);
   });
 
   it("exempts only the standard and its implementation", () => {
@@ -28,6 +32,14 @@ describe("neutral-language lint on seeded fixtures", () => {
   });
   afterAll(async () => {
     await fs.rm(dir, { recursive: true, force: true });
+  });
+
+  it("fails the build when a banned phrase appears in any new interface component", async () => {
+    const files = ["app/page.tsx", "app/teams/page.tsx", "app/about/page.tsx", "app/dev/page.tsx", "components/home/name-search.tsx", "components/ui/initiative-card.tsx", "components/dossier/team-research.tsx"];
+    for (const f of files) {
+      const source = `export const X = () => <p>This is the best initiative.</p>;\n`;
+      expect(lintSource(f, source).map((h) => h.phrase), f).toEqual(["best"]);
+    }
   });
 
   it("fails on a seeded banned phrase and reports file and line", async () => {

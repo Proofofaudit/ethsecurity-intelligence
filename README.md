@@ -25,6 +25,8 @@ Independent research and decision-support platform for the initiatives on the Th
 
 The update items in [PROJECT_SPEC.md](PROJECT_SPEC.md) describe the vote features: neutral language rules (Item 1), disclosure and privacy (Item 2), the official vote manifest and TheDAO ask (Item 3), the Vote Calendar (Item 4), Ballot Prep (Item 5), affiliation flags (Item 6) and May interest you (Item 7).
 
+The site has five tabs (Home, Initiatives, Teams, My Ballot, About). Developers is linked from the footer. The design is an editorial research report: thin rules, one accent color, evidence status colors with text labels, one initiative card shared by every page. See [PROJECT_SPEC.md](PROJECT_SPEC.md#information-architecture-and-design-interface-rewrite).
+
 ## Quick start
 
 Requirements: Node.js 22 (the package allows 20.18 or later) and npm.

@@ -26,7 +26,7 @@ const REPO_ORG = /github\.com\/Proofofaudit\b/gi;
 /** Words that indicate ordering, scoring or emphasis. Never allowed on a line that selects Proof of Audits. */
 const TREATMENT = /\.sort\(|\bsort|\brank|\bscor(?:e|ing)|\bweight|\bboost|\bpriorit|\border(?:ed|ing)?\b|\bpin(?:ned)?\b|\bfeatured?\b|\bhighlight/i;
 /** Modules that compute, order or filter research results may never mention Proof of Audits at all. */
-const ENGINE = [/^lib\/intelligence\//, /^lib\/metrics\//, /^lib\/api\//, /^lib\/db\//, /^lib\/corrections\//, /^research\//, /^components\/research\//, /^components\/ui\//, /^components\/graph\//, /^app\/api\//];
+const ENGINE = [/^lib\/intelligence\//, /^lib\/metrics\//, /^lib\/api\//, /^lib\/db\//, /^lib\/corrections\//, /^research\//, /^components\/research\//, /^components\/ui\//, /^components\/graph\//, /^app\/api\//, /^lib\/team\//, /^lib\/search\//];
 
 /**
  * Every allowed reference, by file, with the exact number of matches. Adding a reference
@@ -107,6 +107,19 @@ describe("static scan: no special treatment of Proof of Audits in code", () => {
     const selecting = hits.filter((h) => h.kind === "ident" || /proof-of-audits|org_proof/i.test(h.text));
     const bad = selecting.filter((h) => TREATMENT.test(h.text.replace(/\/\/.*$/, "")));
     expect(bad.map((h) => `${h.file}:${h.line} ${h.text}`)).toEqual([]);
+  });
+
+  it("never mentions Proof of Audits in the Home, name search, card, dossier team, Teams or Developers files", () => {
+    const files = ["app/page.tsx", "app/teams/page.tsx", "app/dev/page.tsx", "components/home/", "components/dossier/team-research.tsx", "components/ui/initiative-card.tsx", "components/initiatives/", "lib/team/", "lib/search/"];
+    const inNew = hits.filter((h) => files.some((f) => h.file === f || (f.endsWith("/") && h.file.startsWith(f))));
+    expect(inNew.map((h) => `${h.file}:${h.line}`)).toEqual([]);
+  });
+
+  it("the new interface files exist and are inside the scanned directories", async () => {
+    for (const f of ["app/page.tsx", "app/teams/page.tsx", "app/about/page.tsx", "app/dev/page.tsx", "components/home/name-search.tsx", "components/ui/initiative-card.tsx", "components/dossier/team-research.tsx"]) {
+      await expect(fs.stat(path.join(ROOT, f)), f).resolves.toBeTruthy();
+      expect(SCAN_DIRS.some((d) => f.startsWith(`${d}/`)), f).toBe(true);
+    }
   });
 
   it("the Proof of Audits organization id literal exists only in lib/disclosure.ts", () => {

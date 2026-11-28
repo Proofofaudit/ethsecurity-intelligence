@@ -128,6 +128,26 @@ Rules: [METHODOLOGY.md](METHODOLOGY.md#review-progress-and-change-detection).
 
 Every AI-generated statement carries the label "AI interpretation", its cited sources and provenance (model, prompt version, number of sources examined, verification status). Text without an http(s) citation is not shown. The Item 1 filter runs before display, and a blocked statement is replaced by the raw evidence. An initiative without research shows "Not yet researched", never generated prose and never a negative finding. Claims with origin `ai` are never counted as applicant statements, never counted as evidence, never listed under material without independent support, and never used for evidence coverage, the "with proof" and "stated by the applicant" lists or the open questions about integrations and figures. No confidence or score exists in any AI type. The site runs no model; the label applies to text pasted into the AI Lab result reader and to published claims with origin `ai` (none in the current dataset). Acceptance: tests/unit/ai-interpretation.test.ts. Rules: [METHODOLOGY.md](METHODOLOGY.md#ai-interpretation-and-not-yet-researched).
 
+## Information architecture and design (interface rewrite)
+
+The site has five tabs: Home (`/`), Initiatives (`/initiatives`), Teams (`/teams`), My Ballot (`/workspace`) and About (`/about`). Developers (`/dev`) is linked from the footer and the command palette only. The tab list lives in `components/shell/nav.ts`. Old routes (`/research/*`, `/lab`, `/methodology`, `/status`, `/corrections`) are permanent 308 redirects defined in `lib/redirects.ts` and applied in `next.config.ts`.
+
+| Page | Contents |
+| --- | --- |
+| Home | Name search for badge holders, onboarding, the Vote Calendar, research status and changes, then one strip titled "Official figures (from TheDAO)" that links to the official page. Research comes first because TheDAO's site already shows its own live figures. |
+| Initiatives | Grid or table, alphabetical by default and labeled; filters, compare (two to five), Questions to check, milestones, funding, coverage and What changed. |
+| Dossier | `/initiatives/[slug]`: the same sections for every initiative, including the team research sections ("Not yet researched" when absent). |
+| Teams | People map and one card per initiative from the team research file. |
+| My Ballot | Saved initiatives, notes, May interest you, My affiliations, Ballot Prep, What-if. Browser only. |
+| About | Disclosure, Why AI is here, methodology, data freshness and corrections, each under an anchor. |
+| Developers | MCP instructions, research briefs, generated skills, paste-in reader. |
+
+Name search runs entirely in the browser. The query stays in React state and is never placed in a URL, request, storage or log, and there is no form element. Matching holders show initiative cards with the evidence for each connection. No real badge-holder names are stored in tests.
+
+Design: editorial research-report style, thin rules, one accent color, green, amber and gray reserved for evidence status, and a text label on every evidence mark. The initiative card (`components/ui/initiative-card.tsx`) is the single card for every initiative: logo or letter mark, short title, organization, evidence badges, mini funding bar and affiliation flag. No gradients, glow, glass, emoji, hero banners or icon grids.
+
+Guards: `npm run lint:language` and `tests/unit/neutral-language-lint.test.ts` scan `app/` and `components/` (so Home, name search, the initiative card, dossier team sections, `/teams`, `/about` and `/dev`) plus `lib/team`, `lib/search` and `lib/redirects.ts`. `tests/unit/equal-treatment.test.ts` fails the build when any of those files, or any new file, names or selects Proof of Audits outside the enumerated disclosure uses, and it checks that the card, search and team modules contain no ordering or emphasis code for that organization.
+
 ## Non-goals
 
 - Casting, recording or simulating votes; connecting wallets.
