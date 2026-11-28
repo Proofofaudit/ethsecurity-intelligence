@@ -20,8 +20,8 @@ test("overview figures equal the values computed from the published dataset", as
   // TheDAO ask leads; the remaining funding gap is shown separately in the note.
   await expect(statValue(page, "TheDAO ask").first()).toHaveText(formatUsd(v("cohort.thedao_ask")));
   await expect(page.getByText(`The remaining funding gap, shown separately, is ${formatUsd(v("cohort.remaining"))}`)).toBeVisible();
-  // Every initiative card shows TheDAO ask beside raised and goal.
-  await expect(page.locator("[data-funding-line]")).toHaveCount(dataset.initiatives.length);
+  // Home no longer lists every initiative; the cards live on Initiatives.
+  await expect(page.locator("[data-funding-line]")).toHaveCount(0);
   await expect(statValue(page, "Automated checks").first()).toContainText(" of 55");
 
   // Funding identity: raised = outstanding pledges + received donations.

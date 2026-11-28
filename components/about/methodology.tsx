@@ -360,6 +360,9 @@ export function MethodologySection() {
               <li>
                 <code className="num text-xs">{PRIVACY_LOCAL_KEYS.theme}</code>: your light, dark or system theme choice.
               </li>
+              <li>
+                <code className="num text-xs">{PRIVACY_LOCAL_KEYS.onboarding}</code>: whether you dismissed the four-step intro on Home. Nothing you type in the name search is stored.
+              </li>
             </ul>
           </div>
           <div>

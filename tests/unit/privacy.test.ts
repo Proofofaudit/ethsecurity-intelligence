@@ -8,6 +8,7 @@ import path from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { TEMPLATES_KEY } from "@/components/lab/templates";
 import { THEME_KEY } from "@/components/shell/theme";
+import { ONBOARDING_KEY } from "@/components/home/onboarding";
 import { WORKSPACE_KEY } from "@/components/workspace/store";
 import { CONTACT_RETENTION_DAYS } from "@/lib/corrections";
 import { PRIVACY_LOCAL_KEYS } from "@/lib/privacy";
@@ -30,7 +31,7 @@ afterEach(() => vi.restoreAllMocks());
 
 describe("Methodology Privacy section", () => {
   it("lists the localStorage keys the code actually uses", () => {
-    expect(PRIVACY_LOCAL_KEYS).toEqual({ workspace: WORKSPACE_KEY, labTemplates: TEMPLATES_KEY, theme: THEME_KEY });
+    expect(PRIVACY_LOCAL_KEYS).toEqual({ workspace: WORKSPACE_KEY, labTemplates: TEMPLATES_KEY, theme: THEME_KEY, onboarding: ONBOARDING_KEY });
   });
 
   it("is linked from the page contents and states what is and is not stored", async () => {
@@ -49,7 +50,7 @@ describe("Methodology Privacy section", () => {
     const all = [...(await files("components")), ...(await files("app"))];
     const users: string[] = [];
     for (const f of all) if (/\b(localStorage|sessionStorage|indexedDB|document\.cookie)\b/.test(await read(f))) users.push(f);
-    expect(users.sort()).toEqual(["components/lab/templates.ts", "components/shell/theme.ts", "components/workspace/store.ts"]);
+    expect(users.sort()).toEqual(["components/home/onboarding.tsx", "components/lab/templates.ts", "components/shell/theme.ts", "components/workspace/store.ts"]);
   });
 });
 

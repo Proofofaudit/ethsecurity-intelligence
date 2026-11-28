@@ -61,10 +61,11 @@ test("table and card views switch and keep every result", async ({ page }) => {
 test("selecting two initiatives opens a comparison with Show only differences", async ({ page }) => {
   await page.goto("/initiatives");
   const boxes = page.getByRole("checkbox", { name: /for comparison$/ });
+  const slugs = await page.locator("[data-initiative-grid] [data-initiative-card]").evaluateAll((els) => els.slice(0, 2).map((e) => e.getAttribute("data-initiative-card")));
   await boxes.nth(0).check();
   await boxes.nth(1).check();
   await page.getByRole("link", { name: "Compare 2" }).click();
-  await expect(page).toHaveURL(new RegExp(`/initiatives\\?ids=${byTitle[0]!.slug},${byTitle[1]!.slug}`));
+  await expect(page).toHaveURL(new RegExp(`/initiatives\\?ids=${slugs[0]},${slugs[1]}`));
 
   const summary = page.getByText(/rows differ ·/);
   await expect(summary).toBeVisible();

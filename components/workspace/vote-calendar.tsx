@@ -1,6 +1,6 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
+import { useSyncExternalStore, type ReactNode } from "react";
 import { ExternalLink } from "@/components/ui/button";
 import { formatDateTime } from "@/components/ui/money";
 import { calendarHeading, calendarState, FALLBACK_LABEL, formatCountdown, formatInZone, IST, LOCKOUT_TEXT, POST_DATES, REVISE_TEXT, TIER_NAMES, VOTE_APP_URL, VOTING_POST_URL } from "@/lib/vote/calendar";
@@ -19,11 +19,22 @@ function subscribeNow(cb: () => void) {
 const getNow = () => (tick ||= Date.now());
 const getServerNow = () => null;
 
+/** The tally list and notes. Compact mode folds them under one summary; the headline and countdown stay visible. */
+function Rest({ compact, children }: { compact: boolean; children: ReactNode }) {
+  if (!compact) return <div className="min-w-0">{children}</div>;
+  return (
+    <details className="min-w-0" data-calendar-details>
+      <summary className="cursor-pointer text-xs text-ink-3 hover:text-accent">All tally times and dates</summary>
+      <div className="mt-2">{children}</div>
+    </details>
+  );
+}
+
 /**
  * Vote Calendar strip. The server renders tally times in UTC; the countdown, the viewer's local
  * time and IST are computed in the browser after hydration, so server and client markup match.
  */
-export function VoteCalendar({ view, className }: { view: CalendarView; className?: string }) {
+export function VoteCalendar({ view, className, compact = false }: { view: CalendarView; className?: string; compact?: boolean }) {
   const now = useSyncExternalStore(subscribeNow, getNow, getServerNow);
   const { schedule } = view;
   const state = now === null ? null : calendarState(schedule, now);
@@ -85,7 +96,7 @@ export function VoteCalendar({ view, className }: { view: CalendarView; classNam
             <span className="ml-2 text-xs text-ink-3">This site never connects a wallet or submits a ballot.</span>
           </p>
         </div>
-        <div className="min-w-0">
+        <Rest compact={compact}>
           <ol className="divide-y divide-rule border-y border-rule text-sm">
             {TIER_NAMES.map((name, i) => {
               const at = schedule.tallies[i];
@@ -125,7 +136,7 @@ export function VoteCalendar({ view, className }: { view: CalendarView; classNam
             )}
             Results and community funding dates: <ExternalLink href={VOTING_POST_URL}>TheDAO voting post, 17 Nov 2026</ExternalLink>. No reminders, notifications or emails are sent.
           </p>
-        </div>
+        </Rest>
       </div>
     </section>
   );

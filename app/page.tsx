@@ -1,19 +1,23 @@
 import Link from "next/link";
 import { ArrowRight } from "@/components/ui/icons";
-import { FundingBar, FundingLegend, HBarList } from "@/components/ui/charts";
+import { FundingBar, FundingLegend } from "@/components/ui/charts";
 import { OfficialStrip } from "@/components/home/official-strip";
-import { Block, Note, PageHead, Stat } from "@/components/ui/layout";
+import { NameSearch } from "@/components/home/name-search";
+import { Onboarding } from "@/components/home/onboarding";
+import { WhyAiList } from "@/components/about/why-ai";
+import { Note, PageHead, Stat } from "@/components/ui/layout";
 import { DateTime, formatDate, Money, Num } from "@/components/ui/money";
 import { Tag } from "@/components/ui/button";
-import { ADVANCED_VIEWS } from "@/components/shell/nav";
 import { automatedChecksLabel, teamResearchCompleteCount, teamResearchLabel } from "@/lib/team/progress";
+import { loadTeamResearchFile } from "@/lib/team/load";
 import { loadIntelligence } from "@/lib/intelligence/load";
-import { categoryDistribution, changes, coverage, displayName, filterInitiatives, fundingRelationships } from "@/lib/intelligence/service";
-import { meaningfulChanges } from "@/lib/intelligence/what-changed";
+import { categoryDistribution, changes, displayName } from "@/lib/intelligence/service";
 import { ingestionStatus } from "@/lib/intelligence/status";
 import { cohortMetrics } from "@/lib/metrics/compute";
 import { METRICS } from "@/lib/metrics/registry";
 import { THEDAO_ASK_CAP_CENTS } from "@/lib/metrics/ask";
+import { buildSearchIndex } from "@/lib/search/build";
+import { loadBadgeHolders } from "@/lib/search/server";
 import { formatPct, formatUsd } from "@/lib/util/money";
 import { SinceLastVisit } from "@/components/workspace/since-visit";
 import { ReviewProgressCompact } from "@/components/workspace/review-progress";
@@ -53,19 +57,18 @@ export default async function OverviewPage() {
   const ask = val("cohort.thedao_ask");
   const pool = val("cohort.thedao_pool");
   const capBinds = d.initiatives.some((i) => i.funding.remainingCents > THEDAO_ASK_CAP_CENTS);
+  const team = loadTeamResearchFile();
   const teamDone = teamResearchCompleteCount(d.initiatives.map((i) => i.id));
-  const cov = coverage(d);
-  const cats = categoryDistribution(d).filter((c) => c.primaryCount > 0);
-  const list = filterInitiatives(d, { limit: 100 });
-  const funding = fundingRelationships(d);
-  // Funding changes under one dollar are bookkeeping noise and are not listed.
-  const recentFunding = meaningfulChanges(changes(d, { kinds: ["funding_changed", "pledge_added", "pledge_removed", "pledge_status_changed", "pledge_amount_changed", "goal_changed", "donation_added"], limit: 400 })).slice(0, 5);
-  const recentScope = changes(d, { kinds: ["revision_added", "milestones_changed", "milestone_completed", "text_changed", "eligibility_changed", "claim_status_changed", "correction_published"], limit: 5 });
-  const iniTitle = (id: string | null) => d.initiatives.find((i) => i.id === id);
+  const index = buildSearchIndex(d, team);
+  // Holders are parsed on the server from public columns only; null when the CSV is not present.
+  const holders = loadBadgeHolders();
+  // One quiet line: the latest change to proposals or claims. Funding figures are not repeated here.
+  const latest = changes(d, { kinds: ["revision_added", "milestones_changed", "milestone_completed", "text_changed", "eligibility_changed", "claim_status_changed", "correction_published"], limit: 1 })[0];
+  const latestIni = latest ? d.initiatives.find((i) => i.id === latest.initiativeId) : undefined;
   const cohortMonth = MONTH.format(Date.parse(d.meta.cohort.frozenAt));
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-10">
       <PageHead
         eyebrow={
           <>
@@ -73,14 +76,38 @@ export default async function OverviewPage() {
           </>
         }
         title={`Research on the ${d.initiatives.length} initiatives on TheDAO Security Fund ballot, ${cohortMonth}`}
-        lede={
-          <p>
-            Figures come from the official TheDAO Security Fund API and the published research record. Applicant statements appear as quotes with their evidence status. Nothing on this site is ranked or scored.
-          </p>
-        }
+        lede={<p>Public research on each team, what it has shipped and who it works with. Voting happens only on TheDAO&apos;s site.</p>}
       />
 
-      <VoteCalendar view={calendarView(d, live)} />
+      <NameSearch holders={holders} index={index} total={d.initiatives.length} />
+
+      <Onboarding />
+
+      <VoteCalendar view={calendarView(d, live)} compact />
+
+      <p className="text-sm text-ink-3" data-what-changed>
+        <span className="font-medium text-ink-2">What changed:</span>{" "}
+        {latest ? (
+          <>
+            {latestIni ? `${latestIni.shortTitle}, ` : ""}
+            {latest.summary} (<DateTime iso={latest.detectedAt} />).{" "}
+          </>
+        ) : (
+          "No changes recorded. "
+        )}
+        <Link href="/initiatives#changes" className="link">
+          All changes
+        </Link>
+      </p>
+
+      <section aria-label="People map" className="border-y border-rule py-3 text-sm" data-people-map-entry>
+        <Link href="/teams" className="group flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+          <span className="font-medium group-hover:text-accent">People map</span>
+          <span className="text-ink-3">
+            See who works with whom across the {d.initiatives.length} initiatives, on Teams <ArrowRight />
+          </span>
+        </Link>
+      </section>
 
       <section aria-label="Research status">
         <dl className="grid grid-cols-1 gap-px border-y border-ink bg-rule sm:grid-cols-3 [&>div]:bg-paper [&>div]:px-4 [&>div]:py-4">
@@ -105,158 +132,6 @@ export default async function OverviewPage() {
           />
         </dl>
       </section>
-
-      <SinceLastVisit view={fundingView(d)} />
-
-      <ReviewProgressCompact initiatives={d.initiatives.map((i) => ({ id: i.id, slug: i.slug, label: displayName(d, i) }))} feed={visitFeed(d)} datasetVersion={d.meta.datasetVersion} />
-
-      <div className="grid gap-12 lg:grid-cols-2 [&>*]:min-w-0">
-        <Block
-          title="Security coverage map"
-          href="/initiatives#coverage"
-          hrefLabel="Full coverage map"
-          note="Lifecycle stage of each initiative, from a rule-based reading of its proposal text. Dark: primary stage. Gray: also addresses. A prompt for investigation, not a finding."
-        >
-          <HBarList
-            caption="Number of initiatives addressing each security lifecycle stage."
-            rows={cov.stages.map((s) => ({
-              key: s.stage,
-              label: s.label,
-              value: s.totalCount,
-              inner: s.primaryCount,
-              valueLabel: `${s.totalCount}`,
-              sub: `${s.primaryCount} primary`,
-              href: `/initiatives?stage=${s.stage}`,
-            }))}
-          />
-        </Block>
-        <Block title="Funding by category" href="/initiatives" hrefLabel="Filter by category" note="Grouped by each initiative's first official category, so every dollar is counted once. Gray: requested. Dark: raised.">
-          <HBarList
-            caption="Funding requested and raised per primary official category."
-            rows={cats.map((c) => ({
-              key: c.slug,
-              label: c.label,
-              value: c.goalCents,
-              inner: c.raisedCents,
-              valueLabel: formatUsd(c.goalCents, { compact: true }),
-              sub: `${c.primaryCount} ${c.primaryCount === 1 ? "initiative" : "initiatives"}`,
-              href: `/initiatives?cat=${c.slug}`,
-            }))}
-          />
-        </Block>
-      </div>
-
-      <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr] [&>*]:min-w-0">
-        <Block title="Recent changes" href="/initiatives#changes" hrefLabel="All changes" note="Detected by comparing official snapshots and proposal revisions.">
-          <div className="grid gap-6 sm:grid-cols-2 [&>*]:min-w-0">
-            {[
-              { label: "Funding", rows: recentFunding },
-              { label: "Proposal revisions", rows: recentScope },
-            ].map((g) => (
-              <div key={g.label}>
-                <p className="eyebrow mb-1">{g.label}</p>
-                {g.rows.length === 0 ? (
-                  <Note>No changes recorded.</Note>
-                ) : (
-                  <ul className="divide-y divide-rule">
-                    {g.rows.map((c) => {
-                      const ini = iniTitle(c.initiativeId);
-                      return (
-                        <li key={c.id} className="py-2 text-sm">
-                          <div className="flex items-baseline justify-between gap-3">
-                            {ini ? (
-                              <Link href={`/initiatives/${ini.slug}`} className="truncate font-medium hover:text-accent">
-                                {ini.shortTitle}
-                              </Link>
-                            ) : (
-                              <span className="font-medium">Cohort</span>
-                            )}
-                            <DateTime iso={c.detectedAt} className="shrink-0 text-2xs text-ink-3" />
-                          </div>
-                          <p className="mt-0.5 text-xs text-ink-2">{c.summary}</p>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                )}
-              </div>
-            ))}
-          </div>
-        </Block>
-        <div className="space-y-12">
-          <Block title="Research shortcuts">
-            <ul className="divide-y divide-rule">
-              {ADVANCED_VIEWS.map((v) => (
-                <li key={v.href}>
-                  <Link href={v.href} className="group flex items-baseline justify-between gap-3 py-2 text-sm">
-                    <span className="font-medium group-hover:text-accent">{v.label}</span>
-                    <span className="truncate text-right text-xs text-ink-3">{v.hint}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </Block>
-          <Block title="Funding relationships" href="/initiatives#funding" hrefLabel="Backers and pledges">
-            <dl className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
-              <div>
-                <dt className="text-xs text-ink-3">Pledge records</dt>
-                <dd className="num">{d.pledges.length}</dd>
-              </div>
-              <div>
-                <dt className="text-xs text-ink-3">Distinct backers</dt>
-                <dd className="num">{funding.backers.length}</dd>
-              </div>
-              <div>
-                <dt className="text-xs text-ink-3">Backers of more than one initiative</dt>
-                <dd className="num">{funding.multiInitiativeBackers.length}</dd>
-              </div>
-              <div>
-                <dt className="text-xs text-ink-3">Self-pledges (backer is the recipient)</dt>
-                <dd className="num">{funding.selfPledges.length}</dd>
-              </div>
-            </dl>
-            <Note className="mt-3">Anonymous pledge labels are never merged into one backer.</Note>
-          </Block>
-        </div>
-      </div>
-
-      <Block
-        title="All initiatives"
-        id="discovery"
-        href="/initiatives"
-        hrefLabel="Search and filter"
-        note={`${list.sortNote} ${d.initiatives.length} initiatives.`}
-      >
-        <ul className="grid gap-x-8 md:grid-cols-2 xl:grid-cols-3 [&>*]:min-w-0">
-          {list.items.map((i) => (
-            <li key={i.id} className="border-b border-rule py-2.5">
-              <Link href={`/initiatives/${i.slug}`} className="group block">
-                <div className="flex items-baseline justify-between gap-3">
-                  <span className="truncate text-sm font-medium group-hover:text-accent" title={i.title}>
-                    {i.shortTitle}
-                  </span>
-                </div>
-                <div className="mt-0.5 flex items-baseline justify-between gap-3 text-xs text-ink-3">
-                  <span className="truncate">{i.organization ?? i.recipientTeam ?? "Request for proposals, no designated recipient"}</span>
-                  <span className="shrink-0">{i.type === "rfp" ? "RFP" : i.categories[0]?.label}</span>
-                </div>
-                <FundingBar f={i} height={4} className="mt-2" />
-                <div className="mt-1 flex flex-wrap gap-x-3 text-2xs text-ink-3" data-funding-line>
-                  <span>
-                    Raised <Money cents={i.raisedCents} compact className="text-ink-2" />
-                  </span>
-                  <span>
-                    Goal <Money cents={i.goalCents} compact className="text-ink-2" />
-                  </span>
-                  <span>
-                    TheDAO ask <Money cents={i.theDaoAskCents} compact className="text-ink" reason="Goal or raised unavailable" />
-                  </span>
-                </div>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </Block>
 
       <OfficialStrip
         officialUrl={d.meta.officialSourceUrl}
@@ -296,6 +171,22 @@ export default async function OverviewPage() {
           {ask !== null && remaining !== null && !capBinds ? "; the two are equal while no initiative needs more than the cap." : "."} Received means confirmed onchain donations to initiative Safes. It already includes <Money cents={receivedPledges} /> of pledges marked received, so those are counted once. Pledged means outstanding commitments that have not arrived yet. These figures are live on TheDAO&apos;s own site; this strip is a copy from the latest sync.
         </Note>
       </OfficialStrip>
+
+      <section aria-labelledby="why-ai-h" data-why-ai>
+        <h2 id="why-ai-h" className="mb-2 text-md font-semibold">
+          Why AI is here
+        </h2>
+        <WhyAiList />
+        <p className="mt-2 text-xs">
+          <Link href="/about#ai" className="link">
+            More on About
+          </Link>
+        </p>
+      </section>
+
+      <SinceLastVisit view={fundingView(d)} />
+
+      <ReviewProgressCompact initiatives={d.initiatives.map((i) => ({ id: i.id, slug: i.slug, label: displayName(d, i) }))} feed={visitFeed(d)} datasetVersion={d.meta.datasetVersion} />
 
       <details className="group border-t border-ink pt-3">
         <summary className="flex items-baseline justify-between gap-4">

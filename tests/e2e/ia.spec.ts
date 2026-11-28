@@ -48,9 +48,10 @@ test("Initiatives shows all initiatives alphabetically with the required filters
   await page.goto("/initiatives");
   const cards = page.getByRole("checkbox", { name: /for comparison$/ });
   await expect(cards).toHaveCount(dataset.initiatives.length);
-  const titles = await page.locator("ul li a[href^='/initiatives/']").evaluateAll((as) => as.map((a) => a.textContent ?? ""));
-  const first = [...dataset.initiatives].sort((a, b) => a.title.localeCompare(b.title, "en"))[0]!.title;
-  expect(titles[0]).toBe(first);
+  // Cards are alphabetical by the title shown on each card.
+  const titles = await page.locator("[data-initiative-grid] [data-initiative-card] h3").allInnerTexts();
+  expect(titles).toHaveLength(dataset.initiatives.length);
+  expect(titles).toEqual([...titles].sort((a, b) => a.localeCompare(b)));
   if (!isMobile(page)) {
     const filters = page.getByRole("complementary", { name: "Filters" });
     for (const g of ["Grant or RFP", "Official category", "Evidence status", "Affiliation", "Milestones"]) await expect(filters.getByText(g, { exact: true }).first()).toBeVisible();

@@ -115,3 +115,34 @@ export function RatioBar({ value, className, label }: { value: number | null; cl
     </span>
   );
 }
+
+export const MONTHS_IN_SPARKLINE = 12;
+
+/** Text alternative for a 12-month commit sparkline. */
+export function sparklineAlt(values: readonly number[]): string {
+  if (values.length === 0) return "Not found in public sources.";
+  const total = values.reduce((s, v) => s + v, 0);
+  return `Public commits per month over the last ${values.length} months, oldest first: ${values.join(", ")}. Total ${total}.`;
+}
+
+/** 12-month public commit sparkline. Draws real counts only; an empty series shows "Not found in public sources". */
+export function Sparkline({ values, className }: { values: readonly number[]; className?: string }) {
+  if (values.length === 0) return <p className={cn("text-xs text-ink-3", className)}>Not found in public sources</p>;
+  const max = Math.max(1, ...values);
+  const w = 6;
+  const gap = 2;
+  const h = 28;
+  return (
+    <div className={className}>
+      <svg role="img" aria-label={sparklineAlt(values)} viewBox={`0 0 ${values.length * (w + gap) - gap} ${h}`} width={values.length * (w + gap) - gap} height={h} className="text-ink-2">
+        {values.map((v, n) => {
+          const bar = v === 0 ? 1 : Math.max(2, (v / max) * h);
+          return <rect key={n} x={n * (w + gap)} y={h - bar} width={w} height={bar} fill="currentColor" />;
+        })}
+      </svg>
+      <p className="num mt-0.5 text-2xs text-ink-3">
+        {values.reduce((s, v) => s + v, 0)} commits, {values.length} months
+      </p>
+    </div>
+  );
+}

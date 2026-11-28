@@ -8,10 +8,12 @@ import { Button, ButtonLink, Tag } from "@/components/ui/button";
 import { FundingBar } from "@/components/ui/charts";
 import { DataTable } from "@/components/ui/data-table";
 import { Money, Pct } from "@/components/ui/money";
+import { InitiativeCard } from "@/components/ui/initiative-card";
 import { SharedGroupLine } from "@/components/workspace/affiliations";
 import { SaveButton } from "@/components/workspace/save-button";
 import { removeSearch, saveSearch, useWorkspace } from "@/components/workspace/store";
 import type { EvidenceCardRow, InitiativeSummary } from "@/lib/intelligence/service";
+import type { CardData } from "@/lib/search/card-data";
 import { NEUTRAL_SORT_LABEL } from "@/lib/neutralLanguage";
 import { cn } from "@/lib/util/cn";
 import { activeFilterCount, toQuery, type ResearchParams } from "./params";
@@ -45,7 +47,13 @@ const SORT_OPTIONS: { value: Exclude<ResearchParams["sort"], ""> | "relevance"; 
   { value: "milestones", label: "Number of milestones" },
 ];
 
-export function ResearchExplorer({ params, invalid, items, total, sortNote, facets }: { params: ResearchParams; invalid: string | null; items: Row[]; total: number; sortNote: string; facets: Facets }) {
+export function ResearchExplorer({ params, invalid, items, total, sortNote, facets, cards }: { params: ResearchParams; invalid: string | null; items: Row[]; total: number; sortNote: string; facets: Facets; cards: CardData[] }) {
+  const cardById = useMemo(() => new Map(cards.map((c) => [c.id, c])), [cards]);
+  // Cards are labeled with the title shown on the card, so the default order follows that label.
+  const cardItems = useMemo(() => {
+    if (params.sort !== "title" && !(params.sort === "" && params.q === "")) return items;
+    return [...items].sort((a, b) => (cardById.get(a.id)?.displayTitle ?? a.title).localeCompare(cardById.get(b.id)?.displayTitle ?? b.title) || a.id.localeCompare(b.id));
+  }, [items, params.sort, params.q, cardById]);
   const router = useRouter();
   const pathname = usePathname();
   const [pending, start] = useTransition();
@@ -272,9 +280,9 @@ export function ResearchExplorer({ params, invalid, items, total, sortNote, face
               <p className="mt-1 text-sm text-ink-3">Remove a filter or search for a broader term.</p>
             </div>
           ) : params.view === "cards" ? (
-            <ul className="grid gap-x-8 md:grid-cols-2 2xl:grid-cols-3 [&>*]:min-w-0">
-              {items.map((r) => (
-                <Card key={r.id} r={r} selected={selected.includes(r.id)} disabled={!selected.includes(r.id) && selected.length >= MAX_COMPARE} onToggle={() => toggle(r.id)} />
+            <ul className="grid grid-cols-1 gap-3 md:grid-cols-2 2xl:grid-cols-3 [&>*]:min-w-0" data-initiative-grid>
+              {cardItems.map((r) => (
+                <Card key={r.id} r={r} card={cardById.get(r.id)} selected={selected.includes(r.id)} disabled={!selected.includes(r.id) && selected.length >= MAX_COMPARE} onToggle={() => toggle(r.id)} />
               ))}
             </ul>
           ) : (
@@ -284,7 +292,7 @@ export function ResearchExplorer({ params, invalid, items, total, sortNote, face
               </div>
               <ul className="md:hidden">
                 {items.map((r) => (
-                  <Card key={r.id} r={r} selected={selected.includes(r.id)} disabled={!selected.includes(r.id) && selected.length >= MAX_COMPARE} onToggle={() => toggle(r.id)} />
+                  <CompactRow key={r.id} r={r} selected={selected.includes(r.id)} disabled={!selected.includes(r.id) && selected.length >= MAX_COMPARE} onToggle={() => toggle(r.id)} />
                 ))}
               </ul>
             </>
@@ -355,7 +363,8 @@ function EvidenceCell({ r }: { r: Row }) {
   );
 }
 
-function Card({ r, selected, disabled, onToggle }: { r: Row; selected: boolean; disabled: boolean; onToggle: () => void }) {
+/** Compact list row for the table view on narrow screens: title, organization, evidence-card line and a compare checkbox. */
+function CompactRow({ r, selected, disabled, onToggle }: { r: Row; selected: boolean; disabled: boolean; onToggle: () => void }) {
   return (
     <li className={cn("border-b border-rule py-4", selected && "bg-accent-wash/50")}>
       <div className="flex items-start gap-3">
@@ -366,40 +375,28 @@ function Card({ r, selected, disabled, onToggle }: { r: Row; selected: boolean; 
             <SaveButton id={r.id} title={r.shortTitle} compact />
           </div>
           <FundingBar f={r} height={5} className="mt-3" />
-          <dl className="mt-2 grid grid-cols-2 gap-2 text-xs sm:grid-cols-4">
-            <div>
-              <dt className="text-ink-3">Requested</dt>
-              <dd>
-                <Money cents={r.goalCents} />
-              </dd>
-            </div>
-            <div>
-              <dt className="text-ink-3">Raised</dt>
-              <dd>
-                <Money cents={r.raisedCents} /> <span className="text-ink-3">(<Pct value={r.pct} digits={0} />)</span>
-              </dd>
-            </div>
-            <div>
-              <dt className="text-ink-3" title="Goal minus official raised, floored at $0 and capped at $200,000">
-                TheDAO ask
-              </dt>
-              <dd>
-                <Money cents={r.theDaoAskCents} reason="Goal or raised unavailable" />
-              </dd>
-            </div>
-            <div>
-              <dt className="text-ink-3">Milestones</dt>
-              <dd className="num">
-                {r.milestones}
-                {r.adoptionMilestones > 0 && <span className="text-ink-3"> · {r.adoptionMilestones} adoption</span>}
-              </dd>
-            </div>
-          </dl>
           <div className="mt-2">
             <EvidenceCell r={r} />
           </div>
         </div>
       </div>
+    </li>
+  );
+}
+
+function Card({ r, card, selected, disabled, onToggle }: { r: Row; card: CardData | undefined; selected: boolean; disabled: boolean; onToggle: () => void }) {
+  if (!card) return null;
+  return (
+    <li className={cn(selected && "bg-accent-wash/50")}>
+      <InitiativeCard
+        card={card}
+        actions={
+          <div className="flex shrink-0 items-center gap-2">
+            <SaveButton id={r.id} title={r.shortTitle} compact />
+            <input type="checkbox" className="size-4 accent-[var(--accent)]" checked={selected} disabled={disabled} onChange={onToggle} aria-label={`Select ${r.shortTitle} for comparison`} />
+          </div>
+        }
+      />
     </li>
   );
 }

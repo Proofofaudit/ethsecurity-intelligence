@@ -74,6 +74,9 @@ test.describe("Vote Calendar", () => {
       const cal = page.locator("[data-vote-calendar]");
       await expect(cal).toBeVisible();
       await expect(cal).not.toHaveAttribute("data-fallback", "");
+      // On Home the tally list is folded under one summary; open it.
+      const folded = cal.locator("[data-calendar-details] summary");
+      if (await folded.count()) await folded.click();
       await expect(cal.getByText("No ballot by the S-tier tally can lock you out of the round.")).toBeVisible();
       await expect(cal.getByRole("link", { name: /Open official vote app/ })).toHaveAttribute("href", VOTE_APP);
       await expect(cal.locator("[data-countdown]")).toHaveText(/^(\d+d \d{2}h \d{2}m|\d+h \d{2}m|\d+m)$/);

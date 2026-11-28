@@ -15,6 +15,9 @@ import { SimilarInitiatives } from "@/components/dossier/similar";
 import { OpenQuestions } from "@/components/dossier/open-questions";
 import { ExternalLink, Tag } from "@/components/ui/button";
 import { FundingBar, FundingLegend } from "@/components/ui/charts";
+import { ChartFrame } from "@/components/ui/chart-frame";
+import { TeamResearchSection } from "@/components/dossier/team-research";
+import { loadTeamResearch } from "@/lib/team/load";
 import { Note } from "@/components/ui/layout";
 import { ApplicantQuote } from "@/components/ui/markdown";
 import { DateTime, Money, NotAvailable, Pct, formatDate } from "@/components/ui/money";
@@ -178,7 +181,7 @@ export default async function InitiativePage({ params }: Params) {
           </aside>
         )}
 
-        <header className="grid gap-x-12 gap-y-6 lg:grid-cols-[minmax(0,1fr)_340px]">
+        <header>
           <div className="min-w-0">
             <div className="eyebrow mb-2 flex flex-wrap gap-x-2">
               <span>{ini.type === "rfp" ? "Request for proposals" : "Grant"}</span>
@@ -245,24 +248,13 @@ export default async function InitiativePage({ params }: Params) {
             </nav>
           </div>
 
-          <aside aria-label="Funding" className="border-t border-ink pt-3 lg:border-t-0 lg:border-l lg:border-rule lg:pt-0 lg:pl-6">
-            <p className="eyebrow">Funding</p>
-            <p className="mt-1 text-[24px] leading-8 font-medium">
-              <Money cents={f.officialRaisedCents} /> <span className="text-sm font-normal text-ink-3">of</span> <Money cents={f.goalCents} className="text-[17px]" />
-            </p>
-            <p className="text-xs text-ink-3">
-              <Pct value={mv("initiative.pct_funded")} reason={mr("initiative.pct_funded")} />
-              <span className="ml-1">raised · {mv("initiative.backers") ?? 0} distinct {mv("initiative.backers") === 1 ? "backer" : "backers"}</span>
-            </p>
-            <p className="mt-2 flex items-baseline justify-between gap-3 border-t border-rule pt-2 text-sm" data-thedao-ask>
-              <span className="text-ink-2" title="Goal minus official raised, floored at $0 and capped at $200,000">
-                TheDAO ask
-              </span>
-              <Money cents={mv("initiative.thedao_ask")} reason={mr("initiative.thedao_ask")} className="font-medium" />
-            </p>
-            <FundingBar f={f} height={10} className="mt-3" />
-            <FundingLegend f={f} className="mt-2" />
-            <dl className="mt-4 grid grid-cols-[1fr_auto] gap-y-1 border-t border-rule pt-3 text-xs">
+        </header>
+
+        <TeamResearchSection research={loadTeamResearch(ini.id)} />
+
+        <section aria-label="Research status" className="mt-8 max-w-[560px]">
+          <p className="eyebrow mb-1">Research status</p>
+            <dl className="grid grid-cols-[1fr_auto] gap-y-1 text-xs">
               <dt className="text-ink-3">Evidence coverage</dt>
               <dd className="text-right">
                 <Pct value={mv("initiative.evidence_coverage")} digits={0} reason={mr("initiative.evidence_coverage")} />
@@ -284,8 +276,36 @@ export default async function InitiativePage({ params }: Params) {
                 {jobsOk} of {CORE_RESEARCH_TASKS.length} succeeded
               </dd>
             </dl>
-          </aside>
-        </header>
+        </section>
+
+          <section aria-labelledby="official-figures-h" className="mt-10 max-w-[560px] border-t border-ink pt-3" data-official-figures>
+            <h2 id="official-figures-h" className="text-md font-semibold">
+              Official figures (from TheDAO)
+            </h2>
+            <p className="text-2xs text-ink-3">Live on TheDAO&apos;s own site. This is a copy from the latest sync.</p>
+            <p className="mt-1 text-[24px] leading-8 font-medium">
+              <Money cents={f.officialRaisedCents} /> <span className="text-sm font-normal text-ink-3">of</span> <Money cents={f.goalCents} className="text-[17px]" />
+            </p>
+            <p className="text-xs text-ink-3">
+              <Pct value={mv("initiative.pct_funded")} reason={mr("initiative.pct_funded")} />
+              <span className="ml-1">raised · {mv("initiative.backers") ?? 0} distinct {mv("initiative.backers") === 1 ? "backer" : "backers"}</span>
+            </p>
+            <p className="mt-2 flex items-baseline justify-between gap-3 border-t border-rule pt-2 text-sm" data-thedao-ask>
+              <span className="text-ink-2" title="Goal minus official raised, floored at $0 and capped at $200,000">
+                TheDAO ask
+              </span>
+              <Money cents={mv("initiative.thedao_ask")} reason={mr("initiative.thedao_ask")} className="font-medium" />
+            </p>
+            <ChartFrame
+              className="mt-3"
+              title="Funding"
+              help={`Received is confirmed onchain donations, pledged is outstanding commitments, still needed is the goal minus both. TheDAO ask: goal minus official raised, never below $0 and never above ${formatUsd(THEDAO_ASK_CAP_CENTS)}. Here it is ${f.theDaoAskCents === null ? "unavailable" : formatUsd(f.theDaoAskCents)}.`}
+              alt="Received, pledged and still needed are listed below the bar."
+            >
+              <FundingBar f={f} height={10} />
+              <FundingLegend f={f} className="mt-2" />
+            </ChartFrame>
+          </section>
 
         <EvidenceCard card={card} />
 

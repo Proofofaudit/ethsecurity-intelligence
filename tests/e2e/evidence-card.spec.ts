@@ -34,7 +34,7 @@ test.describe("Evidence card", () => {
   }
 
   test("the Research list shows a compact evidence row per initiative", async ({ page }) => {
-    await page.goto("/initiatives");
+    await page.goto("/initiatives?view=table");
     const rows = page.getByTestId("evidence-row").filter({ visible: true });
     await expect(rows).toHaveCount(dataset.initiatives.length);
     await expect(rows.first()).toContainText("Evidence card");

@@ -1,3 +1,4 @@
+import { WhyAiList } from "@/components/about/why-ai";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ExternalLink } from "@/components/ui/button";
@@ -50,12 +51,7 @@ export default async function AboutPage() {
       </nav>
 
       <Block id="ai" title="Why AI is here" className="scroll-mt-20">
-        <ul className="max-w-[860px] list-disc space-y-1 pl-5 text-sm text-ink-2">
-          <li>AI only matches public work to initiatives and summarizes sourced research into a short card.</li>
-          <li>It decides nothing. Scores, rankings and voting advice are never produced.</li>
-          <li>It never sees your vote. Your ballot and notes stay in this browser.</li>
-          <li>Every AI summary is labeled as AI and links to the sources it used.</li>
-        </ul>
+        <WhyAiList />
       </Block>
 
       <section id="coi" aria-labelledby="coi-h" className="scroll-mt-20 border-2 border-ink px-5 py-4">

@@ -14,6 +14,8 @@ import { milestoneRows } from "@/lib/intelligence/milestone-rows";
 import { QUESTIONS_NOTE, questionsToCheck } from "@/lib/intelligence/questions-to-check";
 import { categoryDistribution, changes, compare, coverage, displayName, evidenceCardRows, filterInitiatives, FilterSchema, findInitiative, fundingRelationships } from "@/lib/intelligence/service";
 import { meaningfulChanges } from "@/lib/intelligence/what-changed";
+import { buildCardData } from "@/lib/search/card-data";
+import { loadTeamResearchFile } from "@/lib/team/load";
 import { formatUsd } from "@/lib/util/money";
 
 export const metadata: Metadata = { title: "Initiatives" };
@@ -100,6 +102,7 @@ export default async function InitiativesPage({ searchParams }: { searchParams: 
         total={items.length}
         sortNote={result.sortNote}
         facets={facets}
+        cards={buildCardData(d, loadTeamResearchFile())}
       />
 
       <Block id="compare" title="Compare initiatives" note="Pick two to five. Rows where every initiative has the same value collapse into one line. Every value is copied from the official record or computed from the published dataset." className="scroll-mt-20">
